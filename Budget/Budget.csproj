@@ -1,0 +1,731 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>BudgetExecution</RootNamespace>
+        <Authors>Terry D. Eppler</Authors>
+        <Description>Federal Budget &amp; Finance application</Description>
+        <Company>Terry D. Eppler</Company>
+        <Product>BudgetExecution</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\Database\Access\DataModels\DROP" />
+      <Folder Include="Data\Database\Access\DataModels\INSERT" />
+      <Folder Include="Data\Database\Access\DataModels\UPDATE" />
+      <Folder Include="Data\Database\SQLite\DataModels\ALTERTABLE" />
+      <Folder Include="Data\Database\SQLite\DataModels\DELETE" />
+      <Folder Include="Data\Database\SQLite\DataModels\DROP" />
+      <Folder Include="Data\Database\SQLite\DataModels\INSERT" />
+      <Folder Include="Data\Database\SQLite\DataModels\SELECTALL" />
+      <Folder Include="Data\Database\SQLite\DataModels\UPDATE" />
+      <Folder Include="Data\Database\SqlServer\DataModels\ALTERTABLE" />
+      <Folder Include="Data\Database\SqlServer\DataModels\CREATEVIEW" />
+      <Folder Include="Data\Database\SqlServer\DataModels\DELETE" />
+      <Folder Include="Data\Database\SqlServer\DataModels\DROP" />
+      <Folder Include="Data\Database\SqlServer\DataModels\INSERT" />
+      <Folder Include="Data\Database\SqlServer\DataModels\SELECT" />
+      <Folder Include="Data\Database\SqlServer\DataModels\SELECTALL" />
+      <Folder Include="Data\Database\SqlServer\DataModels\UPDATE" />
+      <Folder Include="Data\DataWorker" />
+      <Folder Include="Libraries" />
+      <Folder Include="Resources\Documents\ADA" />
+      <Folder Include="Resources\Images\Badger\ico" />
+      <Folder Include="Resources\Images\Badger\png" />
+      <Folder Include="Resources\Images\Close\ico" />
+      <Folder Include="Resources\Images\Close\png" />
+      <Folder Include="Resources\Images\Database\ico" />
+      <Folder Include="Resources\Images\Database\png" />
+      <Folder Include="Resources\Images\Data\ico" />
+      <Folder Include="Resources\Images\Email\ico" />
+      <Folder Include="Resources\Images\Email\png" />
+      <Folder Include="Resources\Images\Employee\ico" />
+      <Folder Include="Resources\Images\Employee\png" />
+      <Folder Include="Resources\Images\EXT\ico" />
+      <Folder Include="Resources\Images\EXT\png" />
+      <Folder Include="Resources\Images\File\ico" />
+      <Folder Include="Resources\Images\File\png" />
+      <Folder Include="Resources\Images\Filter\ico" />
+      <Folder Include="Resources\Images\Folder\ico" />
+      <Folder Include="Resources\Images\Folder\png" />
+      <Folder Include="Resources\Images\Fund\ico" />
+      <Folder Include="Resources\Images\Fund\png" />
+      <Folder Include="Resources\Images\Identification\ico" />
+      <Folder Include="Resources\Images\Identification\png" />
+      <Folder Include="Resources\Images\Interface\ico" />
+      <Folder Include="Resources\Images\Interface\png" />
+      <Folder Include="Resources\Images\Math\ico" />
+      <Folder Include="Resources\Images\Math\png" />
+      <Folder Include="Resources\Images\Navigation\ico" />
+      <Folder Include="Resources\Images\Navigation\png" />
+      <Folder Include="Resources\Images\Notification\ico" />
+      <Folder Include="Resources\Images\Notification\png" />
+      <Folder Include="Resources\Images\Notification\wav" />
+      <Folder Include="Resources\Images\ObjectClass\ico" />
+      <Folder Include="Resources\Images\ObjectClass\png" />
+      <Folder Include="Resources\Images\Office\ico" />
+      <Folder Include="Resources\Images\Office\png" />
+      <Folder Include="Resources\Images\Outlays\ico" />
+      <Folder Include="Resources\Images\Outlays\png" />
+      <Folder Include="Resources\Images\Provider\ico" />
+      <Folder Include="Resources\Images\Provider\png" />
+      <Folder Include="Resources\Images\ToolStrip\ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="C1.Win.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04">
+        <HintPath>lib\C1.Win.4.8.dll</HintPath>
+      </Reference>
+      <Reference Include="C1.Win.C1FlexGrid.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=79882d576c6336da">
+        <HintPath>lib\C1.Win.C1FlexGrid.4.8.dll</HintPath>
+      </Reference>
+      <Reference Include="CharmNotification, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\CharmNotification.dll</HintPath>
+      </Reference>
+      <Reference Include="DataGridMetro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\DataGridMetro.dll</HintPath>
+      </Reference>
+      <Reference Include="DataGridViewExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\DataGridViewExtension.dll</HintPath>
+      </Reference>
+      <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17">
+        <HintPath>lib\DocumentFormat.OpenXml.dll</HintPath>
+      </Reference>
+      <Reference Include="EPPlus, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
+        <HintPath>lib\EPPlus.dll</HintPath>
+      </Reference>
+      <Reference Include="Expander, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\Expander.dll</HintPath>
+      </Reference>
+      <Reference Include="LinqStatistics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\LinqStatistics.dll</HintPath>
+      </Reference>
+      <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+        <HintPath>lib\log4net.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>lib\MetroFramework.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>lib\MetroFramework.Design.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>lib\MetroFramework.Fonts.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroSet UI, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\MetroSet UI.dll</HintPath>
+      </Reference>
+      <Reference Include="SQLite.Designer, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>Libraries\SQLite.Designer.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Calculate.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Calculate.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Calculate.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Calculate.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Chart.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Chart.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Chart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Chart.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Compression.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Data.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Data.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.DataSource.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.DataSource.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Edit.Windows, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Edit.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Grid.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Grid.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Grid.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Grid.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Licensing, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=632609b4d040f6b4">
+        <HintPath>lib\Syncfusion.Licensing.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Pdf.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Pdf.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Pdf.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Pdf.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotChart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.PivotChart.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.SfInput.WinForms, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.SfInput.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Shared.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Shared.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Shared.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Shared.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Tools.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Tools.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Tools.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.Tools.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>lib\Syncfusion.XlsIO.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Data.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.DataSetExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+        <HintPath>lib\System.Data.OleDb.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>lib\System.Data.SqlClient.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>lib\System.Data.SQLite.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>lib\System.Data.SQLite.EF6.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>lib\System.Data.SQLite.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+        <HintPath>lib\System.Data.SqlServerCe.dll</HintPath>
+      </Reference>
+      <Reference Include="VisualPlus, Version=0.4.1.7, Culture=neutral, PublicKeyToken=null">
+        <HintPath>lib\VisualPlus.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Controls\Frame\Frame.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="Controls\Form\LoadingForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Form\MainForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Form\PdfForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Calendar\CalendarForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Calculator\CalculationForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Carousel\CarouselForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Chart\ChartForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\DataGrid\DataGridForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Excel\ExcelForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\ColumnConfiguration.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\EditDialog.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\DefinitionDialog.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\FileBrowser.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\LookupDialog.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\Message.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\Dialog\Notification.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Controls\PivotGrid\PivotForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Data\Database\Access\DataModels\Data.accdb" />
+      <None Remove="Data\Database\SQLite\DataModels\Data.db" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Resources\Images\Applications\adobe.png" />
+      <Content Include="Resources\Images\Applications\Calculator.png" />
+      <Content Include="Resources\Images\Applications\dll.png" />
+      <Content Include="Resources\Images\Applications\excel.png" />
+      <Content Include="Resources\Images\Applications\exe.png" />
+      <Content Include="Resources\Images\Applications\gmail.png" />
+      <Content Include="Resources\Images\Applications\vscode.png" />
+      <Content Include="Resources\Images\Applications\windows.png" />
+      <Content Include="Resources\Images\Carousel\Functionality\Analysis.png" />
+      <Content Include="Resources\Images\Carousel\Functionality\Databases.png" />
+      <Content Include="Resources\Images\Carousel\Functionality\Reporting.png" />
+      <Content Include="Resources\Images\Carousel\Provider\ACCDB.png" />
+      <Content Include="Resources\Images\Carousel\Provider\CSV.png" />
+      <Content Include="Resources\Images\Carousel\Provider\DB.png" />
+      <Content Include="Resources\Images\Carousel\Provider\MDB.png" />
+      <Content Include="Resources\Images\Carousel\Provider\MDF.png" />
+      <Content Include="Resources\Images\Carousel\Provider\SDF.png" />
+      <Content Include="Resources\Images\Carousel\Provider\XLS.png" />
+      <Content Include="Resources\Images\Carousel\Provider\XLSX.png" />
+      <Content Include="Resources\Images\Database\Database.png" />
+      <Content Include="Resources\Images\Database\EditDatabase.png" />
+      <Content Include="Resources\Images\Data\AddColumn.png" />
+      <Content Include="Resources\Images\Data\AddRecord.png" />
+      <Content Include="Resources\Images\Data\AddTable.png" />
+      <Content Include="Resources\Images\Data\Bluetooth.png" />
+      <Content Include="Resources\Images\Data\CopyRecord.png" />
+      <Content Include="Resources\Images\Data\DataAdd.png" />
+      <Content Include="Resources\Images\Data\Database.png" />
+      <Content Include="Resources\Images\Data\DataConfig.png" />
+      <Content Include="Resources\Images\Data\DataDelete.png" />
+      <Content Include="Resources\Images\Data\DataGrid.png" />
+      <Content Include="Resources\Images\Data\DataLevels.png" />
+      <Content Include="Resources\Images\Data\DataRefresh.png" />
+      <Content Include="Resources\Images\Data\DataRow.png" />
+      <Content Include="Resources\Images\Data\Delete.png" />
+      <Content Include="Resources\Images\Data\DeleteColumn.png" />
+      <Content Include="Resources\Images\Data\DeleteRecord.png" />
+      <Content Include="Resources\Images\Data\DeleteTable.png" />
+      <Content Include="Resources\Images\Data\Download.png" />
+      <Content Include="Resources\Images\Data\EditColumn.png" />
+      <Content Include="Resources\Images\Data\EditRecord.png" />
+      <Content Include="Resources\Images\Data\EncryptData.png" />
+      <Content Include="Resources\Images\Data\Export.png" />
+      <Content Include="Resources\Images\Data\FilterData.png" />
+      <Content Include="Resources\Images\Data\Grid.png" />
+      <Content Include="Resources\Images\Data\Import.png" />
+      <Content Include="Resources\Images\Data\InsertRow.png" />
+      <Content Include="Resources\Images\Data\Metrics.png" />
+      <Content Include="Resources\Images\Data\png\AddColumnIcon.png" />
+      <Content Include="Resources\Images\Data\png\AddDatabaseIcon.png" />
+      <Content Include="Resources\Images\Data\png\Alphabetize.png" />
+      <Content Include="Resources\Images\Data\png\ColumnIcon.png" />
+      <Content Include="Resources\Images\Data\png\ColumnsIcon.png" />
+      <Content Include="Resources\Images\Data\png\ConnectionIcon.png" />
+      <Content Include="Resources\Images\Data\png\CopyDatabaseIcon.png" />
+      <Content Include="Resources\Images\Data\png\DatabaseIcon.png" />
+      <Content Include="Resources\Images\Data\png\DataSearchIcon.png" />
+      <Content Include="Resources\Images\Data\png\DeleteColumnIcon.png" />
+      <Content Include="Resources\Images\Data\png\DeleteDatabaseIcon.png" />
+      <Content Include="Resources\Images\Data\png\EditDataIcon.png" />
+      <Content Include="Resources\Images\Data\png\Export.png" />
+      <Content Include="Resources\Images\Data\png\FilterIcon.png" />
+      <Content Include="Resources\Images\Data\png\Grouping.png" />
+      <Content Include="Resources\Images\Data\png\Import.png" />
+      <Content Include="Resources\Images\Data\png\InsertIcon.png" />
+      <Content Include="Resources\Images\Data\png\MenuIcon.png" />
+      <Content Include="Resources\Images\Data\png\RowDelete.png" />
+      <Content Include="Resources\Images\Data\png\RowIcon.png" />
+      <Content Include="Resources\Images\Data\png\SqlServerIcon.png" />
+      <Content Include="Resources\Images\Data\png\TableIcon.png" />
+      <Content Include="Resources\Images\Data\png\WebSearchIcon.png" />
+      <Content Include="Resources\Images\Data\Refresh.png" />
+      <Content Include="Resources\Images\Data\SearchData.png" />
+      <Content Include="Resources\Images\Data\Settings.png" />
+      <Content Include="Resources\Images\Data\Transfer.png" />
+      <Content Include="Resources\Images\Data\TransferIn.png" />
+      <Content Include="Resources\Images\Data\TransferOut.png" />
+      <Content Include="Resources\Images\Data\Upload.png" />
+      <Content Include="Resources\Images\Data\Upsert.png" />
+      <Content Include="Resources\Images\Data\VerifyData.png" />
+      <Content Include="Resources\Images\EPA\EPA.png" />
+      <Content Include="Resources\Images\EPA\png\Access.png" />
+      <Content Include="Resources\Images\EPA\png\Chart.png" />
+      <Content Include="Resources\Images\EPA\png\Databases.png" />
+      <Content Include="Resources\Images\EPA\png\Earth.png" />
+      <Content Include="Resources\Images\EPA\png\Excel.png" />
+      <Content Include="Resources\Images\EPA\png\PDF.png" />
+      <Content Include="Resources\Images\EPA\png\Word.png" />
+      <Content Include="Resources\Images\Extensions\ACCDB.png" />
+      <Content Include="Resources\Images\Extensions\CSV.png" />
+      <Content Include="Resources\Images\Extensions\DB.png" />
+      <Content Include="Resources\Images\Extensions\DLL.png" />
+      <Content Include="Resources\Images\Extensions\DOC.png" />
+      <Content Include="Resources\Images\Extensions\DOCX.png" />
+      <Content Include="Resources\Images\Extensions\EXE.png" />
+      <Content Include="Resources\Images\Extensions\HTML.png" />
+      <Content Include="Resources\Images\Extensions\MDB.png" />
+      <Content Include="Resources\Images\Extensions\MDF.png" />
+      <Content Include="Resources\Images\Extensions\PDF.png" />
+      <Content Include="Resources\Images\Extensions\PNG.png" />
+      <Content Include="Resources\Images\Extensions\PPTX.png" />
+      <Content Include="Resources\Images\Extensions\PY.png" />
+      <Content Include="Resources\Images\Extensions\SDF.png" />
+      <Content Include="Resources\Images\Extensions\SQL.png" />
+      <Content Include="Resources\Images\Extensions\TXT.png" />
+      <Content Include="Resources\Images\Extensions\XLS.png" />
+      <Content Include="Resources\Images\Extensions\XLSX.png" />
+      <Content Include="Resources\Images\Extensions\XML.png" />
+      <Content Include="Resources\Images\Files\Add.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_adobe_acrobat_reader_96px_1.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_dll_80px_1.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_exe_80px.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_gmail_logo_96px.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_microsoft_excel_80px.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_visual_studio_code_2019_96px.png" />
+      <Content Include="Resources\Images\Files\ApplicationImages\icons8_windows_10_80px.png" />
+      <Content Include="Resources\Images\Files\Bin.png" />
+      <Content Include="Resources\Images\Files\Copy.png" />
+      <Content Include="Resources\Images\Files\CSV.png" />
+      <Content Include="Resources\Images\Files\DataImages\AddField.png" />
+      <Content Include="Resources\Images\Files\DataImages\AddRow.png" />
+      <Content Include="Resources\Images\Files\DataImages\AddTable.png" />
+      <Content Include="Resources\Images\Files\DataImages\Bluetooth.png" />
+      <Content Include="Resources\Images\Files\DataImages\CopyRow.png" />
+      <Content Include="Resources\Images\Files\DataImages\CsvDownload.png" />
+      <Content Include="Resources\Images\Files\DataImages\CsvUpdload.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataAdd.png" />
+      <Content Include="Resources\Images\Files\DataImages\Database.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataConfig.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataDelete.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataGrid.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataLevels.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataRefresh.png" />
+      <Content Include="Resources\Images\Files\DataImages\DataRow.png" />
+      <Content Include="Resources\Images\Files\DataImages\Delete.png" />
+      <Content Include="Resources\Images\Files\DataImages\DeleteField.png" />
+      <Content Include="Resources\Images\Files\DataImages\DeleteRow.png" />
+      <Content Include="Resources\Images\Files\DataImages\DeleteTable.png" />
+      <Content Include="Resources\Images\Files\DataImages\Download.png" />
+      <Content Include="Resources\Images\Files\DataImages\EditField.png" />
+      <Content Include="Resources\Images\Files\DataImages\EditRow.png" />
+      <Content Include="Resources\Images\Files\DataImages\EncryptData.png" />
+      <Content Include="Resources\Images\Files\DataImages\Grid.png" />
+      <Content Include="Resources\Images\Files\DataImages\InsertRow.png" />
+      <Content Include="Resources\Images\Files\DataImages\Metrics.png" />
+      <Content Include="Resources\Images\Files\DataImages\Refresh.png" />
+      <Content Include="Resources\Images\Files\DataImages\SearchData.png" />
+      <Content Include="Resources\Images\Files\DataImages\Settings.png" />
+      <Content Include="Resources\Images\Files\DataImages\Transfer.png" />
+      <Content Include="Resources\Images\Files\DataImages\TransferIn.png" />
+      <Content Include="Resources\Images\Files\DataImages\TransferOut.png" />
+      <Content Include="Resources\Images\Files\DataImages\Upload.png" />
+      <Content Include="Resources\Images\Files\DataImages\Upsert.png" />
+      <Content Include="Resources\Images\Files\DataImages\VerifyData.png" />
+      <Content Include="Resources\Images\Files\Delete.png" />
+      <Content Include="Resources\Images\Files\DLL.png" />
+      <Content Include="Resources\Images\Files\DOC.png" />
+      <Content Include="Resources\Images\Files\Edit.png" />
+      <Content Include="Resources\Images\Files\Export.png" />
+      <Content Include="Resources\Images\Files\FileImages\Add.png" />
+      <Content Include="Resources\Images\Files\FileImages\Bin.png" />
+      <Content Include="Resources\Images\Files\FileImages\Copy.png" />
+      <Content Include="Resources\Images\Files\FileImages\CSV.png" />
+      <Content Include="Resources\Images\Files\FileImages\Delete.png" />
+      <Content Include="Resources\Images\Files\FileImages\DLL.png" />
+      <Content Include="Resources\Images\Files\FileImages\DOC.png" />
+      <Content Include="Resources\Images\Files\FileImages\Edit.png" />
+      <Content Include="Resources\Images\Files\FileImages\Export.png" />
+      <Content Include="Resources\Images\Files\FileImages\HTML.png" />
+      <Content Include="Resources\Images\Files\FileImages\Import.png" />
+      <Content Include="Resources\Images\Files\FileImages\Lock.png" />
+      <Content Include="Resources\Images\Files\FileImages\PDF.png" />
+      <Content Include="Resources\Images\Files\FileImages\PNG.png" />
+      <Content Include="Resources\Images\Files\FileImages\Py.png" />
+      <Content Include="Resources\Images\Files\FileImages\Save.png" />
+      <Content Include="Resources\Images\Files\FileImages\Search.png" />
+      <Content Include="Resources\Images\Files\FileImages\SQL.png" />
+      <Content Include="Resources\Images\Files\FileImages\TXT.png" />
+      <Content Include="Resources\Images\Files\FileImages\XLS.png" />
+      <Content Include="Resources\Images\Files\FileImages\XML.png" />
+      <Content Include="Resources\Images\Files\FileImages\ZIP.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Browse.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Delete.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Directories.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Directory.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Download.png" />
+      <Content Include="Resources\Images\Files\FolderImages\GoogleDrive.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Import.png" />
+      <Content Include="Resources\Images\Files\FolderImages\NetworkShared.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Open.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Search.png" />
+      <Content Include="Resources\Images\Files\FolderImages\Tree.png" />
+      <Content Include="Resources\Images\Files\FolderImages\ZIP.png" />
+      <Content Include="Resources\Images\Files\FundImages\B.png" />
+      <Content Include="Resources\Images\Files\FundImages\C.png" />
+      <Content Include="Resources\Images\Files\FundImages\D.png" />
+      <Content Include="Resources\Images\Files\FundImages\E1.png" />
+      <Content Include="Resources\Images\Files\FundImages\E2.png" />
+      <Content Include="Resources\Images\Files\FundImages\E3.png" />
+      <Content Include="Resources\Images\Files\FundImages\E4.png" />
+      <Content Include="Resources\Images\Files\FundImages\E5.png" />
+      <Content Include="Resources\Images\Files\FundImages\F.png" />
+      <Content Include="Resources\Images\Files\FundImages\H.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_bulk_gas_tanker_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_digger_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_gas_station_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_handshake_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_hand_dug_well_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_location_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_oil_industry_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_oil_platform_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_oil_pump_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_physics_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_piping_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_plumbing_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_power_plant_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_puzzle_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_wash_your_hand_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_water_park_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_water_tower_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\icons8_wind_turbine_96px.png" />
+      <Content Include="Resources\Images\Files\FundImages\SD.png" />
+      <Content Include="Resources\Images\Files\FundImages\WF.png" />
+      <Content Include="Resources\Images\Files\HTML.png" />
+      <Content Include="Resources\Images\Files\Import.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\Decrease.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\Email.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\Home.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_chrome_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_Close_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_do_not_disturb_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_duration_finance_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_flow_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_futures_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_gears_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_geography_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_google_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_google_calendar_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_google_maps_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_google_maps_old_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_graph_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_histogram_80px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_histogram_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_internet_explorer_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_link_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_maintenance_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_map_pinpoint_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_microsoft_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_money_bag_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_notification_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_opera_glasses_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_pencil_drawing_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_print_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_rgb_histogram_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_shutdown_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_sign_out_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_sine_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_spam_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_spreadsheet_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_stop_sign_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_synchronize_96px_1.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_timetable_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_time_span_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_transaction_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_trash_can_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_visit_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_website_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_web_design_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\icons8_where_to_quest_96px.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\Increase.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\PdfDownload.png" />
+      <Content Include="Resources\Images\Files\InterfaceImages\Save.png" />
+      <Content Include="Resources\Images\Files\Lock.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\ArrowDown.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\ArrowLeft.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\ArrowRight.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\ArrowUp.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\CircleBack.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\CircleForward.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\CircleLeft.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\CircleRight.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Compass.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Delete.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\First.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Garbage.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Go.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Last.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Location.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\MapHome.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Pause.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Play.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Refresh.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Remove.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Stop.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Trash.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Undo.png" />
+      <Content Include="Resources\Images\Files\NavigationImages\Update.png" />
+      <Content Include="Resources\Images\Files\PDF.png" />
+      <Content Include="Resources\Images\Files\PNG.png" />
+      <Content Include="Resources\Images\Files\ProviderImages\ACCDB.png" />
+      <Content Include="Resources\Images\Files\ProviderImages\DB.png" />
+      <Content Include="Resources\Images\Files\ProviderImages\MDB.png" />
+      <Content Include="Resources\Images\Files\ProviderImages\MDF.png" />
+      <Content Include="Resources\Images\Files\ProviderImages\SDF.png" />
+      <Content Include="Resources\Images\Files\Py.png" />
+      <Content Include="Resources\Images\Files\Save.png" />
+      <Content Include="Resources\Images\Files\Search.png" />
+      <Content Include="Resources\Images\Files\SQL.png" />
+      <Content Include="Resources\Images\Files\TXT.png" />
+      <Content Include="Resources\Images\Files\XLS.png" />
+      <Content Include="Resources\Images\Files\XML.png" />
+      <Content Include="Resources\Images\Files\ZIP.png" />
+      <Content Include="Resources\Images\Filter\png\Filter.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersAdd.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersDelete.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersEmail.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersNew.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersServer.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersSettings.png" />
+      <Content Include="Resources\Images\Filter\png\FiltersSort.png" />
+      <Content Include="Resources\Images\Folders\Browse.png" />
+      <Content Include="Resources\Images\Folders\Delete.png" />
+      <Content Include="Resources\Images\Folders\Directories.png" />
+      <Content Include="Resources\Images\Folders\Directory.png" />
+      <Content Include="Resources\Images\Folders\Download.png" />
+      <Content Include="Resources\Images\Folders\GoogleDrive.png" />
+      <Content Include="Resources\Images\Folders\Import.png" />
+      <Content Include="Resources\Images\Folders\NetworkShared.png" />
+      <Content Include="Resources\Images\Folders\Open.png" />
+      <Content Include="Resources\Images\Folders\Search.png" />
+      <Content Include="Resources\Images\Folders\Tree.png" />
+      <Content Include="Resources\Images\Folders\ZIP.png" />
+      <Content Include="Resources\Images\Interface\Decrease.png" />
+      <Content Include="Resources\Images\Interface\Email.png" />
+      <Content Include="Resources\Images\Interface\Error.png" />
+      <Content Include="Resources\Images\Interface\Home.png" />
+      <Content Include="Resources\Images\Interface\icons8_chrome_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_Close_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_do_not_disturb_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_duration_finance_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_flow_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_futures_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_gears_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_geography_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_google_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_google_calendar_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_google_maps_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_google_maps_old_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_graph_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_histogram_80px.png" />
+      <Content Include="Resources\Images\Interface\icons8_histogram_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_internet_explorer_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_link_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_maintenance_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_map_pinpoint_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_microsoft_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_money_bag_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_notification_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_opera_glasses_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_pencil_drawing_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_print_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_rgb_histogram_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_shutdown_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_sign_out_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_sine_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_spreadsheet_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_stop_sign_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_synchronize_96px_1.png" />
+      <Content Include="Resources\Images\Interface\icons8_timetable_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_time_span_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_transaction_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_trash_can_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_visit_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_website_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_web_design_96px.png" />
+      <Content Include="Resources\Images\Interface\icons8_where_to_quest_96px.png" />
+      <Content Include="Resources\Images\Interface\Increase.png" />
+      <Content Include="Resources\Images\Interface\PdfDownload.png" />
+      <Content Include="Resources\Images\Interface\Save.png" />
+      <Content Include="Resources\Images\Loader\Loader.gif" />
+      <Content Include="Resources\Images\Loader\Loading.gif" />
+      <Content Include="Resources\Images\Loader\Processing.gif" />
+      <Content Include="Resources\Images\Navigation\ArrowDown.png" />
+      <Content Include="Resources\Images\Navigation\ArrowLeft.png" />
+      <Content Include="Resources\Images\Navigation\ArrowRight.png" />
+      <Content Include="Resources\Images\Navigation\ArrowUp.png" />
+      <Content Include="Resources\Images\Navigation\CircleBack.png" />
+      <Content Include="Resources\Images\Navigation\CircleForward.png" />
+      <Content Include="Resources\Images\Navigation\CircleLeft.png" />
+      <Content Include="Resources\Images\Navigation\CircleRight.png" />
+      <Content Include="Resources\Images\Navigation\Compass.png" />
+      <Content Include="Resources\Images\Navigation\Delete.png" />
+      <Content Include="Resources\Images\Navigation\End.png" />
+      <Content Include="Resources\Images\Navigation\First.png" />
+      <Content Include="Resources\Images\Navigation\Garbage.png" />
+      <Content Include="Resources\Images\Navigation\Go.png" />
+      <Content Include="Resources\Images\Navigation\Last.png" />
+      <Content Include="Resources\Images\Navigation\Location.png" />
+      <Content Include="Resources\Images\Navigation\MapHome.png" />
+      <Content Include="Resources\Images\Navigation\Pause.png" />
+      <Content Include="Resources\Images\Navigation\Play.png" />
+      <Content Include="Resources\Images\Navigation\Refresh.png" />
+      <Content Include="Resources\Images\Navigation\Remove.png" />
+      <Content Include="Resources\Images\Navigation\Start.png" />
+      <Content Include="Resources\Images\Navigation\Stop.png" />
+      <Content Include="Resources\Images\Navigation\Trash.png" />
+      <Content Include="Resources\Images\Navigation\Undo.png" />
+      <Content Include="Resources\Images\Navigation\Update.png" />
+      <Content Include="Resources\Images\Ninja\png\BlueNinja.png" />
+      <Content Include="Resources\Images\Ninja\png\BudExNinja.png" />
+      <Content Include="Resources\Images\Ninja\png\DbNinja.png" />
+      <Content Include="Resources\Images\Office\DOCX.png" />
+      <Content Include="Resources\Images\Office\Office.png" />
+      <Content Include="Resources\Images\Office\Outlook.png" />
+      <Content Include="Resources\Images\Office\OutlookCalendar.png" />
+      <Content Include="Resources\Images\Office\PPT.png" />
+      <Content Include="Resources\Images\Office\Project.png" />
+      <Content Include="Resources\Images\Office\Publisher.png" />
+      <Content Include="Resources\Images\Office\SPFX.png" />
+      <Content Include="Resources\Images\Office\XLSX.png" />
+      <Content Include="Resources\Images\Providers\ACCDB.png" />
+      <Content Include="Resources\Images\Providers\DB.png" />
+      <Content Include="Resources\Images\Providers\MDB.png" />
+      <Content Include="Resources\Images\Providers\MDF.png" />
+      <Content Include="Resources\Images\Providers\SDF.png" />
+    </ItemGroup>
+
+</Project>
