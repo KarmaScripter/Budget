@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
 
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public class CommandBase
     {
         /// <summary>

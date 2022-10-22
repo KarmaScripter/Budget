@@ -11,6 +11,8 @@
         <Description>Federal Budget &amp; Finance application</Description>
         <Company>Terry D. Eppler</Company>
         <Product>BudgetExecution</Product>
+        <ApplicationIcon>Resources\Images\Ninja\ico\BudExNinjaGrey.ico</ApplicationIcon>
+        <RepositoryUrl>https://github.com/KarmaScripter/Budget</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -74,168 +76,6 @@
       <Folder Include="Resources\Images\Provider\ico" />
       <Folder Include="Resources\Images\Provider\png" />
       <Folder Include="Resources\Images\ToolStrip\ico" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="C1.Win.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04">
-        <HintPath>lib\C1.Win.4.8.dll</HintPath>
-      </Reference>
-      <Reference Include="C1.Win.C1FlexGrid.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=79882d576c6336da">
-        <HintPath>lib\C1.Win.C1FlexGrid.4.8.dll</HintPath>
-      </Reference>
-      <Reference Include="CharmNotification, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\CharmNotification.dll</HintPath>
-      </Reference>
-      <Reference Include="DataGridMetro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\DataGridMetro.dll</HintPath>
-      </Reference>
-      <Reference Include="DataGridViewExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\DataGridViewExtension.dll</HintPath>
-      </Reference>
-      <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17">
-        <HintPath>lib\DocumentFormat.OpenXml.dll</HintPath>
-      </Reference>
-      <Reference Include="EPPlus, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
-        <HintPath>lib\EPPlus.dll</HintPath>
-      </Reference>
-      <Reference Include="Expander, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\Expander.dll</HintPath>
-      </Reference>
-      <Reference Include="LinqStatistics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\LinqStatistics.dll</HintPath>
-      </Reference>
-      <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
-        <HintPath>lib\log4net.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
-        <HintPath>lib\MetroFramework.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
-        <HintPath>lib\MetroFramework.Design.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
-        <HintPath>lib\MetroFramework.Fonts.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroSet UI, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\MetroSet UI.dll</HintPath>
-      </Reference>
-      <Reference Include="SQLite.Designer, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>Libraries\SQLite.Designer.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Calculate.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Calculate.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Calculate.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Calculate.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Chart.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Chart.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Chart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Chart.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Compression.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Compression.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Data.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Data.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.DataSource.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.DataSource.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Edit.Windows, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Edit.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Grid.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Grid.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Grid.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Grid.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Licensing, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=632609b4d040f6b4">
-        <HintPath>lib\Syncfusion.Licensing.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Pdf.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Pdf.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Pdf.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Pdf.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotChart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.PivotChart.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SfInput.WinForms, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.SfInput.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Shared.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Shared.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Shared.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Shared.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Tools.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Tools.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Tools.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.Tools.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>lib\Syncfusion.XlsIO.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>Libraries\System.Data.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>Libraries\System.Data.Common.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>Libraries\System.Data.DataSetExtensions.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-        <HintPath>lib\System.Data.OleDb.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>lib\System.Data.SqlClient.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>lib\System.Data.SQLite.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>lib\System.Data.SQLite.EF6.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>lib\System.Data.SQLite.Linq.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
-        <HintPath>lib\System.Data.SqlServerCe.dll</HintPath>
-      </Reference>
-      <Reference Include="VisualPlus, Version=0.4.1.7, Culture=neutral, PublicKeyToken=null">
-        <HintPath>lib\VisualPlus.dll</HintPath>
-      </Reference>
     </ItemGroup>
 
     <ItemGroup>
@@ -726,6 +566,275 @@
       <Content Include="Resources\Images\Providers\MDB.png" />
       <Content Include="Resources\Images\Providers\MDF.png" />
       <Content Include="Resources\Images\Providers\SDF.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="C1.Win.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04">
+        <HintPath>..\..\Badjao\Lib\C1.Win.4.8.dll</HintPath>
+      </Reference>
+      <Reference Include="C1.Win.C1FlexGrid.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=79882d576c6336da">
+        <HintPath>..\..\Badjao\Lib\C1.Win.C1FlexGrid.4.8.dll</HintPath>
+      </Reference>
+      <Reference Include="CharmNotification, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\CharmNotification.dll</HintPath>
+      </Reference>
+      <Reference Include="DataGridMetro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\DataGridMetro.dll</HintPath>
+      </Reference>
+      <Reference Include="DataGridViewExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\DataGridViewExtension.dll</HintPath>
+      </Reference>
+      <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17">
+        <HintPath>..\..\Badjao\Lib\DocumentFormat.OpenXml.dll</HintPath>
+      </Reference>
+      <Reference Include="EPPlus, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
+        <HintPath>..\..\Badjao\Lib\EPPlus.dll</HintPath>
+      </Reference>
+      <Reference Include="Expander, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\Expander.dll</HintPath>
+      </Reference>
+      <Reference Include="LinqStatistics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\LinqStatistics.dll</HintPath>
+      </Reference>
+      <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+        <HintPath>..\..\Badjao\Lib\log4net.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>..\..\Badjao\Lib\MetroFramework.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>..\..\Badjao\Lib\MetroFramework.Design.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>..\..\Badjao\Lib\MetroFramework.Fonts.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroSet UI, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\MetroSet UI.dll</HintPath>
+      </Reference>
+      <Reference Include="SQLite.Designer, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>..\..\Badjao\Lib\SQLite.Designer.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Calculate.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Calculate.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Calculate.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Calculate.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Chart.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Chart.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Chart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Chart.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Compression.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Compression.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Data.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Data.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.DataSource.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.DataSource.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Edit.Windows, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Edit.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Grid.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Grid.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Grid.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Grid.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Licensing, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=632609b4d040f6b4">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Licensing.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Pdf.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Pdf.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Pdf.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Pdf.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.PdfViewer.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotChart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.PivotChart.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.PivotConverter.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.SfInput.WinForms, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.SfInput.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Shared.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Shared.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Shared.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Shared.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Tools.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Tools.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Tools.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.Tools.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>..\..\Badjao\Lib\Syncfusion.XlsIO.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Collections.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.ComponentModel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.ComponentModel.Annotations.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Console, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Console.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Data.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Data.DataSetExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Data.Entity.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Entity.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Data.Entity.Design.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Data.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+        <HintPath>..\..\Badjao\Lib\System.Data.OleDb.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>..\..\Badjao\Lib\System.Data.SQLite.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>..\..\Badjao\Lib\System.Data.SQLite.EF6.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>..\..\Badjao\Lib\System.Data.SQLite.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+        <HintPath>..\..\Badjao\Lib\System.Data.SqlServerCe.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Drawing.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.IO.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.IO.Compression.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.IO.Compression.FileSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.ZipFile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.IO.Compression.ZipFile.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Expressions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Linq.Expressions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Parallel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Linq.Parallel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Queryable, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Linq.Queryable.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Net.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Net.Http.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Sockets, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Net.Sockets.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Reflection.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Remoting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Runtime.Remoting.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.Formatters.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Json, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.Xml.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encoding, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Text.Encoding.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Threading.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Tasks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Threading.Tasks.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Timer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Threading.Timer.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+        <HintPath>..\..\Badjao\Lib\System.ValueTuple.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>..\..\Badjao\Lib\System.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\Badjao\Lib\System.Windows.Forms.dll</HintPath>
+      </Reference>
+      <Reference Include="VisualPlus, Version=0.4.1.7, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\Badjao\Lib\VisualPlus.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Data.OleDb" Version="7.0.0-rc.2.22472.3" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
     </ItemGroup>
 
 </Project>
