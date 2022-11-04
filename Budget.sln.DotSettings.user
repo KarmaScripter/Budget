@@ -3,6 +3,7 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005CLibraries_005CSystem_002EData_002ECommon_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005CLibraries_005CSystem_002EData_002EDataSetExtensions_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005CLibraries_005CSystem_002EData_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005CLibraries_005CSystem_002EData_002ESqlClient_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005Clib_005CC1_002EWin_002E4_002E8_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005Clib_005CC1_002EWin_002EC1FlexGrid_002E4_002E8_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudget_005CBudget_005Clib_005CCharmNotification_002Edll/@EntryIndexedValue">True</s:Boolean>
@@ -139,4 +140,5 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cterry_005Csource_005Crepos_005CBadjao_005CLib_005CSystem_002EWindows_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cterry_005Csource_005Crepos_005CBadjao_005CLib_005CSystem_002EWindows_002EForms_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cterry_005Csource_005Crepos_005CBadjao_005CLib_005CVisualPlus_002Edll/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/ShouldRestoreNugetPackages/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/ShouldRestoreNugetPackages/@EntryValue">True</s:Boolean>
+	</wpf:ResourceDictionary>

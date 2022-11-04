@@ -8,8 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "Budget/1.0.0": {
         "dependencies": {
-          "System.Data.OleDb": "7.0.0-rc.2.22472.3",
-          "System.Data.SqlClient": "4.8.4",
           "C1.Win.4.8": "4.8.20221.557",
           "C1.Win.C1FlexGrid.4.8": "4.8.20221.557",
           "CharmNotification": "1.0.0.0",
@@ -56,6 +54,8 @@
           "System.Data.Entity.Design": "4.0.0.0",
           "System.Data.Entity": "4.0.0.0",
           "System.Data.Linq": "4.0.0.0",
+          "System.Data.OleDb": "6.0.0.0",
+          "System.Data.SqlClient": "4.6.1.4",
           "System.Data.SQLite": "1.0.108.0",
           "System.Data.SQLite.EF6": "1.0.108.0",
           "System.Data.SQLite.Linq": "1.0.108.0",
@@ -65,213 +65,6 @@
         },
         "runtime": {
           "Budget.dll": {}
-        }
-      },
-      "Microsoft.NETCore.Platforms/3.1.0": {},
-      "Microsoft.Win32.Registry/4.7.0": {
-        "dependencies": {
-          "System.Security.AccessControl": "4.7.0",
-          "System.Security.Principal.Windows": "4.7.0"
-        }
-      },
-      "Microsoft.Win32.SystemEvents/7.0.0-rc.2.22472.3": {
-        "runtime": {
-          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "runtime.native.System.Data.SqlClient.sni/4.7.0": {
-        "dependencies": {
-          "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
-          "runtime.win-x64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
-          "runtime.win-x86.runtime.native.System.Data.SqlClient.sni": "4.4.0"
-        }
-      },
-      "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
-        "runtimeTargets": {
-          "runtimes/win-arm64/native/sni.dll": {
-            "rid": "win-arm64",
-            "assetType": "native",
-            "fileVersion": "4.6.25512.1"
-          }
-        }
-      },
-      "runtime.win-x64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
-        "runtimeTargets": {
-          "runtimes/win-x64/native/sni.dll": {
-            "rid": "win-x64",
-            "assetType": "native",
-            "fileVersion": "4.6.25512.1"
-          }
-        }
-      },
-      "runtime.win-x86.runtime.native.System.Data.SqlClient.sni/4.4.0": {
-        "runtimeTargets": {
-          "runtimes/win-x86/native/sni.dll": {
-            "rid": "win-x86",
-            "assetType": "native",
-            "fileVersion": "4.6.25512.1"
-          }
-        }
-      },
-      "System.Configuration.ConfigurationManager/7.0.0-rc.2.22472.3": {
-        "dependencies": {
-          "System.Security.Cryptography.ProtectedData": "7.0.0-rc.2.22472.3",
-          "System.Security.Permissions": "7.0.0-rc.2.22472.3"
-        },
-        "runtime": {
-          "lib/net6.0/System.Configuration.ConfigurationManager.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "System.Data.OleDb/7.0.0-rc.2.22472.3": {
-        "dependencies": {
-          "System.Configuration.ConfigurationManager": "7.0.0-rc.2.22472.3",
-          "System.Diagnostics.PerformanceCounter": "7.0.0-rc.2.22472.3"
-        },
-        "runtime": {
-          "lib/net6.0/System.Data.OleDb.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Data.OleDb.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "System.Data.SqlClient/4.8.4": {
-        "dependencies": {
-          "Microsoft.Win32.Registry": "4.7.0",
-          "System.Security.Principal.Windows": "4.7.0",
-          "runtime.native.System.Data.SqlClient.sni": "4.7.0"
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "assemblyVersion": "4.6.1.4",
-            "fileVersion": "4.700.22.47702"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "rid": "unix",
-            "assetType": "runtime",
-            "assemblyVersion": "4.6.1.4",
-            "fileVersion": "4.700.22.47702"
-          },
-          "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.6.1.4",
-            "fileVersion": "4.700.22.47702"
-          }
-        }
-      },
-      "System.Diagnostics.PerformanceCounter/7.0.0-rc.2.22472.3": {
-        "dependencies": {
-          "System.Configuration.ConfigurationManager": "7.0.0-rc.2.22472.3"
-        },
-        "runtime": {
-          "lib/net6.0/System.Diagnostics.PerformanceCounter.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Diagnostics.PerformanceCounter.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "System.Drawing.Common/7.0.0-rc.2.22472.3": {
-        "dependencies": {
-          "Microsoft.Win32.SystemEvents": "7.0.0-rc.2.22472.3"
-        },
-        "runtime": {
-          "lib/net6.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "System.Security.AccessControl/4.7.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0",
-          "System.Security.Principal.Windows": "4.7.0"
-        }
-      },
-      "System.Security.Cryptography.ProtectedData/7.0.0-rc.2.22472.3": {
-        "runtime": {
-          "lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "System.Security.Permissions/7.0.0-rc.2.22472.3": {
-        "dependencies": {
-          "System.Windows.Extensions": "7.0.0-rc.2.22472.3"
-        },
-        "runtime": {
-          "lib/net6.0/System.Security.Permissions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        }
-      },
-      "System.Security.Principal.Windows/4.7.0": {},
-      "System.Windows.Extensions/7.0.0-rc.2.22472.3": {
-        "dependencies": {
-          "System.Drawing.Common": "7.0.0-rc.2.22472.3"
-        },
-        "runtime": {
-          "lib/net6.0/System.Windows.Extensions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Windows.Extensions.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.47203"
-          }
         }
       },
       "C1.Win.4.8/4.8.20221.557": {
@@ -642,6 +435,22 @@
           }
         }
       },
+      "System.Data.OleDb/6.0.0.0": {
+        "runtime": {
+          "System.Data.OleDb.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Data.SqlClient/4.6.1.4": {
+        "runtime": {
+          "System.Data.SqlClient.dll": {
+            "assemblyVersion": "4.6.1.4",
+            "fileVersion": "4.700.22.47702"
+          }
+        }
+      },
       "System.Data.SQLite/1.0.108.0": {
         "runtime": {
           "System.Data.SQLite.dll": {
@@ -697,125 +506,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Microsoft.NETCore.Platforms/3.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
-      "path": "microsoft.netcore.platforms/3.1.0",
-      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
-    },
-    "Microsoft.Win32.Registry/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
-      "path": "microsoft.win32.registry/4.7.0",
-      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
-    },
-    "Microsoft.Win32.SystemEvents/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/1Q4EliHYtAwVNBSB/qByvayhKV+1PYkpKF1VMKz67twIGjRcnw8UfvYrl7xWE426MiLl/fOsT/ql/7ii/HoTA==",
-      "path": "microsoft.win32.systemevents/7.0.0-rc.2.22472.3",
-      "hashPath": "microsoft.win32.systemevents.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "runtime.native.System.Data.SqlClient.sni/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-9kyFSIdN3T0qjDQ2R0HRXYIhS3l5psBzQi6qqhdLz+SzFyEy4sVxNOke+yyYv8Cu8rPER12c3RDjLT8wF3WBYQ==",
-      "path": "runtime.native.system.data.sqlclient.sni/4.7.0",
-      "hashPath": "runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512"
-    },
-    "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LbrynESTp3bm5O/+jGL8v0Qg5SJlTV08lpIpFesXjF6uGNMWqFnUQbYBJwZTeua6E/Y7FIM1C54Ey1btLWupdg==",
-      "path": "runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0",
-      "hashPath": "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
-    },
-    "runtime.win-x64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-38ugOfkYJqJoX9g6EYRlZB5U2ZJH51UP8ptxZgdpS07FgOEToV+lS11ouNK2PM12Pr6X/PpT5jK82G3DwH/SxQ==",
-      "path": "runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0",
-      "hashPath": "runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
-    },
-    "runtime.win-x86.runtime.native.System.Data.SqlClient.sni/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
-      "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
-      "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
-    },
-    "System.Configuration.ConfigurationManager/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mgHgSZLbLOxppC8/sA/kY84brw666iFe0n0p6fUP04Ii/PXrZ3X5jp2HGwCtaDtUsLzZnbOP4ei8Ari5i028YQ==",
-      "path": "system.configuration.configurationmanager/7.0.0-rc.2.22472.3",
-      "hashPath": "system.configuration.configurationmanager.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "System.Data.OleDb/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-q/nnYsomTmqHwFLQVqZwu7yJWx0uE55hujY3UtwJlHFMRetUbEF5OgxUIIueKcBZyWllsRK451e2fRPRvC0zjA==",
-      "path": "system.data.oledb/7.0.0-rc.2.22472.3",
-      "hashPath": "system.data.oledb.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "System.Data.SqlClient/4.8.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-45YflfcVXAu+Tnf0WnZzQIp9iGm+XvSvh8OosYHqax/nW3gV28NBSRvHFZ/IsuwV4JIypYCKBEOVzW+RB5+zgQ==",
-      "path": "system.data.sqlclient/4.8.4",
-      "hashPath": "system.data.sqlclient.4.8.4.nupkg.sha512"
-    },
-    "System.Diagnostics.PerformanceCounter/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-L1LSUjKDKULV9sNknDiaFCAhW/kzTsZ9g684zIhsz0TtvHBJ07pLdzfOasBMkO9C3Ux3w/8Ow1J+9qodXnQvIQ==",
-      "path": "system.diagnostics.performancecounter/7.0.0-rc.2.22472.3",
-      "hashPath": "system.diagnostics.performancecounter.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "System.Drawing.Common/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3rIg2KRI+DqQysJ8mcpyOcNRaBR0L5gmVt91y7VOEBbTmK1jnfTXdm+zWHwv4SSCXRSOtYUKNW7iEnPuI6O9dw==",
-      "path": "system.drawing.common/7.0.0-rc.2.22472.3",
-      "hashPath": "system.drawing.common.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "System.Security.AccessControl/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
-      "path": "system.security.accesscontrol/4.7.0",
-      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
-    },
-    "System.Security.Cryptography.ProtectedData/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ON42xvuGqrZunDni15lKH9e1YYnIJY0G9mCrzJN0O7qoEpB0YtA3c3ewfL9PFzn9QJqwiIlu+hjDZFh7ZXCKnQ==",
-      "path": "system.security.cryptography.protecteddata/7.0.0-rc.2.22472.3",
-      "hashPath": "system.security.cryptography.protecteddata.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "System.Security.Permissions/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Ilm5qMxre/7ODWccTw+fTxjA9qX2mUPIW4eA+6OC6tqhkPptshUUPuTRppEwh/T7wcw4zEHYX2UZ8wSXI0Jv0A==",
-      "path": "system.security.permissions/7.0.0-rc.2.22472.3",
-      "hashPath": "system.security.permissions.7.0.0-rc.2.22472.3.nupkg.sha512"
-    },
-    "System.Security.Principal.Windows/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
-      "path": "system.security.principal.windows/4.7.0",
-      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
-    },
-    "System.Windows.Extensions/7.0.0-rc.2.22472.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-xBwPi8E0uCi/HueVzbKrOCns6t23saqzkwg0+tXFLKWbpOEll5DnzhvNFG4OplGSRSllACY7X+VuzMz7Dz6yiA==",
-      "path": "system.windows.extensions/7.0.0-rc.2.22472.3",
-      "hashPath": "system.windows.extensions.7.0.0-rc.2.22472.3.nupkg.sha512"
     },
     "C1.Win.4.8/4.8.20221.557": {
       "type": "reference",
@@ -1043,6 +733,16 @@
       "sha512": ""
     },
     "System.Data.Linq/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.OleDb/6.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.SqlClient/4.6.1.4": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

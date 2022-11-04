@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <TargetFramework>net6.0-windows</TargetFramework>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>BudgetExecution</RootNamespace>
@@ -698,33 +698,6 @@
       <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
         <HintPath>..\..\Badjao\Lib\Syncfusion.XlsIO.Base.dll</HintPath>
       </Reference>
-      <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Collections.dll</HintPath>
-      </Reference>
-      <Reference Include="System.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.ComponentModel.dll</HintPath>
-      </Reference>
-      <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.ComponentModel.Annotations.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Configuration.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Console, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Console.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.Data.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Data.Common.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.Data.DataSetExtensions.dll</HintPath>
-      </Reference>
       <Reference Include="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
         <HintPath>..\..\Badjao\Lib\System.Data.Entity.dll</HintPath>
       </Reference>
@@ -737,6 +710,9 @@
       <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
         <HintPath>..\..\Badjao\Lib\System.Data.OleDb.dll</HintPath>
       </Reference>
+      <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Data.SqlClient.dll</HintPath>
+      </Reference>
       <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
         <HintPath>..\..\Badjao\Lib\System.Data.SQLite.dll</HintPath>
       </Reference>
@@ -748,21 +724,6 @@
       </Reference>
       <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
         <HintPath>..\..\Badjao\Lib\System.Data.SqlServerCe.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Drawing.dll</HintPath>
-      </Reference>
-      <Reference Include="System.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.IO.dll</HintPath>
-      </Reference>
-      <Reference Include="System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.IO.Compression.dll</HintPath>
-      </Reference>
-      <Reference Include="System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.IO.Compression.FileSystem.dll</HintPath>
-      </Reference>
-      <Reference Include="System.IO.Compression.ZipFile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.IO.Compression.ZipFile.dll</HintPath>
       </Reference>
       <Reference Include="System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
         <HintPath>..\..\Badjao\Lib\System.Linq.dll</HintPath>
@@ -785,32 +746,11 @@
       <Reference Include="System.Net.Sockets, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
         <HintPath>..\..\Badjao\Lib\System.Net.Sockets.dll</HintPath>
       </Reference>
-      <Reference Include="System.Reflection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Reflection.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Runtime.dll</HintPath>
-      </Reference>
       <Reference Include="System.Runtime.Remoting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
         <HintPath>..\..\Badjao\Lib\System.Runtime.Remoting.dll</HintPath>
       </Reference>
       <Reference Include="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
         <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.Formatters.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Runtime.Serialization.Json, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.Json.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Runtime.Serialization.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Runtime.Serialization.Xml.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Text.Encoding, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Text.Encoding.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Threading, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>..\..\Badjao\Lib\System.Threading.dll</HintPath>
       </Reference>
       <Reference Include="System.Threading.Tasks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
         <HintPath>..\..\Badjao\Lib\System.Threading.Tasks.dll</HintPath>
@@ -824,17 +764,9 @@
       <Reference Include="System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
         <HintPath>..\..\Badjao\Lib\System.Windows.dll</HintPath>
       </Reference>
-      <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>..\..\Badjao\Lib\System.Windows.Forms.dll</HintPath>
-      </Reference>
       <Reference Include="VisualPlus, Version=0.4.1.7, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\Badjao\Lib\VisualPlus.dll</HintPath>
       </Reference>
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="System.Data.OleDb" Version="7.0.0-rc.2.22472.3" />
-      <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
-    </ItemGroup>
-
+    
 </Project>
