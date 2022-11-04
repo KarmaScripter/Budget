@@ -331,25 +331,21 @@ namespace BudgetExecution
                             var _builder = new AdapterBuilder( CommandBuilder );
                             return _builder?.GetAdapter( ) as OleDbDataAdapter;
                         }
-
                         case Provider.SQLite:
                         {
                             var _builder = new AdapterBuilder( CommandBuilder );
                             return _builder?.GetAdapter( ) as SQLiteDataAdapter;
                         }
-
                         case Provider.SqlCe:
                         {
                             var _builder = new AdapterBuilder( CommandBuilder );
                             return _builder?.GetAdapter( ) as SqlCeDataAdapter;
                         }
-
                         case Provider.SqlServer:
                         {
                             var _builder = new AdapterBuilder( CommandBuilder );
                             return _builder?.GetAdapter( ) as SqlDataAdapter;
                         }
-
                         default:
                         {
                             var _builder = new AdapterBuilder( CommandBuilder );

@@ -161,17 +161,14 @@ namespace BudgetExecution
                         {
                             return GetSQLiteCommand( sqlStatement );
                         }
-
                         case Provider.SqlCe:
                         {
                             return GetSQLiteCommand( sqlStatement );
                         }
-
                         case Provider.SqlServer:
                         {
                             return GetSQLiteCommand( sqlStatement );
                         }
-
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
@@ -179,7 +176,6 @@ namespace BudgetExecution
                         {
                             return GetOleDbCommand( sqlStatement );
                         }
-
                         default:
                         {
                             return default( DbCommand );
@@ -220,25 +216,21 @@ namespace BudgetExecution
                                 ? new SQLiteCommand( _sql, _connection )
                                 : default( SQLiteCommand );
                         }
-
                         case SQL.INSERT:
                         {
                             var _sql = sqlStatement?.GetInsertStatement( );
                             return new SQLiteCommand( _sql, _connection );
                         }
-
                         case SQL.UPDATE:
                         {
                             var _sql = sqlStatement?.GetUpdateStatement( );
                             return new SQLiteCommand( _sql, _connection );
                         }
-
                         case SQL.DELETE:
                         {
                             var _sql = sqlStatement?.GetDeleteStatement( );
                             return new SQLiteCommand( _sql, _connection );
                         }
-
                         default:
                         {
                             var _sql = sqlStatement?.GetSelectStatement( );
