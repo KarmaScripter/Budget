@@ -351,25 +351,21 @@ namespace BudgetExecution
                                 var _sql = sqlStatement?.GetSelectStatement( );
                                 return new SqlCommand( _sql, _connection );
                             }
-
                             case SQL.INSERT:
                             {
                                 var _sql = sqlStatement?.GetInsertStatement( );
                                 return new SqlCommand( _sql, _connection );
                             }
-
                             case SQL.UPDATE:
                             {
                                 var _sql = sqlStatement?.GetUpdateStatement( );
                                 return new SqlCommand( _sql, _connection );
                             }
-
                             case SQL.DELETE:
                             {
                                 var _sql = sqlStatement?.GetDeleteStatement( );
                                 return new SqlCommand( _sql, _connection );
                             }
-
                             default:
                             {
                                 var _sql = sqlStatement?.GetSelectStatement( );
