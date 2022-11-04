@@ -1658,4 +1658,4 @@ dotnet_diagnostic.ca1805.severity = none
 dotnet_diagnostic.ca1069.severity = none
 
 # CA1824: Mark assemblies with NeutralResourcesLanguageAttribute
-dotnet_diagnostic.CA1824.severity = none
+dotnet_diagnostic.ca1824.severity = none

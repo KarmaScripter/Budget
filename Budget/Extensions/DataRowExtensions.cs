@@ -33,8 +33,7 @@ namespace BudgetExecution
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow,
             Provider provider )
         {
-            if( dataRow != null
-               && dataRow.ItemArray.Length > 0
+            if( dataRow?.ItemArray.Length > 0 
                && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
@@ -115,7 +114,7 @@ namespace BudgetExecution
                                         Value = _values[ i ]
                                     };
 
-                                    _sqlserver.Add( _parameter );
+                                    _sqlserver?.Add( _parameter );
                                 }
 
                                 return _sqlserver?.Any( ) == true
@@ -346,7 +345,8 @@ namespace BudgetExecution
                     for( var i = 1; i < _key.Length; i++ )
                     {
                         var name = _key[ i ];
-                        if( _names.Contains( name ) )
+                        if( !string.IsNullOrEmpty( name ) 
+                           && _names.Contains( name ) ) 
                         {
                             _count++;
                         }

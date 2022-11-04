@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        public QueryBase( )
+        protected QueryBase( )
         {
         }
 
@@ -128,7 +128,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        public QueryBase( Source source, Provider provider = Provider.SQLite,
+        protected QueryBase( Source source, Provider provider = Provider.SQLite,
             SQL commandType = SQL.SELECT )
         {
             Source = source;
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="where">The dictionary.</param>
         /// <param name="commandType">Type of the command.</param>
-        public QueryBase( Source source, Provider provider, IDictionary<string, object> where,
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where,
             SQL commandType = SQL.SELECTALL )
         {
             Source = source;
@@ -166,7 +166,7 @@ namespace BudgetExecution
         /// <param name = "provider" > </param>
         /// <param name="sqlStatement">The SQL statement.</param>
         /// <param name = "source" > </param>
-        public QueryBase( Source source, Provider provider, ISqlStatement sqlStatement )
+        protected QueryBase( Source source, Provider provider, ISqlStatement sqlStatement )
         {
             Source = source;
             Provider = provider;
@@ -184,7 +184,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The dictionary.</param>
-        public QueryBase( Source source, Provider provider, IDictionary<string, object> where )
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where )
         {
             Source = source;
             Provider = provider;
@@ -204,7 +204,7 @@ namespace BudgetExecution
         /// <param name = "updates" > </param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public QueryBase( Source source, Provider provider, IDictionary<string, object> updates,
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             Source = source;
@@ -225,7 +225,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The having.</param>
         /// <param name="commandType">Type of the command.</param>
-        public QueryBase( Source source, Provider provider, IEnumerable<string> columns,
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             Source = source;
@@ -244,7 +244,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public QueryBase( Source source, Provider provider, string sqlText )
+        protected QueryBase( Source source, Provider provider, string sqlText )
         {
             Source = source;
             Provider = provider;
@@ -261,7 +261,7 @@ namespace BudgetExecution
         /// <param name="fullPath">The full path.</param>
         /// <param name = "sqlText" > </param>
         /// <param name="commandType">Type of the command.</param>
-        public QueryBase( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        protected QueryBase( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
             ConnectionBuilder = new ConnectionBuilder( fullPath );
             Provider = ConnectionBuilder.Provider;
@@ -280,7 +280,7 @@ namespace BudgetExecution
         /// <param name="fullPath">The full path.</param>
         /// <param name="commandType">Type of the command.</param>
         /// <param name="where">The dictionary.</param>
-        public QueryBase( string fullPath, SQL commandType, IDictionary<string, object> where )
+        protected QueryBase( string fullPath, SQL commandType, IDictionary<string, object> where )
         {
             Criteria = where;
             ConnectionBuilder = new ConnectionBuilder( fullPath );
@@ -296,7 +296,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
         /// <param name="sqlStatement">The SQL statement.</param>
-        public QueryBase( ISqlStatement sqlStatement )
+        protected QueryBase( ISqlStatement sqlStatement )
         {
             Criteria = null;
             Source = sqlStatement.Source;
