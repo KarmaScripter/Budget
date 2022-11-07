@@ -169,6 +169,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <param name="sqlCommand">Name of the command.</param>
+        /// <returns></returns>
+        public string GetCommandText( SQL sqlCommand )
+        {
+            if( Enum.IsDefined( typeof( SQL ), sqlCommand )
+               && Commands?.Any( ) == true
+               && Commands.Keys?.Contains( $"{ sqlCommand }" ) == true )
+            {
+                try
+                {
+                    return Commands[ $"{ sqlCommand }" ];
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
