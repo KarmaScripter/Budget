@@ -249,7 +249,7 @@ namespace BudgetExecution
                 var fdlg = new OpenFileDialog
                 {
                     Title = "Excel File Dialog",
-                    InitialDirectory = @"c:\",
+                    InitialDirectory = @"C:\",
                     Filter = "All files (*.*)|*.*|All files (*.*)|*.*",
                     FilterIndex = 2,
                     RestoreDirectory = true
@@ -289,7 +289,7 @@ namespace BudgetExecution
                 {
                     var _dataset = new DataSet( );
                     var _filePath = GetExcelFilePath( );
-                    var _sql = $"SELECT * FROM [{sheetName}]";
+                    var _sql = $"SELECT * FROM [ { sheetName } ]";
                     var _msg = "Sheet Does Not Exist!";
                     var _excelQuery = new ExcelQuery( _filePath, _sql );
                     var _connection = _excelQuery.DataConnection as OleDbConnection;
@@ -344,12 +344,12 @@ namespace BudgetExecution
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
                     var _sql = $"SELECT * FROM [{sheetName}]";
-                    var _cstring = GetExcelFilePath( );
-                    if( !string.IsNullOrEmpty( _cstring ) )
+                    var _fullPath = GetExcelFilePath( );
+                    if( !string.IsNullOrEmpty( _fullPath ) )
                     {
-                        var _csvquery = new CsvQuery( _cstring, _sql );
-                        var _select = _csvquery.DataCommand;
-                        var _connection = _csvquery.DataConnection as OleDbConnection;
+                        var _csvQuery = new CsvQuery( _fullPath, _sql );
+                        var _select = _csvQuery.DataCommand;
+                        var _connection = _csvQuery.DataConnection as OleDbConnection;
                         var _adapter = new OleDbDataAdapter( _select.CommandText, _connection );
                         _adapter?.Fill( _dataSet, sheetName );
                         return _dataTable.Columns.Count > 0

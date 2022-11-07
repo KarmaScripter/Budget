@@ -274,7 +274,6 @@ namespace BudgetExecution
                                     ? new SqlCeCommand( _sql, _connection )
                                     : default( DbCommand );
                             }
-
                             case SQL.INSERT:
                             {
                                 var _sql = sqlStatement?.GetInsertStatement( );
@@ -282,7 +281,6 @@ namespace BudgetExecution
                                     ? new SqlCeCommand( _sql, _connection )
                                     : default( DbCommand );
                             }
-
                             case SQL.UPDATE:
                             {
                                 var _sql = sqlStatement?.GetUpdateStatement( );
@@ -290,7 +288,6 @@ namespace BudgetExecution
                                     ? new SqlCeCommand( _sql, _connection )
                                     : default( DbCommand );
                             }
-
                             case SQL.DELETE:
                             {
                                 var _sql = sqlStatement?.GetDeleteStatement( );
@@ -298,7 +295,6 @@ namespace BudgetExecution
                                     ? new SqlCeCommand( _sql, _connection )
                                     : default( DbCommand );
                             }
-
                             default:
                             {
                                 var _sql = sqlStatement?.GetSelectStatement( );

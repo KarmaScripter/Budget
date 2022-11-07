@@ -95,9 +95,9 @@ namespace BudgetExecution
                     var _end = _size - _index;
                     var _folder = $@"\{CommandType}";
                     var _remove = _path?.Remove( _index, _end );
-                    var _dirpath = _remove + _folder;
-                    return Directory.Exists( _dirpath )
-                        ? _dirpath
+                    var _dirPath = _remove + _folder;
+                    return ( Directory.Exists( _dirPath ) )
+                        ? _dirPath
                         : string.Empty;
                 }
                 catch( Exception ex )

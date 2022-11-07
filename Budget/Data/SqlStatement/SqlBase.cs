@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlBase"/> class.
         /// </summary>
-        public SqlBase( )
+        protected SqlBase( )
         {
         }
 
@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
         {
             DbPath = new ConnectionBuilder( source, provider ).DbPath;
             CommandType = commandType;
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SqlBase( Source source, Provider provider, string sqlText,
+        protected SqlBase( Source source, Provider provider, string sqlText,
             SQL commandType = SQL.SELECT )
         {
             DbPath = new ConnectionBuilder( source, provider ).DbPath;
@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name = "where" > </param>
         /// <param name = "commandType" > </param>
-        public SqlBase( Source source, Provider provider, IDictionary<string, object> where,
+        protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
             SQL commandType = SQL.SELECTALL )
         {
             DbPath = new ConnectionBuilder( source, provider ).DbPath;
@@ -164,7 +164,7 @@ namespace BudgetExecution
             CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
         }
 
-        public SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
+        protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             DbPath = new ConnectionBuilder( source, provider ).DbPath;
@@ -185,7 +185,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The dictionary.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SqlBase( Source source, Provider provider, IEnumerable<string> columns,
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             DbPath = new ConnectionBuilder( source, provider ).DbPath;
@@ -197,7 +197,7 @@ namespace BudgetExecution
             Columns = columns.ToList( );
         }
 
-        public SqlBase( Source source, Provider provider, IEnumerable<string> columns,
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
             IEnumerable<string> numerics, IDictionary<string, object> where,
             SQL commandType = SQL.SELECT )
         {
@@ -228,7 +228,7 @@ namespace BudgetExecution
                     }
 
                     var _cols = _columns.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_cols} FROM {Source} WHERE {Criteria.ToCriteria( )};";
+                    return $"SELECT { _cols } FROM { Source } WHERE  {Criteria.ToCriteria( ) }";
                 }
                 catch( Exception ex )
                 {
@@ -239,12 +239,12 @@ namespace BudgetExecution
             else if( Columns == null
                     && Criteria?.Any( ) == true )
             {
-                return $"SELECT * FROM {Source} WHERE {Criteria.ToCriteria( )};";
+                return $"SELECT * FROM { Source } WHERE { Criteria.ToCriteria( ) };";
             }
             else if( Columns == null
                     && Criteria == null )
             {
-                return $"SELECT * FROM {Source};";
+                return $"SELECT * FROM { Source };";
             }
 
             return default( string );
@@ -262,7 +262,7 @@ namespace BudgetExecution
                 try
                 {
                     var _criteria = where.ToCriteria( );
-                    return $"SELECT * FROM {Source} WHERE {_criteria};";
+                    return $"SELECT * FROM { Source } WHERE { _criteria };";
                 }
                 catch( Exception ex )
                 {
@@ -292,12 +292,12 @@ namespace BudgetExecution
                     var _cols = string.Empty;
                     foreach( var name in columns )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{ name }, ";
                     }
 
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} WHERE {_criteria} ;";
+                    return $"SELECT { _columns } FROM { Source } WHERE { _criteria } ;";
                 }
                 catch( Exception ex )
                 {

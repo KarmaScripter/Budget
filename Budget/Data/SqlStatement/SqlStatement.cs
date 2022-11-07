@@ -216,17 +216,14 @@ namespace BudgetExecution
                         {
                             return CreateSelectStatement( dict );
                         }
-
                         case SQL.SELECTALL:
                         {
                             return CreateSelectStatement( dict );
                         }
-
                         case SQL.INSERT:
                         {
                             return CreateInsertStatement( dict );
                         }
-
                         case SQL.DELETE:
                         {
                             return CreateDeleteStatement( dict );
@@ -264,17 +261,14 @@ namespace BudgetExecution
                         {
                             return GetCommandText( columns, where );
                         }
-
                         case SQL.SELECTALL:
                         {
                             return CreateSelectStatement( where );
                         }
-
                         case SQL.INSERT:
                         {
                             return CreateInsertStatement( where );
                         }
-
                         case SQL.DELETE:
                         {
                             return CreateDeleteStatement( where );
@@ -313,22 +307,18 @@ namespace BudgetExecution
                             var _cols = updates.Keys.ToList( );
                             return CreateSelectStatement( _cols, where );
                         }
-
                         case SQL.SELECTALL:
                         {
                             return CreateSelectStatement( where );
                         }
-
                         case SQL.INSERT:
                         {
                             return CreateInsertStatement( where );
                         }
-
                         case SQL.UPDATE:
                         {
                             return CreateUpdateStatement( updates, where );
                         }
-
                         case SQL.DELETE:
                         {
                             return CreateDeleteStatement( where );
