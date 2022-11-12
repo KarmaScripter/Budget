@@ -39,7 +39,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( TValue );
                 }
             }
             else
@@ -124,7 +124,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( SortedDictionary<TKey, TValue> );
             }
         }
 
@@ -147,13 +147,13 @@ namespace BudgetExecution
 
                 return _bindingList?.Any( ) == true
                     ? _bindingList
-                    : default;
+                    : default( BindingList<KeyValuePair<string, object>> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( BindingList<KeyValuePair<string, object>> );
             }
         }
 
@@ -173,7 +173,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( SortedList<TKey, TValue> );
             }
         }
 
@@ -212,7 +212,7 @@ namespace BudgetExecution
 
                             return _sqlite.Any( )
                                 ? _sqlite.ToArray( )
-                                : default;
+                                : default( SQLiteParameter[ ] );
                         }
 
                         case Provider.SqlCe:
@@ -232,7 +232,7 @@ namespace BudgetExecution
 
                             return _sqlce.Any( )
                                 ? _sqlce.ToArray( )
-                                : default;
+                                : default( SqlCeParameter[ ] );
                         }
 
                         case Provider.OleDb:
@@ -254,7 +254,7 @@ namespace BudgetExecution
 
                             return _oledb.Any( )
                                 ? _oledb.ToArray( )
-                                : default;
+                                : default( OleDbParameter[ ] );
                         }
 
                         case Provider.SqlServer:
@@ -274,7 +274,7 @@ namespace BudgetExecution
 
                             return _sqlserver?.Any( ) == true
                                 ? _sqlserver.ToArray( )
-                                : default;
+                                : default( SqlParameter[ ] );
                         }
                     }
                 }
@@ -282,13 +282,13 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<DbParameter> );
                 }
 
-                return default;
+                return default( IEnumerable<DbParameter> );
             }
 
-            return default;
+            return default( IEnumerable<DbParameter> );
         }
 
         /// <summary> Determines whether [has a primary key]. </summary>
@@ -325,7 +325,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( bool );
                 }
             }
 
@@ -359,11 +359,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( KeyValuePair<string, object> );
                 }
             }
 
-            return default;
+            return default( KeyValuePair<string, object> );
         }
 
         /// <summary>Fails the specified ex.</summary>

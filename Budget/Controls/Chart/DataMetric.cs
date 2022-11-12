@@ -154,7 +154,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary>
@@ -194,7 +194,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( IDictionary<string, double> );
             }
         }
     }

@@ -359,11 +359,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IDictionary<string, TabPageAdv> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, TabPageAdv> );
         }
 
         /// <summary>
@@ -396,7 +396,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( IEnumerable<Frame> );
             }
         }
     }

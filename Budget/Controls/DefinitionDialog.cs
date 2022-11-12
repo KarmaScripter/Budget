@@ -303,11 +303,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, TabPageAdv> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, TabPageAdv> );
         }
     }
 }

@@ -168,12 +168,12 @@ namespace BudgetExecution
 
                 return _holiday.Any( )
                     ? _holiday
-                    : default;
+                    : default( Dictionary<string, DateTime> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, DateTime> );
             }
         }
 
@@ -198,12 +198,12 @@ namespace BudgetExecution
 
                 return _holiday.Any( )
                     ? _holiday
-                    : default;
+                    : default( Dictionary<string, DateTime> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, DateTime> );
             }
         }
 
@@ -218,12 +218,12 @@ namespace BudgetExecution
             {
                 return Args.Count > 0
                     ? Args
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 

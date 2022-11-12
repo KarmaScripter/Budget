@@ -138,7 +138,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( Size );
             }
         }
 
@@ -165,7 +165,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( Size );
         }
 
         /// <summary>

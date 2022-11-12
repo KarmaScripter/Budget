@@ -206,7 +206,7 @@ namespace BudgetExecution
                     : default( IEnumerable<Image> );
             }
 
-            return default;
+            return default( IEnumerable<Image> );
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace BudgetExecution
                     : default( IEnumerable<Image> );
             }
 
-            return default;
+            return default( IEnumerable<Image> );
         }
     }
 }

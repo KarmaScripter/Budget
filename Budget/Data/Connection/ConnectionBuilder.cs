@@ -114,11 +114,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbConnection );
                 }
             }
 
-            return default;
+            return default( DbConnection );
         }
     }
 }

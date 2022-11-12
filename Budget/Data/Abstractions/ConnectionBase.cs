@@ -203,7 +203,7 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( filePath ) && File.Exists( filePath )
                     ? Path.GetFullPath( filePath )
-                    : default;
+                    : default( string );
             }
             catch( Exception ex )
             {

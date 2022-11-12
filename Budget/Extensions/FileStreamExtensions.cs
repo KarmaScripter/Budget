@@ -82,11 +82,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( StreamReader );
                 }
             }
 
-            return default;
+            return default( StreamReader );
         }
 
         /// <summary>
@@ -115,11 +115,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( StreamReader );
                 }
             }
 
-            return default;
+            return default( StreamReader );
         }
 
         /// <summary>
@@ -143,11 +143,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( StreamWriter );
                 }
             }
 
-            return default;
+            return default( StreamWriter );
         }
 
         /// <summary>
@@ -176,11 +176,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( StreamWriter );
                 }
             }
 
-            return default;
+            return default( StreamWriter );
         }
 
         /// <summary>
@@ -223,11 +223,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( string );
                 }
             }
 
-            return default;
+            return default( string );
         }
 
         /// <summary>
@@ -253,11 +253,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( Stream );
                 }
             }
 
-            return default;
+            return default( Stream );
         }
 
         /// <summary>
@@ -283,11 +283,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( Stream );
                 }
             }
 
-            return default;
+            return default( Stream );
         }
 
         /// <summary>
@@ -359,11 +359,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( MemoryStream );
                 }
             }
 
-            return default;
+            return default( MemoryStream );
         }
 
         /// <summary>
@@ -389,11 +389,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<byte> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<byte> );
         }
 
         /// <summary>
@@ -436,11 +436,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<byte> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<byte> );
         }
 
         /// <summary>

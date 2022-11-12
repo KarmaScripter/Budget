@@ -126,10 +126,10 @@ namespace BudgetExecution
 
                 return _buttons?.Count > 0
                     ? _buttons
-                    : default;
+                    : default( SortedList<string, ToolStripButton> );
             }
 
-            return default;
+            return default( IDictionary<string, ToolStripButton> );
         }
 
         /// <summary>

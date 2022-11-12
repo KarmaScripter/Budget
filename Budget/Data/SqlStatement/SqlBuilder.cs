@@ -170,7 +170,7 @@ namespace BudgetExecution
                     : default( IDictionary<string, string> );
             }
 
-            return default;
+            return default( IDictionary<string, string> );
         }
 
         /// <summary>

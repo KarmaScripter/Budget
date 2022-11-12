@@ -121,7 +121,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( bool );
             }
         }
 
@@ -145,16 +145,16 @@ namespace BudgetExecution
                     var bfy = new Dictionary<string, object> { [ $"{Field.BBFY}" ] = year };
                     return bfy.Any( )
                         ? bfy
-                        : default;
+                        : default( Dictionary<string, object> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, object> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, object> );
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace BudgetExecution
                             _year?.Add( $"{Field.EBFY}", ( CurrentYear + 1 ).ToString( ) );
                             return _year.Any( )
                                 ? _year
-                                : default;
+                                : default( Dictionary<string, object> );
                         }
                         case BFY.CarryOver:
                         {
@@ -189,18 +189,18 @@ namespace BudgetExecution
                             _year?.Add( $"{Field.EBFY}", CurrentYear.ToString( ) );
                             return _year?.Any( ) == true
                                 ? _year
-                                : default;
+                                : default( Dictionary<string, object> );
                         }
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, object> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, object> );
         }
 
         /// <summary>
@@ -214,12 +214,12 @@ namespace BudgetExecution
             {
                 return Record != null
                     ? Record.ToDictionary( )
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
     }

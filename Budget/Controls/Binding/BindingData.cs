@@ -363,13 +363,13 @@ namespace BudgetExecution
 
                 return _rows?.Any( ) == true
                     ? _rows
-                    : default;
+                    : default( EnumerableRowCollection<DataRow> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( IEnumerable<DataRow> );
             }
         }
 
@@ -383,13 +383,13 @@ namespace BudgetExecution
             {
                 return Record?.ItemArray?.Length > 0
                     ? Record
-                    : default;
+                    : default( DataRow );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( DataRow );
             }
         }
     }

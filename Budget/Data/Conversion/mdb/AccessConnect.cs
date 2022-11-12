@@ -82,7 +82,7 @@ namespace BudgetExecution
 
                 return _table.Rows.Count > 0
                     ? _table
-                    : default;
+                    : default( DataTable );
             }
             catch( Exception ex )
             {
@@ -118,7 +118,7 @@ namespace BudgetExecution
 
             return _names?.Any( ) == true
                 ? _names
-                : default;
+                : default( List<string> );
         }
     }
 }

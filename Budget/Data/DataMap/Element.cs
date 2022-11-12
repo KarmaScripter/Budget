@@ -266,7 +266,7 @@ namespace BudgetExecution
 
                     Field = !Enum.IsDefined( typeof( Field ), _input )
                         ? (Field)Enum.Parse( typeof( Field ), fieldName )
-                        : default;
+                        : default( Field );
                 }
                 catch( Exception ex )
                 {
@@ -314,7 +314,7 @@ namespace BudgetExecution
             {
                 Field = Enum.IsDefined( typeof( Field ), field )
                     ? field
-                    : default;
+                    : default( Field );
             }
             catch( Exception ex )
             {
@@ -339,7 +339,7 @@ namespace BudgetExecution
 
                     Field = _names?.Contains( field.ToString( ) ) == true
                         ? field
-                        : default;
+                        : default( Field );
                 }
                 catch( Exception ex )
                 {

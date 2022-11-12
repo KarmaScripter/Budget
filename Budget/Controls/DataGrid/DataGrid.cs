@@ -242,11 +242,11 @@ namespace BudgetExecution
                     {
                         Fail( ex );
 
-                        return default;
+                        return default( string );
                     }
                 }
 
-                return default;
+                return default( string );
             }
         }
 
@@ -261,13 +261,13 @@ namespace BudgetExecution
                 using var _message = new Message( "Not Yet Implemented." );
                 _message?.ShowDialog( );
 
-                return default;
+                return default( DataRow );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( DataRow );
             }
         }
 

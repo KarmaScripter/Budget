@@ -216,11 +216,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<string> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<string> );
         }
 
         /// <summary>
@@ -240,7 +240,7 @@ namespace BudgetExecution
 
                     return _select?.Any( ) == true
                         ? _select.Count( )
-                        : default;
+                        : default( int );
                 }
                 catch( Exception ex )
                 {
@@ -278,7 +278,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary>

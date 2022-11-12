@@ -36,7 +36,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DataRow );
             }
         }
 
@@ -83,7 +83,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DataTable );
             }
         }
 
@@ -116,7 +116,7 @@ namespace BudgetExecution
 
                             return _table?.Columns?.Count > 0
                                 ? _table
-                                : default;
+                                : default( DataTable );
                         }
                     }
                 }
@@ -124,11 +124,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -159,18 +159,18 @@ namespace BudgetExecution
 
                         return _table?.Columns?.Count > 0
                             ? _table
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -210,17 +210,17 @@ namespace BudgetExecution
 
                     return _table.Columns.Count > 0
                         ? _table
-                        : default;
+                        : default( DataTable );
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( DataTable );
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -265,17 +265,17 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list.ToArray( )
-                        : default;
+                        : default( string[ ] );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( string[ ] );
                 }
             }
 
-            return default;
+            return default( string[ ] );
         }
 
         /// <summary>

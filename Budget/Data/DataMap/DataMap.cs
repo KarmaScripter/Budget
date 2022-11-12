@@ -68,13 +68,13 @@ namespace BudgetExecution
             {
                 return Input?.Any( ) == true
                     ? Input
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -88,13 +88,13 @@ namespace BudgetExecution
             {
                 return Output?.Any( ) == true
                     ? Output
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -118,11 +118,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IKey );
                 }
             }
 
-            return default;
+            return default( IKey );
         }
 
         /// <summary>
@@ -149,17 +149,17 @@ namespace BudgetExecution
 
                     return _output?.Any( ) == true
                         ? _output
-                        : default;
+                        : default( List<IElement> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<IElement> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<IElement> );
         }
 
         /// <summary>
@@ -209,7 +209,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( bool );
                 }
             }
 

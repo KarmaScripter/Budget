@@ -37,12 +37,12 @@ namespace BudgetExecution
                 var  _data = _dataTable?.AsEnumerable( );
                 return ( _data?.Any( ) == true )
                     ? _data
-                    : default;
+                    : default( EnumerableRowCollection<DataRow> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<DataRow> );
             }
         }
 
@@ -69,11 +69,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -94,16 +94,16 @@ namespace BudgetExecution
                     SetColumnCaptions( DataTable );
                     return ( DataTable?.Rows?.Count > 0 )
                         ? DataSet
-                        : default;
+                        : default( DataSet );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataSet );
                 }
             }
 
-            return default;
+            return default( DataSet );
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace BudgetExecution
                     SetColumnCaptions( DataTable );
                     return DataTable?.Columns?.Count > 0
                         ? DataTable.Columns
-                        : default;
+                        : default( DataColumnCollection );
                 }
                 catch( Exception ex )
                 {
@@ -190,7 +190,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( IEnumerable<int> );
         }
     }
 }

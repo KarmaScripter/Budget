@@ -49,11 +49,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<int> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<int> );
         }
 
         /// <summary> Gets the fields. </summary>
@@ -81,17 +81,17 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        return default;
+                        return default( IDictionary<string, Type> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, Type> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, Type> );
         }
 
         /// <summary> Gets the elements. </summary>
@@ -123,17 +123,17 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        return default;
+                        return default( IEnumerable<IElement> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<IElement> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<IElement> );
         }
 
         /// <summary> Filters the data. </summary>
@@ -158,11 +158,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary> Gets the columns. </summary>
@@ -189,17 +189,17 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        return default;
+                        return default( IEnumerable<DataColumn> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataColumn> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataColumn> );
         }
 
         /// <summary> Gets the columns. </summary>
@@ -229,17 +229,17 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        return default;
+                        return default( IEnumerable<DataColumn> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataColumn> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataColumn> );
         }
     }
 }

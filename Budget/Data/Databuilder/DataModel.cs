@@ -213,17 +213,17 @@ namespace BudgetExecution
 
                     return _query?.Any( ) == true
                         ? _query
-                        : default;
+                        : default( IEnumerable<string?> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<string> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<string> );
         }
 
         /// <summary>
@@ -249,17 +249,17 @@ namespace BudgetExecution
 
                     return _query?.Any( ) == true
                         ? _query
-                        : default;
+                        : default( IEnumerable<string?> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<string> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<string> );
         }
 
         /// <summary>
@@ -278,17 +278,17 @@ namespace BudgetExecution
 
                     return _schema?.Rows?.Count > 0
                         ? _schema
-                        : default;
+                        : default( DataTable );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -336,11 +336,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -391,18 +391,18 @@ namespace BudgetExecution
 
                         return _table?.Rows?.Count > 0
                             ? _table
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -432,17 +432,17 @@ namespace BudgetExecution
 
                     return _dict?.Any( ) == true
                         ? _dict
-                        : default;
+                        : default( Dictionary<string, IEnumerable<string>> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IDictionary<string, IEnumerable<string>> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, IEnumerable<string>> );
         }
     }
 }

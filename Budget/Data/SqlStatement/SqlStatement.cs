@@ -153,11 +153,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( string );
                 }
             }
 
-            return default;
+            return default( string );
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -196,7 +196,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 

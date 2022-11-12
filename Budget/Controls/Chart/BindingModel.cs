@@ -239,13 +239,13 @@ namespace BudgetExecution
 
                 return _values?.Any( ) == true
                     ? _values.ToArray( )
-                    : default;
+                    : default( double[ ] );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( IEnumerable<double> );
             }
         }
 
@@ -263,7 +263,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( BindingModel );
             }
         }
     }

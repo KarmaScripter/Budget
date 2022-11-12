@@ -160,12 +160,12 @@ namespace BudgetExecution
             {
                 return Data?.Any( ) == true
                     ? Data
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -203,11 +203,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, object> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, object> );
         }
 
         /// <summary>
@@ -224,12 +224,12 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( FundCode ), fundCode )
                     ? new Dictionary<string, object> { [ "FundCode" ] = fundCode.ToString( ) }
-                    : default;
+                    : default( Dictionary<string, object> );
             }
             catch( SystemException ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -283,7 +283,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IFund );
             }
         }
 

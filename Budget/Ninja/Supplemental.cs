@@ -72,12 +72,12 @@ namespace BudgetExecution
             {
                 return Data?.Any( ) == true
                     ? new DataBuilder( Source, Data )
-                    : default;
+                    : default( DataBuilder );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDataModel );
             }
         }
 

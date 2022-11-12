@@ -67,7 +67,7 @@ namespace BudgetExecution
             {
                 Fail( _ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -92,13 +92,13 @@ namespace BudgetExecution
 
                 return !string.IsNullOrEmpty( _command?.CommandText )
                     ? _command
-                    : default;
+                    : default( IDbCommand );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
 
-                return default;
+                return default( IDbCommand );
             }
         }
 
@@ -122,7 +122,7 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
 
-                    return default;
+                    return default( int );
                 }
             }
 
@@ -210,7 +210,7 @@ namespace BudgetExecution
             {
                 Fail( _e );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -239,7 +239,7 @@ namespace BudgetExecution
             {
                 Fail( _ex );
 
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 

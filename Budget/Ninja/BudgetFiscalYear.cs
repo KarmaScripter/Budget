@@ -209,12 +209,12 @@ namespace BudgetExecution
 
                 return _holidays?.Any( ) == true
                     ? _holidays
-                    : default;
+                    : default( Dictionary<Field, DateTime> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<Field, DateTime> );
             }
         }
 
@@ -230,12 +230,12 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( FirstYear?.Value?.ToString( ) )
                     ? FirstYear?.Value?.ToString( )
-                    : default;
+                    : default( string? );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -252,7 +252,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IBudgetFiscalYear );
             }
         }
 
@@ -271,7 +271,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Source );
             }
         }
     }

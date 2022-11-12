@@ -77,7 +77,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( bool );
                 }
             }
 
@@ -158,11 +158,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( Type );
             }
         }
 
@@ -271,7 +271,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 

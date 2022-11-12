@@ -271,16 +271,16 @@ namespace BudgetExecution
 
                     return Enum.IsDefined( typeof( EXT ), _extension )
                         ? _extension
-                        : default;
+                        : default( EXT );
                 }
 
-                return default;
+                return default( EXT );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( EXT );
             }
         }
 

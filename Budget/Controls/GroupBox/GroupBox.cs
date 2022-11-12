@@ -395,17 +395,17 @@ namespace BudgetExecution
 
                     return _children.Any( )
                         ? _children
-                        : default;
+                        : default( List<Control> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<Control> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<Control> );
         }
 
         /// <summary>

@@ -39,7 +39,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -65,7 +65,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -113,7 +113,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -141,7 +141,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -167,14 +167,14 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    return default;
+                    return default( string );
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 
@@ -197,17 +197,17 @@ namespace BudgetExecution
 
                     return _date
                         ? _dateTime
-                        : default;
+                        : default( DateTime );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DateTime );
                 }
             }
 
-            return default;
+            return default( DateTime );
         }
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( MemoryStream );
             }
         }
 
@@ -250,7 +250,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( FileInfo );
             }
         }
 
@@ -269,7 +269,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DirectoryInfo );
             }
         }
 
@@ -291,7 +291,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( XmlDocument );
             }
         }
 
@@ -312,7 +312,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( byte[ ] );
             }
         }
 
@@ -360,13 +360,13 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( text )
                     ? new StreamReader( text )
-                    : default;
+                    : default( StreamReader );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( StreamReader );
             }
         }
 

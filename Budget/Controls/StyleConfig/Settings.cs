@@ -67,16 +67,16 @@ namespace BudgetExecution
                 {
                     return !string.IsNullOrEmpty( tag.ToString( ) )
                         ? tag
-                        : default;
+                        : default( object );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( object );
                 }
             }
 
-            return default;
+            return default( object );
         }
 
         /// <summary>
@@ -270,11 +270,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( Point );
                 }
             }
 
-            return default;
+            return default( Point );
         }
 
         /// <summary>
@@ -298,7 +298,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Font );
             }
         }
 
@@ -318,7 +318,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( Font );
             }
         }
 
@@ -362,11 +362,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( MetroTip );
                 }
             }
 
-            return default;
+            return default( MetroTip );
         }
 
         /// <summary>
@@ -389,7 +389,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( StringAlignment );
             }
         }
 
@@ -413,7 +413,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( HorizontalAlignment );
             }
         }
 

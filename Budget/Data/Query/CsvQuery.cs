@@ -235,11 +235,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -293,11 +293,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -412,11 +412,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( ExcelPackage );
                 }
             }
 
-            return default;
+            return default( ExcelPackage );
         }
 
         /// <summary>
@@ -449,7 +449,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 

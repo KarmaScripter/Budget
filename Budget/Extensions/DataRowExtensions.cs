@@ -129,18 +129,18 @@ namespace BudgetExecution
                             }
                         }
 
-                        return default;
+                        return default( IEnumerable<DbParameter> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<DbParameter> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DbParameter> );
         }
 
         /// <summary>
@@ -170,16 +170,16 @@ namespace BudgetExecution
 
                     return _dictionary?.Keys?.Count > 0
                         ? _dictionary
-                        : default;
+                        : default( Dictionary<string, object> );
                 }
 
-                return default;
+                return default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -199,7 +199,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( IEnumerable<byte> );
             }
         }
 
@@ -228,12 +228,12 @@ namespace BudgetExecution
                     {
                         Fail( ex );
 
-                        return default;
+                        return default( string );
                     }
                 }
             }
 
-            return default;
+            return default( string );
         }
 
         /// <summary>
@@ -294,12 +294,12 @@ namespace BudgetExecution
                     {
                         Fail( ex );
 
-                        return default;
+                        return default( DateTime );
                     }
                 }
             }
 
-            return default;
+            return default( DateTime );
         }
 
         /// <summary>
@@ -336,7 +336,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( bool );
                 }
             }
 
@@ -414,7 +414,7 @@ namespace BudgetExecution
 
                         if( !_names.Contains( _name ) )
                         {
-                            return default;
+                            return default( IDictionary<string, object> );
                         }
                     }
                 }
@@ -422,11 +422,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IDictionary<string, object> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, object> );
         }
 
         /// <summary>Fails the specified ex.</summary>

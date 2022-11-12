@@ -43,7 +43,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolSeparator );
             }
         }
 
@@ -69,7 +69,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -95,7 +95,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -121,7 +121,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -147,7 +147,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -173,7 +173,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -199,7 +199,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -225,7 +225,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -251,7 +251,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -277,7 +277,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -303,7 +303,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -329,7 +329,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -355,7 +355,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -381,7 +381,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -402,7 +402,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripLabel );
             }
         }
 
@@ -423,7 +423,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripComboBoxEx );
             }
         }
 
@@ -444,7 +444,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripProgressBar );
             }
         }
 
@@ -465,7 +465,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ToolStripTextBox );
             }
         }
 

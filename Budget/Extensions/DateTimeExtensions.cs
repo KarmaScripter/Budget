@@ -52,7 +52,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -76,7 +76,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -100,7 +100,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -124,7 +124,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -148,7 +148,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -172,7 +172,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -196,7 +196,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -220,7 +220,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( DateTime );
             }
         }
 
@@ -400,7 +400,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( TimeSpan );
             }
         }
 

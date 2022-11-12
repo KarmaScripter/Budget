@@ -128,7 +128,7 @@ namespace BudgetExecution
             {
                 Field = Enum.IsDefined( typeof( Field ), field )
                     ? field
-                    : default;
+                    : default( Field );
             }
             catch( Exception ex )
             {

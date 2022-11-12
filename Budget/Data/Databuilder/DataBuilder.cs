@@ -162,11 +162,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary> Filters the dataRows. </summary>
@@ -188,16 +188,16 @@ namespace BudgetExecution
 
                     return _query?.Any( ) == true
                         ? _query.ToArray( )
-                        : default;
+                        : default( DataRow[ ] );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary> Gets the series. </summary>
@@ -234,19 +234,19 @@ namespace BudgetExecution
 
                         return _dictionary?.Any( ) == true
                             ? _dictionary
-                            : default;
+                            : default( Dictionary<string, IEnumerable<string>> );
                     }
 
-                    return default;
+                    return default( IDictionary<string, IEnumerable<string>> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, IEnumerable<string>> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, IEnumerable<string>> );
         }
     }
 }

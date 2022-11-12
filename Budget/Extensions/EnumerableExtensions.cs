@@ -52,7 +52,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( bool );
                 }
             }
 
@@ -95,7 +95,7 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( bool );
                 }
             }
 
@@ -126,17 +126,17 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list.ToArray( )
-                        : default;
+                        : default( int[ ] );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<int> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<int> );
         }
 
         /// <summary>
@@ -159,17 +159,17 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( BindingList<DataRow> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( BindingList<DataRow> );
                 }
             }
 
-            return default;
+            return default( BindingList<DataRow> );
         }
 
         /// <summary>
@@ -199,18 +199,18 @@ namespace BudgetExecution
 
                         return _select?.Any( ) == true
                             ? _select
-                            : default;
+                            : default( IEnumerable<DataRow> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -238,11 +238,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -273,18 +273,18 @@ namespace BudgetExecution
 
                         return _enumerable?.Any( ) == true
                             ? _enumerable.ToArray( )
-                            : default;
+                            : default( DataRow[ ] );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -314,18 +314,18 @@ namespace BudgetExecution
 
                         return _enumerable?.Any( ) == true
                             ? _enumerable.ToArray( )
-                            : default;
+                            : default( DataRow[ ] );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -366,7 +366,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( ExcelPackage );
             }
         }
 

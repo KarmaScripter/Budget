@@ -85,7 +85,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SQLiteCommand( _sql )
-                                    : default;
+                                    : default( SQLiteCommand );
                             }
 
                             case Provider.SqlCe:
@@ -93,7 +93,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCeCommand( _sql )
-                                    : default;
+                                    : default( SqlCeCommand );
                             }
 
                             case Provider.SqlServer:
@@ -101,7 +101,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCommand( _sql )
-                                    : default;
+                                    : default( SqlCommand );
                             }
 
                             case Provider.Excel:
@@ -112,7 +112,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new OleDbCommand( _sql )
-                                    : default;
+                                    : default( OleDbCommand );
                             }
                         }
                     }
@@ -121,11 +121,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace BudgetExecution
                         {
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SQLiteCommand( _sql )
-                                : default;
+                                : default( SQLiteCommand );
                         }
 
                         case Provider.SqlServer:
@@ -161,7 +161,7 @@ namespace BudgetExecution
                         {
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCommand( _sql )
-                                : default;
+                                : default( SqlCommand );
                         }
 
                         case Provider.Excel:
@@ -172,7 +172,7 @@ namespace BudgetExecution
                         {
                             return !string.IsNullOrEmpty( _sql )
                                 ? new OleDbCommand( _sql )
-                                : default;
+                                : default( OleDbCommand );
                         }
                     }
                 }
@@ -180,11 +180,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SQLiteCommand( _sql )
-                                    : default;
+                                    : default( SQLiteCommand );
                             }
 
                             case Provider.SqlCe:
@@ -219,7 +219,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCeCommand( _sql )
-                                    : default;
+                                    : default( SqlCeCommand );
                             }
 
                             case Provider.SqlServer:
@@ -227,7 +227,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCommand( _sql )
-                                    : default;
+                                    : default( SqlCommand );
                             }
 
                             case Provider.Excel:
@@ -238,7 +238,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new OleDbCommand( _sql )
-                                    : default;
+                                    : default( OleDbCommand );
                             }
                         }
                     }
@@ -247,11 +247,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -281,7 +281,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SQLiteCommand( _sql )
-                                    : default;
+                                    : default( SQLiteCommand );
                             }
 
                             case Provider.SqlCe:
@@ -289,7 +289,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCeCommand( _sql )
-                                    : default;
+                                    : default( SqlCeCommand );
                             }
 
                             case Provider.SqlServer:
@@ -297,7 +297,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCommand( _sql )
-                                    : default;
+                                    : default( SqlCommand );
                             }
 
                             case Provider.Excel:
@@ -308,7 +308,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new OleDbCommand( _sql )
-                                    : default;
+                                    : default( OleDbCommand );
                             }
                         }
                     }
@@ -317,11 +317,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -350,7 +350,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SQLiteCommand( _sql )
-                                    : default;
+                                    : default( SQLiteCommand );
                             }
 
                             case Provider.SqlCe:
@@ -358,7 +358,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCeCommand( _sql )
-                                    : default;
+                                    : default( SqlCeCommand );
                             }
 
                             case Provider.SqlServer:
@@ -366,7 +366,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new SqlCommand( _sql )
-                                    : default;
+                                    : default( SqlCommand );
                             }
 
                             case Provider.Excel:
@@ -377,7 +377,7 @@ namespace BudgetExecution
                             {
                                 return !string.IsNullOrEmpty( _sql )
                                     ? new OleDbCommand( _sql )
-                                    : default;
+                                    : default( OleDbCommand );
                             }
                         }
                     }
@@ -386,11 +386,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -446,11 +446,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>

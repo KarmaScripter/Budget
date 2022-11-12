@@ -63,17 +63,17 @@ namespace BudgetExecution
 
                     return _enumerable?.Any( ) == true
                         ? _enumerable
-                        : default;
+                        : default( IEnumerable<object> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<object> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<object> );
         }
 
         /// <summary>
@@ -104,17 +104,17 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( List<string> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( IEnumerable<string> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<string> );
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace BudgetExecution
 
                     Input = _dict?.Any( ) == true && _dict != Output
                         ? _dict
-                        : default;
+                        : default( Dictionary<string, object> );
                 }
                 catch( Exception ex )
                 {
@@ -182,7 +182,7 @@ namespace BudgetExecution
 
                         Output = _dictionary?.Any( ) == true
                             ? _dictionary
-                            : default;
+                            : default( Dictionary<string, object> );
                     }
                 }
                 catch( Exception ex )

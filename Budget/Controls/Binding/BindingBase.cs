@@ -80,13 +80,13 @@ namespace BudgetExecution
             {
                 return DataFilter?.Any( ) == true
                     ? DataFilter
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
@@ -107,7 +107,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataTable );
             }
         }
 
@@ -124,12 +124,12 @@ namespace BudgetExecution
 
                 return _dataRows?.Any( ) == true
                     ? _dataRows
-                    : default;
+                    : default( EnumerableRowCollection<DataRow> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<DataRow> );
             }
         }
 
@@ -144,12 +144,12 @@ namespace BudgetExecution
             {
                 return Record?.ItemArray?.Length > 0
                     ? Record
-                    : default;
+                    : default( DataRow );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataRow );
             }
         }
 
@@ -169,7 +169,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( int );
             }
         }
 

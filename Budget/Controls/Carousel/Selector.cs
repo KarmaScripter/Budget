@@ -55,10 +55,10 @@ namespace BudgetExecution
 
                 return _list?.Images?.Count > 0
                     ? _list
-                    : default;
+                    : default( ImageList );
             }
 
-            return default;
+            return default( ImageList );
         }
 
         /// <summary>
@@ -91,10 +91,10 @@ namespace BudgetExecution
 
                 return _list?.Images?.Count > 0
                     ? _list
-                    : default;
+                    : default( ImageList );
             }
 
-            return default;
+            return default( ImageList );
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace BudgetExecution
                     : default( IEnumerable<CarouselImage> );
             }
 
-            return default;
+            return default( IEnumerable<CarouselImage> );
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace BudgetExecution
                     : default( IEnumerable<CarouselImage> );
             }
 
-            return default;
+            return default( IEnumerable<CarouselImage> );
         }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace BudgetExecution
                     : default( IEnumerable<CarouselImage> );
             }
 
-            return default;
+            return default( IEnumerable<CarouselImage> );
         }
     }
 }

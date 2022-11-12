@@ -308,11 +308,11 @@ namespace BudgetExecution
 
                     Fail( ex );
 
-                    return default;
+                    return default( DbDataReader );
                 }
             }
 
-            return default;
+            return default( DbDataReader );
         }
 
         /// <summary>

@@ -167,18 +167,18 @@ namespace BudgetExecution
 
                         return _dataTable.Columns.Count > 0
                             ? _dataTable
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -216,18 +216,18 @@ namespace BudgetExecution
 
                         return _dataTable.Columns.Count > 0
                             ? _dataTable
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( string );
             }
         }
 

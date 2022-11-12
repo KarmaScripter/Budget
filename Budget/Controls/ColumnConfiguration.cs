@@ -154,11 +154,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( ToolStripControlHost );
                 }
             }
 
-            return default;
+            return default( ToolStripControlHost );
         }
 
         /// <summary>

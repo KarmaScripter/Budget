@@ -372,11 +372,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbDataAdapter );
                 }
             }
 
-            return default;
+            return default( DbDataAdapter );
         }
 
         /// <summary>

@@ -101,7 +101,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( Numeric );
             }
         }
 

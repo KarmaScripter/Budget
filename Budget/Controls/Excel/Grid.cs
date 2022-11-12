@@ -196,13 +196,13 @@ namespace BudgetExecution
             {
                 return Address.Columns > 0
                     ? Address
-                    : default;
+                    : default( ExcelAddress );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( ExcelAddress );
             }
         }
 
@@ -217,13 +217,13 @@ namespace BudgetExecution
             {
                 return Range.Columns > 0
                     ? Range
-                    : default;
+                    : default( ExcelRange );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( ExcelRange );
             }
         }
 
@@ -238,13 +238,13 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( Worksheet.Name )
                     ? Worksheet
-                    : default;
+                    : default( ExcelWorksheet );
             }
             catch( Exception ex )
             {
                 Fail( ex );
 
-                return default;
+                return default( ExcelWorksheet );
             }
         }
 
@@ -287,7 +287,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( int );
             }
         }
 
@@ -308,7 +308,7 @@ namespace BudgetExecution
             {
                 Fail( ex );
 
-                return default;
+                return default( int );
             }
         }
 

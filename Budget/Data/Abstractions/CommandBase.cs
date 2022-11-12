@@ -187,7 +187,7 @@ namespace BudgetExecution
                         default:
 
                         {
-                            return default;
+                            return default( DbCommand );
                         }
                     }
                 }
@@ -195,11 +195,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace BudgetExecution
 
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SQLiteCommand( _sql, _connection )
-                                : default;
+                                : default( SQLiteCommand );
                         }
 
                         case SQL.INSERT:
@@ -267,11 +267,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -349,11 +349,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -422,11 +422,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
@@ -492,11 +492,11 @@ namespace BudgetExecution
                 {
                     Fail( ex );
 
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
         /// <summary>
