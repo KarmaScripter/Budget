@@ -1,0 +1,288 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>BudgetExecution</RootNamespace>
+        <ApplicationIcon>Resources\Images\Ninja\ico\BudExNinjaGrey.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="C1.Win.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04">
+        <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
+      </Reference>
+      <Reference Include="C1.Win.C1FlexGrid.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=79882d576c6336da">
+        <HintPath>Libraries\C1.Win.C1FlexGrid.4.8.dll</HintPath>
+      </Reference>
+      <Reference Include="CharmNotification, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\CharmNotification.dll</HintPath>
+      </Reference>
+      <Reference Include="DataGridMetro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\DataGridMetro.dll</HintPath>
+      </Reference>
+      <Reference Include="DataGridViewExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\DataGridViewExtension.dll</HintPath>
+      </Reference>
+      <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17">
+        <HintPath>Libraries\DocumentFormat.OpenXml.dll</HintPath>
+      </Reference>
+      <Reference Include="EPPlus, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
+        <HintPath>Libraries\EPPlus.dll</HintPath>
+      </Reference>
+      <Reference Include="Expander, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\Expander.dll</HintPath>
+      </Reference>
+      <Reference Include="LinqStatistics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\LinqStatistics.dll</HintPath>
+      </Reference>
+      <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+        <HintPath>Libraries\log4net.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>Libraries\MetroFramework.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>Libraries\MetroFramework.Design.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a">
+        <HintPath>Libraries\MetroFramework.Fonts.dll</HintPath>
+      </Reference>
+      <Reference Include="MetroSet UI, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\MetroSet UI.dll</HintPath>
+      </Reference>
+      <Reference Include="SQLite.Designer, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>Libraries\SQLite.Designer.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Calculate.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Calculate.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Calculate.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Calculate.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Chart.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Chart.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Chart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Chart.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Compression.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Compression.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Data.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Data.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.DataSource.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.DataSource.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Edit.Windows, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Edit.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Grid.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Grid.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Grid.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Grid.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Licensing, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=632609b4d040f6b4">
+        <HintPath>Libraries\Syncfusion.Licensing.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Pdf.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Pdf.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Pdf.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Pdf.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.PdfViewer.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotAnalysis.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotChart.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.PivotChart.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.PivotConverter.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.PivotConverter.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.SfInput.WinForms, Version=17.4460.0.39, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.SfInput.WinForms.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Shared.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Shared.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Shared.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Shared.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Spreadsheet.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Tools.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Tools.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.Tools.Windows, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.Tools.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+        <HintPath>Libraries\Syncfusion.XlsIO.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Collections.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.ComponentModel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.ComponentModel.Annotations.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Console, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Console.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Data.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.DataSetExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.Entity.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Entity.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.Entity.Design.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Data.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+        <HintPath>Libraries\System.Data.OleDb.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Data.SqlClient.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>Libraries\System.Data.SQLite.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>Libraries\System.Data.SQLite.EF6.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
+        <HintPath>Libraries\System.Data.SQLite.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+        <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Drawing.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.IO.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.IO.Compression.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.IO.Compression.FileSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="System.IO.Compression.ZipFile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.IO.Compression.ZipFile.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Expressions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Linq.Expressions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Parallel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Linq.Parallel.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Linq.Queryable, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Linq.Queryable.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Net.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Net.Http.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Net.Sockets, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Net.Sockets.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Reflection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Reflection.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Remoting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Runtime.Serialization.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Runtime.Serialization.Formatters.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Json, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Runtime.Serialization.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Serialization.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Runtime.Serialization.Xml.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encoding, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Text.Encoding.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Threading.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Tasks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Threading.Tasks.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Threading.Timer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Threading.Timer.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+        <HintPath>Libraries\System.ValueTuple.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>Libraries\System.Windows.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>Libraries\System.Windows.Forms.dll</HintPath>
+      </Reference>
+      <Reference Include="VisualPlus, Version=0.4.1.7, Culture=neutral, PublicKeyToken=null">
+        <HintPath>Libraries\VisualPlus.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\DataWorker" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Budget.sln.DotSettings.user" />
+    </ItemGroup>
+
+</Project>
