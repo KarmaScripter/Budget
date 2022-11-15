@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The bbfy.
         /// </value>
-        IElement FirstYear { get; set; }
+        string FirstYear { get; set; }
 
         /// <summary>
         /// Gets or sets the ebfy.
@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The ebfy.
         /// </value>
-        IElement LastYear { get; set; }
+        string LastYear { get; set; }
 
         /// <summary>
         /// Gets or sets the expiring year.
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The expiring year.
         /// </value>
-        IElement ExpiringYear { get; set; }
+        string ExpiringYear { get; set; }
 
         /// <summary>
         /// Gets or sets the input year.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The input year.
         /// </value>
-        IElement InputYear { get; set; }
+        string InputYear { get; set; }
 
         /// <summary>
         /// Gets or sets the start date.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The start date.
         /// </value>
-        IElement StartDate { get; set; }
+        string StartDate { get; set; }
 
         /// <summary>
         /// Gets or sets the end date.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The end date.
         /// </value>
-        IElement EndDate { get; set; }
+        string EndDate { get; set; }
 
         /// <summary>
         /// Gets or sets the cancellation date.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The cancellation date.
         /// </value>
-        IElement CancellationDate { get; set; }
+        string CancellationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the availability.
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <value>
         /// The availability.
         /// </value>
-        IElement Availability { get; set; }
+        string Availability { get; set; }
 
         /// <summary>
         /// Gets or sets the arguments.
