@@ -71,7 +71,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             ID = new Key( Record, PrimaryKey.AllocationsId );
-            Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
+            Amount = double.Parse( dataRow[ $"{ Numeric.Amount }" ].ToString( ) );
         }
 
         /// <summary>

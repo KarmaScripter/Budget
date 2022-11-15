@@ -97,9 +97,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.FinanceObjectClassesId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
-            Data = Record?.ToDictionary( );
+            Name = dataRow[ $"{ Field.Name }" ].ToString( );
+            Code = dataRow[ $"{ Field.Code }" ].ToString( );
+            Data = dataRow?.ToDictionary( );
         }
 
         /// <summary>
