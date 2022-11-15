@@ -39,13 +39,13 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            Title = new Element( Record, Field.Title );
-            Definition = new Element( Record, Field.Definition );
-            Laws = new Element( Record, Field.Laws );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
-            ProgramAreaName = new Element( Record, Field.ProgramAreaName );
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Title = Record[ $"{ Field.Title }" ].ToString( );
+            Definition = Record[ $"{ Field.Definition }" ].ToString( );
+            Laws = Record[ $"{ Field.Laws }" ].ToString( );
+            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
+            ProgramAreaName = Record[ $"{ Field.ProgramAreaName }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -59,13 +59,13 @@ namespace BudgetExecution
         {
             Record = dataBuilder?.Record;
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            Title = new Element( Record, Field.Title );
-            Definition = new Element( Record, Field.Definition );
-            Laws = new Element( Record, Field.Laws );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
-            ProgramAreaName = new Element( Record, Field.ProgramAreaName );
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Title = Record[ $"{ Field.Title }" ].ToString( );
+            Definition = Record[ $"{ Field.Definition }" ].ToString( );
+            Laws = Record[ $"{ Field.Laws }" ].ToString( );
+            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
+            ProgramAreaName = Record[ $"{ Field.ProgramAreaName }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -79,14 +79,14 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            Title = new Element( Record, Field.Title );
-            Definition = new Element( Record, Field.Definition );
-            Laws = new Element( Record, Field.Laws );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
-            ProgramAreaName = new Element( Record, Field.ProgramAreaName );
-            Data = Record?.ToDictionary( );
+            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
+            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
+            Title = dataRow[ $"{ Field.Title }" ].ToString( );
+            Definition = dataRow[ $"{ Field.Definition }" ].ToString( );
+            Laws = dataRow[ $"{ Field.Laws }" ].ToString( );
+            ProgramAreaCode = dataRow[ $"{ Field.ProgramAreaCode }" ].ToString( );
+            ProgramAreaName = dataRow[ $"{ Field.ProgramAreaName }" ].ToString( );
+            Data = dataRow?.ToDictionary( );
         }
 
         /// <summary>
@@ -99,13 +99,13 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = new Key( Record, PrimaryKey.ProgramProjectsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            Title = new Element( Record, Field.Title );
-            Definition = new Element( Record, Field.Definition );
-            Laws = new Element( Record, Field.Laws );
-            ProgramAreaCode = new Element( Record, Field.ProgramAreaCode );
-            ProgramAreaName = new Element( Record, Field.ProgramAreaName );
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Title = Record[ $"{ Field.Title }" ].ToString( );
+            Definition = Record[ $"{ Field.Definition }" ].ToString( );
+            Laws = Record[ $"{ Field.Laws }" ].ToString( );
+            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
+            ProgramAreaName = Record[ $"{ Field.ProgramAreaName }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
