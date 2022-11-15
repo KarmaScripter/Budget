@@ -118,6 +118,6 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        IDictionary<Field, DateTime> GetFederalHolidays();
+        IDictionary<Holiday, DateOnly> GetFederalHolidays();
     }
 }

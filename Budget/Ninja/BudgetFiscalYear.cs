@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The federal holidays.
         /// </value>
-        public IDictionary<Holiday, DateTime> FederalHolidays { get; set; }
+        public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
@@ -172,41 +172,31 @@ namespace BudgetExecution
         /// Gets the federal holidays.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<Field, DateTime> GetFederalHolidays( )
+        public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
         {
             try
             {
-                var _holidays = new Dictionary<Field, DateTime>( );
+                var _holidays = new Dictionary<Holiday, DateOnly>( );
                 var _factory = new HolidayFactory( Record );
-                _holidays.Add( Field.NewYears,
-                    DateTime.Parse( _factory?.NewYearsDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.MartinLutherKing,
-                    DateTime.Parse( _factory?.MartinLutherKingDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Memorial,
-                    DateTime.Parse( _factory?.MemorialDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Presidents,
-                    DateTime.Parse( _factory?.PresidentsDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Veterans,
-                    DateTime.Parse( _factory?.VeteransDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Labor,
-                    DateTime.Parse( _factory?.LaborDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Independence,
-                    DateTime.Parse( _factory?.IndependenceDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Columbus,
-                    DateTime.Parse( _factory?.ColumbusDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Thanksgiving,
-                    DateTime.Parse( _factory?.ThanksgivingDay?.Value?.ToString( ) ) );
-                _holidays.Add( Field.Christmas,
-                    DateTime.Parse( _factory?.ChristmasDay?.Value?.ToString( ) ) );
+                _holidays.Add( Holiday.NewYears, _factory.ChristmasDay );
+                _holidays.Add( Holiday.MartinLutherKing, _factory.MartinLutherKingDay );
+                _holidays.Add( Holiday.Memorial, _factory.MemorialDay );
+                _holidays.Add( Holiday.Presidents, _factory.PresidentsDay );
+                _holidays.Add( Holiday.Veterans, _factory.VeteransDay );
+                _holidays.Add( Holiday.Labor, _factory.LaborDay );
+                _holidays.Add( Holiday.Independence, _factory.IndependenceDay );
+                _holidays.Add( Holiday.Columbus, _factory.ColumbusDay );
+                _holidays.Add( Holiday.Thanksgiving, _factory.ThanksgivingDay );
+                _holidays.Add( Holiday.Christmas, _factory.ChristmasDay );
 
-                return _holidays?.Any( ) == true
+                return _holidays.Any( ) == true
                     ? _holidays
-                    : default( Dictionary<Field, DateTime> );
+                    : default( IDictionary<Holiday, DateOnly> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<Field, DateTime> );
+                return default( IDictionary<Holiday, DateOnly> );
             }
         }
 
@@ -245,25 +235,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IBudgetFiscalYear );
-            }
-        }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns></returns>
-        public Source GetSource( )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( Source ), Source )
-                    ? Source
-                    : Source.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Source );
             }
         }
     }

@@ -62,8 +62,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -78,8 +78,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -95,8 +95,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -112,8 +112,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.Record;
             ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 

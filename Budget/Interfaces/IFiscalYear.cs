@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Data;
+    using Syncfusion.Windows.Shared;
 
     /// <summary>
     /// 
@@ -34,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The first year.
         /// </value>
-        IElement FirstYear { get; set; }
+        string FirstYear { get; set; }
 
         /// <summary>
         /// Gets or sets the last year.
@@ -42,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The last year.
         /// </value>
-        IElement LastYear { get; set; }
+        string LastYear { get; set; }
 
         /// <summary>
         /// Gets or sets the expiring year.
@@ -50,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The expiring year.
         /// </value>
-        IElement ExpiringYear { get; set; }
+        string ExpiringYear { get; set; }
 
         /// <summary>
         /// Gets or sets the input year.
@@ -58,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The input year.
         /// </value>
-        IElement InputYear { get; set; }
+        string InputYear { get; set; }
 
         /// <summary>
         /// Gets or sets the start date.
@@ -66,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The start date.
         /// </value>
-        IElement StartDate { get; set; }
+        DateOnly StartDate { get; set; }
 
         /// <summary>
         /// Gets or sets the end date.
@@ -74,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The end date.
         /// </value>
-        IElement EndDate { get; set; }
+        DateOnly EndDate { get; set; }
 
         /// <summary>
         /// Gets or sets the cancellation date.
@@ -82,7 +83,7 @@ namespace BudgetExecution
         /// <value>
         /// The cancellation date.
         /// </value>
-        IElement CancellationDate { get; set; }
+        DateOnly CancellationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the record.
