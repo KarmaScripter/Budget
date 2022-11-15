@@ -126,8 +126,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = new Key( Record, PrimaryKey.ActivityCodesId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
+            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
