@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The title.
         /// </value>
-        public IElement Title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets the rpio code.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public IElement RpioCode { get; set; }
+        public string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM.
@@ -83,10 +83,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            RpioCode = new Element( Record, Field.RpioCode );
-            Title = new Element( Record, Field.Title );
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
+            Title = Record[ $"{ Field.Title }" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -101,10 +101,10 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            RpioCode = new Element( Record, Field.RpioCode );
-            Title = new Element( Record, Field.Title );
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
+            Title = Record[ $"{ Field.Title }" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -119,10 +119,10 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            RpioCode = new Element( Record, Field.RpioCode );
-            Title = new Element( Record, Field.Title );
+            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
+            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
+            RpioCode = dataRow[ $"{ Field.RpioCode }" ].ToString(  );
+            Title = dataRow[ $"{ Field.Title }" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -137,10 +137,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = new Key( Record, PrimaryKey.NationalProgramsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            RpioCode = new Element( Record, Field.RpioCode );
-            Title = new Element( Record, Field.Title );
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
+            Title = Record[ $"{ Field.Title }" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -170,27 +170,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-
-        /// <summary>
-        /// Gets the rpio code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetRpioCode( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( RpioCode?.Value?.ToString( ) )
-                    ? RpioCode
-                    : Default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Default;
-            }
-        }
-
+        
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
@@ -208,24 +188,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the national program office.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IElement GetNationalProgramOffice( )
-        {
-            try
-            {
-                return Title ?? default( IElement );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return Default;
             }
         }
 

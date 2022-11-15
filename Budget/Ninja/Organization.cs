@@ -16,6 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Organization : Element, IOrganization, ISource
     {
         /// <summary>
@@ -56,8 +57,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = new Key( Record, PrimaryKey.OrganizationsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -71,8 +72,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( org ) )?.Record;
             ID = new Key( Record, PrimaryKey.OrganizationsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -86,8 +87,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = new Key( Record, PrimaryKey.OrganizationsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
+            Name = Record[ $"{ Field.Name }" ].ToString(  );
+            Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -101,9 +102,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = new Key( Record, PrimaryKey.OrganizationsId );
-            Name = new Element( Record, Field.Name ).Name;
-            Code = new Element( Record, Field.Code ).Code;
-            Data = Record?.ToDictionary( );
+            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
+            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
+            Data = dataRow?.ToDictionary( );
         }
 
         /// <summary>
