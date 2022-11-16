@@ -9,6 +9,8 @@ namespace BudgetExecution
     /// </summary>
     public enum PrimaryKey
     {
+        ActualsId,
+        
         /// <summary>
         /// The PRC identifier
         /// </summary>
@@ -34,6 +36,10 @@ namespace BudgetExecution
         /// </summary>
         AppropriationDocumentsId,
 
+        AppropriationLevelAuthorityId,
+        
+        AppropriationAvailableBalancesId,
+        
         /// <summary>
         /// The application tables identifier
         /// </summary>
@@ -49,6 +55,8 @@ namespace BudgetExecution
         /// </summary>
         AdministrativeRequestsId,
 
+        AmericanRescuePlanId,
+        
         /// <summary>
         /// The appropriation identifier
         /// </summary>
@@ -59,6 +67,16 @@ namespace BudgetExecution
         /// </summary>
         ActivityCodesId,
 
+        AnnualCarryoverEstimatesId,
+        
+        AnnualReimbursableEstimatesId,
+        
+        AnnualCarryoverSurveyId,
+        
+        AnnualReimbursableSurveyId,
+        
+        ApportionmentDataId,
+        
         /// <summary>
         /// The budget resource execution identifier
         /// </summary>
@@ -77,7 +95,7 @@ namespace BudgetExecution
         /// <summary>
         /// The budget control values identifier
         /// </summary>
-        BudgetControlValuesId,
+        BudgetControlsId,
 
         /// <summary>
         /// The budget object class identifier
@@ -123,16 +141,17 @@ namespace BudgetExecution
         /// The congressional reprogrammings identifier
         /// </summary>
         CongressionalReprogrammingsId,
-
-        /// <summary>
-        /// The information technology identifier
-        /// </summary>
-        CpicId,
-
+        
+        CapitalAssetPlanningCodesId,
+        
         /// <summary>
         /// The contacts identifier
         /// </summary>
         ContactsId,
+        
+        CompassOutlaysId,
+        
+        
 
         /// <summary>
         /// The data rule descriptions identifier
@@ -143,6 +162,9 @@ namespace BudgetExecution
         /// The defactos identifier
         /// </summary>
         DefactosId,
+        
+        DeobligationActivityId,
+        
 
         /// <summary>
         /// The document control numbers identifier
@@ -164,6 +186,10 @@ namespace BudgetExecution
         /// </summary>
         ExecutionTablesId,
 
+        EarmarksId,
+        
+        ExpendituresId,
+        
         /// <summary>
         /// The full time equivalents identifier
         /// </summary>
@@ -213,7 +239,12 @@ namespace BudgetExecution
         /// The identifier
         /// </summary>
         Id,
-
+        
+        JobsActCarryoverEstimatesId,
+        
+        MonthlyLedgerAccountBalancesId,
+        
+        
         /// <summary>
         /// The monthly outlays identifier
         /// </summary>
@@ -223,6 +254,9 @@ namespace BudgetExecution
         /// The national program identifier
         /// </summary>
         NationalProgramsId,
+        
+        NetAuthorityId,
+        
 
         /// <summary>
         /// The ns
@@ -248,7 +282,11 @@ namespace BudgetExecution
         /// The obligation identifier
         /// </summary>
         ObligationsId,
-
+        
+        ObligationActivityId,
+        
+        OpenCommitmentsId,
+        
         /// <summary>
         /// The program descriptions identifier
         /// </summary>
@@ -294,6 +332,12 @@ namespace BudgetExecution
         /// </summary>
         ProgramAreasId,
 
+        PayPeriodsId,
+        
+        PrcId,
+        
+        QueryDefinitionsId,
+        
         /// <summary>
         /// The regional authority identifier
         /// </summary>
@@ -329,6 +373,16 @@ namespace BudgetExecution
         /// </summary>
         ReimbursableSurveyId,
 
+        SiteActivityId,
+        
+        SiteProjectCodesId,
+        
+        SpecialAccountsId,
+        
+        StateGrantObligationsId,
+        
+        StatusOfAppropriationsId,
+        
         /// <summary>
         /// The supplemental identifier
         /// </summary>
@@ -344,21 +398,39 @@ namespace BudgetExecution
         /// </summary>
         StatusOfFundsId,
 
+        StatusOfBudgetaryResourcesId,
+        
+        StatusOfEarmarksId,
+        
+        SupplementalCarryoverEstimatesId,
+        
+        SupplementalReimbursableEstimatesId,
+        
         /// <summary>
         /// The site identifier
         /// </summary>
         SuperfundSitesId,
 
+        SubAppropriationsId,
+        
         /// <summary>
         /// The transfer identifier
         /// </summary>
         TransfersId,
+        
+        TransferActivityId,
+        
 
         /// <summary>
         /// The travel obligation identifier
         /// </summary>
         TravelActivityId,
 
+        UobligatedBalancesId,
+        
+        UnliquidatedObligationsId,
+        
+        
         /// <summary>
         /// The work code identifier
         /// </summary>
