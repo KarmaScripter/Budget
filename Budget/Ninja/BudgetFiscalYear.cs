@@ -22,6 +22,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
     {
+        public int ID { get; set; }
+
+        public string Code { get; set; }
+
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets the source.
         /// </summary>
@@ -69,7 +75,7 @@ namespace BudgetExecution
         {
             InputYear = bfy;
             Record = new DataBuilder( Source, SetArgs( bfy ) )?.Record;
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
+            ID = GetId( Record, PrimaryKey.FiscalYearsId );
             FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
             LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
             Availability = Record[ $"{ Field.Availability }" ].ToString( );
@@ -90,7 +96,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
+            ID = GetId( Record, PrimaryKey.FiscalYearsId );
             FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
             LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
             Availability = Record[ $"{ Field.Availability }" ].ToString( );
@@ -111,7 +117,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( IDataModel dataBuilder )
         {
             Record = dataBuilder?.Record;
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
+            ID = GetId( Record, PrimaryKey.FiscalYearsId );
             FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
             LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
             Availability = Record[ $"{ Field.Availability }" ].ToString( );
@@ -132,7 +138,7 @@ namespace BudgetExecution
         public BudgetFiscalYear( BFY fy )
         {
             Record = new DataBuilder( Source, Provider.SQLite, SetArgs( fy ) )?.Record;
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
+            ID = GetId( Record, PrimaryKey.FiscalYearsId );
             FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
             LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
             Availability = Record[ $"{ Field.Availability }" ].ToString( );
@@ -154,7 +160,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             InputYear = dataRow[ $"{ Field.BFY }" ].ToString( );
-            FiscalYearId = new Key( Record, PrimaryKey.FiscalYearsId );
+            ID = GetId( dataRow, PrimaryKey.FiscalYearsId );
             FirstYear = dataRow[ $"{ Field.FirstYear }" ].ToString( );
             LastYear = dataRow[ $"{ Field.LastYear }" ].ToString( );
             Availability = dataRow[ $"{ Field.Availability }" ].ToString( );
@@ -197,6 +203,36 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IDictionary<Holiday, DateOnly> );
+            }
+        }
+
+        public int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
             }
         }
 

@@ -19,6 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [ SuppressMessage( "Performance", "CA1822:Mark members as static" ) ]
     public class NationalProgram : Element, INationalProgram, ISource
     {
         /// <summary>
@@ -33,6 +34,12 @@ namespace BudgetExecution
         /// The record.
         /// </value>
         public DataRow Record { get; set; }
+
+        public int ID { get; set; }
+
+        public string Code { get; set; }
+
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -82,7 +89,7 @@ namespace BudgetExecution
         public NationalProgram( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = new Key( Record, PrimaryKey.NationalProgramsId );
+            ID = GetId( Record, PrimaryKey.NationalProgramsId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
@@ -100,7 +107,7 @@ namespace BudgetExecution
         public NationalProgram( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = new Key( Record, PrimaryKey.NationalProgramsId );
+            ID = GetId( Record, PrimaryKey.NationalProgramsId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
@@ -118,7 +125,7 @@ namespace BudgetExecution
         public NationalProgram( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.NationalProgramsId );
+            ID = GetId( Record, PrimaryKey.NationalProgramsId );
             Name = dataRow[ $"{ Field.Name }" ].ToString(  );
             Code = dataRow[ $"{ Field.Code }" ].ToString(  );
             RpioCode = dataRow[ $"{ Field.RpioCode }" ].ToString(  );
@@ -136,7 +143,7 @@ namespace BudgetExecution
         public NationalProgram( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = new Key( Record, PrimaryKey.NationalProgramsId );
+            ID = GetId( Record, PrimaryKey.NationalProgramsId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
@@ -206,6 +213,36 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( INationalProgram );
+            }
+        }
+        
+        public int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
             }
         }
     }

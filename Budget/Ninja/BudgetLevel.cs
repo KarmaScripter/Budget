@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
@@ -22,22 +23,12 @@ namespace BudgetExecution
         /// The level.
         /// </value>
         private readonly Level _level;
+        
+        public int ID { get; set; }
 
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        private readonly string _code;
+        public string Code { get; set; }
 
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        private readonly string _name;
+        public string Name { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "BudgetLevel"/> class.
@@ -45,8 +36,8 @@ namespace BudgetExecution
         public BudgetLevel( )
         {
             _level = Level.BudgetObjectClass;
-            _code = ( (int)_level ).ToString( );
-            _name = _level.ToString( );
+            Code = ( (int)_level ).ToString( );
+            Name = _level.ToString( );
         }
 
         /// <summary>
@@ -58,8 +49,8 @@ namespace BudgetExecution
         public BudgetLevel( string budgetLevel )
         {
             _level = GetLevel( budgetLevel );
-            _code = ( (int)_level ).ToString( );
-            _name = _level.ToString( );
+            Code = ( (int)_level ).ToString( );
+            Name = _level.ToString( );
         }
 
         /// <summary>
@@ -71,8 +62,8 @@ namespace BudgetExecution
         private BudgetLevel( Level level )
         {
             _level = level;
-            _code = ( (int)_level ).ToString( );
-            _name = _level.ToString( );
+            Code = ( (int)_level ).ToString( );
+            Name = _level.ToString(  );
         }
 
         /// <summary>
@@ -104,8 +95,8 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( _name )
-                    ? _name
+                return !string.IsNullOrEmpty( Name )
+                    ? Name
                     : default( string );
             }
             catch( Exception ex )
@@ -170,8 +161,8 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( _code )
-                    ? _code
+                return !string.IsNullOrEmpty( Code )
+                    ? Code
                     : string.Empty;
             }
             catch( Exception ex )
@@ -189,16 +180,16 @@ namespace BudgetExecution
         public IDictionary<string, object> ToDictionary( )
         {
             if( Enum.IsDefined( typeof( Level ), _level )
-               && !string.IsNullOrEmpty( _code )
-               && !string.IsNullOrEmpty( _name ) )
+               && !string.IsNullOrEmpty( Code )
+               && !string.IsNullOrEmpty( Name ) )
             {
                 try
                 {
                     return new Dictionary<string, object>( )
                     {
                         [ $"{ _level }" ] = _level.ToString( ),
-                        [ $"{ _code }" ] = _code,
-                        [ $"{ _name }" ] = _name
+                        [ $"{ Code }" ] = Code,
+                        [ $"{ Name }" ] = Name
                     };
                 }
                 catch( Exception ex )
@@ -226,6 +217,36 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( BudgetLevel );
+            }
+        }
+
+        public int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
             }
         }
 

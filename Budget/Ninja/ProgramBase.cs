@@ -16,12 +16,14 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the identifier.
         /// </summary>
-        public IKey ID { get; set; }
+        public virtual int ID { get; set; }
 
         /// <summary>
         /// Gets the code.
         /// </summary>
-        public string Code { get; set; }
+        public virtual string Code { get; set; }
+
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// Gets the record.
@@ -29,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public virtual DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -37,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public virtual IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets the definition.
@@ -45,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The definition.
         /// </value>
-        public IElement Definition { get; set; }
+        public virtual string Definition { get; set; }
 
         /// <summary>
         /// Gets the laws.
@@ -53,7 +55,7 @@ namespace BudgetExecution
         /// <value>
         /// The laws.
         /// </value>
-        public IElement Laws { get; set; }
+        public virtual string Laws { get; set; }
 
         /// <summary>
         /// Gets the title.
@@ -61,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The title.
         /// </value>
-        public IElement Title { get; set; }
+        public virtual string Title { get; set; }
 
         /// <summary>
         /// Gets the narrative.
@@ -69,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The narrative.
         /// </value>
-        public IElement Narrative { get; set; }
+        public virtual string Narrative { get; set; }
 
         /// <summary>
         /// Gets the program area code.
@@ -77,7 +79,7 @@ namespace BudgetExecution
         /// <value>
         /// The program area code.
         /// </value>
-        public IElement ProgramAreaCode { get; set; }
+        public virtual string ProgramAreaCode { get; set; }
 
         /// <summary>
         /// Gets the name of the program area.
@@ -85,6 +87,6 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public IElement ProgramAreaName { get; set; }
+        public virtual string ProgramAreaName { get; set; }
     }
 }

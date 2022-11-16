@@ -14,8 +14,15 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class ProgramProject : DescriptionBase, ISource
     {
+        public int ID { get; set; }
+
+        public string Code { get; set; }
+
+        public string Name { get; set; }
+
         /// <summary>
         /// The source
         /// </summary>
@@ -38,7 +45,7 @@ namespace BudgetExecution
         public ProgramProject( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = new Key( Record, PrimaryKey.ProgramProjectsId );
+            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -58,7 +65,7 @@ namespace BudgetExecution
         public ProgramProject( IDataModel dataBuilder )
         {
             Record = dataBuilder?.Record;
-            ID = new Key( Record, PrimaryKey.ProgramProjectsId );
+            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -78,7 +85,7 @@ namespace BudgetExecution
         public ProgramProject( DataRow dataRow )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ProgramProjectsId );
+            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
             Name = dataRow[ $"{ Field.Name }" ].ToString(  );
             Code = dataRow[ $"{ Field.Code }" ].ToString(  );
             Title = dataRow[ $"{ Field.Title }" ].ToString( );
@@ -98,7 +105,7 @@ namespace BudgetExecution
         public ProgramProject( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = new Key( Record, PrimaryKey.ProgramProjectsId );
+            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -154,5 +161,36 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
+        
+        public int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
     }
 }

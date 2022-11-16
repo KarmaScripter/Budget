@@ -26,14 +26,14 @@ namespace BudgetExecution
         /// The bfy.
         /// </value>
         public BFY BFY { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the fiscal year identifier.
         /// </summary>
         /// <value>
         /// The fiscal year identifier.
         /// </value>
-        public IKey FiscalYearId { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bbfy.

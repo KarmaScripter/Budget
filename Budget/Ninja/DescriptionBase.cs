@@ -23,6 +23,12 @@ namespace BudgetExecution
         /// </value>
         public DataRow Record { get; set; }
 
+        public int ID { get; set; }
+
+        public string Code { get; set; }
+
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>

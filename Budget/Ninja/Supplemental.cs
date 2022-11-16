@@ -38,12 +38,14 @@ namespace BudgetExecution
         /// <value>
         /// The ProgramResultCodes identifier.
         /// </value>
-        public IKey Index { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets the code.
         /// </summary>
         public string Code { get; set; }
+
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the type.

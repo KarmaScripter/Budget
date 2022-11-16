@@ -34,6 +34,12 @@ namespace BudgetExecution
         /// </value>
         public DataRow Record { get; set; }
 
+        public int ID { get; set; }
+
+        public string Code { get; set; }
+
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>
@@ -61,7 +67,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -77,7 +83,7 @@ namespace BudgetExecution
         public ResourcePlanningOffice( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -94,7 +100,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -111,7 +117,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.Record;
-            ID = new Key( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -172,24 +178,34 @@ namespace BudgetExecution
         {
             return MemberwiseClone( ) as ResourcePlanningOffice;
         }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public Source GetSource( )
+        
+        public int GetId( DataRow dataRow )
         {
             try
             {
-                return Enum.IsDefined( typeof( Source ), Source )
-                    ? Source
-                    : Source.NS;
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Source.NS;
+                return default( int );
+            }
+        }
+
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
             }
         }
     }

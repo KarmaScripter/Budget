@@ -33,6 +33,12 @@ namespace BudgetExecution
         /// </value>
         public DataRow Record { get; set; }
 
+        public int ID { get; set; }
+
+        public string Code { get; set; }
+
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>
@@ -73,7 +79,7 @@ namespace BudgetExecution
         public Fund( FundCode fundCode )
         {
             Record = new DataBuilder( Source, GetArgs( fundCode ) )?.Record;
-            ID = new Key( Record, PrimaryKey.FundsId );
+            ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -90,7 +96,7 @@ namespace BudgetExecution
         public Fund( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = new Key( Record, PrimaryKey.FundsId );
+            ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -107,7 +113,7 @@ namespace BudgetExecution
         public Fund( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = new Key( Record, PrimaryKey.FundsId );
+            ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -124,7 +130,7 @@ namespace BudgetExecution
         public Fund( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = new Key( Record, PrimaryKey.FundsId );
+            ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Title = Record[ $"{ Field.Title }" ].ToString( );
@@ -142,7 +148,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = new Key( Record, PrimaryKey.FundsId );
+            ID = GetId( dataRow, PrimaryKey.FundsId );
             Name = dataRow[ $"{ Field.Name }" ].ToString( );
             Code = dataRow[ $"{ Field.Code }" ].ToString( );
             Title = dataRow[ $"{ Field.Title }" ].ToString( );
@@ -249,6 +255,36 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IFund );
+            }
+        }
+        
+        public int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
             }
         }
     }
