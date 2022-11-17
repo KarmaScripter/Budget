@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// The congressional reprogrammings
         /// </summary>
         CongressionalReprogrammings,
-
+        
         /// <summary>
         /// The contacts
         /// </summary>
@@ -274,9 +274,9 @@ namespace BudgetExecution
         SuperfundSites,
 
         /// <summary>
-        /// The supplemental carryover esatimates
+        /// The supplemental carryover estimates
         /// </summary>
-        SupplementalCarryoverEsatimates,
+        SupplementalCarryoverEstimates,
 
         /// <summary>
         /// The transfers

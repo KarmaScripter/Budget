@@ -11,10 +11,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Data\DataWorker" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="C1.Win.4.8, Version=4.8.20221.557, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04">
         <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
       </Reference>

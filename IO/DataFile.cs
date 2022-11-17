@@ -1,6 +1,6 @@
-﻿// // <copyright file = "DataFile.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "DataFile.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -85,7 +85,10 @@ namespace BudgetExecution
                 {
                     foreach( var _fileInfo in _files )
                     {
-                        Directory.Move( _fileInfo.FullName, folder.Name );
+                        if ( _fileInfo != null )
+                        {
+                            Directory.Move( _fileInfo.FullName, folder.Name );
+                        }
                     }
                 }
             }
@@ -216,7 +219,9 @@ namespace BudgetExecution
                     CheckPathExists = true
                 };
 
-                return _dialog.FileName;
+                return  !string.IsNullOrEmpty( _dialog?.FileName ) 
+                    ? _dialog.FileName 
+                    : string.Empty;
             }
             catch( Exception ex )
             {
