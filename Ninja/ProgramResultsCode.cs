@@ -289,6 +289,21 @@ namespace BudgetExecution
             }
         }
         
+        public override int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+        
         public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try

@@ -129,6 +129,8 @@ namespace BudgetExecution
         /// </summary>
         Expenditures,
 
+        FullTimeEquivalents,
+        
         /// <summary>
         /// The headquarters authority
         /// </summary>
@@ -183,6 +185,8 @@ namespace BudgetExecution
         /// The project cost codes
         /// </summary>
         ProjectCostCodes,
+        
+        ProgramDescriptions,
 
         /// <summary>
         /// The query definitions

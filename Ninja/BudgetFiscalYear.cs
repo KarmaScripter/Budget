@@ -83,9 +83,9 @@ namespace BudgetExecution
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
             ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = Record[ $"{ Field.StartDate }" ].ToString( );
-            EndDate = Record[ $"{ Field.EndDate }" ].ToString( );
-            CancellationDate = Record[ $"{ Field.CancellationDate }" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -103,10 +103,9 @@ namespace BudgetExecution
             WorkDays = double.Parse( Record[ $"{ Field.WorkDays }" ].ToString( ) );
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = Record[ $"{ Field.StartDate }" ].ToString( );
-            EndDate = Record[ $"{ Field.EndDate }" ].ToString( );
-            CancellationDate = Record[ $"{ Field.CancellationDate }" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -125,9 +124,9 @@ namespace BudgetExecution
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
             ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = Record[ $"{ Field.StartDate }" ].ToString( );
-            EndDate = Record[ $"{ Field.EndDate }" ].ToString( );
-            CancellationDate = Record[ $"{ Field.CancellationDate }" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -146,9 +145,9 @@ namespace BudgetExecution
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
             ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = Record[ $"{ Field.StartDate }" ].ToString( );
-            EndDate = Record[ $"{ Field.EndDate }" ].ToString( );
-            CancellationDate = Record[ $"{ Field.CancellationDate }" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -168,9 +167,9 @@ namespace BudgetExecution
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
             ExpiringYear = dataRow[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = dataRow[ $"{ Field.StartDate }" ].ToString( );
-            EndDate = dataRow[ $"{ Field.EndDate }" ].ToString( );
-            CancellationDate = dataRow[ $"{ Field.CancellationDate }" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
             Holidays = new HolidayFactory( dataRow );
         }
 

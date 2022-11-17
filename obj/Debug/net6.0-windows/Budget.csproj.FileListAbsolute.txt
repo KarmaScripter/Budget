@@ -63,7 +63,6 @@ C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\C1.Win.C1FlexGrid.
 C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\DataGridMetro.dll.config
 C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.xml
 C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\EPPlus.xml
-C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\MetroFramework.pdb
 C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\MetroSet UI.dll.config
 C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\SQLite.Designer.xml
 C:\Users\teppler\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Calculate.Base.xml

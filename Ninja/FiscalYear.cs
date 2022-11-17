@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <value>
         /// The start date.
         /// </value>
-        public string StartDate { get; set; }
+        public DateOnly StartDate { get; set; }
 
         /// <summary>
         /// Gets or sets the end date.
@@ -81,7 +81,7 @@ namespace BudgetExecution
         /// <value>
         /// The end date.
         /// </value>
-        public string EndDate { get; set; }
+        public DateOnly EndDate { get; set; }
 
         /// <summary>
         /// Gets or sets the cancellation date.
@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// <value>
         /// The cancellation date.
         /// </value>
-        public string CancellationDate { get; set; }
+        public DateOnly CancellationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the arguments.

@@ -9,7 +9,9 @@ namespace BudgetExecution
         /// <summary>
         /// The ns
         /// </summary>
-        NS = 0,
+        NS = -1,
+        
+        Treasury = 0,
 
         /// <summary>
         /// The appropriation
