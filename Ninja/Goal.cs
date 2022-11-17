@@ -20,6 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Goal : Element, IGoal, ISource
     {
         /// <summary>
@@ -154,7 +155,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                    return new Dictionary<string, object> { [ $"{ Field.Code }" ] = code };
                 }
                 catch( Exception ex )
                 {
