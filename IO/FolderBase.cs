@@ -102,6 +102,8 @@ namespace BudgetExecution
         /// </value>
         public virtual FileSecurity FileSecurity { get; set; }
 
+        public virtual string BaseDirectory { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderBase"/> class.
         /// </summary>
