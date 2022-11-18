@@ -29,6 +29,22 @@ namespace BudgetExecution
         public Source Source { get; set; } = Source.ProgramDescriptions;
 
         /// <summary>
+        /// Gets or sets the Record property.
+        /// </summary>
+        /// <value>
+        /// The data row.
+        /// </value>
+        public DataRow Record { get; set; }
+        
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public IDictionary<string, object> Data { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "ProgramProject"/> class.
         /// </summary>

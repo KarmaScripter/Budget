@@ -12,7 +12,21 @@ namespace BudgetExecution
 
         public Source Source { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Record property.
+        /// </summary>
+        /// <value>
+        /// The data row.
+        /// </value>
         public DataRow Record { get; set; }
+        
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public IDictionary<string, object> Data { get; set; }
 
         public Earmark( )
         {
