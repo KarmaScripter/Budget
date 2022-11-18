@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class OperatingPlanUpdate
     {
+        public Source Source { get; set; }
+
         public OperatingPlanUpdate( )
         {
             

@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Contacts
     {
+        public Source Source { get; set; }
+
         public Contacts( )
         {
             

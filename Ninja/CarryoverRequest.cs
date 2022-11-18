@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class CarryoverRequest
     {
+        public Source Source { get; set; }
+
         public CarryoverRequest( )
         {
             

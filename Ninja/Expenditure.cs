@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Expenditure
     {
+        public Source Source { get; set; }
+
         public Expenditure( )
         {
             

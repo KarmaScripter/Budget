@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class ProgramDescription
     {
+        public Source Source { get; set; }
+
         public ProgramDescription( )
         {
             

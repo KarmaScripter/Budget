@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Report
     {
+        public Source Source { get; set; }
+
         public Report( )
         {
             

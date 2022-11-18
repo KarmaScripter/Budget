@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class SpendingRate
     {
-    
+        public Source Source { get; set; }
+
+        public SpendingRate( )
+        {
+            
+        }
     }
 }

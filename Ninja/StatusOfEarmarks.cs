@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class StatusOfEarmarks
     {
+        public Source Source { get; set; }
+
         public StatusOfEarmarks( )
         {
             

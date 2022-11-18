@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class BudgetOutlay
     {
+        public Source Source { get; set; }
+
         public BudgetOutlay( )
         {
             

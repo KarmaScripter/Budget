@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class BudgetaryResourceExecution
     {
+        public Source Source { get; set; }
+
         public BudgetaryResourceExecution( )
         {
             

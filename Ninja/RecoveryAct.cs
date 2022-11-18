@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class RecoveryAct
     {
+        public Source Source { get; set; }
+
         public RecoveryAct( )
         {
             

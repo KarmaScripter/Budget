@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Images
     {
+        public Source Source { get; set; }
+
         public Images( )
         {
             

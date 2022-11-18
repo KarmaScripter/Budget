@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class SiteProjectCode
     {
-    
+        public Source Source { get; set; }
+
+        public SiteProjectCode( )
+        {
+            
+        }
     }
 }

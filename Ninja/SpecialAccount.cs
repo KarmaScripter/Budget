@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class SpecialAccount
     {
-    
+        public Source Source { get; set; }
+
+        public SpecialAccount( )
+        {
+            
+        }
     }
 }

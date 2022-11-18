@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Earmark
     {
+        public Source Source { get; set; }
+
         public Earmark( )
         {
             

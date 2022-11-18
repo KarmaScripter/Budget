@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class FundCategory
     {
+        public Source Source { get; set; }
+
         public FundCategory( )
         {
             

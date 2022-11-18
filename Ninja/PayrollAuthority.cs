@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class PayrollAuthority
     {
+        public Source Source { get; set; }
+
         public PayrollAuthority( )
         {
             

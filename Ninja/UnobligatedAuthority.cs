@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class UnobligatedAuthority
     {
+        public Source Source { get; set; }
+
         public UnobligatedAuthority( )
         {
             

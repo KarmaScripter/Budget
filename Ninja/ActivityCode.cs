@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class ActivityCode
     {
+        public Source Source { get; set; }
+
         public ActivityCode( )
         {
             

@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class PayrollCostCode
     {
+        public Source Source { get; set; }
+
         public PayrollCostCode( )
         {
             

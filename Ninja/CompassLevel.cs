@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class CompassLevel
     {
+        public Source Source { get; set; }
+
         public CompassLevel( )
         {
             

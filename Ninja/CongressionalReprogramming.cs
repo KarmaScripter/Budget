@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class CongressionalReprogramming
     {
+        public Source Source { get; set; }
+
         public CongressionalReprogramming( )
         {
             

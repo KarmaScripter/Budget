@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class ApportionmentData
     {
+        public Source Source { get; set; }
+
         public ApportionmentData( )
         {
             

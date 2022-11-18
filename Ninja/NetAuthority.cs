@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class NetAuthority
     {
+        public Source Source { get; set; }
+
         public NetAuthority( )
         {
             

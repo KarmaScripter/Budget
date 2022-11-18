@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Providers
     {
+        public Source Source { get; set; }
+
         public Providers( )
         {
             

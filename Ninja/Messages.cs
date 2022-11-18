@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Messages
     {
+        public Source Source { get; set; }
+
         public Messages( )
         {
             

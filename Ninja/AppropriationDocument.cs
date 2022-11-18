@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class AppropriationDocument
     {
+        public Source Source { get; set; }
+
         public AppropriationDocument( )
         {
             

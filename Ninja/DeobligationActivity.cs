@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class DeobligationActivity
     {
+        public Source Source { get; set; }
+
         public DeobligationActivity( )
         {
             

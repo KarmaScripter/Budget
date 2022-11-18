@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class PayrollActivity
     {
-    
+        public Source Source { get; set; }
+
+        public PayrollActivity( )
+        {
+            
+        }
     }
 }

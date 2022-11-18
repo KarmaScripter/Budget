@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class PayPeriod
     {
-    
+        public Source Source { get; set; }
+
+        public PayPeriod( )
+        {
+            
+        }
     }
 }

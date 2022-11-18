@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class DocumentControlNumber
     {
+        public Source Source { get; set; }
+
         public DocumentControlNumber( )
         {
             

@@ -6,6 +6,12 @@ namespace BudgetExecution
 {
     public class QueryDefinition
     {
+        public Source Source { get; set; }
+
+        public QueryDefinition( )
+        {
+            
+        }
     
     }
 }

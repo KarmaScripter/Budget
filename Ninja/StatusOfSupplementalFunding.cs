@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class StatusOfSupplementalFunding
     {
+        public Source Source { get; set; }
+
         public StatusOfSupplementalFunding( )
         {
             

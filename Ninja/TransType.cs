@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class TransType
     {
+        public Source Source { get; set; }
+
         public TransType( )
         {
             

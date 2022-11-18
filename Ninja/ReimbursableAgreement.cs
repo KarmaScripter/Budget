@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class ReimbursableAgreement
     {
+        public Source Source { get; set; }
+
         public ReimbursableAgreement( )
         {
             

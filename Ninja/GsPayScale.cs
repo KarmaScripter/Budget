@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class GsPayScale
     {
+        public Source Source { get; set; }
+
         public GsPayScale( )
         {
             

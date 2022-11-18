@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class GrowthRates
     {
+        public Source Source { get; set; }
+
         public GrowthRates( )
         {
             

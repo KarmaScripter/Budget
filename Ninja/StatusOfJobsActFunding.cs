@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class StatusOfJobsActFunding
     {
+        public Source Source { get; set; }
+
         public StatusOfJobsActFunding( )
         {
         }

@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class PublicLaw
     {
+        public Source Source { get; set; }
+
         public PublicLaw( )
         {
             

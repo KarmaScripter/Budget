@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class WorkCode
     {
+        public Source Source { get; set; }
+
         public WorkCode( )
         {
             

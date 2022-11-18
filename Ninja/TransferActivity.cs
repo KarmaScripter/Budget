@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class TransferActivity
     {
-    
+        public Source Source { get; set; }
+
+        public TransferActivity( )
+        {
+            
+        }
     }
 }

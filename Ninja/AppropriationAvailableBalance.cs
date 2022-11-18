@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class AppropriationAvailableBalance
     {
+        public Source Source { get; set; }
+
         public AppropriationAvailableBalance( )
         {
             

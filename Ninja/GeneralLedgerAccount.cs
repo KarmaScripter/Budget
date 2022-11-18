@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class GeneralLedgerAccount
     {
+        public Source Source { get; set; }
+
         public GeneralLedgerAccount( )
         {
             

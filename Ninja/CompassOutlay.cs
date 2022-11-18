@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class CompassOutlay
     {
+        public Source Source { get; set; }
+
         public CompassOutlay( )
         {
             

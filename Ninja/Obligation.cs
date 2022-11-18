@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Obligation
     {
+        public Source Source { get; set; }
+
         public Obligation( )
         {
             

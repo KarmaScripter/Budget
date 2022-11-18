@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class ApplicationTable
     {
+        public Source Source { get; set; }
+
         public ApplicationTable( )
         {
             

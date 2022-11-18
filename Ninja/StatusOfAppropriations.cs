@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class StatusOfAppropriations
     {
+        public Source Source { get; set; }
+
         public StatusOfAppropriations( )
         {
             

@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class FundSymbol
     {
+        public Source Source { get; set; }
+
         public FundSymbol( )
         {
             

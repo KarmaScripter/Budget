@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class StateGrantObligations
     {
+        public Source Source { get; set; }
+
         public StateGrantObligations( )
         {
             

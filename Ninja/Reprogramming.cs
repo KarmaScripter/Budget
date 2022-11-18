@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class Reprogramming
     {
+        public Source Source { get; set; }
+
         public Reprogramming( )
         {
             

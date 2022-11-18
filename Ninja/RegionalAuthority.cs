@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class RegionalAuthority
     {
+        public Source Source { get; set; }
+
         public RegionalAuthority( )
         {
             

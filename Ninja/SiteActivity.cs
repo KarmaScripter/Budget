@@ -6,6 +6,11 @@ namespace BudgetExecution
 {
     public class SiteActivity
     {
-    
+        public Source Source { get; set; }
+
+        public SiteActivity( )
+        {
+            
+        }
     }
 }

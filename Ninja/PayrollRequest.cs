@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class PayrollRequest
     {
+        public Source Source { get; set; }
+
         public PayrollRequest( )
         {
             

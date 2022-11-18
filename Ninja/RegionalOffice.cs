@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class RegionalOffice
     {
+        public Source Source { get; set; }
+
         public RegionalOffice( )
         {
             
