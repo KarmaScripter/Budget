@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ObligationActivity
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ObligationActivity( )
         {
-            
+        }
+        
+        public ObligationActivity( IQuery query )
+        {
+        }
+
+        public ObligationActivity( IDataModel builder )
+        {
+        }
+
+        public ObligationActivity( DataRow dataRow )
+        {
         }
     }
 }

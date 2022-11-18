@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class WorkCode
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public WorkCode( )
         {
-            
+        }
+        
+        public WorkCode( IQuery query )
+        {
+        }
+
+        public WorkCode( IDataModel builder )
+        {
+        }
+
+        public WorkCode( DataRow dataRow )
+        {
         }
     }
 }

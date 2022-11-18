@@ -2,16 +2,31 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
-
-public class AppropriationLevelAuthority
+namespace BudgetExecution
 {
-    public int ID { get; set; }
+    using System.Data;
 
-    public Source Source { get; set; }
-
-    public AppropriationLevelAuthority( )
+    public class AppropriationLevelAuthority
     {
-            
+        public int ID { get; set; }
+
+        public Source Source { get; set; }
+
+        public AppropriationLevelAuthority( )
+        {
+        }
+
+        public AppropriationLevelAuthority( IQuery query )
+        {
+        }
+
+        public AppropriationLevelAuthority( IDataModel builder )
+        {
+        }
+
+        public AppropriationLevelAuthority( DataRow dataRow )
+        {
+        }
     }
+
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class PayPeriod
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public PayPeriod( )
         {
-            
+        }
+        
+        public PayPeriod( IQuery query )
+        {
+        }
+
+        public PayPeriod( IDataModel builder )
+        {
+        }
+
+        public PayPeriod( DataRow dataRow )
+        {
         }
     }
 }

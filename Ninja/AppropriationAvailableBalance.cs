@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AppropriationAvailableBalance
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public AppropriationAvailableBalance( )
         {
-            
+        }
+        
+        public AppropriationAvailableBalance( IQuery query )
+        {
+        }
+
+        public AppropriationAvailableBalance( IDataModel builder )
+        {
+        }
+
+        public AppropriationAvailableBalance( DataRow dataRow )
+        {
         }
     }
 }

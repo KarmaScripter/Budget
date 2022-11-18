@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class RecoveryAct
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public RecoveryAct( )
         {
-            
+        }
+        
+        public RecoveryAct( IQuery query )
+        {
+        }
+
+        public RecoveryAct( IDataModel builder )
+        {
+        }
+
+        public RecoveryAct( DataRow dataRow )
+        {
         }
     }
 }

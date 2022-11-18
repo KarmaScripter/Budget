@@ -4,7 +4,9 @@
 
 namespace BudgetExecution
 {
-    public class RegionalOffice
+    using System.Data;
+
+    public class RegionalOffice : ResourcePlanningOffice
     {
         public int ID { get; set; }
 
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public RegionalOffice( )
         {
-            
+        }
+        
+        public RegionalOffice( IQuery query )
+        {
+        }
+
+        public RegionalOffice( IDataModel builder )
+        {
+        }
+
+        public RegionalOffice( DataRow dataRow )
+        {
         }
     }
 }

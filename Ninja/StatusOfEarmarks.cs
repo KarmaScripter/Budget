@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class StatusOfEarmarks
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public StatusOfEarmarks( )
         {
-            
+        }
+        
+        public StatusOfEarmarks( IQuery query )
+        {
+        }
+
+        public StatusOfEarmarks( IDataModel builder )
+        {
+        }
+
+        public StatusOfEarmarks( DataRow dataRow )
+        {
         }
     }
 }

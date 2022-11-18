@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ApplicationTable
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ApplicationTable( )
         {
-            
+        }
+        
+        public ApplicationTable( IQuery query )
+        {
+        }
+
+        public ApplicationTable( IDataModel builder )
+        {
+        }
+
+        public ApplicationTable( DataRow dataRow )
+        {
         }
     }
 }

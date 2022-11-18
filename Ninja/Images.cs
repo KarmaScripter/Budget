@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Images
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Images( )
         {
-            
+        }
+        
+        public Images( IQuery query )
+        {
+        }
+
+        public Images( IDataModel builder )
+        {
+        }
+
+        public Images( DataRow dataRow )
+        {
         }
     }
 }

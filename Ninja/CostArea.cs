@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class CostArea
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public CostArea( )
         {
-            
+        }
+        
+        public CostArea( IQuery query )
+        {
+        }
+
+        public CostArea( IDataModel builder )
+        {
+        }
+
+        public CostArea( DataRow dataRow )
+        {
         }
     }
 }

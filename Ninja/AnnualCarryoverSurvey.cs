@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AnnualCarryoverSurvey
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public AnnualCarryoverSurvey( )
         {
-            
+        }
+        
+        public AnnualCarryoverSurvey( IQuery query )
+        {
+        }
+
+        public AnnualCarryoverSurvey( IDataModel builder )
+        {
+        }
+
+        public AnnualCarryoverSurvey( DataRow dataRow )
+        {
         }
     }
 }

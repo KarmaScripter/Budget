@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class StatusOfJobsActFunding
     {
         public int ID { get; set; }
@@ -11,6 +13,18 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         public StatusOfJobsActFunding( )
+        {
+        }
+
+        public StatusOfJobsActFunding( IQuery query )
+        {
+        }
+
+        public StatusOfJobsActFunding( IDataModel builder )
+        {
+        }
+
+        public StatusOfJobsActFunding( DataRow dataRow )
         {
         }
     }

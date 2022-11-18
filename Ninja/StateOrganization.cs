@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class StateOrganization
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public StateOrganization( )
         {
-            
+        }
+        
+        public StateOrganization( IQuery query )
+        {
+        }
+
+        public StateOrganization( IDataModel builder )
+        {
+        }
+
+        public StateOrganization( DataRow dataRow )
+        {
         }
     }
 }

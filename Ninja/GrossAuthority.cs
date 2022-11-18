@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class GrossAuthority
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public GrossAuthority( )
         {
-            
+        }
+
+        public GrossAuthority( IQuery query )
+        {
+        }
+
+        public GrossAuthority( IDataModel builder )
+        {
+        }
+
+        public GrossAuthority( DataRow dataRow )
+        {
         }
     }
 }

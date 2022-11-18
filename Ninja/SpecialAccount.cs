@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class SpecialAccount
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public SpecialAccount( )
         {
-            
+        }
+        
+        public SpecialAccount( IQuery query )
+        {
+        }
+
+        public SpecialAccount( IDataModel builder )
+        {
+        }
+
+        public SpecialAccount( DataRow dataRow )
+        {
         }
     }
 }

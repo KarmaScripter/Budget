@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class URL
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public URL( )
         {
-            
+        }
+        
+        public URL( IQuery query )
+        {
+        }
+
+        public URL( IDataModel builder )
+        {
+        }
+
+        public URL( DataRow dataRow )
+        {
         }
     }
 }

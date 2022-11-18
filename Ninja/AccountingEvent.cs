@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AccountingEvent
     {
         public int ID { get; set; }
@@ -13,6 +15,20 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         public AccountingEvent( )
+        {
+        }
+
+        public AccountingEvent( IQuery query )
+        {
+            
+        }
+
+        public AccountingEvent( IDataModel builder )
+        {
+            
+        }
+
+        public AccountingEvent( DataRow dataRow )
         {
             
         }

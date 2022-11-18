@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class StateGrantObligations
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public StateGrantObligations( )
         {
-            
+        }
+        
+        public StateGrantObligations( IQuery query )
+        {
+        }
+
+        public StateGrantObligations( IDataModel builder )
+        {
+        }
+
+        public StateGrantObligations( DataRow dataRow )
+        {
         }
     }
 }

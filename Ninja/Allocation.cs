@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Allocation
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Allocation( )
         {
-            
+        }
+        
+        public Allocation( IQuery query )
+        {
+        }
+
+        public Allocation( IDataModel builder )
+        {
+        }
+
+        public Allocation( DataRow dataRow )
+        {
         }
     }
 }

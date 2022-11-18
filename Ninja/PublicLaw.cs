@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class PublicLaw
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public PublicLaw( )
         {
-            
+        }
+        
+        public PublicLaw( IQuery query )
+        {
+        }
+
+        public PublicLaw( IDataModel builder )
+        {
+        }
+
+        public PublicLaw( DataRow dataRow )
+        {
         }
     }
 }

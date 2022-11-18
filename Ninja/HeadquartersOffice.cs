@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class HeadquartersOffice
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public HeadquartersOffice( )
         {
-            
+        }
+        
+        public HeadquartersOffice( IQuery query )
+        {
+        }
+
+        public HeadquartersOffice( IDataModel builder )
+        {
+        }
+
+        public HeadquartersOffice( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AnnualReimbursableEstimate
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public AnnualReimbursableEstimate( )
         {
-            
+        }
+        
+        public AnnualReimbursableEstimate( IQuery query )
+        {
+        }
+
+        public AnnualReimbursableEstimate( IDataModel builder )
+        {
+        }
+
+        public AnnualReimbursableEstimate( DataRow dataRow )
+        {
         }
     }
 }

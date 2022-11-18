@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Resources
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Resources( )
         {
-            
+        }
+        
+        public Resources( IQuery query )
+        {
+        }
+
+        public Resources( IDataModel builder )
+        {
+        }
+
+        public Resources( DataRow dataRow )
+        {
         }
     
     }

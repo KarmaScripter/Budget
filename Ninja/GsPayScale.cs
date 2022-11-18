@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class GsPayScale
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public GsPayScale( )
         {
-            
+        }
+        
+        public GsPayScale( IQuery query )
+        {
+        }
+
+        public GsPayScale( IDataModel builder )
+        {
+        }
+
+        public GsPayScale( DataRow dataRow )
+        {
         }
     }
 }

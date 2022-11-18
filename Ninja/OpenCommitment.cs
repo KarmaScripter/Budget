@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class OpenCommitment
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public OpenCommitment( )
         {
-            
+        }
+        
+        public OpenCommitment( IQuery query )
+        {
+        }
+
+        public OpenCommitment( IDataModel builder )
+        {
+        }
+
+        public OpenCommitment( DataRow dataRow )
+        {
         }
     }
 }

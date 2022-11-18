@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class TransferActivity
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public TransferActivity( )
         {
-            
+        }
+        
+        public TransferActivity( IQuery query )
+        {
+        }
+
+        public TransferActivity( IDataModel builder )
+        {
+        }
+
+        public TransferActivity( DataRow dataRow )
+        {
         }
     }
 }

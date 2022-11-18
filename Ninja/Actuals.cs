@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Actuals
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Actuals( )
         {
-            
+        }
+        
+        public Actuals( IQuery query )
+        {
+        }
+
+        public Actuals( IDataModel builder )
+        {
+        }
+
+        public Actuals( DataRow dataRow )
+        {
         }
     }
 }

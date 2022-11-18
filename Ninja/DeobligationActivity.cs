@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class DeobligationActivity
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public DeobligationActivity( )
         {
-            
+        }
+        
+        public DeobligationActivity( IQuery query )
+        {
+        }
+
+        public DeobligationActivity( IDataModel builder )
+        {
+        }
+
+        public DeobligationActivity( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class SupplementalCarryoverEstimates
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public SupplementalCarryoverEstimates( )
         {
-            
+        }
+        
+        public SupplementalCarryoverEstimates( IQuery query )
+        {
+        }
+
+        public SupplementalCarryoverEstimates( IDataModel builder )
+        {
+        }
+
+        public SupplementalCarryoverEstimates( DataRow dataRow )
+        {
         }
     }
 }

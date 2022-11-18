@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ReferenceTable
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ReferenceTable( )
         {
-            
+        }
+        
+        public ReferenceTable( IQuery query )
+        {
+        }
+
+        public ReferenceTable( IDataModel builder )
+        {
+        }
+
+        public ReferenceTable( DataRow dataRow )
+        {
         }
     }
 }

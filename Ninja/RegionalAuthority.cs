@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class RegionalAuthority
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public RegionalAuthority( )
         {
-            
+        }
+        
+        public RegionalAuthority( IQuery query )
+        {
+        }
+
+        public RegionalAuthority( IDataModel builder )
+        {
+        }
+
+        public RegionalAuthority( DataRow dataRow )
+        {
         }
     }
 }

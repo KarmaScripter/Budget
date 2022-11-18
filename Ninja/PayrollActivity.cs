@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class PayrollActivity
     {
         public int ID { get; set; }
@@ -12,7 +14,19 @@ namespace BudgetExecution
 
         public PayrollActivity( )
         {
-            
+        }
+
+
+        public PayrollActivity( IQuery query )
+        {
+        }
+
+        public PayrollActivity( IDataModel builder )
+        {
+        }
+
+        public PayrollActivity( DataRow dataRow )
+        {
         }
     }
 }

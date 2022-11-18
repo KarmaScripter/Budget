@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Changes
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Changes( )
         {
-            
+        }
+        
+        public Changes( IQuery query )
+        {
+        }
+
+        public Changes( IDataModel builder )
+        {
+        }
+
+        public Changes( DataRow dataRow )
+        {
         }
     }
 }

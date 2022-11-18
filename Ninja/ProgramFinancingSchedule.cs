@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ProgramFinancingSchedule
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ProgramFinancingSchedule( )
         {
-            
+        }
+        
+        public ProgramFinancingSchedule( IQuery query )
+        {
+        }
+
+        public ProgramFinancingSchedule( IDataModel builder )
+        {
+        }
+
+        public ProgramFinancingSchedule( DataRow dataRow )
+        {
         }
     }
 }

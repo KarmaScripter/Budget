@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class DocumentControlNumber
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public DocumentControlNumber( )
         {
-            
+        }
+        
+        public DocumentControlNumber( IQuery query )
+        {
+        }
+
+        public DocumentControlNumber( IDataModel builder )
+        {
+        }
+
+        public DocumentControlNumber( DataRow dataRow )
+        {
         }
     }
 }

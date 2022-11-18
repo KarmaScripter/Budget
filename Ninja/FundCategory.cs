@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class FundCategory
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public FundCategory( )
         {
-            
+        }
+        
+        public FundCategory( IQuery query )
+        {
+        }
+
+        public FundCategory( IDataModel builder )
+        {
+        }
+
+        public FundCategory( DataRow dataRow )
+        {
         }
     }
 }

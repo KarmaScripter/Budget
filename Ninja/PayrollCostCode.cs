@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class PayrollCostCode
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public PayrollCostCode( )
         {
-            
+        }
+        
+        public PayrollCostCode( IQuery query )
+        {
+        }
+
+        public PayrollCostCode( IDataModel builder )
+        {
+        }
+
+        public PayrollCostCode( DataRow dataRow )
+        {
         }
     }
 }

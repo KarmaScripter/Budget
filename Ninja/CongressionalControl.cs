@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class CongressionalControl
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public CongressionalControl( )
         {
-            
+        }
+        
+        public CongressionalControl( IQuery query )
+        {
+        }
+
+        public CongressionalControl( IDataModel builder )
+        {
+        }
+
+        public CongressionalControl( DataRow dataRow )
+        {
         }
     }
 }

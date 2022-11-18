@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class CongressionalReprogramming
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public CongressionalReprogramming( )
         {
-            
+        }
+        
+        public CongressionalReprogramming( IQuery query )
+        {
+        }
+
+        public CongressionalReprogramming( IDataModel builder )
+        {
+        }
+
+        public CongressionalReprogramming( DataRow dataRow )
+        {
         }
     }
 }

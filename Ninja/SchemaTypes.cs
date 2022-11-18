@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class SchemaTypes
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public SchemaTypes( )
         {
-            
+        }
+        
+        public SchemaTypes( IQuery query )
+        {
+        }
+
+        public SchemaTypes( IDataModel builder )
+        {
+        }
+
+        public SchemaTypes( DataRow dataRow )
+        {
         }
     }
 }

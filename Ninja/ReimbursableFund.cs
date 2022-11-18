@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ReimbursableFund
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ReimbursableFund( )
         {
-            
+        }
+        
+        public ReimbursableFund( IQuery query )
+        {
+        }
+
+        public ReimbursableFund( IDataModel builder )
+        {
+        }
+
+        public ReimbursableFund( DataRow dataRow )
+        {
         }
     }
 }

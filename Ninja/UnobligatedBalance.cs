@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class UnobligatedBalance
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public UnobligatedBalance( )
         {
-            
+        }
+        
+        public UnobligatedBalance( IQuery query )
+        {
+        }
+
+        public UnobligatedBalance( IDataModel builder )
+        {
+        }
+
+        public UnobligatedBalance( DataRow dataRow )
+        {
         }
     }
 }

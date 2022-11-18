@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetLevel : IBudgetLevel
     {
         /// <summary>
@@ -22,8 +23,8 @@ namespace BudgetExecution
         /// <value>
         /// The level.
         /// </value>
-        private readonly Level _level;
-        
+        public Level Level { get; set; }
+
         public int ID { get; set; }
 
         public string Code { get; set; }
@@ -35,9 +36,9 @@ namespace BudgetExecution
         /// </summary>
         public BudgetLevel( )
         {
-            _level = Level.BudgetObjectClass;
-            Code = ( (int)_level ).ToString( );
-            Name = _level.ToString( );
+            Level = Level.BudgetObjectClass;
+            Code = ( (int)Level ).ToString( );
+            Name = Level.ToString( );
         }
 
         /// <summary>
@@ -48,9 +49,9 @@ namespace BudgetExecution
         /// </param>
         public BudgetLevel( string budgetLevel )
         {
-            _level = GetLevel( budgetLevel );
-            Code = ( (int)_level ).ToString( );
-            Name = _level.ToString( );
+            Level = GetLevel( budgetLevel );
+            Code = ( (int)Level ).ToString( );
+            Name = Level.ToString( );
         }
 
         /// <summary>
@@ -61,9 +62,9 @@ namespace BudgetExecution
         /// </param>
         private BudgetLevel( Level level )
         {
-            _level = level;
-            Code = ( (int)_level ).ToString( );
-            Name = _level.ToString(  );
+            Level = level;
+            Code = ( (int)Level ).ToString( );
+            Name = Level.ToString(  );
         }
 
         /// <summary>
@@ -75,8 +76,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( Level ), _level.ToString( ) )
-                    ? (int)Enum.Parse( typeof( Level ), _level.ToString( ) )
+                return Enum.IsDefined( typeof( Level ), Level.ToString( ) )
+                    ? (int)Enum.Parse( typeof( Level ), Level.ToString( ) )
                     : (int)Level.BudgetObjectClass;
             }
             catch( Exception ex )
@@ -115,8 +116,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( Level ), _level )
-                    ? _level
+                return Enum.IsDefined( typeof( Level ), Level )
+                    ? Level
                     : Level.Treasury;
             }
             catch( Exception ex )
@@ -179,7 +180,7 @@ namespace BudgetExecution
         /// </returns>
         public IDictionary<string, object> ToDictionary( )
         {
-            if( Enum.IsDefined( typeof( Level ), _level )
+            if( Enum.IsDefined( typeof( Level ), Level )
                && !string.IsNullOrEmpty( Code )
                && !string.IsNullOrEmpty( Name ) )
             {
@@ -187,7 +188,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>( )
                     {
-                        [ $"{ _level }" ] = _level.ToString( ),
+                        [ $"{ Level }" ] = Level.ToString( ),
                         [ $"{ Code }" ] = Code,
                         [ $"{ Name }" ] = Name
                     };

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class CompassOutlay
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public CompassOutlay( )
         {
-            
+        }
+        
+        public CompassOutlay( IQuery query )
+        {
+        }
+
+        public CompassOutlay( IDataModel builder )
+        {
+        }
+
+        public CompassOutlay( DataRow dataRow )
+        {
         }
     }
 }

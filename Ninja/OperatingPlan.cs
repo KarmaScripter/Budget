@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class OperatingPlan
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public OperatingPlan( )
         {
-            
+        }
+        
+        public OperatingPlan( IQuery query )
+        {
+        }
+
+        public OperatingPlan( IDataModel builder )
+        {
+        }
+
+        public OperatingPlan( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class StatusOfSupplementalFunding
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public StatusOfSupplementalFunding( )
         {
-            
+        }
+        
+        public StatusOfSupplementalFunding( IQuery query )
+        {
+        }
+
+        public StatusOfSupplementalFunding( IDataModel builder )
+        {
+        }
+
+        public StatusOfSupplementalFunding( DataRow dataRow )
+        {
         }
     }
 }

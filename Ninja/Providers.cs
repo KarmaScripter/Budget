@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Providers
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Providers( )
         {
-            
+        }
+        
+        public Providers( IQuery query )
+        {
+        }
+
+        public Providers( IDataModel builder )
+        {
+        }
+
+        public Providers( DataRow dataRow )
+        {
         }
     }
 }

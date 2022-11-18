@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class CarryoverOutlays
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public CarryoverOutlays( )
         {
-            
+        }
+        
+        public CarryoverOutlays( IQuery query )
+        {
+        }
+
+        public CarryoverOutlays( IDataModel builder )
+        {
+        }
+
+        public CarryoverOutlays( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class GrossUtilization
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public GrossUtilization( )
         {
-            
+        }
+        
+        public GrossUtilization( IQuery query )
+        {
+        }
+
+        public GrossUtilization( IDataModel builder )
+        {
+        }
+
+        public GrossUtilization( DataRow dataRow )
+        {
         }
     }
 }

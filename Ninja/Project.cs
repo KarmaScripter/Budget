@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Project
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Project( )
         {
-            
+        }
+        
+        public Project( IQuery query )
+        {
+        }
+
+        public Project( IDataModel builder )
+        {
+        }
+
+        public Project( DataRow dataRow )
+        {
         }
     }
 }

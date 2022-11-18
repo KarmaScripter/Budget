@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AmericanRescuePlan
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public AmericanRescuePlan( )
         {
-            
+        }
+        
+        public AmericanRescuePlan( IQuery query )
+        {
+        }
+
+        public AmericanRescuePlan( IDataModel builder )
+        {
+        }
+
+        public AmericanRescuePlan( DataRow dataRow )
+        {
         }
     }
 }

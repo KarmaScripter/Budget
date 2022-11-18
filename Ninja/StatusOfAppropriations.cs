@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class StatusOfAppropriations
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public StatusOfAppropriations( )
         {
-            
+        }
+        
+        public StatusOfAppropriations( IQuery query )
+        {
+        }
+
+        public StatusOfAppropriations( IDataModel builder )
+        {
+        }
+
+        public StatusOfAppropriations( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class MonthlyLedgerAccountBalance
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public MonthlyLedgerAccountBalance( )
         {
-            
+        }
+        
+        public MonthlyLedgerAccountBalance( IQuery query )
+        {
+        }
+
+        public MonthlyLedgerAccountBalance( IDataModel builder )
+        {
+        }
+
+        public MonthlyLedgerAccountBalance( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Report
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Report( )
         {
-            
+        }
+        
+        public Report( IQuery query )
+        {
+        }
+
+        public Report( IDataModel builder )
+        {
+        }
+
+        public Report( DataRow dataRow )
+        {
         }
     }
 }

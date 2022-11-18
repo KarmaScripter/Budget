@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class QueryDefinition
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public QueryDefinition( )
         {
-            
+        }
+        
+        public QueryDefinition( IQuery query )
+        {
+        }
+
+        public QueryDefinition( IDataModel builder )
+        {
+        }
+
+        public QueryDefinition( DataRow dataRow )
+        {
         }
     
     }

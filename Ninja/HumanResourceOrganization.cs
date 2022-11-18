@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class HumanResourceOrganization
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public HumanResourceOrganization( )
         {
-            
+        }
+        
+        public HumanResourceOrganization( IQuery query )
+        {
+        }
+
+        public HumanResourceOrganization( IDataModel builder )
+        {
+        }
+
+        public HumanResourceOrganization( DataRow dataRow )
+        {
         }
     }
 }

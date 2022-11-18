@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class FundSymbol
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public FundSymbol( )
         {
-            
+        }
+        
+        public FundSymbol( IQuery query )
+        {
+        }
+
+        public FundSymbol( IDataModel builder )
+        {
+        }
+
+        public FundSymbol( DataRow dataRow )
+        {
         }
     }
 }

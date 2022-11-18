@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ProgramDescription
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ProgramDescription( )
         {
-            
+        }
+        
+        public ProgramDescription( IQuery query )
+        {
+        }
+
+        public ProgramDescription( IDataModel builder )
+        {
+        }
+
+        public ProgramDescription( DataRow dataRow )
+        {
         }
     }
 }

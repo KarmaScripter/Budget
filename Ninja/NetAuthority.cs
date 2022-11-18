@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class NetAuthority
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public NetAuthority( )
         {
-            
+        }
+        
+        public NetAuthority( IQuery query )
+        {
+        }
+
+        public NetAuthority( IDataModel builder )
+        {
+        }
+
+        public NetAuthority( DataRow dataRow )
+        {
         }
     }
 }

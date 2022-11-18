@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class JobsActCarryoverEstimates
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public JobsActCarryoverEstimates( )
         {
-            
+        }
+        
+        public JobsActCarryoverEstimates( IQuery query )
+        {
+        }
+
+        public JobsActCarryoverEstimates( IDataModel builder )
+        {
+        }
+
+        public JobsActCarryoverEstimates( DataRow dataRow )
+        {
         }
     }
 }

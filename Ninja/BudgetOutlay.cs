@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class BudgetOutlay
     {
         public int ID { get; set; }
@@ -12,7 +14,20 @@ namespace BudgetExecution
 
         public BudgetOutlay( )
         {
-            
         }
+
+
+        public BudgetOutlay( IQuery query )
+        {
+        }
+
+        public BudgetOutlay( IDataModel builder )
+        {
+        }
+
+        public BudgetOutlay( DataRow dataRow )
+        {
+        }
+
     }
 }

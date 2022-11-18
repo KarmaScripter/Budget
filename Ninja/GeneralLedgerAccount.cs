@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class GeneralLedgerAccount
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public GeneralLedgerAccount( )
         {
-            
+        }
+        
+        public GeneralLedgerAccount( IQuery query )
+        {
+        }
+
+        public GeneralLedgerAccount( IDataModel builder )
+        {
+        }
+
+        public GeneralLedgerAccount( DataRow dataRow )
+        {
         }
     }
 }

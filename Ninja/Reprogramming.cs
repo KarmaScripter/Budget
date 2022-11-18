@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Reprogramming
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Reprogramming( )
         {
-            
+        }
+        
+        public Reprogramming( IQuery query )
+        {
+        }
+
+        public Reprogramming( IDataModel builder )
+        {
+        }
+
+        public Reprogramming( DataRow dataRow )
+        {
         }
     }
 }

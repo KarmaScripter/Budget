@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ApportionmentData
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ApportionmentData( )
         {
-            
+        }
+        
+        public ApportionmentData( IQuery query )
+        {
+        }
+
+        public ApportionmentData( IDataModel builder )
+        {
+        }
+
+        public ApportionmentData( DataRow dataRow )
+        {
         }
     }
 }

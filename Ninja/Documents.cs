@@ -3,7 +3,9 @@
 // </copyright>
 
 namespace BudgetExecution
-{ 
+{
+    using System.Data;
+
     public class Documents
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Documents( )
         {
-            
+        }
+        
+        public Documents( IQuery query )
+        {
+        }
+
+        public Documents( IDataModel builder )
+        {
+        }
+
+        public Documents( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AnnualReimbursableSurvey
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public AnnualReimbursableSurvey( )
         {
-            
+        }
+        
+        public AnnualReimbursableSurvey( IQuery query )
+        {
+        }
+
+        public AnnualReimbursableSurvey( IDataModel builder )
+        {
+        }
+
+        public AnnualReimbursableSurvey( DataRow dataRow )
+        {
         }
     }
 }

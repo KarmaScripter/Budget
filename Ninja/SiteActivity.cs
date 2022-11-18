@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class SiteActivity
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public SiteActivity( )
         {
-            
+        }
+        
+        public SiteActivity( IQuery query )
+        {
+        }
+
+        public SiteActivity( IDataModel builder )
+        {
+        }
+
+        public SiteActivity( DataRow dataRow )
+        {
         }
     }
 }

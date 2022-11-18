@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Messages
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Messages( )
         {
-            
+        }
+        
+        public Messages( IQuery query )
+        {
+        }
+
+        public Messages( IDataModel builder )
+        {
+        }
+
+        public Messages( DataRow dataRow )
+        {
         }
     }
 }

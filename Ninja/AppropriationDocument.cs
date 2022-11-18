@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class AppropriationDocument
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public AppropriationDocument( )
         {
-            
+        }
+        
+        public AppropriationDocument( IQuery query )
+        {
+        }
+
+        public AppropriationDocument( IDataModel builder )
+        {
+        }
+
+        public AppropriationDocument( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class UnobligatedAuthority
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public UnobligatedAuthority( )
         {
-            
+        }
+        
+        public UnobligatedAuthority( IQuery query )
+        {
+        }
+
+        public UnobligatedAuthority( IDataModel builder )
+        {
+        }
+
+        public UnobligatedAuthority( DataRow dataRow )
+        {
         }
     }
 }

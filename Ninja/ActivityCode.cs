@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class ActivityCode
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public ActivityCode( )
         {
-            
+        }
+        
+        public ActivityCode( IQuery query )
+        {
+        }
+
+        public ActivityCode( IDataModel builder )
+        {
+        }
+
+        public ActivityCode( DataRow dataRow )
+        {
         }
     }
 }

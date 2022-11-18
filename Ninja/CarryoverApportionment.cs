@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class CarryoverApportionment
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public CarryoverApportionment( )
         {
-            
+        }
+        
+        public CarryoverApportionment( IQuery query )
+        {
+        }
+
+        public CarryoverApportionment( IDataModel builder )
+        {
+        }
+
+        public CarryoverApportionment( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class Defacto
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public Defacto( )
         {
-            
+        }
+        
+        public Defacto( IQuery query )
+        {
+        }
+
+        public Defacto( IDataModel builder )
+        {
+        }
+
+        public Defacto( DataRow dataRow )
+        {
         }
     }
 }

@@ -4,6 +4,8 @@
 
 namespace BudgetExecution
 {
+    using System.Data;
+
     public class GrowthRates
     {
         public int ID { get; set; }
@@ -12,7 +14,18 @@ namespace BudgetExecution
 
         public GrowthRates( )
         {
-            
+        }
+        
+        public GrowthRates( IQuery query )
+        {
+        }
+
+        public GrowthRates( IDataModel builder )
+        {
+        }
+
+        public GrowthRates( DataRow dataRow )
+        {
         }
     }
 }
