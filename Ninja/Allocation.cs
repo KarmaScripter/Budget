@@ -6,6 +6,10 @@ namespace BudgetExecution
 {
     public class Allocation
     {
+        public int ID { get; set; }
+
+        public Source Source { get; set; }
+
         public Allocation( )
         {
             

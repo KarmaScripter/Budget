@@ -6,6 +6,10 @@ namespace BudgetExecution
 {
     public class AmericanRescuePlan
     {
+        public int ID { get; set; }
+
+        public Source Source { get; set; }
+
         public AmericanRescuePlan( )
         {
             

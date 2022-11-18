@@ -6,6 +6,13 @@ namespace BudgetExecution
 {
     public class FederalHolidays
     {
-    
+        public int ID { get; set; }
+
+        public Source Source { get; set; }
+
+        public FederalHolidays( )
+        {
+            
+        }
     }
 }

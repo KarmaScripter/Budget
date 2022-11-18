@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class OperatingPlan
     {
+        public int ID { get; set; }
+
         public Source Source { get; set; }
 
         public OperatingPlan( )

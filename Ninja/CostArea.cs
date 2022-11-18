@@ -6,6 +6,8 @@ namespace BudgetExecution
 {
     public class CostArea
     {
+        public int ID { get; set; }
+
         public Source Source { get; set; }
 
         public CostArea( )
