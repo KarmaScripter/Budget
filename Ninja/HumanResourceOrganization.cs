@@ -6,6 +6,9 @@ namespace BudgetExecution
 {
     public class HumanResourceOrganization
     {
-    
+        public HumanResourceOrganization( )
+        {
+            
+        }
     }
 }

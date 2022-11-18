@@ -6,7 +6,10 @@ namespace BudgetExecution
 {
     public class CarryoverApportionment
     {
-    
+        public CarryoverApportionment( )
+        {
+            
+        }
     }
 }
 

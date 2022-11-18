@@ -6,5 +6,9 @@ namespace BudgetExecution
 {
     public class Appropriation
     {
+        public Appropriation( )
+        {
+            
+        }
     }
 }

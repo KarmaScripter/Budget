@@ -6,6 +6,9 @@ namespace BudgetExecution
 {
     public class AnnualCarryoverEstimate
     {
-    
+        public AnnualCarryoverEstimate( )
+        {
+            
+        }
     }
 }

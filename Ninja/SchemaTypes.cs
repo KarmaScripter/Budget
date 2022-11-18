@@ -2,9 +2,13 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
-
-public class SchemaTypes
+namespace BudgetExecution
 {
-    
+    public class SchemaTypes
+    {
+        public SchemaTypes( )
+        {
+            
+        }
+    }
 }

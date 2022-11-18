@@ -6,5 +6,8 @@ namespace BudgetExecution;
 
 public class AppropriationLevelAuthority
 {
-    
+    public AppropriationLevelAuthority( )
+    {
+            
+    }
 }
