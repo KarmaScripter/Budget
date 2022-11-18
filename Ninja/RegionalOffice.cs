@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public RegionalOffice( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public RegionalOffice( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public RegionalOffice( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

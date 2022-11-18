@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public CarryoverOutlays( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public CarryoverOutlays( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public CarryoverOutlays( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

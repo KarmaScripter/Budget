@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public GsPayScale( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public GsPayScale( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public GsPayScale( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

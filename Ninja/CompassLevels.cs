@@ -34,14 +34,20 @@ namespace BudgetExecution
 
         public CompassLevels( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public CompassLevels( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public CompassLevels( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

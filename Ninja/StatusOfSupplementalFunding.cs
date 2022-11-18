@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public StatusOfSupplementalFunding( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public StatusOfSupplementalFunding( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public StatusOfSupplementalFunding( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

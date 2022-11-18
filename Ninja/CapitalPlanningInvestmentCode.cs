@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public CapitalPlanningInvestmentCode( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public CapitalPlanningInvestmentCode( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public CapitalPlanningInvestmentCode( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

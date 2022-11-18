@@ -36,17 +36,20 @@ namespace BudgetExecution
 
         public AccountingEvent( IQuery query )
         {
-            
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public AccountingEvent( IDataModel builder )
         {
-            
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public AccountingEvent( DataRow dataRow )
         {
-            
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

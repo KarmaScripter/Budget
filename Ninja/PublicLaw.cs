@@ -5,7 +5,9 @@
 namespace BudgetExecution
 {
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class PublicLaw
     {
         public int ID { get; set; }
@@ -34,14 +36,20 @@ namespace BudgetExecution
         
         public PublicLaw( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public PublicLaw( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public PublicLaw( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

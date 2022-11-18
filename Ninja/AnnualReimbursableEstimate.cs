@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public AnnualReimbursableEstimate( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public AnnualReimbursableEstimate( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public AnnualReimbursableEstimate( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

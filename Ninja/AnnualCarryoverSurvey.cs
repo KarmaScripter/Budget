@@ -12,20 +12,30 @@ namespace BudgetExecution
 
         public Source Source { get; set; }
 
+        public DataRow Record { get; set; }
+
+        public IDictionary<string, object> Data { get; set; }
+
         public AnnualCarryoverSurvey( )
         {
         }
         
         public AnnualCarryoverSurvey( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public AnnualCarryoverSurvey( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public AnnualCarryoverSurvey( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

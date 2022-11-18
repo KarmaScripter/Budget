@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public AnnualReimbursableSurvey( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public AnnualReimbursableSurvey( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public AnnualReimbursableSurvey( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

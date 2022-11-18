@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public SupplementalCarryoverEstimates( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public SupplementalCarryoverEstimates( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public SupplementalCarryoverEstimates( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

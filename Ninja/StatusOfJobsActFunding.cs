@@ -34,14 +34,20 @@ namespace BudgetExecution
 
         public StatusOfJobsActFunding( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public StatusOfJobsActFunding( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public StatusOfJobsActFunding( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

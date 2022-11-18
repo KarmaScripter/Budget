@@ -34,14 +34,20 @@ namespace BudgetExecution
         
         public StatusOfBudgetaryResources( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         public StatusOfBudgetaryResources( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         public StatusOfBudgetaryResources( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }
