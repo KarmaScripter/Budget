@@ -20,6 +20,14 @@ namespace BudgetExecution
     public class ResponsibilityCenter : Element, IResponsibilityCenter, ISource
     {
         /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public int ID { get; set; }
+
+        /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.ResponsibilityCenters;
@@ -65,7 +73,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -80,7 +88,7 @@ namespace BudgetExecution
         public ResponsibilityCenter( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -96,7 +104,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = data;
-            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -111,7 +119,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
-            ID = new Key( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );

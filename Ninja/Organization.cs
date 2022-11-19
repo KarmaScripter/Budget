@@ -32,10 +32,22 @@ namespace BudgetExecution
         /// </value>
         public DataRow Record { get; set; }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
         public string Code { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
         /// <summary>
@@ -174,36 +186,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IOrganization );
-            }
-        }
-        
-        public int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
             }
         }
     }
