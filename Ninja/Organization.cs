@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the code.
         /// </summary>
-        public string Code { get; set; }
+        public override string Code { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; set; }
+        public override string Name { get; set; }
 
         /// <summary>
         /// Gets the arguments.

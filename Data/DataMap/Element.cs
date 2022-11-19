@@ -392,7 +392,7 @@ namespace BudgetExecution
                 {
                     var _names = dataRow.Table?.GetColumnNames( );
                     Value = _names?.Contains( field.ToString( ) ) == true
-                        ? dataRow[ $"{field}" ]?.ToString( )
+                        ? dataRow[ $"{ field }" ]?.ToString( )
                         : string.Empty;
                 }
                 catch( Exception ex )
