@@ -13,7 +13,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    /// <seealso cref="BudgetExecution.DescriptionBase" />
+    /// <seealso cref="BudgetExecution.ISource" />
+    [SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ProgramProject : DescriptionBase, ISource
@@ -65,18 +67,16 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ProgramProject"/> class.
+        /// <see cref="ProgramProject" /> class.
         /// </summary>
         public ProgramProject( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ProgramProject"/> class.
+        /// Initializes a new instance of the <see cref="ProgramProject" /> class.
         /// </summary>
-        /// <param name = "query" >
-        /// The query.
-        /// </param>
+        /// <param name="query">The query.</param>
         public ProgramProject( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
@@ -92,11 +92,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ProgramProject"/> class.
+        /// Initializes a new instance of the <see cref="ProgramProject" /> class.
         /// </summary>
-        /// <param name = "dataBuilder" >
-        /// The dataBuilder.
-        /// </param>
+        /// <param name="dataBuilder">The dataBuilder.</param>
         public ProgramProject( IDataModel dataBuilder )
         {
             Record = dataBuilder?.Record;
@@ -112,11 +110,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ProgramProject"/> class.
+        /// Initializes a new instance of the <see cref="ProgramProject" /> class.
         /// </summary>
-        /// <param name = "dataRow" >
-        /// The dataRow.
-        /// </param>
+        /// <param name="dataRow">The dataRow.</param>
         public ProgramProject( DataRow dataRow )
         {
             Record = dataRow;
@@ -132,11 +128,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ProgramProject"/> class.
+        /// Initializes a new instance of the <see cref="ProgramProject" /> class.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
+        /// <param name="code">The code.</param>
         public ProgramProject( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -154,11 +148,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the arguments.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )
@@ -180,8 +171,7 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try
