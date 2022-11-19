@@ -1,8 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Form1.cs">
+    <Compile Update="Controls\Calculator\CalculationForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Calculator\CalculatorBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Calendar\CalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\CarouselBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\CarouselForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\Rotator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\Selector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Chart\Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Chart\ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Clock\Clock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Clock\ClockBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ComboBox\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ComboBox\ComboBoxBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\CurrencyBox\CurrencyBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\CurrencyBox\CurrencyBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\DataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\DataGridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\DataGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\DataView\DataView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataView\DataViewBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\ColumnConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\DefinitionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\EditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\FileBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\LookupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Editor\EditBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Excel\ExcelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Excel\GridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Excel\RibbonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Excel\SpreadsheetBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Form\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Form\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Form\PdfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Frame\Frame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ImageList\ImageList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ImageList\ImageListBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\MetroTip\MetroTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\MetroTip\MetroTipBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PictureBox\PictureBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PictureBox\PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotChart\PivotChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotChart\PivotChartBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\RadioButton\RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\SplashPanel\SplashBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\SplashPanel\SplashControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\SyncTip\SyncTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\SyncTip\SyncTipBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Tile\Tile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Tile\TileBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripButton\ToolButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripButton\ToolStripButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripDropDown\ToolStripDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripDropDown\ToolStripDropDownBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripLabel\ToolStripLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripLabel\ToolStripLabelBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripProgressBar\ToolStripProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripProgressBar\ToolStripProgressBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripSeparator\ToolSeparator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripTextBox\ToolStripTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStripTextBox\ToolStripTextBoxBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStrip\ToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ToolStrip\ToolStrip\ToolStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Data\Adapter\AdapterBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Data\DataWorker\DataWorker.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
 </Project>

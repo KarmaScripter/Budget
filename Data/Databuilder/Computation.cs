@@ -11,6 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Computation : DataModel, IDataFilter
     {
         /// <summary>

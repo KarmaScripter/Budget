@@ -1,5 +1,5 @@
-﻿// <copyright file = "DictionaryExtensions.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -39,7 +39,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( TValue );
+                    return default;
                 }
             }
             else
@@ -62,9 +62,11 @@ namespace BudgetExecution
                 try
                 {
                     var _criteria = "";
+
                     if( dict.HasPrimaryKey( ) )
                     {
                         var _key = dict.GetPrimaryKey( );
+
                         if( !string.IsNullOrEmpty( _key.Key )
                            & int.Parse( _key.Value.ToString( ) ) > -1 )
                         {
@@ -118,7 +120,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( SortedDictionary<TKey, TValue> );
+                return default;
             }
         }
 
@@ -133,6 +135,7 @@ namespace BudgetExecution
             try
             {
                 var _bindingList = new BindingList<KeyValuePair<string, object>>( );
+
                 foreach( var kvp in nvc )
                 {
                     _bindingList.Add( kvp );
@@ -140,12 +143,12 @@ namespace BudgetExecution
 
                 return _bindingList?.Any( ) == true
                     ? _bindingList
-                    : default( BindingList<KeyValuePair<string, object>> );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( BindingList<KeyValuePair<string, object>> );
+                return default;
             }
         }
 
@@ -165,7 +168,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( SortedList<TKey, TValue> );
+                return default;
             }
         }
 
@@ -173,8 +176,7 @@ namespace BudgetExecution
         /// <param name = "dict" > The dictionary. </param>
         /// <param name = "provider" > The provider. </param>
         /// <returns> </returns>
-        public static IEnumerable<DbParameter> ToSqlDbParameters(
-            this IDictionary<string, object> dict, Provider provider )
+        public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict, Provider provider )
         {
             if( dict?.Keys?.Count > 0
                && Enum.IsDefined( typeof( Provider ), provider ) )
@@ -183,12 +185,14 @@ namespace BudgetExecution
                 {
                     var _columns = dict.Keys.ToArray( );
                     var _values = dict.Values.ToArray( );
+
                     switch( provider )
                     {
                         case Provider.NS:
                         case Provider.SQLite:
                         {
                             var _sqlite = new List<SQLiteParameter>( );
+
                             for( var i = 0; i < _columns.Length; i++ )
                             {
                                 var _parameter = new SQLiteParameter
@@ -202,12 +206,12 @@ namespace BudgetExecution
 
                             return _sqlite.Any( )
                                 ? _sqlite.ToArray( )
-                                : default( SQLiteParameter[ ] );
+                                : default;
                         }
-
                         case Provider.SqlCe:
                         {
                             var _sqlce = new List<SqlCeParameter>( );
+
                             for( var i = 0; i < _columns.Length; i++ )
                             {
                                 var _parameter = new SqlCeParameter
@@ -221,14 +225,14 @@ namespace BudgetExecution
 
                             return _sqlce.Any( )
                                 ? _sqlce.ToArray( )
-                                : default( SqlCeParameter[ ] );
+                                : default;
                         }
-
                         case Provider.OleDb:
                         case Provider.Excel:
                         case Provider.Access:
                         {
                             var _oledb = new List<OleDbParameter>( );
+
                             for( var i = 0; i < _columns.Length; i++ )
                             {
                                 var _parameter = new OleDbParameter
@@ -242,12 +246,12 @@ namespace BudgetExecution
 
                             return _oledb.Any( )
                                 ? _oledb.ToArray( )
-                                : default( OleDbParameter[ ] );
+                                : default;
                         }
-
                         case Provider.SqlServer:
                         {
                             var _sqlserver = new List<SqlParameter>( );
+
                             for( var i = 0; i < _columns.Length; i++ )
                             {
                                 var _parameter = new SqlParameter
@@ -261,20 +265,20 @@ namespace BudgetExecution
 
                             return _sqlserver?.Any( ) == true
                                 ? _sqlserver.ToArray( )
-                                : default( SqlParameter[ ] );
+                                : default;
                         }
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IEnumerable<DbParameter> );
+                    return default;
                 }
 
-                return default( IEnumerable<DbParameter> );
+                return default;
             }
 
-            return default( IEnumerable<DbParameter> );
+            return default;
         }
 
         /// <summary> Determines whether [has a primary key]. </summary>
@@ -294,9 +298,11 @@ namespace BudgetExecution
                     var _array = dict.Keys?.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
                     var _count = 0;
+
                     for( var i = 1; i < _array.Length; i++ )
                     {
                         var _name = _array[ i ];
+
                         if( _names.Contains( _name ) )
                         {
                             _count++;
@@ -308,7 +314,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( bool );
+                    return default;
                 }
             }
 
@@ -320,8 +326,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dict">The dictionary.</param>
         /// <returns></returns>
-        public static KeyValuePair<string, object> GetPrimaryKey(
-            this IDictionary<string, object> dict )
+        public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true
                && dict.HasPrimaryKey( ) )
@@ -329,6 +334,7 @@ namespace BudgetExecution
                 try
                 {
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
+
                     foreach( var kvp in dict )
                     {
                         if( _names.Contains( kvp.Key ) )
@@ -340,11 +346,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( KeyValuePair<string, object> );
+                    return default;
                 }
             }
 
-            return default( KeyValuePair<string, object> );
+            return default;
         }
 
         /// <summary>Fails the specified ex.</summary>
