@@ -14,14 +14,14 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IElement" />
-    public class Element : DataUnit, IElement
+    public abstract class Element : DataUnit, IElement
     {
         /// <summary>
         /// Gets the identifier.
         /// </summary>
         /// <returns>
         /// </returns>
-        public IKey ID { get; set; }
+        public virtual int ID { get; set; }
 
         /// <summary>
         /// Gets the code.
