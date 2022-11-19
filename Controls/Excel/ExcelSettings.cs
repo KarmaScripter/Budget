@@ -367,16 +367,21 @@ namespace BudgetExecution
             {
                 try
                 {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
-                    spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
-                    var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
-                    var sheet = spreadSheet.Workbook.ActiveSheet;
-                    spreadSheet.ActiveSheet.ImportDataGridView( dataGrid, 1, 1, true, false );
-                    var range = sheet.UsedRange;
-                    var table = sheet.ListObjects.Create( name, range );
-                    table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells( );
-                    spreadSheet.SetZoomFactor( "Sheet1", 110 );
+                    var _table = (DataTable)dataGrid.DataSource;
+
+                    if ( _table != null )
+                    {
+                        spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
+                        spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
+                        var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
+                        var sheet = spreadSheet.Workbook.ActiveSheet;
+                        spreadSheet.ActiveSheet.ImportDataTable( _table, 1, 1, true, false );
+                        var range = sheet.UsedRange;
+                        var table = sheet.ListObjects.Create( name, range );
+                        table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
+                        spreadSheet.ActiveGrid.InvalidateCells( );
+                        spreadSheet.SetZoomFactor( "Sheet1", 110 );
+                    }
                 }
                 catch( Exception ex )
                 {
