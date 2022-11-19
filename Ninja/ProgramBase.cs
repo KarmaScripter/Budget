@@ -23,7 +23,13 @@ namespace BudgetExecution
         /// </summary>
         public virtual string Code { get; set; }
 
-        public virtual string Name { get; set; }
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name { get; set; }
 
         /// <summary>
         /// Gets the record.

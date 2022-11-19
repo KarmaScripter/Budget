@@ -15,13 +15,32 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ProgramProject : DescriptionBase, ISource
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int ID { get; set; }
 
-        public string Code { get; set; }
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
+        public override string Code { get; set; }
 
-        public string Name { get; set; }
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name { get; set; }
 
         /// <summary>
         /// The source
@@ -35,7 +54,7 @@ namespace BudgetExecution
         /// The data row.
         /// </value>
         public DataRow Record { get; set; }
-        
+
         /// <summary>
         /// Gets the arguments.
         /// </summary>
@@ -177,8 +196,13 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
-        public int GetId( DataRow dataRow )
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
+        protected override int GetId( DataRow dataRow )
         {
             try
             {
@@ -193,7 +217,13 @@ namespace BudgetExecution
             }
         }
 
-        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
+        protected override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try
             {

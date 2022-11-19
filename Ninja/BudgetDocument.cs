@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BudgetDocument
     {
         /// <summary>
@@ -46,14 +46,14 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the <see cref="BudgetDocument" /> class.
         /// </summary>
         public BudgetDocument( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the <see cref="BudgetDocument" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetDocument( IQuery query )
@@ -63,7 +63,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the <see cref="BudgetDocument" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetDocument( IDataModel builder )
@@ -73,7 +73,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
+        /// Initializes a new instance of the <see cref="BudgetDocument" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetDocument( DataRow dataRow )
