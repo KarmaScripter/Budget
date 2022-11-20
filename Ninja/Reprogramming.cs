@@ -6,10 +6,12 @@ namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Reprogramming
     {
         /// <summary>
@@ -57,6 +59,8 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public Reprogramming( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -65,6 +69,8 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public Reprogramming( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -73,6 +79,8 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public Reprogramming( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

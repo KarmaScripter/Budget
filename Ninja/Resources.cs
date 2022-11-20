@@ -82,6 +82,5 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
         }
-    
     }
 }

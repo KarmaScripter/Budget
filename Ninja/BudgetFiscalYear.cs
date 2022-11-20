@@ -19,10 +19,11 @@ namespace BudgetExecution
     /// <seealso cref="FiscalYear" />
     /// <seealso cref="IBudgetFiscalYear" />
     /// <seealso cref="ISource" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
     {
         /// <summary>
@@ -203,17 +204,17 @@ namespace BudgetExecution
             try
             {
                 var _holidays = new Dictionary<Holiday, DateOnly>( );
-                var _factory = new HolidayFactory( Record );
-                _holidays.Add( Holiday.NewYears, _factory.ChristmasDay );
-                _holidays.Add( Holiday.MartinLutherKing, _factory.MartinLutherKingDay );
-                _holidays.Add( Holiday.Memorial, _factory.MemorialDay );
-                _holidays.Add( Holiday.Presidents, _factory.PresidentsDay );
-                _holidays.Add( Holiday.Veterans, _factory.VeteransDay );
-                _holidays.Add( Holiday.Labor, _factory.LaborDay );
-                _holidays.Add( Holiday.Independence, _factory.IndependenceDay );
-                _holidays.Add( Holiday.Columbus, _factory.ColumbusDay );
-                _holidays.Add( Holiday.Thanksgiving, _factory.ThanksgivingDay );
-                _holidays.Add( Holiday.Christmas, _factory.ChristmasDay );
+                var _day = new HolidayFactory( Record );
+                _holidays.Add( Holiday.NewYears, _day.ChristmasDay );
+                _holidays.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
+                _holidays.Add( Holiday.Memorial, _day.MemorialDay );
+                _holidays.Add( Holiday.Presidents, _day.PresidentsDay );
+                _holidays.Add( Holiday.Veterans, _day.VeteransDay );
+                _holidays.Add( Holiday.Labor, _day.LaborDay );
+                _holidays.Add( Holiday.Independence, _day.IndependenceDay );
+                _holidays.Add( Holiday.Columbus, _day.ColumbusDay );
+                _holidays.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
+                _holidays.Add( Holiday.Christmas, _day.ChristmasDay );
                 return ( _holidays.Any( ) == true )
                     ? _holidays
                     : default( IDictionary<Holiday, DateOnly> );
@@ -278,12 +279,12 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( FirstYear )
                     ? FirstYear
-                    : default( string? );
+                    : string.Empty;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+                return string.Empty;
             }
         }
 

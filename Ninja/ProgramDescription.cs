@@ -57,6 +57,8 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public ProgramDescription( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -65,6 +67,8 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public ProgramDescription( IDataModel builder )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -73,6 +77,8 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public ProgramDescription( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
         }
     }
 }

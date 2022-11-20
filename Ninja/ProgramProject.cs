@@ -21,14 +21,6 @@ namespace BudgetExecution
     public class ProgramProject : DescriptionBase, ISource
     {
         /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
         /// Gets or sets the code.
         /// </summary>
         /// <value>
@@ -48,23 +40,7 @@ namespace BudgetExecution
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.ProgramDescriptions;
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ProgramProject" /> class.
@@ -197,7 +173,7 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
@@ -218,7 +194,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
@@ -227,6 +203,5 @@ namespace BudgetExecution
                 return default( int );
             }
         }
-
     }
 }
