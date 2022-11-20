@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="VisualButton" />
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ButtonBase : VisualButton
     {
         /// <summary>
@@ -248,8 +249,8 @@ namespace BudgetExecution
             try
             {
                 if( sender is VisualButton _button
-                    && _button != null
-                    && ToolTip?.Active == true )
+                   && _button != null
+                   && ToolTip?.Active == true )
                 {
                     ToolTip.RemoveAll( );
                 }

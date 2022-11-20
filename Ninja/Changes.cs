@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System.Collections.Generic;
     using System.Data;
 
     public class Changes

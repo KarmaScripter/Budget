@@ -218,3 +218,6 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.genruntimecon
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.MainForm.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.csproj.GenerateResource.cache
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.DataGridForm.resources
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExeuction.FormBase.resources
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.Properties.Resources.resources

@@ -5,11 +5,13 @@
         <TargetFramework>net6.0-windows</TargetFramework>
         <Nullable>disable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <ImplicitUsings>disable</ImplicitUsings>
         <RootNamespace>BudgetExecution</RootNamespace>
         <ApplicationIcon>Resources\Images\Ninja\BudExNinjaGrey.ico</ApplicationIcon>
         <StartupObject>BudgetExecution.Program</StartupObject>
         <PackageIcon>BudExNinja.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -109,6 +111,14 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Update="LICENSE">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Update="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
       <None Update="Resources\Images\Ninja\png\BudExNinja.png">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
