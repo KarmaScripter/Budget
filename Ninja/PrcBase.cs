@@ -24,9 +24,21 @@ namespace BudgetExecution
         /// </value>
         public virtual DataRow Record { get; set; }
 
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
         public virtual string Code { get; set; }
 
-        public virtual string Name { get; set; }
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.

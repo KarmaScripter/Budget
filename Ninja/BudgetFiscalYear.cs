@@ -13,6 +13,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    /// <seealso cref="BudgetExecution.FiscalYear" />
+    /// <seealso cref="BudgetExecution.IBudgetFiscalYear" />
+    /// <seealso cref="BudgetExecution.ISource" />
     /// <seealso cref="FiscalYear" />
     /// <seealso cref="IBudgetFiscalYear" />
     /// <seealso cref="ISource" />
@@ -20,12 +23,31 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
     {
-        public int ID { get; set; }
+        /// <summary>
+        /// Gets or sets the fiscal year identifier.
+        /// </summary>
+        /// <value>
+        /// The fiscal year identifier.
+        /// </value>
+        public override int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
         public string Code { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
         /// <summary>
@@ -61,14 +83,14 @@ namespace BudgetExecution
         public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
+        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
         public BudgetFiscalYear( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
+        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
         /// <param name="bfy">The bfy.</param>
         public BudgetFiscalYear( string bfy )
@@ -90,7 +112,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
+        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetFiscalYear( IQuery query )
@@ -110,7 +132,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
+        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
         /// <param name="dataBuilder">The data builder.</param>
         public BudgetFiscalYear( IDataModel dataBuilder )
@@ -131,7 +153,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
+        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
         /// <param name="fy">The fy.</param>
         public BudgetFiscalYear( BFY fy )
@@ -152,7 +174,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear"/> class.
+        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetFiscalYear( DataRow dataRow )
@@ -182,19 +204,18 @@ namespace BudgetExecution
             try
             {
                 var _holidays = new Dictionary<Holiday, DateOnly>( );
-                var _factory = new HolidayFactory( Record );
-                _holidays.Add( Holiday.NewYears, _factory.ChristmasDay );
-                _holidays.Add( Holiday.MartinLutherKing, _factory.MartinLutherKingDay );
-                _holidays.Add( Holiday.Memorial, _factory.MemorialDay );
-                _holidays.Add( Holiday.Presidents, _factory.PresidentsDay );
-                _holidays.Add( Holiday.Veterans, _factory.VeteransDay );
-                _holidays.Add( Holiday.Labor, _factory.LaborDay );
-                _holidays.Add( Holiday.Independence, _factory.IndependenceDay );
-                _holidays.Add( Holiday.Columbus, _factory.ColumbusDay );
-                _holidays.Add( Holiday.Thanksgiving, _factory.ThanksgivingDay );
-                _holidays.Add( Holiday.Christmas, _factory.ChristmasDay );
-
-                return _holidays.Any( ) == true
+                var _day = new HolidayFactory( Record );
+                _holidays.Add( Holiday.NewYears, _day.ChristmasDay );
+                _holidays.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
+                _holidays.Add( Holiday.Memorial, _day.MemorialDay );
+                _holidays.Add( Holiday.Presidents, _day.PresidentsDay );
+                _holidays.Add( Holiday.Veterans, _day.VeteransDay );
+                _holidays.Add( Holiday.Labor, _day.LaborDay );
+                _holidays.Add( Holiday.Independence, _day.IndependenceDay );
+                _holidays.Add( Holiday.Columbus, _day.ColumbusDay );
+                _holidays.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
+                _holidays.Add( Holiday.Christmas, _day.ChristmasDay );
+                return ( _holidays.Any( ) == true )
                     ? _holidays
                     : default( IDictionary<Holiday, DateOnly> );
             }
@@ -205,6 +226,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
         public int GetId( DataRow dataRow )
         {
             try
@@ -220,6 +246,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
         public int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try
@@ -247,12 +279,12 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( FirstYear )
                     ? FirstYear
-                    : default( string? );
+                    : string.Empty;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+                return string.Empty;
             }
         }
 

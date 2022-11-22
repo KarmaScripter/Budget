@@ -12,7 +12,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <seealso cref="BudgetExecution.IBudgetLevel" />
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetLevel : IBudgetLevel
@@ -25,14 +26,32 @@ namespace BudgetExecution
         /// </value>
         public Level Level { get; set; }
 
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
         public string Code { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetLevel"/> class.
+        /// Initializes a new instance of the <see cref="BudgetLevel" /> class.
         /// </summary>
         public BudgetLevel( )
         {
@@ -42,11 +61,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetLevel"/> class.
+        /// Initializes a new instance of the <see cref="BudgetLevel" /> class.
         /// </summary>
-        /// <param name = "budgetLevel" >
-        /// The budgetLevel.
-        /// </param>
+        /// <param name="budgetLevel">The budgetLevel.</param>
         public BudgetLevel( string budgetLevel )
         {
             Level = GetLevel( budgetLevel );
@@ -55,11 +72,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetLevel"/> class.
+        /// Initializes a new instance of the <see cref="BudgetLevel" /> class.
         /// </summary>
-        /// <param name = "level" >
-        /// The level.
-        /// </param>
+        /// <param name="level">The level.</param>
         private BudgetLevel( Level level )
         {
             Level = level;
@@ -70,8 +85,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the level number.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public int GetNumber( )
         {
             try
@@ -90,8 +104,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the name of the level.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public string GetName( )
         {
             try
@@ -110,8 +123,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the level.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public Level GetLevel( )
         {
             try
@@ -130,11 +142,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the level.
         /// </summary>
-        /// <param name = "budgetLevel" >
-        /// The budgetLevel.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="budgetLevel">The budgetLevel.</param>
+        /// <returns></returns>
         private Level GetLevel( string budgetLevel )
         {
             try
@@ -156,7 +165,7 @@ namespace BudgetExecution
         /// Converts to string.
         /// </summary>
         /// <returns>
-        /// A <see cref = "string"/> that represents this instance.
+        /// A <see cref="string" /> that represents this instance.
         /// </returns>
         public override string ToString( )
         {
@@ -176,8 +185,7 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IDictionary<string, object> ToDictionary( )
         {
             if( Enum.IsDefined( typeof( Level ), Level )
@@ -206,8 +214,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the budget level.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public BudgetLevel GetBudgetLevel( )
         {
             try
@@ -221,6 +228,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
         public int GetId( DataRow dataRow )
         {
             try
@@ -236,6 +248,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
         public int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try

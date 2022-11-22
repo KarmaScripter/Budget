@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     public partial class LookupDialog : EditBase

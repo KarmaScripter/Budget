@@ -46,7 +46,13 @@ namespace BudgetExecution
         /// </summary>
         public virtual string ImageDirectory { get; set; }
 
-        public BindingSource BindingSource { get; set; }
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public override BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets the buttons.
@@ -85,7 +91,7 @@ namespace BudgetExecution
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            ImageScalingSize = new Size( 20, 20 );
+            ImageScalingSize = new Size( 16, 18 );
             Office12Mode = true;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;

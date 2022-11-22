@@ -14,26 +14,20 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IElement" />
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class Element : DataUnit, IElement
     {
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IKey ID { get; set; }
-
         /// <summary>
         /// Gets the code.
         /// </summary>
         /// <returns>
         /// </returns>
-        public string Code { get; set; }
+        public virtual string Code { get; set; }
 
         /// <summary>
         /// The initial
         /// </summary>
-        public string Initial { get; set; }
+        public virtual string Initial { get; set; }
 
         /// <summary>
         /// The default
@@ -398,13 +392,49 @@ namespace BudgetExecution
                 {
                     var _names = dataRow.Table?.GetColumnNames( );
                     Value = _names?.Contains( field.ToString( ) ) == true
-                        ? dataRow[ $"{field}" ]?.ToString( )
+                        ? dataRow[ $"{ field }" ]?.ToString( )
                         : string.Empty;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
+        protected virtual int GetId( DataRow dataRow )
+        {
+            if( dataRow != null)
+            {
+                return int.Parse( dataRow[ 0 ].ToString( ) );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
+        protected virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            if( dataRow != null
+               && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
+            {
+                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) );
+            }
+            else
+            {
+                return -1;
             }
         }
     }

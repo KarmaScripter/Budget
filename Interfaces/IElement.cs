@@ -10,14 +10,6 @@ namespace BudgetExecution
     public interface IElement : IDataUnit
     {
         /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        IKey ID { get; set; }
-
-        /// <summary>
         /// Gets the field.
         /// </summary>
         /// <returns></returns>

@@ -207,8 +207,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRows?.Select( p => p.Field<string>( column ) )?.Distinct( );
-                    return _query?.Any( ) == true
+                    var _query = dataRows
+                        ?.Select( p => p.Field<string>( column ) )
+                        ?.Distinct( );
+                    return ( _query?.Any( ) == true )
                         ? _query
                         : default( IEnumerable<string> );
                 }
@@ -233,14 +235,16 @@ namespace BudgetExecution
             string value )
         {
             if( dataRows?.Any( ) == true
+               && !string.IsNullOrEmpty( name )
                && Enum.IsDefined( typeof( Field ), name )
                && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
                     var _query = dataRows
-                        ?.Where( p => p.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( p => p.Field<string>( $"{name}" ) )?.Distinct( );
+                        ?.Where( p => p.Field<string>( $"{ name }" ).Equals( value ) )
+                        ?.Select( p => p.Field<string>( $"{ name }" ) )
+                        ?.Distinct( );
 
                     return _query?.Any( ) == true
                         ? _query
@@ -269,7 +273,7 @@ namespace BudgetExecution
                 {
                     using var _reader = new DataTableReader( dataTable );
                     var _schema = _reader?.GetSchemaTable( );
-                    return _schema?.Rows?.Count > 0
+                    return ( _schema?.Rows?.Count > 0 )
                         ? _schema
                         : default( DataTable );
                 }
@@ -305,10 +309,11 @@ namespace BudgetExecution
                     var _sheetName = string.Empty;
                     if( _schema != null )
                     {
-                        var _dataTable = _schema?.AsEnumerable( )
-                            ?.Where( r =>
-                                r.Field<string>( "TABLE_NAME" ).Contains( "FilterDatabase" ) )
-                            ?.Select( r => r )?.CopyToDataTable( );
+                        var _dataTable = _schema
+                            ?.AsEnumerable( )
+                            ?.Where( r => r.Field<string>( "TABLE_NAME" ).Contains( "FilterDatabase" ) )
+                            ?.Select( r => r )
+                            ?.CopyToDataTable( );
 
                         _sheetName = _dataTable.Rows[ 0 ][ "TABLE_NAME" ].ToString( );
                     }

@@ -5,45 +5,46 @@
 namespace BudgetExecution
 {
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ResourcePlanningOffice" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RegionalOffice : ResourcePlanningOffice
     {
-        public int ID { get; set; }
-
-        public Source Source { get; set; }
-
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
         /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-        
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
         public RegionalOffice( )
         {
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
         public RegionalOffice( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
         public RegionalOffice( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// </summary>
+        /// <param name="dataRow">The dataRow.</param>
         public RegionalOffice( DataRow dataRow )
         {
             Record = dataRow;
