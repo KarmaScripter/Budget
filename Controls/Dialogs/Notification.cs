@@ -9,12 +9,13 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    
     using static FormAnimator;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="MetroForm" />
     public partial class Notification : MetroForm
     {
         /// <summary>

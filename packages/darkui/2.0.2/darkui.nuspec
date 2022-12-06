@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>DarkUI</id>
+    <version>2.0.2</version>
+    <title>DarkUI</title>
+    <authors>Robin Perris</authors>
+    <owners>Robin Perris</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon-64.png</icon>
+    <projectUrl>http://www.darkui.com/</projectUrl>
+    <iconUrl>http://www.darkui.com/images/icon-64.png</iconUrl>
+    <description>Dark themed control and docking library for .NET WinForms</description>
+    <releaseNotes>Fixed an issue where clearing the items from a DarkDropDown did not also clear the menu</releaseNotes>
+    <copyright>Copyright © Robin Perris</copyright>
+    <tags>docking winforms net-winforms docking-library docking-application c-sharp dotnet dotnet-framework visual-studio visual-studio-themes windows windows-desktop windows-forms</tags>
+  </metadata>
+</package>

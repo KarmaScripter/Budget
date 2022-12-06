@@ -1,57 +1,288 @@
 {
   "version": 2,
-  "dgSpecHash": "lv4plmd3u5x91hxIA/EQZjqdhCBbM7khdES8/X5JXAqWAG0E5SIvkDS0u7B6VIZrrs9Cavh9oeiNR1V2wXN6fw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.bulletgraph.windows\\20.3.0.57\\syncfusion.bulletgraph.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.calculate.base\\20.3.0.57\\syncfusion.calculate.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.chart.base\\20.3.0.57\\syncfusion.chart.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.chart.windows\\20.3.0.57\\syncfusion.chart.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.compression.base\\20.3.0.57\\syncfusion.compression.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.core.winforms\\20.3.0.57\\syncfusion.core.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.data.winforms\\20.3.0.57\\syncfusion.data.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.datasource.winforms\\20.3.0.57\\syncfusion.datasource.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.diagram.base\\20.3.0.57\\syncfusion.diagram.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.diagram.windows\\20.3.0.57\\syncfusion.diagram.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.docio.winforms\\20.3.0.57\\syncfusion.docio.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.edit.windows\\20.3.0.57\\syncfusion.edit.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.gauge.windows\\20.3.0.57\\syncfusion.gauge.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.grid.grouping.windows\\20.3.0.57\\syncfusion.grid.grouping.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.grid.windows\\20.3.0.57\\syncfusion.grid.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.gridcommon.winforms\\20.3.0.57\\syncfusion.gridcommon.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.gridexport.winforms\\20.3.0.57\\syncfusion.gridexport.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.gridhelperclasses.windows\\20.3.0.57\\syncfusion.gridhelperclasses.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.grouping.base\\20.3.0.57\\syncfusion.grouping.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.htmlui.base\\20.3.0.57\\syncfusion.htmlui.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.htmlui.windows\\20.3.0.57\\syncfusion.htmlui.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.licensing\\20.3.0.57\\syncfusion.licensing.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.linq.base\\20.3.0.57\\syncfusion.linq.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.maps.windows\\20.3.0.57\\syncfusion.maps.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.mime.base\\20.3.0.57\\syncfusion.mime.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.officechart.base\\20.3.0.57\\syncfusion.officechart.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.pdf.winforms\\20.3.0.57\\syncfusion.pdf.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.pdfviewer.windows\\20.3.0.57\\syncfusion.pdfviewer.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.pivotanalysis.base\\20.3.0.57\\syncfusion.pivotanalysis.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.pivotchart.windows\\20.3.0.57\\syncfusion.pivotchart.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.pivottable.winforms\\20.3.0.57\\syncfusion.pivottable.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.presentation.winforms\\20.3.0.57\\syncfusion.presentation.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.schedule.base\\20.3.0.57\\syncfusion.schedule.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.schedule.windows\\20.3.0.57\\syncfusion.schedule.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.scripting.base\\20.3.0.57\\syncfusion.scripting.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.sfbarcode.windows\\20.3.0.57\\syncfusion.sfbarcode.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.sfdatagrid.winforms\\20.3.0.57\\syncfusion.sfdatagrid.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.sfinput.winforms\\20.3.0.57\\syncfusion.sfinput.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.sflistview.winforms\\20.3.0.57\\syncfusion.sflistview.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.sfsmithchart.winforms\\20.3.0.57\\syncfusion.sfsmithchart.winforms.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.shared.base\\20.3.0.57\\syncfusion.shared.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.shared.windows\\20.3.0.57\\syncfusion.shared.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.spellchecker.base\\20.3.0.57\\syncfusion.spellchecker.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.spreadsheet.windows\\20.3.0.57\\syncfusion.spreadsheet.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.tools.base\\20.3.0.57\\syncfusion.tools.base.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.tools.windows\\20.3.0.57\\syncfusion.tools.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.treemap.windows\\20.3.0.57\\syncfusion.treemap.windows.20.3.0.57.nupkg.sha512",
-    "C:\\Users\\terry\\.nuget\\packages\\syncfusion.xlsio.winforms\\20.3.0.57\\syncfusion.xlsio.winforms.20.3.0.57.nupkg.sha512"
-  ],
-  "logs": []
+  "dgSpecHash": "lOlKmLKIxFcadP2N9pWDrDpSI2pcmM3KBAcUw2g+dav9gigkIjSvIHBwRKsCj4xtIIegPaBA4xrCE5jfrP+ggA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\teppler\\source\\repos\\Budget\\Budget.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.GridHelperClasses.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.GridHelperClasses.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Grid.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Grid.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.SfDataGrid.Winforms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.SfDataGrid.Winforms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Tools.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Tools.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Spreadsheet.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Spreadsheet.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Shared.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Shared.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Shared.Base. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Shared.Base",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Core.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Core.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.SfInput.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.SfInput.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Tools.Base. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Tools.Base",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.SfBarcode.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.SfBarcode.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Calculate.Base. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Calculate.Base",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Grouping.Base. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Grouping.Base",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.TreeMap.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.TreeMap.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.HTMLUI.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.HTMLUI.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Schedule.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Schedule.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Edit.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Edit.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.PivotChart.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.PivotChart.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Compression.Base. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Compression.Base",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.OfficeChart.Base. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.OfficeChart.Base",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.DocIO.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.DocIO.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Pdf.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Pdf.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.PdfViewer.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.PdfViewer.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Presentation.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Presentation.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.XlsIO.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.XlsIO.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.BulletGraph.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.BulletGraph.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Chart.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Chart.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Diagram.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Diagram.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Gauge.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Gauge.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.Maps.Windows. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.Maps.Windows",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Syncfusion.SfSmithChart.WinForms. No packages exist with this id in source(s): nuget",
+      "libraryId": "Syncfusion.SfSmithChart.WinForms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

@@ -8,7 +8,9 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
     using Syncfusion.Windows.Forms.Chart;
+    using ChartTitle = Syncfusion.Windows.Forms.Chart.ChartTitle;
 
     /// <summary>
     /// 

@@ -2,16 +2,17 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExeuction
+namespace BudgetExecution
 {
     using System.Drawing;
     using System.Windows.Forms;
+    
     using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="MetroForm" />
     public partial class FormBase : MetroForm
     {
         /// <summary>

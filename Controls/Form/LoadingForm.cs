@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    
     using Syncfusion.Windows.Forms;
 
     public partial class LoadingForm : MetroForm

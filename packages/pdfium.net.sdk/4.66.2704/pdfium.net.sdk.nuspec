@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Pdfium.Net.SDK</id>
+    <version>4.66.2704</version>
+    <title>Pdfium.Net SDK</title>
+    <authors>patagames.com</authors>
+    <owners>patagames.com</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">license.md</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://pdfium.patagames.com/c-pdf-library/</projectUrl>
+    <iconUrl>https://patagames.com/_images/box_pdfium_main.png</iconUrl>
+    <description>Pdfium.NET SDK it's a class library based on the PDFium project for viewing, text extracting, navigating and editing PDF files in your .NET projects. With the PDF Viewer control, you can display PDF files directly in your WinForms and WPF application without the need to install an external PDF viewer application on your end user's machine. This control supports zooming, scrolling, bookmarks, text search, continuous page layout and provides a ready-to-go toolbars, so you can quickly incorporate it into your application.</description>
+    <summary>Pdfium.NET SDK it's a class library based on the PDFium project for viewing, text extracting, navigating and editing PDF files in your .NET projects. With the PDF Viewer control, you can display PDF files directly in your WPF and WinForms application without the need to install an external PDF viewer application on your end user's machine. This control supports zooming, scrolling, bookmarks, text search, continuous page layout and provides a ready-to-go toolbars, so you can quickly incorporate it into your application.</summary>
+    <releaseNotes></releaseNotes>
+    <copyright>(C) 2010-2021 patagames.com</copyright>
+    <tags>C# PDF Library, WPF Viewer, WPF, Pdfium, Pdfium.Net, PDF, .Net, c#, VB, render, renderer, viewer, pdfviewer, WinForms</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="System.Configuration.ConfigurationManager" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework5.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

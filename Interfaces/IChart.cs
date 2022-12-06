@@ -7,18 +7,11 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
     using Syncfusion.Windows.Forms.Chart;
 
     public interface IChart
     {
-        /// <summary>
-        /// Gets or sets the header.
-        /// </summary>
-        /// <value>
-        /// The header.
-        /// </value>
-        ChartTitle Header { get; set; }
-
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>

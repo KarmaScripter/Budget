@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using MetroFramework.Drawing;
     using Syncfusion.Windows.Forms.Tools;
 
     public class Clock : ClockBase
@@ -52,7 +53,7 @@ namespace BudgetExecution
         {
             // Basic Properties
             BackColor = Color.FromArgb( 15, 15, 15 );
-            BorderColor = BackColor;
+            BorderColor = Color.SteelBlue;
             ForeColor = Color.FromArgb( 141, 139, 138 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );

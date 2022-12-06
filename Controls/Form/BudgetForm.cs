@@ -2,7 +2,7 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution.Controls.Form
+namespace BudgetExecution 
 {
     using System;
     using System.Collections.Specialized;
@@ -10,7 +10,7 @@ namespace BudgetExecution.Controls.Form
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using BudgetExecution;
+    
     using Syncfusion.Windows.Forms;
 
     /// <summary>

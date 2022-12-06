@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Syncfusion.Presentation.AspNet.Mvc5</id>
+    <version>17.4.0.39</version>
+    <title>Create, Read and Edit PowerPoint Slide in ASP.NET MVC using Syncfusion Presentation library</title>
+    <authors>Syncfusion Inc.</authors>
+    <owners>Syncfusion Inc.</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://www.syncfusion.com/nuget/license?utm_source=nuget&amp;utm_medium=listing</licenseUrl>
+    <projectUrl>https://www.syncfusion.com/?utm_source=nuget&amp;utm_medium=listing</projectUrl>
+    <iconUrl>https://www.syncfusion.com/content/images/nuget/sync_logo_icon.png?utm_source=nuget&amp;utm_medium=listing</iconUrl>
+    <description>Syncfusion Essential Presentation is a .NET PowerPoint library that is used to create, open, read, and edit PowerPoint presentations (.PPTX, .PPTM, .POTX, .POTM) in any ASP.NET MVC applications without any Microsoft Office dependencies.
+
+	Key features:
+	• Create PowerPoint presentations from scratch.
+	• Open and edit an existing PowerPoint presentation.
+	• Add, rearrange, duplicate, and delete slides in PowerPoint presentation.
+	• Convert a PowerPoint presentation or individual slide to image formats such as JPEG, PNG, BMP, TIFF, EMF, and GIF.
+	• Convert a PowerPoint presentation to PDF file.
+	• Add, rearrange, duplicate, format, and delete shapes in a PowerPoint slide.
+	• Create, edit, and format text.
+	• Add and manipulate single-level and multi-level lists like Microsoft PowerPoint.
+	• Create, edit, and re-arrange animations.
+	• Create, edit, and format tables.
+	• Create, edit, and format charts.
+	• Insert, delete, replace, and format pictures.
+	• Create, modify, and format 134 SmartArt diagrams.
+	• Create, read, and edit 'notes pages' in a PowerPoint slide.
+	• Copy a slide and paste it on the same or different presentation with ‘source’ and ‘destination’ paste options.
+	• Add, remove, and rename sections.
+	• Read and write encrypted PowerPoint presentations.
+
+	Learn more: https://www.syncfusion.com/powerpoint-framework/net?utm_source=nuget&amp;utm_medium=listing
+
+	Documentation: https://help.syncfusion.com/file-formats/presentation/overview?utm_source=nuget&amp;utm_medium=listing
+
+	Support:
+	Incident: https://www.syncfusion.com/support/directtrac/incidents/newincident?utm_source=nuget&amp;utm_medium=listing
+	Forum: https://www.syncfusion.com/forums/aspnetmvc?utm_source=nuget&amp;utm_medium=listing
+
+This is a commercial product and requires a paid license for possession or use. Syncfusion’s licensed software, including this component, is subject to the terms and conditions of Syncfusion's EULA (https://www.syncfusion.com/eula/es/?utm_source=nuget&amp;utm_medium=listing). To acquire a license, you can purchase one at https://www.syncfusion.com/sales/products?utm_source=nuget&amp;utm_medium=listing or start a free 30-day trial here (https://www.syncfusion.com/account/manage-trials/start-trials?utm_source=nuget&amp;utm_medium=listing).
+
+© Copyright 2019 Syncfusion, Inc. All Rights Reserved. The Syncfusion Essential Studio license and copyright applies to this distribution.</description>
+    <releaseNotes>https://help.syncfusion.com/aspnetmvc/release-notes/v17.4.0.39?utm_source=nuget&amp;utm_medium=listing</releaseNotes>
+    <copyright>Copyright 2001 - 2019 Syncfusion Inc.</copyright>
+    <tags>syncfusion.aspnetmvc aspnetmvc mvc asp.net c# .net pptx pptm potx potm PowerPoint presentation slides</tags>
+    <dependencies>
+      <dependency id="Syncfusion.Compression.Base" version="17.4.0.39" />
+      <dependency id="Syncfusion.OfficeChart.Base" version="17.4.0.39" />
+      <dependency id="Syncfusion.Licensing" version="17.4.0.39" />
+    </dependencies>
+  </metadata>
+</package>

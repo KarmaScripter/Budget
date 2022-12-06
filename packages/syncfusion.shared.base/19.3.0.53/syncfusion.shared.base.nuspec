@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Syncfusion.Shared.Base</id>
+    <version>19.3.0.53</version>
+    <title>Syncfusion UI Controls for Windows Forms</title>
+    <authors>Syncfusion Inc.</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>syncfusion_logo.png</icon>
+    <projectUrl>https://www.syncfusion.com/?utm_source=nuget&amp;utm_medium=listing</projectUrl>
+    <description>This package provides the functionality to utilize the features of Syncfusion Winforms Card Layout, Flow Layout, Gradient Panel, Grid Layout,Navigation Pane, MakedTextBox, MessageBox, Popup, progressBar, TextBox, Editable ListBox, Folder Browser, Border Layout, Splash Screen, Office 2007 Form, and Grid Bag Layout.</description>
+    <releaseNotes>https://help.syncfusion.com/common/essential-studio/release-notes/v19.3.0.53?utm_source=nuget&amp;utm_medium=listing</releaseNotes>
+    <copyright>Copyright 2001 - 2021 Syncfusion Inc.</copyright>
+    <tags>syncfusion windows winforms windowsforms desktop wpf netcoreapp syncfusion.wpf syncfusion.windowsforms button textbox input currency gradient-panel groupbar groupbox layout grid-layout card-layout mask maskededit maskedtextbox messagebox notification progressbar progress editable-listbox folder-browser border-layout layouts splash-screen Office2007-form custom-form metro-form flow-layout grid-bag-layout pop-up navigation-pane</tags>
+    <readme>README.md</readme>
+    <dependencies>
+      <dependency id="Syncfusion.Licensing" version="19.3.0.53" />
+    </dependencies>
+  </metadata>
+</package>

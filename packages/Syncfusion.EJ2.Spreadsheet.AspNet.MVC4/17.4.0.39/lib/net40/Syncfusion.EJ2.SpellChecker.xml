@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.EJ2.SpellChecker</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.EJ2.SpellChecker.DictionaryData">
+            <summary>
+            The Dictionary data     
+            </summary>
+        </member>
+        <member name="M:Syncfusion.EJ2.SpellChecker.DictionaryData.#ctor(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Initialize Dictionary data
+            </summary>
+            <param name="langID">language ID</param>
+            <param name="dictPath">Dictionary path</param>
+            <param name="affPath">Affix Path</param>
+            <param name="customPath">Custom path</param>
+        </member>
+        <member name="P:Syncfusion.EJ2.SpellChecker.DictionaryData.LanguadeID">
+            <summary>
+            Gets or sets thte value for language ID
+            </summary>
+        </member>
+        <member name="P:Syncfusion.EJ2.SpellChecker.DictionaryData.DictionaryPath">
+            <summary>
+            Gets or sets the value for Dictionary path
+            </summary>
+        </member>
+        <member name="P:Syncfusion.EJ2.SpellChecker.DictionaryData.AffixPath">
+            <summary>
+            Gets or sets the value for Affix path
+            </summary>
+        </member>
+        <member name="P:Syncfusion.EJ2.SpellChecker.DictionaryData.PersonalDictPath">
+            <summary>
+            Gets or sets the personal dictionary path
+            </summary>
+        </member>
+        <member name="T:Syncfusion.EJ2.SpellChecker.SpellChecker">
+            <summary>
+            The spell checker
+            </summary>
+        </member>
+        <member name="M:Syncfusion.EJ2.SpellChecker.SpellChecker.GetSuggestions(System.Int32,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Method to retrieve spelling error and suggestion for the given word
+            </summary>
+            <param name="languageID">the Language ID</param>
+            <param name="data">the data</param>
+            <param name="checkSpelling">check spelling</param>
+            <param name="checkSuggestion">check suggestion</param>
+            <param name="addWord">add word</param>
+        </member>
+        <member name="M:Syncfusion.EJ2.SpellChecker.SpellChecker.#ctor(System.Collections.Generic.List{Syncfusion.EJ2.SpellChecker.DictionaryData})">
+            <summary>
+            Initialize spell checker
+            </summary>
+            <param name="dictItem"></param>
+        </member>
+        <member name="M:Syncfusion.EJ2.SpellChecker.SpellChecker.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Retrieves serialized informaion
+            </summary>
+            <param name="info">the info</param>
+            <param name="context">the context</param>
+        </member>
+    </members>
+</doc>

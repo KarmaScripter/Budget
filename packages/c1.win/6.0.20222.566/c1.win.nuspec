@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>C1.Win</id>
+    <version>6.0.20222.566</version>
+    <authors>GrapeCity, Inc.</authors>
+    <owners>GrapeCity, Inc.</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">license_EN.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>images\C1logo_nuget.png</icon>
+    <readme>docs\readme.md</readme>
+    <projectUrl>https://www.grapecity.com/en/componentone</projectUrl>
+    <iconUrl>http://files.grapecity.com/gccontent/gcbrand/samples/xamarin/C1logo_nuget.png</iconUrl>
+    <description>Provides common classes and controls for WinForms apps using ComponentOne controls.</description>
+    <copyright>(c) GrapeCity, Inc.. All rights reserved.</copyright>
+    <tags>WinForms,ComponentOne,Windows,Desktop,GrapeCity</tags>
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -10,6 +10,11 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using System.Collections.Generic;
+    using DocumentFormat.OpenXml.Drawing;
+    using DocumentFormat.OpenXml.Spreadsheet;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using Text = DocumentFormat.OpenXml.Drawing.Text;
 
     /// <summary>
     /// 

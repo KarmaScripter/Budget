@@ -11,8 +11,14 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
+    using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
+    using ChartTitle = Syncfusion.Windows.Forms.Chart.ChartTitle;
+    using DataTable = System.Data.DataTable;
+    using Legend = DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing.Legend;
+    using VerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment;
 
     public class Chart : ChartControl, IChart
     {
@@ -215,7 +221,6 @@ namespace BudgetExecution
             Legend.VisibleCheckBox = true;
             Legend.BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
             Legend.ItemsAlignment = StringAlignment.Center;
-            Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;
             Legend.FloatingAutoSize = true;
             Legend.ShowSymbol = true;

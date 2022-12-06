@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// </value>
         public ToolStripDropDown PopUp { get; }
 
-        public System.Windows.Forms.CheckedListBox ColumnListBox { get; set; }
+        public CheckedListBox ColumnListBox { get; set; }
 
         /// <summary>
         /// Gets or sets the host.

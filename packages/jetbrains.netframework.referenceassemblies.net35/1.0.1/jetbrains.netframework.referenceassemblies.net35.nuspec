@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>JetBrains.NETFramework.ReferenceAssemblies.net35</id>
+    <version>1.0.1</version>
+    <authors>JetBrains s.r.o.</authors>
+    <owners>JetBrains s.r.o.</owners>
+    <developmentDependency>true</developmentDependency>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>images\icon.png</icon>
+    <projectUrl>https://github.com/JetBrains/Refasmer</projectUrl>
+    <description>JetBrains Reference Assemblies for .NET Framework 3.5</description>
+    <releaseNotes>Fix filename casing: System.XML.dll-&gt;System.Xml.dll, System.configuration.dll-&gt;System.Configuration.dll</releaseNotes>
+    <copyright>© 2020 JetBrains s.r.o.. All rights reserved.</copyright>
+    <dependencies>
+      <group targetFramework=".NETFramework3.5" />
+    </dependencies>
+  </metadata>
+</package>
