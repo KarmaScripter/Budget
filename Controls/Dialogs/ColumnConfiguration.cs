@@ -1,5 +1,5 @@
-// <copyright file = "ColumnConfiguration.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -43,9 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The pop up.
         /// </value>
-        public ToolStripDropDown PopUp { get; }
-
-        public CheckedListBox ColumnListBox { get; set; }
+        public System.Windows.Forms.ToolStripDropDown PopUp { get; }
 
         /// <summary>
         /// Gets or sets the host.
@@ -76,9 +74,58 @@ namespace BudgetExecution
             : this( )
         {
             Grid = dataGrid;
-            PopUp = new ToolStripDropDown( );
+            PopUp = new System.Windows.Forms.ToolStripDropDown( );
             ColumnListBox.CheckOnClick = true;
             ColumnListBox.ItemCheck += OnListItemChecked;
+        }
+
+        /// <summary>
+        /// Called when [datagrid right click].
+        /// </summary>
+        /// <param name = "sender" >
+        /// The sender.
+        /// </param>
+        /// <param name = "e" >
+        /// The <see cref = "DataGridViewCellMouseEventArgs"/> instance containing the
+        /// event data.
+        /// </param>
+        public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right
+               && Grid?.Columns != null )
+            {
+                try
+                {
+                    ColumnListBox?.Items?.Clear( );
+
+                    foreach( DataGridViewColumn c in Grid?.Columns )
+                    {
+                        ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                    }
+
+                    var _columnConfiguration = new ColumnConfiguration( Grid );
+
+                    _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
+
+                    _columnConfiguration?.ShowDialog( );
+                    _columnConfiguration.TopMost = true;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
 
         /// <summary>
@@ -95,60 +142,23 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _controlHost = new ToolStripControlHost( this )
-                    {
-                        AutoSize = true, Margin = Padding.Empty, Padding = Padding.Empty
-                    };
+                    var _controlHost = new ToolStripControlHost( this );
+
+                    _controlHost.AutoSize = true;
+                    _controlHost.Margin = Padding.Empty;
+                    _controlHost.Padding = Padding.Empty;
 
                     return _controlHost;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( ToolStripControlHost );
+
+                    return default;
                 }
             }
 
-            return default( ToolStripControlHost );
-        }
-
-        /// <summary>
-        /// Called when [datagrid right click].
-        /// </summary>
-        /// <param name = "sender" >
-        /// The sender.
-        /// </param>
-        /// <param name = "e" >
-        /// The <see cref = "DataGridViewCellMouseEventArgs"/> instance containing the
-        /// event data.
-        /// </param>
-        public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
-        {
-            if( e.Button == MouseButtons.Right
-                && Grid?.Columns != null )
-            {
-                try
-                {
-                    ColumnListBox?.Items?.Clear( );
-
-                    foreach( DataGridViewColumn c in Grid?.Columns )
-                    {
-                        ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
-                    }
-
-                    var _columnConfiguration = new ColumnConfiguration( Grid )
-                    {
-                        Location = Grid.PointToScreen( new Point( e.X, e.Y ) )
-                    };
-
-                    _columnConfiguration?.ShowDialog( );
-                    _columnConfiguration.TopMost = true;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
+            return default;
         }
 
         /// <summary>
@@ -173,17 +183,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿// <copyright file = "DataView.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System.Data;
     using System.Drawing;
-    using DocumentFormat.OpenXml.EMMA;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
 
@@ -91,7 +90,7 @@ namespace BudgetExecution
         /// <see cref="DataView"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public DataView( DataTable dataTable ) 
+        public DataView( DataTable dataTable )
             : this( )
         {
             DataTable = dataTable;

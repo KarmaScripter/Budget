@@ -1,6 +1,0 @@
-﻿<FileList>
-  <File Reference="C1.Win.6.dll">
-    <ToolboxItems VSCategory="C1 WinForms Controls" BlendCategory="C1 WinForms Controls">
-	</ToolboxItems>
-  </File>
-</FileList>

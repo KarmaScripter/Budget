@@ -1,5 +1,5 @@
-// <copyright file = "Notification.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -7,27 +7,30 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    
+    using static System.Drawing.Region;
+    using static System.Windows.Forms.Screen;
     using static FormAnimator;
+    using static NativeMethods;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="MetroForm" />
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class Notification : MetroForm
     {
         /// <summary>
+        /// The current foreground window
+        /// </summary>
+        private IntPtr _currentForegroundWindow;
+
+        /// <summary>
         /// The open notifications
         /// </summary>
-        public static readonly List<Notification> OpenNotifications = new List<Notification>( );
-
-        public Label Title { get; set; }
-
-        public Timer Timer { get; set; }
-
-        public RichTextBox Message { get; set; }
+        public static readonly List<Notification> OpenNotifications = new ( );
 
         /// <summary>
         /// Gets or sets a value indicating whether [allow focus].
@@ -44,11 +47,6 @@ namespace BudgetExecution
         /// The animator.
         /// </value>
         public FormAnimator Animator { get; }
-
-        /// <summary>
-        /// The current foreground window
-        /// </summary>
-        private IntPtr _currentForegroundWindow;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Notification"/> class.
@@ -71,15 +69,13 @@ namespace BudgetExecution
             : this( )
         {
             InitializeComponent( );
-            BackColor = Color.FromArgb( 10, 10, 10 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
             Load += OnLoad;
             Timer.Interval = duration * 1000;
             Title.Text = title;
             Message.Text = body;
             Animator = new FormAnimator( this, animation, direction, 500 );
-            Region = Region.FromHrgn(
-                NativeMethods.CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20, 20 ) );
-
+            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20, 20 ) );
             Activated += OnActivated;
             Shown += OnShown;
             FormClosed += OnClosed;
@@ -94,8 +90,16 @@ namespace BudgetExecution
         /// </summary>
         public new void Show( )
         {
-            _currentForegroundWindow = NativeMethods.GetForegroundWindow( );
+            _currentForegroundWindow = GetForegroundWindow( );
             base.Show( );
+        }
+
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void NotificationClose( )
+        {
+            Close( );
         }
 
         /// <summary>
@@ -105,14 +109,12 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
-            Location = new Point( Screen.PrimaryScreen.WorkingArea.Width - Width,
-                Screen.PrimaryScreen.WorkingArea.Height - Height );
-
+            Location = new Point( PrimaryScreen.WorkingArea.Width - Width,
+                PrimaryScreen.WorkingArea.Height - Height );
             foreach( var _form in OpenNotifications )
             {
                 _form.Top -= Height;
             }
-
             OpenNotifications.Add( this );
             Timer.Start( );
         }
@@ -126,7 +128,7 @@ namespace BudgetExecution
         {
             if( !AllowFocus )
             {
-                NativeMethods.SetForegroundWindow( _currentForegroundWindow );
+                SetForegroundWindow( _currentForegroundWindow );
             }
         }
 
@@ -168,14 +170,6 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
-        {
-            Close( );
-        }
-
-        /// <summary>
-        /// Notifications the close.
-        /// </summary>
-        public void NotificationClose( )
         {
             Close( );
         }

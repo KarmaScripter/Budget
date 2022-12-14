@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ExcelReport.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -38,11 +38,13 @@ namespace BudgetExecution
                 {
                     using var _dataSet = new DataSet( );
                     _dataSet?.Tables?.Add( ListToDataTable( data ) );
+
                     return CreateExcelDocument( _dataSet, path );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return false;
                 }
             }
@@ -68,12 +70,14 @@ namespace BudgetExecution
                     _dataSet.Tables.Add( dataTable );
                     var _document = CreateExcelDocument( _dataSet, path );
                     _dataSet.Tables.Remove( dataTable );
+
                     return _document;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( bool );
+
+                    return default;
                 }
             }
 
@@ -100,11 +104,13 @@ namespace BudgetExecution
                     }
 
                     Trace.WriteLine( "Successfully created: " + fileName );
+
                     return true;
                 }
                 catch( Exception ex )
                 {
                     Trace.WriteLine( "Failed, exception thrown: " + ex.Message );
+
                     return false;
                 }
             }
@@ -125,6 +131,7 @@ namespace BudgetExecution
                 try
                 {
                     var _table = new DataTable( );
+
                     foreach( var info in typeof( T ).GetProperties( ) )
                     {
                         _table?.Columns?.Add( new DataColumn( info.Name,
@@ -134,6 +141,7 @@ namespace BudgetExecution
                     foreach( var t in data )
                     {
                         var _row = _table.NewRow( );
+
                         foreach( var info in typeof( T ).GetProperties( ) )
                         {
                             _row[ info.Name ] = !IsNullableType( info.PropertyType )
@@ -149,11 +157,12 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DataTable );
+
+                    return default;
                 }
             }
 
-            return default( DataTable );
+            return default;
         }
 
         /// <summary>
@@ -166,6 +175,7 @@ namespace BudgetExecution
             try
             {
                 var _returnType = type;
+
                 if( type.IsGenericType
                    && type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) )
                 {
@@ -177,28 +187,8 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( Type );
-            }
-        }
 
-        /// <summary>
-        /// Determines whether [is nullable type] [the specified type].
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns>
-        ///   <c>true</c> if [is nullable type] [the specified type]; otherwise, <c>false</c>.
-        /// </returns>
-        protected bool IsNullableType( Type type )
-        {
-            try
-            {
-                return type == typeof( string ) || type.IsArray || type.IsGenericType
-                    && type.GetGenericTypeDefinition( ) == typeof( Nullable<> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return false;
+                return default;
             }
         }
 
@@ -213,17 +203,13 @@ namespace BudgetExecution
         {
             try
             {
-                var _cell = new Cell
-                {
-                    CellReference = cellReference,
-                    DataType = CellValues.String
-                };
+                var _cell = new Cell( );
 
-                var _cellValue = new CellValue
-                {
-                    Text = cellStringValue
-                };
+                _cell.CellReference = cellReference;
+                _cell.DataType = CellValues.String;
 
+                var _cellValue = new CellValue( ) ;
+                _cellValue.Text = cellStringValue;
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
             }
@@ -248,16 +234,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _cell = new Cell
-                    {
-                        CellReference = cellReference
-                    };
-
-                    var _cellValue = new CellValue
-                    {
-                        Text = cellStringValue
-                    };
-
+                    var _cell = new Cell( ) ;
+                    _cell.CellReference = cellReference;
+                    var _cellValue = new CellValue( ) ;
+                    _cellValue.Text = cellStringValue;
                     _cell.Append( _cellValue );
                     excelRow.Append( _cell );
                 }
@@ -284,12 +264,14 @@ namespace BudgetExecution
 
                 var _first = (char)( 'A' + columnIndex / 26 - 1 );
                 var _second = (char)( 'A' + columnIndex % 26 );
+
                 return $"{_first}{_second}";
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+
+                return default;
             }
         }
 
@@ -306,13 +288,14 @@ namespace BudgetExecution
                 try
                 {
                     spreadSheet.AddWorkbookPart( );
+
                     if( spreadSheet.WorkbookPart != null )
                     {
                         spreadSheet.WorkbookPart.Workbook =
                             new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
 
-                        spreadSheet.WorkbookPart.Workbook
-                            ?.Append( new BookViews( new WorkbookView( ) ) );
+                        spreadSheet.WorkbookPart.Workbook?.Append(
+                            new BookViews( new WorkbookView( ) ) );
 
                         var _styles =
                             spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "rIdStyles" );
@@ -320,19 +303,22 @@ namespace BudgetExecution
                         var _stylesheet = new Stylesheet( );
                         _styles.Stylesheet = _stylesheet;
                         uint _id = 1;
+
                         foreach( DataTable _dataTable in dataSet.Tables )
                         {
                             var _part = spreadSheet?.WorkbookPart?.AddNewPart<WorksheetPart>( );
+
                             if( _part != null )
                             {
                                 _part.Worksheet = new Worksheet( );
                                 _part.Worksheet.AppendChild( new SheetData( ) );
                                 WriteDataTableToExcelWorksheet( _dataTable, _part );
                                 _part.Worksheet.Save( );
+
                                 if( _id == 1 )
                                 {
-                                    spreadSheet?.WorkbookPart?.Workbook
-                                        ?.AppendChild( new Sheets( ) );
+                                    spreadSheet?.WorkbookPart?.Workbook?.AppendChild(
+                                        new Sheets( ) );
                                 }
 
                                 spreadSheet.WorkbookPart?.Workbook?.GetFirstChild<Sheets>( )
@@ -376,22 +362,22 @@ namespace BudgetExecution
                     var _columns = dataTable.Columns.Count;
                     var _isNumeric = new bool[ _columns ];
                     var _names = new string[ _columns ];
+
                     for( var n = 0; n < _columns; n++ )
                     {
                         _names[ n ] = GetExcelColumnName( n );
                     }
 
                     uint _rowIndex = 1;
-                    var _row = new Row
-                    {
-                        RowIndex = _rowIndex
-                    };
-
+                    var _row = new Row( ) ;
+                    _row.RowIndex = _rowIndex;
                     _data?.Append( _row );
+
                     for( var colinx = 0; colinx < _columns; colinx++ )
                     {
                         var _column = dataTable.Columns[ colinx ];
                         AppendTextCell( _names[ colinx ] + "1", _column.ColumnName, _row );
+
                         _isNumeric[ colinx ] = _column.DataType.FullName == "System.Decimal"
                             || _column.DataType.FullName == "System.Int32";
                     }
@@ -399,15 +385,14 @@ namespace BudgetExecution
                     foreach( DataRow _dataRow in dataTable.Rows )
                     {
                         ++_rowIndex;
-                        var _excelRow = new Row
-                        {
-                            RowIndex = _rowIndex
-                        };
-
+                        var _excelRow = new Row( ) ;
+                        _excelRow.RowIndex = _rowIndex;
                         _data?.Append( _excelRow );
+
                         for( var i = 0; i < _columns; i++ )
                         {
                             var _value = _dataRow?.ItemArray[ i ].ToString( );
+
                             if( _isNumeric[ i ] )
                             {
                                 if( double.TryParse( _value, out var cellnumericvalue ) )
@@ -427,6 +412,28 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Determines whether [is nullable type] [the specified type].
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>
+        ///   <c>true</c> if [is nullable type] [the specified type]; otherwise, <c>false</c>.
+        /// </returns>
+        protected bool IsNullableType( Type type )
+        {
+            try
+            {
+                return type == typeof( string ) || type.IsArray || type.IsGenericType
+                    && type.GetGenericTypeDefinition( ) == typeof( Nullable<> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+
+                return false;
             }
         }
 

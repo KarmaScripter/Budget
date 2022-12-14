@@ -2,51 +2,21 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Text;
+using System.Xml.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Json;
+
 namespace BudgetExecution
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Text;
-    using System.Xml.Serialization;
-    using System.IO;
-    using System.Runtime.Serialization;
-    using System.Runtime.Serialization.Formatters.Binary;
-    using System.Runtime.Serialization.Json;
-
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     public static class TypeObject
     {
-        /// <summary>
-        /// Copies the specified type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
-        public static T Copy<T>( this T type )
-            where T : ISerializable
-        {
-            if( type != null )
-            {
-                try
-                {
-                    using var _stream = new MemoryStream( );
-                    var _formatter = new BinaryFormatter( );
-                    _formatter.Serialize( _stream, type );
-                    _stream.Position = 0;
-                    return (T)_formatter.Deserialize( _stream );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary>
         /// Converts to json.
         /// </summary>
@@ -64,11 +34,13 @@ namespace BudgetExecution
                     using var stream = new MemoryStream( );
                     _serializer.WriteObject( stream, type );
                     var json = _encoding.GetString( stream.ToArray( ) );
+
                     return json;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default;
                 }
             }
@@ -84,50 +56,24 @@ namespace BudgetExecution
         /// <returns>
         /// A string.
         /// </returns>
-        public static string BinarySerialize<T>( this T type )
+        public static string JavaScriptSerialize<T>( this T type )
         {
             if( type != null )
             {
                 try
                 {
-                    var _formatter = new BinaryFormatter( );
+                    var _encoding = Encoding.Default;
+                    var _serializer = new DataContractJsonSerializer( typeof( T ) );
                     using var _stream = new MemoryStream( );
-                    _formatter.Serialize( _stream, type );
-                    return Encoding.Default.GetString( _stream.ToArray( ) );
+                    _serializer.WriteObject( _stream, type );
+                    var json = _encoding.GetString( _stream.ToArray( ) );
+
+                    return json;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
-                }
-            }
 
-            return default;
-        }
-
-        /// <summary>
-        /// An object extension method that serialize an object to binary.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="type">The @type to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>
-        /// A string.
-        /// </returns>
-        public static string BinarySerialize<T>( this T type, Encoding encoding )
-        {
-            if( type != null )
-            {
-                try
-                {
-                    var _formatter = new BinaryFormatter( );
-                    using var _stream = new MemoryStream( );
-                    _formatter.Serialize( _stream, type );
-                    return encoding.GetString( _stream.ToArray( ) );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
                     return default;
                 }
             }
@@ -153,11 +99,13 @@ namespace BudgetExecution
                     _serializer?.Serialize( _writer, type );
                     var _string = _writer?.GetStringBuilder( )?.ToString( );
                     using var _reader = new StringReader( _string );
+
                     return _reader?.ReadToEnd( ) ?? string.Empty;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default;
                 }
             }

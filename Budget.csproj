@@ -1,283 +1,158 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0-windows</TargetFramework>
-        <Nullable>disable</Nullable>
-        <UseWindowsForms>true</UseWindowsForms>
-        <ImplicitUsings>disable</ImplicitUsings>
-        <RootNamespace>BudgetExecution</RootNamespace>
-        <ApplicationIcon>Resources\Images\Ninja\ico\BudExNinja.ico</ApplicationIcon>
-        <StartupObject>BudgetExecution.Program</StartupObject>
-        <PackageIcon>BudExNinja.png</PackageIcon>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <NoWarn>1701;1702; CS8601;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <NoWarn>1701;1702; CS8601;</NoWarn>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <Content Include="Resources\Images\Ninja\BudExNinjaGrey.ico" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="C1.Win.4.8">
-        <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
-      </Reference>
-      <Reference Include="C1.Win.C1FlexGrid.4.8">
-        <HintPath>Libraries\C1.Win.C1FlexGrid.4.8.dll</HintPath>
-      </Reference>
-      <Reference Include="CharmNotification">
-        <HintPath>Libraries\CharmNotification.dll</HintPath>
-      </Reference>
-      <Reference Include="DataGridMetro">
-        <HintPath>Libraries\DataGridMetro.dll</HintPath>
-      </Reference>
-      <Reference Include="DataGridViewExtension">
-        <HintPath>Libraries\DataGridViewExtension.dll</HintPath>
-      </Reference>
-      <Reference Include="DemoCommon">
-        <HintPath>Libraries\DemoCommon.dll</HintPath>
-      </Reference>
-      <Reference Include="DocumentFormat.OpenXml">
-        <HintPath>Libraries\DocumentFormat.OpenXml.dll</HintPath>
-      </Reference>
-      <Reference Include="EPPlus">
-        <HintPath>Libraries\EPPlus.dll</HintPath>
-      </Reference>
-      <Reference Include="Expander">
-        <HintPath>Libraries\Expander.dll</HintPath>
-      </Reference>
-      <Reference Include="LinqStatistics">
-        <HintPath>Libraries\LinqStatistics.dll</HintPath>
-      </Reference>
-      <Reference Include="log4net">
-        <HintPath>Libraries\log4net.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroFramework">
-        <HintPath>Libraries\MetroFramework.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroFramework.Design">
-        <HintPath>Libraries\MetroFramework.Design.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroFramework.Fonts">
-        <HintPath>Libraries\MetroFramework.Fonts.dll</HintPath>
-      </Reference>
-      <Reference Include="MetroSet UI">
-        <HintPath>Libraries\MetroSet UI.dll</HintPath>
-      </Reference>
-      <Reference Include="SQLite.Designer">
-        <HintPath>Libraries\SQLite.Designer.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.BulletGraph.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.BulletGraph.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Calculate.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Calculate.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Chart.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Chart.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Chart.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Chart.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Compression.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Compression.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Core.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Core.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Data.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Data.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.DataSource.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.DataSource.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Diagram.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Diagram.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Diagram.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Diagram.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.DocIO.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.DocIO.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Edit.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Edit.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Gauge.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Gauge.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Grid.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Grid.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.GridCommon.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.GridCommon.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.GridConverter.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.GridConverter.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Grouping.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Grouping.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.HTMLUI.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.HTMLUI.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.HTMLUI.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.HTMLUI.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Licensing, Version=20.3.0.57, Culture=neutral, PublicKeyToken=632609b4d040f6b4">
-        <HintPath>Libraries\Syncfusion.Licensing.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Linq.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Linq.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Maps.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Maps.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.MIME.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.MIME.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.OfficeChart.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.OfficeChart.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Pdf.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Pdf.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PdfViewer.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.PdfViewer.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotAnalysis.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.PivotAnalysis.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.PivotChart.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.PivotChart.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Presentation.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Presentation.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Schedule.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Schedule.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Schedule.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Schedule.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Scripting.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Scripting.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SfBarcode.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.SfBarcode.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SfInput.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.SfInput.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SfListView.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.SfListView.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Shared.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Shared.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Shared.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Shared.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.SpellChecker.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.SpellChecker.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Spreadsheet.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Spreadsheet.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Tools.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Tools.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Tools.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.Tools.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.TreeMap.Windows, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.TreeMap.Windows.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.XlsIO.Base, Version=20.3500.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
-        <HintPath>Libraries\Syncfusion.XlsIO.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>Libraries\System.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-        <HintPath>Libraries\System.Data.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.OleDb, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-        <HintPath>Libraries\System.Data.OleDb.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SqlClient, Version=4.6.1.4, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>Libraries\System.Data.SqlClient.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>Libraries\System.Data.SQLite.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SQLite.EF6, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>Libraries\System.Data.SQLite.EF6.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139">
-        <HintPath>Libraries\System.Data.SQLite.Linq.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
-        <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>Libraries\System.Drawing.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>Libraries\System.Linq.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Reflection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-        <HintPath>Libraries\System.Reflection.dll</HintPath>
-      </Reference>
-      <Reference Include="VisualPlus">
-        <HintPath>Libraries\VisualPlus.dll</HintPath>
-      </Reference>
-      <Reference Include="VisualPlus, Version=0.4.1.7, Culture=neutral, PublicKeyToken=null">
-        <HintPath>Libraries\VisualPlus.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="LICENSE">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
-      <None Update="README.md">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Compile Remove="Controls\Form\FormBase.cs" />
-      <Compile Remove="Controls\Form\FormBase.Designer.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Controls\Form\FormBase.resx" />
-    </ItemGroup>
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject>BudgetExecution.Program</StartupObject>
+    <ApplicationIcon>Resources\Images\Ninja\ico\BudExNinja.ico</ApplicationIcon>
+    <Nullable>disable</Nullable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>BudExNinja.png</PackageIcon>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <LangVersion>10</LangVersion>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>BudgetExecution</RootNamespace>
+    <Authors>Terry D. Eppler</Authors>
+    <Company>US EPA</Company>
+    <Product>Budget</Product>
+    <RepositoryUrl>https://github.com/KarmaScripter/Budget</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <AssemblyName>Budget</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\Ninja\ico\BudExNinja.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MetroSet_UI" Version="2.0.0" />
+    <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
+    <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Grid.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.SfDataGrid.Winforms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Tools.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Spreadsheet.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Shared.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.SfInput.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Tools.Base" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.SfBarcode.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Calculate.Base" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Grouping.Base" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.TreeMap.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.HTMLUI.Windows" Version="20.3.0.60" />
+    <PackageReference Include="Syncfusion.Schedule.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Edit.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.PivotChart.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Compression.Base" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.OfficeChart.Base" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.DocIO.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Pdf.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.PdfViewer.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Presentation.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.XlsIO.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.BulletGraph.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Chart.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Diagram.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Gauge.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.Maps.Windows" Version="20.3.0.61" />
+    <PackageReference Include="Syncfusion.SfSmithChart.WinForms" Version="20.3.0.61" />
+</ItemGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.4.8">
+      <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.4.8">
+      <HintPath>Libraries\C1.Win.C1FlexGrid.4.8.dll</HintPath>
+    </Reference>
+    <Reference Include="CharmNotification">
+      <HintPath>Libraries\CharmNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="DataGridMetro">
+      <HintPath>Libraries\DataGridMetro.dll</HintPath>
+    </Reference>
+    <Reference Include="DataGridViewExtension">
+      <HintPath>Libraries\DataGridViewExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>Libraries\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>Libraries\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Expander">
+      <HintPath>Libraries\Expander.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqStatistics">
+      <HintPath>Libraries\LinqStatistics.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Designer">
+      <HintPath>Libraries\SQLite.Designer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <HintPath>Libraries\System.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity.Design">
+      <HintPath>Libraries\System.Data.Entity.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <HintPath>Libraries\System.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OleDb">
+      <HintPath>Libraries\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient">
+      <HintPath>Libraries\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>Libraries\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6">
+      <HintPath>Libraries\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>Libraries\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe">
+      <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Calendar\CalendarForm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\Images\Ninja\png\BudExNinja.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
-﻿// <copyright file = "AlignConfig.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -108,12 +108,13 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( StringAlignment ), alignment )
                     ? alignment
-                    : default( StringAlignment );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( StringAlignment );
+
+                return default;
             }
         }
 
@@ -131,12 +132,13 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( HorizontalAlignment ), alignment )
                     ? alignment
-                    : default( HorizontalAlignment );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( HorizontalAlignment );
+
+                return default;
             }
         }
 
@@ -152,12 +154,13 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( ExcelVerticalAlignment ), alignment )
                     ? alignment
-                    : default( ExcelVerticalAlignment );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ExcelVerticalAlignment );
+
+                return default;
             }
         }
 
@@ -173,12 +176,13 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( ExcelHorizontalAlignment ), alignment )
                     ? alignment
-                    : default( ExcelHorizontalAlignment );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ExcelHorizontalAlignment );
+
+                return default;
             }
         }
 
@@ -194,7 +198,7 @@ namespace BudgetExecution
         public static void OnAlignmentChanged( object sender, EventArgs e )
         {
             if( sender != null
-                && e != null )
+               && e != null )
             {
                 try
                 {

@@ -1,5 +1,5 @@
-﻿// <copyright file = "DataGridBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -7,7 +7,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.EMMA;
     using Syncfusion.Windows.Forms.Grid;
 
     public abstract class DataGridBase : GridDataBoundGrid
@@ -16,7 +15,7 @@ namespace BudgetExecution
         {
             // Basic Properties
             ForeColor = Color.White;
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );

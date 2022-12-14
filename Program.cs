@@ -1,19 +1,22 @@
-namespace BudgetExecution
+﻿namespace BudgetExecution
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "ArrangeTypeModifiers" ) ]
-    static class Program
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class Program
     {
         /// <summary>
-        ///  The main entry point for the application.
+        /// The main entry point for the application.
         /// </summary>
         [ STAThread ]
-        static void Main( )
+        public static void Main( )
         {
-            Application.Run( new MainForm( ) );
+            Application.EnableVisualStyles( );
+            Application.SetCompatibleTextRenderingDefault( false );
+            Application.Run( new DataGridForm( ) );
         }
     }
 }

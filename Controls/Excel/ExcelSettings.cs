@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ExcelSettings.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -14,11 +14,11 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.XlsIO;
-    using ExcelHorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ExcelSettings
     {
         /// <summary>
@@ -85,7 +85,7 @@ namespace BudgetExecution
         /// The center.
         /// </value>
         public virtual ExcelHorizontalAlignment Center { get; set; } =
-            ExcelHorizontalAlignment.CenterContinuous;
+            ExcelHorizontalAlignment.CenterMiddle;
 
         /// <summary>
         /// Gets or sets the right.
@@ -226,6 +226,7 @@ namespace BudgetExecution
                 catch( Exception e )
                 {
                     Console.WriteLine( e );
+
                     throw;
                 }
             }
@@ -247,6 +248,7 @@ namespace BudgetExecution
                 catch( Exception e )
                 {
                     Console.WriteLine( e );
+
                     throw;
                 }
             }
@@ -262,20 +264,23 @@ namespace BudgetExecution
             try
             {
                 var _path = Path.GetExtension( filePath );
+
                 if( _path != null )
                 {
                     var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
+
                     return Enum.IsDefined( typeof( EXT ), _extension )
                         ? _extension
-                        : default( EXT );
+                        : default;
                 }
 
-                return default( EXT );
+                return default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( EXT );
+
+                return default;
             }
         }
 
@@ -296,18 +301,21 @@ namespace BudgetExecution
                     switch( extension?.ToUpper( ) )
                     {
                         case ".XLS":
+
                         {
                             return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                         }
 
                         case ".XLSX":
+
                         {
                             return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                         }
 
                         default:
+
                         {
                             return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
@@ -317,6 +325,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return string.Empty;
                 }
             }
@@ -367,21 +376,17 @@ namespace BudgetExecution
             {
                 try
                 {
+                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
+                    spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
+                    var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
+                    var sheet = spreadSheet.Workbook.ActiveSheet;
                     var _table = (DataTable)dataGrid.DataSource;
-
-                    if ( _table != null )
-                    {
-                        spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
-                        spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
-                        var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
-                        var sheet = spreadSheet.Workbook.ActiveSheet;
-                        spreadSheet.ActiveSheet.ImportDataTable( _table, 1, 1, true, false );
-                        var range = sheet.UsedRange;
-                        var table = sheet.ListObjects.Create( name, range );
-                        table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                        spreadSheet.ActiveGrid.InvalidateCells( );
-                        spreadSheet.SetZoomFactor( "Sheet1", 110 );
-                    }
+                    spreadSheet.ActiveSheet.ImportDataTable( _table, 1, 1, true, false );
+                    var range = sheet.UsedRange;
+                    var table = sheet.ListObjects.Create( name, range );
+                    table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
+                    spreadSheet.ActiveGrid.InvalidateCells( );
+                    spreadSheet.SetZoomFactor( "Sheet1", 110 );
                 }
                 catch( Exception ex )
                 {
@@ -404,6 +409,7 @@ namespace BudgetExecution
                 {
                     using var _range = grid?.GetRange( );
                     var _excelComment = _range?.AddComment( text, "Budget" );
+
                     if( _excelComment != null )
                     {
                         _excelComment.From.Row = _range.Start.Row;
@@ -411,7 +417,7 @@ namespace BudgetExecution
                         _excelComment.To.Row = _range.End.Row;
                         _excelComment.To.Column = _range.End.Column;
                         _excelComment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
-                        _excelComment.Font.FontName = "Consolas";
+                        _excelComment.Font.FontName = "Roboto";
                         _excelComment.Font.Size = 8;
                         _excelComment.Font.Color = Color.Black;
                         _excelComment.Text = text;

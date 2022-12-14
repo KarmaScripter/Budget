@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ISqlStatement.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "ISqlStatement.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -82,19 +82,19 @@ namespace BudgetExecution
         /// Gets the update statement.
         /// </summary>
         /// <returns></returns>
-        string GetUpdateStatement( );
+        string GetUpdateText( );
 
         /// <summary>
         /// Gets the insert statement.
         /// </summary>
         /// <returns></returns>
-        string GetInsertStatement( );
+        string GetInsertText( );
 
         /// <summary>
         /// Gets the delete statement.
         /// </summary>
         /// <returns></returns>
-        string GetDeleteStatement( );
+        string GetDeleteText( );
 
         /// <summary>
         /// Gets the command text.

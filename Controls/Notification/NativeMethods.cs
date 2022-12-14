@@ -1,5 +1,5 @@
-﻿// <copyright file = "NativeMethods.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -41,6 +41,7 @@ namespace BudgetExecution
 
         [ DllImport( "Gdi32.dll", EntryPoint = "CreateRoundRectRgn" ) ]
         internal static extern IntPtr CreateRoundRectRgn( int nLeftRect, int nTopRect,
-            int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse );
+            int nRightRect, int nBottomRect, int nWidthEllipse,
+            int nHeightEllipse );
     }
 }

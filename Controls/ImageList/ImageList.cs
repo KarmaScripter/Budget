@@ -1,5 +1,5 @@
-﻿// <copyright file = "ImageList.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -109,7 +109,7 @@ namespace BudgetExecution
         public void Add( string path )
         {
             if( !string.IsNullOrEmpty( path )
-                && File.Exists( path ) )
+               && File.Exists( path ) )
             {
                 try
                 {
@@ -166,7 +166,7 @@ namespace BudgetExecution
         public void Remove( Image image )
         {
             if( image != null
-                && Images?.Contains( image ) == true )
+               && Images?.Contains( image ) == true )
             {
                 try
                 {
@@ -206,7 +206,7 @@ namespace BudgetExecution
                     : default( IEnumerable<Image> );
             }
 
-            return default( IEnumerable<Image> );
+            return default;
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace BudgetExecution
                     : default( IEnumerable<Image> );
             }
 
-            return default( IEnumerable<Image> );
+            return default;
         }
     }
 }

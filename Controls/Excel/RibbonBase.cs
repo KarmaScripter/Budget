@@ -1,5 +1,5 @@
-﻿// <copyright file = "RibbonBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Office.CustomUI;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -61,14 +60,14 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
             ForeColor = Color.Black;
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
             BorderStyle = ToolStripBorderStyle.None;
             RibbonStyle = RibbonStyle.Office2010;
             OfficeColorScheme = ToolStripEx.ColorScheme.Black;
             TitleFont = new Font( "Roboto", 9 );
 
             // Office Menu Properties
-            OfficeMenu.BackColor = Color.FromArgb( 15, 15, 15 );
+            OfficeMenu.BackColor = Color.FromArgb( 20, 20, 20 );
             OfficeMenu.Font = new Font( "Roboto", 9 );
             OfficeMenu.AutoSize = true;
             OfficeMenu.LayoutStyle = ToolStripLayoutStyle.Flow;

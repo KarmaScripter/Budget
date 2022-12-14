@@ -1,6 +1,6 @@
-﻿// // <copyright file = "ExcelExtensions.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -12,14 +12,27 @@ namespace BudgetExecution
     using System.Linq;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
-    using VisualPlus.Extensibility;
+    using Syncfusion.Linq;
 
     /// <summary>
     /// 
     /// </summary>
     public static class ExcelExtensions
     {
-        /// <summary>Converts to dataset.</summary>
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum InsertMode
+        {
+            /// <summary>The row before</summary>
+            RowBefore, RowAfter,
+
+            ColumnRight,
+
+            ColumnLeft
+        }
+
+        /// <summary>Converts to data set.</summary>
         /// <param name="excelPackage">The excelPackage.</param>
         /// <param name="header">if set to <c>true</c> [header].</param>
         /// <returns></returns>
@@ -46,14 +59,13 @@ namespace BudgetExecution
             }
 
             var _result = new DataSet( );
+
             foreach( var _worksheet in excelPackage.Workbook.Worksheets )
             {
-                var _table = new DataTable
-                {
-                    TableName = _worksheet?.Name
-                };
-
+                var _table = new DataTable( ) ;
+                _table.TableName = _worksheet?.Name;
                 var _start = 1;
+
                 if( header > 0 )
                 {
                     _start = header;
@@ -76,6 +88,7 @@ namespace BudgetExecution
                         _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
 
                     var _row = _table.Rows.Add( );
+
                     foreach( var cell in _range )
                     {
                         _row[ cell.Start.Column - 1 ] = cell.Value;
@@ -108,6 +121,7 @@ namespace BudgetExecution
         public static bool IsLastRowEmpty( this ExcelWorksheet worksheet )
         {
             var _empties = new List<bool>( );
+
             for( var index = 1; index <= worksheet.Dimension.End.Column; index++ )
             {
                 var _value = worksheet.Cells[ worksheet.Dimension.End.Row, index ].Value;
@@ -115,19 +129,6 @@ namespace BudgetExecution
             }
 
             return _empties.All( e => e );
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum InsertMode
-        {
-            /// <summary>The row before</summary>
-            RowBefore, RowAfter,
-
-            ColumnRight,
-
-            ColumnLeft
         }
 
         /// <summary>Sets the width.</summary>
@@ -205,22 +206,22 @@ namespace BudgetExecution
             return _row;
         }
 
-        /// <summary>Alls the border.</summary>
+        /// <summary> All the borders.</summary>
         /// <param name="range">The range.</param>
-        /// <param name="borderstyle">The borderstyle.</param>
-        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderstyle )
+        /// <param name = "borderStyle" > </param>
+        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderStyle )
         {
-            range.ForEach( r => r.Style.Border.BorderAround( borderstyle ) );
+            range.ForEach( r => r.Style.Border.BorderAround( borderStyle ) );
         }
 
         /// <summary>Backgrounds the color.</summary>
         /// <param name="range">The range.</param>
         /// <param name="color">The color.</param>
-        /// <param name="fillstyle">The fillstyle.</param>
+        /// <param name = "fillStyle" > </param>
         public static void BackgroundColor( this ExcelRange range, Color color,
-            ExcelFillStyle fillstyle = ExcelFillStyle.Solid )
+            ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
-            range.Style.Fill.PatternType = fillstyle;
+            range.Style.Fill.PatternType = fillStyle;
             range.Style.Fill.BackgroundColor.SetColor( color );
         }
 

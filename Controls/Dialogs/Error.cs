@@ -1,3 +1,7 @@
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
+
 namespace BudgetExecution
 {
     using System;
@@ -7,15 +11,11 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Error : MetroForm
     {
-        /// <summary>
-        /// The application setting
-        /// </summary>
-        public virtual NameValueCollection Setting { get; set; } = ConfigurationManager.AppSettings;
-
         /// <summary>
         /// Gets or sets the exception.
         /// </summary>
@@ -32,12 +32,16 @@ namespace BudgetExecution
         /// </value>
         public virtual string IconPath { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of
+        /// the <see cref="Error"/> class.
+        /// </summary>
         public Error( )
         {
             InitializeComponent( );
-            
+
             // Form Property Values
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
             BorderThickness = 1;
             BorderColor = Color.FromArgb( 192, 0, 0 );
             Size = new Size( 700, 550 );
@@ -56,18 +60,28 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Text = string.Empty;
             Size = new Size( 812, 486 );
+
+            // TextBox Properties
+            TextBox.BackColor = Color.FromArgb( 20, 20, 20 );
+            TextBox.Parent = BackPanel;
+            TextBox.Dock = DockStyle.Fill;
+            BackPanel.BackColor = Color.FromArgb( 20, 20, 20 );
+            BackPanel.Parent = this;
+            BackPanel.Location = new Point( 61, 48 );
+            BackPanel.Controls.Add( TextBox );
+            Controls.Add( BackPanel );
+            CloseButton.Click += OnClick;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Error"/> class.
         /// </summary>
         /// <param name="ext">The ext.</param>
-        public Error( Exception ext ) 
-            : this( )
+        public Error( Exception ext )
         {
             InitializeComponent( );
             Exception = ext;
-            Text = ext.ToLogString( "" );
+            Text = ext.ToLogString( Exception?.Message );
         }
 
         /// <summary>
@@ -75,11 +89,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="message">The message.</param>
         public Error( string message )
-            : this( )
         {
             InitializeComponent( );
             Exception = null;
-            Text = message;
+            TextBox.Text = message;
         }
 
         /// <summary>
@@ -89,8 +102,8 @@ namespace BudgetExecution
         {
             try
             {
-                //var _logString = Exception?.ToLogString( "" );
-                Console.WriteLine(  );
+                var _logString = Exception.ToLogString( "" );
+                TextBox.Text = _logString;
             }
             catch( Exception ex )
             {
@@ -106,7 +119,7 @@ namespace BudgetExecution
             try
             {
                 var _logString = exc?.ToLogString( "" );
-                Console.WriteLine( _logString );
+                TextBox.Text = _logString;
             }
             catch( Exception ex )
             {
@@ -119,9 +132,14 @@ namespace BudgetExecution
         /// </summary>
         public void SetText( string msg = "" )
         {
-            Console.WriteLine( msg );
+            TextBox.Text = msg;
         }
 
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnClick( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -130,6 +148,4 @@ namespace BudgetExecution
             }
         }
     }
-    
 }
-

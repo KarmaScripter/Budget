@@ -1,6 +1,6 @@
-﻿// // <copyright file = "IToolStripButton.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "IToolStripButton.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -37,12 +37,7 @@ namespace BudgetExecution
         /// instance containing the event data.
         /// </param>
         void OnClick( object sender, EventArgs e );
-
-        /// <summary>
-        /// Sets the hover text.
-        /// </summary>
-        void SetHoverText( );
-
+        
         /// <summary>
         /// Sets the hover text.
         /// </summary>

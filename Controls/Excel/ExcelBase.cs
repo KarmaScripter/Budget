@@ -1,5 +1,5 @@
-﻿// <copyright file = "ExcelBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -17,7 +17,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ExcelBase : ExcelSettings, IWorkbook
+    /// <seealso cref="BudgetExecution.ExcelSettings" />
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    public abstract class ExcelBase : ExcelSettings
     {
         /// <summary>
         /// Gets or sets the data connection.
@@ -44,7 +46,7 @@ namespace BudgetExecution
         public virtual OleDbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
-        /// Gets the excel package.
+        /// Gets or sets the excel package.
         /// </summary>
         /// <value>
         /// The excel package.
@@ -84,10 +86,10 @@ namespace BudgetExecution
         public virtual ExcelWorkbook Workbook { get; set; }
 
         /// <summary>
-        /// Gets or sets the workSheet.
+        /// Gets or sets the worksheet.
         /// </summary>
         /// <value>
-        /// The workSheet.
+        /// The worksheet.
         /// </value>
         public virtual ExcelWorksheet Worksheet { get; set; }
 
@@ -100,26 +102,22 @@ namespace BudgetExecution
         public virtual IEnumerable<ExcelComment> Comment { get; set; }
 
         /// <summary>
-        /// Gets or sets the Data.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The Data.
+        /// The data.
         /// </value>
         public virtual IEnumerable<DataRow> Data { get; set; }
 
         /// <summary>
         /// Sets the width of the column.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "width" >
-        /// The width.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="width">The width.</param>
         public virtual void SetColumnWidth( Grid grid, double width )
         {
             if( grid?.GetWorksheet( ) != null
-                && width > 0d )
+               && width > 0d )
             {
                 try
                 {
@@ -134,26 +132,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the color of the backgroud.
+        /// Sets the color of the background.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "color" >
-        /// The color.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="color">The color.</param>
         public virtual void SetBackgroundColor( Grid grid, Color color )
         {
             if( grid?.GetWorksheet( ) != null
-                && grid?.GetRange( ) != null
-                && color != Color.Empty )
+               && grid?.GetRange( ) != null
+               && color != Color.Empty )
             {
                 try
                 {
                     using var _range = grid.GetRange( );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( color );
-                    _range.Style.HorizontalAlignment = Left;
+                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                 }
                 catch( Exception ex )
                 {
@@ -165,17 +159,13 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the range font.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "font" >
-        /// The font.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="font">The font.</param>
         public virtual void SetRangeFont( Grid grid, Font font )
         {
             if( grid?.GetWorksheet( ) != null
-                && grid?.GetRange( ) != null
-                && font != null )
+               && grid?.GetRange( ) != null
+               && font != null )
             {
                 try
                 {
@@ -192,17 +182,13 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the font.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "color" >
-        /// The color.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="color">The color.</param>
         public virtual void SetFontColor( Grid grid, Color color )
         {
             if( grid?.GetWorksheet( ) != null
-                && grid?.GetRange( ) != null
-                && color != Color.Empty )
+               && grid?.GetRange( ) != null
+               && color != Color.Empty )
             {
                 try
                 {
@@ -220,31 +206,27 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the border style.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "side" >
-        /// The side.
-        /// </param>
-        /// <param name = "style" >
-        /// The style.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="side">The side.</param>
+        /// <param name="style">The style.</param>
         public virtual void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
         {
             if( grid?.GetWorksheet( ) != null
-                && grid?.GetRange( ) != null
-                && Enum.IsDefined( typeof( ExcelBorderStyle ), style )
-                && Enum.IsDefined( typeof( BorderSide ), side ) )
+               && grid?.GetRange( ) != null
+               && Enum.IsDefined( typeof( ExcelBorderStyle ), style )
+               && Enum.IsDefined( typeof( BorderSide ), side ) )
             {
                 try
                 {
                     using var _range = grid.GetRange( );
+
                     switch( side )
                     {
                         case BorderSide.Top:
 
                         {
                             _range.Style.Border.Top.Style = style;
+
                             break;
                         }
 
@@ -252,6 +234,7 @@ namespace BudgetExecution
 
                         {
                             _range.Style.Border.Bottom.Style = style;
+
                             break;
                         }
 
@@ -259,6 +242,7 @@ namespace BudgetExecution
 
                         {
                             _range.Style.Border.Right.Style = style;
+
                             break;
                         }
 
@@ -266,6 +250,7 @@ namespace BudgetExecution
 
                         {
                             _range.Style.Border.Left.Style = style;
+
                             break;
                         }
 
@@ -273,6 +258,7 @@ namespace BudgetExecution
 
                         {
                             _range.Style.Border.BorderAround( ExcelBorderStyle.None );
+
                             break;
                         }
                     }
@@ -285,19 +271,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the horizontal aligment.
+        /// Sets the horizontal alignment.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "align" >
-        /// The align.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="align">The align.</param>
         public virtual void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
             if( grid?.GetWorksheet( ) != null
-                && grid?.GetRange( ) != null
-                && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
+               && grid?.GetRange( ) != null
+               && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
             {
                 try
                 {
@@ -314,16 +296,12 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the vertical aligment.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
-        /// <param name = "align" >
-        /// The align.
-        /// </param>
+        /// <param name="grid">The grid.</param>
+        /// <param name="align">The align.</param>
         public virtual void SetVerticalAligment( Grid grid, ExcelVerticalAlignment align )
         {
             if( grid?.GetWorksheet( ) != null
-                && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
+               && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
             {
                 try
                 {
@@ -340,13 +318,11 @@ namespace BudgetExecution
         /// <summary>
         /// Merges the cells.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
+        /// <param name="grid">The grid.</param>
         public virtual void MergeCells( Grid grid )
         {
             if( grid?.GetWorksheet( ) != null
-                && grid?.GetRange( ) != null )
+               && grid?.GetRange( ) != null )
             {
                 try
                 {

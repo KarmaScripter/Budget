@@ -1,26 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\teppler\\source\\repos\\Budget\\Budget.csproj": {}
+    "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj": {}
   },
   "projects": {
-    "C:\\Users\\teppler\\source\\repos\\Budget\\Budget.csproj": {
+    "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\teppler\\source\\repos\\Budget\\Budget.csproj",
+        "projectUniqueName": "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj",
         "projectName": "Budget",
-        "projectPath": "C:\\Users\\teppler\\source\\repos\\Budget\\Budget.csproj",
-        "packagesPath": "C:\\Users\\teppler\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\teppler\\source\\repos\\Budget\\obj\\",
+        "projectPath": "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj",
+        "packagesPath": "C:\\Users\\terry\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\terry\\source\\repos\\Budget\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\20.3.0.47\\ToolboxNuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\teppler\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\terry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows"
         ],
         "sources": {
-          "https://www.nuget.org/": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WinUI\\20.3.0.47\\NuGetPackages": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
@@ -37,6 +44,140 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "MetroSet_UI": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Syncfusion.BulletGraph.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Calculate.Base": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Chart.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Compression.Base": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Core.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Diagram.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.DocIO.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Edit.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Gauge.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Grid.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.GridHelperClasses.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Grouping.Base": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.HTMLUI.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.60, )"
+            },
+            "Syncfusion.Maps.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.OfficeChart.Base": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Pdf.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.PdfViewer.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.PivotChart.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Presentation.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Schedule.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.SfBarcode.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.SfDataGrid.Winforms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.SfInput.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.SfSmithChart.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Shared.Base": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Shared.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Spreadsheet.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Tools.Base": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.Tools.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.TreeMap.Windows": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "Syncfusion.XlsIO.WinForms": {
+              "target": "Package",
+              "version": "[20.3.0.61, )"
+            },
+            "System.Data.OleDb": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +197,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\teppler\\source\\compilers\\cs\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\terry\\source\\compilers\\cs\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,17 +1,24 @@
-﻿// // <copyright file = "IChart.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file = "IChart.cs" company = "Terry D. Eppler">
+// Copyright (c) Terry D. Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
     using Syncfusion.Windows.Forms.Chart;
 
     public interface IChart
     {
+        /// <summary>
+        /// Gets or sets the header.
+        /// </summary>
+        /// <value>
+        /// The header.
+        /// </value>
+        ChartTitle Header { get; set; }
+
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
@@ -26,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        MetroTip ToolTip { get; set; }
+        SmallTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.

@@ -1,6 +1,6 @@
-﻿// // <copyright file = "StringExtensions.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -38,7 +38,8 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+
+                return default;
             }
         }
 
@@ -63,7 +64,8 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+
+                return default;
             }
         }
 
@@ -82,6 +84,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return false;
             }
         }
@@ -109,7 +112,8 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+
+                return default;
             }
         }
 
@@ -130,13 +134,14 @@ namespace BudgetExecution
             try
             {
                 return text?.Length > length
-                    ? text.Substring( 0, length )
+                    ? text[ ..length ]
                     : text;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+
+                return default;
             }
         }
 
@@ -157,17 +162,19 @@ namespace BudgetExecution
                 {
                     var _letters = text.ToCharArray( );
                     _letters[ 0 ] = char.ToUpper( _letters[ 0 ] );
+
                     return new string( _letters );
                 }
                 else
                 {
-                    return default( string );
+                    return default;
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+
+                return default;
             }
         }
 
@@ -187,18 +194,20 @@ namespace BudgetExecution
                 try
                 {
                     var _date = DateTime.TryParse( text, out var _dateTime );
+
                     return _date
                         ? _dateTime
-                        : default( DateTime );
+                        : default;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DateTime );
+
+                    return default;
                 }
             }
 
-            return default( DateTime );
+            return default;
         }
 
         /// <summary>
@@ -215,12 +224,14 @@ namespace BudgetExecution
             try
             {
                 var _buffer = Encoding.UTF8.GetBytes( text );
+
                 return new MemoryStream( _buffer );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( MemoryStream );
+
+                return default;
             }
         }
 
@@ -238,7 +249,8 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( FileInfo );
+
+                return default;
             }
         }
 
@@ -256,7 +268,8 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( DirectoryInfo );
+
+                return default;
             }
         }
 
@@ -271,12 +284,14 @@ namespace BudgetExecution
             {
                 var _document = new XmlDocument( );
                 _document.LoadXml( text );
+
                 return _document;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( XmlDocument );
+
+                return default;
             }
         }
 
@@ -290,12 +305,14 @@ namespace BudgetExecution
             try
             {
                 Encoding _encoding = Activator.CreateInstance<ASCIIEncoding>( );
+
                 return _encoding.GetBytes( text );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( byte[ ] );
+
+                return default;
             }
         }
 
@@ -311,6 +328,7 @@ namespace BudgetExecution
         public static int WordCount( this string text )
         {
             var _count = 0;
+
             try
             {
                 var re = new Regex( @"[^\text]+" );
@@ -320,6 +338,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return _count;
             }
 
@@ -341,12 +360,13 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( text )
                     ? new StreamReader( text )
-                    : default( StreamReader );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( StreamReader );
+
+                return default;
             }
         }
 
@@ -412,11 +432,13 @@ namespace BudgetExecution
                 var _credentials = new NetworkCredential( );
                 _client.Credentials = _credentials;
                 _client.Send( _message );
+
                 return true;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return false;
             }
         }
@@ -439,6 +461,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return text;
                 }
             }
@@ -458,11 +481,13 @@ namespace BudgetExecution
             try
             {
                 var _regex = new Regex( @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" );
+
                 return _regex.IsMatch( s );
             }
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return false;
             }
         }

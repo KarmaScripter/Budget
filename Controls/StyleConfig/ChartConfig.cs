@@ -1,10 +1,11 @@
-﻿// <copyright file = "ChartConfig.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace BudgetExecution
     /// This provides the basic application form settings.
     /// </summary>
     /// <seealso cref = "IDisposable"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ChartConfig : ChartStyleInfo, IChartConfig
     {
         /// <summary>
@@ -25,7 +27,7 @@ namespace BudgetExecution
             DisplayText = true;
             TextColor = ColorConfig.ForeGray;
             Interior = new BrushInfo( Color.FromArgb( 5, 5, 5 ) );
-            Border = SetBorderStyle( ColorConfig.FormDarkBackColor, BorderConfig.Thin );
+            Border = SetBorderStyle( ColorConfig.BackColorDark, BorderConfig.Thin );
         }
 
         /// <summary>
@@ -42,13 +44,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _chartFont = new ChartFontInfo
-                    {
-                        FontStyle = font.Style,
-                        FontFamilyTemplate = font.FontFamily,
-                        Size = font.Size
-                    };
-
+                    var _chartFont = new ChartFontInfo( );
+                    _chartFont.FontStyle = font.Style;
+                    _chartFont.FontFamilyTemplate = font.FontFamily;
+                    _chartFont.Size = font.Size;
                     return _chartFont;
                 }
                 catch( Exception ex )
@@ -57,7 +56,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default( ChartFontInfo );
+            return default;
         }
 
         /// <summary>
@@ -81,13 +80,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var chart = new ChartFontInfo
-                    {
-                        FontStyle = style,
-                        Facename = family,
-                        Size = size
-                    };
-
+                    var chart = new ChartFontInfo( );
+                    chart.FontStyle = style;
+                    chart.Facename = family;
+                    chart.Size = size;
                     return chart;
                 }
                 catch( Exception ex )
@@ -96,7 +92,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default( ChartFontInfo );
+            return default;
         }
 
         /// <summary>
@@ -116,7 +112,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( AnchorStyles );
+                return default;
             }
         }
 
@@ -135,19 +131,16 @@ namespace BudgetExecution
         {
             try
             {
-                var style = new ChartLineInfo
-                {
-                    Alignment = PenAlignment.Center,
-                    Width = width,
-                    Color = color
-                };
-
+                var style = new ChartLineInfo( );
+                style.Alignment = PenAlignment.Center;
+                style.Width = width;
+                style.Color = color;
                 return style;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ChartLineInfo );
+                return default;
             }
         }
 

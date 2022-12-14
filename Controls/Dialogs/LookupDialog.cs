@@ -1,15 +1,15 @@
-// <copyright file = "LookupDialog.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class LookupDialog : EditBase
     {
         /// <summary>
@@ -28,24 +28,6 @@ namespace BudgetExecution
         /// </value>
         public string ColumnPrefix { get; } = " Columns : ";
 
-        public GroupBox TableGroupBox { get; set; }
-        
-        public GroupBox ValueGroupBox { get; set; }
-        
-        public GroupBox ColumnGroupBox { get; set; }
-        
-        public ListBox TableListBox { get; set; }
-
-        public ListBox ValueListBox { get; set; }
-
-        public ListBox ColumnListBox { get; set; }
-
-        public TabControlAdv TabControl { get; set; }
-
-        public BindingSource BindingSource { get; set; }
-
-        public Button CloseButton { get; set; }
-
         /// <summary>
         /// Gets the value prefix.
         /// </summary>
@@ -62,7 +44,7 @@ namespace BudgetExecution
             InitializeComponent( );
             GroupBoxes = GetGroupBoxes( );
             RadioButtons = GetRadioButtons( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 15, 15, 15 );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
@@ -107,6 +89,7 @@ namespace BudgetExecution
             {
                 TableListBox.Items.Clear( );
                 var _names = Enum.GetNames( typeof( Source ) );
+
                 foreach( var name in _names )
                 {
                     if( name != "NS" )
@@ -125,8 +108,7 @@ namespace BudgetExecution
         /// Called when [table ListBox selection changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnTableListBoxSelectionChanged( object sender, EventArgs e )
+        public void OnTableListBoxSelectionChanged( object sender )
         {
             try
             {
@@ -137,12 +119,14 @@ namespace BudgetExecution
                 ValueGroupBox.Text = string.Empty;
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedItem.ToString( );
+
                 if( !string.IsNullOrEmpty( _value ) )
                 {
                     var _source = (Source)Enum.Parse( typeof( Source ), _value );
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
                     var _columns = DataModel.GetDataColumns( );
+
                     foreach( var col in _columns )
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
@@ -162,8 +146,7 @@ namespace BudgetExecution
         /// Called when [column ListBox selection changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnColumnListBoxSelectionChanged( object sender, EventArgs e )
+        public void OnColumnListBoxSelectionChanged( object sender )
         {
             try
             {
@@ -171,6 +154,7 @@ namespace BudgetExecution
                 var _listBox = sender as ListBox;
                 var _column = _listBox?.SelectedItem?.ToString( );
                 var _series = DataModel.DataElements;
+
                 if( !string.IsNullOrEmpty( _column ) )
                 {
                     foreach( var item in _series[ _column ] )

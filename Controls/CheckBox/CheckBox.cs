@@ -1,21 +1,49 @@
-﻿// <copyright file = "CheckBox.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using VisualPlus.Models;
+    
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.CheckBoxBase" />
-    public class CheckBox : CheckBoxBase
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    public class CheckBox : MetroSetCheckBox
     {
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual SmallTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
         /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
@@ -29,55 +57,53 @@ namespace BudgetExecution
         /// </summary>
         public CheckBox( )
         {
+            // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "BudgetExecution";
             Size = new Size( 125, 25 );
-            Box = new Size( 14, 14 );
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ForeColor = Color.SteelBlue;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            Font = new Font( "Roboto", 9, FontStyle.Regular );
+            ForeColor = Color.LightGray;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;
-            Border.Color = Color.FromArgb( 28, 28, 28 );
-            Border.HoverColor = Color.FromArgb( 50, 93, 129 );
-            Border.HoverVisible = true;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             CheckState = CheckState.Unchecked;
-            CheckStyle.Style = CheckStyle.CheckType.Checkmark;
-            CheckStyle.CheckColor = Color.Lime;
-            BoxColorState.Enabled = Color.FromArgb( 28, 28, 28 );
-            BoxColorState.Hover = Color.FromArgb( 50, 93, 129 );
-            BoxColorState.Disabled = Color.FromArgb( 15, 15, 15 );
-            CheckStyle.AutoSize = true;
-            CheckStyle.Bounds = new Rectangle( 0, 0, 125, 23 );
-            CheckStyle.Style = CheckStyle.CheckType.Checkmark;
-            BoxSpacing = 4;
+
+            // Disabled Color Configuration
+            DisabledBorderColor = Color.Transparent;
+
+            // Event Wiring
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }
-
+        
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
-        public void OnMouseHover( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        public virtual void OnMouseOver( object sender, EventArgs e )
         {
+            var _checkBox = sender as CheckBox;
+
             try
             {
-                var _control = sender as CheckBox;
-                if( _control is Control _checkBox
-                    && !string.IsNullOrEmpty( HoverText ) )
+                if( _checkBox != null
+                   && !string.IsNullOrEmpty( HoverText ) )
                 {
-                    _control.Tag = HoverText;
-                    var tip = new MetroTip( _checkBox );
-                    ToolTip = tip;
+                    var _hoverText = _checkBox?.HoverText;
+                    var _ = new SmallTip( _checkBox, _hoverText );
                 }
                 else
                 {
                     if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
                     {
-                        var _tool = new MetroTip( _control );
-                        ToolTip = _tool;
+                        var _text = Tag?.ToString( )?.SplitPascal( );
+                        var _ = new SmallTip( _checkBox, _text );
                     }
                 }
             }
@@ -91,22 +117,35 @@ namespace BudgetExecution
         /// Called when [mouse leave].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
-        public override void OnMouseLeave( object sender, EventArgs e )
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
         {
+            var _checkBox = sender as CheckBox;
+
             try
             {
-                if( ToolTip?.Active == true )
+                if( _checkBox != null )
                 {
-                    ToolTip.RemoveAll( );
-                    ToolTip = null;
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

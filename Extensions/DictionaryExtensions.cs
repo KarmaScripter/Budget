@@ -17,7 +17,6 @@ namespace BudgetExecution
     using BudgetExecution;
 
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "UseDeconstruction" ) ]
     public static class DictionaryExtensions
     {
         /// <summary> Adds the or update. </summary>
@@ -39,6 +38,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default;
                 }
             }
@@ -77,6 +77,7 @@ namespace BudgetExecution
 
                             var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
                             _sql += $" WHERE {_key.Key} = {int.Parse( _key.Value.ToString( ) )};";
+
                             return !string.IsNullOrEmpty( _sql )
                                 ? _sql
                                 : string.Empty;
@@ -90,6 +91,7 @@ namespace BudgetExecution
                         }
 
                         var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
+
                         return !string.IsNullOrEmpty( _sql )
                             ? _sql
                             : string.Empty;
@@ -98,6 +100,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return string.Empty;
                 }
             }
@@ -120,6 +123,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default;
             }
         }
@@ -148,6 +152,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default;
             }
         }
@@ -159,7 +164,6 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>(
             this IDictionary<TKey, TValue> dict )
-            where TKey : notnull
         {
             try
             {
@@ -168,6 +172,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default;
             }
         }
@@ -176,7 +181,8 @@ namespace BudgetExecution
         /// <param name = "dict" > The dictionary. </param>
         /// <param name = "provider" > The provider. </param>
         /// <returns> </returns>
-        public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict, Provider provider )
+        public static IEnumerable<DbParameter> ToSqlDbParameters(
+            this IDictionary<string, object> dict, Provider provider )
         {
             if( dict?.Keys?.Count > 0
                && Enum.IsDefined( typeof( Provider ), provider ) )
@@ -190,16 +196,16 @@ namespace BudgetExecution
                     {
                         case Provider.NS:
                         case Provider.SQLite:
+
                         {
                             var _sqlite = new List<SQLiteParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new SQLiteParameter
-                                {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
-                                };
+                                var _parameter = new SQLiteParameter( );
+
+                                _parameter.SourceColumn = _columns[ i ];
+                                _parameter.Value = _values[ i ];
 
                                 _sqlite.Add( _parameter );
                             }
@@ -208,17 +214,18 @@ namespace BudgetExecution
                                 ? _sqlite.ToArray( )
                                 : default;
                         }
+
                         case Provider.SqlCe:
+
                         {
                             var _sqlce = new List<SqlCeParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new SqlCeParameter
-                                {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
-                                };
+                                var _parameter = new SqlCeParameter( );
+
+                                _parameter.SourceColumn = _columns[ i ];
+                                _parameter.Value = _values[ i ];
 
                                 _sqlce.Add( _parameter );
                             }
@@ -227,19 +234,20 @@ namespace BudgetExecution
                                 ? _sqlce.ToArray( )
                                 : default;
                         }
+
                         case Provider.OleDb:
                         case Provider.Excel:
                         case Provider.Access:
+
                         {
                             var _oledb = new List<OleDbParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new OleDbParameter
-                                {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
-                                };
+                                var _parameter = new OleDbParameter( );
+
+                                _parameter.SourceColumn = _columns[ i ];
+                                _parameter.Value = _values[ i ];
 
                                 _oledb.Add( _parameter );
                             }
@@ -248,17 +256,18 @@ namespace BudgetExecution
                                 ? _oledb.ToArray( )
                                 : default;
                         }
+
                         case Provider.SqlServer:
+
                         {
                             var _sqlserver = new List<SqlParameter>( );
 
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new SqlParameter
-                                {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
-                                };
+                                var _parameter = new SqlParameter( );
+
+                                _parameter.SourceColumn = _columns[ i ];
+                                _parameter.Value = _values[ i ];
 
                                 _sqlserver.Add( _parameter );
                             }
@@ -272,6 +281,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default;
                 }
 
@@ -314,6 +324,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default;
                 }
             }
@@ -326,7 +337,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dict">The dictionary.</param>
         /// <returns></returns>
-        public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
+        public static KeyValuePair<string, object> GetPrimaryKey(
+            this IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true
                && dict.HasPrimaryKey( ) )
@@ -346,6 +358,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default;
                 }
             }

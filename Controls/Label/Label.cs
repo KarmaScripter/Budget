@@ -1,5 +1,5 @@
-﻿// <copyright file = "Label.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,14 +9,16 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using VisualPlus.Toolkit.Controls.Interactivity;
+    
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
 
     /// <summary>
     /// Defines the
     /// <see cref="Label" />
     /// </summary>
-    /// <seealso cref="VisualLabel" />
-    public class Label : LabelBase, ILabel
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class Label : MetroSetLabel 
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -24,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public override BindingSource BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the tool tip.
@@ -32,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public override MetroTip ToolTip { get; set; }
+        public virtual SmallTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -40,7 +42,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public override string HoverText { get; set; }
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the filter.
@@ -48,7 +50,7 @@ namespace BudgetExecution
         /// <value>
         /// The filter.
         /// </value>
-        public override IDictionary<string, object> DataFilter { get; set; }
+        public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -58,10 +60,12 @@ namespace BudgetExecution
         public Label( )
         {
             // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "BudgetExecution";
             Size = new Size( 165, 23 );
-            Location = new Point( 1, 1 );
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            ForeColor = Color.FromArgb( 141, 139, 138 );
+            BackColor = Color.Transparent;
+            ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -69,9 +73,11 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Enabled = true;
             Visible = true;
-            TextAlignment = StringAlignment.Center;
-            TextLineAlignment = StringAlignment.Far;
-            OutlineColor = Color.FromArgb( 15, 15, 15 );
+            BorderStyle = BorderStyle.None;
+            FlatStyle = FlatStyle.Flat;
+            TextAlign = ContentAlignment.MiddleLeft;
+
+            // Event Wiring
             MouseHover += OnMouseOver;
         }
 
@@ -95,7 +101,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="label">The label.</param>
-        public Label( VisualLabel label )
+        public Label( MetroSetLabel label )
             : this( label.Size, label.Location )
         {
         }
@@ -124,7 +130,8 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         /// <param name="text">The text.</param>
-        public Label( Size size, Point location, Control parent, string text )
+        public Label( Size size, Point location, Control parent,
+            string text )
             : this( size, location, parent )
         {
             Text = text;
@@ -139,69 +146,13 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         /// <param name="bindingSource">The bindingSource.</param>
-        public Label( Size size, Point location, Control parent, BindingSource bindingSource )
+        public Label( Size size, Point location, Control parent,
+            BindingSource bindingSource )
             : this( size, location, parent )
         {
             BindingSource = bindingSource;
         }
-
-        /// <summary>
-        /// Sets the color of the border.
-        /// </summary>
-        /// <param name="color">The color.</param>
-        public void SetOutlineColor( Color color )
-        {
-            if( color != Color.Empty )
-            {
-                try
-                {
-                    OutlineColor = color;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the text alignment.
-        /// </summary>
-        /// <param name="alignment">The alignment.</param>
-        public void SetTextAlignment( StringAlignment alignment )
-        {
-            if( Enum.IsDefined( typeof( StringAlignment ), alignment ) )
-            {
-                try
-                {
-                    TextAlignment = alignment;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the line alignment.
-        /// </summary>
-        /// <param name="alignment">The alignment.</param>
-        public void SetLineAlignment( StringAlignment alignment )
-        {
-            if( Enum.IsDefined( typeof( StringAlignment ), alignment ) )
-            {
-                try
-                {
-                    TextLineAlignment = alignment;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Sets the text.
         /// </summary>
@@ -238,6 +189,75 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        public virtual void OnMouseOver( object sender, EventArgs e )
+        {
+            var _budgetLabel = sender as Label;
+
+            try
+            {
+                if( _budgetLabel != null
+                   && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    if( !string.IsNullOrEmpty( HoverText ) )
+                    {
+                        var _hoverText = _budgetLabel?.HoverText;
+                        var _ = new SmallTip( _budgetLabel, _hoverText );
+                    }
+                    else
+                    {
+                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
+                        {
+                            var _text = Tag?.ToString( )?.SplitPascal( );
+                            var _ = new SmallTip( _budgetLabel, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is Label _budgetLabel )
+                {
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

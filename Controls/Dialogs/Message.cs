@@ -1,5 +1,5 @@
-// <copyright file = "Message.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -19,16 +19,17 @@ namespace BudgetExecution
             Size = new Size( 621, 412 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.SteelBlue;
-            Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Text = "Open";
-            ForeColor = Color.SteelBlue;
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            Text = "Close";
-            ForeColor = Color.SteelBlue;
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            Click += OnOpenButtonClick;
-            BackColor = Color.FromArgb( 15, 15, 15 );
+            CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            OpenButton.Text = "Open";
+            OpenButton.ForeColor = Color.SteelBlue;
+            OpenButton.BackColor = Color.FromArgb( 20, 20, 20 );
+            CloseButton.Text = "Close";
+            CloseButton.ForeColor = Color.SteelBlue;
+            CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
+            CloseButton.Click += OnCloseButtonClick;
+            OpenButton.Click += OnOpenButtonClick;
+            BackColor = Color.FromArgb( 20, 20, 20 );
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace BudgetExecution
         public Message( string text )
             : this( )
         {
-            Text = text;
+            TextBox.Text = Environment.NewLine + text;
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace BudgetExecution
         public Message( string text, string caption )
             : this( text )
         {
-            Console.WriteLine( caption );
+            Label.Text = caption;
         }
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace BudgetExecution
         public virtual void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button
-                && !string.IsNullOrEmpty( _button?.Name ) )
+               && !string.IsNullOrEmpty( _button?.Name ) )
             {
                 try
                 {
@@ -76,7 +77,7 @@ namespace BudgetExecution
         public virtual void OnOpenButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button
-                && !string.IsNullOrEmpty( _button?.Name ) )
+               && !string.IsNullOrEmpty( _button?.Name ) )
             {
                 try
                 {

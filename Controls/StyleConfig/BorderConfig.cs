@@ -1,5 +1,5 @@
-﻿// <copyright file = "BorderConfig.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -36,13 +36,6 @@ namespace BudgetExecution
         public static readonly int Thin = 1;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BorderConfig"/> class.
-        /// </summary>
-        public BorderConfig( )
-        {
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this instance is hoverable.
         /// </summary>
         /// <value>
@@ -57,6 +50,13 @@ namespace BudgetExecution
         ///   <c>true</c> if this instance has color; otherwise, <c>false</c>.
         /// </value>
         public bool HasColor { get; set; } = false;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BorderConfig"/> class.
+        /// </summary>
+        public BorderConfig( )
+        {
+        }
 
         /// <summary>
         /// Gets the thickness.
@@ -74,6 +74,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return 1;
             }
         }
@@ -94,6 +95,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return BorderStyle.None;
             }
         }
@@ -114,6 +116,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return Color.Empty;
             }
         }
@@ -134,6 +137,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return ExcelBorderStyle.None;
             }
         }
@@ -154,6 +158,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return eUnderLineType.None;
             }
         }
@@ -174,6 +179,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return ExcelBorderWeight.None;
             }
         }
@@ -194,6 +200,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return ExcelLineStyle.None;
             }
         }
@@ -206,7 +213,7 @@ namespace BudgetExecution
         public static void OnMouseHover( object sender, EventArgs e )
         {
             if( sender != null
-                && e != null )
+               && e != null )
             {
                 try
                 {
@@ -228,7 +235,7 @@ namespace BudgetExecution
         public static void OnBorderChanged( object sender, EventArgs e )
         {
             if( sender != null
-                && e != null )
+               && e != null )
             {
                 try
                 {

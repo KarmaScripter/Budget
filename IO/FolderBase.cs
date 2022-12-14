@@ -1,6 +1,6 @@
-﻿// // <copyright file = "FolderBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 // ReSharper disable All
 
@@ -102,8 +102,6 @@ namespace BudgetExecution
         /// </value>
         public virtual FileSecurity FileSecurity { get; set; }
 
-        public virtual string BaseDirectory { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderBase"/> class.
         /// </summary>
@@ -130,30 +128,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the parent.
-        /// </summary>
-        /// <returns></returns>
-        protected virtual DirectoryInfo GetBaseDirectory( )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( Buffer )
-                   && Directory.Exists( Buffer ) )
-                {
-                    var _file = new DirectoryInfo( Buffer );
-                    return _file?.Parent;
-                }
-
-                return default( DirectoryInfo );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return default( DirectoryInfo );
-            }
-        }
-
-        /// <summary>
         /// Gets the files.
         /// </summary>
         /// <returns></returns>
@@ -163,7 +137,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    string[ ] _files = Directory.GetFiles( FullPath );
+                    var _files = Directory.GetFiles( FullPath );
+
                     return _files?.Any( ) == true
                         ? _files
                         : default( IEnumerable<string> );
@@ -171,6 +146,7 @@ namespace BudgetExecution
                 catch( IOException ex )
                 {
                     Fail( ex );
+
                     return default( IEnumerable<string> );
                 }
             }
@@ -189,6 +165,7 @@ namespace BudgetExecution
                 try
                 {
                     IEnumerable<FileInfo> _enumerable = DirectoryInfo?.GetFiles( FullPath );
+
                     return _enumerable?.Any( ) == true
                         ? _enumerable
                         : default( IEnumerable<FileInfo> );
@@ -196,6 +173,7 @@ namespace BudgetExecution
                 catch( IOException ex )
                 {
                     Fail( ex );
+
                     return default( IEnumerable<FileInfo> );
                 }
             }
@@ -211,7 +189,8 @@ namespace BudgetExecution
         {
             try
             {
-                string[ ] _folders = Enum.GetNames( typeof( Environment.SpecialFolder ) );
+                var _folders = Enum.GetNames( typeof( Environment.SpecialFolder ) );
+
                 return _folders?.Any( ) == true
                     ? _folders
                     : default( string[ ] );
@@ -219,6 +198,7 @@ namespace BudgetExecution
             catch( IOException ex )
             {
                 Fail( ex );
+
                 return default( IEnumerable<string> );
             }
         }
@@ -234,6 +214,7 @@ namespace BudgetExecution
                 try
                 {
                     var _folders = DirectoryInfo?.GetDirectories( );
+
                     return _folders?.Any( ) != true
                         ? _folders
                         : default( DirectoryInfo[ ] );
@@ -241,11 +222,38 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default( IEnumerable<DirectoryInfo> );
                 }
             }
 
             return default( IEnumerable<DirectoryInfo> );
+        }
+
+        /// <summary>
+        /// Gets the parent.
+        /// </summary>
+        /// <returns></returns>
+        protected virtual DirectoryInfo GetBaseDirectory( )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( Buffer )
+                   && Directory.Exists( Buffer ) )
+                {
+                    var _file = new DirectoryInfo( Buffer );
+
+                    return _file?.Parent;
+                }
+
+                return default( DirectoryInfo );
+            }
+            catch( IOException ex )
+            {
+                Fail( ex );
+
+                return default( DirectoryInfo );
+            }
         }
 
         /// <summary>

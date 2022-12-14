@@ -1,6 +1,6 @@
-﻿// // <copyright file = "FileStreamExtensions.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -81,11 +81,12 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( StreamReader );
+
+                    return default;
                 }
             }
 
-            return default( StreamReader );
+            return default;
         }
 
         /// <summary>
@@ -107,16 +108,18 @@ namespace BudgetExecution
                 try
                 {
                     encoding ??= Encoding.Default;
+
                     return new StreamReader( stream, encoding );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( StreamReader );
+
+                    return default;
                 }
             }
 
-            return default( StreamReader );
+            return default;
         }
 
         /// <summary>
@@ -139,11 +142,12 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( StreamWriter );
+
+                    return default;
                 }
             }
 
-            return default( StreamWriter );
+            return default;
         }
 
         /// <summary>
@@ -165,16 +169,18 @@ namespace BudgetExecution
                 try
                 {
                     encoding ??= Encoding.Default;
+
                     return new StreamWriter( stream, encoding );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( StreamWriter );
+
+                    return default;
                 }
             }
 
-            return default( StreamWriter );
+            return default;
         }
 
         /// <summary>
@@ -210,16 +216,18 @@ namespace BudgetExecution
                 try
                 {
                     using var _reader = stream.GetReader( encoding );
+
                     return _reader.ReadToEnd( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( string );
+
+                    return default;
                 }
             }
 
-            return default( string );
+            return default;
         }
 
         /// <summary>
@@ -238,16 +246,18 @@ namespace BudgetExecution
                 try
                 {
                     stream.Seek( 0, SeekOrigin.Begin );
+
                     return stream;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( Stream );
+
+                    return default;
                 }
             }
 
-            return default( Stream );
+            return default;
         }
 
         /// <summary>
@@ -266,16 +276,18 @@ namespace BudgetExecution
                 try
                 {
                     stream.Seek( 0, SeekOrigin.End );
+
                     return stream;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( Stream );
+
+                    return default;
                 }
             }
 
-            return default( Stream );
+            return default;
         }
 
         /// <summary>
@@ -304,6 +316,7 @@ namespace BudgetExecution
                 {
                     var _buffer = new byte[ buffer ];
                     int _count;
+
                     while( ( _count = stream.Read( _buffer, 0, buffer ) ) > 0 )
                     {
                         target.Write( _buffer, 0, _count );
@@ -314,6 +327,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+
                     return default( MemoryStream );
                 }
             }
@@ -338,16 +352,18 @@ namespace BudgetExecution
                 {
                     using var _memory = new MemoryStream( (int)stream.Length );
                     stream.CopyTo( _memory, (int)stream.Length );
+
                     return _memory;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( MemoryStream );
+
+                    return default;
                 }
             }
 
-            return default( MemoryStream );
+            return default;
         }
 
         /// <summary>
@@ -366,16 +382,18 @@ namespace BudgetExecution
                 try
                 {
                     using var _memory = stream.CopyToMemory( );
+
                     return _memory.ToArray( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IEnumerable<byte> );
+
+                    return default;
                 }
             }
 
-            return default( IEnumerable<byte> );
+            return default;
         }
 
         /// <summary>
@@ -398,9 +416,11 @@ namespace BudgetExecution
                 {
                     var _buffer = new byte[ bufsize ];
                     var _offset = 0;
+
                     do
                     {
                         var _read = stream.Read( _buffer, _offset, bufsize - _offset );
+
                         if( _read == 0 )
                         {
                             return null;
@@ -415,11 +435,12 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IEnumerable<byte> );
+
+                    return default;
                 }
             }
 
-            return default( IEnumerable<byte> );
+            return default;
         }
 
         /// <summary>

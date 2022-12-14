@@ -1,5 +1,5 @@
-﻿// <copyright file = "PivotGridBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -12,6 +12,8 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class PivotGridBase : PivotGridControl
     {
         /// <summary>
@@ -28,8 +30,8 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public virtual MetroTipBase ToolTip { get; set; }
-        
+        public virtual SmallTip ToolTip { get; set; }
+
         /// <summary>
         /// Gets or sets the filter.
         /// </summary>
@@ -52,7 +54,7 @@ namespace BudgetExecution
             try
             {
                 if( bindingList is BindingSource _binder
-                    && _binder?.DataSource != null )
+                   && _binder?.DataSource != null )
                 {
                     try
                     {
@@ -91,7 +93,7 @@ namespace BudgetExecution
             try
             {
                 if( bindingList != null
-                    && dict?.Any( ) == true )
+                   && dict?.Any( ) == true )
                 {
                     try
                     {
@@ -101,14 +103,14 @@ namespace BudgetExecution
                         foreach( var _kvp in dict )
                         {
                             if( !string.IsNullOrEmpty( _kvp.Key )
-                                && _kvp.Value != null )
+                               && _kvp.Value != null )
                             {
                                 _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                             }
                         }
 
                         if( _filter?.Length > 0
-                            && _list?.DataSource != null )
+                           && _list?.DataSource != null )
                         {
                             BindingSource.DataSource = _list?.DataSource;
                             BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
@@ -166,7 +168,7 @@ namespace BudgetExecution
                     foreach( var _kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( _kvp.Key )
-                            && _kvp.Value != null )
+                           && _kvp.Value != null )
                         {
                             _filter += $"{_kvp.Key} = {_kvp.Value} AND";
                         }
@@ -196,7 +198,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( data?.Any( ) == true
-                && Enum.IsDefined( typeof( Field ), field ) )
+               && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try
                 {
@@ -261,7 +263,7 @@ namespace BudgetExecution
             where T2 : IDictionary<string, object>
         {
             if( data?.Any( ) == true
-                && dict?.Any( ) == true )
+               && dict?.Any( ) == true )
             {
                 try
                 {
@@ -270,7 +272,7 @@ namespace BudgetExecution
                     foreach( var kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( kvp.Key )
-                            && kvp.Value != null )
+                           && kvp.Value != null )
                         {
                             _filter += $"{kvp.Key} = {kvp.Value} AND";
                         }
@@ -300,7 +302,7 @@ namespace BudgetExecution
             where T2 : struct
         {
             if( data?.Any( ) == true
-                && Enum.IsDefined( typeof( Field ), field ) )
+               && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try
                 {

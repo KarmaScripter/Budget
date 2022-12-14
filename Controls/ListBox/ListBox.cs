@@ -1,5 +1,5 @@
-﻿// <copyright file = "ListBox.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -10,9 +10,11 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using VisualPlus.Enumerators;
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
 
-    public class ListBox : ListBoxBase
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class ListBox : MetroSetListBox
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -20,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public override BindingSource BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the tool tip.
@@ -28,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public override MetroTip ToolTip { get; set; }
+        public virtual SmallTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -36,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public override string HoverText { get; set; }
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the filter.
@@ -44,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The filter.
         /// </value>
-        public override IDictionary<string, object> DataFilter { get; set; }
+        public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
         /// Initializes a new instance
@@ -53,39 +55,34 @@ namespace BudgetExecution
         public ListBox( )
         {
             // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "BudgetExecution";
             Size = new Size( 200, 100 );
-            Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
-            AlternateColors = true;
-            Text = string.Empty;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
             // BackColor SeriesConfiguration
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            ForeColor = Color.LightSteelBlue;
-            BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Enabled = Color.FromArgb( 15, 15, 15 );
+            BackColor = Color.FromArgb( 40, 40, 40 );
+            ShowBorder = false;
+            BorderColor = Color.FromArgb( 50, 50, 50 );
 
-            // Border SeriesConfiguration
-            Border.Color = Color.FromArgb( 15, 15, 15 );
-            Border.Thickness = 1;
-            Border.HoverColor = Color.FromArgb( 0, 120, 212 );
-            Border.HoverVisible = true;
+            // Disabled Color Configuration
+            DisabledBackColor = Color.FromArgb( 20, 20, 20 ); 
+            DisabledForeColor = Color.FromArgb( 20, 20, 20 );
 
-            // Item SeriesConfiguration
-            ItemLineAlignment = StringAlignment.Center;
-            ItemAlternate = Color.FromArgb( 25, 25, 25 );
-            ItemNormal = Color.FromArgb( 15, 15, 15 );
-            ItemSelected = Color.FromArgb( 22, 39, 70 );
-            AlternateColors = true;
-            VisibleChanged += OnVisible;
+            // Item Configuration
+            ItemHeight = 22;
+            HoveredItemColor = Color.LightSteelBlue;
+            HoveredItemBackColor = Color.FromArgb( 50, 93, 129 );
+            SelectedItemColor = Color.White;
+            SelectedItemBackColor = Color.FromArgb( 0, 120, 212 );
         }
 
         /// <summary>
@@ -113,6 +110,7 @@ namespace BudgetExecution
             : this( )
         {
             Location = location;
+
             if( parent != null )
             {
                 Parent = parent;
@@ -131,6 +129,7 @@ namespace BudgetExecution
             : this( )
         {
             Size = size;
+
             if( parent != null )
             {
                 Parent = parent;
@@ -177,7 +176,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Border.Color = color;
+                    BorderColor = color;
                 }
                 catch( Exception ex )
                 {
@@ -204,64 +203,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the color of the border.
+        /// Adds the items.
         /// </summary>
-        /// <param name="color">The color.</param>
-        public void SetHoverBorderColor( Color color )
-        {
-            if( color != Color.Empty )
-            {
-                try
-                {
-                    Border.HoverColor = color;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the color of the border.
-        /// </summary>
-        /// <param name="hoverColor">if set to <c>true</c> [hoverColor].</param>
-        public void SetBorderConfiguration( bool hoverColor )
-        {
-            try
-            {
-                switch( hoverColor )
-                {
-                    case true:
-                    {
-                        Border.Color = Color.FromArgb( 64, 64, 64 );
-                        Border.Thickness = 1;
-                        Border.HoverColor = Color.FromArgb( 64, 64, 64 );
-                        Border.HoverVisible = true;
-                        Border.Type = ShapeTypes.Rounded;
-                        break;
-                    }
-                    case false:
-                    {
-                        Border.Color = Color.FromArgb( 15, 15, 15 );
-                        Border.Thickness = 1;
-                        Border.HoverColor = Color.FromArgb( 15, 15, 15 );
-                        Border.HoverVisible = false;
-                        Border.Type = ShapeTypes.Rounded;
-                        break;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Adds the control item.
-        /// </summary>
-        /// <param name = "items" > </param>
+        /// <param name="items">The items.</param>
         public void AddItems( IEnumerable<object> items )
         {
             if( items?.Count( ) > -1 )
@@ -309,7 +253,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _ = new MetroTip( this, text );
+                    var _ = new SmallTip( this, text );
                 }
                 catch( Exception ex )
                 {
@@ -335,6 +279,17 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

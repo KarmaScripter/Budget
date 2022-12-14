@@ -1,40 +1,75 @@
-﻿// <copyright file = "RichTextBox.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
 
-    public class RichTextBox : RichTextBase
+    public class RichTextBox : MetroSetRichTextBox
     {
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual SmallTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RichTextBox"/> class.
+        /// </summary>
         public RichTextBox( )
         {
             // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "BudgetExecution";
             Size = new Size( 140, 30 );
-            Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 9 );
             ForeColor = Color.White;
+            BackColor = Color.FromArgb( 40, 40, 40 );
             Enabled = true;
             Visible = true;
-            Text = string.Empty;
 
             // BackColor SeriesConfiguration
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Enabled = Color.FromArgb( 15, 15, 15 );
 
             // Border SeriesConfiguration
-            Border.Color = Color.FromArgb( 15, 15, 15 );
-            Border.Thickness = 1;
-            Border.HoverColor = Color.SteelBlue;
-            Border.HoverVisible = false;
+            BorderColor = Color.FromArgb( 65, 65, 65 );
         }
 
         /// <summary>
@@ -62,6 +97,7 @@ namespace BudgetExecution
             : this( )
         {
             Location = location;
+
             if( parent != null )
             {
                 Parent = parent;
@@ -80,6 +116,7 @@ namespace BudgetExecution
             : this( )
         {
             Size = size;
+
             if( parent != null )
             {
                 Parent = parent;
@@ -148,7 +185,7 @@ namespace BudgetExecution
         public void SetFontStyle( string fontFamily, Color fontColor, int fontSize = 10 )
         {
             if( !string.IsNullOrEmpty( fontFamily )
-                && fontColor != Color.Empty )
+               && fontColor != Color.Empty )
             {
                 try
                 {
@@ -173,13 +210,24 @@ namespace BudgetExecution
             {
                 try
                 {
-                    BackColorState.Enabled = backColor;
+                    BackColor = backColor;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
             }
+        }
+        
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

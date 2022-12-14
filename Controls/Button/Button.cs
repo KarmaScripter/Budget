@@ -1,5 +1,5 @@
-﻿// <copyright file = "Button.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,17 +9,17 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using VisualPlus.Enumerators;
-    using VisualPlus.Models;
+    using MetroSet_UI.Controls;
+    using MetroSet_UI.Enums;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="ButtonBase" />
     /// <seealso cref="IButton" />
-    /// <seealso cref="VisualPlus.Toolkit.Controls.Interactivity.VisualButton" />
     /// <seealso cref="IDisposable" />
-    public class Button : ButtonBase, IButton
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class Button : MetroSetButton, IButton
     {
         /// <summary>
         /// Gets or sets the tool tip.
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The tool tip.
         /// </value>
-        public override MetroTip ToolTip { get; set; }
+        public virtual SmallTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public override string HoverText { get; set; }
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The binding source.
         /// </value>
-        public override BindingSource BindingSource { get; set; }
+        public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the filter.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The filter.
         /// </value>
-        public override IDictionary<string, object> DataFilter { get; set; }
+        public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -61,43 +61,38 @@ namespace BudgetExecution
         public Button( )
         {
             // Basic SeriesConfiguration
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "BudgetExecution";
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.White;
+            ForeColor = Color.FromArgb( 0, 120, 212 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 140, 40 );
-            Location = new Point( 1, 1 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Animation = true;
             Visible = true;
             Enabled = true;
-            Text = string.Empty;
 
-            // BackColor SeriesConfiguration
-            BackColor = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Disabled = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Enabled = Color.FromArgb( 15, 15, 15 );
-            BackColorState.Hover = Color.FromArgb( 40, 40, 40 );
-            BackColorState.Pressed = Color.SteelBlue;
+            // Normal Color Configuration
+            NormalColor = Color.Transparent;
+            NormalBorderColor = Color.Transparent;
+            NormalTextColor = Color.FromArgb( 0, 120, 212 );
 
-            // BorderColor SeriesConfiguration
-            Border.Color = Color.FromArgb( 15, 15, 15 );
-            Border.HoverColor = Color.FromArgb( 40, 40, 40 );
-            Border.HoverVisible = true;
-            Border.Type = ShapeTypes.Rounded;
-            Border.Thickness = 1;
+            // Hover Color Configuration
+            HoverBorderColor = Color.FromArgb( 50, 93, 129 );
+            HoverColor = Color.FromArgb( 50, 93, 129 );
+            HoverTextColor = Color.LightSteelBlue;
 
-            // BudgetImage SeriesConfiguration
-            TextImageRelation = TextImageRelation.Overlay;
+            // Disabled Color Configuration
+            DisabledBorderColor = Color.Transparent;
+            DisabledBackColor = Color.Transparent;
+            DisabledForeColor = Color.Transparent;
 
-            // Text SeriesConfiguration
-            TextStyle.Pressed = Color.White;
-            TextStyle.Disabled = Color.FromArgb( 15, 15, 15 );
-            TextStyle.Enabled = Color.FromArgb( 0, 120, 212 );
-            TextStyle.Hover = Color.White;
-            TextStyle.TextAlignment = StringAlignment.Center;
-            TextStyle.TextLineAlignment = StringAlignment.Center;
+            // Pressed Color Configuration
+            PressColor = Color.FromArgb( 0, 120, 212 );
+            PressBorderColor = Color.FromArgb( 0, 120, 212 );
+            PressTextColor = Color.White;
 
             // Event-Wiring
             MouseHover += OnMouseOver;
@@ -141,7 +136,8 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         /// <param name="text">The text.</param>
-        public Button( Size size, Point location, Control parent, string text )
+        public Button( Size size, Point location, Control parent,
+            string text )
             : this( size, location, parent )
         {
             Text = text;
@@ -186,104 +182,93 @@ namespace BudgetExecution
             Parent = parent;
             Tag = field.ToString( );
         }
+        
+        /// <summary>
+        /// Sets the size.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        public virtual void ReSize( int width, int height )
+        {
+            try
+            {
+                Size = new Size( width, height );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        public virtual void SetText( string text )
+        {
+            try
+            {
+                Text = text;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Sets the location.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        public virtual void ReLocate( int x, int y )
+        {
+            if( x > 0 
+               && y > 0 )
+            {
+                try
+                {
+                    Location = new Point( x, y  );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is Button _button
+                   && _button != null
+                   && ToolTip?.Active == true )
+                {
+                    ToolTip.RemoveAll( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
         /// Sets the color of the fore. Required Attributes: ForeColor
         /// </summary>
-        /// <param name="format">The format.</param>
-        public void SetForeColor( Color format )
+        public void SetForeColor( Color foreColor )
         {
-            try
-            {
-                ForeColor = format;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the state of the back color. Required Attributes: BackColor, DisableColor,
-        /// EnabledColor, HoverColor, and PressedColor
-        /// </summary>
-        /// <param name="normal">The format.</param>
-        /// <param name = "hover" > </param>
-        public void SetBackColorStyle( Color normal, Color hover )
-        {
-            try
-            {
-                BackColor = normal;
-                BackColorState.Disabled = normal;
-                BackColorState.Enabled = normal;
-                BackColorState.Hover = hover;
-                BackColorState.Pressed = hover;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the border configuration. Required Attributes: BorderColor, and HoverColor
-        /// </summary>
-        /// <param name="normal">The format.</param>
-        /// <param name = "hover" > </param>
-        public void SetBorderStyle( Color normal, Color hover )
-        {
-            try
-            {
-                Border.Color = normal;
-                Border.HoverColor = hover;
-                Border.HoverVisible = true;
-                Border.Type = ShapeTypes.Rounded;
-                Border.Thickness = 1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the text style configuration. Required Attributes: PressedColor,
-        /// DisabledColor, EnabledColor, and HoverColor
-        /// </summary>
-        /// <param name="normal">The format.</param>
-        /// <param name = "hover" > </param>
-        public void SetTextStyle( Color normal, Color hover )
-        {
-            try
-            {
-                TextImageRelation = TextImageRelation.ImageBeforeText;
-                TextStyle = new TextStyle
-                {
-                    TextLineAlignment = StringAlignment.Center,
-                    TextAlignment = StringAlignment.Center,
-                    Hover = hover,
-                    Enabled = normal,
-                    Disabled = normal,
-                    Pressed = normal
-                };
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the image.
-        /// </summary>
-        /// <param name="image">The image.</param>
-        public override void SetImage( Image image )
-        {
-            if( image != null )
+            if( foreColor != Color.Empty )
             {
                 try
                 {
-                    Image = image;
+                    ForeColor = foreColor;
                 }
                 catch( Exception ex )
                 {
@@ -292,6 +277,26 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the state of the back color. Required Attributes: BackColor, DisableColor,
+        /// EnabledColor, HoverColor, and PressedColor
+        /// </summary>
+        /// <param name="normal">The format.</param>
+        public void SetBackColor( Color normal )
+        {
+            if( normal != Color.Empty )
+            {
+                try
+                {
+                    BackColor = normal;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
@@ -302,47 +307,25 @@ namespace BudgetExecution
         public void OnMouseOver( object sender, EventArgs e )
         {
             var _button = sender as Button;
+
             try
             {
                 if( _button != null
-                    && !string.IsNullOrEmpty( HoverText ) )
+                   && !string.IsNullOrEmpty( HoverText ) )
                 {
                     if( !string.IsNullOrEmpty( HoverText ) )
                     {
                         var _hoverText = _button?.HoverText;
-                        var _ = new MetroTip( _button, _hoverText );
+                        var _ = new SmallTip( _button, _hoverText );
                     }
                     else
                     {
                         if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
                         {
                             var _text = Tag?.ToString( )?.SplitPascal( );
-                            var _ = new MetroTip( _button, _text );
+                            var _ = new SmallTip( _button, _text );
                         }
                     }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs" />
-        /// instance containing the event data.
-        /// </param>
-        public override void OnMouseLeave( object sender, EventArgs e )
-        {
-            var _button = sender as Button;
-            try
-            {
-                if( _button != null )
-                {
                 }
             }
             catch( Exception ex )
@@ -360,6 +343,17 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public virtual void OnClick( object sender, EventArgs e )
         {
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

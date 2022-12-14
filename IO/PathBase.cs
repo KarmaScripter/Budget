@@ -1,6 +1,6 @@
-﻿// // <copyright file = "PathBase.cs" company = "Terry D. Eppler">
-// // Copyright (c) Terry D. Eppler. All rights reserved.
-// // </copyright>
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
 
 namespace BudgetExecution
 {
@@ -12,6 +12,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class PathBase
     {
         /// <summary>
@@ -221,6 +223,7 @@ namespace BudgetExecution
             try
             {
                 var _file = Path.GetFullPath( Buffer );
+
                 if( !string.IsNullOrEmpty( _file )
                    && File.Exists( _file ) )
                 {
@@ -230,26 +233,6 @@ namespace BudgetExecution
             catch( IOException ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Determines whether [has parent folder].
-        /// </summary>
-        /// <returns>
-        ///   <c>true</c> if [has parent folder]; otherwise, <c>false</c>.
-        /// </returns>
-        protected bool CheckParent( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( FileInfo?.DirectoryName )
-                    && Directory.Exists( FileInfo?.DirectoryName );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return false;
             }
         }
 
@@ -266,7 +249,8 @@ namespace BudgetExecution
             catch( IOException ex )
             {
                 Fail( ex );
-                return default( FileSecurity );
+
+                return default;
             }
         }
 
@@ -279,14 +263,16 @@ namespace BudgetExecution
             try
             {
                 var _path = Path.GetFullPath( Buffer );
+
                 return !string.IsNullOrEmpty( _path ) && File.Exists( _path )
                     ? new FileInfo( _path )?.Create( )
-                    : default( FileStream );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( FileStream );
+
+                return default;
             }
         }
 
@@ -307,7 +293,29 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Determines whether [has parent folder].
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if [has parent folder]; otherwise, <c>false</c>.
+        /// </returns>
+        protected bool CheckParent( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( FileInfo?.DirectoryName )
+                    && Directory.Exists( FileInfo?.DirectoryName );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+
+                return false;
             }
         }
 

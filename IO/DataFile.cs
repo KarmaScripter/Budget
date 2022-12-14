@@ -1,5 +1,5 @@
-﻿// <copyright file = "DataFile.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using static System.IO.Directory;
 
     /// <summary>
     /// 
@@ -45,50 +46,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Creates the specified file path.
-        /// </summary>
-        /// <param name="filePath">
-        /// The file path.
-        /// </param>
-        /// <returns></returns>
-        public static FileInfo Create( string filePath )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( filePath )
-                    ? new FileInfo( filePath )
-                    : default( FileInfo );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( FileInfo );
-            }
-        }
-
-        /// <summary>
         /// Transfers the specified folder.
         /// </summary>
         /// <param name="folder">The folder.</param>
         public void Transfer( DirectoryInfo folder )
         {
             if( folder != null
-               && !Directory.Exists( folder.FullName ) )
+               && !Exists( folder.FullName ) )
             {
-                Directory.CreateDirectory( folder.FullName );
+                CreateDirectory( folder.FullName );
             }
 
             try
             {
                 var _files = folder?.GetFiles( );
+
                 if( _files?.Any( ) == true )
                 {
                     foreach( var _fileInfo in _files )
                     {
-                        if ( _fileInfo != null )
-                        {
-                            Directory.Move( _fileInfo.FullName, folder.Name );
-                        }
+                        Directory.Move( _fileInfo.FullName, folder.Name );
                     }
                 }
             }
@@ -125,7 +102,6 @@ namespace BudgetExecution
                                 _result = true;
                                 break;
                             }
-
                             _text = _reader.ReadLine( );
                         }
 
@@ -157,9 +133,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _input )
                        && File.Exists( _input ) )
                     {
-                        IEnumerable<string> _enumerable =
-                            Directory.GetDirectories( _input, pattern );
-
+                        IEnumerable<string> _enumerable = GetDirectories( _input, pattern );
                         var _list = new List<FileInfo>( );
                         foreach( var file in _enumerable )
                         {
@@ -168,17 +142,17 @@ namespace BudgetExecution
 
                         return _list?.Any( ) == true
                             ? _list
-                            : default( List<FileInfo> );
+                            : default;
                     }
                 }
                 catch( IOException ex )
                 {
                     Fail( ex );
-                    return default( IEnumerable<FileInfo> );
+                    return default;
                 }
             }
 
-            return default( IEnumerable<FileInfo> );
+            return default;
         }
 
         /// <summary>
@@ -192,7 +166,7 @@ namespace BudgetExecution
                 try
                 {
                     return CheckParent( )
-                        ? Directory.GetParent( Buffer )?.FullName
+                        ? GetParent( Buffer )?.FullName
                         : string.Empty;
                 }
                 catch( IOException ex )
@@ -203,31 +177,6 @@ namespace BudgetExecution
             }
 
             return string.Empty;
-        }
-
-        /// <summary>
-        /// Browses this instance.
-        /// </summary>
-        /// <returns></returns>
-        public static string Browse( )
-        {
-            try
-            {
-                var _dialog = new OpenFileDialog
-                {
-                    CheckFileExists = true,
-                    CheckPathExists = true
-                };
-
-                return  !string.IsNullOrEmpty( _dialog?.FileName ) 
-                    ? _dialog.FileName 
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
         }
 
         /// <summary>Returns a string that
@@ -245,6 +194,48 @@ namespace BudgetExecution
                     : string.Empty;
             }
             catch( IOException ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Creates the specified file path.
+        /// </summary>
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
+        /// <returns></returns>
+        public static FileInfo Create( string filePath )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( filePath )
+                    ? new FileInfo( filePath )
+                    : default;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary>
+        /// Browses this instance.
+        /// </summary>
+        /// <returns></returns>
+        public static string Browse( )
+        {
+            try
+            {
+                var _dialog = new OpenFileDialog( );
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
             {
                 Fail( ex );
                 return string.Empty;
