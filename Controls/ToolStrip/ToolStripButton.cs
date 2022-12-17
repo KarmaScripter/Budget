@@ -11,6 +11,9 @@ namespace BudgetExecution
     using System.IO;
     using static System.Configuration.ConfigurationManager;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public class ToolStripButton : ToolButtonBase, IToolStripButton
@@ -54,6 +57,11 @@ namespace BudgetExecution
             Click += OnClick;
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="toolType"></param>
+        /// <param name="bindingSource"></param>
         public ToolStripButton( ToolType toolType, BindingSource bindingSource )
             : this( toolType )
         {
@@ -168,16 +176,9 @@ namespace BudgetExecution
                             _message?.ShowDialog( );
                             break;
                         }
-                        case ToolType.AddRecordButton:
-                        {
-                            using var _dialog = new EditDialog( _button.ToolType );
-                            _dialog.BindingSource = BindingSource;
-                            _dialog?.ShowDialog( );
-                            break;
-                        }
                         case ToolType.AddButton:
                         {
-                            using var _dialog = new EditDialog( _button.ToolType );
+                            using var _dialog = new EditDialog( _button.ToolType, BindingSource  );
                             _dialog.BindingSource = BindingSource;
                             _dialog?.ShowDialog( );
                             break;
@@ -188,9 +189,11 @@ namespace BudgetExecution
                         case ToolType.DeleteColumnButton:
                         case ToolType.DeleteTableButton:
                         case ToolType.DeleteDatabaseButton:
+                        case ToolType.AddRecordButton:
                         case ToolType.AddColumnButton:
                         {
                             var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                            _dialog.BindingSource = BindingSource;
                             _dialog?.ShowDialog( );
                             break;
                         }
@@ -203,8 +206,8 @@ namespace BudgetExecution
                         case ToolType.CopyButton:
                         case ToolType.DeleteRecordButton:
                         {
-                            using var _dialog = new EditDialog( _button.ToolType, BindingSource );
-                            _dialog.Current = BindingSource.GetCurrentDataRow( );
+                            var _dialog = new EditDialog( _button.ToolType, BindingSource  );
+                            _dialog.BindingSource = BindingSource;
                             _dialog?.ShowDialog( );
                             break;
                         }

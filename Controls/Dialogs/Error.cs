@@ -64,6 +64,9 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Text = string.Empty;
             Size = new Size( 812, 486 );
+            
+            // Header Label Properties
+            HeaderLabel.ForeColor = Color.Red;
 
             // TextBox Properties
             TextBox.BackColor = Color.FromArgb( 20, 20, 20 );
@@ -76,7 +79,6 @@ namespace BudgetExecution
             Controls.Add( BackPanel );
 
             // Event Wiring
-            Load += OnLoad;
             CloseButton.Click += OnClick;
         }
 
@@ -151,7 +153,6 @@ namespace BudgetExecution
         {
             try
             {
-                HeaderLabel.ForeColor = Color.Red;
             }
             catch ( Exception ex )
             {
@@ -167,10 +168,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnClick( object sender, EventArgs e )
         {
-            if( sender is Button )
-            {
-                Close( );
-            }
+            Close( );
         }
     }
 }

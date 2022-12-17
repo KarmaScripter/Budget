@@ -35,7 +35,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             TabPages = GetTabPages( );
-            GroupBoxes = GetGroupBoxes( );
+            Panels = GetPanels( );
             ListBoxes = GetListBoxes( );
             RadioButtons = GetRadioButtons( );
             ComboBoxes = GetComboBoxes( );
@@ -80,7 +80,6 @@ namespace BudgetExecution
         {
             try
             {
-                SetGroupBoxProperties( );
                 SetRadioButtonProperties( );
                 PopulateTableListBoxItems( );
                 PopulateComboBoxes( );
@@ -204,7 +203,7 @@ namespace BudgetExecution
                             CreateTableTabPage.Text = "Add Database";
                             ActiveTab = CreateTableTabPage;
                             Provider = Provider.Access;
-                            CreateTableAccessRadioButton.Checked = true;
+                            AccessRadioButton.Checked = true;
                             EditColumnTabPage.TabVisible = false;
                             DeleteTableTabPage.TabVisible = false;
                             DeleteColumnTabPage.TabVisible = false;
@@ -215,11 +214,11 @@ namespace BudgetExecution
                             CreateTableTabPage.Text = "Add Table";
                             ActiveTab = CreateTableTabPage;
                             Provider = Provider.Access;
-                            CreateTableAccessRadioButton.Checked = true;
-                            CreateTableAccessRadioButton.Checked = true;
-                            CreateTableAccessRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            CreateTableSqlRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            CreateTableSqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
+                            AccessRadioButton.Checked = true;
+                            AccessRadioButton.Checked = true;
+                            AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
+                            SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
+                            SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
                             EditColumnTabPage.TabVisible = false;
                             DeleteTableTabPage.TabVisible = false;
                             DeleteColumnTabPage.TabVisible = false;
@@ -286,7 +285,6 @@ namespace BudgetExecution
                 try
                 {
                     var _tabPages = new Dictionary<string, TabPageAdv>( );
-
                     foreach( TabPageAdv page in TabControl.TabPages )
                     {
                         if( page != null 

@@ -103,9 +103,6 @@
     <Compile Update="Controls\Frame\Frame.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\GroupBox\GroupBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Controls\ImageList\ImageList.cs">
       <SubType>Component</SubType>
     </Compile>

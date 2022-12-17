@@ -13,6 +13,9 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -42,7 +45,9 @@ namespace BudgetExecution
             InitializeComponent( );
             TabPages = GetTabPages( );
             Frames = GetFrames( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 15, 15, 15 );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            
+            // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
         }
@@ -55,6 +60,18 @@ namespace BudgetExecution
             : this( )
         {
             ToolType = toolType;
+            TabPages = GetTabPages( );
+            Frames = GetFrames( );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            DataTable = BindingSource.GetDataTable(  );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider.Access );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -63,15 +80,21 @@ namespace BudgetExecution
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
         public EditDialog( ToolType toolType, BindingSource bindingSource )
-            : this( )
         {
             ToolType = toolType;
             BindingSource = bindingSource;
-            DataTable = (DataTable)bindingSource.DataSource;
+            TabPages = GetTabPages( );
+            Frames = GetFrames( );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            DataTable = BindingSource.GetDataTable(  );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider.Access );
             Columns = DataTable.GetColumnNames( );
-            Current = bindingSource.GetCurrentDataRow( );
+            Current = BindingSource.GetCurrentDataRow( );
+            
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -80,7 +103,6 @@ namespace BudgetExecution
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="dataModel">The data model.</param>
         public EditDialog( ToolType toolType, DataBuilder dataModel )
-            : this( )
         {
             ToolType = toolType;
             DataModel = dataModel;
@@ -91,6 +113,13 @@ namespace BudgetExecution
             DataTable = dataModel.DataTable;
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
+            TabPages = GetTabPages( );
+            Frames = GetFrames( );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -100,7 +129,6 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         public EditDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
-            : this( )
         {
             ToolType = toolType;
             Provider = provider;
@@ -110,6 +138,13 @@ namespace BudgetExecution
             BindingSource.DataSource = DataModel.DataTable;
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
+            TabPages = GetTabPages( );
+            Frames = GetFrames( );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -121,7 +156,7 @@ namespace BudgetExecution
         {
             try
             {
-                SetActivetTab( );
+                SetActiveTab( );
                 SetTableLocation( );
                 SetFrameColors( );
                 SetFrameDockStyle( );
@@ -137,7 +172,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the activet tab.
         /// </summary>
-        public void SetActivetTab( )
+        public void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
             {
@@ -201,7 +236,6 @@ namespace BudgetExecution
                 try
                 {
                     var _cols = Columns.ToArray( );
-
                     foreach( var frame in Frames )
                     {
                         if( frame.Index >= _cols.Length )
@@ -358,7 +392,6 @@ namespace BudgetExecution
             try
             {
                 var _frames = new List<Frame>( );
-
                 foreach( var _control in FrameTable.Controls )
                 {
                     if( _control.GetType( ) == typeof( Frame ) )

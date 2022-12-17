@@ -42,7 +42,7 @@ namespace BudgetExecution
         public LookupDialog( )
         {
             InitializeComponent( );
-            GroupBoxes = GetGroupBoxes( );
+            Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             Load += OnLoad;
@@ -65,14 +65,12 @@ namespace BudgetExecution
                     { "BFY", "2022" },
                     { "FundCode", "B" }
                 };
-
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
-                SetGroupBoxProperties( );
                 SetRadioButtonProperties( );
                 PopulateTableListBoxItems( );
-                TableGroupBox.Text = TablePrefix + TableListBox.Items.Count;
-                ColumnGroupBox.Text = ColumnPrefix;
+                TablePanelLabel.Text = TablePrefix + TableListBox.Items.Count;
+                ColumnPanelLabel.Text = ColumnPrefix;
             }
             catch( Exception ex )
             {
@@ -90,8 +88,9 @@ namespace BudgetExecution
                 TableListBox.Items.Clear( );
                 var _names = Enum.GetNames( typeof( Source ) );
 
-                foreach( var name in _names )
+                for( var _i = 0; _i < _names.Length; _i++ )
                 {
+                    var name = _names[ _i ];
                     if( name != "NS" )
                     {
                         TableListBox.Items.Add( name );
@@ -115,8 +114,8 @@ namespace BudgetExecution
                 FormFilter.Clear( );
                 ColumnListBox.Items.Clear( );
                 ValueListBox.Items.Clear( );
-                ColumnGroupBox.Text = string.Empty;
-                ValueGroupBox.Text = string.Empty;
+                ColumnPanelLabel.Text = string.Empty;
+                ValuePanelLabel.Text = string.Empty;
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedItem.ToString( );
 
@@ -126,14 +125,12 @@ namespace BudgetExecution
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
                     var _columns = DataModel.GetDataColumns( );
-
                     foreach( var col in _columns )
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
-
-                    ColumnGroupBox.Text = ColumnPrefix + ColumnListBox.Items.Count;
-                    ValueGroupBox.Text = ValuePrefix;
+                    ColumnPanelLabel.Text = ColumnPrefix + ColumnListBox.Items.Count;
+                    ValuePanelLabel.Text = ValuePrefix;
                 }
             }
             catch( Exception ex )
@@ -154,7 +151,6 @@ namespace BudgetExecution
                 var _listBox = sender as ListBox;
                 var _column = _listBox?.SelectedItem?.ToString( );
                 var _series = DataModel.DataElements;
-
                 if( !string.IsNullOrEmpty( _column ) )
                 {
                     foreach( var item in _series[ _column ] )
@@ -162,8 +158,7 @@ namespace BudgetExecution
                         ValueListBox.Items.Add( item );
                     }
                 }
-
-                ValueGroupBox.Text = ValuePrefix + ValueListBox.Items.Count;
+                ValuePanelLabel.Text = ValuePrefix + ValueListBox.Items.Count;
             }
             catch( Exception ex )
             {

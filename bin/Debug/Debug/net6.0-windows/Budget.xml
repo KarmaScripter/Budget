@@ -2125,7 +2125,12 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:BudgetExecution.DataGridForm.OnColumnListBoxSelectionChanged(System.Object)" -->
+        <member name="M:BudgetExecution.DataGridForm.OnColumnListBoxSelectionChanged(System.Object)">
+            <summary>
+            Called when [column ListBox selection changed].
+            </summary>
+            <param name="sender">The sender.</param>\
+        </member>
         <member name="M:BudgetExecution.DataGridForm.OnValueListBoxSelectionChanged(System.Object)">
             <summary>
             Called when [value ListBox selection changed].
@@ -2480,6 +2485,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:BudgetExecution.EditDialog">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:BudgetExecution.EditDialog.Current">
             <summary>
             Gets or sets the current.
@@ -2536,7 +2546,7 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.EditDialog.SetActivetTab">
+        <member name="M:BudgetExecution.EditDialog.SetActiveTab">
             <summary>
             Sets the activet tab.
             </summary>
@@ -3156,7 +3166,7 @@
             The form filter.
             </value>
         </member>
-        <member name="P:BudgetExecution.EditBase.GroupBoxes">
+        <member name="P:BudgetExecution.EditBase.Panels">
             <summary>
             Gets or sets the group boxes.
             </summary>
@@ -3240,11 +3250,6 @@
             </summary>
             <param name="listBox">The list box.</param>
         </member>
-        <member name="M:BudgetExecution.EditBase.SetGroupBoxProperties">
-            <summary>
-            Sets the group box properties.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.EditBase.SetRadioButtonProperties">
             <summary>
             Sets the RadioButton properties.
@@ -3262,7 +3267,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.EditBase.GetGroupBoxes">
+        <member name="M:BudgetExecution.EditBase.GetPanels">
             <summary>
             Gets the group boxes.
             </summary>
@@ -4519,153 +4524,6 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:BudgetExecution.Frame.InitializeComponent">
-            <summary> 
-            Required method for Designer support - do not modify 
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.GroupBox.BindingSource">
-            <summary>
-            Gets or sets the binding source.
-            </summary>
-            <value>
-            The binding source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.GroupBox.ToolTip">
-            <summary>
-            Gets or sets the tool tip.
-            </summary>
-            <value>
-            The tool tip.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.GroupBox.HoverText">
-            <summary>
-            Gets or sets the hover text.
-            </summary>
-            <value>
-            The hover text.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.GroupBox.HeaderText">
-            <summary>
-            Gets or sets the header text.
-            </summary>
-            <value>
-            The header text.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.GroupBox.DataFilter">
-            <summary>
-            Gets or sets the filter.
-            </summary>
-            <value>
-            The filter.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.GroupBox.SeparatorColor">
-            <summary>
-            Gets or sets the color of the separator.
-            </summary>
-            <value>
-            The color of the separator.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.#ctor">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.GroupBox"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.#ctor(System.Drawing.Size,System.Drawing.Point)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.GroupBox" />
-            class.
-            </summary>
-            <param name="size">The size.</param>
-            <param name="location">The location.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.#ctor(System.Drawing.Point,System.Windows.Forms.Control)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.GroupBox" />
-            class.
-            </summary>
-            <param name="location">The location.</param>
-            <param name="parent">The parent.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.#ctor(System.Drawing.Size,System.Windows.Forms.Control)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.GroupBox" />
-            class.
-            </summary>
-            <param name="size">The size.</param>
-            <param name="parent">The parent.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.#ctor(System.Drawing.Size,System.Drawing.Point,System.Windows.Forms.Control)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.GroupBox" />
-            class.
-            </summary>
-            <param name="size">The size.</param>
-            <param name="location">The location.</param>
-            <param name="parent">The parent.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.GroupBox" />
-            class.
-            </summary>
-            <param name="title">The title.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.SetBorderColor(System.Drawing.Color)">
-            <summary>
-            Sets the color of the border.
-            </summary>
-            <param name="color">The color.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.OnMouseOver(System.Object,System.EventArgs)">
-            <summary>
-            Called when [mouse over].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The
-            <see cref="T:System.EventArgs" />
-            instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.OnMouseLeave(System.Object,System.EventArgs)">
-            <summary>
-            Called when [mouse leave].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The
-            <see cref="T:System.EventArgs" />
-            instance containing the event data.
-            </param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.Fail(System.Exception)">
-            <summary>
-            Fails the specified ex.
-            </summary>
-            <param name="ex">The ex.</param>
-        </member>
-        <member name="F:BudgetExecution.GroupBox.components">
-            <summary> 
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.Dispose(System.Boolean)">
-            <summary> 
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:BudgetExecution.GroupBox.InitializeComponent">
             <summary> 
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.
@@ -7661,6 +7519,11 @@
             </summary>
             <param name="ex">The ex.</param>
         </member>
+        <member name="T:BudgetExecution.ToolStripButton">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:BudgetExecution.ToolStripButton.#ctor">
             <summary>
             Initializes a new instance of
@@ -7673,6 +7536,13 @@
             Mof the <see cref="T:BudgetExecution.ToolStripButton"/> class.
             </summary>
             <param name="toolType">The tool.</param>
+        </member>
+        <member name="M:BudgetExecution.ToolStripButton.#ctor(BudgetExecution.ToolType,System.Windows.Forms.BindingSource)">
+            <summary>
+            
+            </summary>
+            <param name="toolType"></param>
+            <param name="bindingSource"></param>
         </member>
         <member name="M:BudgetExecution.ToolStripButton.OnMouseHover(System.Object,System.EventArgs)">
             <summary>

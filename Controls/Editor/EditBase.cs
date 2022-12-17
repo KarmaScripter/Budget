@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public partial class EditBase : MetroForm
     {
         /// <summary>
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The group boxes.
         /// </value>
-        public virtual IDictionary<string, GroupBox> GroupBoxes { get; set; }
+        public virtual IDictionary<string, Layout> Panels { get; set; }
 
         /// <summary>
         /// Gets or sets the list boxes.
@@ -193,8 +193,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = "SELECT DISTINCT SchemaTypes.TypeName" 
-                        + " FROM SchemaTypes"
+                    var _query = "SELECT DISTINCT SchemaTypes.TypeName" + " FROM SchemaTypes"
                         + $" WHERE SchemaTypes.Database = '{ provider }'";
 
                     var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
@@ -244,8 +243,10 @@ namespace BudgetExecution
                 {
                     listBox.Items.Clear( );
 
-                    foreach( var name in _names )
+                    for( var _i = 0; _i < _names.Length; _i++ )
                     {
+                        var name = _names[ _i ];
+
                         if( name != "NS" )
                         {
                             listBox?.Items.Add( name );
@@ -256,27 +257,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the group box properties.
-        /// </summary>
-        public virtual void SetGroupBoxProperties( )
-        {
-            if( GroupBoxes?.Values?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var _groupBox in GroupBoxes.Values )
-                    {
-                        _groupBox.SeparatorColor = Color.FromArgb( 64, 64, 64 );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
             }
         }
 
@@ -320,7 +300,7 @@ namespace BudgetExecution
                         {
                             foreach( var _control in _tab.Controls )
                             {
-                                if( _control is System.Windows.Forms.GroupBox _group )
+                                if( _control is Layout _group )
                                 {
                                     foreach( var _item in _group.Controls )
                                     {
@@ -398,28 +378,28 @@ namespace BudgetExecution
         /// Gets the group boxes.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, GroupBox> GetGroupBoxes( )
+        public IDictionary<string, Layout> GetPanels( )
         {
             if( TabPages?.Count > 0 )
             {
                 try
                 {
-                    var _groupBoxes = new Dictionary<string, GroupBox>( );
+                    var _panels = new Dictionary<string, Layout>( );
 
                     foreach( var _tabPage in TabPages.Values )
                     {
                         foreach( var _control in _tabPage.Controls )
                         {
-                            if( _control is GroupBox _groupBox )
+                            if( _control is Layout _panel )
                             {
-                                _groupBoxes.Add( _groupBox.Name, _groupBox );
+                                _panels.Add( _panel.Name, _panel );
                             }
                         }
                     }
 
-                    return _groupBoxes?.Any( ) == true
-                        ? _groupBoxes
-                        : default( IDictionary<string, GroupBox> );
+                    return _panels?.Any( ) == true
+                        ? _panels
+                        : default( IDictionary<string, Layout> );
                 }
                 catch( Exception ex )
                 {

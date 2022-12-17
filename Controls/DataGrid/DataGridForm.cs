@@ -321,9 +321,7 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [column ListBox selection changed].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// The <see cref="EventArgs"/> 
-        /// instance containing the event data.</param>
+        /// <param name="sender">The sender.</param>\
         public void OnColumnListBoxSelectionChanged( object sender )
         {
             try

@@ -44,17 +44,10 @@ namespace BudgetExecution
         {
             if( bindingSource.DataSource != null )
             {
-                switch( bindingSource.DataSource )
-                {
-                    case DataTable _table:
-                    {
-                        return _table;
-                    }
-                    case IEnumerable<DataRow> _data:
-                    {
-                        return _data.CopyToDataTable( );
-                    }
-                }
+                var _table = (DataTable)bindingSource.DataSource;
+                return _table != null && _table.Rows.Count > 0
+                    ? _table
+                    : default( DataTable );
             }
 
             return default;
