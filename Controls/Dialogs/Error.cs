@@ -152,24 +152,6 @@ namespace BudgetExecution
             try
             {
                 HeaderLabel.ForeColor = Color.Red;
-                RenderIcon(  );
-            }
-            catch ( Exception ex )
-            {
-                Console.WriteLine( ex );
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Renders the icon.
-        /// </summary>
-        public void RenderIcon( )
-        {
-            try
-            {
-                var _path = @"C:\Users\terry\source\repos\Budget\Resource\Images\Dialog\Error.png";
-                Picture.Image = new Bitmap( _path );
             }
             catch ( Exception ex )
             {

@@ -46,6 +46,7 @@
             this.Picture.DataFilter = null;
             this.Picture.Field = BudgetExecution.Field.RpioActivityCode;
             this.Picture.HoverText = null;
+            this.Picture.Image = global::BudgetExecution.Properties.Resources.Error;
             this.Picture.ImageList = null;
             this.Picture.Location = new System.Drawing.Point(3, 3);
             this.Picture.Name = "Picture";
@@ -67,7 +68,7 @@
             this.HeaderLabel.HoverText = null;
             this.HeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.HeaderLabel.IsDerivedStyle = true;
-            this.HeaderLabel.Location = new System.Drawing.Point(76, 4);
+            this.HeaderLabel.Location = new System.Drawing.Point(85, 30);
             this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Padding = new System.Windows.Forms.Padding(1);

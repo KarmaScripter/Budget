@@ -2656,11 +2656,6 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:BudgetExecution.Error.RenderIcon">
-            <summary>
-            Renders the icon.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.Error.OnClick(System.Object,System.EventArgs)">
             <summary>
             Called when [click].
@@ -33267,308 +33262,233 @@
             The main entry point for the application.
             </summary>
         </member>
-        <member name="T:BudgetExecution.Resources">
+        <member name="T:BudgetExecution.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.ResourceManager">
+        <member name="P:BudgetExecution.Properties.Resources.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Culture">
+        <member name="P:BudgetExecution.Properties.Resources.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Access">
+        <member name="P:BudgetExecution.Properties.Resources.AddColumnButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.AddButton">
+        <member name="P:BudgetExecution.Properties.Resources.AddDatabaseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.AddColumn">
+        <member name="P:BudgetExecution.Properties.Resources.AddRecordButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.AddColumnIcon">
+        <member name="P:BudgetExecution.Properties.Resources.AddTableButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.AddDatabaseIcon">
+        <member name="P:BudgetExecution.Properties.Resources.AnalyticsButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.AddRecord">
+        <member name="P:BudgetExecution.Properties.Resources.BrowseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.AddTable">
+        <member name="P:BudgetExecution.Properties.Resources.CalculatorButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.BrowseButton">
+        <member name="P:BudgetExecution.Properties.Resources.CalendarButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.CalculatorButton">
+        <member name="P:BudgetExecution.Properties.Resources.ChartButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.CalendarButton">
+        <member name="P:BudgetExecution.Properties.Resources.DatabaseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Chart">
+        <member name="P:BudgetExecution.Properties.Resources.DatabaseSettingsButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.ChartButton">
+        <member name="P:BudgetExecution.Properties.Resources.DataSearchButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.ColumnIcon">
+        <member name="P:BudgetExecution.Properties.Resources.DeleteButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.ColumnsIcon">
+        <member name="P:BudgetExecution.Properties.Resources.DeleteColumnButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.ConnectionIcon">
+        <member name="P:BudgetExecution.Properties.Resources.DeleteDatabaseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.CopyDatabaseIcon">
+        <member name="P:BudgetExecution.Properties.Resources.DeleteRecord">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.CopyRecord">
+        <member name="P:BudgetExecution.Properties.Resources.DeleteTableButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Database">
+        <member name="P:BudgetExecution.Properties.Resources.DownloadButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Databases">
+        <member name="P:BudgetExecution.Properties.Resources.EditColumnButtnon">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DataSetIcon">
+        <member name="P:BudgetExecution.Properties.Resources.EditRecordButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DeleteButton">
+        <member name="P:BudgetExecution.Properties.Resources.EditSqlButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DeleteColumn">
+        <member name="P:BudgetExecution.Properties.Resources.Error">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DeleteColumnIcon">
+        <member name="P:BudgetExecution.Properties.Resources.ExcelButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DeleteDatabaseIcon">
+        <member name="P:BudgetExecution.Properties.Resources.ExportButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DeleteRecord">
+        <member name="P:BudgetExecution.Properties.Resources.FilterButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.DeleteTable">
+        <member name="P:BudgetExecution.Properties.Resources.FirstButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Earth">
+        <member name="P:BudgetExecution.Properties.Resources.HomeButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.EditButton">
+        <member name="P:BudgetExecution.Properties.Resources.LastButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.EditColumn">
+        <member name="P:BudgetExecution.Properties.Resources.LogoutButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.EditDatabase">
+        <member name="P:BudgetExecution.Properties.Resources.LookupButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.EditDataIcon">
+        <member name="P:BudgetExecution.Properties.Resources.MenuButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.EditRecord">
+        <member name="P:BudgetExecution.Properties.Resources.NextButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Error">
+        <member name="P:BudgetExecution.Properties.Resources.PauseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Excel">
+        <member name="P:BudgetExecution.Properties.Resources.PreviousButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.ExcelButton">
+        <member name="P:BudgetExecution.Properties.Resources.RefreshButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.FilterData">
+        <member name="P:BudgetExecution.Properties.Resources.RefreshDataButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.FilterIcon">
+        <member name="P:BudgetExecution.Properties.Resources.SaveButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.FirstButton">
+        <member name="P:BudgetExecution.Properties.Resources.StopButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.HomeButton">
+        <member name="P:BudgetExecution.Properties.Resources.TableButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Import">
+        <member name="P:BudgetExecution.Properties.Resources.TrasnferButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.LastButton">
+        <member name="P:BudgetExecution.Properties.Resources.UndoButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Loader">
+        <member name="P:BudgetExecution.Properties.Resources.UploadButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Resources.Loading">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.LookupButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.MenuIcon">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.Message">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.NextButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.PDF">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.PreviousButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.Processing">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.RefreshButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.RowIcon">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.SaveButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.SqlServerIcon">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.TableButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.TableIcon">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.VerifyButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Resources.Word">
+        <member name="P:BudgetExecution.Properties.Resources.VerifyDataButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
