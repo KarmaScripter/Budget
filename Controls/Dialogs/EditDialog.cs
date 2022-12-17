@@ -140,6 +140,8 @@ namespace BudgetExecution
                     switch( ToolType )
                     {
                         case ToolType.CopyButton:
+                        case ToolType.AddRecordButton:
+                        case ToolType.AddButton:
                         case ToolType.EditRecordButton:
                         {
                             DataTab.Text = "Edit Data";

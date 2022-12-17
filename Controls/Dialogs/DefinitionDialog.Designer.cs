@@ -308,7 +308,7 @@
             this.AddColumnButton.HoverText = null;
             this.AddColumnButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.AddColumnButton.IsDerivedStyle = true;
-            this.AddColumnButton.Location = new System.Drawing.Point(800, 46);
+            this.AddColumnButton.Location = new System.Drawing.Point(726, 52);
             this.AddColumnButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddColumnButton.Name = "AddColumnButton";
             this.AddColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -350,11 +350,11 @@
             this.DataTypeComboBox.IntegralHeight = false;
             this.DataTypeComboBox.IsDerivedStyle = true;
             this.DataTypeComboBox.ItemHeight = 24;
-            this.DataTypeComboBox.Location = new System.Drawing.Point(426, 57);
+            this.DataTypeComboBox.Location = new System.Drawing.Point(414, 57);
             this.DataTypeComboBox.Name = "DataTypeComboBox";
             this.DataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.DataTypeComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.DataTypeComboBox.Size = new System.Drawing.Size(260, 30);
+            this.DataTypeComboBox.Size = new System.Drawing.Size(215, 30);
             this.DataTypeComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataTypeComboBox.StyleManager = null;
             this.DataTypeComboBox.TabIndex = 11;
@@ -489,6 +489,7 @@
             this.SqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqliteRadioButton.StyleManager = null;
             this.SqliteRadioButton.TabIndex = 1;
+            this.SqliteRadioButton.Tag = "SQLite";
             this.SqliteRadioButton.Text = "    SQLite";
             this.SqliteRadioButton.ThemeAuthor = "Narwin";
             this.SqliteRadioButton.ThemeName = "MetroDark";
@@ -514,6 +515,7 @@
             this.AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.AccessRadioButton.StyleManager = null;
             this.AccessRadioButton.TabIndex = 3;
+            this.AccessRadioButton.Tag = "Access";
             this.AccessRadioButton.Text = "    MS Access";
             this.AccessRadioButton.ThemeAuthor = "Narwin";
             this.AccessRadioButton.ThemeName = "MetroDark";
@@ -539,6 +541,7 @@
             this.SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqlServerRadioButton.StyleManager = null;
             this.SqlServerRadioButton.TabIndex = 2;
+            this.SqlServerRadioButton.Tag = "SqlServer";
             this.SqlServerRadioButton.Text = "    SQL Server";
             this.SqlServerRadioButton.ThemeAuthor = "Narwin";
             this.SqlServerRadioButton.ThemeName = "MetroDark";

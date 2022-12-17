@@ -242,11 +242,9 @@ namespace BudgetExecution
                 if( listBox?.Items.Count > 0 )
                 {
                     listBox.Items.Clear( );
-
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
                         var name = _names[ _i ];
-
                         if( name != "NS" )
                         {
                             listBox?.Items.Add( name );
@@ -259,29 +257,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Sets the RadioButton properties.
-        /// </summary>
-        public virtual void SetRadioButtonProperties( )
-        {
-            if( RadioButtons?.Values?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var _radioButton in RadioButtons.Values )
-                    {
-                        _radioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-                        _radioButton.CheckSignColor = Color.LimeGreen;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Gets the radio buttons.
         /// </summary>
@@ -293,16 +269,15 @@ namespace BudgetExecution
                 try
                 {
                     var _buttons = new Dictionary<string, RadioButton>( );
-
                     foreach( var _tabPage in TabPages.Values )
                     {
                         if( _tabPage is TabPageAdv _tab )
                         {
                             foreach( var _control in _tab.Controls )
                             {
-                                if( _control is Layout _group )
+                                if( _control is Layout _panel )
                                 {
-                                    foreach( var _item in _group.Controls )
+                                    foreach( var _item in _panel?.Controls )
                                     {
                                         if( _item is RadioButton _radioButton )
                                         {
@@ -339,13 +314,13 @@ namespace BudgetExecution
                 try
                 {
                     var _buttons = new Dictionary<string, ComboBox>( );
-
                     foreach( var _tabPage in TabPages.Values )
                     {
                         if( _tabPage is TabPageAdv _tab )
                         {
-                            foreach( Control _control in _tab.Controls )
+                            for( var _i = 0; _i < _tab.Controls.Count; _i++ )
                             {
+                                var _control = _tab.Controls[ _i ];
                                 if( _control.Controls.Count > 0 )
                                 {
                                     foreach( Control _subControl in _control.Controls )
@@ -385,7 +360,6 @@ namespace BudgetExecution
                 try
                 {
                     var _panels = new Dictionary<string, Layout>( );
-
                     foreach( var _tabPage in TabPages.Values )
                     {
                         foreach( var _control in _tabPage.Controls )
@@ -422,7 +396,6 @@ namespace BudgetExecution
                 try
                 {
                     var _listBoxes = new Dictionary<string, ListBox>( );
-
                     foreach( var _tabPage in TabPages.Values )
                     {
                         if( _tabPage?.Controls?.Count > 0 )

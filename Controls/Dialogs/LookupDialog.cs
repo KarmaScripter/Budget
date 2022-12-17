@@ -70,7 +70,6 @@ namespace BudgetExecution
                 };
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
-                SetRadioButtonProperties( );
                 PopulateTableListBoxItems( );
                 TablePanelLabel.Text = TablePrefix + TableListBox.Items.Count;
                 ColumnPanelLabel.Text = ColumnPrefix;

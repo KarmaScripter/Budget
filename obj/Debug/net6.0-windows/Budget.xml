@@ -3248,11 +3248,6 @@
             </summary>
             <param name="listBox">The list box.</param>
         </member>
-        <member name="M:BudgetExecution.EditBase.SetRadioButtonProperties">
-            <summary>
-            Sets the RadioButton properties.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.EditBase.GetRadioButtons">
             <summary>
             Gets the radio buttons.
