@@ -417,7 +417,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(180, 26);
+            this.TextBox.Size = new System.Drawing.Size(176, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -693,7 +693,7 @@
             this.AddColumnButton.Field = BudgetExecution.Field.AccountCode;
             this.AddColumnButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddColumnButton.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.AddColumnButton.HoverText = null;
+            this.AddColumnButton.HoverText = "Add Column";
             this.AddColumnButton.Image = global::BudgetExecution.Properties.Resources.AddColumnButton;
             this.AddColumnButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddColumnButton.Margin = new System.Windows.Forms.Padding(1);

@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
@@ -81,11 +80,10 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 11  );
 
             // Back color SeriesConfiguration
-            BorderStyle = BorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
             BackgroundColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
-            BorderColor = Color.Transparent;
+            BorderColor = Color.FromArgb( 65, 65, 65 );
             BorderStyle = BorderStyle.FixedSingle;
         }
 

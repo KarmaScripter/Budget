@@ -7,6 +7,9 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IChartSeriesModel
     {
         /// <summary>

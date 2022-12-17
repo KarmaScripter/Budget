@@ -127,16 +127,16 @@ namespace BudgetExecution
                 try
                 {
                     EditColumnDataTypeComboBox.SelectedText = string.Empty;
-                    CreateTableDataTypeComboBox.SelectedText = string.Empty;
+                    DataTypeComboBox.SelectedText = string.Empty;
                     EditColumnDataTypeComboBox.Items.Clear( );
-                    CreateTableDataTypeComboBox.Items.Clear( );
+                    DataTypeComboBox.Items.Clear( );
                     var _types = DataTypes.ToArray( );
                     for( var i = 0; i < _types?.Length; i++ )
                     {
                         if ( !string.IsNullOrEmpty( _types[ i ] ) )
                         {
                             EditColumnDataTypeComboBox.Items.Add( _types[ i ] );
-                            CreateTableDataTypeComboBox.Items.Add( _types[ i ] );
+                            DataTypeComboBox.Items.Add( _types[ i ] );
                         }
                     }
                 }

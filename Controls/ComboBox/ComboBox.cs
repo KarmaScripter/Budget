@@ -8,14 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
-    
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ComboBoxBase" />
     public class ComboBox : MetroSetComboBox
     {
         /// <summary>

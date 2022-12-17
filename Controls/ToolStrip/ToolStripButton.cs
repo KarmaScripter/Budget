@@ -79,7 +79,6 @@ namespace BudgetExecution
             try
             {
                 var _button = sender as ToolStripButton;
-
                 if( _button != null
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
@@ -177,12 +176,6 @@ namespace BudgetExecution
                             break;
                         }
                         case ToolType.AddButton:
-                        {
-                            using var _dialog = new EditDialog( _button.ToolType, BindingSource  );
-                            _dialog.BindingSource = BindingSource;
-                            _dialog?.ShowDialog( );
-                            break;
-                        }
                         case ToolType.AddTableButton:
                         case ToolType.AddDatabaseButton:
                         case ToolType.EditColumnButton:
@@ -193,7 +186,6 @@ namespace BudgetExecution
                         case ToolType.AddColumnButton:
                         {
                             var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
-                            _dialog.BindingSource = BindingSource;
                             _dialog?.ShowDialog( );
                             break;
                         }
@@ -207,7 +199,6 @@ namespace BudgetExecution
                         case ToolType.DeleteRecordButton:
                         {
                             var _dialog = new EditDialog( _button.ToolType, BindingSource  );
-                            _dialog.BindingSource = BindingSource;
                             _dialog?.ShowDialog( );
                             break;
                         }
@@ -235,9 +226,10 @@ namespace BudgetExecution
                             _message?.ShowDialog( );
                             break;
                         }
+                        case ToolType.SearchDataButton:
                         case ToolType.FilterDataButton:
                         {
-                            using var _dialog = new LookupDialog( );
+                            var _dialog = new LookupDialog( );
                             _dialog.BindingSource = BindingSource;
                             _dialog?.ShowDialog( );
                             break;
@@ -256,7 +248,7 @@ namespace BudgetExecution
                         }
                         case ToolType.BrowseButton:
                         {
-                            using var _browser = new FileBrowser( );
+                            var _browser = new FileBrowser( );
                             _browser?.ShowDialog( );
                             break;
                         }
@@ -338,7 +330,6 @@ namespace BudgetExecution
                 {
                     var _path = AppSettings[ "ToolStrip" ] + $"{ ToolType }.png";
                     using var _stream = File.Open( _path, FileMode.Open );
-
                     if( _stream != null )
                     {
                         var _image = Image.FromStream( _stream );

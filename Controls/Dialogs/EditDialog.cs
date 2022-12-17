@@ -43,31 +43,8 @@ namespace BudgetExecution
         public EditDialog( )
         {
             InitializeComponent( );
-            TabPages = GetTabPages( );
             Frames = GetFrames( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EditDialog"/> class.
-        /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
-        public EditDialog( ToolType toolType )
-            : this( )
-        {
-            ToolType = toolType;
             TabPages = GetTabPages( );
-            Frames = GetFrames( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            DataTable = BindingSource.GetDataTable(  );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider.Access );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
             
             // Event Wiring
             Load += OnLoad;
@@ -79,22 +56,16 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
-        public EditDialog( ToolType toolType, BindingSource bindingSource )
+        public EditDialog( ToolType toolType, BindingSource bindingSource ) 
+            : this( )
         {
             ToolType = toolType;
             BindingSource = bindingSource;
-            TabPages = GetTabPages( );
-            Frames = GetFrames( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             DataTable = BindingSource.GetDataTable(  );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider.Access );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
-            
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -103,6 +74,7 @@ namespace BudgetExecution
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="dataModel">The data model.</param>
         public EditDialog( ToolType toolType, DataBuilder dataModel )
+            : this( )
         {
             ToolType = toolType;
             DataModel = dataModel;
@@ -113,13 +85,6 @@ namespace BudgetExecution
             DataTable = dataModel.DataTable;
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
-            TabPages = GetTabPages( );
-            Frames = GetFrames( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -129,6 +94,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         public EditDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
+            : this( )
         {
             ToolType = toolType;
             Provider = provider;
@@ -138,13 +104,6 @@ namespace BudgetExecution
             BindingSource.DataSource = DataModel.DataTable;
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
-            TabPages = GetTabPages( );
-            Frames = GetFrames( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -298,7 +257,6 @@ namespace BudgetExecution
                 try
                 {
                     var _cols = Columns.ToArray( );
-
                     switch( _cols.Length )
                     {
                         case >= 43:
@@ -335,7 +293,6 @@ namespace BudgetExecution
                     var _items = Current.ItemArray;
                     var _frames = Frames.OrderBy( f => f.Index ).ToArray( );
                     var _cols = Columns.ToArray( );
-
                     for( var i = 0; i < _cols.Length; i++ )
                     {
                         _frames[ i ].Label.Text = _cols[ i ].SplitPascal( );
@@ -360,7 +317,6 @@ namespace BudgetExecution
                 try
                 {
                     var _tabPages = new Dictionary<string, TabPageAdv>( );
-
                     foreach( TabPageAdv tabpage in TabControl.TabPages )
                     {
                         if( tabpage != null )
@@ -368,7 +324,6 @@ namespace BudgetExecution
                             _tabPages.Add( tabpage.Name, tabpage );
                         }
                     }
-
                     return _tabPages?.Any( ) == true
                         ? _tabPages
                         : default( IDictionary<string, TabPageAdv> );

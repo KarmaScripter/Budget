@@ -944,7 +944,7 @@
             this.SqlTab.Name = "SqlTab";
             this.SqlTab.ShowCloseButton = true;
             this.SqlTab.Size = new System.Drawing.Size(1362, 500);
-            this.SqlTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.SqlTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SqlTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqlTab.TabIndex = 5;
             this.SqlTab.Text = "  SQL Mode";

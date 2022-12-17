@@ -9,6 +9,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class LookupDialog : EditBase
     {
@@ -87,7 +90,6 @@ namespace BudgetExecution
             {
                 TableListBox.Items.Clear( );
                 var _names = Enum.GetNames( typeof( Source ) );
-
                 for( var _i = 0; _i < _names.Length; _i++ )
                 {
                     var name = _names[ _i ];
@@ -118,7 +120,6 @@ namespace BudgetExecution
                 ValuePanelLabel.Text = string.Empty;
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedItem.ToString( );
-
                 if( !string.IsNullOrEmpty( _value ) )
                 {
                     var _source = (Source)Enum.Parse( typeof( Source ), _value );

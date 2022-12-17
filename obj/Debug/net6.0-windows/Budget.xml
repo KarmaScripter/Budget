@@ -1704,7 +1704,6 @@
             <summary>
             
             </summary>
-            <seealso cref="!:BudgetExecution.ComboBoxBase" />
         </member>
         <member name="P:BudgetExecution.ComboBox.BindingSource">
             <summary>
@@ -2511,12 +2510,6 @@
             Initializes a new instance of the <see cref="T:BudgetExecution.EditDialog"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.EditDialog.#ctor(BudgetExecution.ToolType)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.EditDialog"/> class.
-            </summary>
-            <param name="toolType">Type of the tool.</param>
-        </member>
         <member name="M:BudgetExecution.EditDialog.#ctor(BudgetExecution.ToolType,System.Windows.Forms.BindingSource)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.EditDialog"/> class.
@@ -2843,6 +2836,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.LookupDialog">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:BudgetExecution.LookupDialog.TablePrefix">
@@ -7251,6 +7249,11 @@
         <member name="M:BudgetExecution.ToolStrip.CreateButtons">
             <summary>
             Populates the buttons on the toolstrip
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.ToolStripBase">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:BudgetExecution.ToolStripBase.BindingSource">
@@ -20394,6 +20397,11 @@
         <member name="M:BudgetExecution.IChartConfig.ResetDisplayText">
             <summary>
             Resets the display text.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.IChartSeriesModel">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:BudgetExecution.IChartSeriesModel.Count">
