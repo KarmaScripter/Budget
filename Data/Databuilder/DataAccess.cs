@@ -57,8 +57,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSet = new DataSet( $"{Provider}" );
-                    DataTable = new DataTable( $"{Source}" );
+                    DataSet = new DataSet( $"{ Provider }" );
+                    DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
                     using var _adapter = Query.GetAdapter( );
                     _adapter?.Fill( DataSet, DataTable.TableName );

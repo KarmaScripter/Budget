@@ -74,6 +74,9 @@ namespace BudgetExecution
             BackPanel.Location = new Point( 61, 48 );
             BackPanel.Controls.Add( TextBox );
             Controls.Add( BackPanel );
+
+            // Event Wiring
+            Load += OnLoad;
             CloseButton.Click += OnClick;
         }
 

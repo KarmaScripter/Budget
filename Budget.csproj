@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>BudgetExecution.Program</StartupObject>
-    <ApplicationIcon>Resources\Images\Ninja\ico\BudExNinja.ico</ApplicationIcon>
+    <ApplicationIcon>Resource\Images\Ninja\ico\BudExNinja.ico</ApplicationIcon>
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>BudExNinja.png</PackageIcon>
