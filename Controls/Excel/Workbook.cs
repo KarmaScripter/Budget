@@ -13,6 +13,9 @@ namespace BudgetExecution
     using OfficeOpenXml.Style;
     using ExcelHorizontalAlignment = Syncfusion.XlsIO.ExcelHorizontalAlignment;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     public class Workbook : ExcelBase
     {

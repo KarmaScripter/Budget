@@ -63,7 +63,6 @@ namespace BudgetExecution
                 try
                 {
                     var _dataFilter = new Dictionary<string, object> { { $"{field}", filter } };
-
                     DataFilter = _dataFilter?.Any( ) == true
                         ? _dataFilter
                         : default;
@@ -121,7 +120,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }

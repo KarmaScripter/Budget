@@ -12,8 +12,12 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class Error : MetroForm
     {
         /// <summary>
@@ -46,13 +50,13 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 192, 0, 0 );
             Size = new Size( 700, 550 );
             Font = new Font( "Roboto", 9 );
-            CaptionBarColor = Color.FromArgb( 15, 15, 15 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 26;
             CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
             CaptionButtonHoverColor = Color.White;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 9 );
-            MetroColor = Color.FromArgb( 15, 15, 15 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
@@ -135,6 +139,42 @@ namespace BudgetExecution
             TextBox.Text = msg;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                HeaderLabel.ForeColor = Color.Red;
+                RenderIcon(  );
+            }
+            catch ( Exception ex )
+            {
+                Console.WriteLine( ex );
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Renders the icon.
+        /// </summary>
+        public void RenderIcon( )
+        {
+            try
+            {
+                var _path = @"C:\Users\terry\source\repos\Budget\Resource\Images\Dialog\Error.png";
+                Picture.Image = new Bitmap( _path );
+            }
+            catch ( Exception ex )
+            {
+                Console.WriteLine( ex );
+                throw;
+            }
+        }
+        
         /// <summary>
         /// Called when [click].
         /// </summary>

@@ -20,9 +20,17 @@
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AssemblyName>Budget</AssemblyName>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <BaseOutputPath>C:\Users\terry\source\repos\Budget\bin\Debug</BaseOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;2201;1051</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;2201;1051</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\Ninja\ico\BudExNinja.ico" />
+    <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
@@ -125,6 +133,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -150,7 +161,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Images\Ninja\png\BudExNinja.png">
+    <None Update="Resource\Images\Ninja\png\BudExNinja.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

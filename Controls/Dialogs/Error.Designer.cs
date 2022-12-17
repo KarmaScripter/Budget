@@ -30,87 +30,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Error));
             this.Picture = new BudgetExecution.Picture();
-            this.Label = new BudgetExecution.Label();
+            this.HeaderLabel = new BudgetExecution.Label();
             this.CloseButton = new BudgetExecution.Button();
             this.ToolTip = new BudgetExecution.SmallTip();
+            this.TextBox = new BudgetExecution.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
             // 
-            // TextBox
-            // 
-            this.TextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBox.ForeColor = System.Drawing.Color.LightGray;
-            this.TextBox.Location = new System.Drawing.Point(76, 125);
-            this.TextBox.MaxLength = 2147483647;
-            this.TextBox.Name = "TextBox";
-            this.TextBox.ReadOnly = false;
-            this.TextBox.Size = new System.Drawing.Size(526, 208);
-            this.TextBox.TabIndex = 0;
-            // 
-            // BackPanel
-            // 
-            this.BackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.BackPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BackPanel.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.BackPanel.Location = new System.Drawing.Point(61, 48);
-            this.BackPanel.Name = "BackPanel";
-            this.BackPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.BackPanel.Size = new System.Drawing.Size(670, 343);
-            this.BackPanel.TabIndex = 1;
-            // 
-            // PictureBox
+            // Picture
             // 
             this.Picture.BackColor = System.Drawing.Color.Transparent;
             this.Picture.BindingSource = null;
             this.Picture.DataFilter = null;
             this.Picture.Field = BudgetExecution.Field.RpioActivityCode;
             this.Picture.HoverText = null;
-            this.Picture.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox.Image")));
             this.Picture.ImageList = null;
             this.Picture.Location = new System.Drawing.Point(3, 3);
-            this.Picture.Name = "PictureBox";
+            this.Picture.Name = "Picture";
             this.Picture.Padding = new System.Windows.Forms.Padding(1);
-            this.Picture.Size = new System.Drawing.Size(24, 22);
-            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Picture.Size = new System.Drawing.Size(24, 24);
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Picture.TabIndex = 14;
             this.Picture.TabStop = false;
             this.Picture.ToolTip = null;
             // 
-            // Label
+            // HeaderLabel
             // 
-            this.Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.HeaderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Label.BindingSource = null;
-            this.Label.DataFilter = null;
-            this.Label.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Label.ForeColor = System.Drawing.Color.Red;
-            this.Label.HoverText = null;
-            this.Label.Location = new System.Drawing.Point(76, 80);
-            this.Label.Name = "Label";
-            this.Label.Padding = new System.Windows.Forms.Padding(1);
-            this.Label.Size = new System.Drawing.Size(526, 23);
-            this.Label.TabIndex = 13;
-            this.Label.Text = "There has been error!";
-            this.Label.ToolTip = null;
+            this.HeaderLabel.BindingSource = null;
+            this.HeaderLabel.DataFilter = null;
+            this.HeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HeaderLabel.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HeaderLabel.HoverText = null;
+            this.HeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HeaderLabel.IsDerivedStyle = true;
+            this.HeaderLabel.Location = new System.Drawing.Point(76, 4);
+            this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.HeaderLabel.Name = "HeaderLabel";
+            this.HeaderLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.HeaderLabel.Size = new System.Drawing.Size(526, 23);
+            this.HeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.HeaderLabel.StyleManager = null;
+            this.HeaderLabel.TabIndex = 13;
+            this.HeaderLabel.Text = "There has been error!";
+            this.HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HeaderLabel.ThemeAuthor = "Terry D. Eppler";
+            this.HeaderLabel.ThemeName = "BudgetExecution";
+            this.HeaderLabel.ToolTip = null;
             // 
             // CloseButton
             // 
+            this.CloseButton.BindingSource = null;
             this.CloseButton.DataFilter = null;
+            this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
             this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CloseButton.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverText = null;
-            this.CloseButton.Location = new System.Drawing.Point(462, 384);
+            this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.CloseButton.IsDerivedStyle = true;
+            this.CloseButton.Location = new System.Drawing.Point(471, 366);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
+            this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
+            this.CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.Padding = new System.Windows.Forms.Padding(1);
+            this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.CloseButton.PressTextColor = System.Drawing.Color.White;
             this.CloseButton.Size = new System.Drawing.Size(140, 57);
+            this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.CloseButton.StyleManager = null;
             this.CloseButton.TabIndex = 9;
             this.CloseButton.Text = "Close";
+            this.CloseButton.ThemeAuthor = "Terry D. Eppler";
+            this.CloseButton.ThemeName = "BudgetExecution";
             this.CloseButton.ToolTip = this.ToolTip;
             // 
             // ToolTip
@@ -121,15 +122,46 @@
             this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             this.ToolTip.ForeColor = System.Drawing.Color.White;
             this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
             this.ToolTip.Name = null;
             this.ToolTip.OwnerDraw = true;
             this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             this.ToolTip.StyleManager = null;
             this.ToolTip.ThemeAuthor = "Terry D. Eppler";
             this.ToolTip.ThemeName = "Budget Execution";
             this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ToolTip.TipText = null;
             this.ToolTip.TipTitle = null;
+            // 
+            // TextBox
+            // 
+            this.TextBox.AutoWordSelection = false;
+            this.TextBox.BindingSource = null;
+            this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TextBox.DataFilter = null;
+            this.TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TextBox.HoverText = null;
+            this.TextBox.IsDerivedStyle = true;
+            this.TextBox.Lines = null;
+            this.TextBox.Location = new System.Drawing.Point(85, 73);
+            this.TextBox.MaxLength = 32767;
+            this.TextBox.Name = "TextBox";
+            this.TextBox.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBox.ReadOnly = false;
+            this.TextBox.Size = new System.Drawing.Size(526, 248);
+            this.TextBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TextBox.StyleManager = null;
+            this.TextBox.TabIndex = 0;
+            this.TextBox.Text = "TextBox";
+            this.TextBox.ThemeAuthor = "Terry D. Eppler";
+            this.TextBox.ThemeName = "BudgetExecution";
+            this.TextBox.ToolTip = null;
+            this.TextBox.WordWrap = true;
             // 
             // Error
             // 
@@ -144,10 +176,10 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.Red;
             this.ClientSize = new System.Drawing.Size(688, 450);
-            this.Controls.Add(this.Picture);
-            this.Controls.Add(this.Label);
-            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.TextBox);
+            this.Controls.Add(this.Picture);
+            this.Controls.Add(this.HeaderLabel);
+            this.Controls.Add(this.CloseButton);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -163,12 +195,12 @@
 
         #endregion
 
-        public BudgetExecution.TextBox TextBox;
+        public BudgetExecution.RichTextBox TextBox;
 
         public BudgetExecution.Layout BackPanel;
         public Button CloseButton;
         public SmallTip ToolTip;
-        public Label Label;
+        public Label HeaderLabel;
         public Picture Picture;
     }
 }
