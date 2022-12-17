@@ -2757,7 +2757,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\terry\\.nuget\\packages\\": {},
+    "C:\\Users\\terry\\.nuget\\packages": {},
     "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\20.3.0.47\\ToolboxNuGetPackages": {}
   },
   "project": {
@@ -2766,7 +2766,7 @@
       "projectUniqueName": "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj",
       "projectName": "Budget",
       "projectPath": "C:\\Users\\terry\\source\\repos\\Budget\\Budget.csproj",
-      "packagesPath": "C:\\Users\\terry\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\terry\\.nuget\\packages",
       "outputPath": "C:\\Users\\terry\\source\\repos\\Budget\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -2953,7 +2953,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\terry\\source\\compilers\\cs\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
