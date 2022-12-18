@@ -157,56 +157,14 @@ namespace BudgetExecution
                 SqlQuery = string.Empty;
                 LeftHeaderLabel.Text = string.Empty;
                 RightHeaderLabel.Text = string.Empty;
-                AnchorChildren( );
+                ToolStripLabel.Text = "Data Provider: " + DataModel.Provider;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Anchors the children.
-        /// </summary>
-        private void AnchorChildren( )
-        {
-            try
-            {
-                LeftHeaderLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                RightHeaderLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                TableLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                TablePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                TableListBox.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                DataSourceLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                DataGridPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                DataGrid.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                ColumnLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                ColumnPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                ColumnListBox.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                ValueLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                ValuePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-                ValueListBox.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
-                    | AnchorStyles.Bottom;
-            }
-            catch ( Exception ex )
-            {
-                Fail( ex  );
-            }
-        }
-
+        
         /// <summary>
         /// Populates the ListBox items.
         /// </summary>

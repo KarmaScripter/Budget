@@ -16,6 +16,9 @@ namespace BudgetExecution
     using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class FileBrowser
     {
@@ -81,7 +84,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.LightGray;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 700, 480 );
@@ -95,7 +98,7 @@ namespace BudgetExecution
             FileDialog.DefaultExt = FileExtension;
             FileDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
             FileDialog.CheckFileExists = true;
-            FileList.BackColor = Color.Transparent;
+            FileList.BackColor = Color.FromArgb( 40, 40, 40 );
             CloseButton.Click += OnCloseButtonClicked;
             FileList.SelectedValueChanged += OnPathSelected;
             Load += OnLoaded;
@@ -114,6 +117,7 @@ namespace BudgetExecution
                 {
                     PopulateListView( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
+                    Header.Text = "File Search : " + FileDialog.InitialDirectory;
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
                 }
@@ -339,7 +343,7 @@ namespace BudgetExecution
                     GetFolderPath( SpecialFolder.DesktopDirectory ),
                     GetFolderPath( SpecialFolder.Personal ),
                     GetFolderPath( SpecialFolder.Recent ),
-                    @"C:\Users\terry\source\repos\Budget\Resources\Documents",
+                    @"C:\Users\terry\source\repos\Budget\Resource\Documents",
                     _current
                 };
 

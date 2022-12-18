@@ -2092,11 +2092,6 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.AnchorChildren">
-            <summary>
-            Anchors the children.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.DataGridForm.PopulateTableListBoxItems">
             <summary>
             Populates the ListBox items.
@@ -2670,6 +2665,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.FileBrowser">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:BudgetExecution.FileBrowser.Extension">
