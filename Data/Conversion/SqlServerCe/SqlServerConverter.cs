@@ -1,5 +1,5 @@
-﻿// <copyright file = "SqlServerConverter.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -35,12 +35,12 @@ namespace BudgetExecution
         /// <summary>
         /// The key
         /// </summary>
-        private readonly Regex _keys = new Regex( @"(([a-zA-ZäöüÄÖÜß0-9\.]|(\s+))+)(\(\-\))?" );
+        private readonly Regex _keys = new ( @"(([a-zA-ZäöüÄÖÜß0-9\.]|(\s+))+)(\(\-\))?" );
 
         /// <summary>
         /// The default value
         /// </summary>
-        private readonly Regex _value = new Regex( @"\(N(\'.*\')\)" );
+        private readonly Regex _value = new ( @"\(N(\'.*\')\)" );
 
         /// <summary>
         /// The log
@@ -156,6 +156,7 @@ namespace BudgetExecution
                 createviews );
 
             CopyDataRows( sqlconnstring, path, ds.Tables, password, handler );
+
             if( createtriggers )
             {
                 AddTriggersForForeignKeys( path, ds.Tables, password );
@@ -181,22 +182,27 @@ namespace BudgetExecution
             var sqliteconnstring = CreateSQLiteConnectionString( path, password );
             var sqconn = new SQLiteConnection( sqliteconnstring );
             sqconn.Open( );
+
             for( var i = 0; i < schema.Count; i++ )
             {
                 var tx = sqconn.BeginTransaction( );
+
                 try
                 {
                     var tablequery = BuildSqlServerTableQuery( schema[ i ] );
+
                     using( var query = new SqlCommand( tablequery, ssconn ) )
                     {
                         var reader = query.ExecuteReader( );
                         var insert = BuildSQLiteInsert( schema[ i ] );
                         var counter = 0;
+
                         while( reader.Read( ) )
                         {
                             insert.Connection = sqconn;
                             insert.Transaction = tx;
                             var pnames = new List<string>( );
+
                             for( var j = 0; j < schema[ i ].Columns.Count; j++ )
                             {
                                 var pname = "@"
@@ -211,6 +217,7 @@ namespace BudgetExecution
 
                             insert.ExecuteNonQuery( );
                             counter++;
+
                             if( counter % 1000 == 0 )
                             {
                                 CheckCancelled( );
@@ -257,6 +264,7 @@ namespace BudgetExecution
             }
 
             var dt = GetDbTypeOfColumn( columnschema );
+
             switch( dt )
             {
                 case DbType.Int32:
@@ -267,17 +275,14 @@ namespace BudgetExecution
                         {
                             return (int)s;
                         }
-
                         case byte b:
                         {
                             return (int)b;
                         }
-
                         case long l:
                         {
                             return (int)l;
                         }
-
                         case decimal val1:
                         {
                             return (int)val1;
@@ -286,7 +291,6 @@ namespace BudgetExecution
 
                     break;
                 }
-
                 case DbType.Int16:
                 {
                     switch( val )
@@ -295,17 +299,14 @@ namespace BudgetExecution
                         {
                             return (short)i;
                         }
-
                         case byte b:
                         {
                             return (short)b;
                         }
-
                         case long l:
                         {
                             return (short)l;
                         }
-
                         case decimal val1:
                         {
                             return (short)val1;
@@ -314,58 +315,48 @@ namespace BudgetExecution
 
                     break;
                 }
-
                 case DbType.Int64:
                 {
                     switch( val )
                     {
                         case int i:
                             return (long)i;
-
                         case short s:
                             return (long)s;
-
                         case byte b:
                             return (long)b;
-
                         case decimal val1:
                             return (long)val1;
                     }
 
                     break;
                 }
-
                 case DbType.Single:
                 {
                     switch( val )
                     {
                         case double d:
                             return (float)d;
-
                         case decimal val1:
                             return (float)val1;
                     }
 
                     break;
                 }
-
                 case DbType.Double:
                 {
                     switch( val )
                     {
                         case float f:
                             return (double)f;
-
                         case double d:
                             return d;
-
                         case decimal val1:
                             return (double)val1;
                     }
 
                     break;
                 }
-
                 case DbType.String:
                 {
                     if( val is Guid guid )
@@ -375,26 +366,22 @@ namespace BudgetExecution
 
                     break;
                 }
-
                 case DbType.Guid:
                 {
                     switch( val )
                     {
                         case string s:
                             return ParseStringAsGuid( s );
-
                         case byte[ ] bytes:
                             return ParseBlobAsGuid( bytes );
                     }
 
                     break;
                 }
-
                 case DbType.Binary:
                 case DbType.Boolean:
                 case DbType.DateTime:
                     break;
-
                 default:
                 {
                     _log.Error( "argument exception - illegal database type" );
@@ -414,11 +401,13 @@ namespace BudgetExecution
         private Guid ParseBlobAsGuid( IEnumerable<byte> blob )
         {
             var data = blob.ToArray( );
+
             switch( blob.Count( ) )
             {
                 case 16:
                 {
                     data = new byte[ 16 ];
+
                     for( var i = 0; i < 16; i++ )
                     {
                         data[ i ] = blob.ToArray( )[ i ];
@@ -426,10 +415,10 @@ namespace BudgetExecution
 
                     break;
                 }
-
                 case 17:
                 {
                     data = new byte[ 16 ];
+
                     for( var i = 0; i < blob.Count( ); i++ )
                     {
                         data[ i ] = blob.ToArray( )[ i ];
@@ -469,9 +458,11 @@ namespace BudgetExecution
             var _command = new SQLiteCommand( );
             var _stringBuilder = new StringBuilder( );
             _stringBuilder.Append( $"INSERT INTO {ts.TableName}" );
+
             for( var i = 0; i < ts.Columns.Count; i++ )
             {
                 _stringBuilder.Append( "[" + ts.Columns[ i ].ColumnName + "]" );
+
                 if( i < ts.Columns.Count - 1 )
                 {
                     _stringBuilder.Append( ", " );
@@ -480,10 +471,12 @@ namespace BudgetExecution
 
             _stringBuilder.Append( ") VALUES (" );
             var _names = new List<string>( );
+
             for( var i = 0; i < ts.Columns.Count; i++ )
             {
                 var _name = "@" + GetNormalizedName( ts.Columns[ i ].ColumnName, _names );
                 _stringBuilder.Append( _name );
+
                 if( i < ts.Columns.Count - 1 )
                 {
                     _stringBuilder.Append( ", " );
@@ -510,6 +503,7 @@ namespace BudgetExecution
         private string GetNormalizedName( string str, ICollection<string> names )
         {
             var _stringBuilder = new StringBuilder( );
+
             for( var i = 0; i < str.Length; i++ )
             {
                 if( char.IsLetterOrDigit( str[ i ] ) )
@@ -540,61 +534,45 @@ namespace BudgetExecution
             {
                 case "tinyint":
                     return DbType.Byte;
-
                 case "int":
                     return DbType.Int32;
-
                 case "smallint":
                     return DbType.Int16;
-
                 case "bigint":
                     return DbType.Int64;
-
                 case "bit":
                     return DbType.Boolean;
-
                 case "nvarchar":
                 case "varchar":
                 case "text":
                 case "ntext":
                     return DbType.String;
-
                 case "float":
                     return DbType.Double;
-
                 case "real":
                     return DbType.Single;
-
                 case "blob":
                     return DbType.Binary;
-
                 case "numeric":
                     return DbType.Double;
-
                 case "timestamp":
                 case "datetime":
                 case "datetime2":
                 case "date":
                 case "time":
                     return DbType.DateTime;
-
                 case "nchar":
                 case "char":
                     return DbType.String;
-
                 case "uniqueidentifier":
                 case "guid":
                     return DbType.Guid;
-
                 case "xml":
                     return DbType.String;
-
                 case "sqlvariant":
                     return DbType.Object;
-
                 case "integer":
                     return DbType.Int64;
-
                 default:
                     _log.Error( "illegal db type found" );
                     var _message = "Illegal type (" + columnSchema.ColumnType + ")";
@@ -611,9 +589,11 @@ namespace BudgetExecution
         {
             var _stringBuilder = new StringBuilder( );
             _stringBuilder.Append( "SELECT " );
+
             for( var i = 0; i < ts.Columns.Count; i++ )
             {
                 _stringBuilder.Append( "[" + ts.Columns[ i ].ColumnName + "]" );
+
                 if( i < ts.Columns.Count - 1 )
                 {
                     _stringBuilder.Append( ", " );
@@ -643,10 +623,12 @@ namespace BudgetExecution
             SQLiteConnection.CreateFile( path );
             _log.Debug( "SQLite file was created successfully at [" + path + "]" );
             var sqliteconnstring = CreateSQLiteConnectionString( path, passWord );
+
             using( var conn = new SQLiteConnection( sqliteconnstring ) )
             {
                 conn.Open( );
                 var count = 0;
+
                 foreach( var dt in schema.Tables )
                 {
                     try
@@ -668,6 +650,7 @@ namespace BudgetExecution
                 }
 
                 count = 0;
+
                 if( createViews )
                 {
                     foreach( var vs in schema.Views )
@@ -707,6 +690,7 @@ namespace BudgetExecution
             var stmt = vs.ViewSql;
             _log.Info( "\n\n" + stmt + "\n\n" );
             var tx = conn.BeginTransaction( );
+
             try
             {
                 using( var cmd = new SQLiteCommand( stmt, conn, tx ) )
@@ -719,6 +703,7 @@ namespace BudgetExecution
             catch( SQLiteException )
             {
                 tx.Rollback( );
+
                 if( handler != null )
                 {
                     var updated = new ViewSchema
@@ -728,6 +713,7 @@ namespace BudgetExecution
                     };
 
                     var sql = handler( updated );
+
                     if( sql == null )
                     {
                     }
@@ -767,11 +753,13 @@ namespace BudgetExecution
             var _stringBuilder = new StringBuilder( );
             _stringBuilder.Append( $"CREATE TABLE {schema.TableName}" );
             var _key = false;
+
             for( var i = 0; i < schema.Columns.Count; i++ )
             {
                 var _column = schema.Columns[ i ];
                 var _statement = BuildColumnStatement( _column, schema, ref _key );
                 _stringBuilder.Append( _statement );
+
                 if( i < schema.Columns.Count - 1 )
                 {
                     _stringBuilder.Append( ",\n" );
@@ -783,9 +771,11 @@ namespace BudgetExecution
             {
                 _stringBuilder.Append( ",\n" );
                 _stringBuilder.Append( "    PRIMARY KEY (" );
+
                 for( var i = 0; i < schema.PrimaryKey.Count; i++ )
                 {
                     _stringBuilder.Append( "[" + schema.PrimaryKey[ i ] + "]" );
+
                     if( i < schema.PrimaryKey.Count - 1 )
                     {
                         _stringBuilder.Append( ", " );
@@ -802,6 +792,7 @@ namespace BudgetExecution
             if( schema.ForeignKeys.Count > 0 )
             {
                 _stringBuilder.Append( ",\n" );
+
                 for( var i = 0; i < schema.ForeignKeys.Count; i++ )
                 {
                     var foreignkey = schema.ForeignKeys[ i ];
@@ -810,6 +801,7 @@ namespace BudgetExecution
                         + "([{foreignkey.ForeignColumnName}])";
 
                     _stringBuilder.Append( stmt );
+
                     if( i < schema.ForeignKeys.Count - 1 )
                     {
                         _stringBuilder.Append( ",\n" );
@@ -819,6 +811,7 @@ namespace BudgetExecution
 
             _stringBuilder.Append( '\n' );
             _stringBuilder.Append( ");\n" );
+
             if( schema.Indexes != null )
             {
                 for( var i = 0; i < schema.Indexes.Count; i++ )
@@ -842,6 +835,7 @@ namespace BudgetExecution
         {
             var _stringBuilder = new StringBuilder( );
             _stringBuilder.Append( "CREATE " );
+
             if( schema.IsUnique )
             {
                 _stringBuilder.Append( "UNIQUE " );
@@ -850,9 +844,11 @@ namespace BudgetExecution
             _stringBuilder.Append( "INDEX [" + tablename + "" + schema.IndexName + "]\n" );
             _stringBuilder.Append( "ON [" + tablename + "]\n" );
             _stringBuilder.Append( '(' );
+
             for( var i = 0; i < schema.Columns.Count; i++ )
             {
                 _stringBuilder.Append( "[" + schema.Columns[ i ] + "]" );
+
                 if( schema.Columns[ i ] != null )
                 {
                     _stringBuilder.Append( " DESC" );
@@ -882,6 +878,7 @@ namespace BudgetExecution
         {
             var _stringBuilder = new StringBuilder( );
             _stringBuilder.Append( "\t[" + column.ColumnName + "]\t" );
+
             if( column.IsIdentity )
             {
                 if( schema.PrimaryKey.Count == 1
@@ -904,7 +901,6 @@ namespace BudgetExecution
                     case "int":
                         _stringBuilder.Append( "integer" );
                         break;
-
                     default:
                         _stringBuilder.Append( column.ColumnType );
                         break;
@@ -939,7 +935,6 @@ namespace BudgetExecution
 
                     _stringBuilder.Append( " DEFAULT (CURRENTTIMESTAMP)" );
                     break;
-
                 case false when IsValidDefaultValue( _default ):
                     _stringBuilder.Append( " DEFAULT " + _default );
                     break;
@@ -1029,6 +1024,7 @@ namespace BudgetExecution
                 using( var cmd = new SqlCommand( _sql, _connection ) )
                 {
                     var reader = cmd.ExecuteReader( );
+
                     while( reader.Read( ) )
                     {
                         if( reader[ "TABLENAME" ] == DBNull.Value )
@@ -1047,6 +1043,7 @@ namespace BudgetExecution
                 }
 
                 var count = 0;
+
                 for( var i = 0; i < _tableNames.Count; i++ )
                 {
                     var _name = _tableNames[ i ];
@@ -1065,6 +1062,7 @@ namespace BudgetExecution
 
             _log.Debug( "finished parsing all tables in SQL Server schema" );
             var _updated = selectionHandler?.Invoke( _tables );
+
             if( _updated != null )
             {
                 _tables = _updated;
@@ -1072,6 +1070,7 @@ namespace BudgetExecution
 
             var _regex = new Regex( @"dbo\.", RegexOptions.Compiled | RegexOptions.IgnoreCase );
             var views = new List<ViewSchema>( );
+
             using( var conn = new SqlConnection( connectionString ) )
             {
                 conn.Open( );
@@ -1081,9 +1080,11 @@ namespace BudgetExecution
                 var _command = new SqlCommand( _sql, conn );
                 var _reader = _command.ExecuteReader( );
                 var _count = 0;
+
                 while( _reader.Read( ) )
                 {
                     var _schema = new ViewSchema( );
+
                     if( _reader[ "TABLENAME" ] == DBNull.Value )
                     {
                         continue;
@@ -1150,9 +1151,11 @@ namespace BudgetExecution
                       conn ) )
             {
                 var _reader = _command.ExecuteReader( );
+
                 while( _reader.Read( ) )
                 {
                     var _tmp = _reader[ "COLUMNNAME" ];
+
                     if( _tmp is DBNull )
                     {
                         continue;
@@ -1168,6 +1171,7 @@ namespace BudgetExecution
                     var _isNullable = (string)_tmp == "YES";
                     var _dataType = (string)_reader[ "DATATYPE" ];
                     var _isIdentity = false;
+
                     if( _reader[ "IDENT" ] != DBNull.Value )
                     {
                         if( (int)_reader[ "IDENT" ] == 1 )
@@ -1181,6 +1185,7 @@ namespace BudgetExecution
                         : 0;
 
                     ValidateDataType( _dataType );
+
                     switch( _dataType )
                     {
                         case "timestamp":
@@ -1188,7 +1193,6 @@ namespace BudgetExecution
                             _dataType = "blob";
                             break;
                         }
-
                         case "datetime":
                         case "smalldatetime":
                         case "date":
@@ -1198,7 +1202,6 @@ namespace BudgetExecution
                             _dataType = "datetime";
                             break;
                         }
-
                         case "decimal":
                         case "money":
                         case "smallmoney":
@@ -1206,7 +1209,6 @@ namespace BudgetExecution
                             _dataType = "numeric";
                             break;
                         }
-
                         case "binary":
                         case "varbinary":
                         case "image":
@@ -1214,43 +1216,36 @@ namespace BudgetExecution
                             _dataType = "blob";
                             break;
                         }
-
                         case "tinyint":
                         {
                             _dataType = "smallint";
                             break;
                         }
-
                         case "bigint":
                         {
                             _dataType = "integer";
                             break;
                         }
-
                         case "sqlvariant":
                         {
                             _dataType = "blob";
                             break;
                         }
-
                         case "xml":
                         {
                             _dataType = "varchar";
                             break;
                         }
-
                         case "uniqueidentifier":
                         {
                             _dataType = "guid";
                             break;
                         }
-
                         case "ntext":
                         {
                             _dataType = "text";
                             break;
                         }
-
                         case "nchar":
                         {
                             _dataType = "char";
@@ -1282,6 +1277,7 @@ namespace BudgetExecution
             {
                 var reader = cmd2.ExecuteReader( );
                 res.PrimaryKey = new List<string>( );
+
                 while( reader.Read( ) )
                 {
                     var _item = (string)reader[ "COLUMNNAME" ];
@@ -1294,10 +1290,12 @@ namespace BudgetExecution
                       conn ) )
             {
                 var reader = cmd4.ExecuteReader( );
+
                 while( reader.Read( ) )
                 {
                     bool? _isCaseSensitive = null;
                     var _columnName = (string)reader[ "name" ];
+
                     if( reader[ "tdscollation" ] != DBNull.Value )
                     {
                         var mask = (byte[ ])reader[ "tdscollation" ];
@@ -1325,11 +1323,13 @@ namespace BudgetExecution
 
                 var _reader = _command.ExecuteReader( );
                 res.Indexes = new List<IndexSchema>( );
+
                 while( _reader.Read( ) )
                 {
                     var _indexName = (string)_reader[ "indexname" ];
                     var _desc = (string)_reader[ "indexdescription" ];
                     var _indexes = (string)_reader[ "indexkeys" ];
+
                     if( _desc.Contains( "primary key" ) )
                     {
                         continue;
@@ -1402,6 +1402,7 @@ namespace BudgetExecution
             var _res = columnDefault.Trim( );
             var _first = -1;
             var _last = -1;
+
             for( var i = 0; i < _res.Length; i++ )
             {
                 if( _res[ i ] == '\''
@@ -1425,6 +1426,7 @@ namespace BudgetExecution
             }
 
             var sb = new StringBuilder( );
+
             for( var i = 0; i < _res.Length; i++ )
             {
                 if( _res[ i ] != '('
@@ -1454,6 +1456,7 @@ namespace BudgetExecution
                 }'", conn );
 
             var reader = cmd.ExecuteReader( );
+
             while( reader.Read( ) )
             {
                 var fkc = new ForeignKeySchema
@@ -1481,15 +1484,13 @@ namespace BudgetExecution
         /// index [" + indexname + "]</exception>
         private IndexSchema BuildIndexSchema( string indexname, string desc, string keys )
         {
-            var res = new IndexSchema
-            {
-                IndexName = indexname
-            };
-
+            var res = new IndexSchema { IndexName = indexname };
             var descparts = desc.Split( ',' );
+
             for( var i = 0; i < descparts.Length; i++ )
             {
                 var p = descparts[ i ];
+
                 if( p.Trim( ).Contains( "unique" ) )
                 {
                     res.IsUnique = true;
@@ -1499,9 +1500,11 @@ namespace BudgetExecution
 
             res.Columns = new List<IndexColumn>( );
             var keysparts = keys.Split( ',' );
+
             foreach( var p in keysparts )
             {
                 var m = _keys.Match( p.Trim( ) );
+
                 if( !m.Success )
                 {
                     throw new ApplicationException( "Illegal key name [" + p + "] in index ["
@@ -1541,10 +1544,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private string CreateSQLiteConnectionString( string path, string password )
         {
-            var _builder = new SQLiteConnectionStringBuilder
-            {
-                DataSource = path
-            };
+            var _builder = new SQLiteConnectionStringBuilder { DataSource = path };
 
             if( password != null )
             {
@@ -1567,9 +1567,11 @@ namespace BudgetExecution
             string passWord )
         {
             var _connectionString = CreateSQLiteConnectionString( path, passWord );
+
             using( var _connection = new SQLiteConnection( _connectionString ) )
             {
                 _connection.Open( );
+
                 foreach( var _item in schema )
                 {
                     try
@@ -1595,6 +1597,7 @@ namespace BudgetExecution
         private void AddTableTriggers( SQLiteConnection conn, TableSchema dt )
         {
             var _triggers = TriggerBuilder.GetForeignKeyTriggers( dt );
+
             for( var i = 0; i < _triggers.Count; i++ )
             {
                 var _trigger = _triggers[ i ];

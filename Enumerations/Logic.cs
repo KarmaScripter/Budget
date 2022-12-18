@@ -5,10 +5,13 @@
 namespace BudgetExecution
 {
     /// <summary>
-    /// Defines the Logic Enumertion
+    /// Defines the Logic
     /// </summary>
     public enum Logic
     {
+        /// <summary>
+        /// The ns
+        /// </summary>
         NS = 0,
 
         /// <summary>

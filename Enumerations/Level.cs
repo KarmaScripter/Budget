@@ -4,6 +4,9 @@
 
 namespace BudgetExecution
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum Level
     {
         /// <summary>
@@ -11,6 +14,9 @@ namespace BudgetExecution
         /// </summary>
         NS = -1,
         
+        /// <summary>
+        /// 
+        /// </summary>
         Treasury = 0,
 
         /// <summary>
@@ -34,9 +40,9 @@ namespace BudgetExecution
         ProgramArea = 4,
 
         /// <summary>
-        /// The progream project
+        /// The program project
         /// </summary>
-        ProgreamProject = 5,
+        ProgramProject = 5,
 
         /// <summary>
         /// The program results code

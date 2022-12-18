@@ -4,6 +4,9 @@
 
 namespace BudgetExecution
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum IconResource
     {
         /// <summary>
@@ -12,7 +15,7 @@ namespace BudgetExecution
         NS = 0,
 
         /// <summary>
-        /// The baadget icons
+        /// The budget icons
         /// </summary>
         BadgerIcons,
 

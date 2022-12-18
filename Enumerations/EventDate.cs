@@ -6,6 +6,9 @@ namespace BudgetExecution
 {
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EventDate
     {
         /// <summary>

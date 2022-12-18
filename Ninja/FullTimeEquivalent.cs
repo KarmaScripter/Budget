@@ -94,6 +94,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
         public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try
@@ -108,6 +114,5 @@ namespace BudgetExecution
                 return default( int );
             }
         }
-
     }
 }

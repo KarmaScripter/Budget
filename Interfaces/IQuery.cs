@@ -9,6 +9,12 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.Common;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.IDisposable" />
+    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="BudgetExecution.IProvider" />
     public interface IQuery : IDisposable, ISource, IProvider
     {
         /// <summary>
