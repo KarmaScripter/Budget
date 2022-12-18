@@ -36,39 +36,7 @@ namespace BudgetExecution
         /// The form filter.
         /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
-
-        /// <summary>
-        /// Gets the source prefix.
-        /// </summary>
-        /// <value>
-        /// The source prefix.
-        /// </value>
-        public string SourcePrefix { get; set; } = "Data Source : ";
-
-        /// <summary>
-        /// Gets the table prefix.
-        /// </summary>
-        /// <value>
-        /// The table prefix.
-        /// </value>
-        public string TablePrefix { get; set; } = "Tables : ";
-
-        /// <summary>
-        /// Gets the column prefix.
-        /// </summary>
-        /// <value>
-        /// The column prefix.
-        /// </value>
-        public string ColumnPrefix { get; set; } = "Columns : ";
-
-        /// <summary>
-        /// Gets the value prefix.
-        /// </summary>
-        /// <value>
-        /// The value prefix.
-        /// </value>
-        public string ValuePrefix { get; set; } = "Values : ";
-
+        
         /// <summary>
         /// Gets or sets the selected table.
         /// </summary>
@@ -114,17 +82,25 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 12 );
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.LightSteelBlue;
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
+            StaticGridLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
+            StaticGridLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticTableLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
+            StaticTableLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticColumnLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
+            StaticColumnLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticValueLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
+            StaticValueLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             MinimizeBox = false;
             MaximizeBox = false;
 
@@ -171,9 +147,10 @@ namespace BudgetExecution
                 PopulateTableListBoxItems( );
                 PopulateToolBarDropDownItems( );
                 ToolStrip.Office12Mode = true;
-                TableLabel.Text = TablePrefix + TableListBox.Items.Count;
-                ColumnLabel.Text = ColumnPrefix;
-                DataSourceLabel.Text = SourcePrefix + DataModel.DataTable.TableName.SplitPascal( );
+                TableLabel.Text = TableListBox.Items.Count.ToString( );
+                ColumnLabel.Text = string.Empty;
+                ValueLabel.Text = string.Empty;
+                DataSourceLabel.Text = DataModel.DataTable.TableName.SplitPascal( );
                 SelectedTable = string.Empty;
                 SelectedColumn = string.Empty;
                 SelectedValue = string.Empty;

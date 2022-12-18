@@ -35,7 +35,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 26;
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ShowIcon = false;

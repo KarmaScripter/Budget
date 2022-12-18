@@ -2041,38 +2041,6 @@
             The form filter.
             </value>
         </member>
-        <member name="P:BudgetExecution.DataGridForm.SourcePrefix">
-            <summary>
-            Gets the source prefix.
-            </summary>
-            <value>
-            The source prefix.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.DataGridForm.TablePrefix">
-            <summary>
-            Gets the table prefix.
-            </summary>
-            <value>
-            The table prefix.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.DataGridForm.ColumnPrefix">
-            <summary>
-            Gets the column prefix.
-            </summary>
-            <value>
-            The column prefix.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.DataGridForm.ValuePrefix">
-            <summary>
-            Gets the value prefix.
-            </summary>
-            <value>
-            The value prefix.
-            </value>
-        </member>
         <member name="P:BudgetExecution.DataGridForm.SelectedTable">
             <summary>
             Gets or sets the selected table.

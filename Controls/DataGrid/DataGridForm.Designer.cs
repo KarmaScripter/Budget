@@ -32,11 +32,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataGridForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LeftHeaderLabel = new BudgetExecution.Label();
             this.ToolTip = new BudgetExecution.SmallTip();
@@ -107,6 +107,10 @@
             this.StaticTableLabel = new BudgetExecution.Label();
             this.StaticColumnLabel = new BudgetExecution.Label();
             this.StaticValueLabel = new BudgetExecution.Label();
+            this.GridTable = new System.Windows.Forms.TableLayoutPanel();
+            this.TableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
             this.DataGridPanel.SuspendLayout();
@@ -114,10 +118,17 @@
             this.TablePanel.SuspendLayout();
             this.ColumnPanel.SuspendLayout();
             this.ValuePanel.SuspendLayout();
+            this.GridTable.SuspendLayout();
+            this.TableLayout.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // LeftHeaderLabel
             // 
+            this.LeftHeaderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LeftHeaderLabel.BindingSource = null;
             this.LeftHeaderLabel.DataFilter = null;
             this.LeftHeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -128,7 +139,7 @@
             this.LeftHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.LeftHeaderLabel.Name = "LeftHeaderLabel";
             this.LeftHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.LeftHeaderLabel.Size = new System.Drawing.Size(948, 65);
+            this.LeftHeaderLabel.Size = new System.Drawing.Size(948, 62);
             this.LeftHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.LeftHeaderLabel.StyleManager = null;
             this.LeftHeaderLabel.TabIndex = 22;
@@ -428,7 +439,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(150, 26);
+            this.TextBox.Size = new System.Drawing.Size(142, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -948,6 +959,9 @@
             // 
             // DataGridPanel
             // 
+            this.DataGridPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridPanel.BackColor = System.Drawing.Color.Transparent;
             this.DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.DataGridPanel.BindingSource = null;
@@ -963,7 +977,7 @@
             this.DataGridPanel.Location = new System.Drawing.Point(30, 113);
             this.DataGridPanel.Name = "DataGridPanel";
             this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridPanel.Size = new System.Drawing.Size(948, 532);
+            this.DataGridPanel.Size = new System.Drawing.Size(948, 523);
             this.DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataGridPanel.StyleManager = null;
             this.DataGridPanel.TabIndex = 24;
@@ -974,35 +988,35 @@
             // DataGrid
             // 
             this.DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.DataGrid.BindingSource = null;
             this.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid.DataFilter = null;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGrid.EnableHeadersVisualStyles = false;
             this.DataGrid.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
@@ -1010,25 +1024,25 @@
             this.DataGrid.Location = new System.Drawing.Point(29, 17);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGrid.RowTemplate.Height = 25;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(888, 496);
+            this.DataGrid.Size = new System.Drawing.Size(888, 487);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.ToolTip = null;
             // 
@@ -1036,15 +1050,16 @@
             // 
             this.DataSourceLabel.BindingSource = null;
             this.DataSourceLabel.DataFilter = null;
+            this.DataSourceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataSourceLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DataSourceLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataSourceLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.DataSourceLabel.HoverText = null;
             this.DataSourceLabel.IsDerivedStyle = true;
-            this.DataSourceLabel.Location = new System.Drawing.Point(115, 84);
+            this.DataSourceLabel.Location = new System.Drawing.Point(98, 3);
             this.DataSourceLabel.Margin = new System.Windows.Forms.Padding(3);
             this.DataSourceLabel.Name = "DataSourceLabel";
             this.DataSourceLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataSourceLabel.Size = new System.Drawing.Size(863, 23);
+            this.DataSourceLabel.Size = new System.Drawing.Size(847, 20);
             this.DataSourceLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataSourceLabel.StyleManager = null;
             this.DataSourceLabel.TabIndex = 25;
@@ -1056,6 +1071,9 @@
             // 
             // TablePanel
             // 
+            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TablePanel.BackColor = System.Drawing.Color.Transparent;
             this.TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TablePanel.BindingSource = null;
@@ -1068,10 +1086,10 @@
             this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
             this.TablePanel.HoverText = null;
             this.TablePanel.IsDerivedStyle = true;
-            this.TablePanel.Location = new System.Drawing.Point(1022, 122);
+            this.TablePanel.Location = new System.Drawing.Point(997, 113);
             this.TablePanel.Name = "TablePanel";
             this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.TablePanel.Size = new System.Drawing.Size(334, 140);
+            this.TablePanel.Size = new System.Drawing.Size(370, 140);
             this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TablePanel.StyleManager = null;
             this.TablePanel.TabIndex = 26;
@@ -1105,7 +1123,7 @@
             this.TableListBox.SelectedValue = null;
             this.TableListBox.ShowBorder = false;
             this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(292, 105);
+            this.TableListBox.Size = new System.Drawing.Size(328, 105);
             this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableListBox.StyleManager = null;
             this.TableListBox.TabIndex = 32;
@@ -1115,6 +1133,9 @@
             // 
             // ColumnPanel
             // 
+            this.ColumnPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ColumnPanel.BackColor = System.Drawing.Color.Transparent;
             this.ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ColumnPanel.BindingSource = null;
@@ -1127,10 +1148,10 @@
             this.ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ColumnPanel.HoverText = null;
             this.ColumnPanel.IsDerivedStyle = true;
-            this.ColumnPanel.Location = new System.Drawing.Point(1022, 315);
+            this.ColumnPanel.Location = new System.Drawing.Point(997, 306);
             this.ColumnPanel.Name = "ColumnPanel";
             this.ColumnPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnPanel.Size = new System.Drawing.Size(334, 140);
+            this.ColumnPanel.Size = new System.Drawing.Size(370, 140);
             this.ColumnPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnPanel.StyleManager = null;
             this.ColumnPanel.TabIndex = 27;
@@ -1164,7 +1185,7 @@
             this.ColumnListBox.SelectedValue = null;
             this.ColumnListBox.ShowBorder = false;
             this.ColumnListBox.ShowScrollBar = false;
-            this.ColumnListBox.Size = new System.Drawing.Size(292, 105);
+            this.ColumnListBox.Size = new System.Drawing.Size(328, 105);
             this.ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnListBox.StyleManager = null;
             this.ColumnListBox.TabIndex = 33;
@@ -1174,6 +1195,9 @@
             // 
             // ValuePanel
             // 
+            this.ValuePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ValuePanel.BackColor = System.Drawing.Color.Transparent;
             this.ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ValuePanel.BindingSource = null;
@@ -1186,10 +1210,10 @@
             this.ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             this.ValuePanel.HoverText = null;
             this.ValuePanel.IsDerivedStyle = true;
-            this.ValuePanel.Location = new System.Drawing.Point(1022, 505);
+            this.ValuePanel.Location = new System.Drawing.Point(997, 496);
             this.ValuePanel.Name = "ValuePanel";
             this.ValuePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValuePanel.Size = new System.Drawing.Size(334, 140);
+            this.ValuePanel.Size = new System.Drawing.Size(370, 140);
             this.ValuePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValuePanel.StyleManager = null;
             this.ValuePanel.TabIndex = 28;
@@ -1223,7 +1247,7 @@
             this.ValueListBox.SelectedValue = null;
             this.ValueListBox.ShowBorder = false;
             this.ValueListBox.ShowScrollBar = false;
-            this.ValueListBox.Size = new System.Drawing.Size(292, 105);
+            this.ValueListBox.Size = new System.Drawing.Size(328, 105);
             this.ValueListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValueListBox.StyleManager = null;
             this.ValueListBox.TabIndex = 32;
@@ -1235,15 +1259,16 @@
             // 
             this.TableLabel.BindingSource = null;
             this.TableLabel.DataFilter = null;
+            this.TableLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TableLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TableLabel.HoverText = null;
             this.TableLabel.IsDerivedStyle = true;
-            this.TableLabel.Location = new System.Drawing.Point(1081, 93);
+            this.TableLabel.Location = new System.Drawing.Point(67, 3);
             this.TableLabel.Margin = new System.Windows.Forms.Padding(3);
             this.TableLabel.Name = "TableLabel";
             this.TableLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.TableLabel.Size = new System.Drawing.Size(267, 23);
+            this.TableLabel.Size = new System.Drawing.Size(297, 20);
             this.TableLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableLabel.StyleManager = null;
             this.TableLabel.TabIndex = 29;
@@ -1257,15 +1282,16 @@
             // 
             this.ColumnLabel.BindingSource = null;
             this.ColumnLabel.DataFilter = null;
+            this.ColumnLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ColumnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ColumnLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ColumnLabel.HoverText = null;
             this.ColumnLabel.IsDerivedStyle = true;
-            this.ColumnLabel.Location = new System.Drawing.Point(1104, 286);
+            this.ColumnLabel.Location = new System.Drawing.Point(76, 3);
             this.ColumnLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ColumnLabel.Name = "ColumnLabel";
             this.ColumnLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnLabel.Size = new System.Drawing.Size(244, 23);
+            this.ColumnLabel.Size = new System.Drawing.Size(288, 20);
             this.ColumnLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnLabel.StyleManager = null;
             this.ColumnLabel.TabIndex = 30;
@@ -1279,15 +1305,16 @@
             // 
             this.ValueLabel.BindingSource = null;
             this.ValueLabel.DataFilter = null;
+            this.ValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValueLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ValueLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ValueLabel.HoverText = null;
             this.ValueLabel.IsDerivedStyle = true;
-            this.ValueLabel.Location = new System.Drawing.Point(1081, 476);
+            this.ValueLabel.Location = new System.Drawing.Point(68, 3);
             this.ValueLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ValueLabel.Name = "ValueLabel";
             this.ValueLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValueLabel.Size = new System.Drawing.Size(275, 23);
+            this.ValueLabel.Size = new System.Drawing.Size(296, 20);
             this.ValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValueLabel.StyleManager = null;
             this.ValueLabel.TabIndex = 31;
@@ -1299,17 +1326,20 @@
             // 
             // RightHeaderLabel
             // 
+            this.RightHeaderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RightHeaderLabel.BindingSource = null;
             this.RightHeaderLabel.DataFilter = null;
             this.RightHeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RightHeaderLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RightHeaderLabel.HoverText = null;
             this.RightHeaderLabel.IsDerivedStyle = true;
-            this.RightHeaderLabel.Location = new System.Drawing.Point(1022, 13);
+            this.RightHeaderLabel.Location = new System.Drawing.Point(997, 10);
             this.RightHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.RightHeaderLabel.Name = "RightHeaderLabel";
             this.RightHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.RightHeaderLabel.Size = new System.Drawing.Size(309, 65);
+            this.RightHeaderLabel.Size = new System.Drawing.Size(367, 65);
             this.RightHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.RightHeaderLabel.StyleManager = null;
             this.RightHeaderLabel.TabIndex = 32;
@@ -1323,15 +1353,16 @@
             // 
             this.StaticGridLabel.BindingSource = null;
             this.StaticGridLabel.DataFilter = null;
+            this.StaticGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaticGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StaticGridLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StaticGridLabel.HoverText = null;
             this.StaticGridLabel.IsDerivedStyle = true;
-            this.StaticGridLabel.Location = new System.Drawing.Point(30, 84);
+            this.StaticGridLabel.Location = new System.Drawing.Point(3, 3);
             this.StaticGridLabel.Margin = new System.Windows.Forms.Padding(3);
             this.StaticGridLabel.Name = "StaticGridLabel";
             this.StaticGridLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.StaticGridLabel.Size = new System.Drawing.Size(79, 23);
+            this.StaticGridLabel.Size = new System.Drawing.Size(89, 20);
             this.StaticGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.StaticGridLabel.StyleManager = null;
             this.StaticGridLabel.TabIndex = 33;
@@ -1345,15 +1376,16 @@
             // 
             this.StaticTableLabel.BindingSource = null;
             this.StaticTableLabel.DataFilter = null;
+            this.StaticTableLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaticTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StaticTableLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StaticTableLabel.HoverText = null;
             this.StaticTableLabel.IsDerivedStyle = true;
-            this.StaticTableLabel.Location = new System.Drawing.Point(1022, 93);
+            this.StaticTableLabel.Location = new System.Drawing.Point(3, 3);
             this.StaticTableLabel.Margin = new System.Windows.Forms.Padding(3);
             this.StaticTableLabel.Name = "StaticTableLabel";
             this.StaticTableLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.StaticTableLabel.Size = new System.Drawing.Size(53, 23);
+            this.StaticTableLabel.Size = new System.Drawing.Size(58, 20);
             this.StaticTableLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.StaticTableLabel.StyleManager = null;
             this.StaticTableLabel.TabIndex = 34;
@@ -1368,15 +1400,16 @@
             // 
             this.StaticColumnLabel.BindingSource = null;
             this.StaticColumnLabel.DataFilter = null;
+            this.StaticColumnLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaticColumnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StaticColumnLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StaticColumnLabel.HoverText = null;
             this.StaticColumnLabel.IsDerivedStyle = true;
-            this.StaticColumnLabel.Location = new System.Drawing.Point(1025, 286);
+            this.StaticColumnLabel.Location = new System.Drawing.Point(3, 3);
             this.StaticColumnLabel.Margin = new System.Windows.Forms.Padding(3);
             this.StaticColumnLabel.Name = "StaticColumnLabel";
             this.StaticColumnLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.StaticColumnLabel.Size = new System.Drawing.Size(73, 23);
+            this.StaticColumnLabel.Size = new System.Drawing.Size(67, 20);
             this.StaticColumnLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.StaticColumnLabel.StyleManager = null;
             this.StaticColumnLabel.TabIndex = 35;
@@ -1391,15 +1424,16 @@
             // 
             this.StaticValueLabel.BindingSource = null;
             this.StaticValueLabel.DataFilter = null;
+            this.StaticValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaticValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StaticValueLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StaticValueLabel.HoverText = null;
             this.StaticValueLabel.IsDerivedStyle = true;
-            this.StaticValueLabel.Location = new System.Drawing.Point(1022, 476);
+            this.StaticValueLabel.Location = new System.Drawing.Point(3, 3);
             this.StaticValueLabel.Margin = new System.Windows.Forms.Padding(3);
             this.StaticValueLabel.Name = "StaticValueLabel";
             this.StaticValueLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.StaticValueLabel.Size = new System.Drawing.Size(53, 23);
+            this.StaticValueLabel.Size = new System.Drawing.Size(59, 20);
             this.StaticValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.StaticValueLabel.StyleManager = null;
             this.StaticValueLabel.TabIndex = 36;
@@ -1409,6 +1443,74 @@
             this.StaticValueLabel.ThemeAuthor = "Terry D. Eppler";
             this.StaticValueLabel.ThemeName = "BudgetExecution";
             this.StaticValueLabel.ToolTip = null;
+            // 
+            // GridTable
+            // 
+            this.GridTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GridTable.ColumnCount = 2;
+            this.GridTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0211F));
+            this.GridTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.9789F));
+            this.GridTable.Controls.Add(this.StaticGridLabel, 0, 0);
+            this.GridTable.Controls.Add(this.DataSourceLabel, 1, 0);
+            this.GridTable.Location = new System.Drawing.Point(30, 81);
+            this.GridTable.Name = "GridTable";
+            this.GridTable.RowCount = 1;
+            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.GridTable.Size = new System.Drawing.Size(948, 26);
+            this.GridTable.TabIndex = 37;
+            // 
+            // TableLayout
+            // 
+            this.TableLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TableLayout.ColumnCount = 2;
+            this.TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.43869F));
+            this.TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.56131F));
+            this.TableLayout.Controls.Add(this.StaticTableLabel, 0, 0);
+            this.TableLayout.Controls.Add(this.TableLabel, 1, 0);
+            this.TableLayout.Location = new System.Drawing.Point(997, 84);
+            this.TableLayout.Name = "TableLayout";
+            this.TableLayout.RowCount = 1;
+            this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayout.Size = new System.Drawing.Size(367, 26);
+            this.TableLayout.TabIndex = 38;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.89101F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.10899F));
+            this.tableLayoutPanel2.Controls.Add(this.StaticColumnLabel, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ColumnLabel, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(997, 274);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 26);
+            this.tableLayoutPanel2.TabIndex = 39;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.71117F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.28883F));
+            this.tableLayoutPanel3.Controls.Add(this.StaticValueLabel, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.ValueLabel, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1000, 464);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(367, 26);
+            this.tableLayoutPanel3.TabIndex = 40;
             // 
             // DataGridForm
             // 
@@ -1420,21 +1522,17 @@
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CaptionForeColor = System.Drawing.Color.LightSteelBlue;
+            this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 712);
-            this.Controls.Add(this.StaticValueLabel);
-            this.Controls.Add(this.StaticColumnLabel);
-            this.Controls.Add(this.StaticTableLabel);
-            this.Controls.Add(this.StaticGridLabel);
+            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.TableLayout);
+            this.Controls.Add(this.GridTable);
             this.Controls.Add(this.RightHeaderLabel);
-            this.Controls.Add(this.ValueLabel);
-            this.Controls.Add(this.ColumnLabel);
-            this.Controls.Add(this.TableLabel);
             this.Controls.Add(this.ValuePanel);
             this.Controls.Add(this.ColumnPanel);
             this.Controls.Add(this.TablePanel);
-            this.Controls.Add(this.DataSourceLabel);
             this.Controls.Add(this.DataGridPanel);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.LeftHeaderLabel);
@@ -1460,6 +1558,10 @@
             this.TablePanel.ResumeLayout(false);
             this.ColumnPanel.ResumeLayout(false);
             this.ValuePanel.ResumeLayout(false);
+            this.GridTable.ResumeLayout(false);
+            this.TableLayout.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1536,5 +1638,9 @@
         private Label StaticTableLabel;
         private Label StaticColumnLabel;
         private Label StaticValueLabel;
+        private System.Windows.Forms.TableLayoutPanel GridTable;
+        private System.Windows.Forms.TableLayoutPanel TableLayout;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
