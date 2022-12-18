@@ -69,12 +69,16 @@
             this.BrowseButton = new BudgetExecution.ToolStripButton();
             this.Separator12 = new BudgetExecution.ToolSeparator();
             this.AddTableButton = new BudgetExecution.ToolStripButton();
-            this.Separator22 = new BudgetExecution.ToolSeparator();
-            this.SearchDataButton = new BudgetExecution.ToolStripButton();
             this.Separator23 = new BudgetExecution.ToolSeparator();
             this.AddColumnButton = new BudgetExecution.ToolStripButton();
-            this.Separator13 = new BudgetExecution.ToolSeparator();
-            this.ExportButton = new BudgetExecution.ToolStripButton();
+            this.Separator22 = new BudgetExecution.ToolSeparator();
+            this.SearchDataButton = new BudgetExecution.ToolStripButton();
+            this.Separator25 = new BudgetExecution.ToolSeparator();
+            this.DeleteColumnButton = new BudgetExecution.ToolStripButton();
+            this.Separator27 = new BudgetExecution.ToolSeparator();
+            this.EditSqlButton = new BudgetExecution.ToolStripButton();
+            this.Separator26 = new BudgetExecution.ToolSeparator();
+            this.ExcelButton = new BudgetExecution.ToolStripButton();
             this.Separator14 = new BudgetExecution.ToolSeparator();
             this.CalendarButton = new BudgetExecution.ToolStripButton();
             this.Separator18 = new BudgetExecution.ToolSeparator();
@@ -83,12 +87,12 @@
             this.CalculatorButton = new BudgetExecution.ToolStripButton();
             this.Separator20 = new BudgetExecution.ToolSeparator();
             this.Separator24 = new BudgetExecution.ToolSeparator();
-            this.Separator21 = new BudgetExecution.ToolSeparator();
+            this.Separator13 = new BudgetExecution.ToolSeparator();
             this.Separator15 = new BudgetExecution.ToolSeparator();
             this.GridPanel = new BudgetExecution.Layout();
             this.DataGridPanel = new BudgetExecution.Layout();
             this.DataGrid = new BudgetExecution.DataGrid();
-            this.DataGridLabel = new BudgetExecution.Label();
+            this.DataSourceLabel = new BudgetExecution.Label();
             this.TablePanel = new BudgetExecution.Layout();
             this.TableListBox = new BudgetExecution.ListBox();
             this.ColumnPanel = new BudgetExecution.Layout();
@@ -99,6 +103,10 @@
             this.ColumnLabel = new BudgetExecution.Label();
             this.ValueLabel = new BudgetExecution.Label();
             this.RightHeaderLabel = new BudgetExecution.Label();
+            this.StaticGridLabel = new BudgetExecution.Label();
+            this.StaticTableLabel = new BudgetExecution.Label();
+            this.StaticColumnLabel = new BudgetExecution.Label();
+            this.StaticValueLabel = new BudgetExecution.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
             this.DataGridPanel.SuspendLayout();
@@ -229,12 +237,16 @@
             this.BrowseButton,
             this.Separator12,
             this.AddTableButton,
-            this.Separator22,
-            this.SearchDataButton,
             this.Separator23,
             this.AddColumnButton,
-            this.Separator13,
-            this.ExportButton,
+            this.Separator22,
+            this.SearchDataButton,
+            this.Separator25,
+            this.DeleteColumnButton,
+            this.Separator27,
+            this.EditSqlButton,
+            this.Separator26,
+            this.ExcelButton,
             this.Separator14,
             this.CalendarButton,
             this.Separator18,
@@ -243,9 +255,7 @@
             this.CalculatorButton,
             this.Separator20,
             this.DropDown,
-            this.Separator24,
-            this.HomeButton,
-            this.Separator21});
+            this.Separator24});
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = this.LastButton;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -375,6 +385,7 @@
             this.HomeButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HomeButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.HomeButton.HoverText = "Main Menu";
+            this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
             this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
             this.HomeButton.Name = "HomeButton";
@@ -417,7 +428,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(154, 26);
+            this.TextBox.Size = new System.Drawing.Size(150, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -648,33 +659,6 @@
             this.AddTableButton.ToolTip = this.ToolTip;
             this.AddTableButton.ToolType = BudgetExecution.ToolType.AddTableButton;
             // 
-            // Separator22
-            // 
-            this.Separator22.ForeColor = System.Drawing.Color.Black;
-            this.Separator22.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator22.Name = "Separator22";
-            this.Separator22.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator22.Size = new System.Drawing.Size(6, 26);
-            // 
-            // SearchDataButton
-            // 
-            this.SearchDataButton.AutoToolTip = false;
-            this.SearchDataButton.BackColor = System.Drawing.Color.Transparent;
-            this.SearchDataButton.BindingSource = null;
-            this.SearchDataButton.DataFilter = null;
-            this.SearchDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SearchDataButton.Field = BudgetExecution.Field.AccountCode;
-            this.SearchDataButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchDataButton.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.SearchDataButton.HoverText = "Database Lookup";
-            this.SearchDataButton.Image = global::BudgetExecution.Properties.Resources.DataSearchButton;
-            this.SearchDataButton.Margin = new System.Windows.Forms.Padding(1);
-            this.SearchDataButton.Name = "SearchDataButton";
-            this.SearchDataButton.Padding = new System.Windows.Forms.Padding(1);
-            this.SearchDataButton.Size = new System.Drawing.Size(23, 26);
-            this.SearchDataButton.ToolTip = this.ToolTip;
-            this.SearchDataButton.ToolType = BudgetExecution.ToolType.SearchDataButton;
-            // 
             // Separator23
             // 
             this.Separator23.ForeColor = System.Drawing.Color.Black;
@@ -704,34 +688,119 @@
             this.AddColumnButton.ToolTip = this.ToolTip;
             this.AddColumnButton.ToolType = BudgetExecution.ToolType.AddColumnButton;
             // 
-            // Separator13
+            // Separator22
             // 
-            this.Separator13.ForeColor = System.Drawing.Color.Black;
-            this.Separator13.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator13.Name = "Separator13";
-            this.Separator13.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator13.Size = new System.Drawing.Size(6, 26);
+            this.Separator22.ForeColor = System.Drawing.Color.Black;
+            this.Separator22.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator22.Name = "Separator22";
+            this.Separator22.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator22.Size = new System.Drawing.Size(6, 26);
             // 
-            // ExportButton
+            // SearchDataButton
             // 
-            this.ExportButton.AutoToolTip = false;
-            this.ExportButton.BackColor = System.Drawing.Color.Transparent;
-            this.ExportButton.BindingSource = this.BindingSource;
-            this.ExportButton.DataFilter = null;
-            this.ExportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExportButton.Field = BudgetExecution.Field.AccountCode;
-            this.ExportButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ExportButton.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.ExportButton.HoverText = "Excel Export";
-            this.ExportButton.Image = global::BudgetExecution.Properties.Resources.ExportButton;
-            this.ExportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ExportButton.Margin = new System.Windows.Forms.Padding(1);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Padding = new System.Windows.Forms.Padding(1);
-            this.ExportButton.Size = new System.Drawing.Size(23, 26);
-            this.ExportButton.Text = "toolStripButton3";
-            this.ExportButton.ToolTip = this.ToolTip;
-            this.ExportButton.ToolType = BudgetExecution.ToolType.ExportButton;
+            this.SearchDataButton.AutoToolTip = false;
+            this.SearchDataButton.BackColor = System.Drawing.Color.Transparent;
+            this.SearchDataButton.BindingSource = null;
+            this.SearchDataButton.DataFilter = null;
+            this.SearchDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SearchDataButton.Field = BudgetExecution.Field.AccountCode;
+            this.SearchDataButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchDataButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.SearchDataButton.HoverText = "Database Lookup";
+            this.SearchDataButton.Image = global::BudgetExecution.Properties.Resources.DataSearchButton;
+            this.SearchDataButton.Margin = new System.Windows.Forms.Padding(1);
+            this.SearchDataButton.Name = "SearchDataButton";
+            this.SearchDataButton.Padding = new System.Windows.Forms.Padding(1);
+            this.SearchDataButton.Size = new System.Drawing.Size(23, 26);
+            this.SearchDataButton.ToolTip = this.ToolTip;
+            this.SearchDataButton.ToolType = BudgetExecution.ToolType.SearchDataButton;
+            // 
+            // Separator25
+            // 
+            this.Separator25.ForeColor = System.Drawing.Color.Black;
+            this.Separator25.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator25.Name = "Separator25";
+            this.Separator25.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator25.Size = new System.Drawing.Size(6, 26);
+            // 
+            // DeleteColumnButton
+            // 
+            this.DeleteColumnButton.AutoToolTip = false;
+            this.DeleteColumnButton.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.BindingSource = this.BindingSource;
+            this.DeleteColumnButton.DataFilter = null;
+            this.DeleteColumnButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DeleteColumnButton.Field = BudgetExecution.Field.AccountCode;
+            this.DeleteColumnButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteColumnButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.DeleteColumnButton.HoverText = "Delete Column";
+            this.DeleteColumnButton.Image = global::BudgetExecution.Properties.Resources.DeleteColumnButton;
+            this.DeleteColumnButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeleteColumnButton.Margin = new System.Windows.Forms.Padding(1);
+            this.DeleteColumnButton.Name = "DeleteColumnButton";
+            this.DeleteColumnButton.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteColumnButton.Size = new System.Drawing.Size(23, 26);
+            this.DeleteColumnButton.Text = "toolStripButton1";
+            this.DeleteColumnButton.ToolTip = this.ToolTip;
+            this.DeleteColumnButton.ToolType = BudgetExecution.ToolType.DeleteColumnButton;
+            // 
+            // Separator27
+            // 
+            this.Separator27.ForeColor = System.Drawing.Color.Black;
+            this.Separator27.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator27.Name = "Separator27";
+            this.Separator27.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator27.Size = new System.Drawing.Size(6, 26);
+            // 
+            // EditSqlButton
+            // 
+            this.EditSqlButton.AutoToolTip = false;
+            this.EditSqlButton.BackColor = System.Drawing.Color.Transparent;
+            this.EditSqlButton.BindingSource = this.BindingSource;
+            this.EditSqlButton.DataFilter = null;
+            this.EditSqlButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.EditSqlButton.Field = BudgetExecution.Field.AccountCode;
+            this.EditSqlButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EditSqlButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.EditSqlButton.HoverText = "SQL Editor";
+            this.EditSqlButton.Image = global::BudgetExecution.Properties.Resources.EditSqlButton;
+            this.EditSqlButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.EditSqlButton.Margin = new System.Windows.Forms.Padding(1);
+            this.EditSqlButton.Name = "EditSqlButton";
+            this.EditSqlButton.Padding = new System.Windows.Forms.Padding(1);
+            this.EditSqlButton.Size = new System.Drawing.Size(23, 26);
+            this.EditSqlButton.Text = "toolStripButton1";
+            this.EditSqlButton.ToolTip = this.ToolTip;
+            this.EditSqlButton.ToolType = BudgetExecution.ToolType.EditSqlButton;
+            // 
+            // Separator26
+            // 
+            this.Separator26.ForeColor = System.Drawing.Color.Black;
+            this.Separator26.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator26.Name = "Separator26";
+            this.Separator26.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator26.Size = new System.Drawing.Size(6, 26);
+            // 
+            // ExcelButton
+            // 
+            this.ExcelButton.AutoToolTip = false;
+            this.ExcelButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExcelButton.BindingSource = this.BindingSource;
+            this.ExcelButton.DataFilter = null;
+            this.ExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExcelButton.Field = BudgetExecution.Field.AccountCode;
+            this.ExcelButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExcelButton.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.ExcelButton.HoverText = "Excel Export";
+            this.ExcelButton.Image = global::BudgetExecution.Properties.Resources.ExcelButton;
+            this.ExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExcelButton.Margin = new System.Windows.Forms.Padding(1);
+            this.ExcelButton.Name = "ExcelButton";
+            this.ExcelButton.Padding = new System.Windows.Forms.Padding(1);
+            this.ExcelButton.Size = new System.Drawing.Size(23, 26);
+            this.ExcelButton.Text = "toolStripButton1";
+            this.ExcelButton.ToolTip = null;
+            this.ExcelButton.ToolType = BudgetExecution.ToolType.ExcelButton;
             // 
             // Separator14
             // 
@@ -836,13 +905,13 @@
             this.Separator24.Padding = new System.Windows.Forms.Padding(1);
             this.Separator24.Size = new System.Drawing.Size(6, 26);
             // 
-            // Separator21
+            // Separator13
             // 
-            this.Separator21.ForeColor = System.Drawing.Color.Black;
-            this.Separator21.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator21.Name = "Separator21";
-            this.Separator21.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator21.Size = new System.Drawing.Size(6, 26);
+            this.Separator13.ForeColor = System.Drawing.Color.Black;
+            this.Separator13.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator13.Name = "Separator13";
+            this.Separator13.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator13.Size = new System.Drawing.Size(6, 26);
             // 
             // Separator15
             // 
@@ -891,7 +960,7 @@
             this.DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
             this.DataGridPanel.HoverText = null;
             this.DataGridPanel.IsDerivedStyle = true;
-            this.DataGridPanel.Location = new System.Drawing.Point(30, 122);
+            this.DataGridPanel.Location = new System.Drawing.Point(30, 113);
             this.DataGridPanel.Name = "DataGridPanel";
             this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
             this.DataGridPanel.Size = new System.Drawing.Size(948, 532);
@@ -963,27 +1032,27 @@
             this.DataGrid.TabIndex = 0;
             this.DataGrid.ToolTip = null;
             // 
-            // DataGridLabel
+            // DataSourceLabel
             // 
-            this.DataGridLabel.BindingSource = null;
-            this.DataGridLabel.DataFilter = null;
-            this.DataGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DataGridLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DataGridLabel.HoverText = null;
-            this.DataGridLabel.IsDerivedStyle = true;
-            this.DataGridLabel.Location = new System.Drawing.Point(30, 93);
-            this.DataGridLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.DataGridLabel.Name = "DataGridLabel";
-            this.DataGridLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridLabel.Size = new System.Drawing.Size(948, 23);
-            this.DataGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DataGridLabel.StyleManager = null;
-            this.DataGridLabel.TabIndex = 25;
-            this.DataGridLabel.Text = "label1";
-            this.DataGridLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DataGridLabel.ThemeAuthor = "Terry D. Eppler";
-            this.DataGridLabel.ThemeName = "BudgetExecution";
-            this.DataGridLabel.ToolTip = null;
+            this.DataSourceLabel.BindingSource = null;
+            this.DataSourceLabel.DataFilter = null;
+            this.DataSourceLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DataSourceLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataSourceLabel.HoverText = null;
+            this.DataSourceLabel.IsDerivedStyle = true;
+            this.DataSourceLabel.Location = new System.Drawing.Point(115, 84);
+            this.DataSourceLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.DataSourceLabel.Name = "DataSourceLabel";
+            this.DataSourceLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.DataSourceLabel.Size = new System.Drawing.Size(863, 23);
+            this.DataSourceLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DataSourceLabel.StyleManager = null;
+            this.DataSourceLabel.TabIndex = 25;
+            this.DataSourceLabel.Text = "label1";
+            this.DataSourceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DataSourceLabel.ThemeAuthor = "Terry D. Eppler";
+            this.DataSourceLabel.ThemeName = "BudgetExecution";
+            this.DataSourceLabel.ToolTip = null;
             // 
             // TablePanel
             // 
@@ -1058,7 +1127,7 @@
             this.ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ColumnPanel.HoverText = null;
             this.ColumnPanel.IsDerivedStyle = true;
-            this.ColumnPanel.Location = new System.Drawing.Point(1022, 326);
+            this.ColumnPanel.Location = new System.Drawing.Point(1022, 315);
             this.ColumnPanel.Name = "ColumnPanel";
             this.ColumnPanel.Padding = new System.Windows.Forms.Padding(1);
             this.ColumnPanel.Size = new System.Drawing.Size(334, 140);
@@ -1117,7 +1186,7 @@
             this.ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             this.ValuePanel.HoverText = null;
             this.ValuePanel.IsDerivedStyle = true;
-            this.ValuePanel.Location = new System.Drawing.Point(1022, 514);
+            this.ValuePanel.Location = new System.Drawing.Point(1022, 505);
             this.ValuePanel.Name = "ValuePanel";
             this.ValuePanel.Padding = new System.Windows.Forms.Padding(1);
             this.ValuePanel.Size = new System.Drawing.Size(334, 140);
@@ -1170,11 +1239,11 @@
             this.TableLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableLabel.HoverText = null;
             this.TableLabel.IsDerivedStyle = true;
-            this.TableLabel.Location = new System.Drawing.Point(1022, 93);
+            this.TableLabel.Location = new System.Drawing.Point(1081, 93);
             this.TableLabel.Margin = new System.Windows.Forms.Padding(3);
             this.TableLabel.Name = "TableLabel";
             this.TableLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.TableLabel.Size = new System.Drawing.Size(326, 23);
+            this.TableLabel.Size = new System.Drawing.Size(267, 23);
             this.TableLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableLabel.StyleManager = null;
             this.TableLabel.TabIndex = 29;
@@ -1192,11 +1261,11 @@
             this.ColumnLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ColumnLabel.HoverText = null;
             this.ColumnLabel.IsDerivedStyle = true;
-            this.ColumnLabel.Location = new System.Drawing.Point(1022, 301);
+            this.ColumnLabel.Location = new System.Drawing.Point(1104, 286);
             this.ColumnLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ColumnLabel.Name = "ColumnLabel";
             this.ColumnLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnLabel.Size = new System.Drawing.Size(326, 23);
+            this.ColumnLabel.Size = new System.Drawing.Size(244, 23);
             this.ColumnLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnLabel.StyleManager = null;
             this.ColumnLabel.TabIndex = 30;
@@ -1214,11 +1283,11 @@
             this.ValueLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ValueLabel.HoverText = null;
             this.ValueLabel.IsDerivedStyle = true;
-            this.ValueLabel.Location = new System.Drawing.Point(1022, 485);
+            this.ValueLabel.Location = new System.Drawing.Point(1081, 476);
             this.ValueLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ValueLabel.Name = "ValueLabel";
             this.ValueLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValueLabel.Size = new System.Drawing.Size(334, 23);
+            this.ValueLabel.Size = new System.Drawing.Size(275, 23);
             this.ValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValueLabel.StyleManager = null;
             this.ValueLabel.TabIndex = 31;
@@ -1250,6 +1319,97 @@
             this.RightHeaderLabel.ThemeName = "BudgetExecution";
             this.RightHeaderLabel.ToolTip = null;
             // 
+            // StaticGridLabel
+            // 
+            this.StaticGridLabel.BindingSource = null;
+            this.StaticGridLabel.DataFilter = null;
+            this.StaticGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaticGridLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StaticGridLabel.HoverText = null;
+            this.StaticGridLabel.IsDerivedStyle = true;
+            this.StaticGridLabel.Location = new System.Drawing.Point(30, 84);
+            this.StaticGridLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.StaticGridLabel.Name = "StaticGridLabel";
+            this.StaticGridLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.StaticGridLabel.Size = new System.Drawing.Size(79, 23);
+            this.StaticGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.StaticGridLabel.StyleManager = null;
+            this.StaticGridLabel.TabIndex = 33;
+            this.StaticGridLabel.Text = "Data Source";
+            this.StaticGridLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StaticGridLabel.ThemeAuthor = "Terry D. Eppler";
+            this.StaticGridLabel.ThemeName = "BudgetExecution";
+            this.StaticGridLabel.ToolTip = null;
+            // 
+            // StaticTableLabel
+            // 
+            this.StaticTableLabel.BindingSource = null;
+            this.StaticTableLabel.DataFilter = null;
+            this.StaticTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaticTableLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StaticTableLabel.HoverText = null;
+            this.StaticTableLabel.IsDerivedStyle = true;
+            this.StaticTableLabel.Location = new System.Drawing.Point(1022, 93);
+            this.StaticTableLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.StaticTableLabel.Name = "StaticTableLabel";
+            this.StaticTableLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.StaticTableLabel.Size = new System.Drawing.Size(53, 23);
+            this.StaticTableLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.StaticTableLabel.StyleManager = null;
+            this.StaticTableLabel.TabIndex = 34;
+            this.StaticTableLabel.Tag = "";
+            this.StaticTableLabel.Text = "Tables:  ";
+            this.StaticTableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StaticTableLabel.ThemeAuthor = "Terry D. Eppler";
+            this.StaticTableLabel.ThemeName = "BudgetExecution";
+            this.StaticTableLabel.ToolTip = null;
+            // 
+            // StaticColumnLabel
+            // 
+            this.StaticColumnLabel.BindingSource = null;
+            this.StaticColumnLabel.DataFilter = null;
+            this.StaticColumnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaticColumnLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StaticColumnLabel.HoverText = null;
+            this.StaticColumnLabel.IsDerivedStyle = true;
+            this.StaticColumnLabel.Location = new System.Drawing.Point(1025, 286);
+            this.StaticColumnLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.StaticColumnLabel.Name = "StaticColumnLabel";
+            this.StaticColumnLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.StaticColumnLabel.Size = new System.Drawing.Size(73, 23);
+            this.StaticColumnLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.StaticColumnLabel.StyleManager = null;
+            this.StaticColumnLabel.TabIndex = 35;
+            this.StaticColumnLabel.Tag = "";
+            this.StaticColumnLabel.Text = "Columns: ";
+            this.StaticColumnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StaticColumnLabel.ThemeAuthor = "Terry D. Eppler";
+            this.StaticColumnLabel.ThemeName = "BudgetExecution";
+            this.StaticColumnLabel.ToolTip = null;
+            // 
+            // StaticValueLabel
+            // 
+            this.StaticValueLabel.BindingSource = null;
+            this.StaticValueLabel.DataFilter = null;
+            this.StaticValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaticValueLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StaticValueLabel.HoverText = null;
+            this.StaticValueLabel.IsDerivedStyle = true;
+            this.StaticValueLabel.Location = new System.Drawing.Point(1022, 476);
+            this.StaticValueLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.StaticValueLabel.Name = "StaticValueLabel";
+            this.StaticValueLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.StaticValueLabel.Size = new System.Drawing.Size(53, 23);
+            this.StaticValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.StaticValueLabel.StyleManager = null;
+            this.StaticValueLabel.TabIndex = 36;
+            this.StaticValueLabel.Tag = "";
+            this.StaticValueLabel.Text = "Values:  ";
+            this.StaticValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StaticValueLabel.ThemeAuthor = "Terry D. Eppler";
+            this.StaticValueLabel.ThemeName = "BudgetExecution";
+            this.StaticValueLabel.ToolTip = null;
+            // 
             // DataGridForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1258,11 +1418,15 @@
             this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.DarkRed;
+            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.CaptionButtonHoverColor = System.Drawing.Color.Red;
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1388, 712);
+            this.Controls.Add(this.StaticValueLabel);
+            this.Controls.Add(this.StaticColumnLabel);
+            this.Controls.Add(this.StaticTableLabel);
+            this.Controls.Add(this.StaticGridLabel);
             this.Controls.Add(this.RightHeaderLabel);
             this.Controls.Add(this.ValueLabel);
             this.Controls.Add(this.ColumnLabel);
@@ -1270,12 +1434,12 @@
             this.Controls.Add(this.ValuePanel);
             this.Controls.Add(this.ColumnPanel);
             this.Controls.Add(this.TablePanel);
-            this.Controls.Add(this.DataGridLabel);
+            this.Controls.Add(this.DataSourceLabel);
             this.Controls.Add(this.DataGridPanel);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.LeftHeaderLabel);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.ForeColor = System.Drawing.Color.LightGray;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
@@ -1327,7 +1491,6 @@
         public ToolSeparator Separator18;
         public ToolSeparator Separator19;
         public ToolSeparator Separator20;
-        public ToolSeparator Separator21;
         public ToolSeparator Separator22;
         public ToolStripButton FirstButton;
         public ToolStripButton PreviousButton;
@@ -1343,7 +1506,6 @@
         public ToolStripButton AddTableButton;
         public ToolSeparator Separator23;
         public ToolStripButton AddColumnButton;
-        public ToolStripButton ExportButton;
         public ToolStripButton CalendarButton;
         public ToolStripButton ChartButton;
         public ToolStripButton CalculatorButton;
@@ -1352,7 +1514,7 @@
         public ToolStripButton HomeButton;
         public Layout GridPanel;
         public Layout DataGridPanel;
-        public Label DataGridLabel;
+        public Label DataSourceLabel;
         public Layout TablePanel;
         public Layout ColumnPanel;
         public Layout ValuePanel;
@@ -1364,5 +1526,15 @@
         public ListBox ValueListBox;
         private ListBox TableListBox;
         public Label RightHeaderLabel;
+        public ToolSeparator Separator25;
+        private ToolStripButton DeleteColumnButton;
+        public ToolSeparator Separator27;
+        public ToolStripButton EditSqlButton;
+        public ToolSeparator Separator26;
+        public ToolStripButton ExcelButton;
+        private Label StaticGridLabel;
+        private Label StaticTableLabel;
+        private Label StaticColumnLabel;
+        private Label StaticValueLabel;
     }
 }

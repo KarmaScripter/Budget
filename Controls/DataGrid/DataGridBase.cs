@@ -9,12 +9,25 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class DataGridBase : GridDataBoundGrid
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataGridBase"/> class.
+        /// </summary>
+        /// <overload>
+        /// Initializes a new instance of
+        /// <see cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />.
+        /// </overload>
         public DataGridBase( )
         {
             // Basic Properties
-            ForeColor = Color.White;
+            ForeColor = Color.LightGray;
             BackColor = Color.FromArgb( 20, 20, 20 );
             Font = new Font( "Roboto", 9 );
             Margin = new Padding( 0 );

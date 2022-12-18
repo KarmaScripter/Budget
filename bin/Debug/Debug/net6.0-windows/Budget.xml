@@ -2004,6 +2004,27 @@
             </summary>
             <param name="ex">The ex.</param>
         </member>
+        <member name="T:BudgetExecution.DataGridBase">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />
+        </member>
+        <member name="M:BudgetExecution.DataGridBase.#ctor">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:BudgetExecution.DataGridBase"/> class.
+            </summary>
+            <overload>
+            Initializes a new instance of
+            <see cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />.
+            </overload>
+        </member>
+        <member name="T:BudgetExecution.DataGridForm">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:BudgetExecution.DataGridForm.DataModel">
             <summary>
             Gets or sets the data model.

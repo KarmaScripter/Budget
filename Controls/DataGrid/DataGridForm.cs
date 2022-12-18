@@ -11,6 +11,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -40,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The source prefix.
         /// </value>
-        public string SourcePrefix { get; set; } = " Data Source : ";
+        public string SourcePrefix { get; set; } = "Data Source : ";
 
         /// <summary>
         /// Gets the table prefix.
@@ -48,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The table prefix.
         /// </value>
-        public string TablePrefix { get; set; } = " Tables : ";
+        public string TablePrefix { get; set; } = "Tables : ";
 
         /// <summary>
         /// Gets the column prefix.
@@ -56,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The column prefix.
         /// </value>
-        public string ColumnPrefix { get; set; } = " Columns : ";
+        public string ColumnPrefix { get; set; } = "Columns : ";
 
         /// <summary>
         /// Gets the value prefix.
@@ -64,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The value prefix.
         /// </value>
-        public string ValuePrefix { get; set; } = " Values : ";
+        public string ValuePrefix { get; set; } = "Values : ";
 
         /// <summary>
         /// Gets or sets the selected table.
@@ -117,10 +120,10 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.LightSteelBlue;
-            CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
@@ -170,7 +173,7 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 TableLabel.Text = TablePrefix + TableListBox.Items.Count;
                 ColumnLabel.Text = ColumnPrefix;
-                DataGridLabel.Text = SourcePrefix + DataModel.DataTable.TableName.SplitPascal( );
+                DataSourceLabel.Text = SourcePrefix + DataModel.DataTable.TableName.SplitPascal( );
                 SelectedTable = string.Empty;
                 SelectedColumn = string.Empty;
                 SelectedValue = string.Empty;
@@ -202,7 +205,7 @@ namespace BudgetExecution
                     | AnchorStyles.Bottom;
                 TableListBox.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
                     | AnchorStyles.Bottom;
-                DataGridLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
+                DataSourceLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
                     | AnchorStyles.Bottom;
                 DataGridPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
                     | AnchorStyles.Bottom;
@@ -300,16 +303,14 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    DataGridLabel.Text =
-                        SourcePrefix + DataModel.DataTable.TableName?.SplitPascal( );
+                    DataSourceLabel.Text = DataModel.DataTable.TableName?.SplitPascal( );
                     var _columns = DataModel.GetDataColumns( );
                     foreach( var col in _columns )
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
 
-                    ColumnLabel.Text = ColumnPrefix + ColumnListBox.Items.Count;
-                    ValueLabel.Text = ValuePrefix;
+                    ColumnLabel.Text = ColumnListBox.Items.Count.ToString( );
                 }
             }
             catch( Exception ex )
@@ -341,7 +342,7 @@ namespace BudgetExecution
                     }
                 }
 
-                ValueLabel.Text = ValuePrefix + ValueListBox.Items.Count;
+                ValueLabel.Text = ValueListBox.Items.Count.ToString( );
             }
             catch( Exception ex )
             {
@@ -367,13 +368,13 @@ namespace BudgetExecution
                    & !string.IsNullOrEmpty( SelectedColumn ) )
                 {
                     FormFilter.Add( SelectedColumn, SelectedValue );
-                    _query = $"SELECT * FROM {SelectedTable} "
-                        + $"WHERE {SelectedColumn} = '{SelectedValue}';";
+                    _query = $"SELECT * FROM { SelectedTable } "
+                        + $"WHERE { SelectedColumn } = '{ SelectedValue }';";
                 }
 
                 SqlQuery = _query;
                 LeftHeaderLabel.Text = SqlQuery;
-                ValueLabel.Text = ValuePrefix + ValueListBox.Items.Count;
+                ValueLabel.Text = ValueListBox.Items.Count.ToString( );
             }
             catch( Exception ex )
             {
