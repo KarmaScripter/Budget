@@ -446,7 +446,7 @@ namespace BudgetExecution
             // 
             this.FileList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.FileList.BindingSource = null;
-            this.FileList.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.FileList.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FileList.DataFilter = null;
             this.FileList.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FileList.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -545,7 +545,7 @@ namespace BudgetExecution
             this.Header.DataFilter = null;
             this.Header.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Header.HoverText = null;
             this.Header.IsDerivedStyle = true;
             this.Header.Location = new System.Drawing.Point(90, 3);
@@ -557,7 +557,6 @@ namespace BudgetExecution
             this.Header.StyleManager = null;
             this.Header.TabIndex = 0;
             this.Header.Text = "File Search";
-            this.Header.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Header.ThemeAuthor = "Terry D. Eppler";
             this.Header.ThemeName = "BudgetExecution";
             this.Header.ToolTip = null;

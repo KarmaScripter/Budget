@@ -88,6 +88,8 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 700, 480 );
+            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Header.TextAlign = ContentAlignment.TopLeft;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             InitialDirPaths = GetInitialDirPaths( );
@@ -117,7 +119,6 @@ namespace BudgetExecution
                 {
                     PopulateListView( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
-                    Header.Text = "File Search : " + FileDialog.InitialDirectory;
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
                 }
@@ -139,14 +140,17 @@ namespace BudgetExecution
                 try
                 {
                     var _path = AppSettings[ "Extensions" ];
-                    var _files = GetFiles( _path );
-                    if( _files?.Any( ) == true )
+                    if( _path != null )
                     {
-                        var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
-                        var _file = _files.Where( f => f.Contains( _extension ) )?.First( );
-                        using var stream = File.Open( _file, FileMode.Open );
-                        var _img = Image.FromStream( stream );
-                        return new Bitmap( _img, 22, 22 );
+                        var _files = GetFiles( _path );
+                        if( _files?.Any( ) == true )
+                        {
+                            var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
+                            var _file = _files.Where( f => f.Contains( _extension ) )?.First( );
+                            using var stream = File.Open( _file, FileMode.Open );
+                            var _img = Image.FromStream( stream );
+                            return new Bitmap( _img, 22, 22 );
+                        }
                     }
                 }
                 catch( Exception ex )
@@ -233,7 +237,6 @@ namespace BudgetExecution
                                 }
 
                                 var _subdir = GetDirectories( dir );
-
                                 for( var i = 0; i < _subdir.Length; i++ )
                                 {
                                     var sub = _subdir[ i ];

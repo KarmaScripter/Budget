@@ -157,7 +157,7 @@ namespace BudgetExecution
                 SqlQuery = string.Empty;
                 LeftHeaderLabel.Text = string.Empty;
                 RightHeaderLabel.Text = string.Empty;
-                ToolStripLabel.Text = "Data Provider: " + DataModel.Provider;
+                ToolStripLabel.Text = "Provider: " + DataModel.Provider;
             }
             catch( Exception ex )
             {
