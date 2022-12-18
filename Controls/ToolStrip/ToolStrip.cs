@@ -73,9 +73,9 @@ namespace BudgetExecution
             Padding = new Padding( 1, 1, 1, 1 );
             BackColor = Color.Transparent;
             ForeColor = Color.Black;
-            Font = new Font( "Roboto", 8 );
+            Font = new Font( "Roboto", 9 );
             ShowCaption = true;
-            CaptionFont = new Font( "Roboto", 8 );
+            CaptionFont = new Font( "Roboto", 9 );
             CaptionStyle = CaptionStyle.Top;
             CaptionAlignment = CaptionAlignment.Near;
             CaptionTextStyle = CaptionTextStyle.Plain;
@@ -85,7 +85,7 @@ namespace BudgetExecution
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            ImageScalingSize = new Size( 16, 18 );
+            ImageScalingSize = new Size( 20, 18 );
             Office12Mode = true;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;

@@ -83,6 +83,7 @@ namespace BudgetExecution
                         ToolType.LastButton => "Last Record",
                         ToolType.EditButton => "Edit Record",
                         ToolType.AddButton => "Add Record",
+                        ToolType.EditSqlButton => "SQL Editor",
                         ToolType.DeleteButton => "Delete Record",
                         ToolType.SaveButton => "Save Record",
                         ToolType.RefreshButton => "Reset Filters",
