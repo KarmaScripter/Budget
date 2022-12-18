@@ -31,7 +31,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             BorderColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 64, 64, 64 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 26;
@@ -41,6 +41,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowMouseOver = true;
             ShowInTaskbar = true;
+            StartPosition = FormStartPosition.CenterParent;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             Size = new Size( 1380, 600 );

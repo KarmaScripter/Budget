@@ -9,10 +9,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Drawing;
-    using Syncfusion.Windows.Forms.Tools;
-    using System.Linq;
     using System.Windows.Forms;
-    using System.Xml;
 
     /// <summary>
     /// 
@@ -112,12 +109,6 @@ namespace BudgetExecution
                         case ToolType.UpdateButton:
                         {
                             TabPage.Text = "SQL Update";
-                            ActiveTab = TabPage;
-                            break;
-                        }
-                        case ToolType.EditRecordButton:
-                        {
-                            TabPage.Text = "Edit Record";
                             ActiveTab = TabPage;
                             break;
                         }

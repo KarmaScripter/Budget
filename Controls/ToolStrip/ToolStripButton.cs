@@ -29,7 +29,7 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
             BackColor =  Color.Transparent;
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 8 );
             AutoToolTip = false;
             Text = string.Empty;
