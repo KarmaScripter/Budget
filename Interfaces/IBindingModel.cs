@@ -216,14 +216,9 @@ namespace BudgetExecution
         IEnumerable<double> GetSeriesValues( );
 
         /// <summary>
-        /// Gets the source model.
+        /// Gets the series model.
         /// </summary>
-        /// <param name="">
-        /// 
-        /// </param>
-        /// <returns>
-        /// 
-        /// </returns>
+        /// <returns></returns>
         BindingModel GetSeriesModel( );
         
         /// <summary>
