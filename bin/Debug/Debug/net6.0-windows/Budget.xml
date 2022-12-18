@@ -3065,6 +3065,69 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:BudgetExecution.SqlDialog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.SqlDialog.Current">
+            <summary>
+            Gets or sets the current.
+            </summary>
+            <value>
+            The current.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SqlDialog.Frames">
+            <summary>
+            Gets or sets the frames.
+            </summary>
+            <value>
+            The frames.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.#ctor(BudgetExecution.ToolType,System.Windows.Forms.BindingSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog"/> class.
+            </summary>
+            <param name="toolType">Type of the tool.</param>
+            <param name="bindingSource">The binding source.</param>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.#ctor(BudgetExecution.ToolType,BudgetExecution.Source,BudgetExecution.Provider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog"/> class.
+            </summary>
+            <param name="toolType">Type of the tool.</param>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.SetActiveTab">
+            <summary>
+            Sets the active tab.
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.SqlDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:BudgetExecution.EditBase">
             <summary>
             
@@ -33364,23 +33427,6 @@
         <member name="P:BudgetExecution.Properties.Resources.VerifyDataButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.SqlDialog.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.SqlDialog.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:BudgetExecution.SqlDialog.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:BudgetExecution.Resource">

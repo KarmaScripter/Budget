@@ -191,13 +191,19 @@ namespace BudgetExecution
                         case ToolType.DeleteButton:
                         case ToolType.EditButton:
                         case ToolType.EditRecordButton:
-                        case ToolType.UpdateButton:
-                        case ToolType.InsertButton:
                         case ToolType.CopyButton:
                         case ToolType.AddRecordButton:
                         case ToolType.DeleteRecordButton:
                         {
                             var _dialog = new EditDialog( _button.ToolType, BindingSource  );
+                            _dialog?.ShowDialog( );
+                            break;
+                        }
+                        case ToolType.InsertButton:
+                        case ToolType.UpdateButton:
+                        case ToolType.EditSqlButton:
+                        {
+                            var _dialog = new SqlDialog( _button.ToolType, BindingSource  );
                             _dialog?.ShowDialog( );
                             break;
                         }

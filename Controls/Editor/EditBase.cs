@@ -27,6 +27,23 @@ namespace BudgetExecution
         public EditBase( )
         {
             InitializeComponent( );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 64, 64, 64 );
+            CaptionButtonHoverColor = Color.Red;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 26;
+            CaptionFont = new Font( "Roboto", 11 );
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            ShowIcon = false;
+            ShowMouseOver = true;
+            ShowInTaskbar = true;
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Size = new Size( 1380, 600 );
             Text = string.Empty;
         }
 

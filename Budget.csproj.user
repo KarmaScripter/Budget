@@ -85,6 +85,9 @@
     <Compile Update="Controls\Dialogs\Notification.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Dialogs\SqlDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Editor\EditBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,9 +210,6 @@
     </Compile>
     <Compile Update="Data\Adapter\AdapterBuilder.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="SqlDialog.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
