@@ -557,6 +557,7 @@ namespace BudgetExecution
             this.Header.StyleManager = null;
             this.Header.TabIndex = 0;
             this.Header.Text = "File Search";
+            this.Header.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Header.ThemeAuthor = "Terry D. Eppler";
             this.Header.ThemeName = "BudgetExecution";
             this.Header.ToolTip = null;

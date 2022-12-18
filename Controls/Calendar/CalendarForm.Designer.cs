@@ -2,7 +2,6 @@
 {
     using System.ComponentModel;
     using System.Windows.Forms;
-    
     using Syncfusion.Windows.Forms;
     partial class CalendarForm
     {

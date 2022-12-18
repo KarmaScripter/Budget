@@ -12,7 +12,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
     
-
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class GridBase : DataGridView
     {
         /// <summary>

@@ -7,8 +7,11 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
-    
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.PictureBox" />
     public class Picture : PictureBox 
     {
         /// <summary>
@@ -100,6 +103,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Picture"/> class.
+        /// </summary>
+        /// <param name="path">The path.</param>
         public Picture( string path )
             : this( )
         {

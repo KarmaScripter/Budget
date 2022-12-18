@@ -11,10 +11,25 @@ namespace BudgetExecution
 
     public partial class Frame : UserControl
     {
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
         public int Index { get; set; }
 
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Frame"/> class.
+        /// </summary>
         public Frame( )
         {
             InitializeComponent( );

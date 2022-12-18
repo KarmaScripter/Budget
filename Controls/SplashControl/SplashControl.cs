@@ -14,6 +14,9 @@ namespace BudgetExecution
     using Image = System.Drawing.Image;
     using System.IO;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SplashControl : SplashPanel
     {

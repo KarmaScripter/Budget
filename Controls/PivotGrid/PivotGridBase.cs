@@ -12,6 +12,9 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class PivotGridBase : PivotGridControl
@@ -99,7 +102,6 @@ namespace BudgetExecution
                     {
                         var _list = bindingList as BindingSource;
                         var _filter = string.Empty;
-
                         foreach( var _kvp in dict )
                         {
                             if( !string.IsNullOrEmpty( _kvp.Key )

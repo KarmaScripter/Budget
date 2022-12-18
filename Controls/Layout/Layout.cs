@@ -16,7 +16,6 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="LayoutBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Layout : MetroSetPanel
     {
@@ -87,6 +86,11 @@ namespace BudgetExecution
             BorderStyle = BorderStyle.FixedSingle;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Layout"/> class.
+        /// </summary>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
         public Layout( Size size, Point location )
             : this( )
         {

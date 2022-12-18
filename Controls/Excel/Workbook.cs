@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Workbook : ExcelBase
     {
         /// <summary>
@@ -80,6 +81,11 @@ namespace BudgetExecution
             Workbook = Excel.Workbook;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Workbook"/> class.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
         public Workbook( DataTable dataTable )
             : this( )
         {
@@ -120,7 +126,6 @@ namespace BudgetExecution
                     {
                         SetFontColor( grid, FontColor );
                         SetBackgroundColor( grid, PrimaryBackColor );
-
                         SetHorizontalAlignment( grid,
                             OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
                     }
@@ -150,7 +155,6 @@ namespace BudgetExecution
                     var _column = _range.Start.Column;
                     SetFontColor( grid, FontColor );
                     SetBackgroundColor( grid, PrimaryBackColor );
-
                     SetHorizontalAlignment( grid,
                         OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
 
@@ -186,7 +190,6 @@ namespace BudgetExecution
                     excelRange.Style.Font.SetFromFont( Font );
                     excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     excelRange.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
-
                     excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
                         .ExcelHorizontalAlignment.CenterContinuous;
 
@@ -216,7 +219,6 @@ namespace BudgetExecution
                     excelRange.Style.Font.SetFromFont( Font );
                     excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     excelRange.Style.Fill.BackgroundColor.SetColor( Color.White );
-
                     excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
                         .ExcelHorizontalAlignment.CenterContinuous;
 
@@ -319,7 +321,6 @@ namespace BudgetExecution
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
-
                     _range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment
                         .CenterContinuous;
                 }

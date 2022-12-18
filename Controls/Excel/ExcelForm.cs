@@ -8,8 +8,14 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class ExcelForm : MetroForm
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public ExcelForm( )
         {
             InitializeComponent( );

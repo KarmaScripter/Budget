@@ -25,8 +25,20 @@ namespace BudgetExecution
         private string _imagePath =
             @"C:\Users\terry\source\repos\Budget\Resources\Images\Loader\Loading.gif";
 
+        /// <summary>
+        /// Gets or sets the picture.
+        /// </summary>
+        /// <value>
+        /// The picture.
+        /// </value>
         public Image Picture { get; set; }
 
+        /// <summary>
+        /// Gets or sets the loader.
+        /// </summary>
+        /// <value>
+        /// The loader.
+        /// </value>
         public Bitmap Loader { get; set; }
 
         /// <summary>
@@ -61,6 +73,11 @@ namespace BudgetExecution
             FormClosed += OnClose;
         }
 
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -72,6 +89,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnTick( object sender, EventArgs e )
         {
             try
@@ -84,7 +106,12 @@ namespace BudgetExecution
                 Fail( ex  );
             }
         }
-        
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnClose( object sender, EventArgs e )
         {
             try

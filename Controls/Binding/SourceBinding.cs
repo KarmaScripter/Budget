@@ -10,6 +10,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -22,6 +25,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRows"></param>
         [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
         public SourceBinding( IEnumerable<DataRow> dataRows )
         {

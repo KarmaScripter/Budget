@@ -7,8 +7,15 @@ namespace BudgetExecution
     using System;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class CalendarForm : MetroForm
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CalendarForm"/> class.
+        /// </summary>
         public CalendarForm( )
         {
             InitializeComponent( );

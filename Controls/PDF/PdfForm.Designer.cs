@@ -681,9 +681,9 @@
 
         #endregion
 
-        private Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl pdfViewerControl1;
-        private BindingSource BindingSource;
-        private SmallTip ToolTip;
+        public Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl pdfViewerControl1;
+        public BindingSource BindingSource;
+        public SmallTip ToolTip;
         public ToolStrip ToolStrip;
         public ToolStripButton AddButton;
         public ToolStripButton BrowseButton;

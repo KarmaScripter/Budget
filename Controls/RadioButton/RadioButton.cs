@@ -8,11 +8,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RadioButton : MetroSetRadioButton
     {
@@ -107,7 +109,6 @@ namespace BudgetExecution
             try
             {
                 var _control = sender as RadioButton;
-
                 if( _control is RadioButton _radioButton
                    && !string.IsNullOrEmpty( HoverText ) )
                 {

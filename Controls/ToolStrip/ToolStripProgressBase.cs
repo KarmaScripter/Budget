@@ -7,8 +7,10 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
-    
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class ToolStripProgressBase : System.Windows.Forms.ToolStripProgressBar
     {
         /// <summary>

@@ -8,10 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
-    
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class RichTextBox : MetroSetRichTextBox
     {
         /// <summary>

@@ -13,6 +13,9 @@ namespace BudgetExecution
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ListBox : MetroSetListBox
     {

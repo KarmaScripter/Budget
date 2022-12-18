@@ -37,7 +37,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcelForm));
             this.Ribbon = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon();
             this.spreadsheet1 = new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet();
-            this.DataSet = new System.Data.DataSet();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolStrip = new BudgetExecution.ToolStrip();
             this.Separator1 = new BudgetExecution.ToolSeparator();
@@ -77,7 +76,6 @@
             this.HomeButton = new BudgetExecution.ToolStripButton();
             this.Separator16 = new BudgetExecution.ToolSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -152,10 +150,6 @@
             this.spreadsheet1.TabItemContextMenu = null;
             this.spreadsheet1.Text = "Spreadsheet";
             this.spreadsheet1.ThemeName = "Default";
-            // 
-            // DataSet
-            // 
-            this.DataSet.DataSetName = "NewDataSet";
             // 
             // ToolStrip
             // 
@@ -282,7 +276,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(5);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(146, 24);
+            this.TextBox.Size = new System.Drawing.Size(144, 24);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -787,7 +781,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "     Excel Data";
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
@@ -798,9 +791,9 @@
 
         #endregion
 
-        private Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon Ribbon;
-        private Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet spreadsheet1;
-        private SmallTip ToolTip;
+        public Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon Ribbon;
+        public Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet spreadsheet1;
+        public SmallTip ToolTip;
         public ToolStrip ToolStrip;
         public System.Windows.Forms.BindingSource BindingSource;
         public ToolSeparator Separator1;
@@ -835,9 +828,8 @@
         public ToolSeparator Separator16;
         public ToolStripButton PreviousButton;
         public ToolStripButton NextButton;
-        private ToolSeparator Separator17;
+        public ToolSeparator Separator17;
         public ToolStripButton DatabaseButton;
-        private ToolSeparator Separator18;
-        public System.Data.DataSet DataSet;
+        public ToolSeparator Separator18;
     }
 }

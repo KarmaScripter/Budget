@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
     /// <summary>
@@ -16,6 +17,7 @@ namespace BudgetExecution
     /// method and only support other methods while
     /// being displayed for the first time and when closing
     /// </remarks>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public sealed class FormAnimator
     {
         /// <summary>
