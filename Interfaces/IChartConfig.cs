@@ -8,6 +8,9 @@ namespace BudgetExecution
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IChartConfig
     {
         /// <summary>

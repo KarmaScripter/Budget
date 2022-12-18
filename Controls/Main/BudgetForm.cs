@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Settings" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BudgetForm
     {
         /// <summary>

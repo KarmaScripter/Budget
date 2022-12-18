@@ -10,6 +10,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IGroupBox
     {
         /// <summary>
@@ -69,8 +72,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingsource">The bindingsource.</param>
-        void SetDataSource<T1>( T1 bindingsource )
+        /// <param name="bindingSource">The bindingSource.</param>
+        void SetDataSource<T1>( T1 bindingSource )
             where T1 : IBindingList;
 
         /// <summary>
@@ -78,9 +81,9 @@ namespace BudgetExecution
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindinglist">The bindingsource.</param>
+        /// <param name="bindingList">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
-        void SetDataSource<T1, T2>( T1 bindinglist, T2 dict )
+        void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList
             where T2 : IDictionary<string, object>;
 

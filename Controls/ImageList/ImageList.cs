@@ -11,6 +11,9 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class ImageList : ImageListBase
     {
         /// <summary>
@@ -115,7 +118,6 @@ namespace BudgetExecution
                 {
                     var _name = Path.GetFileName( path );
                     var _image = new Bitmap( path );
-
                     if( _image != null )
                     {
                         Images.Add( _name, _image );
@@ -144,7 +146,6 @@ namespace BudgetExecution
                         {
                             var _name = Path.GetFileName( _file );
                             var _image = new Bitmap( _file );
-
                             if( _image != null )
                             {
                                 Images.Add( _name, _image );
@@ -190,7 +191,6 @@ namespace BudgetExecution
             {
                 IEnumerable<string> _files = Directory.GetFiles( srcDir );
                 var _list = new List<Image>( );
-
                 if( _files?.Count( ) > 0 )
                 {
                     foreach( var _file in _files )
@@ -220,7 +220,6 @@ namespace BudgetExecution
             {
                 var _files = paths.ToList( );
                 var _list = new List<Image>( );
-
                 for( var i = 0; i < _files.Count; i++ )
                 {
                     using var _stream = File.Open( _files[ i ], FileMode.Open );

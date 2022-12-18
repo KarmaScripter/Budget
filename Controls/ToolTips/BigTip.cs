@@ -10,8 +10,11 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public class BigTip : SuperToolTip
     {
         /// <summary>
@@ -46,6 +49,10 @@ namespace BudgetExecution
         /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BigTip"/> class.
+        /// </summary>
         public BigTip( )
         {
             // Basic Properties
@@ -81,6 +88,12 @@ namespace BudgetExecution
             TipInfo.Footer.TextAlign = ContentAlignment.BottomLeft;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BigTip"/> class.
+        /// </summary>
+        /// <param name="control">The control.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="title">The title.</param>
         public BigTip( Control control, string text, string title = "" )
             : this( )
         {

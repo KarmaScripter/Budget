@@ -15,6 +15,9 @@ namespace BudgetExecution
     using OfficeOpenXml;
     using TableStyles = OfficeOpenXml.Table.TableStyles;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class EnumerableExtensions
     {
         /// <summary>

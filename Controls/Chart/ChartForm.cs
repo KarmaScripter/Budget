@@ -11,6 +11,9 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ChartForm : MetroForm
     {
@@ -86,6 +89,10 @@ namespace BudgetExecution
             Controls.Add( Chart );
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRows"></param>
         public ChartForm( IEnumerable<DataRow> dataRows )
             : this( )
         {

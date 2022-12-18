@@ -9,6 +9,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripLabel : ToolStripLabelBase, IToolStripLabel
     {
@@ -83,7 +86,6 @@ namespace BudgetExecution
             try
             {
                 Font = font ?? new Font( "Roboto", 9 );
-
                 ForeColor = color != Color.Empty
                     ? color
                     : Color.Empty;

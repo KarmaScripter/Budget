@@ -8,8 +8,15 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     public partial class PdfForm : MetroForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PdfForm"/> class.
+        /// </summary>
         public PdfForm( )
         {
             InitializeComponent( );
@@ -28,10 +35,10 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.LightSteelBlue;
-            CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;

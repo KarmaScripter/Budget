@@ -9,6 +9,9 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IChart
     {
         /// <summary>

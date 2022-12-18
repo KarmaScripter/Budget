@@ -13,6 +13,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.WinForms.ListView;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.WinForms.ListView.SfListView" />
     public abstract class ListViewBase : SfListView
     {
         /// <summary>
@@ -50,7 +54,6 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the binding source.
         /// </summary>
-        /// <param name="bindingList">The bindingsource.</param>
         public virtual void SetDataSource<T1>( T1 bindingList ) where T1 : IBindingList
         {
             try

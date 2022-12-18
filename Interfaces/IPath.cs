@@ -8,6 +8,9 @@ namespace BudgetExecution
     using System.IO;
     using System.Security.AccessControl;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IPath
     {
         /// <summary>

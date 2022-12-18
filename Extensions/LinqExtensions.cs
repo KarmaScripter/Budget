@@ -10,10 +10,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class LinqExtensions
     {
         /// <summary>
-        /// Nones the specified predicate.
+        /// The specified predicate.
         /// </summary>
         /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
@@ -64,11 +67,9 @@ namespace BudgetExecution
             }
 
             var _matches = 0;
-
             foreach( var _unused in source.Where( predicate ) )
             {
                 _matches++;
-
                 if( _matches >= minCount )
                 {
                     return true;
@@ -114,11 +115,9 @@ namespace BudgetExecution
             }
 
             var _matches = 0;
-
             foreach( var _unused in source.Where( predicate ) )
             {
                 ++_matches;
-
                 if( _matches > count )
                 {
                     return false;

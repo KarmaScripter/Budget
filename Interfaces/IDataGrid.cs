@@ -8,6 +8,9 @@ namespace BudgetExecution
     using System.Data;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IDataGrid
     {
         /// <summary>

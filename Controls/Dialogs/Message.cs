@@ -10,9 +10,15 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class Message : MetroForm
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Message( )
         {
             InitializeComponent( );
@@ -74,6 +80,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [open button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public virtual void OnOpenButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button

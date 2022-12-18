@@ -6,10 +6,19 @@ namespace BudgetExecution
 {
     public enum TriggerEvent
     {
+        /// <summary>
+        /// The delete
+        /// </summary>
         Delete,
 
+        /// <summary>
+        /// The update
+        /// </summary>
         Update,
 
+        /// <summary>
+        /// The insert
+        /// </summary>
         Insert
     }
 
@@ -18,8 +27,14 @@ namespace BudgetExecution
     /// </summary>
     public enum TriggerType
     {
+        /// <summary>
+        /// The after
+        /// </summary>
         After,
 
+        /// <summary>
+        /// The before
+        /// </summary>
         Before
     }
 

@@ -273,6 +273,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <returns></returns>
         protected override int GetId( DataRow dataRow )
         {
             try
@@ -288,6 +293,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
         protected override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try

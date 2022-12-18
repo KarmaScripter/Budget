@@ -7,6 +7,9 @@ namespace BudgetExecution
     using System.Drawing;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IClock
     {
         /// <summary>

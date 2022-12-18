@@ -14,6 +14,9 @@ namespace BudgetExecution
     using OfficeOpenXml.Style;
     using Syncfusion.Windows.Forms.Spreadsheet;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IWorkbook
     {
         /// <summary>

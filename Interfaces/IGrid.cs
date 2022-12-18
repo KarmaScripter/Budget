@@ -6,6 +6,9 @@ namespace BudgetExecution
 {
     using OfficeOpenXml;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IGrid
     {
         /// <summary>

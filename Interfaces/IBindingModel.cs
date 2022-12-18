@@ -11,6 +11,9 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IBindingModel
     {
         /// <summary>
@@ -77,18 +80,60 @@ namespace BudgetExecution
         /// </value>
         BindingSource BindingSource { get; set; }
 
+        /// <summary>
+        /// Gets or sets the data source.
+        /// </summary>
+        /// <value>
+        /// The data source.
+        /// </value>
         object DataSource { get; set; }
 
+        /// <summary>
+        /// Gets or sets the data member.
+        /// </summary>
+        /// <value>
+        /// The data member.
+        /// </value>
         string DataMember { get; set; }
 
+        /// <summary>
+        /// Gets the count.
+        /// </summary>
+        /// <value>
+        /// The count.
+        /// </value>
         int Count { get; }
 
+        /// <summary>
+        /// Gets or sets the index of the x.
+        /// </summary>
+        /// <value>
+        /// The index of the x.
+        /// </value>
         int XIndex { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of the x.
+        /// </summary>
+        /// <value>
+        /// The name of the x.
+        /// </value>
         string XName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the y indexes.
+        /// </summary>
+        /// <value>
+        /// The y indexes.
+        /// </value>
         int[ ] YIndexes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the y names.
+        /// </summary>
+        /// <value>
+        /// The y names.
+        /// </value>
         string[ ] YNames { get; set; }
 
         /// <summary>
@@ -214,9 +259,7 @@ namespace BudgetExecution
         /// <summary>
         ///  
         /// </summary>
-        /// <param name="">
-        /// 
-        /// </param>
+        /// <param name = "index" > </param>
         /// <returns>
         /// 
         /// </returns>

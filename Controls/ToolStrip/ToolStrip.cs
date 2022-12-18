@@ -111,7 +111,6 @@ namespace BudgetExecution
         public IDictionary<string, ToolStripButton> GetButtons( )
         {
             var _buttons = new SortedList<string, ToolStripButton>( );
-
             if( Items?.Count > 0 )
             {
                 foreach( var control in Items )

@@ -7,8 +7,12 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
-    
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.ToolStripTextBox" />
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ToolStripTextBase : System.Windows.Forms.ToolStripTextBox
     {
         /// <summary>

@@ -34,10 +34,10 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.LightSteelBlue;
-            CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;

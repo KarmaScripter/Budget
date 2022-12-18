@@ -9,7 +9,11 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripProgressBar : ToolStripProgressBase
     {
         /// <summary>

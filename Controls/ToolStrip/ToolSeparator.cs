@@ -9,6 +9,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class ToolSeparator : ToolStripSeparator
     {
         /// <summary>

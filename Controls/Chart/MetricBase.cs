@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class MetricBase
     {
         /// <summary>
@@ -174,6 +175,12 @@ namespace BudgetExecution
             Average = CalculateAverage( dataRow, numeric );
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="where"></param>
+        /// <param name="numeric"></param>
         protected MetricBase( IEnumerable<DataRow> dataRow, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
         {
@@ -215,7 +222,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -245,7 +251,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return 0;
                 }
             }
@@ -267,7 +272,6 @@ namespace BudgetExecution
                 try
                 {
                     var _select = dataRow.Select( p => p.Field<decimal>( $"{numeric}" ) ).Sum( );
-
                     return _select > 0
                         ? double.Parse( _select.ToString( "N1" ) )
                         : 0.0d;
@@ -305,7 +309,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return 0.0d;
                 }
             }

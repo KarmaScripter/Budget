@@ -77,8 +77,6 @@
         }
 
         #endregion
-
-        public Selector Selector;
         public MetroSet_UI.Components.StyleManager Darkmode;
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;

@@ -7,6 +7,9 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.IO;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IFile : IPath
     {
         /// <summary>

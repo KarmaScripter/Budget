@@ -1,9 +1,12 @@
-﻿// <copyright file = "IFullTimeEquivalent.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IFullTimeEquivalent
     {
         /// <summary>
@@ -11,90 +14,90 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        IKey GetId();
+        IKey GetId( );
 
         /// <summary>
         /// Gets the program project.
         /// </summary>
         /// <returns>
         /// </returns>
-        IProgramProject GetProgramProject();
+        IProgramProject GetProgramProject( );
 
         /// <summary>
         /// Gets the program area.
         /// </summary>
         /// <returns>
         /// </returns>
-        IProgramArea GetProgramArea();
+        IProgramArea GetProgramArea( );
 
         /// <summary>
         /// Gets the authority.
         /// </summary>
         /// <returns>
         /// </returns>
-        IAmount GetAmount();
+        IAmount GetAmount( );
 
         /// <summary>
         /// Gets the program results code.
         /// </summary>
         /// <returns>
         /// </returns>
-        IProgramResultsCode GetProgramResultsCode();
+        IProgramResultsCode GetProgramResultsCode( );
 
         /// <summary>
         /// Gets the budget level.
         /// </summary>
         /// <returns>
         /// </returns>
-        IBudgetLevel GetBudgetLevel();
+        IBudgetLevel GetBudgetLevel( );
 
         /// <summary>
         /// Gets the budget fiscal year.
         /// </summary>
         /// <returns>
         /// </returns>
-        IBudgetFiscalYear GetBudgetFiscalYear();
+        IBudgetFiscalYear GetBudgetFiscalYear( );
 
         /// <summary>
         /// Gets the resource planning office.
         /// </summary>
         /// <returns>
         /// </returns>
-        IResourcePlanningOffice GetResourcePlanningOffice();
+        IResourcePlanningOffice GetResourcePlanningOffice( );
 
         /// <summary>
         /// Gets the allowance holder.
         /// </summary>
         /// <returns>
         /// </returns>
-        IAllowanceHolder GetAllowanceHolder();
+        IAllowanceHolder GetAllowanceHolder( );
 
         /// <summary>
         /// Gets the fund.
         /// </summary>
         /// <returns>
         /// </returns>
-        IFund GetFund();
+        IFund GetFund( );
 
         /// <summary>
         /// Gets the organization.
         /// </summary>
         /// <returns>
         /// </returns>
-        IOrganization GetOrganization();
+        IOrganization GetOrganization( );
 
         /// <summary>
         /// Gets the account.
         /// </summary>
         /// <returns>
         /// </returns>
-        IAccount GetAccount();
+        IAccount GetAccount( );
 
         /// <summary>
         /// Gets the responsibility center.
         /// </summary>
         /// <returns>
         /// </returns>
-        IResponsibilityCenter GetResponsibilityCenter();
+        IResponsibilityCenter GetResponsibilityCenter( );
     }
 }

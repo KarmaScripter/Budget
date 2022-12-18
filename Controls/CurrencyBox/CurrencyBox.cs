@@ -8,6 +8,10 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.CurrencyBase" />
     public class CurrencyBox : CurrencyBase
     {
         /// <summary>

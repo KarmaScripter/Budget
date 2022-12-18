@@ -7,7 +7,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -987,7 +987,7 @@
         }
 
         #endregion
-        private ToolSeparator Separator16;
+        public ToolSeparator Separator16;
         public ToolStrip ToolStrip;
         public ToolStripButton CalculatorButton;
         public ToolStripButton DatabaseButton;
@@ -1018,19 +1018,19 @@
         public ToolSeparator Separator12;
         public ToolStripButton DeleteColumnButton;
         public ToolSeparator Separator27;
-        private ToolSeparator Separator19;
+        public ToolSeparator Separator19;
         public ToolStripButton CopyButton;
-        private ToolSeparator Separator20;
+        public ToolSeparator Separator20;
         public ToolStripButton AddTableButton;
-        private ToolSeparator Separator21;
+        public ToolSeparator Separator21;
         public ToolStripButton DeleteTableButton;
-        private ToolSeparator Separator22;
+        public ToolSeparator Separator22;
         public ToolStripButton RefreshButton;
-        private ToolSeparator Separator24;
+        public ToolSeparator Separator24;
         public ToolStripButton VerifyButton;
-        private ToolSeparator Separator23;
+        public ToolSeparator Separator23;
         public ToolStripButton SaveButton;
-        private ToolSeparator Separator25;
+        public ToolSeparator Separator25;
         public ToolStripButton EditSqlButton;
         public ToolSeparator Separator13;
         public ToolStripButton ExcelButton;
@@ -1038,10 +1038,10 @@
         public ToolStripButton BrowseButton;
         public ToolSeparator Separator15;
         public ToolSeparator Separator18;
-        private ToolSeparator Separator26;
+        public ToolSeparator Separator26;
         public ToolStripButton CalendarButton;
-        private ToolSeparator Separator28;
+        public ToolSeparator Separator28;
         public System.Windows.Forms.BindingSource BindingSource;
-        private SmallTip ToolTip;
+        public SmallTip ToolTip;
     }
 }

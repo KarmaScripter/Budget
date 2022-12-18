@@ -323,7 +323,7 @@ partial class SqlDialog
     public Button RefreshButton;
     public Button CloseButton;
     public Layout EditorPanel;
-    private Syncfusion.Windows.Forms.Edit.EditControl Editor;
+    public Syncfusion.Windows.Forms.Edit.EditControl Editor;
     public System.Windows.Forms.BindingSource BindingSource;
     public SmallTip ToollTip;
 }

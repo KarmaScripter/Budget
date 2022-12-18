@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class ExcelExtensions
     {
         /// <summary>
@@ -24,11 +25,24 @@ namespace BudgetExecution
         /// </summary>
         public enum InsertMode
         {
-            /// <summary>The row before</summary>
-            RowBefore, RowAfter,
+            /// <summary>
+            /// The row before
+            /// </summary>
+            RowBefore,
 
+            /// <summary>
+            /// The row after
+            /// </summary>
+            RowAfter,
+
+            /// <summary>
+            /// The column right
+            /// </summary>
             ColumnRight,
 
+            /// <summary>
+            /// The column left
+            /// </summary>
             ColumnLeft
         }
 
@@ -45,7 +59,7 @@ namespace BudgetExecution
             return excelPackage.ToDataSet( _row );
         }
 
-        /// <summary>Converts to dataset.</summary>
+        /// <summary>Converts to data set.</summary>
         /// <param name="excelPackage">The excelPackage.</param>
         /// <param name="header">The header.</param>
         /// <returns></returns>
@@ -63,9 +77,13 @@ namespace BudgetExecution
             foreach( var _worksheet in excelPackage.Workbook.Worksheets )
             {
                 var _table = new DataTable( ) ;
-                _table.TableName = _worksheet?.Name;
-                var _start = 1;
 
+                if ( _worksheet?.Name != null )
+                {
+                    _table.TableName = _worksheet?.Name;
+                }
+
+                var _start = 1;
                 if( header > 0 )
                 {
                     _start = header;
@@ -81,14 +99,13 @@ namespace BudgetExecution
                 var i = header > 0
                     ? _start + 1
                     : _start;
-
+                
                 for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
                 {
                     var _range =
                         _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
 
                     var _row = _table.Rows.Add( );
-
                     foreach( var cell in _range )
                     {
                         _row[ cell.Start.Column - 1 ] = cell.Value;
@@ -138,8 +155,7 @@ namespace BudgetExecution
         {
             var _first = width >= 1.0
                 ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
-                : Math.Round(
-                    ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) )
+                : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) )
                     / 12.0, 2 );
 
             var _second = width - _first;

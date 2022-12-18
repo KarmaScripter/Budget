@@ -166,6 +166,14 @@ namespace BudgetExecution
             CommandText = $"SELECT * FROM { source } WHERE { where.ToCriteria( ) }";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="provider"></param>
+        /// <param name="updates"></param>
+        /// <param name="where"></param>
+        /// <param name="commandType"></param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
@@ -199,6 +207,15 @@ namespace BudgetExecution
             Columns = columns.ToList( );
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="provider"></param>
+        /// <param name="columns"></param>
+        /// <param name="numerics"></param>
+        /// <param name="where"></param>
+        /// <param name="commandType"></param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
             IEnumerable<string> numerics, IDictionary<string, object> where,
             SQL commandType = SQL.SELECT )

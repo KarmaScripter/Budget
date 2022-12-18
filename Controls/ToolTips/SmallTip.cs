@@ -12,6 +12,10 @@ namespace BudgetExecution
     using MetroSet_UI.Components;
     using System;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MetroSet_UI.Components.MetroSetSetToolTip" />
     public class SmallTip : MetroSetSetToolTip
     {
         /// <summary>

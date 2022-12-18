@@ -6,6 +6,9 @@ namespace BudgetExecution
 {
     using System.Data.Common;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IAdapter
     {
         /// <summary> Gets the connection. </summary>

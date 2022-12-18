@@ -8,6 +8,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IToolStripComboBox
     {
         /// <summary> Sets the data source.

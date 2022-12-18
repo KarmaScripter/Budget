@@ -1051,13 +1051,13 @@
         public BudgetExecution.TextBox visualTextBox3;
         public Layout groupBox9;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
-        private Label ProviderPanelLabel;
-        private Layout ProviderPanel;
-        private Label ValuePanelLabel;
-        private Label ColumnPanelLabel;
-        private Label TablePanelLabel;
-        private Layout ValuePanel;
-        private Layout ColumnPanel;
-        private Layout TablePanel;
+        public Label ProviderPanelLabel;
+        public Layout ProviderPanel;
+        public Label ValuePanelLabel;
+        public Label ColumnPanelLabel;
+        public Label TablePanelLabel;
+        public Layout ValuePanel;
+        public Layout ColumnPanel;
+        public Layout TablePanel;
     }
 }

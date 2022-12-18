@@ -49,10 +49,28 @@ namespace BudgetExecution
         /// </value>
         public double Amount { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ProgramResultCodes identifier.
+        /// </summary>
+        /// <value>
+        /// The ProgramResultCodes identifier.
+        /// </value>
         public override int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
         public override string Code { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public override string Name { get; set; }
 
         /// <summary>
@@ -218,12 +236,13 @@ namespace BudgetExecution
             BocCode = Record?[ $"{ Field.BocCode }" ].ToString( );
             AccountCode = Record?[ $"{ Field.AccountCode }" ].ToString( );
             ActivityCode = Record?[ $"{ Field.ActivityCode }" ].ToString( );
-            Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
+            Amount = double.Parse( Record?[ $"{ Numeric.Amount }" ].ToString( ) );
             Data = Record?.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ProgramResultsCode"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ProgramResultsCode"/> class.
         /// </summary>
         /// <param name = "dataRow" >
         /// The dataRow.
@@ -280,15 +299,20 @@ namespace BudgetExecution
             {
                 return Data?.Any( ) == true
                     ? Data
-                    : default( IDictionary<string, object> );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, object> );
+                return default;
             }
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <returns></returns>
         public override int GetId( DataRow dataRow )
         {
             try
@@ -300,10 +324,16 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( int );
+                return default;
             }
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
         public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try
@@ -315,7 +345,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( int );
+                return default;
             }
         }
     }

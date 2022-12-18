@@ -7,6 +7,9 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IToolStripButton
     {
         /// <summary>
