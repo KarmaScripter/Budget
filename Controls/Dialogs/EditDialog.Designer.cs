@@ -31,7 +31,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDialog));
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
@@ -86,8 +85,6 @@
             this.Frame20 = new BudgetExecution.Frame();
             this.Frame21 = new BudgetExecution.Frame();
             this.Frame44 = new BudgetExecution.Frame();
-            this.SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.SqlEditor = new Syncfusion.Windows.Forms.Edit.EditControl();
             this.ToolTip = new BudgetExecution.SmallTip();
             this.tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.groupBox7 = new BudgetExecution.Layout();
@@ -105,13 +102,12 @@
             this.groupBox3 = new BudgetExecution.Layout();
             this.groupBox4 = new BudgetExecution.Layout();
             this.groupBox9 = new BudgetExecution.Layout();
+            this.SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
             this.DataTab.SuspendLayout();
             this.FrameTable.SuspendLayout();
-            this.SqlTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SqlEditor)).BeginInit();
             this.tabPageAdv1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -935,80 +931,6 @@
             this.Frame44.Size = new System.Drawing.Size(180, 57);
             this.Frame44.TabIndex = 43;
             // 
-            // SqlTab
-            // 
-            this.SqlTab.Controls.Add(this.SqlEditor);
-            this.SqlTab.Image = null;
-            this.SqlTab.ImageSize = new System.Drawing.Size(14, 14);
-            this.SqlTab.Location = new System.Drawing.Point(0, 22);
-            this.SqlTab.Name = "SqlTab";
-            this.SqlTab.ShowCloseButton = true;
-            this.SqlTab.Size = new System.Drawing.Size(1362, 500);
-            this.SqlTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SqlTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SqlTab.TabIndex = 5;
-            this.SqlTab.Text = "  SQL Mode";
-            this.SqlTab.ThemesEnabled = false;
-            // 
-            // SqlEditor
-            // 
-            this.SqlEditor.AllowZoom = false;
-            this.SqlEditor.AlwaysShowScrollers = true;
-            this.SqlEditor.BackColor = System.Drawing.Color.LightGray;
-            this.SqlEditor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.SqlEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SqlEditor.CanOverrideStyle = true;
-            this.SqlEditor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
-            this.SqlEditor.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.SqlEditor.ColumnGuidesMeasuringFont = new System.Drawing.Font("Source Code Pro", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SqlEditor.Configurator = config1;
-            this.SqlEditor.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.SqlEditor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
-            this.SqlEditor.ContextChoiceForeColor = System.Drawing.Color.White;
-            this.SqlEditor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SqlEditor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SqlEditor.CurrentLineHighlightColor = System.Drawing.Color.SteelBlue;
-            this.SqlEditor.IndentBlockHighlightingColor = System.Drawing.Color.SteelBlue;
-            this.SqlEditor.IndentLineColor = System.Drawing.Color.SteelBlue;
-            this.SqlEditor.IndicatorMarginBackColor = System.Drawing.Color.Empty;
-            this.SqlEditor.LineNumbersColor = System.Drawing.Color.CornflowerBlue;
-            this.SqlEditor.LineNumbersFont = new System.Drawing.Font("Source Code Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SqlEditor.Location = new System.Drawing.Point(149, 33);
-            this.SqlEditor.Name = "SqlEditor";
-            this.SqlEditor.RenderRightToLeft = false;
-            this.SqlEditor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
-            this.SqlEditor.ScrollPosition = new System.Drawing.Point(0, 0);
-            this.SqlEditor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
-            this.SqlEditor.SelectionTextColor = System.Drawing.Color.White;
-            this.SqlEditor.ShowEndOfLine = false;
-            this.SqlEditor.Size = new System.Drawing.Size(1040, 421);
-            this.SqlEditor.StatusBarSettings.CoordsPanel.Width = 150;
-            this.SqlEditor.StatusBarSettings.EncodingPanel.Width = 100;
-            this.SqlEditor.StatusBarSettings.FileNamePanel.Width = 100;
-            this.SqlEditor.StatusBarSettings.InsertPanel.Width = 33;
-            this.SqlEditor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
-            this.SqlEditor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
-            this.SqlEditor.StatusBarSettings.StatusPanel.Width = 70;
-            this.SqlEditor.StatusBarSettings.TextPanel.Width = 214;
-            this.SqlEditor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
-            this.SqlEditor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
-            this.SqlEditor.TabIndex = 0;
-            this.SqlEditor.Text = "This is text";
-            this.SqlEditor.ThemeName = "Office2016Black";
-            this.SqlEditor.ThemeStyle.BookmarkMarginBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.SqlEditor.ThemeStyle.LineNumberFont = new System.Drawing.Font("Source Code Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SqlEditor.ThemeStyle.UserMarginBackColor = System.Drawing.Color.Black;
-            this.SqlEditor.ThemeStyle.UserMarginBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SqlEditor.UserMarginBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SqlEditor.UserMarginTextColor = System.Drawing.Color.White;
-            this.SqlEditor.UseXPStyle = false;
-            this.SqlEditor.UseXPStyleBorder = true;
-            this.SqlEditor.VisualColumn = 1;
-            this.SqlEditor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
-            this.SqlEditor.WordWrap = true;
-            this.SqlEditor.WordWrapMarginLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SqlEditor.ZoomFactor = 1F;
-            // 
             // ToolTip
             // 
             this.ToolTip.AutoPopDelay = 5000;
@@ -1491,6 +1413,21 @@
             this.groupBox9.ThemeName = "BudgetExecution";
             this.groupBox9.ToolTip = null;
             // 
+            // SqlTab
+            // 
+            this.SqlTab.Image = null;
+            this.SqlTab.ImageSize = new System.Drawing.Size(16, 16);
+            this.SqlTab.Location = new System.Drawing.Point(0, 22);
+            this.SqlTab.Name = "SqlTab";
+            this.SqlTab.ShowCloseButton = true;
+            this.SqlTab.Size = new System.Drawing.Size(1362, 500);
+            this.SqlTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SqlTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlTab.TabIndex = 9;
+            this.SqlTab.TabVisible = false;
+            this.SqlTab.Text = "SQL Editor";
+            this.SqlTab.ThemesEnabled = false;
+            // 
             // EditDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1523,8 +1460,6 @@
             this.TabControl.ResumeLayout(false);
             this.DataTab.ResumeLayout(false);
             this.FrameTable.ResumeLayout(false);
-            this.SqlTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SqlEditor)).EndInit();
             this.tabPageAdv1.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -1542,7 +1477,6 @@
         public Layout groupBox3;
         public Layout groupBox4;
         public Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
-        public Syncfusion.Windows.Forms.Edit.EditControl SqlEditor;
         public Layout groupBox7;
         public ListBox listBox5;
         public ListBox listBox6;
@@ -1553,7 +1487,6 @@
         public BudgetExecution.TextBox visualTextBox3;
         public Layout groupBox9;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
         public System.Windows.Forms.TableLayoutPanel FrameTable;
         public Frame Frame1;
@@ -1605,5 +1538,6 @@
         public Frame Frame47;
         public Frame Frame48;
         public Frame Frame49;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
     }
 }

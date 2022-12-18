@@ -417,7 +417,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(174, 26);
+            this.TextBox.Size = new System.Drawing.Size(168, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -673,7 +673,7 @@
             this.SearchDataButton.Padding = new System.Windows.Forms.Padding(1);
             this.SearchDataButton.Size = new System.Drawing.Size(23, 26);
             this.SearchDataButton.ToolTip = this.ToolTip;
-            this.SearchDataButton.ToolType = BudgetExecution.ToolType.LookupButton;
+            this.SearchDataButton.ToolType = BudgetExecution.ToolType.SearchDataButton;
             // 
             // Separator23
             // 

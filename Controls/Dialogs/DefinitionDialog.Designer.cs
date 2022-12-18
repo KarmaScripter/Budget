@@ -34,57 +34,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefinitionDialog));
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
-            this.CreateTableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.DefinitionTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.SchemaPanelLabel = new BudgetExecution.Label();
-            this.CreateTableSchemaPanel = new BudgetExecution.Layout();
-            this.CreateTableColumnTextBox = new BudgetExecution.TextBox();
+            this.SchemaPanel = new BudgetExecution.Layout();
+            this.SchemaPanelTextBox = new BudgetExecution.TextBox();
             this.ToolTip = new BudgetExecution.SmallTip();
             this.AddColumnButton = new BudgetExecution.Button();
             this.DataTypeComboBox = new BudgetExecution.ComboBox();
-            this.CreateTableTablesPanel = new BudgetExecution.Layout();
-            this.CreateTableNameTextBox = new BudgetExecution.TextBox();
-            this.label1 = new BudgetExecution.Label();
+            this.TablePanel = new BudgetExecution.Layout();
+            this.TableNameComboBox = new BudgetExecution.ComboBox();
+            this.TablePanelTextBox = new BudgetExecution.TextBox();
+            this.TablePanelLabel = new BudgetExecution.Label();
             this.ProviderPanel = new BudgetExecution.Layout();
             this.SqliteRadioButton = new BudgetExecution.RadioButton();
             this.AccessRadioButton = new BudgetExecution.RadioButton();
             this.SqlServerRadioButton = new BudgetExecution.RadioButton();
             this.ProviderPanelLabel = new BudgetExecution.Label();
-            this.EditColumnTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.EditColumnSelectTableGroupBox = new BudgetExecution.Layout();
-            this.EditColumnTablesLayout = new BudgetExecution.Layout();
-            this.EditColumnTableNameListBox = new BudgetExecution.ListBox();
-            this.listBox4 = new BudgetExecution.ListBox();
-            this.EditColumnSelectColumnGroupBox = new BudgetExecution.Layout();
-            this.EditColumnColumnNameListBox = new BudgetExecution.ListBox();
-            this.EditColumnProviderGroupBox = new BudgetExecution.Layout();
-            this.EditColumnAccessRadioButton = new BudgetExecution.RadioButton();
-            this.EditColumnSqlServerRadioButton = new BudgetExecution.RadioButton();
-            this.EditColumnSqliteRadioButton = new BudgetExecution.RadioButton();
-            this.SchemaGroupBox = new BudgetExecution.Layout();
-            this.EditColumnTextBoxLabel = new BudgetExecution.Label();
-            this.EditColumnNameTextBox = new BudgetExecution.TextBox();
-            this.EditColumnDataTypeComboBox = new BudgetExecution.ComboBox();
-            this.EditColumnComboBoxLabel = new BudgetExecution.Label();
-            this.DeleteTableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.DeleteTableTablesGroupBox = new BudgetExecution.Layout();
-            this.DeleteTableTablesLayout = new BudgetExecution.Layout();
-            this.DeleteTableTablesListBox = new BudgetExecution.ListBox();
-            this.listBox8 = new BudgetExecution.ListBox();
-            this.DeleteTableProviderGroupBox = new BudgetExecution.Layout();
-            this.DeleteTableAccessRadioButton = new BudgetExecution.RadioButton();
-            this.DeleteTableSqlServerRadioButton = new BudgetExecution.RadioButton();
-            this.DeleteTableSqliteRadioButton = new BudgetExecution.RadioButton();
-            this.DeleteColumnTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.DeleteColumnGroupBox = new BudgetExecution.Layout();
-            this.DeleteColumnColumnsListBox = new BudgetExecution.ListBox();
-            this.DeleteColumnTablesGroupBox = new BudgetExecution.Layout();
-            this.DeleteColumnTablesLayout = new BudgetExecution.Layout();
-            this.DeleteColumnTableListBox = new BudgetExecution.ListBox();
-            this.listBox3 = new BudgetExecution.ListBox();
-            this.DeleteColumnProviderGroupBox = new BudgetExecution.Layout();
-            this.DeleteColumnAccessRadioButton = new BudgetExecution.RadioButton();
-            this.DeleteColumnSqlServerRadioButton = new BudgetExecution.RadioButton();
-            this.DeleteColumnSqliteRadioButton = new BudgetExecution.RadioButton();
             this.tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.groupBox7 = new BudgetExecution.Layout();
             this.listBox5 = new BudgetExecution.ListBox();
@@ -104,25 +69,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.CreateTableTabPage.SuspendLayout();
-            this.CreateTableSchemaPanel.SuspendLayout();
-            this.CreateTableTablesPanel.SuspendLayout();
+            this.DefinitionTabPage.SuspendLayout();
+            this.SchemaPanel.SuspendLayout();
+            this.TablePanel.SuspendLayout();
             this.ProviderPanel.SuspendLayout();
-            this.EditColumnTabPage.SuspendLayout();
-            this.EditColumnSelectTableGroupBox.SuspendLayout();
-            this.EditColumnTablesLayout.SuspendLayout();
-            this.EditColumnSelectColumnGroupBox.SuspendLayout();
-            this.EditColumnProviderGroupBox.SuspendLayout();
-            this.SchemaGroupBox.SuspendLayout();
-            this.DeleteTableTabPage.SuspendLayout();
-            this.DeleteTableTablesGroupBox.SuspendLayout();
-            this.DeleteTableTablesLayout.SuspendLayout();
-            this.DeleteTableProviderGroupBox.SuspendLayout();
-            this.DeleteColumnTabPage.SuspendLayout();
-            this.DeleteColumnGroupBox.SuspendLayout();
-            this.DeleteColumnTablesGroupBox.SuspendLayout();
-            this.DeleteColumnTablesLayout.SuspendLayout();
-            this.DeleteColumnProviderGroupBox.SuspendLayout();
             this.tabPageAdv1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -137,10 +87,7 @@
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.CreateTableTabPage);
-            this.TabControl.Controls.Add(this.EditColumnTabPage);
-            this.TabControl.Controls.Add(this.DeleteTableTabPage);
-            this.TabControl.Controls.Add(this.DeleteColumnTabPage);
+            this.TabControl.Controls.Add(this.DefinitionTabPage);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
@@ -155,6 +102,8 @@
             this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
             this.TabControl.ThemeName = "TabRendererMetro";
             this.TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TabControl.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ThemeStyle.EditableTabStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -169,27 +118,27 @@
             this.TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             // 
-            // CreateTableTabPage
+            // DefinitionTabPage
             // 
-            this.CreateTableTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CreateTableTabPage.Controls.Add(this.SchemaPanelLabel);
-            this.CreateTableTabPage.Controls.Add(this.CreateTableSchemaPanel);
-            this.CreateTableTabPage.Controls.Add(this.CreateTableTablesPanel);
-            this.CreateTableTabPage.Controls.Add(this.label1);
-            this.CreateTableTabPage.Controls.Add(this.ProviderPanel);
-            this.CreateTableTabPage.Controls.Add(this.ProviderPanelLabel);
-            this.CreateTableTabPage.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.CreateTableTabPage.Image = null;
-            this.CreateTableTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.CreateTableTabPage.Location = new System.Drawing.Point(0, 22);
-            this.CreateTableTabPage.Name = "CreateTableTabPage";
-            this.CreateTableTabPage.ShowCloseButton = true;
-            this.CreateTableTabPage.Size = new System.Drawing.Size(1368, 466);
-            this.CreateTableTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CreateTableTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CreateTableTabPage.TabIndex = 3;
-            this.CreateTableTabPage.Text = "  Create Table";
-            this.CreateTableTabPage.ThemesEnabled = false;
+            this.DefinitionTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DefinitionTabPage.Controls.Add(this.SchemaPanelLabel);
+            this.DefinitionTabPage.Controls.Add(this.SchemaPanel);
+            this.DefinitionTabPage.Controls.Add(this.TablePanel);
+            this.DefinitionTabPage.Controls.Add(this.TablePanelLabel);
+            this.DefinitionTabPage.Controls.Add(this.ProviderPanel);
+            this.DefinitionTabPage.Controls.Add(this.ProviderPanelLabel);
+            this.DefinitionTabPage.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.DefinitionTabPage.Image = null;
+            this.DefinitionTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.DefinitionTabPage.Location = new System.Drawing.Point(0, 22);
+            this.DefinitionTabPage.Name = "DefinitionTabPage";
+            this.DefinitionTabPage.ShowCloseButton = true;
+            this.DefinitionTabPage.Size = new System.Drawing.Size(1368, 466);
+            this.DefinitionTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DefinitionTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DefinitionTabPage.TabIndex = 3;
+            this.DefinitionTabPage.Text = "  Create Table";
+            this.DefinitionTabPage.ThemesEnabled = false;
             // 
             // SchemaPanelLabel
             // 
@@ -207,71 +156,71 @@
             this.SchemaPanelLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SchemaPanelLabel.StyleManager = null;
             this.SchemaPanelLabel.TabIndex = 12;
-            this.SchemaPanelLabel.Text = "label2";
+            this.SchemaPanelLabel.Text = "Schema";
             this.SchemaPanelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SchemaPanelLabel.ThemeAuthor = "Terry D. Eppler";
             this.SchemaPanelLabel.ThemeName = "BudgetExecution";
             this.SchemaPanelLabel.ToolTip = null;
             // 
-            // CreateTableSchemaPanel
+            // SchemaPanel
             // 
-            this.CreateTableSchemaPanel.BackColor = System.Drawing.Color.Transparent;
-            this.CreateTableSchemaPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CreateTableSchemaPanel.BindingSource = null;
-            this.CreateTableSchemaPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CreateTableSchemaPanel.BorderThickness = 1;
-            this.CreateTableSchemaPanel.Children = null;
-            this.CreateTableSchemaPanel.Controls.Add(this.CreateTableColumnTextBox);
-            this.CreateTableSchemaPanel.Controls.Add(this.AddColumnButton);
-            this.CreateTableSchemaPanel.Controls.Add(this.DataTypeComboBox);
-            this.CreateTableSchemaPanel.DataFilter = null;
-            this.CreateTableSchemaPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateTableSchemaPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.CreateTableSchemaPanel.HoverText = null;
-            this.CreateTableSchemaPanel.IsDerivedStyle = true;
-            this.CreateTableSchemaPanel.Location = new System.Drawing.Point(187, 302);
-            this.CreateTableSchemaPanel.Name = "CreateTableSchemaPanel";
-            this.CreateTableSchemaPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.CreateTableSchemaPanel.Size = new System.Drawing.Size(1019, 150);
-            this.CreateTableSchemaPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CreateTableSchemaPanel.StyleManager = null;
-            this.CreateTableSchemaPanel.TabIndex = 11;
-            this.CreateTableSchemaPanel.ThemeAuthor = "Terry D. Eppler";
-            this.CreateTableSchemaPanel.ThemeName = "BudgetExecution";
-            this.CreateTableSchemaPanel.ToolTip = null;
+            this.SchemaPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SchemaPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SchemaPanel.BindingSource = null;
+            this.SchemaPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SchemaPanel.BorderThickness = 1;
+            this.SchemaPanel.Children = null;
+            this.SchemaPanel.Controls.Add(this.SchemaPanelTextBox);
+            this.SchemaPanel.Controls.Add(this.AddColumnButton);
+            this.SchemaPanel.Controls.Add(this.DataTypeComboBox);
+            this.SchemaPanel.DataFilter = null;
+            this.SchemaPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SchemaPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SchemaPanel.HoverText = null;
+            this.SchemaPanel.IsDerivedStyle = true;
+            this.SchemaPanel.Location = new System.Drawing.Point(187, 302);
+            this.SchemaPanel.Name = "SchemaPanel";
+            this.SchemaPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SchemaPanel.Size = new System.Drawing.Size(1019, 150);
+            this.SchemaPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SchemaPanel.StyleManager = null;
+            this.SchemaPanel.TabIndex = 11;
+            this.SchemaPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SchemaPanel.ThemeName = "BudgetExecution";
+            this.SchemaPanel.ToolTip = null;
             // 
-            // CreateTableColumnTextBox
+            // SchemaPanelTextBox
             // 
-            this.CreateTableColumnTextBox.AutoCompleteCustomSource = null;
-            this.CreateTableColumnTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.CreateTableColumnTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.CreateTableColumnTextBox.BindingSource = null;
-            this.CreateTableColumnTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CreateTableColumnTextBox.DataFilter = null;
-            this.CreateTableColumnTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CreateTableColumnTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CreateTableColumnTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CreateTableColumnTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateTableColumnTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CreateTableColumnTextBox.HoverText = "Enter Column Name";
-            this.CreateTableColumnTextBox.Image = null;
-            this.CreateTableColumnTextBox.IsDerivedStyle = true;
-            this.CreateTableColumnTextBox.Lines = null;
-            this.CreateTableColumnTextBox.Location = new System.Drawing.Point(47, 64);
-            this.CreateTableColumnTextBox.MaxLength = 32767;
-            this.CreateTableColumnTextBox.Multiline = false;
-            this.CreateTableColumnTextBox.Name = "CreateTableColumnTextBox";
-            this.CreateTableColumnTextBox.ReadOnly = false;
-            this.CreateTableColumnTextBox.Size = new System.Drawing.Size(292, 23);
-            this.CreateTableColumnTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CreateTableColumnTextBox.StyleManager = null;
-            this.CreateTableColumnTextBox.TabIndex = 6;
-            this.CreateTableColumnTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CreateTableColumnTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.CreateTableColumnTextBox.ThemeName = "BudgetExecution";
-            this.CreateTableColumnTextBox.ToolTip = this.ToolTip;
-            this.CreateTableColumnTextBox.UseSystemPasswordChar = false;
-            this.CreateTableColumnTextBox.WatermarkText = "";
+            this.SchemaPanelTextBox.AutoCompleteCustomSource = null;
+            this.SchemaPanelTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.SchemaPanelTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.SchemaPanelTextBox.BindingSource = null;
+            this.SchemaPanelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SchemaPanelTextBox.DataFilter = null;
+            this.SchemaPanelTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.SchemaPanelTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.SchemaPanelTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.SchemaPanelTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SchemaPanelTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SchemaPanelTextBox.HoverText = "Enter Column Name";
+            this.SchemaPanelTextBox.Image = null;
+            this.SchemaPanelTextBox.IsDerivedStyle = true;
+            this.SchemaPanelTextBox.Lines = null;
+            this.SchemaPanelTextBox.Location = new System.Drawing.Point(47, 64);
+            this.SchemaPanelTextBox.MaxLength = 32767;
+            this.SchemaPanelTextBox.Multiline = false;
+            this.SchemaPanelTextBox.Name = "SchemaPanelTextBox";
+            this.SchemaPanelTextBox.ReadOnly = false;
+            this.SchemaPanelTextBox.Size = new System.Drawing.Size(292, 23);
+            this.SchemaPanelTextBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SchemaPanelTextBox.StyleManager = null;
+            this.SchemaPanelTextBox.TabIndex = 6;
+            this.SchemaPanelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SchemaPanelTextBox.ThemeAuthor = "Terry D. Eppler";
+            this.SchemaPanelTextBox.ThemeName = "BudgetExecution";
+            this.SchemaPanelTextBox.ToolTip = this.ToolTip;
+            this.SchemaPanelTextBox.UseSystemPasswordChar = false;
+            this.SchemaPanelTextBox.WatermarkText = "";
             // 
             // ToolTip
             // 
@@ -354,7 +303,7 @@
             this.DataTypeComboBox.Name = "DataTypeComboBox";
             this.DataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.DataTypeComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.DataTypeComboBox.Size = new System.Drawing.Size(215, 30);
+            this.DataTypeComboBox.Size = new System.Drawing.Size(233, 30);
             this.DataTypeComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataTypeComboBox.StyleManager = null;
             this.DataTypeComboBox.TabIndex = 11;
@@ -362,85 +311,122 @@
             this.DataTypeComboBox.ThemeName = "BudgetExecution";
             this.DataTypeComboBox.ToolTip = this.ToolTip;
             // 
-            // CreateTableTablesPanel
+            // TablePanel
             // 
-            this.CreateTableTablesPanel.BackColor = System.Drawing.Color.Transparent;
-            this.CreateTableTablesPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CreateTableTablesPanel.BindingSource = null;
-            this.CreateTableTablesPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CreateTableTablesPanel.BorderThickness = 1;
-            this.CreateTableTablesPanel.Children = null;
-            this.CreateTableTablesPanel.Controls.Add(this.CreateTableNameTextBox);
-            this.CreateTableTablesPanel.DataFilter = null;
-            this.CreateTableTablesPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateTableTablesPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.CreateTableTablesPanel.HoverText = null;
-            this.CreateTableTablesPanel.IsDerivedStyle = true;
-            this.CreateTableTablesPanel.Location = new System.Drawing.Point(829, 66);
-            this.CreateTableTablesPanel.Name = "CreateTableTablesPanel";
-            this.CreateTableTablesPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.CreateTableTablesPanel.Size = new System.Drawing.Size(377, 164);
-            this.CreateTableTablesPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CreateTableTablesPanel.StyleManager = null;
-            this.CreateTableTablesPanel.TabIndex = 10;
-            this.CreateTableTablesPanel.ThemeAuthor = "Terry D. Eppler";
-            this.CreateTableTablesPanel.ThemeName = "BudgetExecution";
-            this.CreateTableTablesPanel.ToolTip = null;
+            this.TablePanel.BackColor = System.Drawing.Color.Transparent;
+            this.TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TablePanel.BindingSource = null;
+            this.TablePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TablePanel.BorderThickness = 1;
+            this.TablePanel.Children = null;
+            this.TablePanel.Controls.Add(this.TableNameComboBox);
+            this.TablePanel.Controls.Add(this.TablePanelTextBox);
+            this.TablePanel.DataFilter = null;
+            this.TablePanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
+            this.TablePanel.HoverText = null;
+            this.TablePanel.IsDerivedStyle = true;
+            this.TablePanel.Location = new System.Drawing.Point(829, 66);
+            this.TablePanel.Name = "TablePanel";
+            this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
+            this.TablePanel.Size = new System.Drawing.Size(377, 164);
+            this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TablePanel.StyleManager = null;
+            this.TablePanel.TabIndex = 10;
+            this.TablePanel.ThemeAuthor = "Terry D. Eppler";
+            this.TablePanel.ThemeName = "BudgetExecution";
+            this.TablePanel.ToolTip = null;
             // 
-            // CreateTableNameTextBox
+            // TableNameComboBox
             // 
-            this.CreateTableNameTextBox.AutoCompleteCustomSource = null;
-            this.CreateTableNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.CreateTableNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.CreateTableNameTextBox.BindingSource = null;
-            this.CreateTableNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CreateTableNameTextBox.DataFilter = null;
-            this.CreateTableNameTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CreateTableNameTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CreateTableNameTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CreateTableNameTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateTableNameTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CreateTableNameTextBox.HoverText = "Enter Column Name";
-            this.CreateTableNameTextBox.Image = null;
-            this.CreateTableNameTextBox.IsDerivedStyle = true;
-            this.CreateTableNameTextBox.Lines = null;
-            this.CreateTableNameTextBox.Location = new System.Drawing.Point(42, 70);
-            this.CreateTableNameTextBox.MaxLength = 32767;
-            this.CreateTableNameTextBox.Multiline = false;
-            this.CreateTableNameTextBox.Name = "CreateTableNameTextBox";
-            this.CreateTableNameTextBox.ReadOnly = false;
-            this.CreateTableNameTextBox.Size = new System.Drawing.Size(292, 23);
-            this.CreateTableNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CreateTableNameTextBox.StyleManager = null;
-            this.CreateTableNameTextBox.TabIndex = 7;
-            this.CreateTableNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CreateTableNameTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.CreateTableNameTextBox.ThemeName = "BudgetExecution";
-            this.CreateTableNameTextBox.ToolTip = this.ToolTip;
-            this.CreateTableNameTextBox.UseSystemPasswordChar = false;
-            this.CreateTableNameTextBox.WatermarkText = "";
+            this.TableNameComboBox.AllowDrop = true;
+            this.TableNameComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableNameComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.TableNameComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TableNameComboBox.BindingSource = null;
+            this.TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableNameComboBox.CausesValidation = false;
+            this.TableNameComboBox.DataFilter = null;
+            this.TableNameComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TableNameComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TableNameComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TableNameComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.TableNameComboBox.DropDownHeight = 100;
+            this.TableNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TableNameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TableNameComboBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableNameComboBox.FormattingEnabled = true;
+            this.TableNameComboBox.HoverText = null;
+            this.TableNameComboBox.IntegralHeight = false;
+            this.TableNameComboBox.IsDerivedStyle = true;
+            this.TableNameComboBox.ItemHeight = 24;
+            this.TableNameComboBox.Location = new System.Drawing.Point(41, 25);
+            this.TableNameComboBox.Name = "TableNameComboBox";
+            this.TableNameComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableNameComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.TableNameComboBox.Size = new System.Drawing.Size(292, 30);
+            this.TableNameComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TableNameComboBox.StyleManager = null;
+            this.TableNameComboBox.TabIndex = 12;
+            this.TableNameComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.TableNameComboBox.ThemeName = "BudgetExecution";
+            this.TableNameComboBox.ToolTip = this.ToolTip;
             // 
-            // label1
+            // TablePanelTextBox
             // 
-            this.label1.BindingSource = null;
-            this.label1.DataFilter = null;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.HoverText = null;
-            this.label1.IsDerivedStyle = true;
-            this.label1.Location = new System.Drawing.Point(829, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(1);
-            this.label1.Size = new System.Drawing.Size(377, 23);
-            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label1.StyleManager = null;
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.ThemeAuthor = "Terry D. Eppler";
-            this.label1.ThemeName = "BudgetExecution";
-            this.label1.ToolTip = null;
+            this.TablePanelTextBox.AutoCompleteCustomSource = null;
+            this.TablePanelTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.TablePanelTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.TablePanelTextBox.BindingSource = null;
+            this.TablePanelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TablePanelTextBox.DataFilter = null;
+            this.TablePanelTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TablePanelTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TablePanelTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TablePanelTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TablePanelTextBox.HoverText = "Enter Column Name";
+            this.TablePanelTextBox.Image = null;
+            this.TablePanelTextBox.IsDerivedStyle = true;
+            this.TablePanelTextBox.Lines = null;
+            this.TablePanelTextBox.Location = new System.Drawing.Point(41, 104);
+            this.TablePanelTextBox.MaxLength = 32767;
+            this.TablePanelTextBox.Multiline = false;
+            this.TablePanelTextBox.Name = "TablePanelTextBox";
+            this.TablePanelTextBox.ReadOnly = false;
+            this.TablePanelTextBox.Size = new System.Drawing.Size(292, 26);
+            this.TablePanelTextBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TablePanelTextBox.StyleManager = null;
+            this.TablePanelTextBox.TabIndex = 7;
+            this.TablePanelTextBox.Text = "Enter New Name";
+            this.TablePanelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.TablePanelTextBox.ThemeAuthor = "Terry D. Eppler";
+            this.TablePanelTextBox.ThemeName = "BudgetExecution";
+            this.TablePanelTextBox.ToolTip = this.ToolTip;
+            this.TablePanelTextBox.UseSystemPasswordChar = false;
+            this.TablePanelTextBox.WatermarkText = "";
+            // 
+            // TablePanelLabel
+            // 
+            this.TablePanelLabel.BindingSource = null;
+            this.TablePanelLabel.DataFilter = null;
+            this.TablePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelLabel.HoverText = null;
+            this.TablePanelLabel.IsDerivedStyle = true;
+            this.TablePanelLabel.Location = new System.Drawing.Point(829, 37);
+            this.TablePanelLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.TablePanelLabel.Name = "TablePanelLabel";
+            this.TablePanelLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.TablePanelLabel.Size = new System.Drawing.Size(377, 23);
+            this.TablePanelLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TablePanelLabel.StyleManager = null;
+            this.TablePanelLabel.TabIndex = 9;
+            this.TablePanelLabel.Text = "Tables";
+            this.TablePanelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TablePanelLabel.ThemeAuthor = "Terry D. Eppler";
+            this.TablePanelLabel.ThemeName = "BudgetExecution";
+            this.TablePanelLabel.ToolTip = null;
             // 
             // ProviderPanel
             // 
@@ -475,7 +461,7 @@
             this.SqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.SqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.SqliteRadioButton.Checked = false;
-            this.SqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.SqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             this.SqliteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.SqliteRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -489,7 +475,7 @@
             this.SqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqliteRadioButton.StyleManager = null;
             this.SqliteRadioButton.TabIndex = 1;
-            this.SqliteRadioButton.Tag = "SQLite";
+            this.SqliteRadioButton.Tag = "";
             this.SqliteRadioButton.Text = "    SQLite";
             this.SqliteRadioButton.ThemeAuthor = "Narwin";
             this.SqliteRadioButton.ThemeName = "MetroDark";
@@ -501,7 +487,7 @@
             this.AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.AccessRadioButton.Checked = false;
-            this.AccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.AccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             this.AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.AccessRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -515,7 +501,7 @@
             this.AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.AccessRadioButton.StyleManager = null;
             this.AccessRadioButton.TabIndex = 3;
-            this.AccessRadioButton.Tag = "Access";
+            this.AccessRadioButton.Tag = "";
             this.AccessRadioButton.Text = "    MS Access";
             this.AccessRadioButton.ThemeAuthor = "Narwin";
             this.AccessRadioButton.ThemeName = "MetroDark";
@@ -527,7 +513,7 @@
             this.SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.SqlServerRadioButton.Checked = false;
-            this.SqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.SqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             this.SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.SqlServerRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -541,7 +527,7 @@
             this.SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqlServerRadioButton.StyleManager = null;
             this.SqlServerRadioButton.TabIndex = 2;
-            this.SqlServerRadioButton.Tag = "SqlServer";
+            this.SqlServerRadioButton.Tag = "";
             this.SqlServerRadioButton.Text = "    SQL Server";
             this.SqlServerRadioButton.ThemeAuthor = "Narwin";
             this.SqlServerRadioButton.ThemeName = "MetroDark";
@@ -563,1012 +549,11 @@
             this.ProviderPanelLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ProviderPanelLabel.StyleManager = null;
             this.ProviderPanelLabel.TabIndex = 8;
-            this.ProviderPanelLabel.Text = "label1";
+            this.ProviderPanelLabel.Text = "Database  ";
             this.ProviderPanelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ProviderPanelLabel.ThemeAuthor = "Terry D. Eppler";
             this.ProviderPanelLabel.ThemeName = "BudgetExecution";
             this.ProviderPanelLabel.ToolTip = null;
-            // 
-            // EditColumnTabPage
-            // 
-            this.EditColumnTabPage.Controls.Add(this.EditColumnSelectTableGroupBox);
-            this.EditColumnTabPage.Controls.Add(this.EditColumnSelectColumnGroupBox);
-            this.EditColumnTabPage.Controls.Add(this.EditColumnProviderGroupBox);
-            this.EditColumnTabPage.Controls.Add(this.SchemaGroupBox);
-            this.EditColumnTabPage.Image = null;
-            this.EditColumnTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.EditColumnTabPage.Location = new System.Drawing.Point(0, 22);
-            this.EditColumnTabPage.Name = "EditColumnTabPage";
-            this.EditColumnTabPage.ShowCloseButton = true;
-            this.EditColumnTabPage.Size = new System.Drawing.Size(1368, 466);
-            this.EditColumnTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnTabPage.TabIndex = 4;
-            this.EditColumnTabPage.Text = "  Edit Column";
-            this.EditColumnTabPage.ThemesEnabled = false;
-            // 
-            // EditColumnSelectTableGroupBox
-            // 
-            this.EditColumnSelectTableGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditColumnSelectTableGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnSelectTableGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnSelectTableGroupBox.BindingSource = null;
-            this.EditColumnSelectTableGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.EditColumnSelectTableGroupBox.BorderThickness = 1;
-            this.EditColumnSelectTableGroupBox.Children = null;
-            this.EditColumnSelectTableGroupBox.Controls.Add(this.EditColumnTablesLayout);
-            this.EditColumnSelectTableGroupBox.Controls.Add(this.listBox4);
-            this.EditColumnSelectTableGroupBox.DataFilter = null;
-            this.EditColumnSelectTableGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnSelectTableGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.EditColumnSelectTableGroupBox.HoverText = null;
-            this.EditColumnSelectTableGroupBox.IsDerivedStyle = true;
-            this.EditColumnSelectTableGroupBox.Location = new System.Drawing.Point(816, 36);
-            this.EditColumnSelectTableGroupBox.Name = "EditColumnSelectTableGroupBox";
-            this.EditColumnSelectTableGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnSelectTableGroupBox.Size = new System.Drawing.Size(377, 191);
-            this.EditColumnSelectTableGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnSelectTableGroupBox.StyleManager = null;
-            this.EditColumnSelectTableGroupBox.TabIndex = 6;
-            this.EditColumnSelectTableGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnSelectTableGroupBox.ThemeName = "BudgetExecution";
-            this.EditColumnSelectTableGroupBox.ToolTip = null;
-            // 
-            // EditColumnTablesLayout
-            // 
-            this.EditColumnTablesLayout.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnTablesLayout.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnTablesLayout.BindingSource = null;
-            this.EditColumnTablesLayout.BorderColor = System.Drawing.Color.Transparent;
-            this.EditColumnTablesLayout.BorderThickness = 1;
-            this.EditColumnTablesLayout.Children = null;
-            this.EditColumnTablesLayout.Controls.Add(this.EditColumnTableNameListBox);
-            this.EditColumnTablesLayout.DataFilter = null;
-            this.EditColumnTablesLayout.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnTablesLayout.ForeColor = System.Drawing.Color.Transparent;
-            this.EditColumnTablesLayout.HoverText = null;
-            this.EditColumnTablesLayout.IsDerivedStyle = true;
-            this.EditColumnTablesLayout.Location = new System.Drawing.Point(15, 32);
-            this.EditColumnTablesLayout.Name = "EditColumnTablesLayout";
-            this.EditColumnTablesLayout.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnTablesLayout.Size = new System.Drawing.Size(348, 136);
-            this.EditColumnTablesLayout.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnTablesLayout.StyleManager = null;
-            this.EditColumnTablesLayout.TabIndex = 7;
-            this.EditColumnTablesLayout.Text = "layout1";
-            this.EditColumnTablesLayout.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnTablesLayout.ThemeName = "BudgetExecution";
-            this.EditColumnTablesLayout.ToolTip = null;
-            // 
-            // EditColumnTableNameListBox
-            // 
-            this.EditColumnTableNameListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.EditColumnTableNameListBox.BindingSource = null;
-            this.EditColumnTableNameListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.EditColumnTableNameListBox.DataFilter = null;
-            this.EditColumnTableNameListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnTableNameListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnTableNameListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditColumnTableNameListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnTableNameListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.EditColumnTableNameListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.EditColumnTableNameListBox.HoverText = null;
-            this.EditColumnTableNameListBox.IsDerivedStyle = true;
-            this.EditColumnTableNameListBox.ItemHeight = 30;
-            this.EditColumnTableNameListBox.Location = new System.Drawing.Point(1, 1);
-            this.EditColumnTableNameListBox.MultiSelect = false;
-            this.EditColumnTableNameListBox.Name = "EditColumnTableNameListBox";
-            this.EditColumnTableNameListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnTableNameListBox.SelectedIndex = -1;
-            this.EditColumnTableNameListBox.SelectedItem = null;
-            this.EditColumnTableNameListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnTableNameListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.EditColumnTableNameListBox.SelectedText = null;
-            this.EditColumnTableNameListBox.SelectedValue = null;
-            this.EditColumnTableNameListBox.ShowBorder = false;
-            this.EditColumnTableNameListBox.ShowScrollBar = false;
-            this.EditColumnTableNameListBox.Size = new System.Drawing.Size(346, 134);
-            this.EditColumnTableNameListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnTableNameListBox.StyleManager = null;
-            this.EditColumnTableNameListBox.TabIndex = 2;
-            this.EditColumnTableNameListBox.Text = "listBox3";
-            this.EditColumnTableNameListBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnTableNameListBox.ThemeName = "BudgetExecution";
-            this.EditColumnTableNameListBox.ToolTip = this.ToolTip;
-            // 
-            // listBox4
-            // 
-            this.listBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.listBox4.BindingSource = null;
-            this.listBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.listBox4.DataFilter = null;
-            this.listBox4.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox4.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox4.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.listBox4.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.listBox4.HoverText = null;
-            this.listBox4.IsDerivedStyle = true;
-            this.listBox4.ItemHeight = 30;
-            this.listBox4.Location = new System.Drawing.Point(15, 37);
-            this.listBox4.MultiSelect = false;
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Padding = new System.Windows.Forms.Padding(1);
-            this.listBox4.SelectedIndex = -1;
-            this.listBox4.SelectedItem = null;
-            this.listBox4.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.listBox4.SelectedItemColor = System.Drawing.Color.White;
-            this.listBox4.SelectedText = null;
-            this.listBox4.SelectedValue = null;
-            this.listBox4.ShowBorder = false;
-            this.listBox4.ShowScrollBar = false;
-            this.listBox4.Size = new System.Drawing.Size(348, 131);
-            this.listBox4.Style = MetroSet_UI.Enums.Style.Custom;
-            this.listBox4.StyleManager = null;
-            this.listBox4.TabIndex = 1;
-            this.listBox4.Text = "listBox4";
-            this.listBox4.ThemeAuthor = "Terry D. Eppler";
-            this.listBox4.ThemeName = "BudgetExecution";
-            this.listBox4.ToolTip = this.ToolTip;
-            // 
-            // EditColumnSelectColumnGroupBox
-            // 
-            this.EditColumnSelectColumnGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnSelectColumnGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnSelectColumnGroupBox.BindingSource = null;
-            this.EditColumnSelectColumnGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.EditColumnSelectColumnGroupBox.BorderThickness = 1;
-            this.EditColumnSelectColumnGroupBox.Children = null;
-            this.EditColumnSelectColumnGroupBox.Controls.Add(this.EditColumnColumnNameListBox);
-            this.EditColumnSelectColumnGroupBox.DataFilter = null;
-            this.EditColumnSelectColumnGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnSelectColumnGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.EditColumnSelectColumnGroupBox.HoverText = null;
-            this.EditColumnSelectColumnGroupBox.IsDerivedStyle = true;
-            this.EditColumnSelectColumnGroupBox.Location = new System.Drawing.Point(187, 277);
-            this.EditColumnSelectColumnGroupBox.Name = "EditColumnSelectColumnGroupBox";
-            this.EditColumnSelectColumnGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnSelectColumnGroupBox.Size = new System.Drawing.Size(377, 186);
-            this.EditColumnSelectColumnGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnSelectColumnGroupBox.StyleManager = null;
-            this.EditColumnSelectColumnGroupBox.TabIndex = 5;
-            this.EditColumnSelectColumnGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnSelectColumnGroupBox.ThemeName = "BudgetExecution";
-            this.EditColumnSelectColumnGroupBox.ToolTip = null;
-            // 
-            // EditColumnColumnNameListBox
-            // 
-            this.EditColumnColumnNameListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.EditColumnColumnNameListBox.BindingSource = null;
-            this.EditColumnColumnNameListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.EditColumnColumnNameListBox.DataFilter = null;
-            this.EditColumnColumnNameListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnColumnNameListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnColumnNameListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnColumnNameListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.EditColumnColumnNameListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.EditColumnColumnNameListBox.HoverText = null;
-            this.EditColumnColumnNameListBox.IsDerivedStyle = true;
-            this.EditColumnColumnNameListBox.ItemHeight = 30;
-            this.EditColumnColumnNameListBox.Location = new System.Drawing.Point(14, 32);
-            this.EditColumnColumnNameListBox.MultiSelect = false;
-            this.EditColumnColumnNameListBox.Name = "EditColumnColumnNameListBox";
-            this.EditColumnColumnNameListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnColumnNameListBox.SelectedIndex = -1;
-            this.EditColumnColumnNameListBox.SelectedItem = null;
-            this.EditColumnColumnNameListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnColumnNameListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.EditColumnColumnNameListBox.SelectedText = null;
-            this.EditColumnColumnNameListBox.SelectedValue = null;
-            this.EditColumnColumnNameListBox.ShowBorder = false;
-            this.EditColumnColumnNameListBox.ShowScrollBar = false;
-            this.EditColumnColumnNameListBox.Size = new System.Drawing.Size(347, 131);
-            this.EditColumnColumnNameListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnColumnNameListBox.StyleManager = null;
-            this.EditColumnColumnNameListBox.TabIndex = 1;
-            this.EditColumnColumnNameListBox.Text = "listBox1";
-            this.EditColumnColumnNameListBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnColumnNameListBox.ThemeName = "BudgetExecution";
-            this.EditColumnColumnNameListBox.ToolTip = null;
-            // 
-            // EditColumnProviderGroupBox
-            // 
-            this.EditColumnProviderGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnProviderGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.EditColumnProviderGroupBox.BindingSource = null;
-            this.EditColumnProviderGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.EditColumnProviderGroupBox.BorderThickness = 1;
-            this.EditColumnProviderGroupBox.Children = null;
-            this.EditColumnProviderGroupBox.Controls.Add(this.EditColumnAccessRadioButton);
-            this.EditColumnProviderGroupBox.Controls.Add(this.EditColumnSqlServerRadioButton);
-            this.EditColumnProviderGroupBox.Controls.Add(this.EditColumnSqliteRadioButton);
-            this.EditColumnProviderGroupBox.DataFilter = null;
-            this.EditColumnProviderGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnProviderGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.EditColumnProviderGroupBox.HoverText = null;
-            this.EditColumnProviderGroupBox.IsDerivedStyle = true;
-            this.EditColumnProviderGroupBox.Location = new System.Drawing.Point(187, 38);
-            this.EditColumnProviderGroupBox.Name = "EditColumnProviderGroupBox";
-            this.EditColumnProviderGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnProviderGroupBox.Size = new System.Drawing.Size(377, 189);
-            this.EditColumnProviderGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnProviderGroupBox.StyleManager = null;
-            this.EditColumnProviderGroupBox.TabIndex = 2;
-            this.EditColumnProviderGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnProviderGroupBox.ThemeName = "BudgetExecution";
-            this.EditColumnProviderGroupBox.ToolTip = this.ToolTip;
-            // 
-            // EditColumnAccessRadioButton
-            // 
-            this.EditColumnAccessRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnAccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.EditColumnAccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.EditColumnAccessRadioButton.Checked = false;
-            this.EditColumnAccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.EditColumnAccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.EditColumnAccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.EditColumnAccessRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnAccessRadioButton.Group = 0;
-            this.EditColumnAccessRadioButton.HoverText = null;
-            this.EditColumnAccessRadioButton.IsDerivedStyle = true;
-            this.EditColumnAccessRadioButton.Location = new System.Drawing.Point(135, 136);
-            this.EditColumnAccessRadioButton.Name = "EditColumnAccessRadioButton";
-            this.EditColumnAccessRadioButton.Result = null;
-            this.EditColumnAccessRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.EditColumnAccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnAccessRadioButton.StyleManager = null;
-            this.EditColumnAccessRadioButton.TabIndex = 3;
-            this.EditColumnAccessRadioButton.Tag = "Access";
-            this.EditColumnAccessRadioButton.Text = "    MS Access";
-            this.EditColumnAccessRadioButton.ThemeAuthor = "Narwin";
-            this.EditColumnAccessRadioButton.ThemeName = "MetroDark";
-            this.EditColumnAccessRadioButton.ToolTip = this.ToolTip;
-            // 
-            // EditColumnSqlServerRadioButton
-            // 
-            this.EditColumnSqlServerRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnSqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.EditColumnSqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.EditColumnSqlServerRadioButton.Checked = false;
-            this.EditColumnSqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.EditColumnSqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.EditColumnSqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.EditColumnSqlServerRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnSqlServerRadioButton.Group = 0;
-            this.EditColumnSqlServerRadioButton.HoverText = null;
-            this.EditColumnSqlServerRadioButton.IsDerivedStyle = true;
-            this.EditColumnSqlServerRadioButton.Location = new System.Drawing.Point(135, 92);
-            this.EditColumnSqlServerRadioButton.Name = "EditColumnSqlServerRadioButton";
-            this.EditColumnSqlServerRadioButton.Result = null;
-            this.EditColumnSqlServerRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.EditColumnSqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnSqlServerRadioButton.StyleManager = null;
-            this.EditColumnSqlServerRadioButton.TabIndex = 2;
-            this.EditColumnSqlServerRadioButton.Tag = "SqlServer";
-            this.EditColumnSqlServerRadioButton.Text = "    SQL Server";
-            this.EditColumnSqlServerRadioButton.ThemeAuthor = "Narwin";
-            this.EditColumnSqlServerRadioButton.ThemeName = "MetroDark";
-            this.EditColumnSqlServerRadioButton.ToolTip = this.ToolTip;
-            // 
-            // EditColumnSqliteRadioButton
-            // 
-            this.EditColumnSqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnSqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.EditColumnSqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.EditColumnSqliteRadioButton.Checked = false;
-            this.EditColumnSqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.EditColumnSqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.EditColumnSqliteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.EditColumnSqliteRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnSqliteRadioButton.Group = 0;
-            this.EditColumnSqliteRadioButton.HoverText = null;
-            this.EditColumnSqliteRadioButton.IsDerivedStyle = true;
-            this.EditColumnSqliteRadioButton.Location = new System.Drawing.Point(135, 50);
-            this.EditColumnSqliteRadioButton.Name = "EditColumnSqliteRadioButton";
-            this.EditColumnSqliteRadioButton.Result = null;
-            this.EditColumnSqliteRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.EditColumnSqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnSqliteRadioButton.StyleManager = null;
-            this.EditColumnSqliteRadioButton.TabIndex = 1;
-            this.EditColumnSqliteRadioButton.Tag = "SQLite";
-            this.EditColumnSqliteRadioButton.Text = "    SQLite";
-            this.EditColumnSqliteRadioButton.ThemeAuthor = "Narwin";
-            this.EditColumnSqliteRadioButton.ThemeName = "MetroDark";
-            this.EditColumnSqliteRadioButton.ToolTip = this.ToolTip;
-            // 
-            // SchemaGroupBox
-            // 
-            this.SchemaGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.SchemaGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SchemaGroupBox.BindingSource = null;
-            this.SchemaGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.SchemaGroupBox.BorderThickness = 1;
-            this.SchemaGroupBox.Children = null;
-            this.SchemaGroupBox.Controls.Add(this.EditColumnTextBoxLabel);
-            this.SchemaGroupBox.Controls.Add(this.EditColumnNameTextBox);
-            this.SchemaGroupBox.Controls.Add(this.EditColumnDataTypeComboBox);
-            this.SchemaGroupBox.Controls.Add(this.EditColumnComboBoxLabel);
-            this.SchemaGroupBox.DataFilter = null;
-            this.SchemaGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SchemaGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.SchemaGroupBox.HoverText = null;
-            this.SchemaGroupBox.IsDerivedStyle = true;
-            this.SchemaGroupBox.Location = new System.Drawing.Point(816, 277);
-            this.SchemaGroupBox.Name = "SchemaGroupBox";
-            this.SchemaGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.SchemaGroupBox.Size = new System.Drawing.Size(377, 186);
-            this.SchemaGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SchemaGroupBox.StyleManager = null;
-            this.SchemaGroupBox.TabIndex = 12;
-            this.SchemaGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.SchemaGroupBox.ThemeName = "BudgetExecution";
-            this.SchemaGroupBox.ToolTip = null;
-            // 
-            // EditColumnTextBoxLabel
-            // 
-            this.EditColumnTextBoxLabel.BindingSource = null;
-            this.EditColumnTextBoxLabel.DataFilter = null;
-            this.EditColumnTextBoxLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditColumnTextBoxLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnTextBoxLabel.HoverText = null;
-            this.EditColumnTextBoxLabel.IsDerivedStyle = true;
-            this.EditColumnTextBoxLabel.Location = new System.Drawing.Point(61, 106);
-            this.EditColumnTextBoxLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.EditColumnTextBoxLabel.Name = "EditColumnTextBoxLabel";
-            this.EditColumnTextBoxLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnTextBoxLabel.Size = new System.Drawing.Size(165, 21);
-            this.EditColumnTextBoxLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnTextBoxLabel.StyleManager = null;
-            this.EditColumnTextBoxLabel.TabIndex = 10;
-            this.EditColumnTextBoxLabel.Text = "Column Name";
-            this.EditColumnTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EditColumnTextBoxLabel.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnTextBoxLabel.ThemeName = "BudgetExecution";
-            this.EditColumnTextBoxLabel.ToolTip = this.ToolTip;
-            // 
-            // EditColumnNameTextBox
-            // 
-            this.EditColumnNameTextBox.AutoCompleteCustomSource = null;
-            this.EditColumnNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.EditColumnNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.EditColumnNameTextBox.BindingSource = null;
-            this.EditColumnNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnNameTextBox.DataFilter = null;
-            this.EditColumnNameTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.EditColumnNameTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.EditColumnNameTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.EditColumnNameTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnNameTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.EditColumnNameTextBox.HoverText = null;
-            this.EditColumnNameTextBox.Image = null;
-            this.EditColumnNameTextBox.IsDerivedStyle = true;
-            this.EditColumnNameTextBox.Lines = null;
-            this.EditColumnNameTextBox.Location = new System.Drawing.Point(61, 129);
-            this.EditColumnNameTextBox.MaxLength = 32767;
-            this.EditColumnNameTextBox.Multiline = false;
-            this.EditColumnNameTextBox.Name = "EditColumnNameTextBox";
-            this.EditColumnNameTextBox.ReadOnly = false;
-            this.EditColumnNameTextBox.Size = new System.Drawing.Size(281, 23);
-            this.EditColumnNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnNameTextBox.StyleManager = null;
-            this.EditColumnNameTextBox.TabIndex = 9;
-            this.EditColumnNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.EditColumnNameTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnNameTextBox.ThemeName = "BudgetExecution";
-            this.EditColumnNameTextBox.ToolTip = null;
-            this.EditColumnNameTextBox.UseSystemPasswordChar = false;
-            this.EditColumnNameTextBox.WatermarkText = "";
-            // 
-            // EditColumnDataTypeComboBox
-            // 
-            this.EditColumnDataTypeComboBox.AllowDrop = true;
-            this.EditColumnDataTypeComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnDataTypeComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.EditColumnDataTypeComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.EditColumnDataTypeComboBox.BindingSource = null;
-            this.EditColumnDataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnDataTypeComboBox.CausesValidation = false;
-            this.EditColumnDataTypeComboBox.DataFilter = null;
-            this.EditColumnDataTypeComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.EditColumnDataTypeComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.EditColumnDataTypeComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.EditColumnDataTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.EditColumnDataTypeComboBox.DropDownHeight = 100;
-            this.EditColumnDataTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.EditColumnDataTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditColumnDataTypeComboBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnDataTypeComboBox.FormattingEnabled = true;
-            this.EditColumnDataTypeComboBox.HoverText = null;
-            this.EditColumnDataTypeComboBox.IntegralHeight = false;
-            this.EditColumnDataTypeComboBox.IsDerivedStyle = true;
-            this.EditColumnDataTypeComboBox.ItemHeight = 24;
-            this.EditColumnDataTypeComboBox.Location = new System.Drawing.Point(61, 62);
-            this.EditColumnDataTypeComboBox.Name = "EditColumnDataTypeComboBox";
-            this.EditColumnDataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.EditColumnDataTypeComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.EditColumnDataTypeComboBox.Size = new System.Drawing.Size(281, 30);
-            this.EditColumnDataTypeComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnDataTypeComboBox.StyleManager = null;
-            this.EditColumnDataTypeComboBox.TabIndex = 8;
-            this.EditColumnDataTypeComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnDataTypeComboBox.ThemeName = "BudgetExecution";
-            this.EditColumnDataTypeComboBox.ToolTip = null;
-            // 
-            // EditColumnComboBoxLabel
-            // 
-            this.EditColumnComboBoxLabel.BindingSource = null;
-            this.EditColumnComboBoxLabel.DataFilter = null;
-            this.EditColumnComboBoxLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditColumnComboBoxLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditColumnComboBoxLabel.HoverText = null;
-            this.EditColumnComboBoxLabel.IsDerivedStyle = true;
-            this.EditColumnComboBoxLabel.Location = new System.Drawing.Point(61, 39);
-            this.EditColumnComboBoxLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.EditColumnComboBoxLabel.Name = "EditColumnComboBoxLabel";
-            this.EditColumnComboBoxLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.EditColumnComboBoxLabel.Size = new System.Drawing.Size(165, 21);
-            this.EditColumnComboBoxLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.EditColumnComboBoxLabel.StyleManager = null;
-            this.EditColumnComboBoxLabel.TabIndex = 7;
-            this.EditColumnComboBoxLabel.Text = "Data Type";
-            this.EditColumnComboBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EditColumnComboBoxLabel.ThemeAuthor = "Terry D. Eppler";
-            this.EditColumnComboBoxLabel.ThemeName = "BudgetExecution";
-            this.EditColumnComboBoxLabel.ToolTip = this.ToolTip;
-            // 
-            // DeleteTableTabPage
-            // 
-            this.DeleteTableTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableTabPage.Controls.Add(this.DeleteTableTablesGroupBox);
-            this.DeleteTableTabPage.Controls.Add(this.DeleteTableProviderGroupBox);
-            this.DeleteTableTabPage.Image = null;
-            this.DeleteTableTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.DeleteTableTabPage.Location = new System.Drawing.Point(0, 22);
-            this.DeleteTableTabPage.Name = "DeleteTableTabPage";
-            this.DeleteTableTabPage.ShowCloseButton = true;
-            this.DeleteTableTabPage.Size = new System.Drawing.Size(1368, 466);
-            this.DeleteTableTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteTableTabPage.TabIndex = 6;
-            this.DeleteTableTabPage.Text = "  Delete Table";
-            this.DeleteTableTabPage.ThemesEnabled = false;
-            // 
-            // DeleteTableTablesGroupBox
-            // 
-            this.DeleteTableTablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteTableTablesGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteTableTablesGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableTablesGroupBox.BindingSource = null;
-            this.DeleteTableTablesGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteTableTablesGroupBox.BorderThickness = 1;
-            this.DeleteTableTablesGroupBox.Children = null;
-            this.DeleteTableTablesGroupBox.Controls.Add(this.DeleteTableTablesLayout);
-            this.DeleteTableTablesGroupBox.Controls.Add(this.listBox8);
-            this.DeleteTableTablesGroupBox.DataFilter = null;
-            this.DeleteTableTablesGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableTablesGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteTableTablesGroupBox.HoverText = null;
-            this.DeleteTableTablesGroupBox.IsDerivedStyle = true;
-            this.DeleteTableTablesGroupBox.Location = new System.Drawing.Point(804, 129);
-            this.DeleteTableTablesGroupBox.Name = "DeleteTableTablesGroupBox";
-            this.DeleteTableTablesGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteTableTablesGroupBox.Size = new System.Drawing.Size(377, 191);
-            this.DeleteTableTablesGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableTablesGroupBox.StyleManager = null;
-            this.DeleteTableTablesGroupBox.TabIndex = 7;
-            this.DeleteTableTablesGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteTableTablesGroupBox.ThemeName = "BudgetExecution";
-            this.DeleteTableTablesGroupBox.ToolTip = null;
-            // 
-            // DeleteTableTablesLayout
-            // 
-            this.DeleteTableTablesLayout.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteTableTablesLayout.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableTablesLayout.BindingSource = null;
-            this.DeleteTableTablesLayout.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteTableTablesLayout.BorderThickness = 1;
-            this.DeleteTableTablesLayout.Children = null;
-            this.DeleteTableTablesLayout.Controls.Add(this.DeleteTableTablesListBox);
-            this.DeleteTableTablesLayout.DataFilter = null;
-            this.DeleteTableTablesLayout.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableTablesLayout.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteTableTablesLayout.HoverText = null;
-            this.DeleteTableTablesLayout.IsDerivedStyle = true;
-            this.DeleteTableTablesLayout.Location = new System.Drawing.Point(15, 37);
-            this.DeleteTableTablesLayout.Name = "DeleteTableTablesLayout";
-            this.DeleteTableTablesLayout.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteTableTablesLayout.Size = new System.Drawing.Size(348, 131);
-            this.DeleteTableTablesLayout.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableTablesLayout.StyleManager = null;
-            this.DeleteTableTablesLayout.TabIndex = 9;
-            this.DeleteTableTablesLayout.Text = "layout1";
-            this.DeleteTableTablesLayout.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteTableTablesLayout.ThemeName = "BudgetExecution";
-            this.DeleteTableTablesLayout.ToolTip = null;
-            // 
-            // DeleteTableTablesListBox
-            // 
-            this.DeleteTableTablesListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.DeleteTableTablesListBox.BindingSource = null;
-            this.DeleteTableTablesListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.DeleteTableTablesListBox.DataFilter = null;
-            this.DeleteTableTablesListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableTablesListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableTablesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteTableTablesListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableTablesListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteTableTablesListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.DeleteTableTablesListBox.HoverText = null;
-            this.DeleteTableTablesListBox.IsDerivedStyle = true;
-            this.DeleteTableTablesListBox.ItemHeight = 30;
-            this.DeleteTableTablesListBox.Location = new System.Drawing.Point(1, 1);
-            this.DeleteTableTablesListBox.MultiSelect = false;
-            this.DeleteTableTablesListBox.Name = "DeleteTableTablesListBox";
-            this.DeleteTableTablesListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteTableTablesListBox.SelectedIndex = -1;
-            this.DeleteTableTablesListBox.SelectedItem = null;
-            this.DeleteTableTablesListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteTableTablesListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.DeleteTableTablesListBox.SelectedText = null;
-            this.DeleteTableTablesListBox.SelectedValue = null;
-            this.DeleteTableTablesListBox.ShowBorder = false;
-            this.DeleteTableTablesListBox.ShowScrollBar = false;
-            this.DeleteTableTablesListBox.Size = new System.Drawing.Size(346, 129);
-            this.DeleteTableTablesListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableTablesListBox.StyleManager = null;
-            this.DeleteTableTablesListBox.TabIndex = 2;
-            this.DeleteTableTablesListBox.Text = "listBox7";
-            this.DeleteTableTablesListBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteTableTablesListBox.ThemeName = "BudgetExecution";
-            this.DeleteTableTablesListBox.ToolTip = this.ToolTip;
-            // 
-            // listBox8
-            // 
-            this.listBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.listBox8.BindingSource = null;
-            this.listBox8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.listBox8.DataFilter = null;
-            this.listBox8.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox8.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox8.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox8.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.listBox8.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.listBox8.HoverText = null;
-            this.listBox8.IsDerivedStyle = true;
-            this.listBox8.ItemHeight = 30;
-            this.listBox8.Location = new System.Drawing.Point(15, 37);
-            this.listBox8.MultiSelect = false;
-            this.listBox8.Name = "listBox8";
-            this.listBox8.Padding = new System.Windows.Forms.Padding(1);
-            this.listBox8.SelectedIndex = -1;
-            this.listBox8.SelectedItem = null;
-            this.listBox8.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.listBox8.SelectedItemColor = System.Drawing.Color.White;
-            this.listBox8.SelectedText = null;
-            this.listBox8.SelectedValue = null;
-            this.listBox8.ShowBorder = false;
-            this.listBox8.ShowScrollBar = false;
-            this.listBox8.Size = new System.Drawing.Size(348, 131);
-            this.listBox8.Style = MetroSet_UI.Enums.Style.Custom;
-            this.listBox8.StyleManager = null;
-            this.listBox8.TabIndex = 1;
-            this.listBox8.Text = "listBox4";
-            this.listBox8.ThemeAuthor = "Terry D. Eppler";
-            this.listBox8.ThemeName = "BudgetExecution";
-            this.listBox8.ToolTip = this.ToolTip;
-            // 
-            // DeleteTableProviderGroupBox
-            // 
-            this.DeleteTableProviderGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteTableProviderGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteTableProviderGroupBox.BindingSource = null;
-            this.DeleteTableProviderGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteTableProviderGroupBox.BorderThickness = 1;
-            this.DeleteTableProviderGroupBox.Children = null;
-            this.DeleteTableProviderGroupBox.Controls.Add(this.DeleteTableAccessRadioButton);
-            this.DeleteTableProviderGroupBox.Controls.Add(this.DeleteTableSqlServerRadioButton);
-            this.DeleteTableProviderGroupBox.Controls.Add(this.DeleteTableSqliteRadioButton);
-            this.DeleteTableProviderGroupBox.DataFilter = null;
-            this.DeleteTableProviderGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableProviderGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteTableProviderGroupBox.HoverText = null;
-            this.DeleteTableProviderGroupBox.IsDerivedStyle = true;
-            this.DeleteTableProviderGroupBox.Location = new System.Drawing.Point(180, 129);
-            this.DeleteTableProviderGroupBox.Name = "DeleteTableProviderGroupBox";
-            this.DeleteTableProviderGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteTableProviderGroupBox.Size = new System.Drawing.Size(377, 189);
-            this.DeleteTableProviderGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableProviderGroupBox.StyleManager = null;
-            this.DeleteTableProviderGroupBox.TabIndex = 3;
-            this.DeleteTableProviderGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteTableProviderGroupBox.ThemeName = "BudgetExecution";
-            this.DeleteTableProviderGroupBox.ToolTip = this.ToolTip;
-            // 
-            // DeleteTableAccessRadioButton
-            // 
-            this.DeleteTableAccessRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteTableAccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.DeleteTableAccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.DeleteTableAccessRadioButton.Checked = false;
-            this.DeleteTableAccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.DeleteTableAccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.DeleteTableAccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.DeleteTableAccessRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableAccessRadioButton.Group = 0;
-            this.DeleteTableAccessRadioButton.HoverText = null;
-            this.DeleteTableAccessRadioButton.IsDerivedStyle = true;
-            this.DeleteTableAccessRadioButton.Location = new System.Drawing.Point(135, 136);
-            this.DeleteTableAccessRadioButton.Name = "DeleteTableAccessRadioButton";
-            this.DeleteTableAccessRadioButton.Result = null;
-            this.DeleteTableAccessRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.DeleteTableAccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableAccessRadioButton.StyleManager = null;
-            this.DeleteTableAccessRadioButton.TabIndex = 3;
-            this.DeleteTableAccessRadioButton.Tag = "Access";
-            this.DeleteTableAccessRadioButton.Text = "    MS Access";
-            this.DeleteTableAccessRadioButton.ThemeAuthor = "Narwin";
-            this.DeleteTableAccessRadioButton.ThemeName = "MetroDark";
-            this.DeleteTableAccessRadioButton.ToolTip = this.ToolTip;
-            // 
-            // DeleteTableSqlServerRadioButton
-            // 
-            this.DeleteTableSqlServerRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteTableSqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.DeleteTableSqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.DeleteTableSqlServerRadioButton.Checked = false;
-            this.DeleteTableSqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.DeleteTableSqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.DeleteTableSqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.DeleteTableSqlServerRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableSqlServerRadioButton.Group = 0;
-            this.DeleteTableSqlServerRadioButton.HoverText = null;
-            this.DeleteTableSqlServerRadioButton.IsDerivedStyle = true;
-            this.DeleteTableSqlServerRadioButton.Location = new System.Drawing.Point(135, 92);
-            this.DeleteTableSqlServerRadioButton.Name = "DeleteTableSqlServerRadioButton";
-            this.DeleteTableSqlServerRadioButton.Result = null;
-            this.DeleteTableSqlServerRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.DeleteTableSqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableSqlServerRadioButton.StyleManager = null;
-            this.DeleteTableSqlServerRadioButton.TabIndex = 2;
-            this.DeleteTableSqlServerRadioButton.Tag = "SqlServer";
-            this.DeleteTableSqlServerRadioButton.Text = "    SQL Server";
-            this.DeleteTableSqlServerRadioButton.ThemeAuthor = "Narwin";
-            this.DeleteTableSqlServerRadioButton.ThemeName = "MetroDark";
-            this.DeleteTableSqlServerRadioButton.ToolTip = this.ToolTip;
-            // 
-            // DeleteTableSqliteRadioButton
-            // 
-            this.DeleteTableSqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteTableSqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.DeleteTableSqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.DeleteTableSqliteRadioButton.Checked = false;
-            this.DeleteTableSqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.DeleteTableSqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.DeleteTableSqliteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.DeleteTableSqliteRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTableSqliteRadioButton.Group = 0;
-            this.DeleteTableSqliteRadioButton.HoverText = null;
-            this.DeleteTableSqliteRadioButton.IsDerivedStyle = true;
-            this.DeleteTableSqliteRadioButton.Location = new System.Drawing.Point(135, 50);
-            this.DeleteTableSqliteRadioButton.Name = "DeleteTableSqliteRadioButton";
-            this.DeleteTableSqliteRadioButton.Result = null;
-            this.DeleteTableSqliteRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.DeleteTableSqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteTableSqliteRadioButton.StyleManager = null;
-            this.DeleteTableSqliteRadioButton.TabIndex = 1;
-            this.DeleteTableSqliteRadioButton.Tag = "SQLite";
-            this.DeleteTableSqliteRadioButton.Text = "    SQLite";
-            this.DeleteTableSqliteRadioButton.ThemeAuthor = "Narwin";
-            this.DeleteTableSqliteRadioButton.ThemeName = "MetroDark";
-            this.DeleteTableSqliteRadioButton.ToolTip = this.ToolTip;
-            // 
-            // DeleteColumnTabPage
-            // 
-            this.DeleteColumnTabPage.Controls.Add(this.DeleteColumnGroupBox);
-            this.DeleteColumnTabPage.Controls.Add(this.DeleteColumnTablesGroupBox);
-            this.DeleteColumnTabPage.Controls.Add(this.DeleteColumnProviderGroupBox);
-            this.DeleteColumnTabPage.Image = null;
-            this.DeleteColumnTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.DeleteColumnTabPage.Location = new System.Drawing.Point(0, 22);
-            this.DeleteColumnTabPage.Name = "DeleteColumnTabPage";
-            this.DeleteColumnTabPage.ShowCloseButton = true;
-            this.DeleteColumnTabPage.Size = new System.Drawing.Size(1368, 466);
-            this.DeleteColumnTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnTabPage.TabIndex = 7;
-            this.DeleteColumnTabPage.Text = "  Delete Column";
-            this.DeleteColumnTabPage.ThemesEnabled = false;
-            // 
-            // DeleteColumnGroupBox
-            // 
-            this.DeleteColumnGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnGroupBox.BindingSource = null;
-            this.DeleteColumnGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnGroupBox.BorderThickness = 1;
-            this.DeleteColumnGroupBox.Children = null;
-            this.DeleteColumnGroupBox.Controls.Add(this.DeleteColumnColumnsListBox);
-            this.DeleteColumnGroupBox.DataFilter = null;
-            this.DeleteColumnGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnGroupBox.HoverText = null;
-            this.DeleteColumnGroupBox.IsDerivedStyle = true;
-            this.DeleteColumnGroupBox.Location = new System.Drawing.Point(945, 129);
-            this.DeleteColumnGroupBox.Name = "DeleteColumnGroupBox";
-            this.DeleteColumnGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnGroupBox.Size = new System.Drawing.Size(377, 194);
-            this.DeleteColumnGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnGroupBox.StyleManager = null;
-            this.DeleteColumnGroupBox.TabIndex = 11;
-            this.DeleteColumnGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnGroupBox.ThemeName = "BudgetExecution";
-            this.DeleteColumnGroupBox.ToolTip = null;
-            // 
-            // DeleteColumnColumnsListBox
-            // 
-            this.DeleteColumnColumnsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.DeleteColumnColumnsListBox.BindingSource = null;
-            this.DeleteColumnColumnsListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.DeleteColumnColumnsListBox.DataFilter = null;
-            this.DeleteColumnColumnsListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnColumnsListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnColumnsListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnColumnsListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteColumnColumnsListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.DeleteColumnColumnsListBox.HoverText = null;
-            this.DeleteColumnColumnsListBox.IsDerivedStyle = true;
-            this.DeleteColumnColumnsListBox.ItemHeight = 30;
-            this.DeleteColumnColumnsListBox.Location = new System.Drawing.Point(13, 37);
-            this.DeleteColumnColumnsListBox.MultiSelect = false;
-            this.DeleteColumnColumnsListBox.Name = "DeleteColumnColumnsListBox";
-            this.DeleteColumnColumnsListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnColumnsListBox.SelectedIndex = -1;
-            this.DeleteColumnColumnsListBox.SelectedItem = null;
-            this.DeleteColumnColumnsListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnColumnsListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.DeleteColumnColumnsListBox.SelectedText = null;
-            this.DeleteColumnColumnsListBox.SelectedValue = null;
-            this.DeleteColumnColumnsListBox.ShowBorder = false;
-            this.DeleteColumnColumnsListBox.ShowScrollBar = false;
-            this.DeleteColumnColumnsListBox.Size = new System.Drawing.Size(351, 131);
-            this.DeleteColumnColumnsListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnColumnsListBox.StyleManager = null;
-            this.DeleteColumnColumnsListBox.TabIndex = 0;
-            this.DeleteColumnColumnsListBox.Text = "listBox1";
-            this.DeleteColumnColumnsListBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnColumnsListBox.ThemeName = "BudgetExecution";
-            this.DeleteColumnColumnsListBox.ToolTip = null;
-            // 
-            // DeleteColumnTablesGroupBox
-            // 
-            this.DeleteColumnTablesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteColumnTablesGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnTablesGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnTablesGroupBox.BindingSource = null;
-            this.DeleteColumnTablesGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnTablesGroupBox.BorderThickness = 1;
-            this.DeleteColumnTablesGroupBox.Children = null;
-            this.DeleteColumnTablesGroupBox.Controls.Add(this.DeleteColumnTablesLayout);
-            this.DeleteColumnTablesGroupBox.Controls.Add(this.listBox3);
-            this.DeleteColumnTablesGroupBox.DataFilter = null;
-            this.DeleteColumnTablesGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnTablesGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnTablesGroupBox.HoverText = null;
-            this.DeleteColumnTablesGroupBox.IsDerivedStyle = true;
-            this.DeleteColumnTablesGroupBox.Location = new System.Drawing.Point(502, 129);
-            this.DeleteColumnTablesGroupBox.Name = "DeleteColumnTablesGroupBox";
-            this.DeleteColumnTablesGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnTablesGroupBox.Size = new System.Drawing.Size(377, 191);
-            this.DeleteColumnTablesGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnTablesGroupBox.StyleManager = null;
-            this.DeleteColumnTablesGroupBox.TabIndex = 10;
-            this.DeleteColumnTablesGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnTablesGroupBox.ThemeName = "BudgetExecution";
-            this.DeleteColumnTablesGroupBox.ToolTip = null;
-            // 
-            // DeleteColumnTablesLayout
-            // 
-            this.DeleteColumnTablesLayout.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnTablesLayout.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnTablesLayout.BindingSource = null;
-            this.DeleteColumnTablesLayout.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnTablesLayout.BorderThickness = 1;
-            this.DeleteColumnTablesLayout.Children = null;
-            this.DeleteColumnTablesLayout.Controls.Add(this.DeleteColumnTableListBox);
-            this.DeleteColumnTablesLayout.DataFilter = null;
-            this.DeleteColumnTablesLayout.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnTablesLayout.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnTablesLayout.HoverText = null;
-            this.DeleteColumnTablesLayout.IsDerivedStyle = true;
-            this.DeleteColumnTablesLayout.Location = new System.Drawing.Point(15, 37);
-            this.DeleteColumnTablesLayout.Name = "DeleteColumnTablesLayout";
-            this.DeleteColumnTablesLayout.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnTablesLayout.Size = new System.Drawing.Size(348, 131);
-            this.DeleteColumnTablesLayout.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnTablesLayout.StyleManager = null;
-            this.DeleteColumnTablesLayout.TabIndex = 12;
-            this.DeleteColumnTablesLayout.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnTablesLayout.ThemeName = "BudgetExecution";
-            this.DeleteColumnTablesLayout.ToolTip = null;
-            // 
-            // DeleteColumnTableListBox
-            // 
-            this.DeleteColumnTableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.DeleteColumnTableListBox.BindingSource = null;
-            this.DeleteColumnTableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.DeleteColumnTableListBox.DataFilter = null;
-            this.DeleteColumnTableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnTableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnTableListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteColumnTableListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnTableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteColumnTableListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.DeleteColumnTableListBox.HoverText = null;
-            this.DeleteColumnTableListBox.IsDerivedStyle = true;
-            this.DeleteColumnTableListBox.ItemHeight = 30;
-            this.DeleteColumnTableListBox.Location = new System.Drawing.Point(1, 1);
-            this.DeleteColumnTableListBox.MultiSelect = false;
-            this.DeleteColumnTableListBox.Name = "DeleteColumnTableListBox";
-            this.DeleteColumnTableListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnTableListBox.SelectedIndex = -1;
-            this.DeleteColumnTableListBox.SelectedItem = null;
-            this.DeleteColumnTableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnTableListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.DeleteColumnTableListBox.SelectedText = null;
-            this.DeleteColumnTableListBox.SelectedValue = null;
-            this.DeleteColumnTableListBox.ShowBorder = false;
-            this.DeleteColumnTableListBox.ShowScrollBar = false;
-            this.DeleteColumnTableListBox.Size = new System.Drawing.Size(346, 129);
-            this.DeleteColumnTableListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnTableListBox.StyleManager = null;
-            this.DeleteColumnTableListBox.TabIndex = 2;
-            this.DeleteColumnTableListBox.Text = "listBox7";
-            this.DeleteColumnTableListBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnTableListBox.ThemeName = "BudgetExecution";
-            this.DeleteColumnTableListBox.ToolTip = this.ToolTip;
-            // 
-            // listBox3
-            // 
-            this.listBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.listBox3.BindingSource = null;
-            this.listBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.listBox3.DataFilter = null;
-            this.listBox3.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox3.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox3.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.listBox3.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.listBox3.HoverText = null;
-            this.listBox3.IsDerivedStyle = true;
-            this.listBox3.ItemHeight = 30;
-            this.listBox3.Location = new System.Drawing.Point(15, 37);
-            this.listBox3.MultiSelect = false;
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Padding = new System.Windows.Forms.Padding(1);
-            this.listBox3.SelectedIndex = -1;
-            this.listBox3.SelectedItem = null;
-            this.listBox3.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.listBox3.SelectedItemColor = System.Drawing.Color.White;
-            this.listBox3.SelectedText = null;
-            this.listBox3.SelectedValue = null;
-            this.listBox3.ShowBorder = false;
-            this.listBox3.ShowScrollBar = false;
-            this.listBox3.Size = new System.Drawing.Size(348, 131);
-            this.listBox3.Style = MetroSet_UI.Enums.Style.Custom;
-            this.listBox3.StyleManager = null;
-            this.listBox3.TabIndex = 1;
-            this.listBox3.Text = "listBox4";
-            this.listBox3.ThemeAuthor = "Terry D. Eppler";
-            this.listBox3.ThemeName = "BudgetExecution";
-            this.listBox3.ToolTip = this.ToolTip;
-            // 
-            // DeleteColumnProviderGroupBox
-            // 
-            this.DeleteColumnProviderGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnProviderGroupBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DeleteColumnProviderGroupBox.BindingSource = null;
-            this.DeleteColumnProviderGroupBox.BorderColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnProviderGroupBox.BorderThickness = 1;
-            this.DeleteColumnProviderGroupBox.Children = null;
-            this.DeleteColumnProviderGroupBox.Controls.Add(this.DeleteColumnAccessRadioButton);
-            this.DeleteColumnProviderGroupBox.Controls.Add(this.DeleteColumnSqlServerRadioButton);
-            this.DeleteColumnProviderGroupBox.Controls.Add(this.DeleteColumnSqliteRadioButton);
-            this.DeleteColumnProviderGroupBox.DataFilter = null;
-            this.DeleteColumnProviderGroupBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnProviderGroupBox.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnProviderGroupBox.HoverText = null;
-            this.DeleteColumnProviderGroupBox.IsDerivedStyle = true;
-            this.DeleteColumnProviderGroupBox.Location = new System.Drawing.Point(55, 129);
-            this.DeleteColumnProviderGroupBox.Name = "DeleteColumnProviderGroupBox";
-            this.DeleteColumnProviderGroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnProviderGroupBox.Size = new System.Drawing.Size(377, 189);
-            this.DeleteColumnProviderGroupBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnProviderGroupBox.StyleManager = null;
-            this.DeleteColumnProviderGroupBox.TabIndex = 9;
-            this.DeleteColumnProviderGroupBox.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnProviderGroupBox.ThemeName = "BudgetExecution";
-            this.DeleteColumnProviderGroupBox.ToolTip = this.ToolTip;
-            // 
-            // DeleteColumnAccessRadioButton
-            // 
-            this.DeleteColumnAccessRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnAccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.DeleteColumnAccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.DeleteColumnAccessRadioButton.Checked = false;
-            this.DeleteColumnAccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.DeleteColumnAccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.DeleteColumnAccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.DeleteColumnAccessRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnAccessRadioButton.Group = 0;
-            this.DeleteColumnAccessRadioButton.HoverText = null;
-            this.DeleteColumnAccessRadioButton.IsDerivedStyle = true;
-            this.DeleteColumnAccessRadioButton.Location = new System.Drawing.Point(135, 136);
-            this.DeleteColumnAccessRadioButton.Name = "DeleteColumnAccessRadioButton";
-            this.DeleteColumnAccessRadioButton.Result = null;
-            this.DeleteColumnAccessRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.DeleteColumnAccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnAccessRadioButton.StyleManager = null;
-            this.DeleteColumnAccessRadioButton.TabIndex = 3;
-            this.DeleteColumnAccessRadioButton.Tag = "Access";
-            this.DeleteColumnAccessRadioButton.Text = "    MS Access";
-            this.DeleteColumnAccessRadioButton.ThemeAuthor = "Narwin";
-            this.DeleteColumnAccessRadioButton.ThemeName = "MetroDark";
-            this.DeleteColumnAccessRadioButton.ToolTip = this.ToolTip;
-            // 
-            // DeleteColumnSqlServerRadioButton
-            // 
-            this.DeleteColumnSqlServerRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnSqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.DeleteColumnSqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.DeleteColumnSqlServerRadioButton.Checked = false;
-            this.DeleteColumnSqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.DeleteColumnSqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.DeleteColumnSqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.DeleteColumnSqlServerRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnSqlServerRadioButton.Group = 0;
-            this.DeleteColumnSqlServerRadioButton.HoverText = null;
-            this.DeleteColumnSqlServerRadioButton.IsDerivedStyle = true;
-            this.DeleteColumnSqlServerRadioButton.Location = new System.Drawing.Point(135, 92);
-            this.DeleteColumnSqlServerRadioButton.Name = "DeleteColumnSqlServerRadioButton";
-            this.DeleteColumnSqlServerRadioButton.Result = null;
-            this.DeleteColumnSqlServerRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.DeleteColumnSqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnSqlServerRadioButton.StyleManager = null;
-            this.DeleteColumnSqlServerRadioButton.TabIndex = 2;
-            this.DeleteColumnSqlServerRadioButton.Tag = "SqlServer";
-            this.DeleteColumnSqlServerRadioButton.Text = "    SQL Server";
-            this.DeleteColumnSqlServerRadioButton.ThemeAuthor = "Narwin";
-            this.DeleteColumnSqlServerRadioButton.ThemeName = "MetroDark";
-            this.DeleteColumnSqlServerRadioButton.ToolTip = this.ToolTip;
-            // 
-            // DeleteColumnSqliteRadioButton
-            // 
-            this.DeleteColumnSqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnSqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.DeleteColumnSqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.DeleteColumnSqliteRadioButton.Checked = false;
-            this.DeleteColumnSqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.DeleteColumnSqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            this.DeleteColumnSqliteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.DeleteColumnSqliteRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnSqliteRadioButton.Group = 0;
-            this.DeleteColumnSqliteRadioButton.HoverText = null;
-            this.DeleteColumnSqliteRadioButton.IsDerivedStyle = true;
-            this.DeleteColumnSqliteRadioButton.Location = new System.Drawing.Point(135, 50);
-            this.DeleteColumnSqliteRadioButton.Name = "DeleteColumnSqliteRadioButton";
-            this.DeleteColumnSqliteRadioButton.Result = null;
-            this.DeleteColumnSqliteRadioButton.Size = new System.Drawing.Size(125, 17);
-            this.DeleteColumnSqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnSqliteRadioButton.StyleManager = null;
-            this.DeleteColumnSqliteRadioButton.TabIndex = 1;
-            this.DeleteColumnSqliteRadioButton.Tag = "SQLite";
-            this.DeleteColumnSqliteRadioButton.Text = "    SQLite";
-            this.DeleteColumnSqliteRadioButton.ThemeAuthor = "Narwin";
-            this.DeleteColumnSqliteRadioButton.ThemeName = "MetroDark";
-            this.DeleteColumnSqliteRadioButton.ToolTip = this.ToolTip;
             // 
             // tabPageAdv1
             // 
@@ -2056,25 +1041,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.CreateTableTabPage.ResumeLayout(false);
-            this.CreateTableSchemaPanel.ResumeLayout(false);
-            this.CreateTableTablesPanel.ResumeLayout(false);
+            this.DefinitionTabPage.ResumeLayout(false);
+            this.SchemaPanel.ResumeLayout(false);
+            this.TablePanel.ResumeLayout(false);
             this.ProviderPanel.ResumeLayout(false);
-            this.EditColumnTabPage.ResumeLayout(false);
-            this.EditColumnSelectTableGroupBox.ResumeLayout(false);
-            this.EditColumnTablesLayout.ResumeLayout(false);
-            this.EditColumnSelectColumnGroupBox.ResumeLayout(false);
-            this.EditColumnProviderGroupBox.ResumeLayout(false);
-            this.SchemaGroupBox.ResumeLayout(false);
-            this.DeleteTableTabPage.ResumeLayout(false);
-            this.DeleteTableTablesGroupBox.ResumeLayout(false);
-            this.DeleteTableTablesLayout.ResumeLayout(false);
-            this.DeleteTableProviderGroupBox.ResumeLayout(false);
-            this.DeleteColumnTabPage.ResumeLayout(false);
-            this.DeleteColumnGroupBox.ResumeLayout(false);
-            this.DeleteColumnTablesGroupBox.ResumeLayout(false);
-            this.DeleteColumnTablesLayout.ResumeLayout(false);
-            this.DeleteColumnProviderGroupBox.ResumeLayout(false);
             this.tabPageAdv1.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -2092,24 +1062,7 @@
         public Layout groupBox3;
         public Layout groupBox4;
         public Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv EditColumnTabPage;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv CreateTableTabPage;
-        public Layout EditColumnProviderGroupBox;
-        public RadioButton EditColumnAccessRadioButton;
-        public RadioButton EditColumnSqlServerRadioButton;
-        public RadioButton EditColumnSqliteRadioButton;
-        public Layout EditColumnSelectTableGroupBox;
-        public ListBox EditColumnTableNameListBox;
-        public ListBox listBox4;
-        public Layout EditColumnSelectColumnGroupBox;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv DeleteTableTabPage;
-        public Layout DeleteTableTablesGroupBox;
-        public ListBox DeleteTableTablesListBox;
-        public ListBox listBox8;
-        public Layout DeleteTableProviderGroupBox;
-        public RadioButton DeleteTableAccessRadioButton;
-        public RadioButton DeleteTableSqlServerRadioButton;
-        public RadioButton DeleteTableSqliteRadioButton;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv DefinitionTabPage;
         public Layout groupBox7;
         public ListBox listBox5;
         public ListBox listBox6;
@@ -2120,37 +1073,19 @@
         public BudgetExecution.TextBox visualTextBox3;
         public Layout groupBox9;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv DeleteColumnTabPage;
-        public Layout DeleteColumnGroupBox;
-        public Layout DeleteColumnTablesGroupBox;
-        public ListBox DeleteColumnTableListBox;
-        public ListBox listBox3;
-        public Layout DeleteColumnProviderGroupBox;
-        public RadioButton DeleteColumnAccessRadioButton;
-        public RadioButton DeleteColumnSqlServerRadioButton;
-        public RadioButton DeleteColumnSqliteRadioButton;
-        public Layout EditColumnTablesLayout;
-        public Layout DeleteTableTablesLayout;
-        public Layout DeleteColumnTablesLayout;
         public Button AddColumnButton;
-        public TextBox CreateTableColumnTextBox;
-        public ListBox DeleteColumnColumnsListBox;
-        public TextBox CreateTableNameTextBox;
-        public ListBox EditColumnColumnNameListBox;
-        public Label EditColumnComboBoxLabel;
-        public TextBox EditColumnNameTextBox;
-        public ComboBox EditColumnDataTypeComboBox;
-        public Label EditColumnTextBoxLabel;
+        public TextBox SchemaPanelTextBox;
+        public TextBox TablePanelTextBox;
         public ComboBox DataTypeComboBox;
-        public Layout SchemaGroupBox;
         private Layout ProviderPanel;
         public RadioButton SqliteRadioButton;
         public RadioButton AccessRadioButton;
         public RadioButton SqlServerRadioButton;
         private Label ProviderPanelLabel;
-        private Layout CreateTableSchemaPanel;
-        private Layout CreateTableTablesPanel;
-        private Label label1;
+        private Layout SchemaPanel;
+        private Layout TablePanel;
+        private Label TablePanelLabel;
         private Label SchemaPanelLabel;
+        public ComboBox TableNameComboBox;
     }
 }

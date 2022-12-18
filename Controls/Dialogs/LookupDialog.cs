@@ -71,6 +71,10 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
+                TablePanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+                ColumnPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+                ProviderPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+                ValuePanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
                 TablePanelLabel.Text = TablePrefix + TableListBox.Items.Count;
                 ColumnPanelLabel.Text = ColumnPrefix;
             }

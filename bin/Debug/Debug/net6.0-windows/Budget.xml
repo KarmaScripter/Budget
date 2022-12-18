@@ -2440,7 +2440,7 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.DefinitionDialog.PopulateTableListBoxItems">
+        <member name="M:BudgetExecution.DefinitionDialog.PopulateTableComboBoxItems">
             <summary>
             Populates the table ListBox items.
             </summary>

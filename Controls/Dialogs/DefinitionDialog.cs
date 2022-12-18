@@ -34,21 +34,29 @@ namespace BudgetExecution
         public DefinitionDialog( )
         {
             InitializeComponent( );
+            
+            // Basic Properties
+            SqliteRadioButton.Tag = "SQLite";
+            SqlServerRadioButton.Tag = "SqlServer";
+            AccessRadioButton.Tag = "Access";
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
+            ProviderPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            TablePanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            SchemaPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            
+            // Populate Controls
             TabPages = GetTabPages( );
             Panels = GetPanels( );
             ListBoxes = GetListBoxes( );
             RadioButtons = GetRadioButtons( );
             ComboBoxes = GetComboBoxes( );
-            SqliteRadioButton.Tag = "SQLite";
-            EditColumnSqliteRadioButton.Tag = "SQLite";
-            SqlServerRadioButton.Tag = "SqlServer";
-            EditColumnSqlServerRadioButton.Tag = "SqlServer";
-            AccessRadioButton.Tag = "Access";
-            EditColumnAccessRadioButton.Tag = "Access";
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            EditColumnDataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-            DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
             SetActiveTab( );
+            
+            // Wire Events
+            AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
+            SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
         }
@@ -91,7 +99,7 @@ namespace BudgetExecution
             {
                 CloseButton.Text = "Exit";
                 DataTypes = GetDataTypes( Provider );
-                PopulateTableListBoxItems( );
+                PopulateTableComboBoxItems( );
                 PopulateComboBoxes( );
             }
             catch( Exception ex )
@@ -103,7 +111,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the table ListBox items.
         /// </summary>
-        public void PopulateTableListBoxItems( )
+        public void PopulateTableComboBoxItems( )
         {
             try
             {
@@ -112,9 +120,7 @@ namespace BudgetExecution
                 {
                     if( _names[ i ] != "NS" )
                     {
-                        EditColumnTableNameListBox.Items.Add( _names[ i ] );
-                        DeleteColumnTableListBox.Items.Add( _names[ i ] );
-                        DeleteTableTablesListBox.Items.Add( _names[ i ] );
+                        TableNameComboBox.Items.Add( _names[ i ] );
                     }
                 }
             }
@@ -133,16 +139,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    EditColumnDataTypeComboBox.SelectedText = string.Empty;
                     DataTypeComboBox.SelectedText = string.Empty;
-                    EditColumnDataTypeComboBox.Items.Clear( );
+                    DataTypeComboBox.SelectedText = string.Empty;
                     DataTypeComboBox.Items.Clear( );
                     var _types = DataTypes.ToArray( );
                     for( var i = 0; i < _types?.Length; i++ )
                     {
                         if( !string.IsNullOrEmpty( _types[ i ] ) )
                         {
-                            EditColumnDataTypeComboBox.Items.Add( _types[ i ] );
                             DataTypeComboBox.Items.Add( _types[ i ] );
                         }
                     }
@@ -192,83 +196,58 @@ namespace BudgetExecution
                     {
                         case ToolType.AddColumnButton:
                         {
-                            EditColumnTabPage.Text = "Add Column";
-                            ActiveTab = EditColumnTabPage;
-                            Provider = Provider.Access;
-                            EditColumnAccessRadioButton.Checked = true;
-                            EditColumnAccessRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            EditColumnSqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            EditColumnSqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            DeleteTableTabPage.TabEnabled = false;
-                            DeleteColumnTabPage.TabEnabled = false;
-                            CreateTableTabPage.TabEnabled = false;
+                            DefinitionTabPage.Text = "Add Column";
+                            ActiveTab = DefinitionTabPage;
+                            AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.AddDatabaseButton:
                         {
-                            CreateTableTabPage.Text = "Add Database";
-                            ActiveTab = CreateTableTabPage;
-                            Provider = Provider.Access;
+                            DefinitionTabPage.Text = "Add Database";
+                            ActiveTab = DefinitionTabPage;
                             AccessRadioButton.Checked = true;
-                            EditColumnTabPage.TabEnabled = false;
-                            DeleteTableTabPage.TabEnabled = false;
-                            DeleteColumnTabPage.TabEnabled = false;
                             break;
                         }
                         case ToolType.AddTableButton:
                         {
-                            CreateTableTabPage.Text = "Add Table";
-                            ActiveTab = CreateTableTabPage;
-                            Provider = Provider.Access;
+                            DefinitionTabPage.Text = "Add Table";
+                            ActiveTab = DefinitionTabPage;
                             AccessRadioButton.Checked = true;
-                            AccessRadioButton.Checked = true;
-                            AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            EditColumnTabPage.TabEnabled = false;
-                            DeleteTableTabPage.TabEnabled = false;
-                            DeleteColumnTabPage.TabEnabled = false;
                             break;
                         }
                         case ToolType.EditColumnButton:
                         {
-                            EditColumnTabPage.Text = "Edit Column";
-                            ActiveTab = EditColumnTabPage;
-                            Provider = Provider.Access;
-                            EditColumnAccessRadioButton.Checked = true;
-                            EditColumnAccessRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            EditColumnSqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            EditColumnSqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
-                            CreateTableTabPage.TabEnabled = false;
-                            DeleteTableTabPage.TabEnabled = false;
-                            DeleteColumnTabPage.TabEnabled = false;
+                            DefinitionTabPage.Text = "Edit Column";
+                            ActiveTab = DefinitionTabPage;
+                            AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.DeleteColumnButton:
                         {
-                            DeleteColumnTabPage.Text = "Delete Column";
-                            ActiveTab = DeleteColumnTabPage;
-                            CreateTableTabPage.TabEnabled = false;
-                            DeleteTableTabPage.TabEnabled = false;
-                            EditColumnTabPage.TabEnabled = false;
+                            DefinitionTabPage.Text = "Delete Column";
+                            ActiveTab = DefinitionTabPage;
+                            AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.DeleteTableButton:
                         {
-                            DeleteTableTabPage.Text = "Delete Table";
-                            ActiveTab = DeleteTableTabPage;
-                            CreateTableTabPage.TabEnabled = false;
-                            EditColumnTabPage.TabEnabled = false;
-                            DeleteColumnTabPage.TabEnabled = false;
+                            DefinitionTabPage.Text = "Delete Table";
+                            ActiveTab = DefinitionTabPage;
+                            AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.DeleteDatabaseButton:
                         {
-                            DeleteTableTabPage.Text = "Delete Database";
-                            ActiveTab = DeleteTableTabPage;
-                            CreateTableTabPage.TabEnabled = false;
-                            EditColumnTabPage.TabEnabled = false;
-                            DeleteColumnTabPage.TabEnabled = false;
+                            DefinitionTabPage.Text = "Delete Database";
+                            ActiveTab = DefinitionTabPage;
+                            AccessRadioButton.Checked = true;
+                            break;
+                        }
+                        default:
+                        {
+                            DefinitionTabPage.Text = "Add Column";
+                            ActiveTab = DefinitionTabPage;
+                            AccessRadioButton.Checked = true;
                             break;
                         }
                     }
@@ -294,7 +273,7 @@ namespace BudgetExecution
                     foreach( TabPageAdv page in TabControl.TabPages )
                     {
                         if( page != null 
-                           && !string.IsNullOrEmpty( page.Name ))
+                           && !string.IsNullOrEmpty( page.Name ) )
                         {
                             _tabPages.Add( page.Name, page );
                         }

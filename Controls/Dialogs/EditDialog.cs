@@ -43,6 +43,8 @@ namespace BudgetExecution
         public EditDialog( )
         {
             InitializeComponent( );
+            
+            // Basic Properties
             Frames = GetFrames( );
             TabPages = GetTabPages( );
             
@@ -146,27 +148,28 @@ namespace BudgetExecution
                         {
                             DataTab.Text = "Edit Data";
                             ActiveTab = DataTab;
+                            SqlTab.TabVisible = false;
                             SelectButton.Text = "Save";
                             CloseButton.Text = "Exit";
-                            SqlTab.TabVisible = false;
                             break;
                         }
                         case ToolType.DeleteRecordButton:
                         {
                             DataTab.Text = "Delete Data";
                             ActiveTab = DataTab;
+                            SqlTab.TabVisible = false;
                             SelectButton.Text = "Delete";
                             CloseButton.Text = "Exit";
-                            SqlTab.TabVisible = false;
                             break;
                         }
                         case ToolType.EditSqlButton:
                         {
                             SqlTab.Text = "SQL Editor";
                             ActiveTab = SqlTab;
+                            SqlTab.TabVisible = true;
+                            DataTab.TabVisible = false;
                             SelectButton.Text = "Save";
                             CloseButton.Text = "Exit";
-                            DataTab.TabVisible = false;
                             break;
                         }
                         default:
@@ -175,7 +178,6 @@ namespace BudgetExecution
                             ActiveTab = DataTab;
                             SelectButton.Text = "Save";
                             CloseButton.Text = "Exit";
-                            SqlTab.TabVisible = false;
                             break;
                         }
                     }
@@ -349,8 +351,9 @@ namespace BudgetExecution
             try
             {
                 var _frames = new List<Frame>( );
-                foreach( var _control in FrameTable.Controls )
+                for( var _i = 0; _i < FrameTable.Controls.Count; _i++ )
                 {
+                    var _control = FrameTable.Controls[ _i ];
                     if( _control.GetType( ) == typeof( Frame ) )
                     {
                         if( _control is Frame _frame )
