@@ -33408,6 +33408,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.UndoButton1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.UploadButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
