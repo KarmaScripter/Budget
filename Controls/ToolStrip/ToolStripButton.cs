@@ -182,7 +182,6 @@ namespace BudgetExecution
                         case ToolType.DeleteColumnButton:
                         case ToolType.DeleteTableButton:
                         case ToolType.DeleteDatabaseButton:
-                        case ToolType.AddRecordButton:
                         case ToolType.AddColumnButton:
                         {
                             var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
@@ -190,12 +189,12 @@ namespace BudgetExecution
                             break;
                         }
                         case ToolType.DeleteButton:
-                        case ToolType.EditSqlButton:
                         case ToolType.EditButton:
                         case ToolType.EditRecordButton:
                         case ToolType.UpdateButton:
                         case ToolType.InsertButton:
                         case ToolType.CopyButton:
+                        case ToolType.AddRecordButton:
                         case ToolType.DeleteRecordButton:
                         {
                             var _dialog = new EditDialog( _button.ToolType, BindingSource  );

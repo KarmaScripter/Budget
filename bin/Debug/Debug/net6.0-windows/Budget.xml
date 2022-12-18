@@ -2445,7 +2445,7 @@
             Populates the table ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DefinitionDialog.PopulateComboBoxes">
+        <member name="M:BudgetExecution.DefinitionDialog.PopulateDataTypeComboBoxItems">
             <summary>
             Populates the data type combo boxes.
             </summary>
@@ -33364,6 +33364,23 @@
         <member name="P:BudgetExecution.Properties.Resources.VerifyDataButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.SqlDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.SqlDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:BudgetExecution.Resource">

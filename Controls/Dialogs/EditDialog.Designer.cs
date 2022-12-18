@@ -34,7 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDialog));
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
-            this.DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.FrameTable = new System.Windows.Forms.TableLayoutPanel();
             this.Frame1 = new BudgetExecution.Frame();
             this.Frame2 = new BudgetExecution.Frame();
@@ -102,11 +102,10 @@
             this.groupBox3 = new BudgetExecution.Layout();
             this.groupBox4 = new BudgetExecution.Layout();
             this.groupBox9 = new BudgetExecution.Layout();
-            this.SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.DataTab.SuspendLayout();
+            this.TabPage.SuspendLayout();
             this.FrameTable.SuspendLayout();
             this.tabPageAdv1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -123,8 +122,7 @@
             this.TabControl.BorderWidth = 1;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.DataTab);
-            this.TabControl.Controls.Add(this.SqlTab);
+            this.TabControl.Controls.Add(this.TabPage);
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
             this.TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -152,23 +150,23 @@
             this.TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.White;
             this.TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             // 
-            // DataTab
+            // TabPage
             // 
-            this.DataTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DataTab.Controls.Add(this.FrameTable);
-            this.DataTab.Image = null;
-            this.DataTab.ImageSize = new System.Drawing.Size(14, 14);
-            this.DataTab.Location = new System.Drawing.Point(0, 22);
-            this.DataTab.Margin = new System.Windows.Forms.Padding(1);
-            this.DataTab.Name = "DataTab";
-            this.DataTab.Padding = new System.Windows.Forms.Padding(1);
-            this.DataTab.ShowCloseButton = true;
-            this.DataTab.Size = new System.Drawing.Size(1362, 500);
-            this.DataTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DataTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DataTab.TabIndex = 8;
-            this.DataTab.Text = "  Edit Mode";
-            this.DataTab.ThemesEnabled = false;
+            this.TabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabPage.Controls.Add(this.FrameTable);
+            this.TabPage.Image = null;
+            this.TabPage.ImageSize = new System.Drawing.Size(14, 14);
+            this.TabPage.Location = new System.Drawing.Point(0, 22);
+            this.TabPage.Margin = new System.Windows.Forms.Padding(1);
+            this.TabPage.Name = "TabPage";
+            this.TabPage.Padding = new System.Windows.Forms.Padding(1);
+            this.TabPage.ShowCloseButton = true;
+            this.TabPage.Size = new System.Drawing.Size(1362, 500);
+            this.TabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TabPage.TabIndex = 8;
+            this.TabPage.Text = "  Edit Mode";
+            this.TabPage.ThemesEnabled = false;
             // 
             // FrameTable
             // 
@@ -1413,21 +1411,6 @@
             this.groupBox9.ThemeName = "BudgetExecution";
             this.groupBox9.ToolTip = null;
             // 
-            // SqlTab
-            // 
-            this.SqlTab.Image = null;
-            this.SqlTab.ImageSize = new System.Drawing.Size(16, 16);
-            this.SqlTab.Location = new System.Drawing.Point(0, 22);
-            this.SqlTab.Name = "SqlTab";
-            this.SqlTab.ShowCloseButton = true;
-            this.SqlTab.Size = new System.Drawing.Size(1362, 500);
-            this.SqlTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SqlTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SqlTab.TabIndex = 9;
-            this.SqlTab.TabVisible = false;
-            this.SqlTab.Text = "SQL Editor";
-            this.SqlTab.ThemesEnabled = false;
-            // 
             // EditDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1458,7 +1441,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.DataTab.ResumeLayout(false);
+            this.TabPage.ResumeLayout(false);
             this.FrameTable.ResumeLayout(false);
             this.tabPageAdv1.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -1487,7 +1470,7 @@
         public BudgetExecution.TextBox visualTextBox3;
         public Layout groupBox9;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv TabPage;
         public System.Windows.Forms.TableLayoutPanel FrameTable;
         public Frame Frame1;
         public Frame Frame2;
@@ -1538,6 +1521,5 @@
         public Frame Frame47;
         public Frame Frame48;
         public Frame Frame49;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
     }
 }

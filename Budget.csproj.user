@@ -208,6 +208,9 @@
     <Compile Update="Data\Adapter\AdapterBuilder.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="SqlDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

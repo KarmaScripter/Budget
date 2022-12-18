@@ -356,3 +356,4 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.genruntimecon
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.csproj.SuggestedBindingRedirects.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.dll.config
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.SqlDialog.resources

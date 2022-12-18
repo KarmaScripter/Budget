@@ -34,7 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefinitionDialog));
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
-            this.DefinitionTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.SchemaPanelLabel = new BudgetExecution.Label();
             this.SchemaPanel = new BudgetExecution.Layout();
             this.SchemaPanelTextBox = new BudgetExecution.TextBox();
@@ -69,7 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.DefinitionTabPage.SuspendLayout();
+            this.TabPage.SuspendLayout();
             this.SchemaPanel.SuspendLayout();
             this.TablePanel.SuspendLayout();
             this.ProviderPanel.SuspendLayout();
@@ -87,7 +87,7 @@
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.DefinitionTabPage);
+            this.TabControl.Controls.Add(this.TabPage);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
@@ -118,27 +118,26 @@
             this.TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             // 
-            // DefinitionTabPage
+            // TabPage
             // 
-            this.DefinitionTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DefinitionTabPage.Controls.Add(this.SchemaPanelLabel);
-            this.DefinitionTabPage.Controls.Add(this.SchemaPanel);
-            this.DefinitionTabPage.Controls.Add(this.TablePanel);
-            this.DefinitionTabPage.Controls.Add(this.TablePanelLabel);
-            this.DefinitionTabPage.Controls.Add(this.ProviderPanel);
-            this.DefinitionTabPage.Controls.Add(this.ProviderPanelLabel);
-            this.DefinitionTabPage.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.DefinitionTabPage.Image = null;
-            this.DefinitionTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.DefinitionTabPage.Location = new System.Drawing.Point(0, 22);
-            this.DefinitionTabPage.Name = "DefinitionTabPage";
-            this.DefinitionTabPage.ShowCloseButton = true;
-            this.DefinitionTabPage.Size = new System.Drawing.Size(1368, 466);
-            this.DefinitionTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DefinitionTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DefinitionTabPage.TabIndex = 3;
-            this.DefinitionTabPage.Text = "  Create Table";
-            this.DefinitionTabPage.ThemesEnabled = false;
+            this.TabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabPage.Controls.Add(this.SchemaPanelLabel);
+            this.TabPage.Controls.Add(this.SchemaPanel);
+            this.TabPage.Controls.Add(this.TablePanel);
+            this.TabPage.Controls.Add(this.TablePanelLabel);
+            this.TabPage.Controls.Add(this.ProviderPanel);
+            this.TabPage.Controls.Add(this.ProviderPanelLabel);
+            this.TabPage.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.TabPage.Image = null;
+            this.TabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.TabPage.Location = new System.Drawing.Point(0, 22);
+            this.TabPage.Name = "TabPage";
+            this.TabPage.ShowCloseButton = true;
+            this.TabPage.Size = new System.Drawing.Size(1368, 466);
+            this.TabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TabPage.TabForeColor = System.Drawing.Color.LightGray;
+            this.TabPage.TabIndex = 3;
+            this.TabPage.ThemesEnabled = false;
             // 
             // SchemaPanelLabel
             // 
@@ -1041,7 +1040,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.DefinitionTabPage.ResumeLayout(false);
+            this.TabPage.ResumeLayout(false);
             this.SchemaPanel.ResumeLayout(false);
             this.TablePanel.ResumeLayout(false);
             this.ProviderPanel.ResumeLayout(false);
@@ -1062,7 +1061,7 @@
         public Layout groupBox3;
         public Layout groupBox4;
         public Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv DefinitionTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv TabPage;
         public Layout groupBox7;
         public ListBox listBox5;
         public ListBox listBox6;

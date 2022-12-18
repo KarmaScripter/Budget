@@ -45,6 +45,10 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
+            TabPage.TabFont = new Font( "Roboto", 9, FontStyle.Bold );
+            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            SelectButton.Text = "Save";
+            CloseButton.Text = "Exit";
             Frames = GetFrames( );
             TabPages = GetTabPages( );
             
@@ -142,42 +146,40 @@ namespace BudgetExecution
                     switch( ToolType )
                     {
                         case ToolType.CopyButton:
+                        {
+                            TabPage.Text = "Copy Data";
+                            ActiveTab = TabPage;
+                            break;
+                        }
                         case ToolType.AddRecordButton:
+                        {
+                            TabPage.Text = "Add Record";
+                            ActiveTab = TabPage;
+                            break;
+                        }
                         case ToolType.AddButton:
+                        {
+                            TabPage.Text = "Add Data";
+                            ActiveTab = TabPage;
+                            break;
+                        }
                         case ToolType.EditRecordButton:
                         {
-                            DataTab.Text = "Edit Data";
-                            ActiveTab = DataTab;
-                            SqlTab.TabVisible = false;
-                            SelectButton.Text = "Save";
-                            CloseButton.Text = "Exit";
+                            TabPage.Text = "Edit Record";
+                            ActiveTab = TabPage;
                             break;
                         }
                         case ToolType.DeleteRecordButton:
                         {
-                            DataTab.Text = "Delete Data";
-                            ActiveTab = DataTab;
-                            SqlTab.TabVisible = false;
+                            TabPage.Text = "Delete Data";
+                            ActiveTab = TabPage;
                             SelectButton.Text = "Delete";
-                            CloseButton.Text = "Exit";
-                            break;
-                        }
-                        case ToolType.EditSqlButton:
-                        {
-                            SqlTab.Text = "SQL Editor";
-                            ActiveTab = SqlTab;
-                            SqlTab.TabVisible = true;
-                            DataTab.TabVisible = false;
-                            SelectButton.Text = "Save";
-                            CloseButton.Text = "Exit";
                             break;
                         }
                         default:
                         {
-                            DataTab.Text = "Edit Data";
-                            ActiveTab = DataTab;
-                            SelectButton.Text = "Save";
-                            CloseButton.Text = "Exit";
+                            TabPage.Text = "Edit Data";
+                            ActiveTab = TabPage;
                             break;
                         }
                     }
