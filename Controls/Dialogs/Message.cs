@@ -36,6 +36,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             StartPosition = FormStartPosition.CenterScreen;
+            CloseButton.Focus( );
             
             //Event Wiring
             CloseButton.Click += OnCloseButtonClick;
@@ -51,6 +52,7 @@ namespace BudgetExecution
             : this( )
         {
             TextBox.Text = Environment.NewLine + text;
+            CloseButton.Focus( );
         }
 
         /// <summary>
@@ -61,7 +63,8 @@ namespace BudgetExecution
         public Message( string text, string caption )
             : this( text )
         {
-            Label.Text = caption;
+            Header.Text = caption;
+            CloseButton.Focus( );
         }
 
         /// <summary>
@@ -75,8 +78,6 @@ namespace BudgetExecution
             try
             {
                 Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-                TextBox.BorderColor = Color.FromArgb( 0, 120, 212 );
-                CloseButton.Focus( );
             }
             catch( Exception ex )
             {

@@ -8,12 +8,14 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class SqlDialog : EditBase
     {
         /// <summary>
@@ -43,8 +45,11 @@ namespace BudgetExecution
             Size = new Size( 1380, 600 );
             TabPage.TabFont = new Font( "Roboto", 9, FontStyle.Bold );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            SelectButton.Text = "Save";
+            AcceptButton.Text = "Save";
             CloseButton.Text = "Exit";
+            
+            // Event Wiring
+            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -127,5 +132,4 @@ namespace BudgetExecution
             }
         }
     }
-    
 }

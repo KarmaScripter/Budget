@@ -38,15 +38,17 @@ namespace BudgetExecution
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Message));
             this.TextBox = new BudgetExecution.TextBox();
+            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OpenButton = new BudgetExecution.Button();
             this.ToolTip = new BudgetExecution.SmallTip();
             this.CloseButton = new BudgetExecution.Button();
             this.Label = new BudgetExecution.Label();
             this.Picture = new BudgetExecution.Picture();
             this.Header = new BudgetExecution.Label();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
+            this.BackPanel = new BudgetExecution.Layout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
+            this.BackPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextBox
@@ -55,7 +57,7 @@ namespace BudgetExecution
             this.TextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.TextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.TextBox.BindingSource = this.BindingSource;
-            this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TextBox.BorderColor = System.Drawing.Color.Transparent;
             this.TextBox.DataFilter = null;
             this.TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
@@ -66,12 +68,12 @@ namespace BudgetExecution
             this.TextBox.Image = null;
             this.TextBox.IsDerivedStyle = true;
             this.TextBox.Lines = null;
-            this.TextBox.Location = new System.Drawing.Point(86, 90);
+            this.TextBox.Location = new System.Drawing.Point(27, 19);
             this.TextBox.MaxLength = 2147483647;
             this.TextBox.Multiline = false;
             this.TextBox.Name = "TextBox";
             this.TextBox.ReadOnly = true;
-            this.TextBox.Size = new System.Drawing.Size(526, 205);
+            this.TextBox.Size = new System.Drawing.Size(490, 186);
             this.TextBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TextBox.StyleManager = null;
             this.TextBox.TabIndex = 8;
@@ -99,7 +101,7 @@ namespace BudgetExecution
             this.OpenButton.HoverText = null;
             this.OpenButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.OpenButton.IsDerivedStyle = true;
-            this.OpenButton.Location = new System.Drawing.Point(86, 334);
+            this.OpenButton.Location = new System.Drawing.Point(70, 334);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
             this.OpenButton.Name = "OpenButton";
             this.OpenButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -237,6 +239,31 @@ namespace BudgetExecution
             this.Header.ThemeName = "BudgetExecution";
             this.Header.ToolTip = null;
             // 
+            // BackPanel
+            // 
+            this.BackPanel.BackColor = System.Drawing.Color.Transparent;
+            this.BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackPanel.BindingSource = null;
+            this.BackPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BackPanel.BorderThickness = 1;
+            this.BackPanel.Children = null;
+            this.BackPanel.Controls.Add(this.TextBox);
+            this.BackPanel.DataFilter = null;
+            this.BackPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BackPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.BackPanel.HoverText = null;
+            this.BackPanel.IsDerivedStyle = true;
+            this.BackPanel.Location = new System.Drawing.Point(70, 77);
+            this.BackPanel.Name = "BackPanel";
+            this.BackPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.BackPanel.Size = new System.Drawing.Size(542, 229);
+            this.BackPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.BackPanel.StyleManager = null;
+            this.BackPanel.TabIndex = 15;
+            this.BackPanel.ThemeAuthor = "Terry D. Eppler";
+            this.BackPanel.ThemeName = "BudgetExecution";
+            this.BackPanel.ToolTip = null;
+            // 
             // Message
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -250,8 +277,8 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(688, 400);
+            this.Controls.Add(this.BackPanel);
             this.Controls.Add(this.Header);
-            this.Controls.Add(this.TextBox);
             this.Controls.Add(this.Picture);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.CloseButton);
@@ -269,8 +296,9 @@ namespace BudgetExecution
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
+            this.BackPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
             }
@@ -284,6 +312,7 @@ namespace BudgetExecution
         public Picture Picture;
         private Label Header;
         public BindingSource BindingSource;
+        private Layout BackPanel;
     }
     
 }
