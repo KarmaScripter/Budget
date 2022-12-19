@@ -9,6 +9,9 @@ namespace BudgetExecution
     /// </summary>
     public enum BFY
     {
+        /// <summary>
+        /// The ns
+        /// </summary>
         NS = 0,
 
         /// <summary>

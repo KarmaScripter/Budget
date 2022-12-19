@@ -20,6 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public class ResourcePlanningOffice : Element, IResourcePlanningOffice, ISource
     {
         /// <summary>
@@ -195,6 +196,11 @@ namespace BudgetExecution
             return MemberwiseClone( ) as ResourcePlanningOffice;
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
         protected override int GetId( DataRow dataRow )
         {
             try
@@ -210,6 +216,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
         protected override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try

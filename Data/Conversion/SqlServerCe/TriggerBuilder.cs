@@ -7,6 +7,10 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class TriggerBuilder
     {
         /// <summary>
@@ -35,7 +39,9 @@ namespace BudgetExecution
         /// <returns></returns>
         private static string MakeTriggerName( ForeignKeySchema foreignKey, string prefix )
         {
-            return prefix + "" + foreignKey.TableName + "" + foreignKey.ColumnName + "" + foreignKey.ForeignTableName
+            return prefix + "" + foreignKey.TableName + "" 
+                + foreignKey.ColumnName + "" 
+                + foreignKey.ForeignTableName
                 + "" + foreignKey.ForeignColumnName;
         }
 

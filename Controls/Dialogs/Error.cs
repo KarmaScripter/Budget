@@ -52,8 +52,8 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 26;
-            CaptionButtonColor = Color.FromArgb( 80, 80, 80 );
-            CaptionButtonHoverColor = Color.White;
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 9 );
             MetroColor = Color.FromArgb( 20, 20, 20 );
@@ -69,10 +69,10 @@ namespace BudgetExecution
             HeaderLabel.ForeColor = Color.Red;
 
             // TextBox Properties
-            TextBox.BackColor = Color.FromArgb( 20, 20, 20 );
+            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             TextBox.Parent = BackPanel;
             TextBox.Dock = DockStyle.Fill;
-            BackPanel.BackColor = Color.FromArgb( 20, 20, 20 );
+            BackPanel.BackColor = Color.FromArgb( 40, 40, 40 );
             BackPanel.Parent = this;
             BackPanel.Location = new Point( 61, 48 );
             BackPanel.Controls.Add( TextBox );
@@ -168,7 +168,17 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnClick( object sender, EventArgs e )
         {
-            Close( );
+            if( sender is Button )
+            {
+                try
+                {
+                    Close( );
+                }
+                catch( Exception ex )
+                {
+                    Console.WriteLine( ex.Message );
+                }
+            }
         }
     }
 }

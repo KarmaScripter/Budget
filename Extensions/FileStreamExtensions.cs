@@ -6,10 +6,12 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Text;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class FileStreamExtensions
     {
         /// <summary>
@@ -81,7 +83,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -108,13 +109,11 @@ namespace BudgetExecution
                 try
                 {
                     encoding ??= Encoding.Default;
-
                     return new StreamReader( stream, encoding );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -142,7 +141,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -169,13 +167,11 @@ namespace BudgetExecution
                 try
                 {
                     encoding ??= Encoding.Default;
-
                     return new StreamWriter( stream, encoding );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -216,13 +212,11 @@ namespace BudgetExecution
                 try
                 {
                     using var _reader = stream.GetReader( encoding );
-
                     return _reader.ReadToEnd( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -246,13 +240,11 @@ namespace BudgetExecution
                 try
                 {
                     stream.Seek( 0, SeekOrigin.Begin );
-
                     return stream;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -276,13 +268,11 @@ namespace BudgetExecution
                 try
                 {
                     stream.Seek( 0, SeekOrigin.End );
-
                     return stream;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -327,7 +317,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default( MemoryStream );
                 }
             }
@@ -352,13 +341,11 @@ namespace BudgetExecution
                 {
                     using var _memory = new MemoryStream( (int)stream.Length );
                     stream.CopyTo( _memory, (int)stream.Length );
-
                     return _memory;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -382,13 +369,11 @@ namespace BudgetExecution
                 try
                 {
                     using var _memory = stream.CopyToMemory( );
-
                     return _memory.ToArray( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -435,7 +420,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }

@@ -45,11 +45,9 @@ namespace BudgetExecution
                 };
 
                 _xml.Add( new XElement( rootName ) );
-
                 foreach( DataRow _dataRow in dataTable.Rows )
                 {
                     var _element = new XElement( dataTable.TableName );
-
                     for( var i = 0; i < dataTable.Columns.Count; i++ )
                     {
                         var col = dataTable.Columns[ i ];
@@ -92,7 +90,6 @@ namespace BudgetExecution
 
                 var _excel = new ExcelPackage( );
                 var _worksheet = _excel?.Workbook?.Worksheets[ 0 ];
-
                 for( var i = 0; i < dataTable?.Columns?.Count; i++ )
                 {
                     if( _worksheet != null
@@ -134,7 +131,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Froms the excel.
+        /// From excel.
         /// </summary>
         /// <param name="dataTable">The dataTable.</param>
         /// <param name="filePath">The filePath.</param>

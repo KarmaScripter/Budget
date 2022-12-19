@@ -16,6 +16,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class ConnectionBase
     {
         /// <summary>

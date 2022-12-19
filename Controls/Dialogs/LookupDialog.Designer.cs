@@ -144,7 +144,7 @@
             this.ValuePanelLabel.BindingSource = null;
             this.ValuePanelLabel.DataFilter = null;
             this.ValuePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ValuePanelLabel.HoverText = null;
             this.ValuePanelLabel.IsDerivedStyle = true;
             this.ValuePanelLabel.Location = new System.Drawing.Point(712, 265);
@@ -166,7 +166,7 @@
             this.ColumnPanelLabel.BindingSource = null;
             this.ColumnPanelLabel.DataFilter = null;
             this.ColumnPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ColumnPanelLabel.HoverText = null;
             this.ColumnPanelLabel.IsDerivedStyle = true;
             this.ColumnPanelLabel.Location = new System.Drawing.Point(176, 265);
@@ -188,7 +188,7 @@
             this.TablePanelLabel.BindingSource = null;
             this.TablePanelLabel.DataFilter = null;
             this.TablePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TablePanelLabel.HoverText = null;
             this.TablePanelLabel.IsDerivedStyle = true;
             this.TablePanelLabel.Location = new System.Drawing.Point(712, 40);
@@ -411,7 +411,7 @@
             this.ProviderPanelLabel.BindingSource = null;
             this.ProviderPanelLabel.DataFilter = null;
             this.ProviderPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProviderPanelLabel.HoverText = null;
             this.ProviderPanelLabel.IsDerivedStyle = true;
             this.ProviderPanelLabel.Location = new System.Drawing.Point(176, 39);
@@ -994,7 +994,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -1008,7 +1007,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LookupDialog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);

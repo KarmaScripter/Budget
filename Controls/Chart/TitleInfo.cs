@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ITitleInfo" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class TitleInfo : ITitleInfo
     {
         /// <summary>
@@ -92,7 +93,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -115,7 +115,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -139,13 +138,11 @@ namespace BudgetExecution
                     _title.Visible = true;
                     _title.Font = new Font( "Roboto", 9 );
                     _title.BackColor = Color.FromArgb( 20, 20, 20 );
-
                     return _title;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -169,13 +166,11 @@ namespace BudgetExecution
                     _title.Visible = true;
                     _title.Font = new Font( "Roboto", 9 );
                     _title.BackColor = Color.FromArgb( 20, 20, 20 );
-
                     return _title;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -202,13 +197,11 @@ namespace BudgetExecution
                     _title.Font = font;
                     _title.ForeColor = color;
                     _title.BackColor = Color.FromArgb( 20, 20, 20 );
-
                     return _title;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -235,13 +228,11 @@ namespace BudgetExecution
                     _title.Font = font;
                     _title.ForeColor = color;
                     _title.BackColor = Color.FromArgb( 20, 20, 20 );
-
                     return _title;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -263,16 +254,13 @@ namespace BudgetExecution
                 try
                 {
                     var data = new Dictionary<string, string>( );
-
                     data[ "Main" ] = main;
                     data[ "Axis" ] = axis;
-
                     return data;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }

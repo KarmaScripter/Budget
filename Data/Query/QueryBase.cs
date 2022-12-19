@@ -13,6 +13,9 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class QueryBase
     {
@@ -26,6 +29,12 @@ namespace BudgetExecution
         /// </summary>
         public virtual Provider Provider { get; set; }
 
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public virtual SQL CommandType { get; set; }
 
         /// <summary>
@@ -116,7 +125,8 @@ namespace BudgetExecution
         public virtual DbDataReader DataReader { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// Initializes a new instance of the 
+        /// <see cref="QueryBase"/> class.
         /// </summary>
         protected QueryBase( )
         {
@@ -161,7 +171,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="QueryBase"/> class.
         /// </summary>
         /// <param name = "provider" > </param>
         /// <param name="sqlStatement">The SQL statement.</param>
@@ -218,7 +229,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="QueryBase"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -256,7 +268,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="QueryBase"/> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name = "sqlText" > </param>
@@ -275,7 +288,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="QueryBase"/> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="commandType">Type of the command.</param>

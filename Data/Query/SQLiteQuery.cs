@@ -162,14 +162,31 @@ namespace BudgetExecution
             /// <summary>
             /// The default
             /// </summary>
-            Default, Text,
+            Default,
 
+            /// <summary>
+            /// The text
+            /// </summary>
+            Text,
+
+            /// <summary>
+            /// The date time
+            /// </summary>
             DateTime,
 
+            /// <summary>
+            /// The integer
+            /// </summary>
             Integer,
 
+            /// <summary>
+            /// The decimal
+            /// </summary>
             Decimal,
 
+            /// <summary>
+            /// The BLOB
+            /// </summary>
             Blob
         }
 
@@ -245,8 +262,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _fname = "";
-                var fdlg = new OpenFileDialog
+                var _fileName = "";
+                var _fileDialog = new OpenFileDialog
                 {
                     Title = "Excel File Dialog",
                     InitialDirectory = @"C:\",
@@ -255,12 +272,12 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( fdlg.ShowDialog( ) == DialogResult.OK )
+                if( _fileDialog.ShowDialog( ) == DialogResult.OK )
                 {
-                    _fname = fdlg.FileName;
+                    _fileName = _fileDialog.FileName;
                 }
 
-                return _fname;
+                return _fileName;
             }
             catch( Exception ex )
             {
@@ -287,9 +304,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dataset = new DataSet( );
+                    var _dataSet = new DataSet( );
                     var _filePath = GetExcelFilePath( );
-                    var _sql = $"SELECT * FROM [ { sheetName } ]";
+                    var _sql = $"SELECT * FROM [{ sheetName }]";
                     var _msg = "Sheet Does Not Exist!";
                     var _excelQuery = new ExcelQuery( _filePath, _sql );
                     var _connection = _excelQuery.DataConnection as OleDbConnection;
@@ -307,8 +324,12 @@ namespace BudgetExecution
                     }
 
                     var _adapter = new OleDbDataAdapter( _sql, _connection );
-                    _adapter.Fill( _dataset, sheetName );
-                    return _dataset.Tables[ 0 ];
+                    if( sheetName != null )
+                    {
+                        _adapter.Fill( _dataSet, sheetName );
+                    }
+
+                    return _dataSet.Tables[ 0 ];
                 }
                 catch( Exception ex )
                 {
@@ -436,16 +457,16 @@ namespace BudgetExecution
                                     [Value] VARCHAR(2048)  NULL
                                     )";
 
-            SQLiteConnection.CreateFile( "databaseFile.db3" );
+            SQLiteConnection.CreateFile( "databaseFile.db" );
             using var _connection = new SQLiteConnection( "Data source=databaseFile.db3" );
             var _command = new SQLiteCommand( _connection );
             _connection.Open( );
             _command.CommandText = _commandText;
             _command.ExecuteNonQuery( );
-            _command.CommandText = "INSERT INTO MyTable (Key,Value) Values ('key one','value one')";
+            _command.CommandText = "INSERT INTO MyTable ( Key,Value ) Values ( 'key one','value one' )";
             _command.ExecuteNonQuery( );
             _command.CommandText =
-                "INSERT INTO MyTable (Key,Value) Values ('key two','value value')";
+                "INSERT INTO MyTable ( Key,Value ) Values ( 'key two','value value' )";
 
             _command.ExecuteNonQuery( );
             _command.CommandText = "Select * FROM MyTable";

@@ -18,8 +18,6 @@ namespace BudgetExecution
     {
         /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref = "T:BudgetExecution.SqlCeQuery"/>
-        /// class.
         /// </summary>
         public SqlCeQuery( )
         {

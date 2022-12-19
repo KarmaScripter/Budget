@@ -196,9 +196,8 @@
 
         #endregion
 
-        public BudgetExecution.RichTextBox TextBox;
-
-        public BudgetExecution.Layout BackPanel;
+        public RichTextBox TextBox;
+        public Layout BackPanel;
         public Button CloseButton;
         public SmallTip ToolTip;
         public Label HeaderLabel;

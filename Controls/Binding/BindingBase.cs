@@ -11,6 +11,9 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class BindingBase : BindingSource
     {
         /// <summary>
@@ -85,7 +88,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -99,14 +101,14 @@ namespace BudgetExecution
         {
             try
             {
-                return DataTable?.Rows?.Count > 0 && DataTable?.Columns?.Count > 0
-                    ? DataTable
-                    : default;
+                return DataTable?.Rows?.Count > 0 
+                    && DataTable?.Columns?.Count > 0
+                        ? DataTable
+                        : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -121,7 +123,6 @@ namespace BudgetExecution
             try
             {
                 var _dataRows = DataTable?.AsEnumerable( );
-
                 return _dataRows?.Any( ) == true
                     ? _dataRows
                     : default;
@@ -129,7 +130,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -150,7 +150,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -171,7 +170,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }

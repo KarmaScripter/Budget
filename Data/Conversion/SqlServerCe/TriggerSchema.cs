@@ -4,6 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System.Diagnostics.CodeAnalysis;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public enum TriggerEvent
     {
         /// <summary>
@@ -41,6 +46,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public class TriggerSchema
     {
         /// <summary>

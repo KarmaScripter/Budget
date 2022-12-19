@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
@@ -14,7 +13,8 @@ namespace BudgetExecution
     public class CommandBuilder : CommandBase, ICommandBuilder
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CommandBuilder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CommandBuilder"/> class.
         /// </summary>
         public CommandBuilder( )
         {
@@ -61,6 +61,14 @@ namespace BudgetExecution
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="provider"></param>
+        /// <param name="columns"></param>
+        /// <param name="where"></param>
+        /// <param name="commandType"></param>
         public CommandBuilder( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )

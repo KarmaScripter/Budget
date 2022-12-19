@@ -117,7 +117,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    PopulateListView( );
+                    PopulateListBox( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
@@ -211,7 +211,6 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-
                     foreach( var path in InitialDirPaths )
                     {
                         var _first = GetFiles( path )
@@ -221,7 +220,6 @@ namespace BudgetExecution
 
                         _list.AddRange( _first );
                         var _dirs = GetDirectories( path );
-
                         foreach( var dir in _dirs )
                         {
                             if( !dir.Contains( "My " ) )
@@ -236,13 +234,13 @@ namespace BudgetExecution
                                     _list.AddRange( _second );
                                 }
 
-                                var _subdir = GetDirectories( dir );
-                                for( var i = 0; i < _subdir.Length; i++ )
+                                var _subDir = GetDirectories( dir );
+                                for( var i = 0; i < _subDir.Length; i++ )
                                 {
-                                    var sub = _subdir[ i ];
-                                    if( !string.IsNullOrEmpty( sub ) )
+                                    var _path = _subDir[ i ];
+                                    if( !string.IsNullOrEmpty( _path ) )
                                     {
-                                        var _last = GetFiles( sub )
+                                        var _last = GetFiles( _path )
                                             ?.Where( l => l.EndsWith( FileExtension ) )
                                             ?.Select( l => Path.GetFullPath( l ) )
                                             ?.ToList( );
@@ -286,7 +284,7 @@ namespace BudgetExecution
                     MessageLabel.Text = string.Empty;
                     FoundLabel.Text = string.Empty;
                     var _paths = GetListViewPaths( );
-                    PopulateListView( _paths );
+                    PopulateListBox( _paths );
                     Picture.Image = GetImage( );
                     FoundLabel.Text = "Found: " + _paths?.ToList( )?.Count ?? "0";
                 }
@@ -364,7 +362,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the ListView.
         /// </summary>
-        public virtual void PopulateListView( )
+        public virtual void PopulateListBox( )
         {
             if( FilePaths?.Any( ) == true )
             {
@@ -386,7 +384,7 @@ namespace BudgetExecution
         /// Populates the ListView.
         /// </summary>
         /// <param name="filePaths">The file paths.</param>
-        public virtual void PopulateListView( IEnumerable<string> filePaths )
+        public virtual void PopulateListBox( IEnumerable<string> filePaths )
         {
             try
             {
@@ -414,7 +412,6 @@ namespace BudgetExecution
         /// Called when [path selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public virtual void OnPathSelected( object sender )
         {
             if( sender is ListBox listBox
