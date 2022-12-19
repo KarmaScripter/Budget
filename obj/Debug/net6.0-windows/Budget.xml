@@ -3008,6 +3008,14 @@
             <param name="text">The text.</param>
             <param name="caption">The caption.</param>
         </member>
+        <member name="M:BudgetExecution.Message.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e"> instance containing the event data.
+            </param>
+        </member>
         <member name="M:BudgetExecution.Message.OnCloseButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [close button clicked].
@@ -19109,7 +19117,7 @@
             The add database button
             </summary>
         </member>
-        <member name="F:BudgetExecution.ToolType.BluetoothButton">
+        <member name="F:BudgetExecution.ToolType.BlueToothButton">
             <summary>
             The bluetooth button
             </summary>
@@ -35337,6 +35345,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.AnalyticsButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.BlueNinja">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

@@ -24,18 +24,23 @@ namespace BudgetExecution
             InitializeComponent( );
             Size = new Size( 621, 412 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.SteelBlue;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             OpenButton.Text = "Open";
-            OpenButton.ForeColor = Color.SteelBlue;
+            OpenButton.ForeColor = Color.FromArgb( 0, 120, 212 );
             OpenButton.BackColor = Color.FromArgb( 20, 20, 20 );
             CloseButton.Text = "Close";
-            CloseButton.ForeColor = Color.SteelBlue;
+            CloseButton.ForeColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+            StartPosition = FormStartPosition.CenterScreen;
+            
+            //Event Wiring
             CloseButton.Click += OnCloseButtonClick;
             OpenButton.Click += OnOpenButtonClick;
-            BackColor = Color.FromArgb( 20, 20, 20 );
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -59,6 +64,26 @@ namespace BudgetExecution
             Label.Text = caption;
         }
 
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e"> instance containing the event data.
+        /// </param>
+        public virtual void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                TextBox.BorderColor = Color.FromArgb( 0, 120, 212 );
+                CloseButton.Focus( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
