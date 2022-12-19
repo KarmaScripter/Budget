@@ -64,10 +64,8 @@ namespace BudgetExecution
         {
             Worksheet = workSheet;
             Range = range;
-
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.End.Row,
                 Range.End.Row );
-
             From = ( Address.Start.Row, Address.Start.Column );
             To = ( Address.End.Row, Address.End.Column );
         }

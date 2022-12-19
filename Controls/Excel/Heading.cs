@@ -12,6 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Heading : Grid
     {
         /// <summary>
@@ -69,66 +70,6 @@ namespace BudgetExecution
         {
             Caption = caption;
             Span = Range.Columns;
-        }
-
-        /// <summary>
-        /// Gets the span.
-        /// </summary>
-        /// <returns></returns>
-        public int GetSpan( )
-        {
-            try
-            {
-                return Span > 0
-                    ? Span
-                    : 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-
-                return 0;
-            }
-        }
-
-        /// <summary>
-        /// Gets the anchor.
-        /// </summary>
-        /// <returns></returns>
-        public (int Row, int Column) GetAnchor( )
-        {
-            try
-            {
-                return Anchor.Row > 0 && Anchor.Column > 0
-                    ? Anchor
-                    : ( 0, 0 );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-
-                return ( 0, 0 );
-            }
-        }
-
-        /// <summary>
-        /// Gets the caption.
-        /// </summary>
-        /// <returns></returns>
-        public IDictionary<int, string> GetCaption( )
-        {
-            try
-            {
-                return Caption?.Any( ) == true
-                    ? Caption
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-
-                return default;
-            }
         }
     }
 }

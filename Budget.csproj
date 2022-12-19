@@ -27,6 +27,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <WarningLevel>5</WarningLevel>
+    <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
@@ -148,6 +149,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Update="Controls\Calendar\CalendarForm.cs" />
+    <Compile Remove="bin\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -155,6 +157,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Remove="bin\**" />
   </ItemGroup>
   <ItemGroup>
     <None Update="LICENSE">
@@ -173,5 +176,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Remove="bin\**" />
   </ItemGroup>
 </Project>
