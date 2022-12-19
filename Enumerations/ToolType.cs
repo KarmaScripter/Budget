@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <summary>
         /// The bluetooth button
         /// </summary>
-        BluetoothButton,
+        BlueToothButton,
 
         /// <summary>
         /// The browse button
