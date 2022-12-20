@@ -50,14 +50,11 @@ namespace BudgetExecution
 
                             {
                                 var _sqlite = new List<SQLiteParameter>( );
-
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
                                     var _parameter = new SQLiteParameter( );
-
                                     _parameter.SourceColumn = _columns[ i ].ColumnName;
                                     _parameter.Value = _values[ i ];
-
                                     _sqlite.Add( _parameter );
                                 }
 
@@ -92,14 +89,11 @@ namespace BudgetExecution
 
                             {
                                 var _oledb = new List<OleDbParameter>( );
-
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
                                     var parameter = new OleDbParameter( );
-
                                     parameter.SourceColumn = _columns[ i ].ColumnName;
                                     parameter.Value = _values[ i ];
-
                                     _oledb.Add( parameter );
                                 }
 
@@ -109,17 +103,13 @@ namespace BudgetExecution
                             }
 
                             case Provider.SqlServer:
-
                             {
                                 var _sqlserver = new List<SqlParameter>( );
-
                                 for( var i = 0; i < _columns?.Count; i++ )
                                 {
                                     var _parameter = new SqlParameter( );
-
                                     _parameter.SourceColumn = _columns[ i ].ColumnName;
                                     _parameter.Value = _values[ i ];
-
                                     _sqlserver.Add( _parameter );
                                 }
 
@@ -158,7 +148,6 @@ namespace BudgetExecution
                     var _table = dataRow?.Table;
                     var _column = _table?.Columns;
                     var _items = dataRow?.ItemArray;
-
                     for( var i = 0; i < _column?.Count; i++ )
                     {
                         if( !string.IsNullOrEmpty( _column[ i ]?.ColumnName ) )
@@ -216,13 +205,12 @@ namespace BudgetExecution
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 var _columns = dataRow.Table?.GetColumnNames( );
-
                 if( _columns?.Any( ) == true
-                   && _columns.Contains( $"{field}" ) )
+                   && _columns.Contains( $"{ field }" ) )
                 {
                     try
                     {
-                        return dataRow[ $"{field}" ].ToString( );
+                        return dataRow[ $"{ field }" ].ToString( );
                     }
                     catch( Exception ex )
                     {
@@ -249,13 +237,12 @@ namespace BudgetExecution
                && Enum.IsDefined( typeof( Numeric ), numeric ) )
             {
                 var _columns = dataRow.Table?.GetColumnNames( );
-
                 if( _columns?.Any( ) == true
-                   && _columns.Contains( $"{numeric}" ) )
+                   && _columns.Contains( $"{ numeric }" ) )
                 {
                     try
                     {
-                        return double.Parse( dataRow[ $"{numeric}" ].ToString( ) );
+                        return double.Parse( dataRow[ $"{ numeric }" ].ToString( ) );
                     }
                     catch( Exception ex )
                     {
@@ -282,13 +269,12 @@ namespace BudgetExecution
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 var _columns = dataRow.Table?.GetColumnNames( );
-
                 if( _columns != null
-                   && _columns?.Any( ) == true & _columns.Contains( $"{field}" ) )
+                   && _columns?.Any( ) == true & _columns.Contains( $"{ field }" ) )
                 {
                     try
                     {
-                        return DateTime.Parse( dataRow[ $"{field}" ].ToString( ) );
+                        return DateTime.Parse( dataRow[ $"{ field }" ].ToString( ) );
                     }
                     catch( Exception ex )
                     {
