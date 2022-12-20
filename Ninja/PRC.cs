@@ -8,7 +8,11 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class PRC
     {
         /// <summary>
@@ -57,6 +61,9 @@ namespace BudgetExecution
         /// </summary>
         public virtual string OrgCode { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual string AccountCode { get; set; }
 
         /// <summary>
@@ -97,6 +104,12 @@ namespace BudgetExecution
         public virtual string ProgramAreaCode { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public virtual DataRow Record { get; set; }
+        
+
+        /// <summary>
         /// Sets the field.
         /// </summary>
         /// <param name = "dataRow" >
@@ -124,6 +137,47 @@ namespace BudgetExecution
             }
 
             return default( string );
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
         
         /// <summary>

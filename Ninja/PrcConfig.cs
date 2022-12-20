@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "PrcBase"/>
-    public abstract class PrcConfig : PrcBase
+    public abstract class PrcConfig : PRC
     {
         /// <summary>
         /// Gets the ProgramResultCodes identifier.

@@ -1,4 +1,4 @@
-﻿// <copyright file = "ReimbursableAgreement.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "ReimbursableAgreements.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ReimbursableAgreement
+    public class ReimbursableAgreements
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReimbursableAgreement"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableAgreements"/> class.
         /// </summary>
-        public ReimbursableAgreement( )
+        public ReimbursableAgreements( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReimbursableAgreement"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableAgreements"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ReimbursableAgreement( IQuery query )
+        public ReimbursableAgreements( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReimbursableAgreement"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableAgreements"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public ReimbursableAgreement( IDataModel builder )
+        public ReimbursableAgreements( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReimbursableAgreement"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableAgreements"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public ReimbursableAgreement( DataRow dataRow )
+        public ReimbursableAgreements( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

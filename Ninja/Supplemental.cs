@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Immutable;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
@@ -43,9 +42,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the code.
         /// </summary>
-        public override string Code { get; set; }
+        public virtual string Code { get; set; }
 
-        public override string Name { get; set; }
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the type.

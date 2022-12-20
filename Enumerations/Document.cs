@@ -5,7 +5,7 @@
 namespace BudgetExecution
 {
     /// <summary>
-    /// Defines the Report
+    /// Defines the Reports
     /// </summary>
     public enum Document
     {

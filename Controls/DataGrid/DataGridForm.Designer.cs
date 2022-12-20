@@ -1093,7 +1093,7 @@
             this.ExcelButton.Field = BudgetExecution.Field.AccountCode;
             this.ExcelButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExcelButton.ForeColor = System.Drawing.Color.LightGray;
-            this.ExcelButton.HoverText = "Excel Report";
+            this.ExcelButton.HoverText = "Excel Reports";
             this.ExcelButton.Image = global::BudgetExecution.Properties.Resources.ExcelButton;
             this.ExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExcelButton.Margin = new System.Windows.Forms.Padding(1);

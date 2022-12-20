@@ -31,7 +31,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class ProgramResultsCode : PrcConfig, IProgramResultsCode
+    public class ProgramResultsCode : PRC, IProgramResultsCode
     {
         /// <summary>
         /// The source
@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public override string Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public override string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
