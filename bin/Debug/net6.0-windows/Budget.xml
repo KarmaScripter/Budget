@@ -4342,24 +4342,6 @@
             <param name="grid">The grid.</param>
             <param name="caption">The caption.</param>
         </member>
-        <member name="M:BudgetExecution.Heading.GetSpan">
-            <summary>
-            Gets the span.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Heading.GetAnchor">
-            <summary>
-            Gets the anchor.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Heading.GetCaption">
-            <summary>
-            Gets the caption.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:BudgetExecution.RibbonBase">
             <summary>
             

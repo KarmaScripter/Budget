@@ -301,21 +301,17 @@ namespace BudgetExecution
                     switch( extension?.ToUpper( ) )
                     {
                         case ".XLS":
-
                         {
                             return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                         }
 
                         case ".XLSX":
-
                         {
                             return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                         }
-
                         default:
-
                         {
                             return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
@@ -409,7 +405,6 @@ namespace BudgetExecution
                 {
                     using var _range = grid?.GetRange( );
                     var _excelComment = _range?.AddComment( text, "Budget" );
-
                     if( _excelComment != null )
                     {
                         _excelComment.From.Row = _range.Start.Row;

@@ -126,7 +126,7 @@ namespace BudgetExecution
                     {
                         SetFontColor( grid, FontColor );
                         SetBackgroundColor( grid, PrimaryBackColor );
-                        SetHorizontalAlignment( grid,
+                        SetHorizontalAlignment( grid, 
                             OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
                     }
                 }
@@ -157,7 +157,6 @@ namespace BudgetExecution
                     SetBackgroundColor( grid, PrimaryBackColor );
                     SetHorizontalAlignment( grid,
                         OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
-
                     _worksheet.Cells[ _row, _column ].Value = "Account";
                     _worksheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
                     _worksheet.Cells[ _row, _column + 2 ].Value = "Travel";
@@ -192,7 +191,6 @@ namespace BudgetExecution
                     excelRange.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
                         .ExcelHorizontalAlignment.CenterContinuous;
-
                     excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
                 catch( Exception ex )
@@ -221,7 +219,6 @@ namespace BudgetExecution
                     excelRange.Style.Fill.BackgroundColor.SetColor( Color.White );
                     excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
                         .ExcelHorizontalAlignment.CenterContinuous;
-
                     excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
                 catch( Exception ex )
@@ -249,7 +246,6 @@ namespace BudgetExecution
                 {
                     var _prc = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column,
                         excelRange.End.Row, excelRange.End.Column ];
-
                     for( var i = excelRange.Start.Row; i < excelRange.End.Row; i++ )
                     {
                         if( i % 2 == 0 )
@@ -292,7 +288,6 @@ namespace BudgetExecution
                     {
                         excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
                             .ExcelHorizontalAlignment.CenterContinuous;
-
                         excelRange.Style.Numberformat.Format = "#,###";
                     }
                 }
@@ -349,10 +344,8 @@ namespace BudgetExecution
                 {
                     var _total = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column,
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
-
                     var _range = Worksheet.Cells[ excelRange.Start.Row, excelRange.Start.Column + 1,
                         excelRange.Start.Row, excelRange.Start.Column + 6 ];
-
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
