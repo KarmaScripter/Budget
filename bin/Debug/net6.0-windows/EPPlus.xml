@@ -13948,7 +13948,7 @@ zip archive, the ReadMe.txt file is zipped without using a password or encryptio
 </para>
 <code>
 // Create a zip archive with AES Encryption. using (ZipFile zip = new ZipFile()) { zip.AddFile("ReadMe.txt") ZipEntry
-e1= zip.AddFile("2008-Regional-Sales-Report.pdf"); e1.Encryption= EncryptionAlgorithm.WinZipAes256; e1.Password=
+e1= zip.AddFile("2008-Regional-Sales-Reports.pdf"); e1.Encryption= EncryptionAlgorithm.WinZipAes256; e1.Password=
 "Top.Secret.No.Peeking!"; zip.Save("EncryptedArchive.zip"); } // Extract a zip archive that uses AES Encryption. // You
 do not need to specify the algorithm during extraction. using (ZipFile zip = ZipFile.Read("EncryptedArchive.zip")) { //
 Specify the password that is used during extraction, for // all entries that require a password: zip.Password=
@@ -13957,7 +13957,7 @@ Specify the password that is used during extraction, for // all entries that req
 <code
     lang = "VB" >
 ' Create a zip that uses Encryption. Using zip As New ZipFile() zip.AddFile("ReadMe.txt") Dim e1 as ZipEntry e1=
-zip.AddFile("2008-Regional-Sales-Report.pdf") e1.Encryption= EncryptionAlgorithm.WinZipAes256 e1.Password=
+zip.AddFile("2008-Regional-Sales-Reports.pdf") e1.Encryption= EncryptionAlgorithm.WinZipAes256 e1.Password=
 "Top.Secret.No.Peeking!" zip.Save("EncryptedArchive.zip") End Using ' Extract a zip archive that uses AES Encryption. '
 You do not need to specify the algorithm during extraction. Using (zip as ZipFile =
 ZipFile.Read("EncryptedArchive.zip")) ' Specify the password that is used during extraction, for ' all entries that
@@ -14076,17 +14076,17 @@ During extraction, each file is extracted with the appropriate password.
 </para>
 <code>
 // create a file with encryption using (ZipFile zip = new ZipFile()) { ZipEntry entry; entry=
-zip.AddFile("Declaration.txt"); entry.Password= "123456!"; entry = zip.AddFile("Report.xls"); entry.Password=
+zip.AddFile("Declaration.txt"); entry.Password= "123456!"; entry = zip.AddFile("Reports.xls"); entry.Password=
 "1Secret!"; zip.Save("EncryptedArchive.zip"); } // extract entries that use encryption using (ZipFile zip =
 ZipFile.Read("EncryptedArchive.zip")) { ZipEntry entry; entry = zip["Declaration.txt"]; entry.Password = "123456!";
-entry.Extract("extractDir"); entry = zip["Report.xls"]; entry.Password = "1Secret!"; entry.Extract("extractDir"); }
+entry.Extract("extractDir"); entry = zip["Reports.xls"]; entry.Password = "1Secret!"; entry.Extract("extractDir"); }
 </code>
 <code
     lang = "VB" >
 Using zip As New ZipFile Dim entry as ZipEntry entry= zip.AddFile("Declaration.txt") entry.Password= "123456!" entry =
-zip.AddFile("Report.xls") entry.Password= "1Secret!" zip.Save("EncryptedArchive.zip") End Using ' extract entries that
+zip.AddFile("Reports.xls") entry.Password= "1Secret!" zip.Save("EncryptedArchive.zip") End Using ' extract entries that
 use encryption Using (zip as ZipFile = ZipFile.Read("EncryptedArchive.zip")) Dim entry as ZipEntry entry =
-zip("Declaration.txt") entry.Password = "123456!" entry.Extract("extractDir") entry = zip("Report.xls") entry.Password
+zip("Declaration.txt") entry.Password = "123456!" entry.Extract("extractDir") entry = zip("Reports.xls") entry.Password
 = "1Secret!" entry.Extract("extractDir") End Using
 </code>
 </example>
@@ -15455,13 +15455,13 @@ folder within the zip called Desktop.
 </para>
 <code>
 try { using (ZipFile zip = new ZipFile()) { zip.AddFile("c:\\photos\\personal\\7440-N49th.png");
-zip.AddFile("c:\\Desktop\\2008-Regional-Sales-Report.pdf"); zip.AddFile("ReadMe.txt"); zip.Save("Package.zip"); } }
+zip.AddFile("c:\\Desktop\\2008-Regional-Sales-Reports.pdf"); zip.AddFile("ReadMe.txt"); zip.Save("Package.zip"); } }
 catch (System.Exception ex1) { System.Console.Error.WriteLine("exception: " + ex1); }
 </code>
 <code
     lang = "VB" >
 Try Using zip As ZipFile = New ZipFile zip.AddFile("c:\photos\personal\7440-N49th.png")
-zip.AddFile("c:\Desktop\2008-Regional-Sales-Report.pdf") zip.AddFile("ReadMe.txt") zip.Save("Package.zip") End Using
+zip.AddFile("c:\Desktop\2008-Regional-Sales-Reports.pdf") zip.AddFile("ReadMe.txt") zip.Save("Package.zip") End Using
 Catch ex1 As Exception Console.Error.WriteLine("exception: {0}", ex1.ToString) End Try
 </code>
 </example>
@@ -15543,8 +15543,8 @@ within the zip called files\docs, and will be encrypted with the given password.
 try { using (ZipFile zip = new ZipFile()) { // the following entry will be inserted at the root in the archive.
 zip.AddFile("c:\\datafiles\\ReadMe.txt", ""); // this image file will be inserted into the "images" directory in the
 archive. zip.AddFile("c:\\photos\\personal\\7440-N49th.png", "images"); // the following will result in a
-password-protected file called // files\\docs\\2008-Regional-Sales-Report.pdf  in the archive. zip.Password =
-"EncryptMe!"; zip.AddFile("c:\\Desktop\\2008-Regional-Sales-Report.pdf", "files\\docs"); zip.Save("Archive.zip"); } }
+password-protected file called // files\\docs\\2008-Regional-Sales-Reports.pdf  in the archive. zip.Password =
+"EncryptMe!"; zip.AddFile("c:\\Desktop\\2008-Regional-Sales-Reports.pdf", "files\\docs"); zip.Save("Archive.zip"); } }
 catch (System.Exception ex1) { System.Console.Error.WriteLine("exception: {0}", ex1); }
 </code>
 <code
@@ -15552,8 +15552,8 @@ catch (System.Exception ex1) { System.Console.Error.WriteLine("exception: {0}", 
 Try Using zip As ZipFile = New ZipFile ' the following entry will be inserted at the root in the archive.
 zip.AddFile("c:\datafiles\ReadMe.txt", "") ' this image file will be inserted into the "images" directory in the
 archive. zip.AddFile("c:\photos\personal\7440-N49th.png", "images") ' the following will result in a password-protected
-file called ' files\\docs\\2008-Regional-Sales-Report.pdf  in the archive. zip.Password = "EncryptMe!"
-zip.AddFile("c:\Desktop\2008-Regional-Sales-Report.pdf", "files\documents") zip.Save("Archive.zip") End Using Catch ex1
+file called ' files\\docs\\2008-Regional-Sales-Reports.pdf  in the archive. zip.Password = "EncryptMe!"
+zip.AddFile("c:\Desktop\2008-Regional-Sales-Reports.pdf", "files\documents") zip.Save("Archive.zip") End Using Catch ex1
 As Exception Console.Error.WriteLine("exception: {0}", ex1) End Try
 </code>
 </example>
@@ -18512,14 +18512,14 @@ password-protected as they are saved. During extraction, each file is extracted 
 </para>
 <code>
 // create a file with encryption using (ZipFile zip = new ZipFile()) { zip.AddFile("ReadMe.txt"); zip.Password=
-"!Secret1"; zip.AddFile("MapToTheSite-7440-N49th.png"); zip.AddFile("2008-Regional-Sales-Report.pdf");
+"!Secret1"; zip.AddFile("MapToTheSite-7440-N49th.png"); zip.AddFile("2008-Regional-Sales-Reports.pdf");
 zip.Save("EncryptedArchive.zip"); } // extract entries that use encryption using (ZipFile zip =
 ZipFile.Read("EncryptedArchive.zip")) { zip.Password= "!Secret1"; zip.ExtractAll("extractDir"); }
 </code>
 <code
     lang = "VB" >
 Using zip As New ZipFile zip.AddFile("ReadMe.txt") zip.Password = "123456!" zip.AddFile("MapToTheSite-7440-N49th.png")
-zip.Password= "!Secret1"; zip.AddFile("2008-Regional-Sales-Report.pdf") zip.Save("EncryptedArchive.zip") End Using '
+zip.Password= "!Secret1"; zip.AddFile("2008-Regional-Sales-Reports.pdf") zip.Save("EncryptedArchive.zip") End Using '
 extract entries that use encryption Using (zip as ZipFile = ZipFile.Read("EncryptedArchive.zip")) zip.Password=
 "!Secret1" zip.ExtractAll("extractDir") End Using
 </code>
@@ -18778,7 +18778,7 @@ zip archive, the ReadMe.txt file is zipped without using a password or encryptio
 <code>
 // Create a zip archive with AES Encryption. using (ZipFile zip = new ZipFile()) { zip.AddFile("ReadMe.txt");
 zip.Encryption= EncryptionAlgorithm.WinZipAes256; zip.Password= "Top.Secret.No.Peeking!";
-zip.AddFile("7440-N49th.png"); zip.AddFile("2008-Regional-Sales-Report.pdf"); zip.Save("EncryptedArchive.zip"); } //
+zip.AddFile("7440-N49th.png"); zip.AddFile("2008-Regional-Sales-Reports.pdf"); zip.Save("EncryptedArchive.zip"); } //
 Extract a zip archive that uses AES Encryption. // You do not need to specify the algorithm during extraction. using
 (ZipFile zip = ZipFile.Read("EncryptedArchive.zip")) { zip.Password= "Top.Secret.No.Peeking!";
 zip.ExtractAll("extractDirectory"); }
@@ -18787,7 +18787,7 @@ zip.ExtractAll("extractDirectory"); }
     lang = "VB" >
 ' Create a zip that uses Encryption. Using zip As New ZipFile() zip.Encryption= EncryptionAlgorithm.WinZipAes256
 zip.Password= "Top.Secret.No.Peeking!" zip.AddFile("ReadMe.txt") zip.AddFile("7440-N49th.png")
-zip.AddFile("2008-Regional-Sales-Report.pdf") zip.Save("EncryptedArchive.zip") End Using ' Extract a zip archive that
+zip.AddFile("2008-Regional-Sales-Reports.pdf") zip.Save("EncryptedArchive.zip") End Using ' Extract a zip archive that
 uses AES Encryption. ' You do not need to specify the algorithm during extraction. Using (zip as ZipFile =
 ZipFile.Read("EncryptedArchive.zip")) zip.Password= "Top.Secret.No.Peeking!" zip.ExtractAll("extractDirectory") End
 Using
@@ -29587,7 +29587,7 @@ applied
 <member
     name = "P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.Indent" >
 <summary>
-Specifies the indentation increment for compact axis and can be used to set the Report Layout to Compact Form
+Specifies the indentation increment for compact axis and can be used to set the Reports Layout to Compact Form
 </summary>
 </member>
 <member
@@ -29659,7 +29659,7 @@ column of the spreadSheet
 </member>
 <member
     name = "P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.PageFields" >
-<summary> Report filter fields </summary>
+<summary> Reports filter fields </summary>
 </member>
 <member
     name = "P:OfficeOpenXml.Table.PivotTable.ExcelPivotTable.StyleName" >

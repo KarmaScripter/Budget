@@ -13172,7 +13172,7 @@
         </member>
         <member name="T:BudgetExecution.Document">
             <summary>
-            Defines the Report
+            Defines the Reports
             </summary>
         </member>
         <member name="F:BudgetExecution.Document.NS">
@@ -31968,6 +31968,138 @@
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
+        <member name="T:BudgetExecution.PRC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.ID">
+            <summary>
+            Gets or sets the ProgramResultCodes identifier.
+            </summary>
+            <value>
+            The ProgramResultCodes identifier.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.BudgetLevel">
+            <summary>
+            Gets or sets the budget level.
+            </summary>
+            <value>
+            The budget level.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.BFY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.EFY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.FundCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.RpioCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.AhCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.OrgCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.AccountCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.ActivityCode">
+            <summary>
+            Gets or sets the activity code.
+            </summary>
+            <value>
+            The activity code.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.BocCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.PRC.RcCode">
+            <summary>
+            Gets or sets the rc code.
+            </summary>
+            <value>
+            The rc code.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.ProgramProjectCode">
+            <summary>
+            Gets or sets the activity code.
+            </summary>
+            <value>
+            The activity code.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.ProgramAreaCode">
+            <summary>
+            Gets or sets the program area code.
+            </summary>
+            <value>
+            The program area code.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.Record">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.PRC.GetField(System.Data.DataRow,BudgetExecution.Field)">
+            <summary>
+            Sets the field.
+            </summary>
+            <param name = "dataRow" >
+            The dataRow.
+            </param>
+            <param name = "field" >
+            The field.
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:BudgetExecution.PRC.GetId(System.Data.DataRow)">
+            <summary>
+            
+            </summary>
+            <param name="dataRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.PRC.GetId(System.Data.DataRow,BudgetExecution.PrimaryKey)">
+            <summary>
+            
+            </summary>
+            <param name="dataRow"></param>
+            <param name="primaryKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.PRC.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
         <member name="T:BudgetExecution.PrcBase">
             <summary>
             
@@ -33325,12 +33457,12 @@
             </summary>
             <param name="dataRow">The dataRow.</param>
         </member>
-        <member name="T:BudgetExecution.ReimbursableAgreement">
+        <member name="T:BudgetExecution.ReimbursableAgreements">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.ReimbursableAgreement.ID">
+        <member name="P:BudgetExecution.ReimbursableAgreements.ID">
             <summary>
             Gets or sets the identifier.
             </summary>
@@ -33338,7 +33470,7 @@
             The identifier.
             </value>
         </member>
-        <member name="P:BudgetExecution.ReimbursableAgreement.Source">
+        <member name="P:BudgetExecution.ReimbursableAgreements.Source">
             <summary>
             Gets or sets the source.
             </summary>
@@ -33346,7 +33478,7 @@
             The source.
             </value>
         </member>
-        <member name="P:BudgetExecution.ReimbursableAgreement.Record">
+        <member name="P:BudgetExecution.ReimbursableAgreements.Record">
             <summary>
             Gets or sets the Record property.
             </summary>
@@ -33354,7 +33486,7 @@
             The data row.
             </value>
         </member>
-        <member name="P:BudgetExecution.ReimbursableAgreement.Data">
+        <member name="P:BudgetExecution.ReimbursableAgreements.Data">
             <summary>
             Gets the arguments.
             </summary>
@@ -33362,35 +33494,35 @@
             The arguments.
             </value>
         </member>
-        <member name="M:BudgetExecution.ReimbursableAgreement.#ctor">
+        <member name="M:BudgetExecution.ReimbursableAgreements.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreements"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ReimbursableAgreement.#ctor(BudgetExecution.IQuery)">
+        <member name="M:BudgetExecution.ReimbursableAgreements.#ctor(BudgetExecution.IQuery)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreements"/> class.
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:BudgetExecution.ReimbursableAgreement.#ctor(BudgetExecution.IDataModel)">
+        <member name="M:BudgetExecution.ReimbursableAgreements.#ctor(BudgetExecution.IDataModel)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreements"/> class.
             </summary>
             <param name="builder">The builder.</param>
         </member>
-        <member name="M:BudgetExecution.ReimbursableAgreement.#ctor(System.Data.DataRow)">
+        <member name="M:BudgetExecution.ReimbursableAgreements.#ctor(System.Data.DataRow)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreements"/> class.
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
-        <member name="T:BudgetExecution.ReimbursableFund">
+        <member name="T:BudgetExecution.ReimbursableFunds">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.ReimbursableFund.ID">
+        <member name="P:BudgetExecution.ReimbursableFunds.ID">
             <summary>
             Gets or sets the identifier.
             </summary>
@@ -33398,7 +33530,7 @@
             The identifier.
             </value>
         </member>
-        <member name="P:BudgetExecution.ReimbursableFund.Source">
+        <member name="P:BudgetExecution.ReimbursableFunds.Source">
             <summary>
             Gets or sets the source.
             </summary>
@@ -33406,7 +33538,7 @@
             The source.
             </value>
         </member>
-        <member name="P:BudgetExecution.ReimbursableFund.Record">
+        <member name="P:BudgetExecution.ReimbursableFunds.Record">
             <summary>
             Gets or sets the Record property.
             </summary>
@@ -33414,7 +33546,7 @@
             The data row.
             </value>
         </member>
-        <member name="P:BudgetExecution.ReimbursableFund.Data">
+        <member name="P:BudgetExecution.ReimbursableFunds.Data">
             <summary>
             Gets the arguments.
             </summary>
@@ -33422,35 +33554,35 @@
             The arguments.
             </value>
         </member>
-        <member name="M:BudgetExecution.ReimbursableFund.#ctor">
+        <member name="M:BudgetExecution.ReimbursableFunds.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFund"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFunds"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ReimbursableFund.#ctor(BudgetExecution.IQuery)">
+        <member name="M:BudgetExecution.ReimbursableFunds.#ctor(BudgetExecution.IQuery)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFund"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFunds"/> class.
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:BudgetExecution.ReimbursableFund.#ctor(BudgetExecution.IDataModel)">
+        <member name="M:BudgetExecution.ReimbursableFunds.#ctor(BudgetExecution.IDataModel)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFund"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFunds"/> class.
             </summary>
             <param name="builder">The builder.</param>
         </member>
-        <member name="M:BudgetExecution.ReimbursableFund.#ctor(System.Data.DataRow)">
+        <member name="M:BudgetExecution.ReimbursableFunds.#ctor(System.Data.DataRow)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFund"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableFunds"/> class.
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
-        <member name="T:BudgetExecution.Report">
+        <member name="T:BudgetExecution.Reports">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.Report.ID">
+        <member name="P:BudgetExecution.Reports.ID">
             <summary>
             Gets or sets the identifier.
             </summary>
@@ -33458,7 +33590,7 @@
             The identifier.
             </value>
         </member>
-        <member name="P:BudgetExecution.Report.Source">
+        <member name="P:BudgetExecution.Reports.Source">
             <summary>
             Gets or sets the source.
             </summary>
@@ -33466,7 +33598,7 @@
             The source.
             </value>
         </member>
-        <member name="P:BudgetExecution.Report.Record">
+        <member name="P:BudgetExecution.Reports.Record">
             <summary>
             Gets or sets the Record property.
             </summary>
@@ -33474,7 +33606,7 @@
             The data row.
             </value>
         </member>
-        <member name="P:BudgetExecution.Report.Data">
+        <member name="P:BudgetExecution.Reports.Data">
             <summary>
             Gets the arguments.
             </summary>
@@ -33482,26 +33614,26 @@
             The arguments.
             </value>
         </member>
-        <member name="M:BudgetExecution.Report.#ctor">
+        <member name="M:BudgetExecution.Reports.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Report"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.Reports"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.Report.#ctor(BudgetExecution.IQuery)">
+        <member name="M:BudgetExecution.Reports.#ctor(BudgetExecution.IQuery)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Report"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.Reports"/> class.
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:BudgetExecution.Report.#ctor(BudgetExecution.IDataModel)">
+        <member name="M:BudgetExecution.Reports.#ctor(BudgetExecution.IDataModel)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Report"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.Reports"/> class.
             </summary>
             <param name="builder">The builder.</param>
         </member>
-        <member name="M:BudgetExecution.Report.#ctor(System.Data.DataRow)">
+        <member name="M:BudgetExecution.Reports.#ctor(System.Data.DataRow)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Report"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.Reports"/> class.
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
