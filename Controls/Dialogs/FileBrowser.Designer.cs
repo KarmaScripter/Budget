@@ -58,9 +58,9 @@ namespace BudgetExecution
             this.FoundLabel = new BudgetExecution.Label();
             this.FileDialog = new System.Windows.Forms.OpenFileDialog();
             this.TopTablePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.Header = new BudgetExecution.Label();
             this.Picture = new BudgetExecution.Picture();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Header = new BudgetExecution.Label();
             this.MessageLabel = new BudgetExecution.Label();
             this.SelectButton = new BudgetExecution.Button();
             this.CloseButton = new BudgetExecution.Button();
@@ -85,13 +85,13 @@ namespace BudgetExecution
             this.TextBoxLayout.Controls.Add(this.FoundLabel, 0, 0);
             this.TextBoxLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.TextBoxLayout.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.TextBoxLayout.Location = new System.Drawing.Point(0, 55);
+            this.TextBoxLayout.Location = new System.Drawing.Point(0, 64);
             this.TextBoxLayout.Margin = new System.Windows.Forms.Padding(5);
             this.TextBoxLayout.Name = "TextBoxLayout";
             this.TextBoxLayout.Padding = new System.Windows.Forms.Padding(1);
             this.TextBoxLayout.RowCount = 1;
             this.TextBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TextBoxLayout.Size = new System.Drawing.Size(688, 314);
+            this.TextBoxLayout.Size = new System.Drawing.Size(688, 291);
             this.TextBoxLayout.TabIndex = 5;
             // 
             // CheckBoxLayout
@@ -127,7 +127,7 @@ namespace BudgetExecution
             this.CheckBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333765F));
             this.CheckBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333765F));
             this.CheckBoxLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.332569F));
-            this.CheckBoxLayout.Size = new System.Drawing.Size(108, 306);
+            this.CheckBoxLayout.Size = new System.Drawing.Size(108, 283);
             this.CheckBoxLayout.TabIndex = 2;
             // 
             // LibraryRadioButton
@@ -143,7 +143,7 @@ namespace BudgetExecution
             this.LibraryRadioButton.Group = 0;
             this.LibraryRadioButton.HoverText = "Library Files";
             this.LibraryRadioButton.IsDerivedStyle = true;
-            this.LibraryRadioButton.Location = new System.Drawing.Point(3, 278);
+            this.LibraryRadioButton.Location = new System.Drawing.Point(3, 256);
             this.LibraryRadioButton.Name = "LibraryRadioButton";
             this.LibraryRadioButton.Result = null;
             this.LibraryRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -169,7 +169,7 @@ namespace BudgetExecution
             this.PowerPointRadioButton.Group = 0;
             this.PowerPointRadioButton.HoverText = "Power Point Files";
             this.PowerPointRadioButton.IsDerivedStyle = true;
-            this.PowerPointRadioButton.Location = new System.Drawing.Point(3, 203);
+            this.PowerPointRadioButton.Location = new System.Drawing.Point(3, 187);
             this.PowerPointRadioButton.Name = "PowerPointRadioButton";
             this.PowerPointRadioButton.Result = null;
             this.PowerPointRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -195,7 +195,7 @@ namespace BudgetExecution
             this.ExecutableRadioButton.Group = 0;
             this.ExecutableRadioButton.HoverText = "Executable Files";
             this.ExecutableRadioButton.IsDerivedStyle = true;
-            this.ExecutableRadioButton.Location = new System.Drawing.Point(3, 253);
+            this.ExecutableRadioButton.Location = new System.Drawing.Point(3, 233);
             this.ExecutableRadioButton.Name = "ExecutableRadioButton";
             this.ExecutableRadioButton.Result = null;
             this.ExecutableRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -221,7 +221,7 @@ namespace BudgetExecution
             this.TextRadioButton.Group = 0;
             this.TextRadioButton.HoverText = "Text Files";
             this.TextRadioButton.IsDerivedStyle = true;
-            this.TextRadioButton.Location = new System.Drawing.Point(3, 178);
+            this.TextRadioButton.Location = new System.Drawing.Point(3, 164);
             this.TextRadioButton.Name = "TextRadioButton";
             this.TextRadioButton.Result = null;
             this.TextRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -247,7 +247,7 @@ namespace BudgetExecution
             this.SqlCeRadioButton.Group = 0;
             this.SqlCeRadioButton.HoverText = "SQL Compact Files";
             this.SqlCeRadioButton.IsDerivedStyle = true;
-            this.SqlCeRadioButton.Location = new System.Drawing.Point(3, 228);
+            this.SqlCeRadioButton.Location = new System.Drawing.Point(3, 210);
             this.SqlCeRadioButton.Name = "SqlCeRadioButton";
             this.SqlCeRadioButton.Result = null;
             this.SqlCeRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -273,7 +273,7 @@ namespace BudgetExecution
             this.ExcelRadioButton.Group = 0;
             this.ExcelRadioButton.HoverText = "Excel Workbooks";
             this.ExcelRadioButton.IsDerivedStyle = true;
-            this.ExcelRadioButton.Location = new System.Drawing.Point(3, 153);
+            this.ExcelRadioButton.Location = new System.Drawing.Point(3, 141);
             this.ExcelRadioButton.Name = "ExcelRadioButton";
             this.ExcelRadioButton.Result = null;
             this.ExcelRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -299,7 +299,7 @@ namespace BudgetExecution
             this.CsvRadioButton.Group = 0;
             this.CsvRadioButton.HoverText = "CSV Files";
             this.CsvRadioButton.IsDerivedStyle = true;
-            this.CsvRadioButton.Location = new System.Drawing.Point(3, 128);
+            this.CsvRadioButton.Location = new System.Drawing.Point(3, 118);
             this.CsvRadioButton.Name = "CsvRadioButton";
             this.CsvRadioButton.Result = null;
             this.CsvRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -325,7 +325,7 @@ namespace BudgetExecution
             this.AccessRadioButton.Group = 0;
             this.AccessRadioButton.HoverText = "Access DB Files";
             this.AccessRadioButton.IsDerivedStyle = true;
-            this.AccessRadioButton.Location = new System.Drawing.Point(3, 103);
+            this.AccessRadioButton.Location = new System.Drawing.Point(3, 95);
             this.AccessRadioButton.Name = "AccessRadioButton";
             this.AccessRadioButton.Result = null;
             this.AccessRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -351,7 +351,7 @@ namespace BudgetExecution
             this.SQLiteRadioButton.Group = 0;
             this.SQLiteRadioButton.HoverText = "SQLite DB Files";
             this.SQLiteRadioButton.IsDerivedStyle = true;
-            this.SQLiteRadioButton.Location = new System.Drawing.Point(3, 78);
+            this.SQLiteRadioButton.Location = new System.Drawing.Point(3, 72);
             this.SQLiteRadioButton.Name = "SQLiteRadioButton";
             this.SQLiteRadioButton.Result = null;
             this.SQLiteRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -377,7 +377,7 @@ namespace BudgetExecution
             this.SqlServerRadioButton.Group = 0;
             this.SqlServerRadioButton.HoverText = "SQL Server DB Files";
             this.SqlServerRadioButton.IsDerivedStyle = true;
-            this.SqlServerRadioButton.Location = new System.Drawing.Point(3, 53);
+            this.SqlServerRadioButton.Location = new System.Drawing.Point(3, 49);
             this.SqlServerRadioButton.Name = "SqlServerRadioButton";
             this.SqlServerRadioButton.Result = null;
             this.SqlServerRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -403,7 +403,7 @@ namespace BudgetExecution
             this.WordRadioButton.Group = 0;
             this.WordRadioButton.HoverText = "Word Documents";
             this.WordRadioButton.IsDerivedStyle = true;
-            this.WordRadioButton.Location = new System.Drawing.Point(3, 28);
+            this.WordRadioButton.Location = new System.Drawing.Point(3, 26);
             this.WordRadioButton.Name = "WordRadioButton";
             this.WordRadioButton.Result = null;
             this.WordRadioButton.Size = new System.Drawing.Size(102, 17);
@@ -469,7 +469,7 @@ namespace BudgetExecution
             this.FileList.SelectedValue = null;
             this.FileList.ShowBorder = false;
             this.FileList.ShowScrollBar = false;
-            this.FileList.Size = new System.Drawing.Size(480, 306);
+            this.FileList.Size = new System.Drawing.Size(480, 283);
             this.FileList.Style = MetroSet_UI.Enums.Style.Custom;
             this.FileList.StyleManager = null;
             this.FileList.TabIndex = 3;
@@ -525,34 +525,50 @@ namespace BudgetExecution
             // TopTablePanel
             // 
             this.TopTablePanel.BackColor = System.Drawing.Color.Transparent;
-            this.TopTablePanel.ColumnCount = 3;
-            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.38461F));
-            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.61539F));
-            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
-            this.TopTablePanel.Controls.Add(this.Header, 1, 0);
+            this.TopTablePanel.ColumnCount = 2;
+            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.668605F));
+            this.TopTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.3314F));
             this.TopTablePanel.Controls.Add(this.Picture, 0, 0);
+            this.TopTablePanel.Controls.Add(this.Header, 1, 0);
             this.TopTablePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopTablePanel.Location = new System.Drawing.Point(0, 0);
             this.TopTablePanel.Name = "TopTablePanel";
             this.TopTablePanel.RowCount = 1;
             this.TopTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TopTablePanel.Size = new System.Drawing.Size(688, 55);
+            this.TopTablePanel.Size = new System.Drawing.Size(688, 64);
             this.TopTablePanel.TabIndex = 9;
+            // 
+            // Picture
+            // 
+            this.Picture.BackColor = System.Drawing.Color.Transparent;
+            this.Picture.BindingSource = this.BindingSource;
+            this.Picture.DataFilter = null;
+            this.Picture.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Picture.Field = BudgetExecution.Field.AccountCode;
+            this.Picture.HoverText = null;
+            this.Picture.ImageList = null;
+            this.Picture.Location = new System.Drawing.Point(3, 3);
+            this.Picture.Name = "Picture";
+            this.Picture.Padding = new System.Windows.Forms.Padding(1);
+            this.Picture.Size = new System.Drawing.Size(33, 31);
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Picture.TabIndex = 1;
+            this.Picture.TabStop = false;
+            this.Picture.ToolTip = this.ToolTip;
             // 
             // Header
             // 
             this.Header.BindingSource = null;
             this.Header.DataFilter = null;
-            this.Header.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Header.HoverText = null;
             this.Header.IsDerivedStyle = true;
-            this.Header.Location = new System.Drawing.Point(90, 3);
+            this.Header.Location = new System.Drawing.Point(42, 3);
             this.Header.Margin = new System.Windows.Forms.Padding(3);
             this.Header.Name = "Header";
             this.Header.Padding = new System.Windows.Forms.Padding(1);
-            this.Header.Size = new System.Drawing.Size(477, 49);
+            this.Header.Size = new System.Drawing.Size(95, 31);
             this.Header.Style = MetroSet_UI.Enums.Style.Custom;
             this.Header.StyleManager = null;
             this.Header.TabIndex = 0;
@@ -562,23 +578,6 @@ namespace BudgetExecution
             this.Header.ThemeName = "BudgetExecution";
             this.Header.ToolTip = null;
             // 
-            // Picture
-            // 
-            this.Picture.BackColor = System.Drawing.Color.Transparent;
-            this.Picture.BindingSource = this.BindingSource;
-            this.Picture.DataFilter = null;
-            this.Picture.Field = BudgetExecution.Field.AccountCode;
-            this.Picture.HoverText = null;
-            this.Picture.ImageList = null;
-            this.Picture.Location = new System.Drawing.Point(3, 3);
-            this.Picture.Name = "Picture";
-            this.Picture.Padding = new System.Windows.Forms.Padding(1);
-            this.Picture.Size = new System.Drawing.Size(31, 31);
-            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Picture.TabIndex = 1;
-            this.Picture.TabStop = false;
-            this.Picture.ToolTip = this.ToolTip;
-            // 
             // MessageLabel
             // 
             this.MessageLabel.BindingSource = null;
@@ -587,7 +586,7 @@ namespace BudgetExecution
             this.MessageLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MessageLabel.HoverText = null;
             this.MessageLabel.IsDerivedStyle = true;
-            this.MessageLabel.Location = new System.Drawing.Point(90, 371);
+            this.MessageLabel.Location = new System.Drawing.Point(90, 363);
             this.MessageLabel.Margin = new System.Windows.Forms.Padding(3);
             this.MessageLabel.Name = "MessageLabel";
             this.MessageLabel.Padding = new System.Windows.Forms.Padding(1);

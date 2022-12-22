@@ -211,7 +211,7 @@ namespace BudgetExecution
             this.Picture.Location = new System.Drawing.Point(0, 3);
             this.Picture.Name = "Picture";
             this.Picture.Padding = new System.Windows.Forms.Padding(1);
-            this.Picture.Size = new System.Drawing.Size(25, 30);
+            this.Picture.Size = new System.Drawing.Size(16, 18);
             this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Picture.TabIndex = 13;
             this.Picture.TabStop = false;

@@ -38,14 +38,7 @@ namespace BudgetExecution
         /// The ProgramResultCodes identifier.
         /// </value>
         public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        public virtual string Code { get; set; }
-
-        public virtual string Name { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the type.
         /// </summary>

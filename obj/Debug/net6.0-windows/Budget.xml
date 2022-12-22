@@ -26205,7 +26205,6 @@
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
-            <see cref = "T:BudgetExecution.ActivityCodes"/>
             class.
             </summary>
             <param name = "dataRow" >
@@ -26448,7 +26447,6 @@
             <seealso cref = "T:BudgetExecution.IProgram"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
             <seealso cref = "T:BudgetExecution.IAllowanceHolder"/>
-            <seealso cref = "!:IDataBuilder"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
         </member>
         <member name="P:BudgetExecution.AllowanceHolder.Source">
@@ -34650,11 +34648,6 @@
             <value>
             The ProgramResultCodes identifier.
             </value>
-        </member>
-        <member name="P:BudgetExecution.Supplemental.Code">
-            <summary>
-            Gets the code.
-            </summary>
         </member>
         <member name="P:BudgetExecution.Supplemental.Type">
             <summary>

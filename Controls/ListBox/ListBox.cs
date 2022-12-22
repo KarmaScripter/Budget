@@ -81,7 +81,7 @@ namespace BudgetExecution
             DisabledForeColor = Color.FromArgb( 20, 20, 20 );
 
             // Item Configuration
-            ItemHeight = 22;
+            ItemHeight = 20;
             HoveredItemColor = Color.LightSteelBlue;
             HoveredItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;

@@ -122,7 +122,6 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "T:BudgetExecution.ActivityCodes"/>
         /// class.
         /// </summary>
         /// <param name = "dataRow" >
