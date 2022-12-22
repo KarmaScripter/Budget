@@ -27,7 +27,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <WarningLevel>5</WarningLevel>
-    <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
