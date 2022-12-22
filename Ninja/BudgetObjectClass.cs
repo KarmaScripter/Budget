@@ -315,54 +315,13 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <returns></returns>
-        protected override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <param name="primaryKey"></param>
-        /// <returns></returns>
-        protected override int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the budget object class category.
         /// </summary>
         /// <returns>
         /// </returns>
-        public BOC GetBudgetObjectClassCategory( )
+        public BOC GetCategory( )
         {
             try
             {

@@ -21,6 +21,6 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        BOC GetBudgetObjectClassCategory( );
+        BOC GetCategory( );
     }
 }

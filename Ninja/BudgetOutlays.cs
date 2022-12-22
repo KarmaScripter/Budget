@@ -1,4 +1,4 @@
-﻿// <copyright file = "BudgetOutlay.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetOutlays.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -8,8 +8,11 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class BudgetOutlay
+    public class BudgetOutlays
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -44,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlays"/> class.
         /// </summary>
-        public BudgetOutlay( )
+        public BudgetOutlays( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlays"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public BudgetOutlay( IQuery query )
+        public BudgetOutlays( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlays"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public BudgetOutlay( IDataModel builder )
+        public BudgetOutlays( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlays"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public BudgetOutlay( DataRow dataRow )
+        public BudgetOutlays( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

@@ -21773,7 +21773,7 @@
             <returns>
             </returns>
         </member>
-        <member name="M:BudgetExecution.IBudgetObjectClass.GetBudgetObjectClassCategory">
+        <member name="M:BudgetExecution.IBudgetObjectClass.GetCategory">
             <summary>
             Gets the budget object class category.
             </summary>
@@ -27893,29 +27893,19 @@
             <returns>
             </returns>
         </member>
-        <member name="M:BudgetExecution.BudgetObjectClass.GetId(System.Data.DataRow)">
-            <summary>
-            
-            </summary>
-            <param name="dataRow"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.BudgetObjectClass.GetId(System.Data.DataRow,BudgetExecution.PrimaryKey)">
-            <summary>
-            
-            </summary>
-            <param name="dataRow"></param>
-            <param name="primaryKey"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.BudgetObjectClass.GetBudgetObjectClassCategory">
+        <member name="M:BudgetExecution.BudgetObjectClass.GetCategory">
             <summary>
             Gets the budget object class category.
             </summary>
             <returns>
             </returns>
         </member>
-        <member name="P:BudgetExecution.BudgetOutlay.ID">
+        <member name="T:BudgetExecution.BudgetOutlays">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.BudgetOutlays.ID">
             <summary>
             Gets or sets the identifier.
             </summary>
@@ -27923,7 +27913,7 @@
             The identifier.
             </value>
         </member>
-        <member name="P:BudgetExecution.BudgetOutlay.Source">
+        <member name="P:BudgetExecution.BudgetOutlays.Source">
             <summary>
             Gets or sets the source.
             </summary>
@@ -27931,7 +27921,7 @@
             The source.
             </value>
         </member>
-        <member name="P:BudgetExecution.BudgetOutlay.Record">
+        <member name="P:BudgetExecution.BudgetOutlays.Record">
             <summary>
             Gets or sets the Record property.
             </summary>
@@ -27939,7 +27929,7 @@
             The data row.
             </value>
         </member>
-        <member name="P:BudgetExecution.BudgetOutlay.Data">
+        <member name="P:BudgetExecution.BudgetOutlays.Data">
             <summary>
             Gets the arguments.
             </summary>
@@ -27947,26 +27937,26 @@
             The arguments.
             </value>
         </member>
-        <member name="M:BudgetExecution.BudgetOutlay.#ctor">
+        <member name="M:BudgetExecution.BudgetOutlays.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlay"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlays"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.BudgetOutlay.#ctor(BudgetExecution.IQuery)">
+        <member name="M:BudgetExecution.BudgetOutlays.#ctor(BudgetExecution.IQuery)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlay"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlays"/> class.
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:BudgetExecution.BudgetOutlay.#ctor(BudgetExecution.IDataModel)">
+        <member name="M:BudgetExecution.BudgetOutlays.#ctor(BudgetExecution.IDataModel)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlay"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlays"/> class.
             </summary>
             <param name="builder">The builder.</param>
         </member>
-        <member name="M:BudgetExecution.BudgetOutlay.#ctor(System.Data.DataRow)">
+        <member name="M:BudgetExecution.BudgetOutlays.#ctor(System.Data.DataRow)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlay"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.BudgetOutlays"/> class.
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
@@ -32246,19 +32236,6 @@
             <returns>
             </returns>
         </member>
-        <member name="T:BudgetExecution.PrcConfig">
-            <summary>
-            
-            </summary>
-            <seealso cref = "T:BudgetExecution.PrcBase"/>
-        </member>
-        <member name="M:BudgetExecution.PrcConfig.GetId(System.Data.DataRow)">
-            <summary>
-            Gets the ProgramResultCodes identifier.
-            </summary>
-            <returns>
-            </returns>
-        </member>
         <member name="T:BudgetExecution.ProgramArea">
             <summary>
             
@@ -32729,7 +32706,7 @@
             established in IFMS with the enactment of EPA's appropriation act. PRCs may be
             updated at any time.
             </summary>
-            <seealso cref = "T:BudgetExecution.PrcConfig"/>
+            <seealso cref = "!:PrcConfig"/>
             <seealso cref = "T:BudgetExecution.IProgramResultsCode"/>
             <seealso cref = "T:BudgetExecution.IProgram"/>
             <seealso cref = "T:BudgetExecution.IDataModel"/>
