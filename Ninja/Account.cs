@@ -17,13 +17,21 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Account : AccountBase, IAccount, ISource
+    public class Account : PRC, IAccount, ISource
     {
         /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; } = Source.Accounts;
 
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
+        public string Code { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref = "Account"/> class.
         /// </summary>
@@ -65,7 +73,7 @@ namespace BudgetExecution
             Code = Record?[ $"{ Field.AccountCode }" ].ToString( );
             NpmCode = Record?[ $"{ Field.NpmCode }" ].ToString( );
             ProgramProjectCode = Record?[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            ActivityCode = Record?[ $"{ Field.ActivityCode }" ].ToString( );
             ProgramAreaCode = Record?[ $"{ Field.ProgramAreaCode }" ].ToString( );
             GoalCode = Record?[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record?[ $"{ Field.ObjectiveCode }" ].ToString( );
@@ -110,6 +118,32 @@ namespace BudgetExecution
             GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
             Data = Record?.ToDictionary( );
+        }
+        
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name = "code" >
+        /// The code.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private protected IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{ Field.Code }" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
         }
 
         /// <summary>

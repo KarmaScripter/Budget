@@ -14,7 +14,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        string Code { get; set; }
+        string AccountCode { get; set; }
 
         /// <summary>
         /// Gets the activity

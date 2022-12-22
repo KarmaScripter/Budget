@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -13,6 +14,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class PRC
     {
         /// <summary>
@@ -65,6 +68,30 @@ namespace BudgetExecution
         /// 
         /// </summary>
         public virtual string AccountCode { get; set; }
+        
+        /// <summary>
+        /// Gets the goal code.
+        /// </summary>
+        /// <value>
+        /// The goal code.
+        /// </value>
+        public string GoalCode { get; set; }
+
+        /// <summary>
+        /// Gets the objective code.
+        /// </summary>
+        /// <value>
+        /// The objective code.
+        /// </value>
+        public string ObjectiveCode { get; set; }
+        
+        /// <summary>
+        /// Gets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
+        public string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the activity code.
@@ -104,11 +131,18 @@ namespace BudgetExecution
         public virtual string ProgramAreaCode { get; set; }
 
         /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public virtual IDictionary<string, object> Data { get; set; }
+        
+        /// <summary>
         /// 
         /// </summary>
         public virtual DataRow Record { get; set; }
         
-
         /// <summary>
         /// Sets the field.
         /// </summary>
@@ -149,7 +183,7 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
@@ -170,7 +204,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
