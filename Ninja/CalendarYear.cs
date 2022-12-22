@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// <seealso cref = "ICalendarYear"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class CalendarYear : ICalendarYear
     {
         /// <summary>
