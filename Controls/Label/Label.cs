@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
@@ -18,7 +17,7 @@ namespace BudgetExecution
     /// <see cref="Label" />
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Label : MetroSetLabel 
+    public class Label : MetroSetLabel
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -152,7 +151,7 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
         }
-        
+
         /// <summary>
         /// Sets the text.
         /// </summary>
@@ -190,6 +189,7 @@ namespace BudgetExecution
                 }
             }
         }
+
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
