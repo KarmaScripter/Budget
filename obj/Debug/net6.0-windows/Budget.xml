@@ -1837,6 +1837,12 @@
             </summary>
             <param name="ex">The ex.</param>
         </member>
+        <member name="T:BudgetExecution.CurrencyBase">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.Tools.CurrencyEdit" />
+        </member>
         <member name="P:BudgetExecution.CurrencyBase.BindingSource">
             <summary>
             Gets or sets the binding source.
@@ -3626,6 +3632,22 @@
             
             </summary>
         </member>
+        <member name="P:BudgetExecution.ExcelForm.Grid">
+            <summary>
+            Gets or sets the grid.
+            </summary>
+            <value>
+            The grid.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ExcelForm.Model">
+            <summary>
+            Gets or sets the model.
+            </summary>
+            <value>
+            The model.
+            </value>
+        </member>
         <member name="M:BudgetExecution.ExcelForm.#ctor">
             <summary>
             
@@ -3662,12 +3684,12 @@
             </summary>
             <param name="filePath">The file path.</param>
         </member>
-        <member name="M:BudgetExecution.ExcelForm.#ctor(System.IO.FileStream)">
+        <member name="M:BudgetExecution.ExcelForm.#ctor(System.IO.Stream)">
             <summary>
             Initializes a new instance of the
             <see cref="T:BudgetExecution.ExcelForm"/> class.
             </summary>
-            <param name="file">The file.</param>
+            <param name="fileStream">The file.</param>
         </member>
         <member name="M:BudgetExecution.ExcelForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
@@ -4397,7 +4419,8 @@
         </member>
         <member name="M:BudgetExecution.Heading.#ctor">
             <summary>
-            Initializes a new instance of the <see cref = "T:BudgetExecution.Heading"/> class.
+            Initializes a new instance of the
+            <see cref = "T:BudgetExecution.Heading"/> class.
             </summary>
         </member>
         <member name="M:BudgetExecution.Heading.#ctor(BudgetExecution.IGrid)">
@@ -4740,7 +4763,11 @@
             <summary>
             Releases unmanaged and - optionally - managed resources.
             </summary>
-            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+            <param name="disposing"><c>true</c>
+            to release both managed and unmanaged resources;
+            <c>false</c>
+            to release only unmanaged resources.
+            </param>
         </member>
         <member name="M:BudgetExecution.Workbook.Dispose">
             <summary>
@@ -35577,6 +35604,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.MenuButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.Message">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

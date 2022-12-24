@@ -22,7 +22,7 @@ namespace BudgetExecution
         public Message( )
         {
             InitializeComponent( );
-            Size = new Size( 621, 412 );
+            Size = new Size( 700, 400 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;

@@ -127,6 +127,7 @@
             this.Spreadsheet.DisplayAlerts = true;
             this.Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Spreadsheet.FileName = "Book1";
+            this.Spreadsheet.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Spreadsheet.ForeColor = System.Drawing.Color.Black;
             this.Spreadsheet.FormulaBarVisibility = true;
             formulaRangeSelectionController1.AllowMouseSelection = true;
@@ -320,7 +321,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(124, 26);
+            this.TextBox.Size = new System.Drawing.Size(122, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 

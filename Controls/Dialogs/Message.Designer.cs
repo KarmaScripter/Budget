@@ -101,7 +101,7 @@ namespace BudgetExecution
             this.OpenButton.HoverText = null;
             this.OpenButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.OpenButton.IsDerivedStyle = true;
-            this.OpenButton.Location = new System.Drawing.Point(70, 334);
+            this.OpenButton.Location = new System.Drawing.Point(70, 327);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
             this.OpenButton.Name = "OpenButton";
             this.OpenButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -157,7 +157,7 @@ namespace BudgetExecution
             this.CloseButton.HoverText = null;
             this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(485, 334);
+            this.CloseButton.Location = new System.Drawing.Point(485, 327);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -206,13 +206,13 @@ namespace BudgetExecution
             this.Picture.DataFilter = null;
             this.Picture.Field = BudgetExecution.Field.RpioActivityCode;
             this.Picture.HoverText = null;
-            this.Picture.Image = global::BudgetExecution.Properties.Resources.BlueNinja;
+            this.Picture.Image = global::BudgetExecution.Properties.Resources.Message;
             this.Picture.ImageList = null;
             this.Picture.Location = new System.Drawing.Point(0, 3);
             this.Picture.Name = "Picture";
             this.Picture.Padding = new System.Windows.Forms.Padding(1);
             this.Picture.Size = new System.Drawing.Size(16, 18);
-            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Picture.TabIndex = 13;
             this.Picture.TabStop = false;
             this.Picture.ToolTip = null;
@@ -276,7 +276,7 @@ namespace BudgetExecution
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(688, 400);
+            this.ClientSize = new System.Drawing.Size(688, 393);
             this.Controls.Add(this.BackPanel);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.Picture);

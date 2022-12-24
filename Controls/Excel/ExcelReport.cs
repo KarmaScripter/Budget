@@ -13,6 +13,7 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml;
     using DocumentFormat.OpenXml.Packaging;
     using DocumentFormat.OpenXml.Spreadsheet;
+    using static DocumentFormat.OpenXml.Packaging.SpreadsheetDocument;
 
     /// <summary>
     /// 
@@ -101,8 +102,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using( var _document =
-                          SpreadsheetDocument.Create( fileName, SpreadsheetDocumentType.Workbook ) )
+                    using( var _document = Create( fileName, SpreadsheetDocumentType.Workbook ) )
                     {
                         WriteExcelFile( dataSet, _document );
                     }

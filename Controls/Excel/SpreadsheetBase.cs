@@ -52,7 +52,7 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.Black;
-            Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
             DefaultColumnCount = 26;
             DefaultRowCount = 66;
             AllowZooming = true;

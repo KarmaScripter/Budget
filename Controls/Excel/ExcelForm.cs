@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -13,6 +12,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Spreadsheet;
     using DataTable = DocumentFormat.OpenXml.Drawing.Charts.DataTable;
     using Size = System.Drawing.Size;
 
@@ -22,6 +22,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ExcelForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the grid.
+        /// </summary>
+        /// <value>
+        /// The grid.
+        /// </value>
+        public SpreadsheetGrid Grid { get; set; }
+
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
+        public SpreadsheetGridModel Model { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -41,15 +57,30 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ShowIcon = false;
             ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20);
-            CaptionFont = new Font( "Roboto", 12 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
             ShowMouseOver = true;
+            CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
+            
+            // Ribbon Properties
+            Ribbon.Spreadsheet = Spreadsheet;
+            
+            // Spreadsheet Properties
+            Spreadsheet.AllowCellContextMenu = true;
+            Spreadsheet.CanApplyTheme = true;
+            Spreadsheet.CanOverrideStyle = true;
+            Spreadsheet.Margin = new Padding( 1 );
+            Spreadsheet.Padding = new Padding( 1 );
+            Spreadsheet.Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Spreadsheet.ForeColor = Color.Black;
+            Spreadsheet.DefaultColumnCount = 26;
+            Spreadsheet.DefaultRowCount = 66;
+            Spreadsheet.AllowZooming = true;
             
             // Event Wiring
             Load += OnLoad;
@@ -109,11 +140,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="ExcelForm"/> class.
         /// </summary>
-        /// <param name="file">The file.</param>
-        public ExcelForm( FileStream file ) 
+        /// <param name="fileStream">The file.</param>
+        public ExcelForm( Stream fileStream ) 
             : this( )
         {
-            Spreadsheet.Open( file );
+            Spreadsheet.Open( fileStream );
         }
         
         /// <summary>
@@ -131,6 +162,7 @@ namespace BudgetExecution
             {
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
+                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
                 Spreadsheet.DefaultColumnCount = 12;
                 Spreadsheet.DefaultRowCount = 55;

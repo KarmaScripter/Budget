@@ -10,6 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Section : Grid
     {
         /// <summary>
@@ -88,7 +89,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return ( 0, 0 );
             }
         }
@@ -106,7 +106,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return 0;
             }
         }
@@ -124,7 +123,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return 0;
             }
         }
@@ -142,7 +140,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return ( 0, 0 );
             }
         }

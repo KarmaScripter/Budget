@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The data connection.
         /// </value>
-        public virtual OleDbConnection DataConnection { get; set; }
+        public OleDbConnection DataConnection { get; set; }
 
         /// <summary>
         /// Gets or sets the data command.
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The data command.
         /// </value>
-        public virtual OleDbCommand DataCommand { get; set; }
+        public OleDbCommand DataCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the data adapter.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The data adapter.
         /// </value>
-        public virtual OleDbDataAdapter DataAdapter { get; set; }
+        public OleDbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
         /// Gets or sets the excel package.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The excel package.
         /// </value>
-        public virtual ExcelPackage ExcelPackage { get; set; }
+        public ExcelPackage ExcelPackage { get; set; }
 
         /// <summary>
         /// Gets or sets the ext.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The ext.
         /// </value>
-        public virtual EXT Ext { get; set; }
+        public EXT Ext { get; set; }
         
         /// <summary>
         /// Gets or sets the file information.
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The file information.
         /// </value>
-        public virtual FileInfo FileInfo { get; set; }
+        public FileInfo FileInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the excel.
@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The excel.
         /// </value>
-        public virtual ExcelPackage Excel { get; set; }
+        public ExcelPackage Excel { get; set; }
 
         /// <summary>
         /// Gets or sets the workbook.
@@ -85,7 +85,7 @@ namespace BudgetExecution
         /// <value>
         /// The workbook.
         /// </value>
-        public virtual ExcelWorkbook Workbook { get; set; }
+        public ExcelWorkbook Workbook { get; set; }
 
         /// <summary>
         /// Gets or sets the worksheet.
@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The worksheet.
         /// </value>
-        public virtual ExcelWorksheet Worksheet { get; set; }
+        public ExcelWorksheet Worksheet { get; set; }
 
         /// <summary>
         /// Gets or sets the comment.
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The comment.
         /// </value>
-        public virtual IEnumerable<ExcelComment> Comment { get; set; }
+        public IEnumerable<ExcelComment> Comment { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -109,14 +109,14 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public virtual IEnumerable<DataRow> Data { get; set; }
+        public IEnumerable<DataRow> Data { get; set; }
 
         /// <summary>
         /// Sets the width of the column.
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="width">The width.</param>
-        public virtual void SetColumnWidth( Grid grid, double width )
+        public void SetColumnWidth( Grid grid, double width )
         {
             if( grid?.GetWorksheet( ) != null
                && width > 0d )
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="color">The color.</param>
-        public virtual void SetBackgroundColor( Grid grid, Color color )
+        public void SetBackgroundColor( Grid grid, Color color )
         {
             if( grid?.GetWorksheet( ) != null
                && grid?.GetRange( ) != null
@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="font">The font.</param>
-        public virtual void SetRangeFont( Grid grid, Font font )
+        public void SetRangeFont( Grid grid, Font font )
         {
             if( grid?.GetWorksheet( ) != null
                && grid?.GetRange( ) != null
@@ -186,7 +186,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="color">The color.</param>
-        public virtual void SetFontColor( Grid grid, Color color )
+        public void SetFontColor( Grid grid, Color color )
         {
             if( grid?.GetWorksheet( ) != null
                && grid?.GetRange( ) != null
@@ -211,7 +211,7 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         /// <param name="side">The side.</param>
         /// <param name="style">The style.</param>
-        public virtual void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
+        public void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
         {
             if( grid?.GetWorksheet( ) != null
                && grid?.GetRange( ) != null
@@ -262,7 +262,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="align">The align.</param>
-        public virtual void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
+        public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
             if( grid?.GetWorksheet( ) != null
                && grid?.GetRange( ) != null
@@ -285,7 +285,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="align">The align.</param>
-        public virtual void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
+        public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
             if( grid?.GetWorksheet( ) != null
                && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
@@ -306,7 +306,7 @@ namespace BudgetExecution
         /// Merges the cells.
         /// </summary>
         /// <param name="grid">The grid.</param>
-        public virtual void MergeCells( Grid grid )
+        public void MergeCells( Grid grid )
         {
             if( grid?.GetWorksheet( ) != null
                && grid?.GetRange( ) != null )

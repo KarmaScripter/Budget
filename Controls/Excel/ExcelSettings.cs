@@ -14,6 +14,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.XlsIO;
+    using static System.IO.Path;
 
     /// <summary>
     /// 
@@ -21,6 +22,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ExcelSettings
     {
         /// <summary>
@@ -29,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The index.
         /// </value>
-        public virtual int Index { get; set; } = 10;
+        public int Index { get; set; } = 10;
 
         /// <summary>
         /// Gets or sets the file path.
@@ -37,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The file path.
         /// </value>
-        public virtual string FilePath { get; set; }
+        public string FilePath { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the file.
@@ -45,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the file.
         /// </value>
-        public virtual string FileName { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// Gets or sets the connection string.
@@ -53,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection string.
         /// </value>
-        public virtual string ConnectionString { get; set; }
+        public string ConnectionString { get; set; }
 
         /// <summary>
         /// Gets or sets the color of the primary back.
@@ -61,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the primary back.
         /// </value>
-        public virtual Color PrimaryBackColor { get; set; } = Color.FromArgb( 255, 242, 242, 242 );
+        public Color PrimaryBackColor { get; set; } = Color.FromArgb( 255, 242, 242, 242 );
 
         /// <summary>
         /// Gets or sets the color of the secondary back.
@@ -69,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The color of the secondary back.
         /// </value>
-        public virtual Color SecondaryBackColor { get; set; } =
+        public Color SecondaryBackColor { get; set; } =
             Color.FromArgb( 255, 221, 235, 247 );
 
         /// <summary>
@@ -78,7 +81,7 @@ namespace BudgetExecution
         /// <value>
         /// The left.
         /// </value>
-        public virtual ExcelHorizontalAlignment Left { get; set; } = ExcelHorizontalAlignment.Left;
+        public ExcelHorizontalAlignment Left { get; set; } = ExcelHorizontalAlignment.Left;
 
         /// <summary>
         /// Gets or sets the center.
@@ -86,7 +89,7 @@ namespace BudgetExecution
         /// <value>
         /// The center.
         /// </value>
-        public virtual ExcelHorizontalAlignment Center { get; set; } =
+        public ExcelHorizontalAlignment Center { get; set; } =
             ExcelHorizontalAlignment.CenterMiddle;
 
         /// <summary>
@@ -95,7 +98,7 @@ namespace BudgetExecution
         /// <value>
         /// The right.
         /// </value>
-        public virtual ExcelHorizontalAlignment Right { get; set; } =
+        public ExcelHorizontalAlignment Right { get; set; } =
             ExcelHorizontalAlignment.Right;
 
         /// <summary>
@@ -104,7 +107,7 @@ namespace BudgetExecution
         /// <value>
         /// The height of the row.
         /// </value>
-        public virtual double RowHeight { get; set; } = 0.22;
+        public double RowHeight { get; set; } = 0.22;
 
         /// <summary>
         /// Gets or sets the width of the column.
@@ -112,7 +115,7 @@ namespace BudgetExecution
         /// <value>
         /// The width of the column.
         /// </value>
-        public virtual double ColumnWidth { get; set; } = 0.75;
+        public double ColumnWidth { get; set; } = 0.75;
 
         /// <summary>
         /// Gets or sets the top margin.
@@ -120,7 +123,7 @@ namespace BudgetExecution
         /// <value>
         /// The top margin.
         /// </value>
-        public virtual int TopMargin { get; set; } = 1;
+        public int TopMargin { get; set; } = 1;
 
         /// <summary>
         /// Gets or sets the bottom margin.
@@ -128,7 +131,7 @@ namespace BudgetExecution
         /// <value>
         /// The bottom margin.
         /// </value>
-        public virtual int BottomMargin { get; set; } = 1;
+        public int BottomMargin { get; set; } = 1;
 
         /// <summary>
         /// Gets or sets the left margin.
@@ -136,7 +139,7 @@ namespace BudgetExecution
         /// <value>
         /// The left margin.
         /// </value>
-        public virtual decimal LeftMargin { get; set; } = 0.25m;
+        public decimal LeftMargin { get; set; } = 0.25m;
 
         /// <summary>
         /// Gets or sets the right margin.
@@ -144,7 +147,7 @@ namespace BudgetExecution
         /// <value>
         /// The right margin.
         /// </value>
-        public virtual decimal RightMargin { get; set; } = 0.25m;
+        public decimal RightMargin { get; set; } = 0.25m;
 
         /// <summary>
         /// Gets or sets the header margin.
@@ -152,7 +155,7 @@ namespace BudgetExecution
         /// <value>
         /// The header margin.
         /// </value>
-        public virtual decimal HeaderMargin { get; set; } = 0.25m;
+        public decimal HeaderMargin { get; set; } = 0.25m;
 
         /// <summary>
         /// Gets or sets the footer margin.
@@ -160,7 +163,7 @@ namespace BudgetExecution
         /// <value>
         /// The footer margin.
         /// </value>
-        public virtual decimal FooterMargin { get; set; } = 0.25m;
+        public decimal FooterMargin { get; set; } = 0.25m;
 
         /// <summary>
         /// Gets or sets the column count.
@@ -168,7 +171,7 @@ namespace BudgetExecution
         /// <value>
         /// The column count.
         /// </value>
-        public virtual int ColumnCount { get; set; } = 12;
+        public int ColumnCount { get; set; } = 12;
 
         /// <summary>
         /// Gets or sets the row count.
@@ -176,7 +179,7 @@ namespace BudgetExecution
         /// <value>
         /// The row count.
         /// </value>
-        public virtual int RowCount { get; set; } = 55;
+        public int RowCount { get; set; } = 55;
 
         /// <summary>
         /// Gets or sets the zoom level.
@@ -184,7 +187,7 @@ namespace BudgetExecution
         /// <value>
         /// The zoom level.
         /// </value>
-        public virtual int ZoomLevel { get; set; } = 100;
+        public int ZoomLevel { get; set; } = 100;
 
         /// <summary>
         /// 
@@ -216,14 +219,14 @@ namespace BudgetExecution
         /// Sets the file path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public virtual void SetFilePath( string filePath )
+        public void SetFilePath( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
                && File.Exists( filePath ) )
             {
                 try
                 {
-                    FilePath = Path.GetFileName( filePath );
+                    FilePath = GetFileName( filePath );
                 }
                 catch( Exception ex )
                 {
@@ -236,14 +239,14 @@ namespace BudgetExecution
         /// Sets the name of the file.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public virtual void SetFileName( string filePath )
+        public void SetFileName( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
                && File.Exists( filePath ) )
             {
                 try
                 {
-                    FilePath = Path.GetFileNameWithoutExtension( filePath );
+                    FilePath = GetFileNameWithoutExtension( filePath );
                 }
                 catch( Exception ex )
                 {
@@ -257,11 +260,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        public virtual EXT GetFileExtension( string filePath )
+        public EXT GetFileExtension( string filePath )
         {
             try
             {
-                var _path = Path.GetExtension( filePath );
+                var _path = GetExtension( filePath );
 
                 if( _path != null )
                 {
@@ -286,7 +289,7 @@ namespace BudgetExecution
         /// <param name="extension">The extension.</param>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        public virtual string GetConnectionString( string extension, string filePath )
+        public string GetConnectionString( string extension, string filePath )
         {
             if( !string.IsNullOrEmpty( extension )
                && !string.IsNullOrEmpty( filePath ) )
@@ -326,7 +329,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="spreadSheet">The spread sheet.</param>
         /// <param name="dataTable">The data table.</param>
-        public virtual void SetExcelForm( Spreadsheet spreadSheet, DataTable dataTable )
+        public void SetExcelForm( Spreadsheet spreadSheet, DataTable dataTable )
         {
             if( spreadSheet != null
                && dataTable?.Rows?.Count > 0 )
@@ -357,7 +360,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="spreadSheet">The spread sheet.</param>
         /// <param name="dataGrid">The data grid.</param>
-        public virtual void SetExcelForm( Spreadsheet spreadSheet, DataGridView dataGrid )
+        public void SetExcelForm( Spreadsheet spreadSheet, DataGridView dataGrid )
         {
             if( spreadSheet != null
                && dataGrid?.DataSource != null )

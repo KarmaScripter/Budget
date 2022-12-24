@@ -40,7 +40,8 @@ namespace BudgetExecution
         public IDictionary<int, string> Caption { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Heading"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Heading"/> class.
         /// </summary>
         public Heading( )
         {

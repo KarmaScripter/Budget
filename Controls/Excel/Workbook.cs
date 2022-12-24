@@ -98,9 +98,6 @@ namespace BudgetExecution
         /// </summary>
         public Workbook( )
         {
-            FileInfo = new FileInfo( FilePath );
-            Excel = new ExcelPackage( FileInfo );
-            Workbook = Excel.Workbook;
         }
 
         /// <summary>
@@ -376,7 +373,11 @@ namespace BudgetExecution
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        /// <param name="disposing"><c>true</c>
+        /// to release both managed and unmanaged resources;
+        /// <c>false</c>
+        /// to release only unmanaged resources.
+        /// </param>
         public void Dispose( bool disposing )
         {
             try
