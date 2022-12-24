@@ -172,7 +172,7 @@ namespace BudgetExecution
                 try
                 {
                     using var _range = grid.GetRange( );
-                    _range.Style.Font.SetFromFont( font );
+                    _range.Style.Font.SetFromFont( font.Name, font.Size );
                 }
                 catch( Exception ex )
                 {

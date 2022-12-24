@@ -19,6 +19,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     public abstract class ExcelSettings
     {
         /// <summary>
@@ -223,11 +225,9 @@ namespace BudgetExecution
                 {
                     FilePath = Path.GetFileName( filePath );
                 }
-                catch( Exception e )
+                catch( Exception ex )
                 {
-                    Console.WriteLine( e );
-
-                    throw;
+                    Fail( ex );
                 }
             }
         }
@@ -245,11 +245,9 @@ namespace BudgetExecution
                 {
                     FilePath = Path.GetFileNameWithoutExtension( filePath );
                 }
-                catch( Exception e )
+                catch( Exception ex )
                 {
-                    Console.WriteLine( e );
-
-                    throw;
+                    Fail( ex );
                 }
             }
         }
@@ -268,7 +266,6 @@ namespace BudgetExecution
                 if( _path != null )
                 {
                     var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
-
                     return Enum.IsDefined( typeof( EXT ), _extension )
                         ? _extension
                         : default;
@@ -279,7 +276,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -297,7 +293,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    // ReSharper disable once ConvertSwitchStatementToSwitchExpression
                     switch( extension?.ToUpper( ) )
                     {
                         case ".XLS":
@@ -305,7 +300,6 @@ namespace BudgetExecution
                             return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath
                                 + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                         }
-
                         case ".XLSX":
                         {
                             return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
@@ -321,8 +315,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
-                    return string.Empty;
                 }
             }
 

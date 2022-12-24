@@ -292,11 +292,9 @@ namespace BudgetExecution
                         var _stylesheet = new Stylesheet( );
                         _styles.Stylesheet = _stylesheet;
                         uint _id = 1;
-
                         foreach( DataTable _dataTable in dataSet.Tables )
                         {
                             var _part = spreadSheet?.WorkbookPart?.AddNewPart<WorksheetPart>( );
-
                             if( _part != null )
                             {
                                 _part.Worksheet = new Worksheet( );

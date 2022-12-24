@@ -37,6 +37,7 @@
     <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="6.1.1" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
     <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="20.3.0.61" />
@@ -89,9 +90,6 @@
     </Reference>
     <Reference Include="DocumentFormat.OpenXml">
       <HintPath>Libraries\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus">
-      <HintPath>Libraries\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="Expander">
       <HintPath>Libraries\Expander.dll</HintPath>

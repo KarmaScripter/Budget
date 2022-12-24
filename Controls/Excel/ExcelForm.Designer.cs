@@ -253,7 +253,7 @@
             this.HomeButton.Field = BudgetExecution.Field.AccountCode;
             this.HomeButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HomeButton.ForeColor = System.Drawing.Color.LightGray;
-            this.HomeButton.HoverText = null;
+            this.HomeButton.HoverText = "Main Menu";
             this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
             this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
@@ -320,7 +320,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(132, 26);
+            this.TextBox.Size = new System.Drawing.Size(124, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -371,7 +371,7 @@
             this.RefreshDataButton.Field = BudgetExecution.Field.AccountCode;
             this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
-            this.RefreshDataButton.HoverText = null;
+            this.RefreshDataButton.HoverText = "Refresh Data";
             this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshDataButton;
             this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(1);
@@ -400,7 +400,7 @@
             this.DatabaseButton.Field = BudgetExecution.Field.AccountCode;
             this.DatabaseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DatabaseButton.ForeColor = System.Drawing.Color.LightGray;
-            this.DatabaseButton.HoverText = null;
+            this.DatabaseButton.HoverText = "Data Editor";
             this.DatabaseButton.Image = global::BudgetExecution.Properties.Resources.DatabaseButton;
             this.DatabaseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DatabaseButton.Margin = new System.Windows.Forms.Padding(1);
@@ -429,7 +429,7 @@
             this.UploadButton.Field = BudgetExecution.Field.AccountCode;
             this.UploadButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.UploadButton.ForeColor = System.Drawing.Color.LightGray;
-            this.UploadButton.HoverText = null;
+            this.UploadButton.HoverText = "Excel Upload";
             this.UploadButton.Image = global::BudgetExecution.Properties.Resources.UploadButton;
             this.UploadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.UploadButton.Margin = new System.Windows.Forms.Padding(1);
@@ -458,7 +458,7 @@
             this.DeleteDatabaseButton.Field = BudgetExecution.Field.AccountCode;
             this.DeleteDatabaseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DeleteDatabaseButton.ForeColor = System.Drawing.Color.LightGray;
-            this.DeleteDatabaseButton.HoverText = null;
+            this.DeleteDatabaseButton.HoverText = "Delete Data";
             this.DeleteDatabaseButton.Image = global::BudgetExecution.Properties.Resources.DeleteDatabaseButton;
             this.DeleteDatabaseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteDatabaseButton.Margin = new System.Windows.Forms.Padding(1);
@@ -487,7 +487,7 @@
             this.SaveButton.Field = BudgetExecution.Field.AccountCode;
             this.SaveButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SaveButton.ForeColor = System.Drawing.Color.LightGray;
-            this.SaveButton.HoverText = null;
+            this.SaveButton.HoverText = "Save Changes";
             this.SaveButton.Image = global::BudgetExecution.Properties.Resources.SaveButton;
             this.SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveButton.Margin = new System.Windows.Forms.Padding(1);
@@ -516,7 +516,7 @@
             this.CalendarButton.Field = BudgetExecution.Field.AccountCode;
             this.CalendarButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CalendarButton.ForeColor = System.Drawing.Color.LightGray;
-            this.CalendarButton.HoverText = null;
+            this.CalendarButton.HoverText = "Budget Calendar";
             this.CalendarButton.Image = global::BudgetExecution.Properties.Resources.CalendarButton;
             this.CalendarButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.CalendarButton.Margin = new System.Windows.Forms.Padding(1);
@@ -545,7 +545,7 @@
             this.CalculatorButton.Field = BudgetExecution.Field.AccountCode;
             this.CalculatorButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CalculatorButton.ForeColor = System.Drawing.Color.LightGray;
-            this.CalculatorButton.HoverText = null;
+            this.CalculatorButton.HoverText = "Budget Calculator";
             this.CalculatorButton.Image = global::BudgetExecution.Properties.Resources.CalculatorButton;
             this.CalculatorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.CalculatorButton.Margin = new System.Windows.Forms.Padding(1);
@@ -574,7 +574,7 @@
             this.ChartButton.Field = BudgetExecution.Field.AccountCode;
             this.ChartButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChartButton.ForeColor = System.Drawing.Color.LightGray;
-            this.ChartButton.HoverText = null;
+            this.ChartButton.HoverText = "Visualizations";
             this.ChartButton.Image = global::BudgetExecution.Properties.Resources.ChartButton;
             this.ChartButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ChartButton.Margin = new System.Windows.Forms.Padding(1);
@@ -603,7 +603,7 @@
             this.LookupButton.Field = BudgetExecution.Field.AccountCode;
             this.LookupButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LookupButton.ForeColor = System.Drawing.Color.LightGray;
-            this.LookupButton.HoverText = null;
+            this.LookupButton.HoverText = "Browse File";
             this.LookupButton.Image = global::BudgetExecution.Properties.Resources.LookupButton;
             this.LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LookupButton.Margin = new System.Windows.Forms.Padding(1);
@@ -612,7 +612,7 @@
             this.LookupButton.Size = new System.Drawing.Size(26, 26);
             this.LookupButton.Text = "toolStripButton8";
             this.LookupButton.ToolTip = this.ToolTip;
-            this.LookupButton.ToolType = BudgetExecution.ToolType.LookupButton;
+            this.LookupButton.ToolType = BudgetExecution.ToolType.BrowseButton;
             // 
             // toolSeparator12
             // 
@@ -632,7 +632,7 @@
             this.LogoutButton.Field = BudgetExecution.Field.AccountCode;
             this.LogoutButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LogoutButton.ForeColor = System.Drawing.Color.LightGray;
-            this.LogoutButton.HoverText = null;
+            this.LogoutButton.HoverText = "Log Off";
             this.LogoutButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
             this.LogoutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LogoutButton.Margin = new System.Windows.Forms.Padding(1);

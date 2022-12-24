@@ -212,7 +212,7 @@ namespace BudgetExecution
                 {
                     excelRange.Style.Font.Color.SetColor( Color.Black );
                     using var _font = Font;
-                    excelRange.Style.Font.SetFromFont( Font );
+                    excelRange.Style.Font.SetFromFont( Font.Name, Font.Size );
                     excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     excelRange.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
@@ -238,7 +238,7 @@ namespace BudgetExecution
                 {
                     range.Style.Font.Color.SetColor( FontColor );
                     using var _font = Font;
-                    range.Style.Font.SetFromFont( Font );
+                    range.Style.Font.SetFromFont( Font.Name, Font.Size );
                     range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     range.Style.Fill.BackgroundColor.SetColor( Color.White );
                     range.Style.HorizontalAlignment = OfficeOpenXml.Style
@@ -330,7 +330,7 @@ namespace BudgetExecution
                 {
                     SetHeaderText( grid );
                     using var _range = grid.GetRange( );
-                    _range.Style.Font.SetFromFont( TitleFont );
+                    _range.Style.Font.SetFromFont( TitleFont.Name, TitleFont.Size );
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
