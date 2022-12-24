@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -44,14 +45,13 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.LightSteelBlue;
             CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
-            ToolStrip.Office12Mode = true;
         }
 
         /// <summary>
@@ -61,8 +61,6 @@ namespace BudgetExecution
         public ChartForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource = bindingSource;
-            ToolStrip.Office12Mode = true;
             ToolStrip.BindingSource = bindingSource;
             ToolStrip.BindingSource.DataSource = bindingSource.DataSource;
             Chart = new Chart( bindingSource ) ;
@@ -78,9 +76,7 @@ namespace BudgetExecution
         public ChartForm( DataTable dataTable )
             : this( )
         {
-            BindingSource = new BindingSource( ) ;
             BindingSource.DataSource = dataTable;
-            ToolStrip.Office12Mode = true;
             ToolStrip.BindingSource = BindingSource;
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
             Chart = new Chart( dataTable ) ;
@@ -96,8 +92,6 @@ namespace BudgetExecution
         public ChartForm( IEnumerable<DataRow> dataRows )
             : this( )
         {
-            ToolStrip.Office12Mode = true;
-            BindingSource = new BindingSource( ) ;
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             ToolStrip.BindingSource = BindingSource;
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
@@ -105,6 +99,38 @@ namespace BudgetExecution
             Chart.Dock = DockStyle.Fill;
             Chart.SetPoints( );
             Controls.Add( Chart );
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.</param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                ToolStrip.Office12Mode = true;
+                ToolStrip.Label.ForeColor = Color.Black;
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

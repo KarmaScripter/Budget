@@ -19,6 +19,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BudgetExecution.ExcelSettings" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class ExcelBase : ExcelSettings
     {
         /// <summary>
@@ -283,7 +285,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="align">The align.</param>
-        public virtual void SetVerticalAligment( Grid grid, ExcelVerticalAlignment align )
+        public virtual void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
             if( grid?.GetWorksheet( ) != null
                && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )

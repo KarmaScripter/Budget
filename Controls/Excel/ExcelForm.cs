@@ -5,10 +5,15 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using DataTable = DocumentFormat.OpenXml.Drawing.Charts.DataTable;
+    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -50,6 +55,46 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="bindingSource">
+        /// The binding source.
+        /// </param>
+        public ExcelForm( BindingSource bindingSource ) 
+            : this( )
+        {
+            BindingSource = bindingSource;
+            ToolStrip.BindingSource = bindingSource;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="dataTable">
+        /// The data table.</param>
+        public ExcelForm( DataTable dataTable ) 
+            : this( )
+        {
+            BindingSource.DataSource = dataTable;
+            ToolStrip.BindingSource = BindingSource;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="dataRows">
+        /// The data rows.</param>
+        public ExcelForm( IEnumerable<DataRow> dataRows ) 
+            : this( )
+        {
+            BindingSource.DataSource = dataRows.CopyToDataTable( );
+            ToolStrip.BindingSource = BindingSource;
+        }
+        
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -64,6 +109,8 @@ namespace BudgetExecution
             {
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
+                Spreadsheet.DefaultColumnCount = 12;
+                Spreadsheet.DefaultRowCount = 55;
             }
             catch ( Exception ex )
             {

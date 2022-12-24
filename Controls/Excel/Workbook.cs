@@ -16,43 +16,65 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    /// <seealso cref="BudgetExecution.ExcelBase" />
+    [SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Workbook : ExcelBase
     {
         /// <summary>
-        /// The font color
+        /// Gets or sets the color of the font.
         /// </summary>
+        /// <value>
+        /// The color of the font.
+        /// </value>
         public Color FontColor { get; set; } = Color.Black;
 
         /// <summary>
-        /// The font
+        /// Gets or sets the font.
         /// </summary>
+        /// <value>
+        /// The font.
+        /// </value>
         public Font Font { get; set; } = new ( "Roboto", 8, FontStyle.Regular );
 
         /// <summary>
-        /// The title font
+        /// Gets or sets the title font.
         /// </summary>
+        /// <value>
+        /// The title font.
+        /// </value>
         public Font TitleFont { get; set; } = new ( "Roboto", 10, FontStyle.Bold );
 
         /// <summary>
-        /// The header image width
+        /// Gets or sets the width of the header image.
         /// </summary>
+        /// <value>
+        /// The width of the header image.
+        /// </value>
         public double HeaderImageWidth { get; set; } = 1.75;
 
         /// <summary>
-        /// The header image height
+        /// Gets or sets the height of the header image.
         /// </summary>
+        /// <value>
+        /// The height of the header image.
+        /// </value>
         public double HeaderImageHeight { get; set; } = 0.75;
 
         /// <summary>
-        /// The footer image width
+        /// Gets or sets the width of the footer image.
         /// </summary>
+        /// <value>
+        /// The width of the footer image.
+        /// </value>
         public double FooterImageWidth { get; set; } = 2.04;
 
         /// <summary>
-        /// The footer image height
+        /// Gets or sets the height of the footer image.
         /// </summary>
+        /// <value>
+        /// The height of the footer image.
+        /// </value>
         public double FooterImageHeight { get; set; } = 0.70;
 
         /// <summary>
@@ -82,8 +104,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Workbook"/> class.
+        /// Initializes a new instance of the <see cref="Workbook"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         public Workbook( DataTable dataTable )
@@ -113,9 +134,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the header format.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
+        /// <param name="grid">The grid.</param>
         public void SetHeaderFormat( Grid grid )
         {
             if( grid?.GetWorksheet( ) != null )
@@ -140,9 +159,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the header text.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
+        /// <param name="grid">The grid.</param>
         public void SetHeaderText( Grid grid )
         {
             if( grid?.GetWorksheet( ) != null )
@@ -175,9 +192,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the dark color row.
         /// </summary>
-        /// <param name = "excelRange" >
-        /// The excelRange.
-        /// </param>
+        /// <param name="excelRange">The excel range.</param>
         public void SetDarkColorRow( ExcelRange excelRange )
         {
             if( excelRange != null )
@@ -203,9 +218,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the light color row.
         /// </summary>
-        /// <param name = "excelRange" >
-        /// The excelRange.
-        /// </param>
+        /// <param name="excelRange">The excel range.</param>
         public void SetLightColorRow( ExcelRange excelRange )
         {
             if( excelRange != null )
@@ -231,9 +244,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the alternating row.
         /// </summary>
-        /// <param name = "excelRange" >
-        /// The excelRange.
-        /// </param>
+        /// <param name="excelRange">The excel range.</param>
         public void SetAlternatingRowColor( ExcelRange excelRange )
         {
             if( Worksheet != null
@@ -271,9 +282,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the numeric row format.
         /// </summary>
-        /// <param name = "excelRange" >
-        /// The excelRange.
-        /// </param>
+        /// <param name="excelRange">The excel range.</param>
         public void SetNumericRowFormat( ExcelRange excelRange )
         {
             if( Worksheet != null
@@ -299,11 +308,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the dataTable format.
+        /// Sets the table format.
         /// </summary>
-        /// <param name = "grid" >
-        /// The grid.
-        /// </param>
+        /// <param name="grid">The grid.</param>
         public void SetTableFormat( Grid grid )
         {
             if( grid?.GetWorksheet( ) != null )
@@ -329,9 +336,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the total row format.
         /// </summary>
-        /// <param name = "excelRange" >
-        /// The excelRange.
-        /// </param>
+        /// <param name="excelRange">The excel range.</param>
         public void SetTotalRowFormat( ExcelRange excelRange )
         {
             if( Worksheet != null
@@ -360,16 +365,7 @@ namespace BudgetExecution
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name = "disposing" >
-        /// <c>
-        /// true
-        /// </c>
-        /// to release both managed and unmanaged resources;
-        /// <c>
-        /// false
-        /// </c>
-        /// to release only unmanaged resources.
-        /// </param>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         public void Dispose( bool disposing )
         {
             try
@@ -384,8 +380,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or
-        /// resetting unmanaged resources.
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
         public virtual void Dispose( )
         {

@@ -39,8 +39,9 @@
             this.Spreadsheet = new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolStrip = new BudgetExecution.ToolStrip();
-            this.Label = new BudgetExecution.ToolStripLabel();
+            this.HomeButton = new BudgetExecution.ToolStripButton();
             this.ToolTip = new BudgetExecution.SmallTip();
+            this.Label = new BudgetExecution.ToolStripLabel();
             this.toolSeparator1 = new BudgetExecution.ToolSeparator();
             this.TextBox = new BudgetExecution.ToolStripTextBox();
             this.toolSeparator2 = new BudgetExecution.ToolSeparator();
@@ -66,7 +67,6 @@
             this.toolSeparator12 = new BudgetExecution.ToolSeparator();
             this.LogoutButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator13 = new BudgetExecution.ToolSeparator();
-            this.HomeButton = new BudgetExecution.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
@@ -242,22 +242,26 @@
             this.ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             this.ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
-            // Label
+            // HomeButton
             // 
-            this.Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.Label.BindingSource = this.BindingSource;
-            this.Label.DataFilter = null;
-            this.Label.Field = BudgetExecution.Field.AccountCode;
-            this.Label.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Label.ForeColor = System.Drawing.Color.White;
-            this.Label.HoverText = null;
-            this.Label.Margin = new System.Windows.Forms.Padding(1);
-            this.Label.Name = "Label";
-            this.Label.Padding = new System.Windows.Forms.Padding(1);
-            this.Label.Size = new System.Drawing.Size(91, 26);
-            this.Label.Tag = "";
-            this.Label.Text = "toolStripLabel1";
-            this.Label.ToolTip = this.ToolTip;
+            this.HomeButton.AutoToolTip = false;
+            this.HomeButton.BackColor = System.Drawing.Color.Transparent;
+            this.HomeButton.BindingSource = this.BindingSource;
+            this.HomeButton.DataFilter = null;
+            this.HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.HomeButton.Field = BudgetExecution.Field.AccountCode;
+            this.HomeButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HomeButton.ForeColor = System.Drawing.Color.LightGray;
+            this.HomeButton.HoverText = null;
+            this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
+            this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
+            this.HomeButton.Size = new System.Drawing.Size(26, 26);
+            this.HomeButton.Text = "toolStripButton10";
+            this.HomeButton.ToolTip = this.ToolTip;
+            this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
             // 
             // ToolTip
             // 
@@ -279,6 +283,23 @@
             this.ToolTip.TipText = null;
             this.ToolTip.TipTitle = null;
             // 
+            // Label
+            // 
+            this.Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.Label.BindingSource = this.BindingSource;
+            this.Label.DataFilter = null;
+            this.Label.Field = BudgetExecution.Field.AccountCode;
+            this.Label.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Label.ForeColor = System.Drawing.Color.White;
+            this.Label.HoverText = null;
+            this.Label.Margin = new System.Windows.Forms.Padding(1);
+            this.Label.Name = "Label";
+            this.Label.Padding = new System.Windows.Forms.Padding(1);
+            this.Label.Size = new System.Drawing.Size(91, 26);
+            this.Label.Tag = "";
+            this.Label.Text = "toolStripLabel1";
+            this.Label.ToolTip = this.ToolTip;
+            // 
             // toolSeparator1
             // 
             this.toolSeparator1.ForeColor = System.Drawing.Color.Black;
@@ -298,7 +319,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(140, 26);
+            this.TextBox.Size = new System.Drawing.Size(138, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -628,27 +649,6 @@
             this.toolSeparator13.Name = "toolSeparator13";
             this.toolSeparator13.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator13.Size = new System.Drawing.Size(6, 26);
-            // 
-            // HomeButton
-            // 
-            this.HomeButton.AutoToolTip = false;
-            this.HomeButton.BackColor = System.Drawing.Color.Transparent;
-            this.HomeButton.BindingSource = this.BindingSource;
-            this.HomeButton.DataFilter = null;
-            this.HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.HomeButton.Field = BudgetExecution.Field.AccountCode;
-            this.HomeButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HomeButton.ForeColor = System.Drawing.Color.LightGray;
-            this.HomeButton.HoverText = null;
-            this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
-            this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Size = new System.Drawing.Size(26, 26);
-            this.HomeButton.Text = "toolStripButton10";
-            this.HomeButton.ToolTip = this.ToolTip;
-            this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
             // 
             // ExcelForm
             // 

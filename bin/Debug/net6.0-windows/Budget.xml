@@ -1247,6 +1247,22 @@
             </summary>
             <param name="dataRows"></param>
         </member>
+        <member name="M:BudgetExecution.ChartForm.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">
+            The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
         <member name="F:BudgetExecution.ChartForm.components">
             <summary>
             Required designer variable.
@@ -3592,7 +3608,7 @@
             <param name="grid">The grid.</param>
             <param name="align">The align.</param>
         </member>
-        <member name="M:BudgetExecution.ExcelBase.SetVerticalAligment(BudgetExecution.Grid,OfficeOpenXml.Style.ExcelVerticalAlignment)">
+        <member name="M:BudgetExecution.ExcelBase.SetVerticalAlignment(BudgetExecution.Grid,OfficeOpenXml.Style.ExcelVerticalAlignment)">
             <summary>
             Sets the vertical aligment.
             </summary>
@@ -3614,6 +3630,31 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:BudgetExecution.ExcelForm.#ctor(System.Windows.Forms.BindingSource)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:BudgetExecution.ExcelForm"/> class.
+            </summary>
+            <param name="bindingSource">
+            The binding source.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.ExcelForm.#ctor(DocumentFormat.OpenXml.Drawing.Charts.DataTable)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:BudgetExecution.ExcelForm"/> class.
+            </summary>
+            <param name="dataTable">
+            The data table.</param>
+        </member>
+        <member name="M:BudgetExecution.ExcelForm.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:BudgetExecution.ExcelForm"/> class.
+            </summary>
+            <param name="dataRows">
+            The data rows.</param>
         </member>
         <member name="M:BudgetExecution.ExcelForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
@@ -4543,41 +4584,63 @@
             <summary>
             
             </summary>
+            <seealso cref="T:BudgetExecution.ExcelBase" />
         </member>
         <member name="P:BudgetExecution.Workbook.FontColor">
             <summary>
-            The font color
+            Gets or sets the color of the font.
             </summary>
+            <value>
+            The color of the font.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.Font">
             <summary>
-            The font
+            Gets or sets the font.
             </summary>
+            <value>
+            The font.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.TitleFont">
             <summary>
-            The title font
+            Gets or sets the title font.
             </summary>
+            <value>
+            The title font.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.HeaderImageWidth">
             <summary>
-            The header image width
+            Gets or sets the width of the header image.
             </summary>
+            <value>
+            The width of the header image.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.HeaderImageHeight">
             <summary>
-            The header image height
+            Gets or sets the height of the header image.
             </summary>
+            <value>
+            The height of the header image.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.FooterImageWidth">
             <summary>
-            The footer image width
+            Gets or sets the width of the footer image.
             </summary>
+            <value>
+            The width of the footer image.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.FooterImageHeight">
             <summary>
-            The footer image height
+            Gets or sets the height of the footer image.
             </summary>
+            <value>
+            The height of the footer image.
+            </value>
         </member>
         <member name="P:BudgetExecution.Workbook.HeaderImage">
             <summary>
@@ -4602,8 +4665,7 @@
         </member>
         <member name="M:BudgetExecution.Workbook.#ctor(System.Data.DataTable)">
             <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.Workbook"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.Workbook"/> class.
             </summary>
             <param name="dataTable">The data table.</param>
         </member>
@@ -4611,85 +4673,59 @@
             <summary>
             Sets the header format.
             </summary>
-            <param name = "grid" >
-            The grid.
-            </param>
+            <param name="grid">The grid.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetHeaderText(BudgetExecution.Grid)">
             <summary>
             Sets the header text.
             </summary>
-            <param name = "grid" >
-            The grid.
-            </param>
+            <param name="grid">The grid.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetDarkColorRow(OfficeOpenXml.ExcelRange)">
             <summary>
             Sets the dark color row.
             </summary>
-            <param name = "excelRange" >
-            The excelRange.
-            </param>
+            <param name="excelRange">The excel range.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetLightColorRow(OfficeOpenXml.ExcelRange)">
             <summary>
             Sets the light color row.
             </summary>
-            <param name = "excelRange" >
-            The excelRange.
-            </param>
+            <param name="excelRange">The excel range.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetAlternatingRowColor(OfficeOpenXml.ExcelRange)">
             <summary>
             Sets the color of the alternating row.
             </summary>
-            <param name = "excelRange" >
-            The excelRange.
-            </param>
+            <param name="excelRange">The excel range.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetNumericRowFormat(OfficeOpenXml.ExcelRange)">
             <summary>
             Sets the numeric row format.
             </summary>
-            <param name = "excelRange" >
-            The excelRange.
-            </param>
+            <param name="excelRange">The excel range.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetTableFormat(BudgetExecution.Grid)">
             <summary>
-            Sets the dataTable format.
+            Sets the table format.
             </summary>
-            <param name = "grid" >
-            The grid.
-            </param>
+            <param name="grid">The grid.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.SetTotalRowFormat(OfficeOpenXml.ExcelRange)">
             <summary>
             Sets the total row format.
             </summary>
-            <param name = "excelRange" >
-            The excelRange.
-            </param>
+            <param name="excelRange">The excel range.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.Dispose(System.Boolean)">
             <summary>
             Releases unmanaged and - optionally - managed resources.
             </summary>
-            <param name = "disposing" >
-            <c>
-            true
-            </c>
-            to release both managed and unmanaged resources;
-            <c>
-            false
-            </c>
-            to release only unmanaged resources.
-            </param>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         </member>
         <member name="M:BudgetExecution.Workbook.Dispose">
             <summary>
-            Performs application-defined tasks associated with freeing, releasing, or
-            resetting unmanaged resources.
+            Releases unmanaged and - optionally - managed resources.
             </summary>
         </member>
         <member name="T:BudgetExecution.Frame">
