@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using DataTable = DocumentFormat.OpenXml.Drawing.Charts.DataTable;
@@ -40,16 +41,16 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ShowIcon = false;
             ShowInTaskbar = true;
-            ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20);
             CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
+            ShowMouseOver = true;
             MinimizeBox = false;
             MaximizeBox = false;
-
+            
             // Event Wiring
             Load += OnLoad;
         }
@@ -93,6 +94,27 @@ namespace BudgetExecution
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             ToolStrip.BindingSource = BindingSource;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        public ExcelForm( string filePath ) 
+            : this( )
+        {
+            Spreadsheet.Open( filePath );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="file">The file.</param>
+        public ExcelForm( FileStream file ) 
+            : this( )
+        {
+            Spreadsheet.Open( file );
+        }
         
         /// <summary>
         /// Called when [load].
@@ -109,6 +131,7 @@ namespace BudgetExecution
             {
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
+                Ribbon.Spreadsheet = Spreadsheet;
                 Spreadsheet.DefaultColumnCount = 12;
                 Spreadsheet.DefaultRowCount = 55;
             }

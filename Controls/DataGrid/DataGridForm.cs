@@ -86,13 +86,13 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
+            ShowMouseOver = true;
             StaticGridLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
             StaticGridLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             StaticTableLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );

@@ -133,7 +133,6 @@ namespace BudgetExecution
                 try
                 {
                     var _table = new DataTable( );
-
                     foreach( var info in typeof( T ).GetProperties( ) )
                     {
                         _table?.Columns?.Add( new DataColumn( info.Name,
@@ -143,7 +142,6 @@ namespace BudgetExecution
                     foreach( var t in data )
                     {
                         var _row = _table.NewRow( );
-
                         foreach( var info in typeof( T ).GetProperties( ) )
                         {
                             _row[ info.Name ] = !IsNullableType( info.PropertyType )
@@ -283,12 +281,10 @@ namespace BudgetExecution
                 try
                 {
                     spreadSheet.AddWorkbookPart( );
-
                     if( spreadSheet.WorkbookPart != null )
                     {
                         spreadSheet.WorkbookPart.Workbook =
                             new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
-                        
                         spreadSheet.WorkbookPart.Workbook?.Append( new BookViews( new WorkbookView( ) ) );
                         var _styles =
                             spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "rIdStyles" );
@@ -307,7 +303,6 @@ namespace BudgetExecution
                                 _part.Worksheet.AppendChild( new SheetData( ) );
                                 WriteDataTableToExcelWorksheet( _dataTable, _part );
                                 _part.Worksheet.Save( );
-
                                 if( _id == 1 )
                                 {
                                     spreadSheet?.WorkbookPart?.Workbook?.AppendChild( new Sheets( ) );
@@ -377,16 +372,15 @@ namespace BudgetExecution
                         var _excelRow = new Row( ) ;
                         _excelRow.RowIndex = _rowIndex;
                         _data?.Append( _excelRow );
-
                         for( var i = 0; i < _columns; i++ )
                         {
                             var _value = _dataRow?.ItemArray[ i ]?.ToString( );
 
                             if( _isNumeric[ i ] )
                             {
-                                if( double.TryParse( _value, out var cellnumericvalue ) )
+                                if( double.TryParse( _value, out var _cellNumericValue ) )
                                 {
-                                    _value = cellnumericvalue.ToString( );
+                                    _value = _cellNumericValue.ToString( );
                                     AppendNumericCell( _names[ i ] + _rowIndex, _value, _excelRow );
                                 }
                             }

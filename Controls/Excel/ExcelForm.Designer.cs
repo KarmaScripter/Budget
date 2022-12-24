@@ -100,7 +100,7 @@
             this.Ribbon.ShowQuickItemsDropDownButton = false;
             this.Ribbon.ShowRibbonDisplayOptionButton = false;
             this.Ribbon.Size = new System.Drawing.Size(1388, 155);
-            this.Ribbon.Spreadsheet = null;
+            this.Ribbon.Spreadsheet = this.Spreadsheet;
             this.Ribbon.SystemText.QuickAccessDialogDropDownName = "Start menu";
             this.Ribbon.SystemText.RenameDisplayLabelText = "&Display Name:";
             this.Ribbon.TabIndex = 0;
@@ -127,6 +127,7 @@
             this.Spreadsheet.DisplayAlerts = true;
             this.Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Spreadsheet.FileName = "Book1";
+            this.Spreadsheet.ForeColor = System.Drawing.Color.Black;
             this.Spreadsheet.FormulaBarVisibility = true;
             formulaRangeSelectionController1.AllowMouseSelection = true;
             formulaRangeSelectionController1.AllowSelectionOnEditing = true;
@@ -319,7 +320,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(138, 26);
+            this.TextBox.Size = new System.Drawing.Size(132, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
