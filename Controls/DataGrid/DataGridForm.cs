@@ -201,7 +201,6 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _names.Length; _i++ )
                 {
                     var name = _names[ _i ];
-
                     if( name != "NS" )
                     {
                         ToolStrip.DropDown?.Items.Add( name );

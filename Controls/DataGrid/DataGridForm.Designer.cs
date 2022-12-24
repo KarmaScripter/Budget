@@ -117,10 +117,10 @@
             this.Separator23 = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
             this.Separator25 = new BudgetExecution.ToolSeparator();
-            this.LogOutButton = new BudgetExecution.ToolStripButton();
             this.Separator26 = new BudgetExecution.ToolSeparator();
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
+            this.ExitButton = new BudgetExecution.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -899,8 +899,7 @@
             this.BrowseButton,
             this.Separator23,
             this.MenuButton,
-            this.Separator25,
-            this.LogOutButton,
+            this.ExitButton,
             this.Separator26});
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = this.LastButton;
@@ -1018,6 +1017,7 @@
             this.ComboBox.Size = new System.Drawing.Size(198, 25);
             this.ComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             this.ComboBox.Tag = "Make Selection";
+            this.ComboBox.ToolTip = this.ToolTip;
             this.ComboBox.ToolTipText = "Make Selection";
             // 
             // EditSqlButton
@@ -1148,7 +1148,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(180, 25);
+            this.TextBox.Size = new System.Drawing.Size(174, 25);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1494,7 +1494,7 @@
             this.ChartButton.Padding = new System.Windows.Forms.Padding(1);
             this.ChartButton.Size = new System.Drawing.Size(26, 25);
             this.ChartButton.Text = "toolStripButton2";
-            this.ChartButton.ToolTip = null;
+            this.ChartButton.ToolTip = this.ToolTip;
             this.ChartButton.ToolType = BudgetExecution.ToolType.ChartButton;
             // 
             // Separator20
@@ -1552,7 +1552,7 @@
             this.CalculatorButton.Padding = new System.Windows.Forms.Padding(1);
             this.CalculatorButton.Size = new System.Drawing.Size(26, 25);
             this.CalculatorButton.Text = "toolStripButton2";
-            this.CalculatorButton.ToolTip = null;
+            this.CalculatorButton.ToolTip = this.ToolTip;
             this.CalculatorButton.ToolType = BudgetExecution.ToolType.CalculatorButton;
             // 
             // Separator22
@@ -1618,7 +1618,7 @@
             this.MenuButton.Padding = new System.Windows.Forms.Padding(1);
             this.MenuButton.Size = new System.Drawing.Size(26, 25);
             this.MenuButton.Text = "toolStripButton2";
-            this.MenuButton.ToolTip = null;
+            this.MenuButton.ToolTip = this.ToolTip;
             this.MenuButton.ToolType = BudgetExecution.ToolType.HomeButton;
             // 
             // Separator25
@@ -1628,27 +1628,6 @@
             this.Separator25.Name = "Separator25";
             this.Separator25.Padding = new System.Windows.Forms.Padding(1);
             this.Separator25.Size = new System.Drawing.Size(6, 25);
-            // 
-            // LogOutButton
-            // 
-            this.LogOutButton.AutoToolTip = false;
-            this.LogOutButton.BackColor = System.Drawing.Color.Transparent;
-            this.LogOutButton.BindingSource = this.BindingSource;
-            this.LogOutButton.DataFilter = null;
-            this.LogOutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.LogOutButton.Field = BudgetExecution.Field.AccountCode;
-            this.LogOutButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LogOutButton.ForeColor = System.Drawing.Color.LightGray;
-            this.LogOutButton.HoverText = "Exit";
-            this.LogOutButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
-            this.LogOutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.LogOutButton.Margin = new System.Windows.Forms.Padding(1);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LogOutButton.Size = new System.Drawing.Size(26, 25);
-            this.LogOutButton.Text = "toolStripButton2";
-            this.LogOutButton.ToolTip = null;
-            this.LogOutButton.ToolType = BudgetExecution.ToolType.LogoutButton;
             // 
             // Separator26
             // 
@@ -1687,6 +1666,27 @@
             this.DropDown.Tag = "Make Selection";
             this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.AutoToolTip = false;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.BindingSource = this.BindingSource;
+            this.ExitButton.DataFilter = null;
+            this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExitButton.Field = BudgetExecution.Field.AccountCode;
+            this.ExitButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExitButton.ForeColor = System.Drawing.Color.LightGray;
+            this.ExitButton.HoverText = "Exit Application";
+            this.ExitButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
+            this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(1);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Padding = new System.Windows.Forms.Padding(1);
+            this.ExitButton.Size = new System.Drawing.Size(26, 25);
+            this.ExitButton.Text = "toolStripButton1";
+            this.ExitButton.ToolTip = this.ToolTip;
+            this.ExitButton.ToolType = BudgetExecution.ToolType.ExitButton;
             // 
             // DataGridForm
             // 
@@ -1823,11 +1823,11 @@
         private ToolSeparator Separator23;
         public ToolStripButton MenuButton;
         private ToolSeparator Separator25;
-        public ToolStripButton LogOutButton;
         private ToolSeparator Separator26;
         private ToolSeparator toolSeparator24;
         public ToolStripDropDown DropDown;
         public ToolStrip ToolStrip;
         public ToolStripButton FirstButton;
+        public ToolStripButton ExitButton;
     }
 }

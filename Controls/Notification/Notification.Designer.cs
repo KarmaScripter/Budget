@@ -30,65 +30,67 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notification));
-            this.Title = new System.Windows.Forms.Label();
-            this.Message = new System.Windows.Forms.Label();
             this.NotifyIcon = new System.Windows.Forms.PictureBox();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.BackPanel = new BudgetExecution.Layout();
+            this.Title = new BudgetExecution.Label();
+            this.Message = new BudgetExecution.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NotifyIcon)).BeginInit();
-            this.BackPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Title
-            // 
-            this.Title.BackColor = System.Drawing.Color.Transparent;
-            this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Title.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.Silver;
-            this.Title.Location = new System.Drawing.Point(75, 0);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(262, 26);
-            this.Title.TabIndex = 0;
-            // 
-            // Message
-            // 
-            this.Message.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Message.BackColor = System.Drawing.Color.Transparent;
-            this.Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Message.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Message.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Message.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Message.Location = new System.Drawing.Point(37, 49);
-            this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(300, 90);
-            this.Message.TabIndex = 1;
-            this.Message.Text = "Notification body";
             // 
             // NotifyIcon
             // 
             this.NotifyIcon.BackColor = System.Drawing.Color.Transparent;
             this.NotifyIcon.Image = ((System.Drawing.Image)(resources.GetObject("NotifyIcon.Image")));
-            this.NotifyIcon.Location = new System.Drawing.Point(0, 0);
+            this.NotifyIcon.Location = new System.Drawing.Point(4, 4);
             this.NotifyIcon.Name = "NotifyIcon";
             this.NotifyIcon.Size = new System.Drawing.Size(24, 37);
             this.NotifyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.NotifyIcon.TabIndex = 2;
             this.NotifyIcon.TabStop = false;
             // 
-            // BackPanel
+            // Title
             // 
-            this.BackPanel.BackColor = System.Drawing.Color.Transparent;
-            this.BackPanel.Controls.Add(this.NotifyIcon);
-            this.BackPanel.Controls.Add(this.Message);
-            this.BackPanel.Controls.Add(this.Title);
-            this.BackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BackPanel.ForeColor = System.Drawing.Color.White;
-            this.BackPanel.Location = new System.Drawing.Point(1, 1);
-            this.BackPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.BackPanel.Name = "BackPanel";
-            this.BackPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.BackPanel.Size = new System.Drawing.Size(348, 149);
-            this.BackPanel.TabIndex = 3;
+            this.Title.BindingSource = null;
+            this.Title.DataFilter = null;
+            this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Title.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Title.HoverText = null;
+            this.Title.IsDerivedStyle = true;
+            this.Title.Location = new System.Drawing.Point(49, 4);
+            this.Title.Margin = new System.Windows.Forms.Padding(3);
+            this.Title.Name = "Title";
+            this.Title.Padding = new System.Windows.Forms.Padding(1);
+            this.Title.Size = new System.Drawing.Size(211, 25);
+            this.Title.Style = MetroSet_UI.Enums.Style.Custom;
+            this.Title.StyleManager = null;
+            this.Title.TabIndex = 3;
+            this.Title.Text = "label1";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Title.ThemeAuthor = "Terry D. Eppler";
+            this.Title.ThemeName = "BudgetExecution";
+            this.Title.ToolTip = null;
+            // 
+            // Message
+            // 
+            this.Message.BindingSource = null;
+            this.Message.DataFilter = null;
+            this.Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Message.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Message.HoverText = null;
+            this.Message.IsDerivedStyle = true;
+            this.Message.Location = new System.Drawing.Point(49, 48);
+            this.Message.Margin = new System.Windows.Forms.Padding(3);
+            this.Message.Name = "Message";
+            this.Message.Padding = new System.Windows.Forms.Padding(1);
+            this.Message.Size = new System.Drawing.Size(310, 103);
+            this.Message.Style = MetroSet_UI.Enums.Style.Custom;
+            this.Message.StyleManager = null;
+            this.Message.TabIndex = 4;
+            this.Message.Text = "label1";
+            this.Message.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Message.ThemeAuthor = "Terry D. Eppler";
+            this.Message.ThemeName = "BudgetExecution";
+            this.Message.ToolTip = null;
             // 
             // Notification
             // 
@@ -100,14 +102,16 @@
             this.CaptionBarHeight = 3;
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(350, 151);
+            this.ClientSize = new System.Drawing.Size(401, 189);
             this.ControlBox = false;
-            this.Controls.Add(this.BackPanel);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.Message);
+            this.Controls.Add(this.Title);
+            this.Controls.Add(this.NotifyIcon);
+            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(460, 189);
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.Name = "Notification";
@@ -118,17 +122,14 @@
             this.Text = "Notification";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.NotifyIcon)).EndInit();
-            this.BackPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        public System.Windows.Forms.Label Title;
-        public System.Windows.Forms.Label Message;
         public System.Windows.Forms.PictureBox NotifyIcon;
         public System.Windows.Forms.Timer Timer;
-        public BudgetExecution.Layout BackPanel;
+        private Label Title;
+        public Label Message;
     }
 }

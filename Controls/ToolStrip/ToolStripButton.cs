@@ -172,8 +172,8 @@ namespace BudgetExecution
                         }
                         case ToolType.PrintButton:
                         {
-                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
                             break;
                         }
                         case ToolType.AddButton:
@@ -210,26 +210,26 @@ namespace BudgetExecution
                         }
                         case ToolType.RefreshButton:
                         {
-                            using var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
                             break;
                         }
                         case ToolType.ExitButton:
                         {
-                            var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
                             break;
                         }
                         case ToolType.ExportButton:
                         {
-                            var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
                             break;
                         }
                         case ToolType.ImportButton:
                         {
-                            var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
                             break;
                         }
                         case ToolType.SearchDataButton:
@@ -282,8 +282,8 @@ namespace BudgetExecution
                         }
                         default:
                         {
-                            var _message = new Message( "NOT YET IMPLEMENTED!" );
-                            _message?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
                             break;
                         }
                     }

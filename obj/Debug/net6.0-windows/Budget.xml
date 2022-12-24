@@ -3075,115 +3075,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:BudgetExecution.Notification">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
-        </member>
-        <member name="F:BudgetExecution.Notification._currentForegroundWindow">
-            <summary>
-            The current foreground window
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Notification.OpenNotifications">
-            <summary>
-            The open notifications
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Notification.AllowFocus">
-            <summary>
-            Gets or sets a value indicating whether [allow focus].
-            </summary>
-            <value>
-              <c>true</c> if [allow focus]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.Notification.Animator">
-            <summary>
-            Gets the animator.
-            </summary>
-            <value>
-            The animator.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.Notification.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Notification"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Notification.#ctor(System.String,System.String,System.Int32,BudgetExecution.FormAnimator.AnimationMethod,BudgetExecution.FormAnimator.AnimationDirection)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Notification"/> class.
-            </summary>
-            <param name="title">The title.</param>
-            <param name="body">The body.</param>
-            <param name="duration">The duration.</param>
-            <param name="animation">The animation.</param>
-            <param name="direction">The direction.</param>
-        </member>
-        <member name="M:BudgetExecution.Notification.Show">
-            <summary>
-            Displays the control to the user.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Notification.NotificationClose">
-            <summary>
-            Notifications the close.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Notification.OnLoad(System.Object,System.EventArgs)">
-            <summary>
-            Called when [load].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.Notification.OnActivated(System.Object,System.EventArgs)">
-            <summary>
-            Called when [activated].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.Notification.OnShown(System.Object,System.EventArgs)">
-            <summary>
-            Called when [shown].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.Notification.OnClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
-            <summary>
-            Called when [closed].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.FormClosedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.Notification.OnTimerTick(System.Object,System.EventArgs)">
-            <summary>
-            Called when [timer tick].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="F:BudgetExecution.Notification.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Notification.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:BudgetExecution.Notification.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="T:BudgetExecution.SqlDialog">
             <summary>
             
@@ -6044,6 +5935,135 @@
         <member name="M:BudgetExecution.NativeMethods.AnimateWindow(System.IntPtr,System.Int32,System.Int32)">
             <summary>
             Windows API function to animate a window.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.Notification">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="P:BudgetExecution.Notification.Time">
+            <summary>
+            Gets or sets the time.
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Notification.Seconds">
+            <summary>
+            Gets or sets the seconds.
+            </summary>
+            <value>
+            The seconds.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Notification.AllowFocus">
+            <summary>
+            Gets or sets a value indicating whether [allow focus].
+            </summary>
+            <value>
+              <c>true</c> if [allow focus]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Notification.ShownWithoutActivation">
+            <summary>
+            Gets a value indicating whether [shown without activation].
+            </summary>
+            <value>
+              <c>true</c> if [shown without activation]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.Notification.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Notification"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Notification.#ctor(System.String,System.Int32,BudgetExecution.FormAnimator.AnimationMethod,BudgetExecution.FormAnimator.AnimationDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Notification"/> class.
+            </summary>
+            <param name="body">The body.</param>
+            <param name="duration">The duration.</param>
+            <param name="animation">The animation.</param>
+            <param name="direction">The direction.</param>
+        </member>
+        <member name="M:BudgetExecution.Notification.#ctor(System.String,System.String,System.Int32,BudgetExecution.FormAnimator.AnimationMethod,BudgetExecution.FormAnimator.AnimationDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Notification"/> class.
+            </summary>
+            <param name="title">The title.</param>
+            <param name="body">The body.</param>
+            <param name="duration">The duration.</param>
+            <param name="animation">The animation.</param>
+            <param name="direction">The direction.</param>
+        </member>
+        <member name="M:BudgetExecution.Notification.Show">
+            <summary>
+            Displays the control to the user.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Notification.OnClose">
+            <summary>
+            Notifications the close.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Notification.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.Notification.FadeIn">
+            <summary>
+            Fades the in.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Notification.FadeOutAndClose">
+            <summary>
+            Fades the out and close.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Notification.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Called when [paint].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The
+            <see cref="T:System.Windows.Forms.PaintEventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.Notification.OnResized(System.Object,System.EventArgs)">
+            <summary>
+            Called when [resized].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.Notification.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.Notification.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Notification.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.Notification.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:BudgetExecution.PdfForm">
