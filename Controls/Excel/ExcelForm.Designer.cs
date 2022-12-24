@@ -126,7 +126,7 @@
             this.Spreadsheet.DefaultRowCount = 101;
             this.Spreadsheet.DisplayAlerts = true;
             this.Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Spreadsheet.FileName = "Book3";
+            this.Spreadsheet.FileName = "Book1";
             this.Spreadsheet.FormulaBarVisibility = true;
             formulaRangeSelectionController1.AllowMouseSelection = true;
             formulaRangeSelectionController1.AllowSelectionOnEditing = true;
@@ -176,7 +176,7 @@
             this.ToolStrip.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.ToolStrip.HomeButton = null;
+            this.ToolStrip.HomeButton = this.HomeButton;
             this.ToolStrip.Image = null;
             this.ToolStrip.ImageDirectory = null;
             this.ToolStrip.ImageScalingSize = new System.Drawing.Size(20, 18);
@@ -209,7 +209,7 @@
             this.LogoutButton,
             this.toolSeparator13,
             this.HomeButton});
-            this.ToolStrip.Label = null;
+            this.ToolStrip.Label = this.Label;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             this.ToolStrip.Location = new System.Drawing.Point(0, 669);
@@ -298,7 +298,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(144, 26);
+            this.TextBox.Size = new System.Drawing.Size(140, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 

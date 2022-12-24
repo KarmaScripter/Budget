@@ -44,7 +44,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
-            
+
             // Event Wiring
             Load += OnLoad;
         }
@@ -60,17 +60,14 @@ namespace BudgetExecution
         /// <returns></returns>
         public void OnLoad( object sender, EventArgs e )
         {
-            if( ToolStrip != null )
+            try
             {
-                try
-                {
-                    ToolStrip.Office12Mode = true;
-                    ToolStrip.Label.ForeColor = Color.Black;
-                }
-                catch ( Exception ex )
-                {
-                    Fail( ex );
-                }
+                ToolStrip.Office12Mode = true;
+                ToolStrip.Label.ForeColor = Color.Black;
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
             }
         }
         
