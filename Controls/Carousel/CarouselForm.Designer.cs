@@ -29,43 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarouselForm));
-            this.Selector = new BudgetExecution.Selector();
+            this.Carousel = new BudgetExecution.Selector();
             this.ImageList = new BudgetExecution.ImageList();
             this.SuspendLayout();
             // 
-            // Selector
+            // Carousel
             // 
-            this.Selector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.Selector.CanOverrideStyle = true;
-            this.Selector.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Selector.ForeColor = System.Drawing.Color.White;
-            this.Selector.FunctionalityPath = null;
-            this.Selector.HighlightColor = System.Drawing.Color.SteelBlue;
-            this.Selector.ImageshadeColor = System.Drawing.Color.Black;
-            this.Selector.ImageSize = new System.Drawing.Size(250, 250);
-            this.Selector.ImageSlides = true;
-            this.Selector.Location = new System.Drawing.Point(181, 92);
-            this.Selector.Name = "Selector";
-            this.Selector.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.Selector.PadX = 0;
-            this.Selector.PadY = 0;
-            this.Selector.Perspective = 4F;
-            this.Selector.RotateAlways = false;
-            this.Selector.ShowImagePreview = true;
-            this.Selector.ShowImageShadow = true;
-            this.Selector.Size = new System.Drawing.Size(1038, 537);
-            this.Selector.TabIndex = 0;
-            this.Selector.Text = "selector1";
-            this.Selector.ThemeName = "Metro";
-            this.Selector.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
-            this.Selector.ThemeStyle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Selector.ThemeStyle.ForeColor = System.Drawing.Color.White;
-            this.Selector.ThemeStyle.HoverImageBorderColor = System.Drawing.Color.SteelBlue;
-            this.Selector.ThemeStyle.HoverImageBorderThickness = 2;
-            this.Selector.ThemeStyle.ImageShadeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.Selector.TouchTransitionSpeed = 1F;
-            this.Selector.UseOriginalImageinPreview = true;
-            this.Selector.VisualStyle = Syncfusion.Windows.Forms.Tools.CarouselVisualStyle.Metro;
+            this.Carousel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Carousel.BindingSource = null;
+            this.Carousel.CanOverrideStyle = true;
+            this.Carousel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Carousel.ForeColor = System.Drawing.Color.White;
+            this.Carousel.HighlightColor = System.Drawing.Color.SteelBlue;
+            this.Carousel.Images = null;
+            this.Carousel.ImageshadeColor = System.Drawing.Color.Black;
+            this.Carousel.ImageSize = new System.Drawing.Size(250, 250);
+            this.Carousel.ImageSlides = true;
+            this.Carousel.Location = new System.Drawing.Point(255, 64);
+            this.Carousel.Name = "Carousel";
+            this.Carousel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.Carousel.PadX = 0;
+            this.Carousel.PadY = 0;
+            this.Carousel.Perspective = 4F;
+            this.Carousel.RotateAlways = false;
+            this.Carousel.ShowImagePreview = true;
+            this.Carousel.ShowImageShadow = true;
+            this.Carousel.Size = new System.Drawing.Size(844, 559);
+            this.Carousel.TabIndex = 0;
+            this.Carousel.ThemeName = "Metro";
+            this.Carousel.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
+            this.Carousel.ThemeStyle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Carousel.ThemeStyle.ForeColor = System.Drawing.Color.White;
+            this.Carousel.ThemeStyle.HoverImageBorderColor = System.Drawing.Color.SteelBlue;
+            this.Carousel.ThemeStyle.HoverImageBorderThickness = 2;
+            this.Carousel.ThemeStyle.ImageShadeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.Carousel.TouchTransitionSpeed = 1F;
+            this.Carousel.UseOriginalImageinPreview = true;
+            this.Carousel.VisualStyle = Syncfusion.Windows.Forms.Tools.CarouselVisualStyle.Metro;
             // 
             // ImageList
             // 
@@ -82,18 +82,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.BorderColor = System.Drawing.Color.SteelBlue;
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.White;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1388, 713);
-            this.Controls.Add(this.Selector);
+            this.Controls.Add(this.Carousel);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Name = "CarouselForm";
@@ -105,7 +106,7 @@
 
         #endregion
 
-        public Selector Selector;
+        public Selector Carousel;
         public ImageList ImageList;
     }
 }

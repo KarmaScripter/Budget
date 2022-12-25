@@ -654,10 +654,39 @@
             
             </summary>
         </member>
+        <member name="P:BudgetExecution.CarouselForm.ImagePath">
+            <summary>
+            Gets or sets the image path.
+            </summary>
+            <value>
+            The image path.
+            </value>
+        </member>
         <member name="M:BudgetExecution.CarouselForm.#ctor">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:BudgetExecution.CarouselForm.#ctor(System.String)">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.CarouselForm"/> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:BudgetExecution.CarouselForm.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.CarouselForm.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
         </member>
         <member name="F:BudgetExecution.CarouselForm.components">
             <summary>
@@ -705,14 +734,6 @@
             The size of the image.
             </value>
         </member>
-        <member name="P:BudgetExecution.Selector.FunctionalityPath">
-            <summary>
-            Gets or sets the provider path.
-            </summary>
-            <value>
-            The provider path.
-            </value>
-        </member>
         <member name="M:BudgetExecution.Selector.#ctor">
             <summary>
             Gets or sets the fund path.
@@ -745,13 +766,6 @@
             Creates the carousel items.
             </summary>
             <param name="paths">The images.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Selector.CreateCarouselItems(System.Collections.Generic.IEnumerable{System.Drawing.Image})">
-            <summary>
-            Creates the carousel items.
-            </summary>
-            <param name="images">The images.</param>
             <returns></returns>
         </member>
         <member name="M:BudgetExecution.Selector.CreateCarouselItems(System.String)">
@@ -2221,6 +2235,13 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.OnTestButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [test button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.Fail(System.Exception)">
             <summary>
             Get Error Dialog.
@@ -3523,6 +3544,30 @@
             
             </summary>
         </member>
+        <member name="P:BudgetExecution.ExcelForm.IconPath">
+            <summary>
+            Gets or sets the icon path.
+            </summary>
+            <value>
+            The icon path.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ExcelForm.FilePath">
+            <summary>
+            Gets or sets the file path.
+            </summary>
+            <value>
+            The file path.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ExcelForm.FileName">
+            <summary>
+            Gets or sets the name of the file.
+            </summary>
+            <value>
+            The name of the file.
+            </value>
+        </member>
         <member name="P:BudgetExecution.ExcelForm.Grid">
             <summary>
             Gets or sets the grid.
@@ -3543,31 +3588,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:BudgetExecution.ExcelForm.#ctor(System.Windows.Forms.BindingSource)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.ExcelForm"/> class.
-            </summary>
-            <param name="bindingSource">
-            The binding source.
-            </param>
-        </member>
-        <member name="M:BudgetExecution.ExcelForm.#ctor(DocumentFormat.OpenXml.Drawing.Charts.DataTable)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.ExcelForm"/> class.
-            </summary>
-            <param name="dataTable">
-            The data table.</param>
-        </member>
-        <member name="M:BudgetExecution.ExcelForm.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.ExcelForm"/> class.
-            </summary>
-            <param name="dataRows">
-            The data rows.</param>
         </member>
         <member name="M:BudgetExecution.ExcelForm.#ctor(System.String)">
             <summary>
@@ -6072,10 +6092,47 @@
             </summary>
             <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
         </member>
+        <member name="P:BudgetExecution.PdfForm.FilePath">
+            <summary>
+            Gets or sets the file path.
+            </summary>
+            <value>
+            The file path.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PdfForm.FileName">
+            <summary>
+            Gets or sets the name of the file.
+            </summary>
+            <value>
+            The name of the file.
+            </value>
+        </member>
         <member name="M:BudgetExecution.PdfForm.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.PdfForm"/> class.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.PdfForm.#ctor(System.String)">
+            <summary>
+            Initializes a new
+            instance of the <see cref="T:BudgetExecution.PdfForm"/> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:BudgetExecution.PdfForm.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.PdfForm.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
         </member>
         <member name="F:BudgetExecution.PdfForm.components">
             <summary>
@@ -35583,6 +35640,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.Excel">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.ExcelButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -35641,6 +35703,11 @@
         <member name="P:BudgetExecution.Properties.Resources.PauseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.PDF">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.PreviousButton">

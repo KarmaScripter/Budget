@@ -23,6 +23,30 @@ namespace BudgetExecution
     public partial class ExcelForm : MetroForm
     {
         /// <summary>
+        /// Gets or sets the icon path.
+        /// </summary>
+        /// <value>
+        /// The icon path.
+        /// </value>
+        public string IconPath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        public string FilePath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        public string FileName { get; set; }
+        
+        /// <summary>
         /// Gets or sets the grid.
         /// </summary>
         /// <value>
@@ -55,7 +79,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
+            ShowIcon = true;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
@@ -85,47 +109,7 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelForm"/> class.
-        /// </summary>
-        /// <param name="bindingSource">
-        /// The binding source.
-        /// </param>
-        public ExcelForm( BindingSource bindingSource ) 
-            : this( )
-        {
-            BindingSource = bindingSource;
-            ToolStrip.BindingSource = bindingSource;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelForm"/> class.
-        /// </summary>
-        /// <param name="dataTable">
-        /// The data table.</param>
-        public ExcelForm( DataTable dataTable ) 
-            : this( )
-        {
-            BindingSource.DataSource = dataTable;
-            ToolStrip.BindingSource = BindingSource;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelForm"/> class.
-        /// </summary>
-        /// <param name="dataRows">
-        /// The data rows.</param>
-        public ExcelForm( IEnumerable<DataRow> dataRows ) 
-            : this( )
-        {
-            BindingSource.DataSource = dataRows.CopyToDataTable( );
-            ToolStrip.BindingSource = BindingSource;
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelForm"/> class.
         /// </summary>
@@ -134,6 +118,8 @@ namespace BudgetExecution
             : this( )
         {
             Spreadsheet.Open( filePath );
+            FilePath = filePath;
+            FileName = Path.GetFileName( filePath );
         }
 
         /// <summary>

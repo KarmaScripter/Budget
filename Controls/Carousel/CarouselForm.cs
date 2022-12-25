@@ -4,15 +4,29 @@
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Configuration;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Windows.Forms;
+    using Syncfusion.Data.Extensions;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class CarouselForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the image path.
+        /// </summary>
+        /// <value>
+        /// The image path.
+        /// </value>
+        public string ImagePath { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -41,6 +55,42 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
+            
+            // Event Wiring
+            Load += OnLoad;
+        }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="CarouselForm"/> class.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        public CarouselForm( string filePath )
+        {
+            ImagePath = filePath;
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            var _path = @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Provider\";
+            Carousel.FilePath = _path;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

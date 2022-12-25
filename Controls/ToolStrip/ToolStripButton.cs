@@ -159,8 +159,7 @@ namespace BudgetExecution
                         }
                         case ToolType.ExcelButton:
                         {
-                            using var _excelForm = new ExcelForm( BindingSource );
-                            _excelForm.BindingSource = BindingSource;
+                            using var _excelForm = new ExcelForm( );
                             _excelForm?.ShowDialog( );
                             break;
                         }

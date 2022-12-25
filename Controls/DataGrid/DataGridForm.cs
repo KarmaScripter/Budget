@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System;
     using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Drawing;
     using System.Windows.Forms;
 
@@ -109,6 +110,7 @@ namespace BudgetExecution
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
+            TestButton.Click += OnTestButtonClicked;
         }
 
         /// <summary>
@@ -124,6 +126,7 @@ namespace BudgetExecution
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
+            TestButton.Click += OnTestButtonClicked;
         }
 
         /// <summary>
@@ -317,6 +320,17 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [test button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnTestButtonClicked( object sender, EventArgs e )
+        {
+            var _carousel = new CarouselForm( );
+            _carousel.ShowDialog( );
+        }
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

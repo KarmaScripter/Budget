@@ -116,11 +116,12 @@
             this.BrowseButton = new BudgetExecution.ToolStripButton();
             this.Separator23 = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
-            this.Separator25 = new BudgetExecution.ToolSeparator();
+            this.ExitButton = new BudgetExecution.ToolStripButton();
             this.Separator26 = new BudgetExecution.ToolSeparator();
+            this.Separator25 = new BudgetExecution.ToolSeparator();
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
-            this.ExitButton = new BudgetExecution.ToolStripButton();
+            this.TestButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -1148,7 +1149,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(174, 25);
+            this.TextBox.Size = new System.Drawing.Size(172, 25);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1621,13 +1622,26 @@
             this.MenuButton.ToolTip = this.ToolTip;
             this.MenuButton.ToolType = BudgetExecution.ToolType.HomeButton;
             // 
-            // Separator25
+            // ExitButton
             // 
-            this.Separator25.ForeColor = System.Drawing.Color.Black;
-            this.Separator25.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator25.Name = "Separator25";
-            this.Separator25.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator25.Size = new System.Drawing.Size(6, 25);
+            this.ExitButton.AutoToolTip = false;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.BindingSource = this.BindingSource;
+            this.ExitButton.DataFilter = null;
+            this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExitButton.Field = BudgetExecution.Field.AccountCode;
+            this.ExitButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExitButton.ForeColor = System.Drawing.Color.LightGray;
+            this.ExitButton.HoverText = "Exit Application";
+            this.ExitButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
+            this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(1);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Padding = new System.Windows.Forms.Padding(1);
+            this.ExitButton.Size = new System.Drawing.Size(26, 25);
+            this.ExitButton.Text = "toolStripButton1";
+            this.ExitButton.ToolTip = this.ToolTip;
+            this.ExitButton.ToolType = BudgetExecution.ToolType.ExitButton;
             // 
             // Separator26
             // 
@@ -1636,6 +1650,14 @@
             this.Separator26.Name = "Separator26";
             this.Separator26.Padding = new System.Windows.Forms.Padding(1);
             this.Separator26.Size = new System.Drawing.Size(6, 25);
+            // 
+            // Separator25
+            // 
+            this.Separator25.ForeColor = System.Drawing.Color.Black;
+            this.Separator25.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator25.Name = "Separator25";
+            this.Separator25.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator25.Size = new System.Drawing.Size(6, 25);
             // 
             // toolSeparator24
             // 
@@ -1667,26 +1689,37 @@
             this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
             // 
-            // ExitButton
+            // TestButton
             // 
-            this.ExitButton.AutoToolTip = false;
-            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
-            this.ExitButton.BindingSource = this.BindingSource;
-            this.ExitButton.DataFilter = null;
-            this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExitButton.Field = BudgetExecution.Field.AccountCode;
-            this.ExitButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ExitButton.ForeColor = System.Drawing.Color.LightGray;
-            this.ExitButton.HoverText = "Exit Application";
-            this.ExitButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
-            this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(1);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Padding = new System.Windows.Forms.Padding(1);
-            this.ExitButton.Size = new System.Drawing.Size(26, 25);
-            this.ExitButton.Text = "toolStripButton1";
-            this.ExitButton.ToolTip = this.ToolTip;
-            this.ExitButton.ToolType = BudgetExecution.ToolType.ExitButton;
+            this.TestButton.BindingSource = null;
+            this.TestButton.DataFilter = null;
+            this.TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TestButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TestButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TestButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TestButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TestButton.HoverText = null;
+            this.TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.TestButton.IsDerivedStyle = true;
+            this.TestButton.Location = new System.Drawing.Point(542, 622);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.TestButton.NormalColor = System.Drawing.Color.Transparent;
+            this.TestButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.Padding = new System.Windows.Forms.Padding(1);
+            this.TestButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.PressTextColor = System.Drawing.Color.White;
+            this.TestButton.Size = new System.Drawing.Size(140, 40);
+            this.TestButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TestButton.StyleManager = null;
+            this.TestButton.TabIndex = 42;
+            this.TestButton.Text = "Test";
+            this.TestButton.ThemeAuthor = "Terry D. Eppler";
+            this.TestButton.ThemeName = "BudgetExecution";
+            this.TestButton.ToolTip = null;
             // 
             // DataGridForm
             // 
@@ -1701,6 +1734,7 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 712);
+            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -1829,5 +1863,6 @@
         public ToolStrip ToolStrip;
         public ToolStripButton FirstButton;
         public ToolStripButton ExitButton;
+        public Button TestButton;
     }
 }
