@@ -126,7 +126,7 @@
             this.Spreadsheet.DefaultRowCount = 101;
             this.Spreadsheet.DisplayAlerts = true;
             this.Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Spreadsheet.FileName = "Book1";
+            this.Spreadsheet.FileName = "Book2";
             this.Spreadsheet.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Spreadsheet.ForeColor = System.Drawing.Color.Black;
             this.Spreadsheet.FormulaBarVisibility = true;
@@ -321,7 +321,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(120, 26);
+            this.TextBox.Size = new System.Drawing.Size(114, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -662,10 +662,11 @@
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             captionImage1.BackColor = System.Drawing.Color.Transparent;
-            captionImage1.Location = new System.Drawing.Point(4, 4);
+            captionImage1.Image = global::BudgetExecution.Properties.Resources.Excel;
+            captionImage1.Location = new System.Drawing.Point(6, 4);
             captionImage1.Name = "CaptionImage";
             captionImage1.Size = new System.Drawing.Size(22, 22);
             this.CaptionImages.Add(captionImage1);
@@ -680,6 +681,7 @@
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.MinimizeBox = false;
             this.Name = "ExcelForm";
+            this.ShowIcon = false;
             this.ShowMaximizeBox = false;
             this.ShowMinimizeBox = false;
             this.ShowMouseOver = true;

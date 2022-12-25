@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -12,11 +13,13 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Data.Extensions;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public partial class CarouselForm : MetroForm
     {
         /// <summary>
@@ -40,7 +43,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -51,23 +54,32 @@ namespace BudgetExecution
             CaptionFont = new Font( "Roboto", 11 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.LightSteelBlue;
-            CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
             
+            // Header Properties
+            Header.Font = new Font( "Roboto", 16, FontStyle.Bold );
+            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            
             // Event Wiring
-            Load += OnLoad;
+            Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="CarouselForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CarouselForm"/> class.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public CarouselForm( string filePath )
+        /// <param name="directoryPath">
+        /// The directory path.
+        /// </param>
+        public CarouselForm( string directoryPath ) 
+            : this( )
         {
-            ImagePath = filePath;
+            ImagePath = directoryPath;
+            Header.Text = string.Empty;
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -78,8 +90,52 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
-            var _path = @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Provider\";
-            Carousel.FilePath = _path;
+            if( !string.IsNullOrEmpty( ImagePath ) )
+            {
+                try
+                {
+                    var _files = Directory.GetFiles( ImagePath );
+                    foreach( var _file in _files )
+                    {
+                        var _name = Path.GetFileNameWithoutExtension( _file );
+                        var _stream = File.Open( _file, FileMode.Open );
+                        var _image = new Bitmap( _stream );
+                        _image.Tag = _name;
+                        var _carouselImage = new CarouselImage();
+                        _carouselImage.ItemImage = _image;
+                        Carousel.ImageListCollection.Add( _carouselImage );
+                    }
+                    
+                    Carousel.FilePath = ImagePath;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex  );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnItemSelected( object sender, EventArgs e )
+        {
+            if( sender is Selector _carousel  )
+            {
+                try
+                {
+                    var _tag =  _carousel.ActiveImage?.Tag?.ToString( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex  );
+                }
+            }
         }
 
         /// <summary>

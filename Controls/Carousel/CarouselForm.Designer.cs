@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarouselForm));
             this.Carousel = new BudgetExecution.Selector();
             this.ImageList = new BudgetExecution.ImageList();
+            this.Header = new BudgetExecution.Label();
             this.SuspendLayout();
             // 
             // Carousel
@@ -45,7 +46,7 @@
             this.Carousel.ImageshadeColor = System.Drawing.Color.Black;
             this.Carousel.ImageSize = new System.Drawing.Size(250, 250);
             this.Carousel.ImageSlides = true;
-            this.Carousel.Location = new System.Drawing.Point(255, 64);
+            this.Carousel.Location = new System.Drawing.Point(228, 166);
             this.Carousel.Name = "Carousel";
             this.Carousel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.Carousel.PadX = 0;
@@ -54,7 +55,7 @@
             this.Carousel.RotateAlways = false;
             this.Carousel.ShowImagePreview = true;
             this.Carousel.ShowImageShadow = true;
-            this.Carousel.Size = new System.Drawing.Size(844, 559);
+            this.Carousel.Size = new System.Drawing.Size(957, 387);
             this.Carousel.TabIndex = 0;
             this.Carousel.ThemeName = "Metro";
             this.Carousel.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
@@ -78,6 +79,28 @@
             this.ImageList.ImageSource = BudgetExecution.ImageDirectory.NS;
             this.ImageList.ToolTip = null;
             // 
+            // Header
+            // 
+            this.Header.BindingSource = null;
+            this.Header.DataFilter = null;
+            this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Header.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Header.HoverText = null;
+            this.Header.IsDerivedStyle = true;
+            this.Header.Location = new System.Drawing.Point(361, 96);
+            this.Header.Margin = new System.Windows.Forms.Padding(3);
+            this.Header.Name = "Header";
+            this.Header.Padding = new System.Windows.Forms.Padding(1);
+            this.Header.Size = new System.Drawing.Size(686, 64);
+            this.Header.Style = MetroSet_UI.Enums.Style.Custom;
+            this.Header.StyleManager = null;
+            this.Header.TabIndex = 1;
+            this.Header.Text = "Header";
+            this.Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Header.ThemeAuthor = "Terry D. Eppler";
+            this.Header.ThemeName = "BudgetExecution";
+            this.Header.ToolTip = null;
+            // 
             // CarouselForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -91,6 +114,7 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1388, 713);
+            this.Controls.Add(this.Header);
             this.Controls.Add(this.Carousel);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
@@ -108,5 +132,6 @@
 
         public Selector Carousel;
         public ImageList ImageList;
+        public Label Header;
     }
 }

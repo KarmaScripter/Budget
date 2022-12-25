@@ -163,6 +163,26 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap CsvExportButton {
+            get {
+                object obj = ResourceManager.GetObject("CsvExportButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap CsvImportButton {
+            get {
+                object obj = ResourceManager.GetObject("CsvImportButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap DatabaseButton {
             get {
                 object obj = ResourceManager.GetObject("DatabaseButton", resourceCulture);
@@ -291,12 +311,12 @@ namespace BudgetExecution.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Icon Excel {
+        public static System.Drawing.Bitmap Excel {
             get {
                 object obj = ResourceManager.GetObject("Excel", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -306,6 +326,26 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap ExcelButton {
             get {
                 object obj = ResourceManager.GetObject("ExcelButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ExcelExportButton {
+            get {
+                object obj = ResourceManager.GetObject("ExcelExportButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ExcelImportButton {
+            get {
+                object obj = ResourceManager.GetObject("ExcelImportButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -421,12 +461,42 @@ namespace BudgetExecution.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Icon PDF {
+        public static System.Drawing.Bitmap PDF {
             get {
                 object obj = ResourceManager.GetObject("PDF", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap PdfButton {
+            get {
+                object obj = ResourceManager.GetObject("PdfButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap PdfExportButton {
+            get {
+                object obj = ResourceManager.GetObject("PdfExportButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap PdfImportButton {
+            get {
+                object obj = ResourceManager.GetObject("PdfImportButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

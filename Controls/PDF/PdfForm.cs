@@ -62,6 +62,8 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
+            ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
+            ToolStrip.Text = string.Empty;
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-
+                ToolStrip.ShowCaption = false;
                 if( !string.IsNullOrEmpty( FileName ) )
                 {
                     ToolStrip.Label.Text = FileName;

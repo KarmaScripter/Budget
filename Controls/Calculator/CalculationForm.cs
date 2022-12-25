@@ -43,7 +43,7 @@ namespace BudgetExecution
 
             // Calculator Configuration
             Calculator.Font = new Font( "Roboto", 10 );
-            Calculator.Dock = DockStyle.Bottom;
+            Calculator.Dock = DockStyle.Fill;
             Calculator.BorderStyle = Border3DStyle.Adjust;
             Calculator.HorizontalSpacing = 10;
             Calculator.VerticalSpacing = 10;

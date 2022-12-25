@@ -5,15 +5,12 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
-    using DataTable = DocumentFormat.OpenXml.Drawing.Charts.DataTable;
     using Size = System.Drawing.Size;
 
     /// <summary>
@@ -90,6 +87,8 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
+            ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
+            ToolStrip.Text = string.Empty;
             
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;

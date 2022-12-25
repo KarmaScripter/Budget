@@ -669,10 +669,12 @@
         </member>
         <member name="M:BudgetExecution.CarouselForm.#ctor(System.String)">
             <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.CarouselForm"/> class.
+            Initializes a new instance of the
+            <see cref="T:BudgetExecution.CarouselForm"/> class.
             </summary>
-            <param name="filePath">The file path.</param>
+            <param name="directoryPath">
+            The directory path.
+            </param>
         </member>
         <member name="M:BudgetExecution.CarouselForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
@@ -681,6 +683,16 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.CarouselForm.OnItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The
+            <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
         </member>
         <member name="M:BudgetExecution.CarouselForm.Fail(System.Exception)">
             <summary>
@@ -745,41 +757,6 @@
             Initializes a new instance
             of the <see cref="T:BudgetExecution.Selector"/> class.
             </summary>
-        </member>
-        <member name="M:BudgetExecution.Selector.CreateImageList(System.String)">
-            <summary>
-            Creates the image list.
-            </summary>
-            <param name="sourceDirectory">The source dir.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Selector.CreateImageList(System.String,System.Drawing.Size)">
-            <summary>
-            Creates the image list.
-            </summary>
-            <param name="sourceDirectory">The source dir.</param>
-            <param name = "size" > </param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Selector.CreateCarouselItems(System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Creates the carousel items.
-            </summary>
-            <param name="paths">The images.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Selector.CreateCarouselItems(System.String)">
-            <summary>
-            Creates the carousel items.
-            </summary>
-            <param name="srcDir">The source path.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Selector.AddImage(System.Drawing.Image)">
-            <summary>
-            Sets the image.
-            </summary>
-            <param name="image">The image.</param>
         </member>
         <member name="M:BudgetExecution.Selector.Fail(System.Exception)">
             <summary>
@@ -19310,6 +19287,16 @@
             The CSV button
             </summary>
         </member>
+        <member name="F:BudgetExecution.ToolType.CsvImportButton">
+            <summary>
+            The CSV import button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.CsvExportButton">
+            <summary>
+            The CSV export button
+            </summary>
+        </member>
         <member name="F:BudgetExecution.ToolType.CopyButton">
             <summary>
             The copy button
@@ -19528,6 +19515,16 @@
         <member name="F:BudgetExecution.ToolType.PdfButton">
             <summary>
             The PDF button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.PdfImportButton">
+            <summary>
+            The PDF import button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.PdfExportButton">
+            <summary>
+            The PDF export button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.RefreshButton">
@@ -35575,6 +35572,16 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.CsvExportButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.CsvImportButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.DatabaseButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -35642,10 +35649,20 @@
         </member>
         <member name="P:BudgetExecution.Properties.Resources.Excel">
             <summary>
-              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.ExcelButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.ExcelExportButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.ExcelImportButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
@@ -35707,7 +35724,22 @@
         </member>
         <member name="P:BudgetExecution.Properties.Resources.PDF">
             <summary>
-              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.PdfButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.PdfExportButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.PdfImportButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.PreviousButton">

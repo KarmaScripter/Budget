@@ -85,6 +85,16 @@ namespace BudgetExecution
         CsvButton,
 
         /// <summary>
+        /// The CSV import button
+        /// </summary>
+        CsvImportButton,
+
+        /// <summary>
+        /// The CSV export button
+        /// </summary>
+        CsvExportButton,
+        
+        /// <summary>
         /// The copy button
         /// </summary>
         CopyButton,
@@ -303,7 +313,17 @@ namespace BudgetExecution
         /// The PDF button
         /// </summary>
         PdfButton,
+        
+        /// <summary>
+        /// The PDF import button
+        /// </summary>
+        PdfImportButton,
 
+        /// <summary>
+        /// The PDF export button
+        /// </summary>
+        PdfExportButton,
+        
         /// <summary>
         /// The refresh button
         /// </summary>

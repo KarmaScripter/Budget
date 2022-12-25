@@ -161,6 +161,7 @@ namespace BudgetExecution
                 LeftHeaderLabel.Text = string.Empty;
                 RightHeaderLabel.Text = string.Empty;
                 ToolStripLabel.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Text = string.Empty;
                 ToolStripLabel.Text = "Provider: " + DataModel.Provider;
             }
             catch( Exception ex )
@@ -181,7 +182,8 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _names?.Length; _i++ )
                 {
                     var name = _names[ _i ];
-                    if( name != "NS" )
+                    if( name != "NS" 
+                       && name != "External" )
                     {
                         TableListBox.Items.Add( name );
                     }
@@ -327,8 +329,16 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnTestButtonClicked( object sender, EventArgs e )
         {
-            var _carousel = new CarouselForm( );
-            _carousel.ShowDialog( );
+            try
+            {
+                var _imagePath = ConfigurationManager.AppSettings[ "Providers" ];
+                var _carousel = new CarouselForm( _imagePath );
+                _carousel.ShowDialog( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
         
         /// <summary>

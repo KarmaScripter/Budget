@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Drawing;
     using System.IO;
+    using Microsoft.Extensions.Configuration;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary>
@@ -159,7 +160,9 @@ namespace BudgetExecution
                         }
                         case ToolType.ExcelButton:
                         {
-                            using var _excelForm = new ExcelForm( );
+                            var _excel =
+                                @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
+                            using var _excelForm = new ExcelForm( _excel );
                             _excelForm?.ShowDialog( );
                             break;
                         }
