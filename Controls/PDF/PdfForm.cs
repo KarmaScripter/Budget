@@ -5,6 +5,8 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
@@ -62,8 +64,10 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
-            ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
             ToolStrip.Text = string.Empty;
+            
+            // Event Wiring
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -90,11 +94,40 @@ namespace BudgetExecution
             {
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.ShowCaption = false;
+                ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.ShowCaption = true;
                 if( !string.IsNullOrEmpty( FileName ) )
                 {
                     ToolStrip.Label.Text = FileName;
+                }
+                LoadDocuments(  );
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the document name list.
+        /// </summary>
+        /// <returns></returns>
+        private void LoadDocuments( )
+        {
+            try
+            {
+                var _documentPath = ConfigurationManager.AppSettings[ "Documents" ];
+
+                if( !string.IsNullOrEmpty( _documentPath )
+                   && Directory.Exists( _documentPath ) )
+                {
+                    var _names = Directory.GetFiles( _documentPath );
+                    for( var _i = 0; _i < _names.Length; _i++ )
+                    {
+                        var _file = _names[ _i ];
+                        var _name = Path.GetFileNameWithoutExtension( _file );
+                        ToolStrip.DropDown.Items.Add( _name );
+                    }
                 }
             }
             catch ( Exception ex )

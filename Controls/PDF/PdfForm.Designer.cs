@@ -32,17 +32,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PdfForm));
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
-            Syncfusion.Windows.Forms.CaptionImage captionImage2 = new Syncfusion.Windows.Forms.CaptionImage();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
+            Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
             this.DocumentViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl();
             this.ToolStrip = new BudgetExecution.ToolStrip();
             this.Separator1 = new BudgetExecution.ToolSeparator();
             this.Label = new BudgetExecution.ToolStripLabel();
+            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ToolTip = new BudgetExecution.SmallTip();
             this.ToolSeparator = new BudgetExecution.ToolSeparator();
-            this.TextBox = new BudgetExecution.ToolStripTextBox();
             this.Separator2 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
             this.Separator3 = new BudgetExecution.ToolSeparator();
@@ -55,8 +56,6 @@
             this.LogoutButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator7 = new BudgetExecution.ToolSeparator();
             this.toolSeparator3 = new BudgetExecution.ToolSeparator();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ToolTip = new BudgetExecution.SmallTip();
             this.ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
@@ -72,17 +71,17 @@
             this.DocumentViewer.IsTextSearchEnabled = true;
             this.DocumentViewer.IsTextSelectionEnabled = true;
             this.DocumentViewer.Location = new System.Drawing.Point(0, 0);
-            messageBoxSettings2.EnableNotification = true;
-            this.DocumentViewer.MessageBoxSettings = messageBoxSettings2;
+            messageBoxSettings1.EnableNotification = true;
+            this.DocumentViewer.MessageBoxSettings = messageBoxSettings1;
             this.DocumentViewer.MinimumZoomPercentage = 50;
             this.DocumentViewer.Name = "DocumentViewer";
             this.DocumentViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings2.Copies = 1;
-            pdfViewerPrinterSettings2.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings2.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings2.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings2.PrintLocation")));
-            pdfViewerPrinterSettings2.ShowPrintStatusDialog = true;
-            this.DocumentViewer.PrinterSettings = pdfViewerPrinterSettings2;
+            pdfViewerPrinterSettings1.Copies = 1;
+            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
+            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
+            this.DocumentViewer.PrinterSettings = pdfViewerPrinterSettings1;
             this.DocumentViewer.ReferencePath = null;
             this.DocumentViewer.ScrollDisplacementValue = 0;
             this.DocumentViewer.ShowHorizontalScrollBar = true;
@@ -92,10 +91,10 @@
             this.DocumentViewer.SpaceBetweenPages = 8;
             this.DocumentViewer.TabIndex = 0;
             this.DocumentViewer.Text = "DocumentViewer";
-            textSearchSettings2.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings2.HighlightAllInstance = true;
-            textSearchSettings2.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.DocumentViewer.TextSearchSettings = textSearchSettings2;
+            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings1.HighlightAllInstance = true;
+            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.DocumentViewer.TextSearchSettings = textSearchSettings1;
             this.DocumentViewer.ThemeName = "Default";
             this.DocumentViewer.UseWaitCursor = true;
             this.DocumentViewer.VerticalScrollOffset = 0;
@@ -123,7 +122,7 @@
             this.ToolStrip.DeleteRecordButton = null;
             this.ToolStrip.DeleteTableButton = null;
             this.ToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ToolStrip.DropDown = null;
+            this.ToolStrip.DropDown = this.DropDown;
             this.ToolStrip.EditButton = null;
             this.ToolStrip.EditColumnButton = null;
             this.ToolStrip.EditRecordButton = null;
@@ -135,7 +134,7 @@
             this.ToolStrip.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.ToolStrip.HomeButton = null;
+            this.ToolStrip.HomeButton = this.HomeButton;
             this.ToolStrip.Image = null;
             this.ToolStrip.ImageDirectory = null;
             this.ToolStrip.ImageScalingSize = new System.Drawing.Size(20, 18);
@@ -143,8 +142,6 @@
             this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Separator1,
             this.Label,
-            this.ToolSeparator,
-            this.TextBox,
             this.Separator2,
             this.DropDown,
             this.Separator3,
@@ -156,7 +153,7 @@
             this.Separator5,
             this.LogoutButton,
             this.toolSeparator7});
-            this.ToolStrip.Label = null;
+            this.ToolStrip.Label = this.Label;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             this.ToolStrip.Location = new System.Drawing.Point(0, 669);
@@ -202,7 +199,7 @@
             // Label
             // 
             this.Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.Label.BindingSource = null;
+            this.Label.BindingSource = this.BindingSource;
             this.Label.DataFilter = null;
             this.Label.Field = BudgetExecution.Field.AccountCode;
             this.Label.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -211,10 +208,30 @@
             this.Label.Margin = new System.Windows.Forms.Padding(1);
             this.Label.Name = "Label";
             this.Label.Padding = new System.Windows.Forms.Padding(1);
-            this.Label.Size = new System.Drawing.Size(91, 26);
+            this.Label.Size = new System.Drawing.Size(125, 26);
             this.Label.Tag = "";
-            this.Label.Text = "toolStripLabel1";
-            this.Label.ToolTip = null;
+            this.Label.Text = "Guidance Documents";
+            this.Label.ToolTip = this.ToolTip;
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.ToolTip.BindingSource = null;
+            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
+            this.ToolTip.Name = null;
+            this.ToolTip.OwnerDraw = true;
+            this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ToolTip.StyleManager = null;
+            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
+            this.ToolTip.ThemeName = "Budget Execution";
+            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.TipText = null;
+            this.ToolTip.TipTitle = null;
             // 
             // ToolSeparator
             // 
@@ -223,21 +240,6 @@
             this.ToolSeparator.Name = "ToolSeparator";
             this.ToolSeparator.Padding = new System.Windows.Forms.Padding(1);
             this.ToolSeparator.Size = new System.Drawing.Size(6, 26);
-            // 
-            // TextBox
-            // 
-            this.TextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TextBox.BindingSource = null;
-            this.TextBox.Field = BudgetExecution.Field.AccountCode;
-            this.TextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TextBox.HoverText = "";
-            this.TextBox.Margin = new System.Windows.Forms.Padding(1);
-            this.TextBox.Name = "TextBox";
-            this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(140, 26);
-            this.TextBox.Tag = "";
-            this.TextBox.ToolTip = null;
             // 
             // Separator2
             // 
@@ -256,7 +258,7 @@
             this.DropDown.Field = BudgetExecution.Field.AccountCode;
             this.DropDown.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.DropDown.HoverText = "Make Selection";
+            this.DropDown.HoverText = "Select Document";
             this.DropDown.Margin = new System.Windows.Forms.Padding(1);
             this.DropDown.MaxDropDownItems = 100;
             this.DropDown.MaxLength = 32767;
@@ -266,6 +268,7 @@
             this.DropDown.Size = new System.Drawing.Size(198, 26);
             this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             this.DropDown.Tag = "Make Selection";
+            this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
             // 
             // Separator3
@@ -400,26 +403,6 @@
             this.toolSeparator3.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator3.Size = new System.Drawing.Size(6, 26);
             // 
-            // ToolTip
-            // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = null;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = null;
-            this.ToolTip.TipTitle = null;
-            // 
             // PdfForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -432,12 +415,12 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            captionImage2.BackColor = System.Drawing.Color.Transparent;
-            captionImage2.Image = global::BudgetExecution.Properties.Resources.PDF;
-            captionImage2.Location = new System.Drawing.Point(6, 4);
-            captionImage2.Name = "CaptionImage";
-            captionImage2.Size = new System.Drawing.Size(22, 22);
-            this.CaptionImages.Add(captionImage2);
+            captionImage1.BackColor = System.Drawing.Color.Transparent;
+            captionImage1.Image = global::BudgetExecution.Properties.Resources.PDF;
+            captionImage1.Location = new System.Drawing.Point(6, 4);
+            captionImage1.Name = "CaptionImage";
+            captionImage1.Size = new System.Drawing.Size(22, 22);
+            this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(1388, 713);
             this.Controls.Add(this.DocumentViewer);
             this.Controls.Add(this.ToolStrip);
@@ -469,7 +452,6 @@
         public ToolSeparator Separator1;
         public ToolStrip ToolStrip;
         public  ToolSeparator ToolSeparator;
-        public ToolStripTextBox TextBox;
         public  ToolSeparator Separator2;
         public  ToolStripDropDown DropDown;
         public ToolSeparator Separator3;

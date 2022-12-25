@@ -331,9 +331,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _imagePath = ConfigurationManager.AppSettings[ "Providers" ];
-                var _carousel = new CarouselForm( _imagePath );
-                _carousel.ShowDialog( );
+                var _pdf = new PdfForm( );
+                _pdf.ShowDialog(  );
             }
             catch( Exception ex )
             {
