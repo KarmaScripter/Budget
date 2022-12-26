@@ -1207,14 +1207,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.ChartForm.Chart">
-            <summary>
-            Gets or sets the chart.
-            </summary>
-            <value>
-            The chart.
-            </value>
-        </member>
         <member name="M:BudgetExecution.ChartForm.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.ChartForm"/> class.
@@ -1253,11 +1245,6 @@
             Fails the specified ex.
             </summary>
             <param name="ex">The ex.</param>
-        </member>
-        <member name="F:BudgetExecution.ChartForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.Dispose(System.Boolean)">
             <summary>
@@ -35893,6 +35880,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.RefreshDataButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.SaveAsButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

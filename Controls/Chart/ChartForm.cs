@@ -19,14 +19,6 @@ namespace BudgetExecution
     public partial class ChartForm : MetroForm
     {
         /// <summary>
-        /// Gets or sets the chart.
-        /// </summary>
-        /// <value>
-        /// The chart.
-        /// </value>
-        public Chart Chart { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ChartForm"/> class.
         /// </summary>
         public ChartForm( )
@@ -95,7 +87,6 @@ namespace BudgetExecution
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             ToolStrip.BindingSource = BindingSource;
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
-            Chart = new Chart( dataRows ) ;
             Chart.Dock = DockStyle.Fill;
             Chart.SetPoints( );
             Controls.Add( Chart );
