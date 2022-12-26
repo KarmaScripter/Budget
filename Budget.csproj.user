@@ -211,7 +211,7 @@
     <Compile Update="Data\Adapter\AdapterBuilder.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="WebPage.cs">
+    <Compile Update="Controls\Web\WebPage.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
