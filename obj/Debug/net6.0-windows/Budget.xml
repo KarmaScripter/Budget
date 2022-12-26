@@ -35884,11 +35884,6 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Properties.Resources.SaveAllButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
         <member name="P:BudgetExecution.Properties.Resources.SaveAsButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.

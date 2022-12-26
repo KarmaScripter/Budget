@@ -244,6 +244,12 @@ namespace BudgetExecution
                             _notification.Show(  );
                             break;
                         }
+                        case ToolType.TableButton:
+                        {
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show(  );
+                            break;
+                        }
                         case ToolType.SearchDataButton:
                         case ToolType.FilterDataButton:
                         {
