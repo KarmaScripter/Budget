@@ -65,6 +65,11 @@ namespace BudgetExecution
         ChartButton,
 
         /// <summary>
+        /// The cancel request button
+        /// </summary>
+        CancelRequestButton,
+        
+        /// <summary>
         /// The calculator button
         /// </summary>
         CalculatorButton,
@@ -229,6 +234,11 @@ namespace BudgetExecution
         /// </summary>
         GoogleButton,
 
+        /// <summary>
+        /// The go button
+        /// </summary>
+        GoButton, 
+        
         /// <summary>
         /// The home button
         /// </summary>
@@ -444,6 +454,21 @@ namespace BudgetExecution
         /// </summary>
         WebButton,
 
+        /// <summary>
+        /// The web search button
+        /// </summary>
+        WebSearchButton,
+
+        /// <summary>
+        /// The web back button
+        /// </summary>
+        WebBackButton,
+
+        /// <summary>
+        /// The web next button
+        /// </summary>
+        WebNextButton,
+        
         /// <summary>
         /// The word button
         /// </summary>

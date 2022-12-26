@@ -166,9 +166,17 @@ namespace BudgetExecution
                             _excelForm?.ShowDialog( );
                             break;
                         }
+                        case ToolType.ExcelExportButton:
+                        {
+                            using var _excelForm = new ExcelForm( BindingSource );
+                            _excelForm?.ShowDialog( );
+                            break;
+                        }
                         case ToolType.PdfButton:
                         {
-                            using var _message = new PdfForm( );
+                            var _pdf =
+                                @"C:\Users\terry\source\repos\Budget\Resource\Documents\EPA Funds Control Manual.pdf";
+                            using var _message = new PdfForm( _pdf );
                             _message?.ShowDialog( );
                             break;
                         }
@@ -210,6 +218,8 @@ namespace BudgetExecution
                             _dialog?.ShowDialog( );
                             break;
                         }
+                        case ToolType.WebNextButton:
+                        case ToolType.WebBackButton:
                         case ToolType.RefreshButton:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
@@ -264,6 +274,12 @@ namespace BudgetExecution
                         {
                             using var _form = new MainForm( );
                             _form?.Show( );
+                            break;
+                        }
+                        case ToolType.WebButton:
+                        {
+                            using var _form = new WebPage( );
+                            _form?.ShowDialog( );
                             break;
                         }
                         case ToolType.ChartButton:

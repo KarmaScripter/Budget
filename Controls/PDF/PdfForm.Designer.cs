@@ -36,70 +36,28 @@
             Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PdfForm));
             Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
-            Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
-            this.DocumentViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl();
             this.ToolStrip = new BudgetExecution.ToolStrip();
+            this.DropDown = new BudgetExecution.ToolStripDropDown();
+            this.ToolTip = new BudgetExecution.SmallTip();
+            this.HomeButton = new BudgetExecution.ToolStripButton();
             this.Separator1 = new BudgetExecution.ToolSeparator();
             this.Label = new BudgetExecution.ToolStripLabel();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ToolTip = new BudgetExecution.SmallTip();
-            this.ToolSeparator = new BudgetExecution.ToolSeparator();
             this.Separator2 = new BudgetExecution.ToolSeparator();
-            this.DropDown = new BudgetExecution.ToolStripDropDown();
             this.Separator3 = new BudgetExecution.ToolSeparator();
             this.LookupButton = new BudgetExecution.ToolStripButton();
             this.Separator6 = new BudgetExecution.ToolSeparator();
             this.DatabaseButton = new BudgetExecution.ToolStripButton();
             this.Separator4 = new BudgetExecution.ToolSeparator();
-            this.HomeButton = new BudgetExecution.ToolStripButton();
             this.Separator5 = new BudgetExecution.ToolSeparator();
             this.LogoutButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator7 = new BudgetExecution.ToolSeparator();
+            this.ToolSeparator = new BudgetExecution.ToolSeparator();
             this.toolSeparator3 = new BudgetExecution.ToolSeparator();
+            this.DocViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl();
             this.ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DocumentViewer
-            // 
-            this.DocumentViewer.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
-            this.DocumentViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DocumentViewer.EnableContextMenu = true;
-            this.DocumentViewer.EnableNotificationBar = true;
-            this.DocumentViewer.HorizontalScrollOffset = 0;
-            this.DocumentViewer.IsBookmarkEnabled = true;
-            this.DocumentViewer.IsTextSearchEnabled = true;
-            this.DocumentViewer.IsTextSelectionEnabled = true;
-            this.DocumentViewer.Location = new System.Drawing.Point(0, 0);
-            messageBoxSettings1.EnableNotification = true;
-            this.DocumentViewer.MessageBoxSettings = messageBoxSettings1;
-            this.DocumentViewer.MinimumZoomPercentage = 50;
-            this.DocumentViewer.Name = "DocumentViewer";
-            this.DocumentViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings1.Copies = 1;
-            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
-            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
-            this.DocumentViewer.PrinterSettings = pdfViewerPrinterSettings1;
-            this.DocumentViewer.ReferencePath = null;
-            this.DocumentViewer.ScrollDisplacementValue = 0;
-            this.DocumentViewer.ShowHorizontalScrollBar = true;
-            this.DocumentViewer.ShowToolBar = true;
-            this.DocumentViewer.ShowVerticalScrollBar = true;
-            this.DocumentViewer.Size = new System.Drawing.Size(1388, 669);
-            this.DocumentViewer.SpaceBetweenPages = 8;
-            this.DocumentViewer.TabIndex = 0;
-            this.DocumentViewer.Text = "DocumentViewer";
-            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings1.HighlightAllInstance = true;
-            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.DocumentViewer.TextSearchSettings = textSearchSettings1;
-            this.DocumentViewer.ThemeName = "Default";
-            this.DocumentViewer.UseWaitCursor = true;
-            this.DocumentViewer.VerticalScrollOffset = 0;
-            this.DocumentViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
-            this.DocumentViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
             // ToolStrip
             // 
@@ -168,6 +126,8 @@
             this.ToolStrip.ProgressBar = null;
             this.ToolStrip.RefreshButton = null;
             this.ToolStrip.SaveButton = null;
+            this.ToolStrip.SearchCriteriaLabel = null;
+            this.ToolStrip.SearchEngineLabel = null;
             this.ToolStrip.Separators = null;
             this.ToolStrip.ShowCaption = true;
             this.ToolStrip.ShowLauncher = true;
@@ -187,6 +147,69 @@
             this.ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             this.ToolStrip.UseWaitCursor = true;
             this.ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
+            // 
+            // DropDown
+            // 
+            this.DropDown.AllowDrop = true;
+            this.DropDown.BindingSource = null;
+            this.DropDown.DataFilter = null;
+            this.DropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DropDown.Field = BudgetExecution.Field.AccountCode;
+            this.DropDown.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.DropDown.HoverText = "Select Document";
+            this.DropDown.Margin = new System.Windows.Forms.Padding(1);
+            this.DropDown.MaxDropDownItems = 100;
+            this.DropDown.MaxLength = 32767;
+            this.DropDown.Name = "DropDown";
+            this.DropDown.Numeric = BudgetExecution.Numeric.Accepted;
+            this.DropDown.Padding = new System.Windows.Forms.Padding(1);
+            this.DropDown.Size = new System.Drawing.Size(302, 26);
+            this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
+            this.DropDown.Tag = "Make Selection";
+            this.DropDown.ToolTip = this.ToolTip;
+            this.DropDown.ToolTipText = "Make Selection";
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.ToolTip.BindingSource = null;
+            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
+            this.ToolTip.Name = null;
+            this.ToolTip.OwnerDraw = true;
+            this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ToolTip.StyleManager = null;
+            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
+            this.ToolTip.ThemeName = "Budget Execution";
+            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.TipText = null;
+            this.ToolTip.TipTitle = null;
+            // 
+            // HomeButton
+            // 
+            this.HomeButton.AutoToolTip = false;
+            this.HomeButton.BackColor = System.Drawing.Color.Transparent;
+            this.HomeButton.BindingSource = null;
+            this.HomeButton.DataFilter = null;
+            this.HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.HomeButton.Field = BudgetExecution.Field.AccountCode;
+            this.HomeButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HomeButton.ForeColor = System.Drawing.Color.LightGray;
+            this.HomeButton.HoverText = "Main Menu";
+            this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
+            this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
+            this.HomeButton.Size = new System.Drawing.Size(26, 26);
+            this.HomeButton.Text = "toolStripButton1";
+            this.HomeButton.ToolTip = null;
+            this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
             // 
             // Separator1
             // 
@@ -213,34 +236,6 @@
             this.Label.Text = "Guidance Documents";
             this.Label.ToolTip = this.ToolTip;
             // 
-            // ToolTip
-            // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = null;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = null;
-            this.ToolTip.TipTitle = null;
-            // 
-            // ToolSeparator
-            // 
-            this.ToolSeparator.ForeColor = System.Drawing.Color.Black;
-            this.ToolSeparator.Margin = new System.Windows.Forms.Padding(1);
-            this.ToolSeparator.Name = "ToolSeparator";
-            this.ToolSeparator.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolSeparator.Size = new System.Drawing.Size(6, 26);
-            // 
             // Separator2
             // 
             this.Separator2.ForeColor = System.Drawing.Color.Black;
@@ -248,28 +243,6 @@
             this.Separator2.Name = "Separator2";
             this.Separator2.Padding = new System.Windows.Forms.Padding(1);
             this.Separator2.Size = new System.Drawing.Size(6, 26);
-            // 
-            // DropDown
-            // 
-            this.DropDown.AllowDrop = true;
-            this.DropDown.BindingSource = null;
-            this.DropDown.DataFilter = null;
-            this.DropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DropDown.Field = BudgetExecution.Field.AccountCode;
-            this.DropDown.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.DropDown.HoverText = "Select Document";
-            this.DropDown.Margin = new System.Windows.Forms.Padding(1);
-            this.DropDown.MaxDropDownItems = 100;
-            this.DropDown.MaxLength = 32767;
-            this.DropDown.Name = "DropDown";
-            this.DropDown.Numeric = BudgetExecution.Numeric.Accepted;
-            this.DropDown.Padding = new System.Windows.Forms.Padding(1);
-            this.DropDown.Size = new System.Drawing.Size(198, 26);
-            this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
-            this.DropDown.Tag = "Make Selection";
-            this.DropDown.ToolTip = this.ToolTip;
-            this.DropDown.ToolTipText = "Make Selection";
             // 
             // Separator3
             // 
@@ -337,27 +310,6 @@
             this.Separator4.Padding = new System.Windows.Forms.Padding(1);
             this.Separator4.Size = new System.Drawing.Size(6, 26);
             // 
-            // HomeButton
-            // 
-            this.HomeButton.AutoToolTip = false;
-            this.HomeButton.BackColor = System.Drawing.Color.Transparent;
-            this.HomeButton.BindingSource = null;
-            this.HomeButton.DataFilter = null;
-            this.HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.HomeButton.Field = BudgetExecution.Field.AccountCode;
-            this.HomeButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HomeButton.ForeColor = System.Drawing.Color.LightGray;
-            this.HomeButton.HoverText = "Main Menu";
-            this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
-            this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Size = new System.Drawing.Size(26, 26);
-            this.HomeButton.Text = "toolStripButton1";
-            this.HomeButton.ToolTip = null;
-            this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
-            // 
             // Separator5
             // 
             this.Separator5.ForeColor = System.Drawing.Color.Black;
@@ -395,6 +347,14 @@
             this.toolSeparator7.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator7.Size = new System.Drawing.Size(6, 26);
             // 
+            // ToolSeparator
+            // 
+            this.ToolSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ToolSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ToolSeparator.Name = "ToolSeparator";
+            this.ToolSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ToolSeparator.Size = new System.Drawing.Size(6, 26);
+            // 
             // toolSeparator3
             // 
             this.toolSeparator3.ForeColor = System.Drawing.Color.Black;
@@ -402,6 +362,47 @@
             this.toolSeparator3.Name = "toolSeparator3";
             this.toolSeparator3.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator3.Size = new System.Drawing.Size(6, 26);
+            // 
+            // DocViewer
+            // 
+            this.DocViewer.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
+            this.DocViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DocViewer.EnableContextMenu = true;
+            this.DocViewer.EnableNotificationBar = true;
+            this.DocViewer.HorizontalScrollOffset = 0;
+            this.DocViewer.IsBookmarkEnabled = true;
+            this.DocViewer.IsTextSearchEnabled = true;
+            this.DocViewer.IsTextSelectionEnabled = true;
+            this.DocViewer.Location = new System.Drawing.Point(0, 0);
+            messageBoxSettings1.EnableNotification = true;
+            this.DocViewer.MessageBoxSettings = messageBoxSettings1;
+            this.DocViewer.MinimumZoomPercentage = 50;
+            this.DocViewer.Name = "DocViewer";
+            this.DocViewer.PageBorderThickness = 1;
+            pdfViewerPrinterSettings1.Copies = 1;
+            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
+            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
+            this.DocViewer.PrinterSettings = pdfViewerPrinterSettings1;
+            this.DocViewer.ReferencePath = null;
+            this.DocViewer.ScrollDisplacementValue = 0;
+            this.DocViewer.ShowHorizontalScrollBar = true;
+            this.DocViewer.ShowToolBar = true;
+            this.DocViewer.ShowVerticalScrollBar = true;
+            this.DocViewer.Size = new System.Drawing.Size(1388, 669);
+            this.DocViewer.SpaceBetweenPages = 8;
+            this.DocViewer.TabIndex = 2;
+            this.DocViewer.Text = "pdfViewerControl1";
+            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings1.HighlightAllInstance = true;
+            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.DocViewer.TextSearchSettings = textSearchSettings1;
+            this.DocViewer.ThemeName = "Office2016DarkGray";
+            this.DocViewer.UseWaitCursor = true;
+            this.DocViewer.VerticalScrollOffset = 0;
+            this.DocViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016DarkGray;
+            this.DocViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
             // PdfForm
             // 
@@ -415,14 +416,8 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            captionImage1.BackColor = System.Drawing.Color.Transparent;
-            captionImage1.Image = global::BudgetExecution.Properties.Resources.PDF;
-            captionImage1.Location = new System.Drawing.Point(6, 4);
-            captionImage1.Name = "CaptionImage";
-            captionImage1.Size = new System.Drawing.Size(22, 22);
-            this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(1388, 713);
-            this.Controls.Add(this.DocumentViewer);
+            this.Controls.Add(this.DocViewer);
             this.Controls.Add(this.ToolStrip);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
@@ -436,7 +431,7 @@
             this.ShowMinimizeBox = false;
             this.ShowMouseOver = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "    PDF ";
+            this.Text = "PDF Document";
             this.UseWaitCursor = true;
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
@@ -447,8 +442,6 @@
         }
 
         #endregion
-
-        public Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl DocumentViewer;
         public ToolSeparator Separator1;
         public ToolStrip ToolStrip;
         public  ToolSeparator ToolSeparator;
@@ -468,5 +461,6 @@
         public ToolStripButton LogoutButton;
         public BindingSource BindingSource;
         public SmallTip ToolTip;
+        public Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl DocViewer;
     }
 }

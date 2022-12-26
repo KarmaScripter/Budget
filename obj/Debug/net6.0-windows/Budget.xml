@@ -3561,6 +3561,14 @@
             The model.
             </value>
         </member>
+        <member name="P:BudgetExecution.ExcelForm.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
         <member name="M:BudgetExecution.ExcelForm.#ctor">
             <summary>
             
@@ -3578,6 +3586,13 @@
             <see cref="T:BudgetExecution.ExcelForm"/> class.
             </summary>
             <param name="fileStream">The file.</param>
+        </member>
+        <member name="M:BudgetExecution.ExcelForm.#ctor(System.Windows.Forms.BindingSource)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:BudgetExecution.ExcelForm"/> class.
+            </summary>
+            <param name="bindingSource">The binding source.</param>
         </member>
         <member name="M:BudgetExecution.ExcelForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
@@ -7754,6 +7769,22 @@
             </value>
         </member>
         <member name="P:BudgetExecution.ToolStripBase.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ToolStripBase.SearchEngineLabel">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ToolStripBase.SearchCriteriaLabel">
             <summary>
             Gets or sets the label.
             </summary>
@@ -19273,6 +19304,11 @@
             The chart button
             </summary>
         </member>
+        <member name="F:BudgetExecution.ToolType.CancelRequestButton">
+            <summary>
+            The cancel request button
+            </summary>
+        </member>
         <member name="F:BudgetExecution.ToolType.CalculatorButton">
             <summary>
             The calculator button
@@ -19436,6 +19472,11 @@
         <member name="F:BudgetExecution.ToolType.GoogleButton">
             <summary>
             The google button icon
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.GoButton">
+            <summary>
+            The go button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.HomeButton">
@@ -19651,6 +19692,21 @@
         <member name="F:BudgetExecution.ToolType.WebButton">
             <summary>
             The web button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.WebSearchButton">
+            <summary>
+            The web search button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.WebBackButton">
+            <summary>
+            The web back button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.WebNextButton">
+            <summary>
+            The web next button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.WordButton">
@@ -35573,6 +35629,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.CancelReqeustButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.ChartButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -35688,6 +35749,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.GoButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.HomeButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -35799,6 +35865,31 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.VerifyDataButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.Web">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.WebBackButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.WebButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.WebNextButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.WebSearchButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
@@ -36017,6 +36108,49 @@
             Get Error Dialog.
             </summary>
             <param name="ex">The ex.</param>
+        </member>
+        <member name="T:BudgetExecution.WebPage">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="M:BudgetExecution.WebPage.#ctor">
+            <summary>
+            Initializes a new
+            instance of the <see cref="T:BudgetExecution.WebPage"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.WebPage.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.WebPage.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.WebPage.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.WebPage.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.WebPage.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
     </members>
 </doc>

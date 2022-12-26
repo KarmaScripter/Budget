@@ -153,6 +153,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap CancelReqeustButton {
+            get {
+                object obj = ResourceManager.GetObject("CancelReqeustButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ChartButton {
             get {
                 object obj = ResourceManager.GetObject("ChartButton", resourceCulture);
@@ -383,6 +393,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap GoButton {
+            get {
+                object obj = ResourceManager.GetObject("GoButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap HomeButton {
             get {
                 object obj = ResourceManager.GetObject("HomeButton", resourceCulture);
@@ -606,6 +626,56 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap VerifyDataButton {
             get {
                 object obj = ResourceManager.GetObject("VerifyDataButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Web {
+            get {
+                object obj = ResourceManager.GetObject("Web", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WebBackButton {
+            get {
+                object obj = ResourceManager.GetObject("WebBackButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WebButton {
+            get {
+                object obj = ResourceManager.GetObject("WebButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WebNextButton {
+            get {
+                object obj = ResourceManager.GetObject("WebNextButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WebSearchButton {
+            get {
+                object obj = ResourceManager.GetObject("WebSearchButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

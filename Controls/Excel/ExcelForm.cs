@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
@@ -58,6 +59,14 @@ namespace BudgetExecution
         /// The model.
         /// </value>
         public SpreadsheetGridModel Model { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
 
         /// <summary>
         /// 
@@ -131,7 +140,19 @@ namespace BudgetExecution
         {
             Spreadsheet.Open( fileStream );
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        public ExcelForm( BindingSource bindingSource ) 
+            : this( )
+        {
+            BindingSource = bindingSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+        }
+
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -145,12 +166,19 @@ namespace BudgetExecution
         {
             try
             {
+                Text = @"Excel Document";
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
                 Spreadsheet.DefaultColumnCount = 12;
                 Spreadsheet.DefaultRowCount = 55;
+                if( DataTable != null )
+                {
+                    ToolStrip.Label.Text = $"{ DataTable.TableName.SplitPascal( ) }";
+                    Spreadsheet.SetActiveSheet( "Sheet1" );
+                    Spreadsheet.ActiveSheet.ImportDataTable( DataTable, true, 1, 1 );
+                }
             }
             catch ( Exception ex )
             {

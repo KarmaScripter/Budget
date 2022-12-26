@@ -33,7 +33,6 @@
             this.components = new System.ComponentModel.Container();
             Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste();
             Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController();
-            Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcelForm));
             this.Ribbon = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon();
             this.Spreadsheet = new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet();
@@ -126,7 +125,7 @@
             this.Spreadsheet.DefaultRowCount = 101;
             this.Spreadsheet.DisplayAlerts = true;
             this.Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Spreadsheet.FileName = "Book2";
+            this.Spreadsheet.FileName = "Book1";
             this.Spreadsheet.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Spreadsheet.ForeColor = System.Drawing.Color.Black;
             this.Spreadsheet.FormulaBarVisibility = true;
@@ -226,6 +225,8 @@
             this.ToolStrip.ProgressBar = null;
             this.ToolStrip.RefreshButton = null;
             this.ToolStrip.SaveButton = null;
+            this.ToolStrip.SearchCriteriaLabel = null;
+            this.ToolStrip.SearchEngineLabel = null;
             this.ToolStrip.Separators = null;
             this.ToolStrip.ShowCaption = true;
             this.ToolStrip.ShowLauncher = true;
@@ -321,7 +322,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(114, 26);
+            this.TextBox.Size = new System.Drawing.Size(110, 26);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -664,12 +665,6 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            captionImage1.BackColor = System.Drawing.Color.Transparent;
-            captionImage1.Image = global::BudgetExecution.Properties.Resources.Excel;
-            captionImage1.Location = new System.Drawing.Point(6, 4);
-            captionImage1.Name = "CaptionImage";
-            captionImage1.Size = new System.Drawing.Size(22, 22);
-            this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(1388, 713);
             this.Controls.Add(this.Spreadsheet);
             this.Controls.Add(this.ToolStrip);
@@ -686,7 +681,7 @@
             this.ShowMinimizeBox = false;
             this.ShowMouseOver = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "     Excel Data";
+            this.Text = "Excel Document";
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ToolStrip.ResumeLayout(false);

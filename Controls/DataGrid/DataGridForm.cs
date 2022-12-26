@@ -94,6 +94,10 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             ShowMouseOver = true;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            
+            // Label Properties
             StaticGridLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
             StaticGridLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             StaticTableLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
@@ -102,8 +106,6 @@ namespace BudgetExecution
             StaticColumnLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             StaticValueLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
             StaticValueLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            MinimizeBox = false;
-            MaximizeBox = false;
 
             // Event Wiring
             Load += OnLoad;

@@ -43,6 +43,22 @@ namespace BudgetExecution
         public virtual ToolStripLabel Label { get; set; }
 
         /// <summary>
+        /// Gets or sets the label.
+        /// </summary>
+        /// <value>
+        /// The label.
+        /// </value>
+        public virtual ToolStripLabel SearchEngineLabel { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the label.
+        /// </summary>
+        /// <value>
+        /// The label.
+        /// </value>
+        public virtual ToolStripLabel SearchCriteriaLabel { get; set; }
+
+        /// <summary>
         /// Gets or sets the tool strip ComboBox.
         /// </summary>
         /// <value>

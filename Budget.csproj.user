@@ -211,6 +211,9 @@
     <Compile Update="Data\Adapter\AdapterBuilder.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="WebPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

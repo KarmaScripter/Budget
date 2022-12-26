@@ -11,7 +11,10 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
+    using Syncfusion.Pdf;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.PdfViewer;
+    using Syncfusion.Windows.Forms.Spreadsheet;
 
     /// <summary>
     /// 
@@ -53,7 +56,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = true;
+            ShowIcon = false;
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
@@ -80,6 +83,8 @@ namespace BudgetExecution
         {
             FilePath = filePath;
             FileName = Path.GetFileName( filePath );
+            DocViewer = new PdfViewerControl(  );
+            DocViewer.Load( filePath );
         }
 
         /// <summary>
@@ -92,14 +97,16 @@ namespace BudgetExecution
         {
             try
             {
+                Text = @"PDF Document";
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
                 ToolStrip.ShowCaption = true;
                 if( !string.IsNullOrEmpty( FileName ) )
                 {
-                    ToolStrip.Label.Text = FileName;
+                    ToolStrip.Label.Text = FileName.SplitPascal( );
                 }
+                
                 LoadDocuments(  );
             }
             catch ( Exception ex )
@@ -116,12 +123,11 @@ namespace BudgetExecution
         {
             try
             {
-                var _documentPath = ConfigurationManager.AppSettings[ "Documents" ];
-
-                if( !string.IsNullOrEmpty( _documentPath )
-                   && Directory.Exists( _documentPath ) )
+                var _dirPath = ConfigurationManager.AppSettings[ "Documents" ];
+                if( !string.IsNullOrEmpty( _dirPath )
+                   && Directory.Exists( _dirPath ) )
                 {
-                    var _names = Directory.GetFiles( _documentPath );
+                    var _names = Directory.GetFiles( _dirPath );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
                         var _file = _names[ _i ];

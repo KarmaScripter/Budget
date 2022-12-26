@@ -113,11 +113,11 @@
             this.CalendarButton = new BudgetExecution.ToolStripButton();
             this.Separator21 = new BudgetExecution.ToolSeparator();
             this.CalculatorButton = new BudgetExecution.ToolStripButton();
-            this.Separator22 = new BudgetExecution.ToolSeparator();
             this.Separator24 = new BudgetExecution.ToolSeparator();
             this.PdfButton = new BudgetExecution.ToolStripButton();
             this.Separator26 = new BudgetExecution.ToolSeparator();
             this.BrowseButton = new BudgetExecution.ToolStripButton();
+            this.Separator22 = new BudgetExecution.ToolSeparator();
             this.Separator23 = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
             this.Separator28 = new BudgetExecution.ToolSeparator();
@@ -127,6 +127,8 @@
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
             this.TestButton = new BudgetExecution.Button();
+            this.WebButton = new BudgetExecution.ToolStripButton();
+            this.toolSeparator1 = new BudgetExecution.ToolSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -905,6 +907,8 @@
             this.PdfButton,
             this.Separator26,
             this.BrowseButton,
+            this.toolSeparator1,
+            this.WebButton,
             this.Separator22,
             this.ComboBox,
             this.Separator23,
@@ -927,6 +931,8 @@
             this.ToolStrip.ProgressBar = null;
             this.ToolStrip.RefreshButton = this.RefreshButton;
             this.ToolStrip.SaveButton = null;
+            this.ToolStrip.SearchCriteriaLabel = null;
+            this.ToolStrip.SearchEngineLabel = null;
             this.ToolStrip.Separators = null;
             this.ToolStrip.ShowCaption = true;
             this.ToolStrip.ShowLauncher = true;
@@ -1159,7 +1165,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(164, 25);
+            this.TextBox.Size = new System.Drawing.Size(162, 25);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1595,14 +1601,6 @@
             this.CalculatorButton.ToolTip = this.ToolTip;
             this.CalculatorButton.ToolType = BudgetExecution.ToolType.CalculatorButton;
             // 
-            // Separator22
-            // 
-            this.Separator22.ForeColor = System.Drawing.Color.Black;
-            this.Separator22.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator22.Name = "Separator22";
-            this.Separator22.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator22.Size = new System.Drawing.Size(6, 25);
-            // 
             // Separator24
             // 
             this.Separator24.ForeColor = System.Drawing.Color.Black;
@@ -1660,6 +1658,14 @@
             this.BrowseButton.Text = "toolStripButton2";
             this.BrowseButton.ToolTip = this.ToolTip;
             this.BrowseButton.ToolType = BudgetExecution.ToolType.BrowseButton;
+            // 
+            // Separator22
+            // 
+            this.Separator22.ForeColor = System.Drawing.Color.Black;
+            this.Separator22.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator22.Name = "Separator22";
+            this.Separator22.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator22.Size = new System.Drawing.Size(6, 25);
             // 
             // Separator23
             // 
@@ -1796,6 +1802,35 @@
             this.TestButton.ThemeAuthor = "Terry D. Eppler";
             this.TestButton.ThemeName = "BudgetExecution";
             this.TestButton.ToolTip = null;
+            // 
+            // WebButton
+            // 
+            this.WebButton.AutoToolTip = false;
+            this.WebButton.BackColor = System.Drawing.Color.Transparent;
+            this.WebButton.BindingSource = this.BindingSource;
+            this.WebButton.DataFilter = null;
+            this.WebButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.WebButton.Field = BudgetExecution.Field.AccountCode;
+            this.WebButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WebButton.ForeColor = System.Drawing.Color.LightGray;
+            this.WebButton.HoverText = "Search Web";
+            this.WebButton.Image = global::BudgetExecution.Properties.Resources.WebButton;
+            this.WebButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.WebButton.Margin = new System.Windows.Forms.Padding(1);
+            this.WebButton.Name = "WebButton";
+            this.WebButton.Padding = new System.Windows.Forms.Padding(1);
+            this.WebButton.Size = new System.Drawing.Size(26, 25);
+            this.WebButton.Text = "toolStripButton1";
+            this.WebButton.ToolTip = this.ToolTip;
+            this.WebButton.ToolType = BudgetExecution.ToolType.WebButton;
+            // 
+            // toolSeparator1
+            // 
+            this.toolSeparator1.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator1.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator1.Name = "toolSeparator1";
+            this.toolSeparator1.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // DataGridForm
             // 
@@ -1945,5 +1980,7 @@
         public ToolSeparator Separator27;
         public ToolSeparator Separator28;
         public ToolSeparator Separator29;
+        public ToolStripButton WebButton;
+        private ToolSeparator toolSeparator1;
     }
 }
