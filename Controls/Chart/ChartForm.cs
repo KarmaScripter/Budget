@@ -109,6 +109,7 @@ namespace BudgetExecution
             try
             {
                 ToolStrip.Office12Mode = true;
+                ToolStrip.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
             }
             catch ( Exception ex )
