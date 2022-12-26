@@ -110,6 +110,11 @@ namespace BudgetExecution
         DatabaseButton,
 
         /// <summary>
+        /// The database settings button
+        /// </summary>
+        DatabaseSettingsButton,
+
+        /// <summary>
         /// The data configuration button
         /// </summary>
         DataConfigButton,
@@ -168,6 +173,11 @@ namespace BudgetExecution
         /// The export button
         /// </summary>
         ExportButton,
+
+        /// <summary>
+        /// The export database button
+        /// </summary>
+        ExportDatabaseButton,
 
         /// <summary>
         /// The excel button
@@ -253,6 +263,11 @@ namespace BudgetExecution
         /// The import button
         /// </summary>
         ImportButton,
+
+        /// <summary>
+        /// The import database button
+        /// </summary>
+        ImportDatabaseButton,
 
         /// <summary>
         /// The last button
@@ -365,6 +380,11 @@ namespace BudgetExecution
         SaveButton,
 
         /// <summary>
+        /// The save as button
+        /// </summary>
+        SaveAsButton,
+
+        /// <summary>
         /// The search data button
         /// </summary>
         SearchDataButton,
@@ -398,6 +418,11 @@ namespace BudgetExecution
         /// The table button
         /// </summary>
         TableButton,
+
+        /// <summary>
+        /// The table settings button
+        /// </summary>
+        TableSettingsButton,
 
         /// <summary>
         /// The trash button

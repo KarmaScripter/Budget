@@ -8851,6 +8851,49 @@
             </summary>
             <param name="ex">The ex.</param>
         </member>
+        <member name="T:BudgetExecution.WebPage">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="M:BudgetExecution.WebPage.#ctor">
+            <summary>
+            Initializes a new
+            instance of the <see cref="T:BudgetExecution.WebPage"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.WebPage.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.WebPage.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.WebPage.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.WebPage.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.WebPage.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:BudgetExecution.AdapterBuilder">
             <summary>
             
@@ -19349,6 +19392,11 @@
             The database button
             </summary>
         </member>
+        <member name="F:BudgetExecution.ToolType.DatabaseSettingsButton">
+            <summary>
+            The database settings button
+            </summary>
+        </member>
         <member name="F:BudgetExecution.ToolType.DataConfigButton">
             <summary>
             The data configuration button
@@ -19407,6 +19455,11 @@
         <member name="F:BudgetExecution.ToolType.ExportButton">
             <summary>
             The export button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.ExportDatabaseButton">
+            <summary>
+            The export database button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.ExcelButton">
@@ -19492,6 +19545,11 @@
         <member name="F:BudgetExecution.ToolType.ImportButton">
             <summary>
             The import button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.ImportDatabaseButton">
+            <summary>
+            The import database button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.LastButton">
@@ -19604,6 +19662,11 @@
             The save button
             </summary>
         </member>
+        <member name="F:BudgetExecution.ToolType.SaveAsButton">
+            <summary>
+            The save as button
+            </summary>
+        </member>
         <member name="F:BudgetExecution.ToolType.SearchDataButton">
             <summary>
             The search data button
@@ -19637,6 +19700,11 @@
         <member name="F:BudgetExecution.ToolType.TableButton">
             <summary>
             The table button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.TableSettingsButton">
+            <summary>
+            The table settings button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.TrashButton">
@@ -36108,49 +36176,6 @@
             Get Error Dialog.
             </summary>
             <param name="ex">The ex.</param>
-        </member>
-        <member name="T:BudgetExecution.WebPage">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
-        </member>
-        <member name="M:BudgetExecution.WebPage.#ctor">
-            <summary>
-            Initializes a new
-            instance of the <see cref="T:BudgetExecution.WebPage"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.WebPage.OnLoad(System.Object,System.EventArgs)">
-            <summary>
-            Called when [load].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/>
-            instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.WebPage.Fail(System.Exception)">
-            <summary>
-            Fails the specified ex.
-            </summary>
-            <param name="ex">The ex.</param>
-        </member>
-        <member name="F:BudgetExecution.WebPage.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.WebPage.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:BudgetExecution.WebPage.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
         </member>
     </members>
 </doc>

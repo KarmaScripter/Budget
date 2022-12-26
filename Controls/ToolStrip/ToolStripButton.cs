@@ -26,7 +26,7 @@ namespace BudgetExecution
         public ToolStripButton( )
         {
             // Basic Properties
-            Margin = new Padding( 1, 1, 1, 1 );
+            Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
             BackColor =  Color.Transparent;

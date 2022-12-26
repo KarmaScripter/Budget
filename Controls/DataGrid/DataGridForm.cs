@@ -152,6 +152,7 @@ namespace BudgetExecution
                 PopulateTableListBoxItems( );
                 PopulateToolBarDropDownItems( );
                 ToolStrip.Office12Mode = true;
+                ToolStrip.ImageSize = new Size( 16, 20  );
                 TableLabel.Text = TableListBox.Items.Count.ToString( );
                 ColumnLabel.Text = string.Empty;
                 ValueLabel.Text = string.Empty;
@@ -162,9 +163,8 @@ namespace BudgetExecution
                 SqlQuery = string.Empty;
                 LeftHeaderLabel.Text = string.Empty;
                 RightHeaderLabel.Text = string.Empty;
-                ToolStripLabel.Margin = new Padding( 1, 1, 1, 3 );
                 ToolStrip.Text = string.Empty;
-                ToolStripLabel.Text = "Provider: " + DataModel.Provider;
+                Text = DataModel.Provider + " Data";
             }
             catch( Exception ex )
             {

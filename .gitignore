@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 /Data/Database/Access/DataModels/Data.accdb
 /Data/Database/SQLite/DataModels/Data.db
+*.mdf
+*.ldf
