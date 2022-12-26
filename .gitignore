@@ -54,3 +54,4 @@ dkms.conf
 /Data/Database/SQLite/DataModels/Data.db
 *.mdf
 *.ldf
+*.sdf
