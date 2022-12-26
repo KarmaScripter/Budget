@@ -30,7 +30,7 @@ namespace BudgetExecution
             ShowToolbar = true;
             ShowToolTips = true;
             ToolBar.Orientation = ChartOrientation.Horizontal;
-            ToolBar.ButtonBackColor = Color.FromArgb( 15, 15, 15 );
+            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
             ToolBar.Position = ChartDock.Bottom;
             ToolBar.ShowGrip = false;
             ToolBar.ShowBorder = false;
@@ -43,18 +43,17 @@ namespace BudgetExecution
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
-            BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
+            BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             BackColor = Color.FromArgb( 20, 20, 20 );
-
             ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
-                Color.FromArgb( 15, 15, 15 ) );
+                Color.FromArgb( 20, 20, 20 ) );
 
             CalcRegions = true;
 
             //ChartArea Properties
             ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
             ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
+            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             ChartArea.BorderWidth = 1;
             ChartArea.BorderColor = Color.Transparent;
             ChartArea.BorderStyle = BorderStyle.FixedSingle;
@@ -67,8 +66,7 @@ namespace BudgetExecution
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 15, 15, 15 ),
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
                 Color.Silver );
 
             Depth = 250;
@@ -97,7 +95,7 @@ namespace BudgetExecution
             Legend.Font = new Font( "Roboto", 8 );
             Legend.ItemsSize = new Size( 10, 10 );
             Legend.VisibleCheckBox = true;
-            Legend.BackInterior = new BrushInfo( Color.FromArgb( 15, 15, 15 ) );
+            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20) );
             Legend.ItemsAlignment = StringAlignment.Center;
             Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;

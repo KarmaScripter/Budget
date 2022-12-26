@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -106,6 +107,7 @@ namespace BudgetExecution
             {
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
+                Chart.ChartArea.BorderStyle = BorderStyle.None;
             }
             catch ( Exception ex )
             {
