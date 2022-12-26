@@ -266,7 +266,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(246, 30);
+            this.TextBox.Size = new System.Drawing.Size(242, 30);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -694,7 +694,7 @@
             // 
             this.Chart.Title.Name = "Default";
             this.Chart.Titles.Add(this.Chart.Title);
-            this.Chart.ToolBar.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.Chart.ToolBar.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Chart.ToolBar.ShowBorder = false;
             this.Chart.ToolBar.ShowGrip = false;
             this.Chart.ToolBar.Visible = true;

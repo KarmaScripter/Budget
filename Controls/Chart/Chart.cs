@@ -30,6 +30,7 @@ namespace BudgetExecution
             ShowToolbar = true;
             ShowToolTips = true;
             ToolBar.Orientation = ChartOrientation.Horizontal;
+            ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
             ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
             ToolBar.Position = ChartDock.Bottom;
             ToolBar.ShowGrip = false;
