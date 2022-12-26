@@ -160,7 +160,7 @@
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 715);
+            this.ToolStrip.Location = new System.Drawing.Point(0, 714);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
@@ -266,7 +266,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(248, 30);
+            this.TextBox.Size = new System.Drawing.Size(246, 30);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -679,7 +679,7 @@
             this.Chart.ShowScrollBars = false;
             this.Chart.ShowToolbar = true;
             this.Chart.ShowToolTips = true;
-            this.Chart.Size = new System.Drawing.Size(1388, 715);
+            this.Chart.Size = new System.Drawing.Size(1388, 714);
             this.Chart.Source = BudgetExecution.Source.External;
             this.Chart.Spacing = 5F;
             this.Chart.SpacingBetweenPoints = 5F;
@@ -711,9 +711,9 @@
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(1388, 763);
+            this.ClientSize = new System.Drawing.Size(1388, 762);
             this.Controls.Add(this.Chart);
             this.Controls.Add(this.ToolStrip);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
