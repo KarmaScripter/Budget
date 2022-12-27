@@ -17,42 +17,42 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public virtual Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// The provider
         /// </summary>
-        public virtual Provider Provider { get; set; }
+        public Provider Provider { get; set; }
 
         /// <summary>
         /// The connection builder
         /// </summary>
-        public virtual IConnectionBuilder ConnectionBuilder { get; set; }
+        public IConnectionBuilder ConnectionBuilder { get; set; }
 
         /// <summary>
         /// The arguments
         /// </summary>
-        public virtual IDictionary<string, object> Map { get; set; }
+        public IDictionary<string, object> Map { get; set; }
 
         /// <summary>
         /// The SQL statement
         /// </summary>
-        public virtual ISqlStatement SqlStatement { get; set; }
+        public ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
         /// The query
         /// </summary>
-        public virtual IQuery Query { get; set; }
+        public IQuery Query { get; set; }
 
         /// <summary>
         /// The record
         /// </summary>
-        public virtual DataRow Record { get; set; }
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// The Data table
         /// </summary>
-        public virtual DataTable DataTable { get; set; }
+        public DataTable DataTable { get; set; }
 
         /// <summary>
         /// Gets or sets the columns.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The columns.
         /// </value>
-        public virtual IEnumerable<DataColumn> DataColumns { get; set; }
+        public IEnumerable<DataColumn> DataColumns { get; set; }
 
         /// <summary>
         /// Gets or sets the column names.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The column names.
         /// </value>
-        public virtual IEnumerable<string> ColumnNames { get; set; }
+        public IEnumerable<string> ColumnNames { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the table.
         /// </value>
-        public virtual string TableName { get; set; }
+        public string TableName { get; set; }
 
         /// <summary>
         /// Gets or sets the Data set.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data set.
         /// </value>
-        public virtual DataSet DataSet { get; set; }
+        public DataSet DataSet { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the data set.
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the data set.
         /// </value>
-        public virtual string DataSetName { get; set; }
+        public string DataSetName { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataConfig"/> class.

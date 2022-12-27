@@ -27,6 +27,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 750 );
             MaximumSize = new Size( 1400, 800 );
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -38,6 +39,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
@@ -60,7 +62,7 @@ namespace BudgetExecution
             BindingSource = bindingSource;
             ToolStrip.BindingSource = bindingSource;
             ToolStrip.BindingSource.DataSource = bindingSource.DataSource;
-            Chart = new Chart( bindingSource ) ;
+            Chart.BindingSource = BindingSource;
             Chart.Dock = DockStyle.Fill;
             Controls.Add( Chart );
         }
@@ -75,7 +77,7 @@ namespace BudgetExecution
             BindingSource.DataSource = dataTable;
             ToolStrip.BindingSource = BindingSource;
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
-            Chart = new Chart( dataTable ) ;
+            Chart.BindingSource = BindingSource;
             Chart.Dock = DockStyle.Fill;
             Controls.Add( Chart );
         }
@@ -90,6 +92,7 @@ namespace BudgetExecution
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             ToolStrip.BindingSource = BindingSource;
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
+            Chart.BindingSource = BindingSource;
             Chart.Dock = DockStyle.Fill;
             Controls.Add( Chart );
         }

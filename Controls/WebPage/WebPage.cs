@@ -27,6 +27,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 750 );
             MaximumSize = new Size( 1400, 800 );
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -37,6 +38,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );

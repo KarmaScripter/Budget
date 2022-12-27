@@ -76,6 +76,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 750 );
             MaximumSize = new Size( 1400, 800 );
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -85,9 +86,10 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = true;
+            ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
@@ -111,7 +113,7 @@ namespace BudgetExecution
             Spreadsheet.Font = new Font( "Roboto", 9, FontStyle.Regular );
             Spreadsheet.ForeColor = Color.Black;
             Spreadsheet.DefaultColumnCount = 26;
-            Spreadsheet.DefaultRowCount = 66;
+            Spreadsheet.DefaultRowCount = 55;
             Spreadsheet.AllowZooming = true;
             
             // Event Wiring
@@ -171,13 +173,12 @@ namespace BudgetExecution
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
-                Spreadsheet.DefaultColumnCount = 12;
-                Spreadsheet.DefaultRowCount = 55;
                 if( DataTable != null )
                 {
                     ToolStrip.Label.Text = $"{ DataTable.TableName.SplitPascal( ) }";
                     Spreadsheet.SetActiveSheet( "Sheet1" );
                     Spreadsheet.ActiveSheet.ImportDataTable( DataTable, true, 1, 1 );
+                    Spreadsheet.SetZoomFactor( "Sheet1", 100 );
                 }
             }
             catch ( Exception ex )

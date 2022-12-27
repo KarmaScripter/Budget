@@ -402,7 +402,7 @@
             this.DocViewer.UseWaitCursor = true;
             this.DocViewer.VerticalScrollOffset = 0;
             this.DocViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016DarkGray;
-            this.DocViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
+            this.DocViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.FitWidth;
             // 
             // PdfForm
             // 

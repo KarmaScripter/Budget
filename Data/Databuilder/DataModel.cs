@@ -18,6 +18,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="ModelBase" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class DataModel : ModelBase
     {
         /// <summary>
@@ -45,7 +47,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -65,7 +69,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -88,7 +94,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -111,7 +119,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -130,7 +140,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, Provider.Access, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -150,7 +162,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, sqlText );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -170,7 +184,9 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -188,7 +204,9 @@ namespace BudgetExecution
             ConnectionBuilder = query.ConnectionBuilder;
             SqlStatement = query.SqlStatement;
             DataTable = GetDataTable( );
+            TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -207,7 +225,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRows?.Select( p => p.Field<string>( column ) )?.Distinct( );
+                    var _query = dataRows
+                        ?.Select( p => p.Field<string>( column ) )
+                        ?.Distinct( );
+                    
                     return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<string> );
@@ -239,8 +260,9 @@ namespace BudgetExecution
                 try
                 {
                     var _query = dataRows
-                        ?.Where( p => p.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( p => p.Field<string>( $"{name}" ) )?.Distinct( );
+                        ?.Where( p => p.Field<string>( $"{ name }" ).Equals( value ) )
+                        ?.Select( p => p.Field<string>( $"{ name }" ) )
+                        ?.Distinct( );
 
                     return _query?.Any( ) == true
                         ? _query
@@ -306,9 +328,9 @@ namespace BudgetExecution
                     if( _schema != null )
                     {
                         var _dataTable = _schema?.AsEnumerable( )
-                            ?.Where( r =>
-                                r.Field<string>( "TABLE_NAME" ).Contains( "FilterDatabase" ) )
-                            ?.Select( r => r )?.CopyToDataTable( );
+                            ?.Where( r => r.Field<string>( "TABLE_NAME" ).Contains( "FilterDatabase" ) )
+                            ?.Select( r => r )
+                            ?.CopyToDataTable( );
 
                         _sheetName = _dataTable.Rows[ 0 ][ "TABLE_NAME" ].ToString( );
                     }
@@ -317,7 +339,7 @@ namespace BudgetExecution
                     _command.Connection = _connection;
                     _command.CommandText = "SELECT * FROM [" + _sheetName + "]";
                     using var _dataAdapter = new OleDbDataAdapter( _command );
-                    _dataAdapter.Fill( _dataSet, "excelData" );
+                    _dataAdapter.Fill( _dataSet, "ExcelData" );
                     using var _table = _dataSet.Tables[ "ExcelData" ];
                     _connection.Close( );
                     return _table;
@@ -348,31 +370,30 @@ namespace BudgetExecution
                     using var _package = new ExcelPackage( );
                     using var _stream = File.OpenRead( filePath );
                     _package.Load( _stream );
-                    var _worksheet = _package?.Workbook?.Worksheets?.First( );
-                    var _table = new DataTable( _worksheet?.Name );
-                    if( _worksheet?.Cells != null )
+                    var _sheet = _package?.Workbook?.Worksheets?.First( );
+                    var _table = new DataTable( _sheet?.Name );
+                    if( _sheet?.Cells != null )
                     {
-                        foreach( var _firstRowCell in _worksheet?.Cells[ 1, 1, 1,
-                                    _worksheet.Dimension.End.Column ] )
+                        var _lastColumn = _sheet.Dimension.End.Column;
+                        var _lastRow = _sheet.Dimension.End.Row;
+                        foreach( var _cell in _sheet?.Cells[ 1, 1, 1, _lastColumn ] )
                         {
                             _table?.Columns?.Add( header
-                                ? _firstRowCell.Text
-                                : $"Column {_firstRowCell.Start.Column}" );
+                                ? _cell.Text
+                                : $"Column { _cell.Start.Column }" );
                         }
 
                         var _start = header
                             ? 2
                             : 1;
 
-                        for( var _row = _start; _row <= _worksheet.Dimension.End.Row; _row++ )
+                        for( var _row = _start; _row <= _lastRow; _row++ )
                         {
-                            var _excelRange = _worksheet.Cells[ _row, 1, _row,
-                                _worksheet.Dimension.End.Column ];
-
-                            var _dataRow = _table.Rows?.Add( );
-                            foreach( var cell in _excelRange )
+                            var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
+                            var _data = _table.Rows?.Add( );
+                            foreach( var cell in _range )
                             {
-                                _dataRow[ cell.Start.Column - 1 ] = cell?.Text;
+                                _data[ cell.Start.Column - 1 ] = cell?.Text;
                             }
                         }
 

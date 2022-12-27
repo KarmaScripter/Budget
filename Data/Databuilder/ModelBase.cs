@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// Gets the fields.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, Type> GetSchema( )
+        public IDictionary<string, Type> GetColumnSchema( )
         {
             if( DataTable?.Columns?.Count > 0 )
             {
@@ -173,44 +173,6 @@ namespace BudgetExecution
         /// Gets the columns.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<DataColumn> GetDataColumns( DataTable dataTable )
-        {
-            if( dataTable?.Columns?.Count > 0 )
-            {
-                try
-                {
-                    var _dataColumns = new List<DataColumn>( );
-                    var _data = dataTable?.Columns;
-                    if( _data?.Count > 0 )
-                    {
-                        foreach( DataColumn column in _data )
-                        {
-                            _dataColumns.Add( column );
-                        }
-
-                        return _dataColumns?.Any( ) == true
-                            ? _dataColumns
-                            : default( IEnumerable<DataColumn> );
-                    }
-                    else
-                    {
-                        return default( IEnumerable<DataColumn> );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<DataColumn> );
-                }
-            }
-
-            return default( IEnumerable<DataColumn> );
-        }
-
-        /// <summary>
-        /// Gets the columns.
-        /// </summary>
-        /// <returns></returns>
         public IEnumerable<DataColumn> GetDataColumns( )
         {
             if( DataTable?.Columns?.Count > 0 )
@@ -246,6 +208,47 @@ namespace BudgetExecution
             }
 
             return default( IEnumerable<DataColumn> );
+        }
+
+        /// <summary>
+        /// Gets the column names.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetColumnNames( )
+        {
+            if( DataTable?.Columns?.Count > 0 )
+            {
+                try
+                {
+                    var _names = new List<string>( );
+                    var _data = DataTable?.Columns;
+                    if( _data?.Count > 0 )
+                    {
+                        foreach( DataColumn column in _data )
+                        {
+                            if( !string.IsNullOrEmpty( column?.ColumnName ) )
+                            {
+                                _names.Add( column.ColumnName );
+                            }
+                        }
+
+                        return _names?.Any( ) == true
+                            ? _names
+                            : default( IEnumerable<string> );
+                    }
+                    else
+                    {
+                        return default( IEnumerable<string> );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IEnumerable<string> );
+                }
+            }
+
+            return default( IEnumerable<string> );
         }
     }
 }

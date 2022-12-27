@@ -30,12 +30,12 @@ namespace BudgetExecution
         /// Gets the Data.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<DataRow> GetData( )
+        public IEnumerable<DataRow> GetData( )
         {
             try
             {
                 var _dataTable = GetDataTable( );
-                IEnumerable<DataRow> _data = _dataTable?.AsEnumerable( );
+                var _data = _dataTable?.AsEnumerable( );
                 return _data?.Any( ) == true
                     ? _data
                     : default( IEnumerable<DataRow> );
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// Gets the Data table.
         /// </summary>
         /// <returns></returns>
-        public virtual DataTable GetDataTable( )
+        public DataTable GetDataTable( )
         {
             if( Query != null )
             {
@@ -81,17 +81,17 @@ namespace BudgetExecution
         /// Gets the Data set.
         /// </summary>
         /// <returns></returns>
-        public virtual DataSet GetDataSet( )
+        public DataSet GetDataSet( )
         {
             if( Query != null )
             {
                 try
                 {
-                    DataSet = new DataSet( $"{Provider}" );
-                    DataTable = new DataTable( $"{Source}" );
+                    DataSet = new DataSet( $"{ Provider }" );
+                    DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
                     using var _adapter = Query.GetAdapter( );
-                    _adapter?.Fill( DataSet, DataTable?.TableName );
+                    _adapter?.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
                     return DataTable?.Rows?.Count > 0
                         ? DataSet
@@ -111,7 +111,7 @@ namespace BudgetExecution
         /// Sets the column captions.
         /// </summary>
         /// <param name="dataTable">The Data table.</param>
-        public virtual void SetColumnCaptions( DataTable dataTable )
+        public void SetColumnCaptions( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
             {
@@ -119,8 +119,7 @@ namespace BudgetExecution
                 {
                     foreach( DataColumn column in dataTable.Columns )
                     {
-                        if( column != null
-                           && string.IsNullOrEmpty( column.Caption ) )
+                        if( column != null )
                         {
                             var _caption = column.ColumnName.SplitPascal( );
                             column.Caption = _caption;
@@ -138,14 +137,14 @@ namespace BudgetExecution
         /// Gets the column schema.
         /// </summary>
         /// <returns></returns>
-        public virtual DataColumnCollection GetTableSchema( )
+        public DataColumnCollection GetTableSchema( )
         {
             if( Query != null )
             {
                 try
                 {
-                    DataSet = new DataSet( $"{Provider}" );
-                    DataTable = new DataTable( $"{Source}" );
+                    DataSet = new DataSet( $"{ Provider }" );
+                    DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
                     using var _adapter = Query?.GetAdapter( );
                     _adapter?.Fill( DataSet, DataTable.TableName );
@@ -169,7 +168,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRows">The Data rows.</param>
         /// <returns></returns>
-        public virtual IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
+        public IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
         {
             if( dataRows?.Any( ) == true
                && dataRows?.HasPrimaryKey( ) == true )

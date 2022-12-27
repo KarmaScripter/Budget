@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Windows.Forms;
     using Syncfusion.Pdf;
+    using Syncfusion.Pdf.Parsing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.PdfViewer;
     using Syncfusion.Windows.Forms.Spreadsheet;
@@ -40,6 +41,14 @@ namespace BudgetExecution
         public string FileName { get; set; }
 
         /// <summary>
+        /// Gets or sets the document.
+        /// </summary>
+        /// <value>
+        /// The document.
+        /// </value>
+        public PdfLoadedDocument Document { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="PdfForm"/> class.
         /// </summary>
         public PdfForm( )
@@ -47,6 +56,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 750 );
             MaximumSize = new Size( 1400, 800 );
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -60,6 +70,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
@@ -83,8 +94,6 @@ namespace BudgetExecution
         {
             FilePath = filePath;
             FileName = Path.GetFileName( filePath );
-            DocViewer = new PdfViewerControl(  );
-            DocViewer.Load( filePath );
         }
 
         /// <summary>
@@ -101,10 +110,10 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.ShowCaption = true;
+                ToolStrip.ShowCaption = false;
                 if( !string.IsNullOrEmpty( FileName ) )
                 {
-                    ToolStrip.Label.Text = FileName.SplitPascal( );
+                    ToolStrip.Label.Text = FileName;
                 }
                 
                 LoadDocuments(  );
@@ -123,6 +132,8 @@ namespace BudgetExecution
         {
             try
             {
+                Document = new PdfLoadedDocument( FilePath );
+                DocViewer.Load( Document );
                 var _dirPath = ConfigurationManager.AppSettings[ "Documents" ];
                 if( !string.IsNullOrEmpty( _dirPath )
                    && Directory.Exists( _dirPath ) )

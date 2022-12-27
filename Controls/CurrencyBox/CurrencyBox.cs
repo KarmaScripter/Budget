@@ -15,14 +15,11 @@ namespace BudgetExecution
     public class CurrencyBox : CurrencyBase
     {
         /// <summary>
-        /// Initializes a new instance of
-        /// the <see cref="CurrencyBox"/> class.
+        /// Initializes a new instance of the <see cref="CurrencyBox"/> class.
         /// </summary>
         /// <remarks>
-        /// The CurrencyEdit class also creates
-        /// the controls that it hosts such
-        /// as the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyBox" />
+        /// The CurrencyEdit class also creates the controls that it hosts such
+        /// as the <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox" />
         /// control and the
         /// <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator" />
         /// control.

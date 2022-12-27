@@ -777,249 +777,6 @@
             </summary>
             <param name="ex">The ex.</param>
         </member>
-        <member name="T:BudgetExecution.BindingModel">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:BudgetExecution.IBindingModel" />
-        </member>
-        <member name="P:BudgetExecution.BindingModel.ChartHandler">
-            <summary>
-            Gets or sets the chart handler.
-            </summary>
-            <value>
-            The chart handler.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.Source">
-            <summary>
-            Gets or sets the source.
-            </summary>
-            <value>
-            The source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.DataSet">
-            <summary>
-            Gets or sets the data set.
-            </summary>
-            <value>
-            The data set.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.DataTable">
-            <summary>
-            Gets or sets the data table.
-            </summary>
-            <value>
-            The data table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.TableName">
-            <summary>
-            Gets or sets the name of the table.
-            </summary>
-            <value>
-            The name of the table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.BindingList">
-            <summary>
-            Gets or sets the binding list.
-            </summary>
-            <value>
-            The binding list.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.Record">
-            <summary>
-            Gets or sets the record.
-            </summary>
-            <value>
-            The record.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModel.BindingSource">
-            <summary>
-            Gets or sets the binding source.
-            </summary>
-            <value>
-            The binding source.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.#ctor">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.BindingModel" />
-            class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.#ctor(System.Windows.Forms.BindingSource)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.BindingModel" />
-            class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.#ctor(System.Data.DataTable)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BindingModel"/> class.
-            </summary>
-            <param name="dataTable">The data table.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.#ctor(System.Data.DataSet,System.String)">
-            <summary>
-            Initializes a new instance of the
-            <see cref="T:BudgetExecution.BindingModel" />
-            class.
-            </summary>
-            <param name = "dataSet" >
-            </param>
-            <param name = "tableName" > 
-            </param>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BindingModel"/> class.
-            </summary>
-            <param name="dataRows">The data rows.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.OnCurrentChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
-            <summary>
-            Called when [current changed].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The
-            <see cref="T:System.ComponentModel.ListChangedEventArgs" />
-            instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.GetSeriesValues">
-            <summary>
-            Gets the data.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.BindingModel.GetSeriesModel">
-            <summary>
-            Gets the source model.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:BudgetExecution.BindingModelBase">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:Syncfusion.Windows.Forms.Chart.ChartDataBindModel" />
-            <seealso />
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.Data">
-            <summary>
-            Gets the data.
-            </summary>
-            <value>
-            The data.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.ChartData">
-            <summary>
-            Gets the binding model.
-            </summary>
-            <value>
-            The binding model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.AxisLabelModel">
-            <summary>
-            Gets or sets the axis label model.
-            </summary>
-            <value>
-            The axis label model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.DataMetric">
-            <summary>
-            Gets or sets the metric.
-            </summary>
-            <value>
-            The metric.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.Stat">
-            <summary>
-            Gets the value.
-            </summary>
-            <value>
-            The value.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.PointData">
-            <summary>
-            Gets the series data.
-            </summary>
-            <value>
-            The series data.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.Values">
-            <summary>
-            Gets or sets the series values.
-            </summary>
-            <value>
-            The series values.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.BindingModelBase.Categories">
-            <summary>
-            Gets or sets the series categories.
-            </summary>
-            <value>
-            The series categories.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.#ctor">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.BindingModelBase" /> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.#ctor(System.Windows.Forms.BindingSource)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BindingModelBase" /> struct.
-            </summary>
-            <param name="bindingSource">The binding source.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.#ctor(System.Data.DataTable)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BindingModelBase"/> class.
-            </summary>
-            <param name="dataTable">The data table.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.#ctor(System.Data.DataSet)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BindingModelBase"/> class.
-            </summary>
-            <param name="dataSet">The data table.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.BindingModelBase"/> class.
-            </summary>
-            <param name="dataRows">The data rows.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.OnChanged(System.Object,System.EventArgs)">
-            <summary>
-            Called when [changed].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs" />
-            instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.BindingModelBase.Fail(System.Exception)">
-            <summary>
-            Get Error Dialog.
-            </summary>
-            <param name="ex">The ex.</param>
-        </member>
         <member name="T:BudgetExecution.CallOut">
             <summary>
             
@@ -1165,16 +922,6 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
-        <member name="M:BudgetExecution.Chart.#ctor(System.Windows.Forms.BindingSource,System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
-            </summary>
-            <param name="bindingSource">The binding source.</param>
-            <param name="name">The name.</param>
-            <param name="value">The value.</param>
-            <param name="chartType">Type of the chart.</param>
-            <param name="stat">The stat.</param>
-        </member>
         <member name="M:BudgetExecution.Chart.#ctor(System.Data.DataTable,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
@@ -1183,32 +930,7 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
-        <member name="M:BudgetExecution.Chart.#ctor(System.Data.DataTable,System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
-            </summary>
-            <param name="dataTable">The data table.</param>
-            <param name="name">The category.</param>
-            <param name="value">The value.</param>
-            <param name="chartType">Type of the chart.</param>
-            <param name="stat">The stat.</param>
-        </member>
-        <member name="M:BudgetExecution.Chart.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow},System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
-            </summary>
-            <param name="dataRows">The data rows.</param>
-            <param name="name">The name.</param>
-            <param name="value">The value.</param>
-            <param name="chartType">Type of the chart.</param>
-            <param name="stat">The stat.</param>
-        </member>
-        <member name="M:BudgetExecution.Chart.SetPoints">
-            <summary>
-            Sets the points.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Chart.InitSeries">
+        <member name="M:BudgetExecution.Chart.DecorateSeries">
             <summary>
             Creates the series.
             </summary>
@@ -1283,99 +1005,6 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
-        </member>
-        <member name="T:BudgetExecution.ChartSeries">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.ChartSeries.PointIndexer">
-            <summary>
-            Gets or sets the data points.
-            </summary>
-            <value>
-            The data points.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartSeries.Categories">
-            <summary>
-            Gets the series categories.
-            </summary>
-            <value>
-            The series categories.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartSeries.Values">
-            <summary>
-            Gets the series values.
-            </summary>
-            <value>
-            The series values.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartSeries.BindingModel">
-            <summary>
-            Gets or sets the binding source.
-            </summary>
-            <value>
-            The binding source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartSeries.STAT">
-            <summary>
-            Gets the metric.
-            </summary>
-            <value>
-            The metric.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ChartSeries"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.#ctor(System.Windows.Forms.BindingSource)">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.ChartSeries"/> class.
-            </summary>
-            <param name="bindingSource">The binding source.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.#ctor(System.Data.DataTable)">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.ChartSeries"/> class.
-            </summary>
-            <param name="dataTable">The data table.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.ChartSeries"/> class.
-            </summary>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.#ctor(System.Windows.Forms.BindingSource,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.ChartSeries"/> class.
-            </summary>
-            <param name="bindingSource">The binding source.</param>
-            <param name = "dict" > </param>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.SetPoints(System.Collections.Generic.IDictionary{System.String,System.Double},Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
-            <summary>
-            Sets the points.
-            </summary>
-            <param name="data">The data.</param>
-            <param name="type">The type.</param>
-            <param name="stat">The stat.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartSeries.Fail(System.Exception)">
-            <summary>
-            Get Error Dialog.
-            </summary>
-            <param name="ex">The ex.</param>
         </member>
         <member name="T:BudgetExecution.DataMetric">
             <summary>
@@ -2004,14 +1633,11 @@
         </member>
         <member name="M:BudgetExecution.CurrencyBox.#ctor">
             <summary>
-            Initializes a new instance of
-            the <see cref="T:BudgetExecution.CurrencyBox"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.CurrencyBox"/> class.
             </summary>
             <remarks>
-            The CurrencyEdit class also creates
-            the controls that it hosts such
-            as the
-            <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyBox" />
+            The CurrencyEdit class also creates the controls that it hosts such
+            as the <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox" />
             control and the
             <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator" />
             control.
@@ -6139,6 +5765,14 @@
             </summary>
             <value>
             The name of the file.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PdfForm.Document">
+            <summary>
+            Gets or sets the document.
+            </summary>
+            <value>
+            The document.
             </value>
         </member>
         <member name="M:BudgetExecution.PdfForm.#ctor">
@@ -10684,7 +10318,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.ModelBase.GetSchema">
+        <member name="M:BudgetExecution.ModelBase.GetColumnSchema">
             <summary>
             Gets the fields.
             </summary>
@@ -10704,15 +10338,15 @@
             <param name="dict">The dictionary.</param>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.ModelBase.GetDataColumns(System.Data.DataTable)">
+        <member name="M:BudgetExecution.ModelBase.GetDataColumns">
             <summary>
             Gets the columns.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.ModelBase.GetDataColumns">
+        <member name="M:BudgetExecution.ModelBase.GetColumnNames">
             <summary>
-            Gets the columns.
+            Gets the column names.
             </summary>
             <returns></returns>
         </member>
@@ -21591,263 +21225,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:BudgetExecution.IBindingModel">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.ChartHandler">
-            <summary>
-            Gets or sets the chart handler.
-            </summary>
-            <value>
-            The chart handler.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Source">
-            <summary>
-            Gets or sets the source.
-            </summary>
-            <value>
-            The source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.DataSet">
-            <summary>
-            Gets or sets the data set.
-            </summary>
-            <value>
-            The data set.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.DataTable">
-            <summary>
-            Gets or sets the data table.
-            </summary>
-            <value>
-            The data table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.TableName">
-            <summary>
-            Gets or sets the name of the table.
-            </summary>
-            <value>
-            The name of the table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.BindingList">
-            <summary>
-            Gets or sets the binding list.
-            </summary>
-            <value>
-            The binding list.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Record">
-            <summary>
-            Gets or sets the record.
-            </summary>
-            <value>
-            The record.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.BindingSource">
-            <summary>
-            Gets or sets the binding source.
-            </summary>
-            <value>
-            The binding source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.DataSource">
-            <summary>
-            Gets or sets the data source.
-            </summary>
-            <value>
-            The data source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.DataMember">
-            <summary>
-            Gets or sets the data member.
-            </summary>
-            <value>
-            The data member.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Count">
-            <summary>
-            Gets the count.
-            </summary>
-            <value>
-            The count.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.XIndex">
-            <summary>
-            Gets or sets the index of the x.
-            </summary>
-            <value>
-            The index of the x.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.XName">
-            <summary>
-            Gets or sets the name of the x.
-            </summary>
-            <value>
-            The name of the x.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.YIndexes">
-            <summary>
-            Gets or sets the y indexes.
-            </summary>
-            <value>
-            The y indexes.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.YNames">
-            <summary>
-            Gets or sets the y names.
-            </summary>
-            <value>
-            The y names.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Data">
-            <summary>
-            Gets the data.
-            </summary>
-            <value>
-            The data.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.ChartData">
-            <summary>
-            Gets the binding model.
-            </summary>
-            <value>
-            The binding model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.AxisLabelModel">
-            <summary>
-            Gets or sets the axis label model.
-            </summary>
-            <value>
-            The axis label model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.DataMetric">
-            <summary>
-            Gets or sets the metric.
-            </summary>
-            <value>
-            The metric.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Stat">
-            <summary>
-            Gets the value.
-            </summary>
-            <value>
-            The value.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.PointData">
-            <summary>
-            Gets the series data.
-            </summary>
-            <value>
-            The series data.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Values">
-            <summary>
-            Gets or sets the series values.
-            </summary>
-            <value>
-            The series values.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IBindingModel.Categories">
-            <summary>
-            Gets or sets the series categories.
-            </summary>
-            <value>
-            The series categories.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.OnCurrentChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
-            <summary>
-            Called when [current changed].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The
-            <see cref="T:System.ComponentModel.ListChangedEventArgs" />
-            instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.GetSeriesValues">
-            <summary>
-            Gets the data.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.GetSeriesModel">
-            <summary>
-            Gets the series model.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="E:BudgetExecution.IBindingModel.Changed">
-            <summary>
-            
-            </summary>
-            <returns>
-            
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.GetX(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="index">
-            
-            </param>
-            <returns>
-            
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.GetY(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="index">
-            
-            </param>
-            <returns>
-            double[ ]
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.GetEmpty(System.Int32)">
-            <summary>
-             
-            </summary>
-            <param name = "index" > </param>
-            <returns>
-            
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IBindingModel.OnChanged(System.Object,System.EventArgs)">
-            <summary>
-            Called when [changed].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs" />
-            instance containing the event data.</param>
-        </member>
         <member name="T:BudgetExecution.IBindingSource">
             <summary>
             
@@ -22273,14 +21650,6 @@
             </summary>
             <value>
             The metric.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IChart.ChartSeries">
-            <summary>
-            Gets the data series.
-            </summary>
-            <value>
-            The data series.
             </value>
         </member>
         <member name="M:BudgetExecution.IChart.SetPoints">
