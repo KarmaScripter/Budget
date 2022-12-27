@@ -92,14 +92,6 @@ namespace BudgetExecution
         /// The metric.
         /// </value>
         DataMetric DataMetric { get; set; }
-
-        /// <summary>
-        /// Gets the data series.
-        /// </summary>
-        /// <value>
-        /// The data series.
-        /// </value>
-        ChartSeries ChartSeries { get; set; }
         
         /// <summary>
         /// Sets the points.

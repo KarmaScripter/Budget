@@ -62,7 +62,6 @@ namespace BudgetExecution
             ToolStrip.BindingSource.DataSource = bindingSource.DataSource;
             Chart = new Chart( bindingSource ) ;
             Chart.Dock = DockStyle.Fill;
-            Chart.SetPoints( );
             Controls.Add( Chart );
         }
 
@@ -78,7 +77,6 @@ namespace BudgetExecution
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
             Chart = new Chart( dataTable ) ;
             Chart.Dock = DockStyle.Fill;
-            Chart.SetPoints( );
             Controls.Add( Chart );
         }
 
@@ -93,7 +91,6 @@ namespace BudgetExecution
             ToolStrip.BindingSource = BindingSource;
             ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
             Chart.Dock = DockStyle.Fill;
-            Chart.SetPoints( );
             Controls.Add( Chart );
         }
 
