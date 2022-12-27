@@ -17051,11 +17051,6 @@
             The estimated reimbursements
             </summary>
         </member>
-        <member name="F:BudgetExecution.Numeric.EstimatedReimbursments">
-            <summary>
-            The estimated reimbursments
-            </summary>
-        </member>
         <member name="F:BudgetExecution.Numeric.Expended">
             <summary>
             The expended
@@ -17066,7 +17061,7 @@
             The expenditures
             </summary>
         </member>
-        <member name="F:BudgetExecution.Numeric.Feburary">
+        <member name="F:BudgetExecution.Numeric.February">
             <summary>
             The feburary
             </summary>
@@ -17076,9 +17071,19 @@
             The funds in
             </summary>
         </member>
+        <member name="F:BudgetExecution.Numeric.FundingInAmount">
+            <summary>
+            The funds in amount
+            </summary>
+        </member>
         <member name="F:BudgetExecution.Numeric.FundsOut">
             <summary>
             The funds out
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.Numeric.FundingOutAmount">
+            <summary>
+            The funds out amount
             </summary>
         </member>
         <member name="F:BudgetExecution.Numeric.GrowthRate">
@@ -17089,11 +17094,6 @@
         <member name="F:BudgetExecution.Numeric.Hours">
             <summary>
             The hours
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Numeric.Id">
-            <summary>
-            The identifier
             </summary>
         </member>
         <member name="F:BudgetExecution.Numeric.January">
@@ -17121,14 +17121,14 @@
             The may
             </summary>
         </member>
-        <member name="F:BudgetExecution.Numeric.NS">
-            <summary>
-            The ns
-            </summary>
-        </member>
         <member name="F:BudgetExecution.Numeric.November">
             <summary>
             The november
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.Numeric.NS">
+            <summary>
+            The ns
             </summary>
         </member>
         <member name="F:BudgetExecution.Numeric.ObligationRate">
@@ -19255,6 +19255,11 @@
             The filter data button
             </summary>
         </member>
+        <member name="F:BudgetExecution.ToolType.FilterButton">
+            <summary>
+            The filter button
+            </summary>
+        </member>
         <member name="F:BudgetExecution.ToolType.ForwardButton">
             <summary>
             The forward button
@@ -19403,6 +19408,11 @@
         <member name="F:BudgetExecution.ToolType.RemoveButton">
             <summary>
             The remove button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.RemoveFiltersButton">
+            <summary>
+            The remove filters button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.RewindButton">

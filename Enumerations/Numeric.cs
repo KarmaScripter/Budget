@@ -258,12 +258,7 @@ namespace BudgetExecution
         /// The estimated reimbursements
         /// </summary>
         EstimatedReimbursements,
-
-        /// <summary>
-        /// The estimated reimbursments
-        /// </summary>
-        EstimatedReimbursments,
-
+        
         /// <summary>
         /// The expended
         /// </summary>
@@ -277,7 +272,7 @@ namespace BudgetExecution
         /// <summary>
         /// The feburary
         /// </summary>
-        Feburary,
+        February,
 
         /// <summary>
         /// The funds in
@@ -285,10 +280,20 @@ namespace BudgetExecution
         FundsIn,
 
         /// <summary>
+        /// The funds in amount
+        /// </summary>
+        FundingInAmount,
+        
+        /// <summary>
         /// The funds out
         /// </summary>
         FundsOut,
 
+        /// <summary>
+        /// The funds out amount
+        /// </summary>
+        FundingOutAmount,
+        
         /// <summary>
         /// The growth rate
         /// </summary>
@@ -298,12 +303,7 @@ namespace BudgetExecution
         /// The hours
         /// </summary>
         Hours,
-
-        /// <summary>
-        /// The identifier
-        /// </summary>
-        Id,
-
+        
         /// <summary>
         /// The january
         /// </summary>
@@ -328,16 +328,16 @@ namespace BudgetExecution
         /// The may
         /// </summary>
         May,
+        
+        /// <summary>
+        /// The november
+        /// </summary>
+        November,
 
         /// <summary>
         /// The ns
         /// </summary>
         NS,
-
-        /// <summary>
-        /// The november
-        /// </summary>
-        November,
 
         /// <summary>
         /// The obligation rate

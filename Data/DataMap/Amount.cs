@@ -12,6 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IAmount" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Amount : DataUnit, IAmount
     {
         /// <summary>

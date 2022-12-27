@@ -113,7 +113,7 @@ namespace BudgetExecution
             Spreadsheet.Font = new Font( "Roboto", 9, FontStyle.Regular );
             Spreadsheet.ForeColor = Color.Black;
             Spreadsheet.DefaultColumnCount = 40;
-            Spreadsheet.DefaultRowCount = 55;
+            Spreadsheet.DefaultRowCount = 60;
             Spreadsheet.AllowZooming = true;
             
             // Event Wiring

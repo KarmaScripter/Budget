@@ -33,7 +33,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -47,6 +47,14 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;
             MaximizeBox = false;
+            
+            // Label Properties
+            FirstFilterLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            SecondFilterLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            ThirdFilterLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            
+            // Chart Properties
+            Chart.Title.Text = string.Empty;
             
             // Event Wiring
             Load += OnLoad;

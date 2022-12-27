@@ -154,7 +154,7 @@ namespace BudgetExecution
                 PopulateTableListBoxItems( );
                 PopulateToolBarDropDownItems( );
                 ToolStrip.Office12Mode = true;
-                ToolStrip.ImageSize = new Size( 16, 20  );
+                ToolStrip.ImageSize = new Size( 20, 22  );
                 TableLabel.Text = TableListBox.Items.Count.ToString( );
                 ColumnLabel.Text = string.Empty;
                 ValueLabel.Text = string.Empty;

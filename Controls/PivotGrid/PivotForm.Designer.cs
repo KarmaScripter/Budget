@@ -171,7 +171,6 @@
             this.DropDown.MaxDropDownItems = 100;
             this.DropDown.MaxLength = 32767;
             this.DropDown.Name = "DropDown";
-            this.DropDown.Numeric = BudgetExecution.Numeric.NS;
             this.DropDown.Size = new System.Drawing.Size(172, 24);
             this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             this.DropDown.Tag = "Make Selection";

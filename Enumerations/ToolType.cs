@@ -220,6 +220,11 @@ namespace BudgetExecution
         FilterDataButton,
 
         /// <summary>
+        /// The filter button
+        /// </summary>
+        FilterButton,
+        
+        /// <summary>
         /// The forward button
         /// </summary>
         ForwardButton,
@@ -369,6 +374,11 @@ namespace BudgetExecution
         /// </summary>
         RemoveButton,
 
+        /// <summary>
+        /// The remove filters button
+        /// </summary>
+        RemoveFiltersButton,
+        
         /// <summary>
         /// The rewind button
         /// </summary>
