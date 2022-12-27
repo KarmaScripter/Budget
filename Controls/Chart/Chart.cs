@@ -167,22 +167,14 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             Data = DataTable.AsEnumerable(  );
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
-        /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="chartType">Type of the chart.</param>
-        /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, string name, string value, 
+        
+        public Chart( BindingSource bindingSource, string names, string values, 
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
         {
             STAT = stat;
-            xAxis = name;
-            yValue = value;
+            xAxis = names;
+            yValue = values;
             ChartType = chartType;
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
@@ -209,22 +201,14 @@ namespace BudgetExecution
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="name">The category.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="chartType">Type of the chart.</param>
-        /// <param name="stat">The stat.</param>
-        public Chart( DataTable dataTable, string name, string value, 
+        
+        public Chart( DataTable dataTable, string names, string values, 
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
         {
             STAT = stat;
-            xAxis = name;
-            yValue = value;
+            xAxis = names;
+            yValue = values;
             ChartType = chartType;
             DataTable = dataTable;
             BindingSource.DataSource =  dataTable;
@@ -232,22 +216,14 @@ namespace BudgetExecution
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
-        /// </summary>
-        /// <param name="dataRows">The data rows.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="chartType">Type of the chart.</param>
-        /// <param name="stat">The stat.</param>
-        public Chart( IEnumerable<DataRow> dataRows, string name, string value,   
+        
+        public Chart( IEnumerable<DataRow> dataRows, string names, string values,   
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
         {
             STAT = stat;
-            xAxis = name;
-            yValue = value;
+            xAxis = names;
+            yValue = values;
             ChartType = chartType;
             DataTable = dataRows.CopyToDataTable( );
             BindingSource.DataSource = dataRows.CopyToDataTable( );
@@ -255,74 +231,12 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             Data = dataRows;
         }
-
-        /// <summary>
-        /// Sets the points.
-        /// </summary>
-        public void SetPoints( )
-        {
-            if( Enum.IsDefined( typeof( ChartSeriesType ), ChartType )
-               && Enum.IsDefined( typeof( STAT ), STAT )
-               && Data?.Any( ) == true )
-            {
-                try
-                {
-                    switch( ChartType )
-                    {
-                        case ChartSeriesType.Pyramid:
-                        case ChartSeriesType.Funnel:
-                        case ChartSeriesType.Pie:
-                        {
-                            foreach( ChartSeries _chartSeries in Series )
-                            {
-                                foreach( var _dataRow in Data )
-                                {
-                                    var _category = _dataRow[ xAxis ].ToString(  );
-                                    var _value = double.Parse( _dataRow[ yValue ].ToString( ) );
-                                    _chartSeries.Points.Add( _category, _value );
-                                    if( _chartSeries.STAT != STAT.Percentage )
-                                    {
-                                        _chartSeries.Styles[ 0 ].TextFormat =
-                                            $"{_category} \n {_value:N01}";
-                                    }
-                                    else if( _chartSeries.STAT == STAT.Percentage )
-                                    {
-                                        _chartSeries.Styles[ 0 ].TextFormat =
-                                            $"{_category} \n {_value:P}";
-                                    }
-                                }
-                            }
-
-                            break;
-                        }
-                        default:
-                        {
-                            foreach( ChartSeries _chartSeries in Series )
-                            {
-                                foreach( var _dataRow in Data )
-                                {
-                                    var _category = _dataRow[ xAxis ].ToString(  );
-                                    var _value = double.Parse( _dataRow[ yValue ].ToString( ) );
-                                    _chartSeries.Points.Add( _category, _value );
-                                }
-                            }
-
-                            break;
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Creates the series.
         /// </summary>
         /// <returns></returns>
-        public void InitSeries( )
+        public void DecorateSeries( )
         {
             if( Series != null 
                && BindingModel != null )
