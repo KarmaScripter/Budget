@@ -336,7 +336,7 @@ namespace BudgetExecution
             try
             {
                 var _path =
-                    @"C:\Users\terry\source\repos\Budget\Resource\Documents\EPA Funds Control Manual.pdf";
+                    @"C:\Users\terry\source\repos\Budget\Resource\Documents\FundsControlManual.pdf";
                 var _pdf = new PdfForm( _path );
                 _pdf.ShowDialog(  );
             }

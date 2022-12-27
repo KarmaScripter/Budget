@@ -113,7 +113,8 @@ namespace BudgetExecution
                 ToolStrip.ShowCaption = false;
                 if( !string.IsNullOrEmpty( FileName ) )
                 {
-                    ToolStrip.Label.Text = FileName;
+                    var _name = Path.GetFileNameWithoutExtension( FileName );
+                    ToolStrip.Label.Text = _name.SplitPascal(  );
                 }
                 
                 LoadDocuments(  );
@@ -143,7 +144,7 @@ namespace BudgetExecution
                     {
                         var _file = _names[ _i ];
                         var _name = Path.GetFileNameWithoutExtension( _file );
-                        ToolStrip.DropDown.Items.Add( _name );
+                        ToolStrip.DropDown.Items.Add( _name.SplitPascal(  ) );
                     }
                 }
             }
