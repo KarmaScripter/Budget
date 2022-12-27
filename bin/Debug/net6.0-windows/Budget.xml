@@ -3261,6 +3261,13 @@
             </summary>
             <param name="bindingSource">The binding source.</param>
         </member>
+        <member name="M:BudgetExecution.ExcelForm.#ctor(System.Data.DataTable)">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.ExcelForm"/> class.
+            </summary>
+            <param name="dataTable">The data table.</param>
+        </member>
         <member name="M:BudgetExecution.ExcelForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
             Called when [load].

@@ -156,6 +156,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="ExcelForm"/> class.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        public ExcelForm( DataTable dataTable ) 
+            : this( )
+        {
+            DataTable = dataTable;
+            BindingSource.DataSource = dataTable;
+        }
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
