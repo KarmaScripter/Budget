@@ -129,6 +129,8 @@
             this.Separator25 = new BudgetExecution.ToolSeparator();
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
+            this.BackButton = new BudgetExecution.ToolStripButton();
+            this.toolSeparator3 = new BudgetExecution.ToolSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -912,6 +914,8 @@
             this.Separator22,
             this.ComboBox,
             this.Separator23,
+            this.BackButton,
+            this.toolSeparator3,
             this.MenuButton,
             this.Separator28,
             this.ExitButton,
@@ -1140,7 +1144,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(167, 28);
+            this.TextBox.Size = new System.Drawing.Size(165, 28);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1812,6 +1816,35 @@
             this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
             // 
+            // BackButton
+            // 
+            this.BackButton.AutoToolTip = false;
+            this.BackButton.BackColor = System.Drawing.Color.Transparent;
+            this.BackButton.BindingSource = this.BindingSource;
+            this.BackButton.DataFilter = null;
+            this.BackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BackButton.Field = BudgetExecution.Field.AccountCode;
+            this.BackButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BackButton.ForeColor = System.Drawing.Color.LightGray;
+            this.BackButton.HoverText = "Go Back";
+            this.BackButton.Image = global::BudgetExecution.Properties.Resources.BackButton;
+            this.BackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Padding = new System.Windows.Forms.Padding(1);
+            this.BackButton.Size = new System.Drawing.Size(26, 24);
+            this.BackButton.Text = "toolStripButton1";
+            this.BackButton.ToolTip = this.ToolTip;
+            this.BackButton.ToolType = BudgetExecution.ToolType.NS;
+            // 
+            // toolSeparator3
+            // 
+            this.toolSeparator3.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator3.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator3.Name = "toolSeparator3";
+            this.toolSeparator3.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator3.Size = new System.Drawing.Size(6, 28);
+            // 
             // DataGridForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1961,5 +1994,7 @@
         private ToolSeparator toolSeparator1;
         public ToolStripButton SearchButton;
         private ToolSeparator toolSeparator2;
+        private ToolStripButton BackButton;
+        private ToolSeparator toolSeparator3;
     }
 }

@@ -154,7 +154,9 @@ namespace BudgetExecution
                 PopulateTableListBoxItems( );
                 PopulateToolBarDropDownItems( );
                 ToolStrip.Office12Mode = true;
-                ToolStrip.ImageSize = new Size( 20, 22  );
+                ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
+                ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
+                ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
                 TableLabel.Text = TableListBox.Items.Count.ToString( );
                 ColumnLabel.Text = string.Empty;
                 ValueLabel.Text = string.Empty;

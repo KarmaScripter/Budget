@@ -50,6 +50,11 @@ namespace BudgetExecution
         AddDatabaseButton,
 
         /// <summary>
+        /// The back button
+        /// </summary>
+        BackButton,
+        
+        /// <summary>
         /// The bluetooth button
         /// </summary>
         BlueToothButton,
