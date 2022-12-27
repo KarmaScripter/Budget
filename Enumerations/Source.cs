@@ -285,6 +285,16 @@ namespace BudgetExecution
         GrowthRates,
 
         /// <summary>
+        /// The gross authority
+        /// </summary>
+        GrossAuthority,
+
+        /// <summary>
+        /// The gross utilization
+        /// </summary>
+        GrossUtilization,
+        
+        /// <summary>
         /// The gs pay scales
         /// </summary>
         GsPayScales,

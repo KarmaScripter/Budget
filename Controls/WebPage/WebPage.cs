@@ -18,7 +18,21 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class WebPage : MetroForm
     {
-        public Uri WebAdress { get; set; }
+        /// <summary>
+        /// Gets or sets the web address.
+        /// </summary>
+        /// <value>
+        /// The web address.
+        /// </value>
+        public Uri WebAddress { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the base address.
+        /// </summary>
+        /// <value>
+        /// The base address.
+        /// </value>
+        public Uri BaseAddress { get; set; }
         
         /// <summary>
         /// Initializes a new
@@ -51,7 +65,7 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // WebControl Properties
-            WebAdress =  new Uri( @"https://www.google.com" );
+            WebAddress =  new Uri( @"https://www.google.com" );
             
             // Event Wiring
             Load += OnLoad;
@@ -71,7 +85,7 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 ToolStrip.ShowCaption = true;
                 ToolStrip.Text = string.Empty;
-                WebControl.LoadHTML( WebAdress );
+                WebControl.LoadHTML( WebAddress );
             }
             catch( Exception ex )
             {

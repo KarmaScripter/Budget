@@ -8584,6 +8584,22 @@
             </summary>
             <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
         </member>
+        <member name="P:BudgetExecution.WebPage.WebAddress">
+            <summary>
+            Gets or sets the web address.
+            </summary>
+            <value>
+            The web address.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.WebPage.BaseAddress">
+            <summary>
+            Gets or sets the base address.
+            </summary>
+            <value>
+            The base address.
+            </value>
+        </member>
         <member name="M:BudgetExecution.WebPage.#ctor">
             <summary>
             Initializes a new
@@ -18557,6 +18573,16 @@
         <member name="F:BudgetExecution.Source.GrowthRates">
             <summary>
             The growth rates
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.Source.GrossAuthority">
+            <summary>
+            The gross authority
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.Source.GrossUtilization">
+            <summary>
+            The gross utilization
             </summary>
         </member>
         <member name="F:BudgetExecution.Source.GsPayScales">

@@ -9,7 +9,9 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
     using System.Configuration;
+    using System.Data;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
 
     /// <summary>
@@ -180,15 +182,17 @@ namespace BudgetExecution
             try
             {
                 TableListBox.Items.Clear( );
-                var _names = Enum.GetNames( typeof( Source ) );
-                for( var _i = 0; _i < _names?.Length; _i++ )
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData(  );
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.ToList(  );
+                
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
-                    if( name != "NS" 
-                       && name != "External" )
-                    {
-                        TableListBox.Items.Add( name );
-                    }
+                    TableListBox.Items.Add( name );
                 }
             }
             catch( Exception ex )

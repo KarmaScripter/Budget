@@ -120,14 +120,17 @@ namespace BudgetExecution
             {
                 TableNameComboBox.Items.Clear( );
                 TableNameComboBox.SelectedItem = string.Empty;
-                var _names = Enum.GetNames( typeof( Source ) );
-                for( var i = 0; i < _names?.Length; i++ )
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData(  );
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.ToList(  );
+                
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    if( _names[ i ] != "NS" 
-                       && _names[ i ] != "External" )
-                    {
-                        TableNameComboBox.Items.Add( _names[ i ] );
-                    }
+                    var name = _names[ _i ];
+                    TableNameComboBox.Items.Add( name );
                 }
             }
             catch( Exception ex )

@@ -202,8 +202,10 @@ namespace BudgetExecution
                 try
                 {
                     var _cols = Columns.ToArray( );
-                    foreach( var frame in Frames )
+                    var _frames = Frames.ToArray( );
+                    for( var _i = 0; _i < _frames.Length; _i++ )
                     {
+                        var frame = _frames[ _i ];
                         if( frame.Index >= _cols.Length )
                         {
                             frame.Visible = false;
