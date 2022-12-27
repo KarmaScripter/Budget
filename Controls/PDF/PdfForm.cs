@@ -33,6 +33,14 @@ namespace BudgetExecution
         public string FilePath { get; set; }
 
         /// <summary>
+        /// Gets or sets the directory path.
+        /// </summary>
+        /// <value>
+        /// The directory path.
+        /// </value>
+        public string DirectoryPath { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the file.
         /// </summary>
         /// <value>
@@ -82,6 +90,7 @@ namespace BudgetExecution
             
             // Event Wiring
             Load += OnLoad;
+            ToolStrip.DropDown.SelectedIndexChanged += OnDropDownItemSelected;
         }
 
         /// <summary>
@@ -111,12 +120,7 @@ namespace BudgetExecution
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
                 ToolStrip.ShowCaption = false;
-                if( !string.IsNullOrEmpty( FileName ) )
-                {
-                    var _name = Path.GetFileNameWithoutExtension( FileName );
-                    ToolStrip.Label.Text = _name.SplitPascal(  );
-                }
-                
+                ToolStrip.Label.Text = "Guidance Documents";
                 LoadDocuments(  );
             }
             catch ( Exception ex )
@@ -133,13 +137,11 @@ namespace BudgetExecution
         {
             try
             {
-                Document = new PdfLoadedDocument( FilePath );
-                DocViewer.Load( Document );
-                var _dirPath = ConfigurationManager.AppSettings[ "Documents" ];
-                if( !string.IsNullOrEmpty( _dirPath )
-                   && Directory.Exists( _dirPath ) )
+                DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
+                if( !string.IsNullOrEmpty( DirectoryPath )
+                   && Directory.Exists( DirectoryPath ) )
                 {
-                    var _names = Directory.GetFiles( _dirPath );
+                    var _names = Directory.GetFiles( DirectoryPath );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
                         var _file = _names[ _i ];
@@ -153,7 +155,28 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [drop down item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnDropDownItemSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _index = ToolStrip.DropDown.SelectedIndex;
+                var _item = ToolStrip.DropDown.Items[ _index ].ToString( );
+                var _name = _item?.Replace( " ", "" );
+                var _path = DirectoryPath + $"\\{ _name }" + ".pdf";
+                Document = new PdfLoadedDocument( _path );
+                DocViewer.Load( Document );
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

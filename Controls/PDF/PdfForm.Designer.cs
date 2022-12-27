@@ -164,7 +164,7 @@
             this.DropDown.Name = "DropDown";
             this.DropDown.Numeric = BudgetExecution.Numeric.Accepted;
             this.DropDown.Padding = new System.Windows.Forms.Padding(1);
-            this.DropDown.Size = new System.Drawing.Size(302, 26);
+            this.DropDown.Size = new System.Drawing.Size(352, 26);
             this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             this.DropDown.Tag = "Make Selection";
             this.DropDown.ToolTip = this.ToolTip;
@@ -365,6 +365,7 @@
             // 
             // DocViewer
             // 
+            this.DocViewer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.DocViewer.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
             this.DocViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DocViewer.EnableContextMenu = true;
@@ -398,10 +399,10 @@
             textSearchSettings1.HighlightAllInstance = true;
             textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
             this.DocViewer.TextSearchSettings = textSearchSettings1;
-            this.DocViewer.ThemeName = "Office2016DarkGray";
+            this.DocViewer.ThemeName = "Office2016Black";
             this.DocViewer.UseWaitCursor = true;
             this.DocViewer.VerticalScrollOffset = 0;
-            this.DocViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016DarkGray;
+            this.DocViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
             this.DocViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.FitWidth;
             // 
             // PdfForm

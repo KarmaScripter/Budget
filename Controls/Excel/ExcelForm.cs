@@ -112,7 +112,7 @@ namespace BudgetExecution
             Spreadsheet.Padding = new Padding( 1 );
             Spreadsheet.Font = new Font( "Roboto", 9, FontStyle.Regular );
             Spreadsheet.ForeColor = Color.Black;
-            Spreadsheet.DefaultColumnCount = 26;
+            Spreadsheet.DefaultColumnCount = 40;
             Spreadsheet.DefaultRowCount = 55;
             Spreadsheet.AllowZooming = true;
             

@@ -76,10 +76,11 @@
             this.EditColumnButton = new BudgetExecution.ToolStripButton();
             this.EditRecordButton = new BudgetExecution.ToolStripButton();
             this.ExcelButton = new BudgetExecution.ToolStripButton();
-            this.Separator1 = new BudgetExecution.ToolSeparator();
             this.Separator3 = new BudgetExecution.ToolSeparator();
             this.TextBox = new BudgetExecution.ToolStripTextBox();
             this.Separator2 = new BudgetExecution.ToolSeparator();
+            this.SearchButton = new BudgetExecution.ToolStripButton();
+            this.toolSeparator2 = new BudgetExecution.ToolSeparator();
             this.FirstButton = new BudgetExecution.ToolStripButton();
             this.Separator4 = new BudgetExecution.ToolSeparator();
             this.PreviousButton = new BudgetExecution.ToolStripButton();
@@ -124,12 +125,10 @@
             this.Separator28 = new BudgetExecution.ToolSeparator();
             this.ExitButton = new BudgetExecution.ToolStripButton();
             this.Separator27 = new BudgetExecution.ToolSeparator();
+            this.Separator1 = new BudgetExecution.ToolSeparator();
             this.Separator25 = new BudgetExecution.ToolSeparator();
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
-            this.TestButton = new BudgetExecution.Button();
-            this.SearchButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator2 = new BudgetExecution.ToolSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -1122,14 +1121,6 @@
             this.ExcelButton.ToolTip = this.ToolTip;
             this.ExcelButton.ToolType = BudgetExecution.ToolType.ExcelExportButton;
             // 
-            // Separator1
-            // 
-            this.Separator1.ForeColor = System.Drawing.Color.Black;
-            this.Separator1.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator1.Name = "Separator1";
-            this.Separator1.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // Separator3
             // 
             this.Separator3.ForeColor = System.Drawing.Color.Black;
@@ -1149,7 +1140,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(173, 28);
+            this.TextBox.Size = new System.Drawing.Size(171, 28);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1160,6 +1151,35 @@
             this.Separator2.Name = "Separator2";
             this.Separator2.Padding = new System.Windows.Forms.Padding(1);
             this.Separator2.Size = new System.Drawing.Size(6, 28);
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.AutoToolTip = false;
+            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.BindingSource = this.BindingSource;
+            this.SearchButton.DataFilter = null;
+            this.SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SearchButton.Field = BudgetExecution.Field.AccountCode;
+            this.SearchButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.ForeColor = System.Drawing.Color.LightGray;
+            this.SearchButton.HoverText = "Search";
+            this.SearchButton.Image = global::BudgetExecution.Properties.Resources.LookupButton;
+            this.SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(3);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Padding = new System.Windows.Forms.Padding(1);
+            this.SearchButton.Size = new System.Drawing.Size(26, 24);
+            this.SearchButton.Text = "toolStripButton1";
+            this.SearchButton.ToolTip = this.ToolTip;
+            this.SearchButton.ToolType = BudgetExecution.ToolType.LookupButton;
+            // 
+            // toolSeparator2
+            // 
+            this.toolSeparator2.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator2.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator2.Name = "toolSeparator2";
+            this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
             // FirstButton
             // 
@@ -1746,6 +1766,14 @@
             this.Separator27.Padding = new System.Windows.Forms.Padding(1);
             this.Separator27.Size = new System.Drawing.Size(6, 28);
             // 
+            // Separator1
+            // 
+            this.Separator1.ForeColor = System.Drawing.Color.Black;
+            this.Separator1.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator1.Name = "Separator1";
+            this.Separator1.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // Separator25
             // 
             this.Separator25.ForeColor = System.Drawing.Color.Black;
@@ -1784,67 +1812,6 @@
             this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
             // 
-            // TestButton
-            // 
-            this.TestButton.BindingSource = null;
-            this.TestButton.DataFilter = null;
-            this.TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.TestButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.TestButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.TestButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TestButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.TestButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.TestButton.HoverText = null;
-            this.TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.TestButton.IsDerivedStyle = true;
-            this.TestButton.Location = new System.Drawing.Point(161, 622);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.TestButton.NormalColor = System.Drawing.Color.Transparent;
-            this.TestButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TestButton.Padding = new System.Windows.Forms.Padding(1);
-            this.TestButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TestButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TestButton.PressTextColor = System.Drawing.Color.White;
-            this.TestButton.Size = new System.Drawing.Size(103, 21);
-            this.TestButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TestButton.StyleManager = null;
-            this.TestButton.TabIndex = 42;
-            this.TestButton.Text = "Test";
-            this.TestButton.ThemeAuthor = "Terry D. Eppler";
-            this.TestButton.ThemeName = "BudgetExecution";
-            this.TestButton.ToolTip = null;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.AutoToolTip = false;
-            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.SearchButton.BindingSource = this.BindingSource;
-            this.SearchButton.DataFilter = null;
-            this.SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SearchButton.Field = BudgetExecution.Field.AccountCode;
-            this.SearchButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchButton.ForeColor = System.Drawing.Color.LightGray;
-            this.SearchButton.HoverText = "Search";
-            this.SearchButton.Image = global::BudgetExecution.Properties.Resources.LookupButton;
-            this.SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(3);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Padding = new System.Windows.Forms.Padding(1);
-            this.SearchButton.Size = new System.Drawing.Size(26, 24);
-            this.SearchButton.Text = "toolStripButton1";
-            this.SearchButton.ToolTip = this.ToolTip;
-            this.SearchButton.ToolType = BudgetExecution.ToolType.LookupButton;
-            // 
-            // toolSeparator2
-            // 
-            this.toolSeparator2.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator2.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Name = "toolSeparator2";
-            this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Size = new System.Drawing.Size(6, 28);
-            // 
             // DataGridForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1858,7 +1825,6 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 712);
-            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -1986,7 +1952,6 @@
         public ToolStrip ToolStrip;
         public ToolStripButton FirstButton;
         public ToolStripButton ExitButton;
-        public Button TestButton;
         public ToolStripButton PdfButton;
         public ToolStripButton ExcelImportButton;
         public ToolSeparator Separator27;

@@ -5766,6 +5766,14 @@
             The file path.
             </value>
         </member>
+        <member name="P:BudgetExecution.PdfForm.DirectoryPath">
+            <summary>
+            Gets or sets the directory path.
+            </summary>
+            <value>
+            The directory path.
+            </value>
+        </member>
         <member name="P:BudgetExecution.PdfForm.FileName">
             <summary>
             Gets or sets the name of the file.
@@ -5807,6 +5815,13 @@
             Gets the document name list.
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.PdfForm.OnDropDownItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [drop down item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.PdfForm.Fail(System.Exception)">
             <summary>

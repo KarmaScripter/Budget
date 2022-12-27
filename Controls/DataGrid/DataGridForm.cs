@@ -114,7 +114,6 @@ namespace BudgetExecution
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
-            TestButton.Click += OnTestButtonClicked;
         }
 
         /// <summary>
@@ -130,7 +129,6 @@ namespace BudgetExecution
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
-            TestButton.Click += OnTestButtonClicked;
         }
 
         /// <summary>
@@ -335,9 +333,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path =
-                    @"C:\Users\terry\source\repos\Budget\Resource\Documents\FundsControlManual.pdf";
-                var _pdf = new PdfForm( _path );
+                var _pdf = new PdfForm( );
                 _pdf.ShowDialog(  );
             }
             catch( Exception ex )

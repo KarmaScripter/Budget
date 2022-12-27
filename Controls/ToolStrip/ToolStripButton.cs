@@ -172,11 +172,10 @@ namespace BudgetExecution
                             _excelForm?.ShowDialog( );
                             break;
                         }
+                        case ToolType.GuidanceButton:
                         case ToolType.PdfButton:
                         {
-                            var _pdf =
-                                @"C:\Users\terry\source\repos\Budget\Resource\Documents\EPA Funds Control Manual.pdf";
-                            using var _message = new PdfForm( _pdf );
+                            using var _message = new PdfForm( );
                             _message?.ShowDialog( );
                             break;
                         }
@@ -225,7 +224,6 @@ namespace BudgetExecution
                         case ToolType.EmailButton:
                         case ToolType.ExportDatabaseButton:
                         case ToolType.PauseButton:
-                        case ToolType.GuidanceButton:
                         case ToolType.ImportDatabaseButton:
                         case ToolType.GridButton:
                         case ToolType.PlayButton:
