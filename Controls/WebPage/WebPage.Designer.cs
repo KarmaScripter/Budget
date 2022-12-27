@@ -35,7 +35,6 @@ partial class WebPage
     {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebPage));
-            this.WebControl = new Syncfusion.Windows.Forms.HTMLUI.HTMLUIControl();
             this.ToolStrip = new BudgetExecution.ToolStrip();
             this.toolSeparator3 = new BudgetExecution.ToolSeparator();
             this.SearchEngineLabel = new BudgetExecution.ToolStripLabel();
@@ -64,22 +63,11 @@ partial class WebPage
             this.toolSeparator10 = new BudgetExecution.ToolSeparator();
             this.LogoutButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator11 = new BudgetExecution.ToolSeparator();
-            ((System.ComponentModel.ISupportInitialize)(this.WebControl)).BeginInit();
+            this.WebControl = new Syncfusion.Windows.Forms.HTMLUI.HTMLUIControl();
             this.ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WebControl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // WebControl
-            // 
-            this.WebControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WebControl.DefaultFormat.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.WebControl.DefaultFormat.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.WebControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WebControl.Location = new System.Drawing.Point(0, 0);
-            this.WebControl.Name = "WebControl";
-            this.WebControl.Size = new System.Drawing.Size(1388, 712);
-            this.WebControl.TabIndex = 0;
-            this.WebControl.Text = "<html/>";
             // 
             // ToolStrip
             // 
@@ -300,7 +288,7 @@ partial class WebPage
             this.SearchBox.Margin = new System.Windows.Forms.Padding(1);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Padding = new System.Windows.Forms.Padding(1);
-            this.SearchBox.Size = new System.Drawing.Size(376, 26);
+            this.SearchBox.Size = new System.Drawing.Size(362, 26);
             this.SearchBox.Tag = "";
             this.SearchBox.ToolTip = this.ToolTip;
             // 
@@ -544,6 +532,22 @@ partial class WebPage
             this.toolSeparator11.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator11.Size = new System.Drawing.Size(6, 26);
             // 
+            // WebControl
+            // 
+            this.WebControl.BackColor = System.Drawing.SystemColors.Control;
+            this.WebControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.WebControl.BorderSingle = System.Windows.Forms.ButtonBorderStyle.None;
+            this.WebControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WebControl.DefaultFormat.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.WebControl.DefaultFormat.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.WebControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WebControl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.WebControl.Location = new System.Drawing.Point(0, 0);
+            this.WebControl.Name = "WebControl";
+            this.WebControl.Size = new System.Drawing.Size(1388, 668);
+            this.WebControl.TabIndex = 2;
+            this.WebControl.Text = "<html/>";
+            // 
             // WebPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -557,8 +561,8 @@ partial class WebPage
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 712);
-            this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.WebControl);
+            this.Controls.Add(this.ToolStrip);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -570,18 +574,16 @@ partial class WebPage
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Web Document";
-            ((System.ComponentModel.ISupportInitialize)(this.WebControl)).EndInit();
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WebControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
     }
 
     #endregion
-
-    public Syncfusion.Windows.Forms.HTMLUI.HTMLUIControl WebControl;
     public ToolStrip ToolStrip;
     public System.Windows.Forms.BindingSource BindingSource;
     public SmallTip ToolTip;
@@ -610,4 +612,5 @@ partial class WebPage
     private ToolSeparator toolSeparator10;
     public ToolStripButton LogoutButton;
     private ToolSeparator toolSeparator11;
+    public Syncfusion.Windows.Forms.HTMLUI.HTMLUIControl WebControl;
 }

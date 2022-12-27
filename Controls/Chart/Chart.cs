@@ -9,9 +9,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
@@ -167,7 +165,15 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             Data = DataTable.AsEnumerable(  );
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Chart"/> class.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="names">The names.</param>
+        /// <param name="values">The values.</param>
+        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="stat">The stat.</param>
         public Chart( BindingSource bindingSource, string names, string values, 
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
@@ -201,7 +207,15 @@ namespace BudgetExecution
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Chart"/> class.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="names">The names.</param>
+        /// <param name="values">The values.</param>
+        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="stat">The stat.</param>
         public Chart( DataTable dataTable, string names, string values, 
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
@@ -216,7 +230,15 @@ namespace BudgetExecution
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Chart"/> class.
+        /// </summary>
+        /// <param name="dataRows">The data rows.</param>
+        /// <param name="names">The names.</param>
+        /// <param name="values">The values.</param>
+        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="stat">The stat.</param>
         public Chart( IEnumerable<DataRow> dataRows, string names, string values,   
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )

@@ -922,11 +922,41 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
+        <member name="M:BudgetExecution.Chart.#ctor(System.Windows.Forms.BindingSource,System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
+            </summary>
+            <param name="bindingSource">The binding source.</param>
+            <param name="names">The names.</param>
+            <param name="values">The values.</param>
+            <param name="chartType">Type of the chart.</param>
+            <param name="stat">The stat.</param>
+        </member>
         <member name="M:BudgetExecution.Chart.#ctor(System.Data.DataTable,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
             </summary>
             <param name="dataTable">The data table.</param>
+            <param name="chartType">Type of the chart.</param>
+            <param name="stat">The stat.</param>
+        </member>
+        <member name="M:BudgetExecution.Chart.#ctor(System.Data.DataTable,System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
+            </summary>
+            <param name="dataTable">The data table.</param>
+            <param name="names">The names.</param>
+            <param name="values">The values.</param>
+            <param name="chartType">Type of the chart.</param>
+            <param name="stat">The stat.</param>
+        </member>
+        <member name="M:BudgetExecution.Chart.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow},System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
+            </summary>
+            <param name="dataRows">The data rows.</param>
+            <param name="names">The names.</param>
+            <param name="values">The values.</param>
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>

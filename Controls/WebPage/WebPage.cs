@@ -18,6 +18,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class WebPage : MetroForm
     {
+        public Uri WebAdress { get; set; }
+        
         /// <summary>
         /// Initializes a new
         /// instance of the <see cref="WebPage"/> class.
@@ -48,6 +50,9 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             
+            // WebControl Properties
+            WebAdress =  new Uri( @"https://www.google.com" );
+            
             // Event Wiring
             Load += OnLoad;
         }
@@ -63,9 +68,10 @@ namespace BudgetExecution
             try
             {
                 Text = @"Web Document";
-                WebControl.StartupDocument =
-                    @"C:\Users\terry\source\repos\Budget\Resource\Documents\EPA Funds Control Manual.pdf";
+                ToolStrip.Office12Mode = true;
+                ToolStrip.ShowCaption = true;
                 ToolStrip.Text = string.Empty;
+                WebControl.LoadHTML( WebAdress );
             }
             catch( Exception ex )
             {
