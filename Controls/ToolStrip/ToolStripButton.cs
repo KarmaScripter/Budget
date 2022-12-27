@@ -180,12 +180,6 @@ namespace BudgetExecution
                             _message?.ShowDialog( );
                             break;
                         }
-                        case ToolType.PrintButton:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
-                            break;
-                        }
                         case ToolType.AddButton:
                         case ToolType.AddTableButton:
                         case ToolType.AddDatabaseButton:
@@ -201,8 +195,10 @@ namespace BudgetExecution
                         }
                         case ToolType.DeleteButton:
                         case ToolType.EditButton:
+                        case ToolType.DataRowButton:
                         case ToolType.EditRecordButton:
                         case ToolType.CopyButton:
+                        case ToolType.AccountButton:
                         case ToolType.AddRecordButton:
                         case ToolType.DeleteRecordButton:
                         {
@@ -218,33 +214,54 @@ namespace BudgetExecution
                             _dialog?.ShowDialog( );
                             break;
                         }
+                        case ToolType.GoButton:
+                        case ToolType.GoogleButton:
+                        case ToolType.BlueToothButton:
+                        case ToolType.CancelRequestButton:
+                        case ToolType.CsvButton:
+                        case ToolType.CsvExportButton:
+                        case ToolType.CsvImportButton:
+                        case ToolType.DataConfigButton:
+                        case ToolType.EmailButton:
+                        case ToolType.ExportDatabaseButton:
+                        case ToolType.PauseButton:
+                        case ToolType.GuidanceButton:
+                        case ToolType.ImportDatabaseButton:
+                        case ToolType.GridButton:
+                        case ToolType.PlayButton:
+                        case ToolType.DownloadButton:
+                        case ToolType.DownloadDataButton:
+                        case ToolType.DatabaseSettingsButton:
+                        case ToolType.NavigationButton:
+                        case ToolType.PdfExportButton:
+                        case ToolType.PdfImportButton:
+                        case ToolType.PowerPointButton:
+                        case ToolType.PrintButton:
+                        case ToolType.RedoButton:
+                        case ToolType.RemoveButton:
+                        case ToolType.SkipButton:
+                        case ToolType.SqlServerButton:
+                        case ToolType.StopButton:
+                        case ToolType.PrinterButton:
+                        case ToolType.MetricsButton:
                         case ToolType.WebNextButton:
                         case ToolType.WebBackButton:
-                        case ToolType.RefreshButton:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
-                            break;
-                        }
                         case ToolType.ExitButton:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
-                            break;
-                        }
                         case ToolType.ExportButton:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
-                            break;
-                        }
                         case ToolType.ImportButton:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
-                            break;
-                        }
                         case ToolType.TableButton:
+                        case ToolType.RewindButton:
+                        case ToolType.SettingsButton:
+                        case ToolType.TableSettingsButton:
+                        case ToolType.TransferButton:
+                        case ToolType.TransferInButton:
+                        case ToolType.TransferOutButton:
+                        case ToolType.TrashButton:
+                        case ToolType.UploadButton:
+                        case ToolType.UploadDataButton:
+                        case ToolType.UndoButton:
+                        case ToolType.WordButton:
+                        case ToolType.RefreshButton:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show(  );

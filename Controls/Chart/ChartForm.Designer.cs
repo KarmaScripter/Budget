@@ -632,7 +632,6 @@
             this.Chart.AllowGradientPalette = true;
             this.Chart.AllowUserEditStyles = true;
             this.Chart.AutoHighlight = true;
-            this.Chart.BindingModel = null;
             this.Chart.BindingSource = this.BindingSource;
             this.Chart.ChartArea.AutoScale = true;
             this.Chart.ChartArea.BorderColor = System.Drawing.Color.Transparent;
@@ -640,17 +639,13 @@
             this.Chart.ChartArea.CursorReDraw = false;
             this.Chart.ChartAreaMargins = new Syncfusion.Windows.Forms.Chart.ChartMargins(3, 3, 3, 3);
             this.Chart.DataFilter = null;
-            this.Chart.DataMetric = null;
-            this.Chart.DataSeries = null;
-            this.Chart.DataSource = null;
-            this.Chart.DataValues = null;
+            this.Chart.ChartSeries = null;
             this.Chart.Depth = 250F;
             this.Chart.DisplayChartContextMenu = false;
             this.Chart.DisplaySeriesContextMenu = false;
             this.Chart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Chart.EnableMouseRotation = true;
             this.Chart.Field = BudgetExecution.Field.AccountCode;
-            this.Chart.HoverText = null;
             this.Chart.IsWindowLess = false;
             // 
             // 
@@ -686,7 +681,6 @@
             this.Chart.Stat = BudgetExecution.STAT.NS;
             this.Chart.Style3D = true;
             this.Chart.TabIndex = 1;
-            this.Chart.TableName = null;
             this.Chart.Text = "chart1";
             this.Chart.Tilt = 5F;
             // 
@@ -698,7 +692,6 @@
             this.Chart.ToolBar.ShowBorder = false;
             this.Chart.ToolBar.ShowGrip = false;
             this.Chart.ToolBar.Visible = true;
-            this.Chart.ToolTip = null;
             this.Chart.VisualTheme = "";
             // 
             // ChartForm

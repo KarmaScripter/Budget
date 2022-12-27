@@ -182,7 +182,7 @@ namespace BudgetExecution
         /// <value>
         /// The series data.
         /// </value>
-        IDictionary<string, double> SeriesData { get; set; }
+        IDictionary<string, double> PointData { get; set; }
 
         /// <summary>
         /// Gets or sets the series values.

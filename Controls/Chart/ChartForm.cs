@@ -57,6 +57,7 @@ namespace BudgetExecution
         public ChartForm( BindingSource bindingSource )
             : this( )
         {
+            BindingSource = bindingSource;
             ToolStrip.BindingSource = bindingSource;
             ToolStrip.BindingSource.DataSource = bindingSource.DataSource;
             Chart = new Chart( bindingSource ) ;

@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public virtual IEnumerable<DataRow> Data { get; set; }
+        public IEnumerable<DataRow> Data { get; set; }
 
         /// <summary>
         /// Gets the binding model.
@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The binding model.
         /// </value>
-        public virtual ChartDataBindModel ChartData { get; set; }
+        public ChartDataBindModel ChartData { get; set; }
 
         /// <summary>
         /// Gets or sets the axis label model.
@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The axis label model.
         /// </value>
-        public virtual ChartDataBindAxisLabelModel AxisLabelModel { get; set; }
+        public ChartDataBindAxisLabelModel AxisLabelModel { get; set; }
 
         /// <summary>
         /// Gets or sets the metric.
@@ -48,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The metric.
         /// </value>
-        public virtual DataMetric DataMetric { get; set; }
+        public DataMetric DataMetric { get; set; }
 
         /// <summary>
         /// Gets the value.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The value.
         /// </value>
-        public virtual STAT Stat { get; set; }
+        public STAT Stat { get; set; }
 
         /// <summary>
         /// Gets the series data.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The series data.
         /// </value>
-        public virtual IDictionary<string, double> SeriesData { get; set; }
+        public IDictionary<string, double> PointData { get; set; }
 
         /// <summary>
         /// Gets or sets the series values.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The series values.
         /// </value>
-        public virtual IEnumerable<double> Values { get; set; }
+        public IEnumerable<double> Values { get; set; }
 
         /// <summary>
         /// Gets or sets the series categories.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The series categories.
         /// </value>
-        public virtual IEnumerable<string> Categories { get; set; }
+        public IEnumerable<string> Categories { get; set; }
 
         /// <summary>
         /// Initializes a new instance
@@ -101,8 +101,8 @@ namespace BudgetExecution
             DataSource = Data.CopyToDataTable( );
             AxisLabelModel = new ChartDataBindAxisLabelModel( DataSource );
             DataMetric = new DataMetric( bindingSource );
-            SeriesData = DataMetric.CalculateStatistics( );
-            Categories = SeriesData.Keys;
+            PointData = DataMetric.CalculateStatistics( );
+            Categories = PointData.Keys;
             ChartData.Changed += OnChanged;
         }
 
@@ -117,8 +117,8 @@ namespace BudgetExecution
             DataSource = dataTable;
             AxisLabelModel = new ChartDataBindAxisLabelModel( DataSource );
             DataMetric = new DataMetric( dataTable );
-            SeriesData = DataMetric.CalculateStatistics( );
-            Categories = SeriesData.Keys;
+            PointData = DataMetric.CalculateStatistics( );
+            Categories = PointData.Keys;
             ChartData.Changed += OnChanged;
         }
 
@@ -133,8 +133,8 @@ namespace BudgetExecution
             DataSource = dataSet.Tables[ 0 ];
             AxisLabelModel = new ChartDataBindAxisLabelModel( DataSource );
             DataMetric = new DataMetric( Data );
-            SeriesData = DataMetric.CalculateStatistics( );
-            Categories = SeriesData.Keys;
+            PointData = DataMetric.CalculateStatistics( );
+            Categories = PointData.Keys;
             ChartData.Changed += OnChanged;
         }
 
@@ -148,8 +148,8 @@ namespace BudgetExecution
             DataSource = dataRows.CopyToDataTable( );
             AxisLabelModel = new ChartDataBindAxisLabelModel( DataSource );
             DataMetric = new DataMetric( dataRows );
-            SeriesData = DataMetric.CalculateStatistics( );
-            Categories = SeriesData.Keys;
+            PointData = DataMetric.CalculateStatistics( );
+            Categories = PointData.Keys;
             ChartData.Changed += OnChanged;
         }
 
@@ -159,7 +159,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs" />
         /// instance containing the event data.</param>
-        public virtual void OnChanged( object sender, EventArgs e )
+        public void OnChanged( object sender, EventArgs e )
         {
             if( sender != null
                && e != null )

@@ -63,6 +63,12 @@ namespace BudgetExecution
             Statistics = CalculateStatistics( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataMetric"/> class.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="where">The dictionary.</param>
+        /// <param name="numeric">The numeric.</param>
         public DataMetric( BindingSource bindingSource, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
             : base( bindingSource, where, numeric )
@@ -85,6 +91,12 @@ namespace BudgetExecution
             Statistics = CalculateStatistics( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataMetric"/> class.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="where">The dictionary.</param>
+        /// <param name="numeric">The numeric.</param>
         public DataMetric( DataTable dataTable, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
             : base( dataTable, where, numeric )
@@ -111,6 +123,12 @@ namespace BudgetExecution
             Statistics = CalculateStatistics( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataMetric"/> class.
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="where"></param>
+        /// <param name="numeric"></param>
         public DataMetric( IEnumerable<DataRow> dataRow, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
             : base( dataRow, where, numeric )
@@ -139,7 +157,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRow?.Where( p => p.Field<decimal>( $"{ numeric }" ) != 0 )
+                    var _query = dataRow
+                        ?.Where( p => p.Field<decimal>( $"{ numeric }" ) != 0 )
                         ?.StandardDeviation( p => p.Field<decimal>( $"{ numeric }" ) );
 
                     return _query > 0
@@ -149,7 +168,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return 0.0d;
                 }
             }
@@ -175,7 +193,6 @@ namespace BudgetExecution
                && GetCount( dataRow, numeric ) > 30 )
             {
                 var _table = dataRow.CopyToDataTable( );
-
                 try
                 {
                     var _query = _table?.AsEnumerable( )
@@ -189,7 +206,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return 0.0d;
                 }
             }
@@ -219,7 +235,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }

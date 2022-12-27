@@ -99,7 +99,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartSeries"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="ChartSeries"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public ChartSeries( BindingSource bindingSource )
@@ -107,7 +108,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartSeries"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="ChartSeries"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         public ChartSeries( DataTable dataTable )
@@ -115,7 +117,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartSeries"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="ChartSeries"/> class.
         /// </summary>
         /// <param name="data">The data.</param>
         public ChartSeries( IEnumerable<DataRow> data )
@@ -123,7 +126,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartSeries"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="ChartSeries"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name = "dict" > </param>
@@ -154,14 +158,12 @@ namespace BudgetExecution
                         case ChartSeriesType.Pyramid:
                         case ChartSeriesType.Funnel:
                         case ChartSeriesType.Pie:
-
                         {
                             foreach( var _kvp in data )
                             {
                                 Points.Add( _kvp.Key, _kvp.Value );
                                 var _keys = data.Keys.Select( k => k.ToString( ) ).ToArray( );
                                 var _vals = data.Values.Select( v => v ).ToArray( );
-
                                 if( stat != STAT.Percentage )
                                 {
                                     for( var i = 0; i < data.Keys.Count; i++ )
@@ -182,9 +184,7 @@ namespace BudgetExecution
 
                             break;
                         }
-
                         default:
-
                         {
                             foreach( var _kvp in data )
                             {

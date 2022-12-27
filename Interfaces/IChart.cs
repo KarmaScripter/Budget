@@ -7,7 +7,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
     /// 
@@ -15,29 +14,13 @@ namespace BudgetExecution
     public interface IChart
     {
         /// <summary>
-        /// Gets or sets the header.
-        /// </summary>
-        /// <value>
-        /// The header.
-        /// </value>
-        ChartTitle Header { get; set; }
-
-        /// <summary>
         /// Gets or sets the binding source.
         /// </summary>
         /// <value>
         /// The binding source.
         /// </value>
         BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        SmallTip ToolTip { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
@@ -93,15 +76,7 @@ namespace BudgetExecution
         /// The data source.
         /// </value>
         object DataSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the table.
-        /// </summary>
-        /// <value>
-        /// The name of the table.
-        /// </value>
-        string TableName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the filter.
         /// </summary>
@@ -124,16 +99,8 @@ namespace BudgetExecution
         /// <value>
         /// The data series.
         /// </value>
-        ChartSeries DataSeries { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        IBindingModel BindingModel { get; set; }
-
+        ChartSeries ChartSeries { get; set; }
+        
         /// <summary>
         /// Sets the points.
         /// </summary>
