@@ -87,6 +87,7 @@ namespace BudgetExecution
                 ToolStrip.ShowCaption = true;
                 ToolStrip.Text = string.Empty;
                 WebControl.LoadHTML( WebAddress );
+                PopulateToolBarDropDownItems( );
             }
             catch( Exception ex )
             {
@@ -94,6 +95,29 @@ namespace BudgetExecution
             }
         }
         
+        /// <summary>
+        /// Populates the tool bar drop down items.
+        /// </summary>
+        public void PopulateToolBarDropDownItems( )
+        {
+            try
+            {
+                var _names = Enum.GetNames( typeof( Level ) );
+                for( var _i = 0; _i < _names.Length; _i++ )
+                {
+                    var name = _names[ _i ];
+                    if( name != "NS" )
+                    {
+                        DropDown.Items.Add( name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [back button clicked].
         /// </summary>

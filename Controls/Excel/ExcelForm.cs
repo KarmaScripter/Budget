@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
+    using Syncfusion.XlsIO;
     using Size = System.Drawing.Size;
 
     /// <summary>
@@ -95,7 +96,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             ShowMouseOver = true;
-            CaptionButtonHoverColor = Color.Red;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
             ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
@@ -185,6 +186,7 @@ namespace BudgetExecution
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
+                PopulateToolBarDropDownItems( );
                 if( DataTable != null )
                 {
                     ToolStrip.Label.Text = $"{ DataTable.TableName.SplitPascal( ) }";
@@ -199,6 +201,29 @@ namespace BudgetExecution
             }
         }
         
+        /// <summary>
+        /// Populates the tool bar drop down items.
+        /// </summary>
+        public void PopulateToolBarDropDownItems( )
+        {
+            try
+            {
+                var _names = Enum.GetNames( typeof( TableBuiltInStyles ) );
+                for( var _i = 0; _i < _names.Length; _i++ )
+                {
+                    var name = _names[ _i ];
+                    if( name != "NS" )
+                    {
+                        DropDown.Items.Add( name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [back button clicked].
         /// </summary>

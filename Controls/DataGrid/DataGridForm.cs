@@ -95,7 +95,7 @@ namespace BudgetExecution
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             ShowMouseOver = true;
             MinimizeBox = false;
             MaximizeBox = false;
@@ -216,7 +216,7 @@ namespace BudgetExecution
                     var name = _names[ _i ];
                     if( name != "NS" )
                     {
-                        ToolStrip.DropDown?.Items.Add( name );
+                        ComboBox.Items.Add( name );
                     }
                 }
             }

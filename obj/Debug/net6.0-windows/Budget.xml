@@ -1018,6 +1018,11 @@
             The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.ChartForm.PopulateToolBarDropDownItems">
+            <summary>
+            Populates the tool bar drop down items.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.ChartForm.OnBackButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [back button clicked].
@@ -3324,6 +3329,11 @@
             <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
             <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ExcelForm.PopulateToolBarDropDownItems">
+            <summary>
+            Populates the tool bar drop down items.
+            </summary>
         </member>
         <member name="M:BudgetExecution.ExcelForm.OnBackButtonClicked(System.Object,System.EventArgs)">
             <summary>
@@ -8643,6 +8653,11 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.WebPage.PopulateToolBarDropDownItems">
+            <summary>
+            Populates the tool bar drop down items.
+            </summary>
         </member>
         <member name="M:BudgetExecution.WebPage.OnBackButtonClicked(System.Object,System.EventArgs)">
             <summary>

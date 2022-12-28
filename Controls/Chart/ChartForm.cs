@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
     /// 
@@ -44,7 +45,7 @@ namespace BudgetExecution
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
             
@@ -122,6 +123,7 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
+                PopulateToolBarDropDownItems( );
             }
             catch ( Exception ex )
             {
@@ -129,6 +131,29 @@ namespace BudgetExecution
             }
         }
         
+        /// <summary>
+        /// Populates the tool bar drop down items.
+        /// </summary>
+        public void PopulateToolBarDropDownItems( )
+        {
+            try
+            {
+                var _names = Enum.GetNames( typeof( ChartSeriesType ) );
+                for( var _i = 0; _i < _names.Length; _i++ )
+                {
+                    var name = _names[ _i ];
+                    if( name != "NS" )
+                    {
+                        DropDown.Items.Add( name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [back button clicked].
         /// </summary>
