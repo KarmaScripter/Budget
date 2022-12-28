@@ -225,6 +225,7 @@ namespace BudgetExecution
                         case ToolType.CsvButton:
                         case ToolType.CsvExportButton:
                         case ToolType.CsvImportButton:
+                        case ToolType.ExcelImportButton:
                         case ToolType.DataConfigButton:
                         case ToolType.EmailButton:
                         case ToolType.ExportDatabaseButton:

@@ -113,7 +113,7 @@
             this.Separator21 = new BudgetExecution.ToolSeparator();
             this.CalculatorButton = new BudgetExecution.ToolStripButton();
             this.Separator24 = new BudgetExecution.ToolSeparator();
-            this.PdfButton = new BudgetExecution.ToolStripButton();
+            this.GuidanceButton = new BudgetExecution.ToolStripButton();
             this.Separator26 = new BudgetExecution.ToolSeparator();
             this.BrowseButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator1 = new BudgetExecution.ToolSeparator();
@@ -905,7 +905,7 @@
             this.Separator21,
             this.CalculatorButton,
             this.Separator24,
-            this.PdfButton,
+            this.GuidanceButton,
             this.Separator26,
             this.BrowseButton,
             this.toolSeparator1,
@@ -1119,7 +1119,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(141, 32);
+            this.TextBox.Size = new System.Drawing.Size(133, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1592,26 +1592,26 @@
             this.Separator24.Padding = new System.Windows.Forms.Padding(1);
             this.Separator24.Size = new System.Drawing.Size(6, 32);
             // 
-            // PdfButton
+            // GuidanceButton
             // 
-            this.PdfButton.AutoToolTip = false;
-            this.PdfButton.BackColor = System.Drawing.Color.Transparent;
-            this.PdfButton.BindingSource = this.BindingSource;
-            this.PdfButton.DataFilter = null;
-            this.PdfButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.PdfButton.Field = BudgetExecution.Field.AccountCode;
-            this.PdfButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PdfButton.ForeColor = System.Drawing.Color.LightGray;
-            this.PdfButton.HoverText = "View Documentation";
-            this.PdfButton.Image = global::BudgetExecution.Properties.Resources.PdfButton;
-            this.PdfButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PdfButton.Margin = new System.Windows.Forms.Padding(1);
-            this.PdfButton.Name = "PdfButton";
-            this.PdfButton.Padding = new System.Windows.Forms.Padding(1);
-            this.PdfButton.Size = new System.Drawing.Size(26, 32);
-            this.PdfButton.Text = "toolStripButton1";
-            this.PdfButton.ToolTip = this.ToolTip;
-            this.PdfButton.ToolType = BudgetExecution.ToolType.PdfButton;
+            this.GuidanceButton.AutoToolTip = false;
+            this.GuidanceButton.BackColor = System.Drawing.Color.Transparent;
+            this.GuidanceButton.BindingSource = this.BindingSource;
+            this.GuidanceButton.DataFilter = null;
+            this.GuidanceButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.GuidanceButton.Field = BudgetExecution.Field.AccountCode;
+            this.GuidanceButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GuidanceButton.ForeColor = System.Drawing.Color.LightGray;
+            this.GuidanceButton.HoverText = "View Documentation";
+            this.GuidanceButton.Image = global::BudgetExecution.Properties.Resources.GuidanceButton;
+            this.GuidanceButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.GuidanceButton.Margin = new System.Windows.Forms.Padding(1);
+            this.GuidanceButton.Name = "GuidanceButton";
+            this.GuidanceButton.Padding = new System.Windows.Forms.Padding(1);
+            this.GuidanceButton.Size = new System.Drawing.Size(26, 32);
+            this.GuidanceButton.Text = "toolStripButton1";
+            this.GuidanceButton.ToolTip = this.ToolTip;
+            this.GuidanceButton.ToolType = BudgetExecution.ToolType.GuidanceButton;
             // 
             // Separator26
             // 
@@ -1661,7 +1661,7 @@
             this.WebButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.WebButton.ForeColor = System.Drawing.Color.LightGray;
             this.WebButton.HoverText = "Search Web";
-            this.WebButton.Image = global::BudgetExecution.Properties.Resources.WebButton;
+            this.WebButton.Image = global::BudgetExecution.Properties.Resources.WebSearchButton;
             this.WebButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.WebButton.Margin = new System.Windows.Forms.Padding(1);
             this.WebButton.Name = "WebButton";
@@ -1960,7 +1960,7 @@
         public ToolStrip ToolStrip;
         public ToolStripButton FirstButton;
         public ToolStripButton ExitButton;
-        public ToolStripButton PdfButton;
+        public ToolStripButton GuidanceButton;
         public ToolStripButton ExcelImportButton;
         public ToolSeparator Separator27;
         public ToolSeparator Separator28;

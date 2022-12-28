@@ -255,7 +255,7 @@
             this.LookupButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LookupButton.ForeColor = System.Drawing.Color.LightGray;
             this.LookupButton.HoverText = null;
-            this.LookupButton.Image = global::BudgetExecution.Properties.Resources.LookupButton;
+            this.LookupButton.Image = global::BudgetExecution.Properties.Resources.DataSearchButton;
             this.LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LookupButton.Margin = new System.Windows.Forms.Padding(3);
             this.LookupButton.Name = "LookupButton";
@@ -284,7 +284,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(218, 32);
+            this.TextBox.Size = new System.Drawing.Size(216, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -672,7 +672,6 @@
             this.Chart.ChartSeries = null;
             this.Chart.ChartType = Syncfusion.Windows.Forms.Chart.ChartSeriesType.Line;
             this.Chart.Data = null;
-            this.Chart.DataFilter = null;
             this.Chart.DataTable = null;
             this.Chart.Depth = 250F;
             this.Chart.DisplayChartContextMenu = false;

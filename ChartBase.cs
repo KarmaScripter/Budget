@@ -109,7 +109,7 @@ namespace BudgetExecution
             ToolBar.Orientation = ChartOrientation.Horizontal;
             ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
             ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.Position = ChartDock.Bottom;
+            ToolBar.Position = ChartDock.Top;
             ToolBar.ShowGrip = false;
             ToolBar.ShowBorder = false;
         }

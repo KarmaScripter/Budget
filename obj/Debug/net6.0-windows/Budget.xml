@@ -876,14 +876,6 @@
             The data table.
             </value>
         </member>
-        <member name="P:BudgetExecution.Chart.DataFilter">
-            <summary>
-            Gets or sets the filter.
-            </summary>
-            <value>
-            The filter.
-            </value>
-        </member>
         <member name="P:BudgetExecution.Chart.ChartSeries">
             <summary>
             Gets the data series.
@@ -984,6 +976,22 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.DataFilter">
+            <summary>
+            Gets or sets the filter.
+            </summary>
+            <value>
+            The filter.
+            </value>
         </member>
         <member name="M:BudgetExecution.ChartForm.#ctor">
             <summary>
@@ -35365,6 +35373,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.GuidanceButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.HomeButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -35471,11 +35484,6 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.UndoButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Properties.Resources.UndoButton1">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

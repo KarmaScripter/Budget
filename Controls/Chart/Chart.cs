@@ -108,14 +108,6 @@ namespace BudgetExecution
         public DataTable DataTable { get; set; }
         
         /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public IDictionary<string, object> DataFilter { get; set; }
-        
-        /// <summary>
         /// Gets the data series.
         /// </summary>
         /// <value>

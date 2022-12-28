@@ -38,25 +38,25 @@ partial class SqlDialog
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SqlDialog));
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
             this.TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.SelectButton = new BudgetExecution.Button();
+            this.InsertButton = new BudgetExecution.Button();
+            this.UpdateButton = new BudgetExecution.Button();
+            this.DeleteButton = new BudgetExecution.Button();
             this.EditorPanel = new BudgetExecution.Layout();
+            this.Editor = new Syncfusion.Windows.Forms.Edit.EditControl();
             this.AcceptButton = new BudgetExecution.Button();
             this.RefreshButton = new BudgetExecution.Button();
             this.CloseButton = new BudgetExecution.Button();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToollTip = new BudgetExecution.SmallTip();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Editor = new Syncfusion.Windows.Forms.Edit.EditControl();
-            this.SelectButton = new BudgetExecution.Button();
-            this.UpdateButton = new BudgetExecution.Button();
-            this.InsertButton = new BudgetExecution.Button();
-            this.DeleteButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
             this.TabPage.SuspendLayout();
-            this.EditorPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.EditorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Editor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -116,6 +116,152 @@ partial class SqlDialog
             this.TabPage.TabIndex = 8;
             this.TabPage.ThemesEnabled = false;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.SelectButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.InsertButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.UpdateButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.DeleteButton, 0, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1148, 55);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.625F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.375F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(146, 312);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // SelectButton
+            // 
+            this.SelectButton.BindingSource = null;
+            this.SelectButton.DataFilter = null;
+            this.SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.SelectButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SelectButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SelectButton.HoverText = null;
+            this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.SelectButton.IsDerivedStyle = true;
+            this.SelectButton.Location = new System.Drawing.Point(3, 3);
+            this.SelectButton.Name = "SelectButton";
+            this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.SelectButton.NormalColor = System.Drawing.Color.Transparent;
+            this.SelectButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SelectButton.Padding = new System.Windows.Forms.Padding(1);
+            this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SelectButton.PressTextColor = System.Drawing.Color.White;
+            this.SelectButton.Size = new System.Drawing.Size(140, 40);
+            this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SelectButton.StyleManager = null;
+            this.SelectButton.TabIndex = 0;
+            this.SelectButton.Text = "SELECT";
+            this.SelectButton.ThemeAuthor = "Terry D. Eppler";
+            this.SelectButton.ThemeName = "BudgetExecution";
+            this.SelectButton.ToolTip = null;
+            // 
+            // InsertButton
+            // 
+            this.InsertButton.BindingSource = null;
+            this.InsertButton.DataFilter = null;
+            this.InsertButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.InsertButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.InsertButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.InsertButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InsertButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.InsertButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.InsertButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.InsertButton.HoverText = null;
+            this.InsertButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.InsertButton.IsDerivedStyle = true;
+            this.InsertButton.Location = new System.Drawing.Point(3, 68);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.InsertButton.NormalColor = System.Drawing.Color.Transparent;
+            this.InsertButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.InsertButton.Padding = new System.Windows.Forms.Padding(1);
+            this.InsertButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.InsertButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.InsertButton.PressTextColor = System.Drawing.Color.White;
+            this.InsertButton.Size = new System.Drawing.Size(140, 40);
+            this.InsertButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.InsertButton.StyleManager = null;
+            this.InsertButton.TabIndex = 2;
+            this.InsertButton.Text = "INSERT";
+            this.InsertButton.ThemeAuthor = "Terry D. Eppler";
+            this.InsertButton.ThemeName = "BudgetExecution";
+            this.InsertButton.ToolTip = null;
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BindingSource = null;
+            this.UpdateButton.DataFilter = null;
+            this.UpdateButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.UpdateButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.UpdateButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.UpdateButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.UpdateButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.UpdateButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.UpdateButton.HoverText = null;
+            this.UpdateButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.UpdateButton.IsDerivedStyle = true;
+            this.UpdateButton.Location = new System.Drawing.Point(3, 146);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.UpdateButton.NormalColor = System.Drawing.Color.Transparent;
+            this.UpdateButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.UpdateButton.Padding = new System.Windows.Forms.Padding(1);
+            this.UpdateButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.UpdateButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.UpdateButton.PressTextColor = System.Drawing.Color.White;
+            this.UpdateButton.Size = new System.Drawing.Size(140, 40);
+            this.UpdateButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.UpdateButton.StyleManager = null;
+            this.UpdateButton.TabIndex = 1;
+            this.UpdateButton.Text = "UPDATE";
+            this.UpdateButton.ThemeAuthor = "Terry D. Eppler";
+            this.UpdateButton.ThemeName = "BudgetExecution";
+            this.UpdateButton.ToolTip = null;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BindingSource = null;
+            this.DeleteButton.DataFilter = null;
+            this.DeleteButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.DeleteButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.DeleteButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.DeleteButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.DeleteButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.DeleteButton.HoverText = null;
+            this.DeleteButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.DeleteButton.IsDerivedStyle = true;
+            this.DeleteButton.Location = new System.Drawing.Point(3, 232);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.DeleteButton.NormalColor = System.Drawing.Color.Transparent;
+            this.DeleteButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteButton.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteButton.PressTextColor = System.Drawing.Color.White;
+            this.DeleteButton.Size = new System.Drawing.Size(140, 40);
+            this.DeleteButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DeleteButton.StyleManager = null;
+            this.DeleteButton.TabIndex = 3;
+            this.DeleteButton.Text = "DELETE";
+            this.DeleteButton.ThemeAuthor = "Terry D. Eppler";
+            this.DeleteButton.ThemeName = "BudgetExecution";
+            this.DeleteButton.ToolTip = null;
+            // 
             // EditorPanel
             // 
             this.EditorPanel.BackColor = System.Drawing.Color.Transparent;
@@ -140,6 +286,45 @@ partial class SqlDialog
             this.EditorPanel.ThemeAuthor = "Terry D. Eppler";
             this.EditorPanel.ThemeName = "BudgetExecution";
             this.EditorPanel.ToolTip = null;
+            // 
+            // Editor
+            // 
+            this.Editor.AllowZoom = false;
+            this.Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
+            this.Editor.CodeSnipptSize = new System.Drawing.Size(100, 100);
+            this.Editor.Configurator = config1;
+            this.Editor.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
+            this.Editor.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
+            this.Editor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Editor.IndicatorMarginBackColor = System.Drawing.Color.Empty;
+            this.Editor.LineNumbersColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Editor.Location = new System.Drawing.Point(1, 1);
+            this.Editor.Name = "Editor";
+            this.Editor.RenderRightToLeft = false;
+            this.Editor.ScrollPosition = new System.Drawing.Point(0, 0);
+            this.Editor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
+            this.Editor.SelectionTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
+            this.Editor.ShowEndOfLine = false;
+            this.Editor.Size = new System.Drawing.Size(1050, 311);
+            this.Editor.StatusBarSettings.CoordsPanel.Width = 150;
+            this.Editor.StatusBarSettings.EncodingPanel.Width = 100;
+            this.Editor.StatusBarSettings.FileNamePanel.Width = 100;
+            this.Editor.StatusBarSettings.InsertPanel.Width = 33;
+            this.Editor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
+            this.Editor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
+            this.Editor.StatusBarSettings.StatusPanel.Width = 70;
+            this.Editor.StatusBarSettings.TextPanel.Width = 214;
+            this.Editor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
+            this.Editor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
+            this.Editor.TabIndex = 0;
+            this.Editor.Text = "editControl1";
+            this.Editor.ThemeName = "Office2016Black";
+            this.Editor.UseXPStyle = false;
+            this.Editor.UseXPStyleBorder = true;
+            this.Editor.VisualColumn = 13;
+            this.Editor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
+            this.Editor.ZoomFactor = 1F;
             // 
             // AcceptButton
             // 
@@ -266,196 +451,12 @@ partial class SqlDialog
             this.ToollTip.TipText = null;
             this.ToollTip.TipTitle = null;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.SelectButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.InsertButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.UpdateButton, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.DeleteButton, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1148, 55);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.625F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.375F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(146, 312);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // Editor
-            // 
-            this.Editor.AllowZoom = false;
-            this.Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
-            this.Editor.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.Editor.Configurator = config1;
-            this.Editor.ContextChoiceBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
-            this.Editor.ContextChoiceForeColor = System.Drawing.SystemColors.InfoText;
-            this.Editor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Editor.IndicatorMarginBackColor = System.Drawing.Color.Empty;
-            this.Editor.LineNumbersColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Editor.Location = new System.Drawing.Point(1, 1);
-            this.Editor.Name = "Editor";
-            this.Editor.RenderRightToLeft = false;
-            this.Editor.ScrollPosition = new System.Drawing.Point(0, 0);
-            this.Editor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
-            this.Editor.SelectionTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
-            this.Editor.ShowEndOfLine = false;
-            this.Editor.Size = new System.Drawing.Size(1050, 311);
-            this.Editor.StatusBarSettings.CoordsPanel.Width = 150;
-            this.Editor.StatusBarSettings.EncodingPanel.Width = 100;
-            this.Editor.StatusBarSettings.FileNamePanel.Width = 100;
-            this.Editor.StatusBarSettings.InsertPanel.Width = 33;
-            this.Editor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
-            this.Editor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
-            this.Editor.StatusBarSettings.StatusPanel.Width = 70;
-            this.Editor.StatusBarSettings.TextPanel.Width = 214;
-            this.Editor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
-            this.Editor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
-            this.Editor.TabIndex = 0;
-            this.Editor.Text = "editControl1";
-            this.Editor.ThemeName = "Office2016Black";
-            this.Editor.UseXPStyle = false;
-            this.Editor.UseXPStyleBorder = true;
-            this.Editor.VisualColumn = 13;
-            this.Editor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
-            this.Editor.ZoomFactor = 1F;
-            // 
-            // SelectButton
-            // 
-            this.SelectButton.BindingSource = null;
-            this.SelectButton.DataFilter = null;
-            this.SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SelectButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SelectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SelectButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SelectButton.HoverText = null;
-            this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(3, 3);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.SelectButton.NormalColor = System.Drawing.Color.Transparent;
-            this.SelectButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.Padding = new System.Windows.Forms.Padding(1);
-            this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.PressTextColor = System.Drawing.Color.White;
-            this.SelectButton.Size = new System.Drawing.Size(140, 40);
-            this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SelectButton.StyleManager = null;
-            this.SelectButton.TabIndex = 0;
-            this.SelectButton.Text = "SELECT";
-            this.SelectButton.ThemeAuthor = "Terry D. Eppler";
-            this.SelectButton.ThemeName = "BudgetExecution";
-            this.SelectButton.ToolTip = null;
-            // 
-            // UpdateButton
-            // 
-            this.UpdateButton.BindingSource = null;
-            this.UpdateButton.DataFilter = null;
-            this.UpdateButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.UpdateButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.UpdateButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.UpdateButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.UpdateButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.UpdateButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.UpdateButton.HoverText = null;
-            this.UpdateButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.UpdateButton.IsDerivedStyle = true;
-            this.UpdateButton.Location = new System.Drawing.Point(3, 146);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.UpdateButton.NormalColor = System.Drawing.Color.Transparent;
-            this.UpdateButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.UpdateButton.Padding = new System.Windows.Forms.Padding(1);
-            this.UpdateButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.UpdateButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.UpdateButton.PressTextColor = System.Drawing.Color.White;
-            this.UpdateButton.Size = new System.Drawing.Size(140, 40);
-            this.UpdateButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.UpdateButton.StyleManager = null;
-            this.UpdateButton.TabIndex = 1;
-            this.UpdateButton.Text = "UPDATE";
-            this.UpdateButton.ThemeAuthor = "Terry D. Eppler";
-            this.UpdateButton.ThemeName = "BudgetExecution";
-            this.UpdateButton.ToolTip = null;
-            // 
-            // InsertButton
-            // 
-            this.InsertButton.BindingSource = null;
-            this.InsertButton.DataFilter = null;
-            this.InsertButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.InsertButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.InsertButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.InsertButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InsertButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.InsertButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.InsertButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.InsertButton.HoverText = null;
-            this.InsertButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.InsertButton.IsDerivedStyle = true;
-            this.InsertButton.Location = new System.Drawing.Point(3, 68);
-            this.InsertButton.Name = "InsertButton";
-            this.InsertButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.InsertButton.NormalColor = System.Drawing.Color.Transparent;
-            this.InsertButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.InsertButton.Padding = new System.Windows.Forms.Padding(1);
-            this.InsertButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.InsertButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.InsertButton.PressTextColor = System.Drawing.Color.White;
-            this.InsertButton.Size = new System.Drawing.Size(140, 40);
-            this.InsertButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.InsertButton.StyleManager = null;
-            this.InsertButton.TabIndex = 2;
-            this.InsertButton.Text = "INSERT";
-            this.InsertButton.ThemeAuthor = "Terry D. Eppler";
-            this.InsertButton.ThemeName = "BudgetExecution";
-            this.InsertButton.ToolTip = null;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.BindingSource = null;
-            this.DeleteButton.DataFilter = null;
-            this.DeleteButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.DeleteButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.DeleteButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.DeleteButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteButton.HoverText = null;
-            this.DeleteButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.DeleteButton.IsDerivedStyle = true;
-            this.DeleteButton.Location = new System.Drawing.Point(3, 232);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.DeleteButton.NormalColor = System.Drawing.Color.Transparent;
-            this.DeleteButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteButton.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteButton.PressTextColor = System.Drawing.Color.White;
-            this.DeleteButton.Size = new System.Drawing.Size(140, 40);
-            this.DeleteButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteButton.StyleManager = null;
-            this.DeleteButton.TabIndex = 3;
-            this.DeleteButton.Text = "DELETE";
-            this.DeleteButton.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteButton.ThemeName = "BudgetExecution";
-            this.DeleteButton.ToolTip = null;
-            // 
             // SqlDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1368, 568);
             this.Controls.Add(this.AcceptButton);
             this.Controls.Add(this.RefreshButton);
@@ -467,10 +468,10 @@ partial class SqlDialog
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
             this.TabPage.ResumeLayout(false);
-            this.EditorPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.EditorPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Editor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ResumeLayout(false);
 
     }

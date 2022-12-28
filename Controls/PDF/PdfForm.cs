@@ -122,6 +122,10 @@ namespace BudgetExecution
                 ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
                 ToolStrip.ShowCaption = false;
                 ToolStrip.Label.Text = "Guidance Documents";
+                DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
+                var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
+                Document = new PdfLoadedDocument( _path );
+                DocViewer.Load( Document );
                 LoadDocuments(  );
             }
             catch ( Exception ex )
@@ -159,7 +163,6 @@ namespace BudgetExecution
         {
             try
             {
-                DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
                 if( !string.IsNullOrEmpty( DirectoryPath )
                    && Directory.Exists( DirectoryPath ) )
                 {
@@ -168,7 +171,11 @@ namespace BudgetExecution
                     {
                         var _file = _names[ _i ];
                         var _name = Path.GetFileNameWithoutExtension( _file );
-                        ToolStrip.DropDown.Items.Add( _name.SplitPascal(  ) );
+                        if( !string.IsNullOrEmpty( _name ) 
+                           && _name != "ApplicationLandingDocument" )
+                        {
+                            ToolStrip.DropDown.Items.Add( _name.SplitPascal(  ) );
+                        }
                     }
                 }
             }

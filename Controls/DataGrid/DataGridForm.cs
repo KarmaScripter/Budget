@@ -150,8 +150,6 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 DataGrid.DataSource = BindingSource;
-                CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-                CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
                 PopulateTableListBoxItems( );
                 PopulateToolBarDropDownItems( );
                 ToolStrip.Office12Mode = true;

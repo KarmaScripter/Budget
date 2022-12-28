@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
 
@@ -20,6 +19,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ChartForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> DataFilter { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartForm"/> class.
         /// </summary>
