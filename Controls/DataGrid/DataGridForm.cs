@@ -102,8 +102,8 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // Label Properties
-            GridLabel.Font = new Font( "Roboto", 9 );
-            GridLabel.ForeColor = Color.LightGray;
+            DataGridLabel.Font = new Font( "Roboto", 9 );
+            DataGridLabel.ForeColor = Color.LightGray;
             TableLabel.Font = new Font( "Roboto", 9 );
             TableLabel.ForeColor = Color.LightGray;
             ColumnLabel.Font = new Font( "Roboto", 9 );
@@ -160,7 +160,7 @@ namespace BudgetExecution
                 TableLabel.Text = "Tables: " + TableListBox.Items.Count;
                 ColumnLabel.Text = "Columns: " + string.Empty;
                 ValueLabel.Text = "Values: " + string.Empty;
-                GridLabel.Text = "Data Source:  " + DataModel.DataTable.TableName.SplitPascal( );
+                DataGridLabel.Text = "Data Source:  " + DataModel.Source.ToString( ).SplitPascal( );
                 SelectedTable = string.Empty;
                 SelectedColumn = string.Empty;
                 SelectedValue = string.Empty;
@@ -249,15 +249,15 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    var _name = DataModel.DataTable.TableName;
-                    GridLabel.Text = "Data Source:  " + _name?.SplitPascal( );
+                    var _name = DataModel.DataTable?.TableName;
+                    DataGridLabel.Text = "Data Source:  " + _name?.SplitPascal( );
                     var _columns = DataModel.GetDataColumns( );
                     foreach( var col in _columns )
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
 
-                    ColumnLabel.Text = "Columns: " + ColumnListBox.Items.Count;
+                    ColumnLabel.Text = "Columns: " + ColumnListBox.Items?.Count;
                 }
             }
             catch( Exception ex )

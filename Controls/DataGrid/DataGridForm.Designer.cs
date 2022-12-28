@@ -53,7 +53,7 @@
             this.ColumnListBox = new BudgetExecution.ListBox();
             this.ValuePanel = new BudgetExecution.Layout();
             this.ValueListBox = new BudgetExecution.ListBox();
-            this.GridLabel = new BudgetExecution.Label();
+            this.DataGridLabel = new BudgetExecution.Label();
             this.TableLabel = new BudgetExecution.Label();
             this.ColumnLabel = new BudgetExecution.Label();
             this.ValueLabel = new BudgetExecution.Label();
@@ -512,28 +512,28 @@
             this.ValueListBox.ThemeName = "BudgetExecution";
             this.ValueListBox.ToolTip = null;
             // 
-            // GridLabel
+            // DataGridLabel
             // 
-            this.GridLabel.BindingSource = null;
-            this.GridLabel.DataFilter = null;
-            this.GridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GridLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GridLabel.HoverText = null;
-            this.GridLabel.IsDerivedStyle = true;
-            this.GridLabel.Location = new System.Drawing.Point(3, 3);
-            this.GridLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.GridLabel.Name = "GridLabel";
-            this.GridLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.GridLabel.Size = new System.Drawing.Size(942, 19);
-            this.GridLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.GridLabel.StyleManager = null;
-            this.GridLabel.TabIndex = 33;
-            this.GridLabel.Text = "Source";
-            this.GridLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.GridLabel.ThemeAuthor = "Terry D. Eppler";
-            this.GridLabel.ThemeName = "BudgetExecution";
-            this.GridLabel.ToolTip = null;
+            this.DataGridLabel.BindingSource = null;
+            this.DataGridLabel.DataFilter = null;
+            this.DataGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DataGridLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataGridLabel.HoverText = null;
+            this.DataGridLabel.IsDerivedStyle = true;
+            this.DataGridLabel.Location = new System.Drawing.Point(3, 3);
+            this.DataGridLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.DataGridLabel.Name = "DataGridLabel";
+            this.DataGridLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.DataGridLabel.Size = new System.Drawing.Size(942, 19);
+            this.DataGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DataGridLabel.StyleManager = null;
+            this.DataGridLabel.TabIndex = 33;
+            this.DataGridLabel.Text = "Source";
+            this.DataGridLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.DataGridLabel.ThemeAuthor = "Terry D. Eppler";
+            this.DataGridLabel.ThemeName = "BudgetExecution";
+            this.DataGridLabel.ToolTip = null;
             // 
             // TableLabel
             // 
@@ -616,7 +616,7 @@
             this.GridTable.BackColor = System.Drawing.Color.Transparent;
             this.GridTable.ColumnCount = 1;
             this.GridTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.GridTable.Controls.Add(this.GridLabel, 0, 0);
+            this.GridTable.Controls.Add(this.DataGridLabel, 0, 0);
             this.GridTable.Controls.Add(this.DataGridPanel, 0, 1);
             this.GridTable.Location = new System.Drawing.Point(33, 45);
             this.GridTable.Name = "GridTable";
@@ -846,7 +846,7 @@
             this.DeleteTableButton.Size = new System.Drawing.Size(26, 32);
             this.DeleteTableButton.Text = "toolStripButton2";
             this.DeleteTableButton.ToolTip = this.ToolTip;
-            this.DeleteTableButton.ToolType = BudgetExecution.ToolType.NS;
+            this.DeleteTableButton.ToolType = BudgetExecution.ToolType.DeleteTableButton;
             // 
             // EditSqlButton
             // 
@@ -951,7 +951,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(109, 32);
+            this.TextBox.Size = new System.Drawing.Size(103, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1713,7 +1713,7 @@
         public Layout ColumnPanel;
         public Layout ValuePanel;
         public DataGrid DataGrid;
-        private Label GridLabel;
+        private Label DataGridLabel;
         private Label TableLabel;
         private Label ColumnLabel;
         private Label ValueLabel;

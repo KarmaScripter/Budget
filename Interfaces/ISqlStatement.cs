@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The columns.
         /// </value>
-        IEnumerable<string> Columns { get; set; }
+        IEnumerable<string> Fields { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -142,16 +142,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="where">The dictionary.</param>
         string CreateSelectStatement( IDictionary<string, object> where );
-
-        /// <summary>
-        /// Gets the select statement.
-        /// </summary>
-        /// <param name="columnNames">The column names.</param>
-        /// <param name="where">The dictionary.</param>
-        /// <returns></returns>
-        string CreateSelectStatement( IEnumerable<string> columnNames,
-            IDictionary<string, object> where );
-
+        
         /// <summary>
         /// Sets the update statement.
         /// </summary>

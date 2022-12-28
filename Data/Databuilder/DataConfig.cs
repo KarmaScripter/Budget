@@ -15,6 +15,16 @@ namespace BudgetExecution
     public abstract class DataConfig
     {
         /// <summary>
+        /// Gets or sets a value indicating
+        /// whether this instance is compressed.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is compressed;
+        /// otherwise, <c>false</c>.
+        /// </value>
+        public bool IsCompressed { get; set; }
+        
+        /// <summary>
         /// The source
         /// </summary>
         public Source Source { get; set; }
@@ -61,7 +71,7 @@ namespace BudgetExecution
         /// The columns.
         /// </value>
         public IEnumerable<DataColumn> DataColumns { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the column names.
         /// </summary>
@@ -69,7 +79,7 @@ namespace BudgetExecution
         /// The column names.
         /// </value>
         public IEnumerable<string> ColumnNames { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the name of the table.
         /// </summary>

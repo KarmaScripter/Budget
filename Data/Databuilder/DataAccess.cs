@@ -93,7 +93,7 @@ namespace BudgetExecution
                     using var _adapter = Query.GetAdapter( );
                     _adapter?.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
-                    return DataTable?.Rows?.Count > 0
+                    return DataSet?.Tables?.Count > 0
                         ? DataSet
                         : default( DataSet );
                 }
@@ -189,6 +189,66 @@ namespace BudgetExecution
             }
 
             return default( IEnumerable<int> );
+        }
+
+        /// <summary>
+        /// Compresses the specified column names.
+        /// </summary>
+        /// <param name="columnNames">The column names.</param>
+        /// <param name="having">The where.</param>
+        /// <returns></returns>
+        public DataTable Compress( IEnumerable<string> columnNames, IDictionary<string, object> having )
+        {
+            if( columnNames?.Any( ) == true 
+               && having?.Any( ) == true
+               && DataTable != null )
+            {
+                try
+                {
+                    var _fields = new List<string>( );
+                    var _numerics = new List<string>( );
+                    var _pack = new List<DataColumn>( );
+                    foreach( DataColumn col in DataTable.Columns )
+                    {
+                        foreach( var name in columnNames )
+                        {
+                            if( col.ColumnName == name
+                               && col.Ordinal > 0
+                               && col.DataType == typeof( string ) )
+                            {
+                                _fields.Add( col.ColumnName );
+                                _pack.Add( col );
+                            }
+                            else if( col.ColumnName == name 
+                                    && col.Ordinal > 0 
+                                    && col.DataType != typeof( string ) 
+                                    && col.DataType != typeof( DateTime ) )
+                            {
+                                _numerics.Add( col.ColumnName );
+                                _pack.Add( col );
+                            }
+                        }
+                    }
+                    
+                    var _dataSet = new DataSet( $"{ Provider }" );
+                    var _dataTable = new DataTable( $"{ Source }" );
+                    _dataSet.Tables.Add( _dataTable );
+                    var _sqlStatement = new SqlStatement( Source, Provider, _fields,
+                        _numerics, having, SQL.SELECT );
+                    var _query = new Query( _sqlStatement );
+                    using var _adapter = _query?.GetAdapter( );
+                    _adapter?.Fill( _dataSet, _dataTable.TableName );
+                    SetColumnCaptions( _dataTable );
+                    return _dataTable;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataTable );
+                }
+            }
+            
+            return default( DataTable );
         }
     }
 }

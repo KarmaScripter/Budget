@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class QueryBase
     {
         /// <summary>
@@ -247,6 +248,28 @@ namespace BudgetExecution
             ConnectionBuilder = new ConnectionBuilder( source, provider );
             DataConnection = ConnectionBuilder.Connection;
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            CommandBuilder = new CommandBuilder( SqlStatement );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns,
+            IEnumerable<string> numerics, IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        {
+            Source = source;
+            Provider = provider;
+            Criteria = having;
+            CommandType = commandType;
+            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            DataConnection = ConnectionBuilder.Connection;
+            SqlStatement = new SqlStatement( source, provider, columns, having, commandType );
             CommandBuilder = new CommandBuilder( SqlStatement );
         }
 

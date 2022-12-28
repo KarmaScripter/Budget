@@ -238,7 +238,7 @@ namespace BudgetExecution
 
             return string.Empty;
         }
-
+        
         /// <summary>
         /// Gets the command text.
         /// </summary>
@@ -283,12 +283,13 @@ namespace BudgetExecution
 
             return string.Empty;
         }
-        
+
         /// <summary>
         /// Gets the command text.
         /// </summary>
         /// <param name="columns">The columns.</param>
-        /// <param name="having">The dictionary.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
         /// <param name="commandType">Type of the command.</param>
         /// <returns></returns>
         public string GetCommandText( IEnumerable<string> columns, IEnumerable<string> numerics,
@@ -350,7 +351,7 @@ namespace BudgetExecution
                         case SQL.SELECT:
                         {
                             var _cols = updates.Keys.ToList( );
-                            return CreateSelectStatement( _cols, where );
+                            return GetCommandText( _cols, where );
                         }
                         case SQL.SELECTALL:
                         {
@@ -373,6 +374,73 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
+                }
+            }
+
+            return string.Empty;
+        }
+        
+        /// <summary>
+        /// Creates the select statement.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <returns></returns>
+        public string CreateSelectStatement( IEnumerable<string> columns, 
+            IEnumerable<string> numerics )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && columns?.Any( ) == true )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    var _grp = string.Empty;
+                    foreach( var name in columns )
+                    {
+                        _cols += $"{ name }, ";
+                    }
+
+                    foreach( var _numeric in numerics )
+                    {
+                        _grp += $"SUM({ _numeric }), ";
+                        _aggr += $"SUM({ _numeric }) AS { _numeric }, ";
+                    }
+                    
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    var _groups = _cols + _grp.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT { _columns } FROM { Source } "
+                        + $"GROUP BY { _groups };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+        
+        /// <summary>
+        /// Sets the delete statement.
+        /// </summary>
+        /// <param name="where">The dictionary.</param>
+        public string CreateDeleteStatement( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && Enum.IsDefined( typeof( Source ), Source ) )
+            {
+                try
+                {
+                    var _criteria = where.ToCriteria( );
+                    return $"{ SQL.DELETE } FROM {Source} WHERE { _criteria };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
                 }
             }
 

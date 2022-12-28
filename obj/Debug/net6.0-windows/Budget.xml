@@ -10106,6 +10106,14 @@
             <param name="dataRows">The Data rows.</param>
             <returns></returns>
         </member>
+        <member name="M:BudgetExecution.DataAccess.Compress(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Compresses the specified column names.
+            </summary>
+            <param name="columnNames">The column names.</param>
+            <param name="having">The where.</param>
+            <returns></returns>
+        </member>
         <member name="T:BudgetExecution.DataBuilder">
             <summary> </summary>
             <seealso cref = "T:BudgetExecution.DataModel" />
@@ -10237,6 +10245,16 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="P:BudgetExecution.DataConfig.IsCompressed">
+            <summary>
+            Gets or sets a value indicating
+            whether this instance is compressed.
+            </summary>
+            <value>
+              <c>true</c> if this instance is compressed;
+            otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="P:BudgetExecution.DataConfig.Source">
             <summary>
@@ -11666,6 +11684,17 @@
             <param name="where">The criteria.</param>
             <param name="commandType">Type of the command.</param>
         </member>
+        <member name="M:BudgetExecution.Query.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Query"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="columns">The columns.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="having">The having.</param>
+            <param name="commandType">Type of the command.</param>
+        </member>
         <member name="M:BudgetExecution.Query.#ctor(BudgetExecution.ISqlStatement)">
             <summary>
             Initializes a new instance of the <see cref = "T:BudgetExecution.Query"/> class.
@@ -11924,6 +11953,17 @@
             <param name="provider">The provider.</param>
             <param name="columns">The columns.</param>
             <param name="where">The having.</param>
+            <param name="commandType">Type of the command.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryBase.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.QueryBase"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="columns">The columns.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="having">The having.</param>
             <param name="commandType">Type of the command.</param>
         </member>
         <member name="M:BudgetExecution.QueryBase.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
@@ -12512,7 +12552,7 @@
             The updates.
             </value>
         </member>
-        <member name="P:BudgetExecution.SqlBase.Columns">
+        <member name="P:BudgetExecution.SqlBase.Fields">
             <summary>
             Gets or sets the columns.
             </summary>
@@ -12637,17 +12677,17 @@
         </member>
         <member name="M:BudgetExecution.SqlBase.CreateSelectStatement(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
-            Gets the select statement.
+            Creates the select statement.
             </summary>
-            <param name="columns">The column names.</param>
-            <param name="where">The dictionary.</param>
+            <param name="fields">The fields.</param>
+            <param name="having">The having.</param>
             <returns></returns>
         </member>
         <member name="M:BudgetExecution.SqlBase.CreateSelectStatement(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Creates the select statement.
             </summary>
-            <param name="columns">The columns.</param>
+            <param name="fields">The columns.</param>
             <param name="numerics">The numerics.</param>
             <param name="having">The having.</param>
             <returns></returns>
@@ -12664,12 +12704,6 @@
             Sets the insert statement.
             </summary>
             <param name="updates">The dictionary.</param>
-        </member>
-        <member name="M:BudgetExecution.SqlBase.CreateDeleteStatement(System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Sets the delete statement.
-            </summary>
-            <param name="where">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.SqlBase.Fail(System.Exception)">
             <summary>
@@ -12894,7 +12928,8 @@
             Gets the command text.
             </summary>
             <param name="columns">The columns.</param>
-            <param name="having">The dictionary.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="having">The having.</param>
             <param name="commandType">Type of the command.</param>
             <returns></returns>
         </member>
@@ -12906,6 +12941,20 @@
             <param name = "where" > </param>
             <param name="commandType">Type of the command.</param>
             <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.SqlStatement.CreateSelectStatement(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates the select statement.
+            </summary>
+            <param name="columns">The columns.</param>
+            <param name="numerics">The numerics.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.SqlStatement.CreateDeleteStatement(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Sets the delete statement.
+            </summary>
+            <param name="where">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.SqlStatement.ToString">
             <summary>
@@ -24464,7 +24513,7 @@
             The updates.
             </value>
         </member>
-        <member name="P:BudgetExecution.ISqlStatement.Columns">
+        <member name="P:BudgetExecution.ISqlStatement.Fields">
             <summary>
             Gets or sets the columns.
             </summary>
@@ -24552,14 +24601,6 @@
             Sets the select statement.
             </summary>
             <param name="where">The dictionary.</param>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.CreateSelectStatement(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Gets the select statement.
-            </summary>
-            <param name="columnNames">The column names.</param>
-            <param name="where">The dictionary.</param>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.ISqlStatement.CreateUpdateStatement(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>

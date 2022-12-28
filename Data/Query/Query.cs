@@ -129,6 +129,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Query"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public Query( Source source, Provider provider, IEnumerable<string> columns,
+            IEnumerable<string> numerics, IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+            : base( source, provider, columns, having, commandType )
+        {
+            Source = source;
+            Provider = provider;
+            Criteria = having;
+            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            DataConnection = ConnectionBuilder.Connection;
+            SqlStatement = new SqlStatement( source, provider, columns, having, commandType );
+            CommandBuilder = new CommandBuilder( SqlStatement );
+            DataCommand = CommandBuilder.GetCommand( SqlStatement );
+            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            IsDisposed = false;
+        }
+        
+        /// <summary>
         /// Initializes a new instance of the <see cref = "Query"/> class.
         /// </summary>
         /// <param name = "sqlStatement" >
