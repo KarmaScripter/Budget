@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SqlBuilder
     {
         /// <summary>
@@ -92,15 +93,18 @@ namespace BudgetExecution
                 try
                 {
                     var _path = ConfigurationManager.AppSettings[ $"{ Extension }" ];
-                    var _index = _path.LastIndexOf( @"\" );
-                    var _size = _path.Length;
-                    var _end = _size - _index;
-                    var _folder = $@"\{ CommandType }";
-                    var _remove = _path?.Remove( _index, _end );
-                    var _dirPath = _remove + _folder;
-                    return ( Directory.Exists( _dirPath ) )
-                        ? _dirPath
-                        : string.Empty;
+                    if( _path != null )
+                    {
+                        var _index = _path.LastIndexOf( @"\" );
+                        var _size = _path.Length;
+                        var _end = _size - _index;
+                        var _folder = $@"\{ CommandType }";
+                        var _remove = _path?.Remove( _index, _end );
+                        var _dirPath = _remove + _folder;
+                        return ( Directory.Exists( _dirPath ) )
+                            ? _dirPath
+                            : string.Empty;
+                    }
                 }
                 catch( Exception ex )
                 {

@@ -35,14 +35,14 @@
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
             this.LookupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.ColumnListBox = new BudgetExecution.ListBox();
+            this.ToolTip = new BudgetExecution.SmallTip();
             this.ValuePanelLabel = new BudgetExecution.Label();
             this.ColumnPanelLabel = new BudgetExecution.Label();
             this.TablePanelLabel = new BudgetExecution.Label();
             this.ValuePanel = new BudgetExecution.Layout();
             this.ValueListBox = new BudgetExecution.ListBox();
-            this.ToolTip = new BudgetExecution.SmallTip();
             this.ColumnPanel = new BudgetExecution.Layout();
-            this.ColumnListBox = new BudgetExecution.ListBox();
             this.TablePanel = new BudgetExecution.Layout();
             this.TableListBox = new BudgetExecution.ListBox();
             this.ProviderPanelLabel = new BudgetExecution.Label();
@@ -83,7 +83,7 @@
             // 
             this.TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.BeforeTouchSize = new System.Drawing.Size(1368, 488);
+            this.TabControl.BeforeTouchSize = new System.Drawing.Size(1368, 525);
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -96,7 +96,7 @@
             this.TabControl.ItemSize = new System.Drawing.Size(158, 23);
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
-            this.TabControl.Size = new System.Drawing.Size(1368, 488);
+            this.TabControl.Size = new System.Drawing.Size(1368, 525);
             this.TabControl.TabIndex = 8;
             this.TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
@@ -132,22 +132,83 @@
             this.LookupTabPage.Location = new System.Drawing.Point(0, 22);
             this.LookupTabPage.Name = "LookupTabPage";
             this.LookupTabPage.ShowCloseButton = true;
-            this.LookupTabPage.Size = new System.Drawing.Size(1368, 466);
+            this.LookupTabPage.Size = new System.Drawing.Size(1368, 503);
             this.LookupTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.LookupTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.LookupTabPage.TabIndex = 2;
             this.LookupTabPage.Text = "  Look Up";
             this.LookupTabPage.ThemesEnabled = false;
             // 
+            // ColumnListBox
+            // 
+            this.ColumnListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ColumnListBox.BindingSource = null;
+            this.ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ColumnListBox.DataFilter = null;
+            this.ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.ColumnListBox.HoverText = null;
+            this.ColumnListBox.IsDerivedStyle = true;
+            this.ColumnListBox.ItemHeight = 30;
+            this.ColumnListBox.Location = new System.Drawing.Point(31, 19);
+            this.ColumnListBox.MultiSelect = false;
+            this.ColumnListBox.Name = "ColumnListBox";
+            this.ColumnListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.ColumnListBox.SelectedIndex = -1;
+            this.ColumnListBox.SelectedItem = null;
+            this.ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.ColumnListBox.SelectedText = null;
+            this.ColumnListBox.SelectedValue = null;
+            this.ColumnListBox.ShowBorder = false;
+            this.ColumnListBox.ShowScrollBar = false;
+            this.ColumnListBox.Size = new System.Drawing.Size(348, 130);
+            this.ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ColumnListBox.StyleManager = null;
+            this.ColumnListBox.TabIndex = 2;
+            this.ColumnListBox.Text = "listBox1";
+            this.ColumnListBox.ThemeAuthor = "Terry D. Eppler";
+            this.ColumnListBox.ThemeName = "BudgetExecution";
+            this.ColumnListBox.ToolTip = this.ToolTip;
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.ToolTip.BindingSource = null;
+            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
+            this.ToolTip.Name = null;
+            this.ToolTip.OwnerDraw = true;
+            this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ToolTip.StyleManager = null;
+            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
+            this.ToolTip.ThemeName = "Budget Execution";
+            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.TipText = null;
+            this.ToolTip.TipTitle = null;
+            // 
             // ValuePanelLabel
             // 
+            this.ValuePanelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ValuePanelLabel.BindingSource = null;
             this.ValuePanelLabel.DataFilter = null;
             this.ValuePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ValuePanelLabel.HoverText = null;
             this.ValuePanelLabel.IsDerivedStyle = true;
-            this.ValuePanelLabel.Location = new System.Drawing.Point(712, 265);
+            this.ValuePanelLabel.Location = new System.Drawing.Point(712, 275);
             this.ValuePanelLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ValuePanelLabel.Name = "ValuePanelLabel";
             this.ValuePanelLabel.Padding = new System.Windows.Forms.Padding(1);
@@ -163,13 +224,16 @@
             // 
             // ColumnPanelLabel
             // 
+            this.ColumnPanelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ColumnPanelLabel.BindingSource = null;
             this.ColumnPanelLabel.DataFilter = null;
             this.ColumnPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ColumnPanelLabel.HoverText = null;
             this.ColumnPanelLabel.IsDerivedStyle = true;
-            this.ColumnPanelLabel.Location = new System.Drawing.Point(176, 265);
+            this.ColumnPanelLabel.Location = new System.Drawing.Point(177, 275);
             this.ColumnPanelLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ColumnPanelLabel.Name = "ColumnPanelLabel";
             this.ColumnPanelLabel.Padding = new System.Windows.Forms.Padding(1);
@@ -185,6 +249,9 @@
             // 
             // TablePanelLabel
             // 
+            this.TablePanelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TablePanelLabel.BindingSource = null;
             this.TablePanelLabel.DataFilter = null;
             this.TablePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -207,10 +274,13 @@
             // 
             // ValuePanel
             // 
+            this.ValuePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ValuePanel.BackColor = System.Drawing.Color.Transparent;
             this.ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ValuePanel.BindingSource = null;
-            this.ValuePanel.BorderColor = System.Drawing.Color.Transparent;
+            this.ValuePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ValuePanel.BorderThickness = 1;
             this.ValuePanel.Children = null;
             this.ValuePanel.Controls.Add(this.ValueListBox);
@@ -219,7 +289,7 @@
             this.ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             this.ValuePanel.HoverText = null;
             this.ValuePanel.IsDerivedStyle = true;
-            this.ValuePanel.Location = new System.Drawing.Point(712, 294);
+            this.ValuePanel.Location = new System.Drawing.Point(712, 304);
             this.ValuePanel.Name = "ValuePanel";
             this.ValuePanel.Padding = new System.Windows.Forms.Padding(1);
             this.ValuePanel.Size = new System.Drawing.Size(417, 164);
@@ -232,6 +302,9 @@
             // 
             // ValueListBox
             // 
+            this.ValueListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ValueListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ValueListBox.BindingSource = null;
             this.ValueListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -265,32 +338,15 @@
             this.ValueListBox.ThemeName = "BudgetExecution";
             this.ValueListBox.ToolTip = this.ToolTip;
             // 
-            // ToolTip
-            // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = null;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = null;
-            this.ToolTip.TipTitle = null;
-            // 
             // ColumnPanel
             // 
+            this.ColumnPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ColumnPanel.BackColor = System.Drawing.Color.Transparent;
             this.ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ColumnPanel.BindingSource = null;
-            this.ColumnPanel.BorderColor = System.Drawing.Color.Transparent;
+            this.ColumnPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ColumnPanel.BorderThickness = 1;
             this.ColumnPanel.Children = null;
             this.ColumnPanel.Controls.Add(this.ColumnListBox);
@@ -299,10 +355,10 @@
             this.ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ColumnPanel.HoverText = null;
             this.ColumnPanel.IsDerivedStyle = true;
-            this.ColumnPanel.Location = new System.Drawing.Point(176, 294);
+            this.ColumnPanel.Location = new System.Drawing.Point(177, 298);
             this.ColumnPanel.Name = "ColumnPanel";
             this.ColumnPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnPanel.Size = new System.Drawing.Size(417, 164);
+            this.ColumnPanel.Size = new System.Drawing.Size(417, 170);
             this.ColumnPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnPanel.StyleManager = null;
             this.ColumnPanel.TabIndex = 8;
@@ -310,48 +366,15 @@
             this.ColumnPanel.ThemeName = "BudgetExecution";
             this.ColumnPanel.ToolTip = null;
             // 
-            // ColumnListBox
-            // 
-            this.ColumnListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ColumnListBox.BindingSource = null;
-            this.ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ColumnListBox.DataFilter = null;
-            this.ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.ColumnListBox.HoverText = null;
-            this.ColumnListBox.IsDerivedStyle = true;
-            this.ColumnListBox.ItemHeight = 30;
-            this.ColumnListBox.Location = new System.Drawing.Point(34, 13);
-            this.ColumnListBox.MultiSelect = false;
-            this.ColumnListBox.Name = "ColumnListBox";
-            this.ColumnListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnListBox.SelectedIndex = -1;
-            this.ColumnListBox.SelectedItem = null;
-            this.ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.ColumnListBox.SelectedText = null;
-            this.ColumnListBox.SelectedValue = null;
-            this.ColumnListBox.ShowBorder = false;
-            this.ColumnListBox.ShowScrollBar = false;
-            this.ColumnListBox.Size = new System.Drawing.Size(348, 130);
-            this.ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ColumnListBox.StyleManager = null;
-            this.ColumnListBox.TabIndex = 2;
-            this.ColumnListBox.Text = "listBox1";
-            this.ColumnListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ColumnListBox.ThemeName = "BudgetExecution";
-            this.ColumnListBox.ToolTip = this.ToolTip;
-            // 
             // TablePanel
             // 
+            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TablePanel.BackColor = System.Drawing.Color.Transparent;
             this.TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TablePanel.BindingSource = null;
-            this.TablePanel.BorderColor = System.Drawing.Color.Transparent;
+            this.TablePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.TablePanel.BorderThickness = 1;
             this.TablePanel.Children = null;
             this.TablePanel.Controls.Add(this.TableListBox);
@@ -373,6 +396,9 @@
             // 
             // TableListBox
             // 
+            this.TableListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.TableListBox.BindingSource = null;
             this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -408,6 +434,9 @@
             // 
             // ProviderPanelLabel
             // 
+            this.ProviderPanelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ProviderPanelLabel.BindingSource = null;
             this.ProviderPanelLabel.DataFilter = null;
             this.ProviderPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -430,10 +459,13 @@
             // 
             // ProviderPanel
             // 
+            this.ProviderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ProviderPanel.BackColor = System.Drawing.Color.Transparent;
             this.ProviderPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ProviderPanel.BindingSource = null;
-            this.ProviderPanel.BorderColor = System.Drawing.Color.Transparent;
+            this.ProviderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ProviderPanel.BorderThickness = 1;
             this.ProviderPanel.Children = null;
             this.ProviderPanel.Controls.Add(this.SqliteRadioButton);
@@ -457,6 +489,9 @@
             // 
             // SqliteRadioButton
             // 
+            this.SqliteRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
             this.SqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.SqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
@@ -482,6 +517,9 @@
             // 
             // AccessRadioButton
             // 
+            this.AccessRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AccessRadioButton.BackColor = System.Drawing.Color.Transparent;
             this.AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
@@ -507,6 +545,9 @@
             // 
             // SqlServerRadioButton
             // 
+            this.SqlServerRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SqlServerRadioButton.BackColor = System.Drawing.Color.Transparent;
             this.SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
@@ -785,7 +826,9 @@
             // 
             // SelectButton
             // 
-            this.SelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectButton.BackColor = System.Drawing.Color.Transparent;
             this.SelectButton.BindingSource = null;
             this.SelectButton.DataFilter = null;
@@ -799,7 +842,7 @@
             this.SelectButton.HoverText = "Not Yet Implemented!";
             this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(72, 531);
+            this.SelectButton.Location = new System.Drawing.Point(109, 528);
             this.SelectButton.Margin = new System.Windows.Forms.Padding(0);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -820,7 +863,9 @@
             // 
             // RefreshButton
             // 
-            this.RefreshButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RefreshButton.BindingSource = null;
             this.RefreshButton.DataFilter = null;
             this.RefreshButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -833,7 +878,7 @@
             this.RefreshButton.HoverText = "Not Yet Implemented!";
             this.RefreshButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.RefreshButton.IsDerivedStyle = true;
-            this.RefreshButton.Location = new System.Drawing.Point(611, 531);
+            this.RefreshButton.Location = new System.Drawing.Point(605, 528);
             this.RefreshButton.Margin = new System.Windows.Forms.Padding(0);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -854,7 +899,9 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.BackColor = System.Drawing.Color.Transparent;
             this.CloseButton.BindingSource = null;
             this.CloseButton.DataFilter = null;
@@ -868,7 +915,7 @@
             this.CloseButton.HoverText = "Close Window";
             this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(1182, 531);
+            this.CloseButton.Location = new System.Drawing.Point(1030, 528);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -997,7 +1044,7 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(1368, 588);
+            this.ClientSize = new System.Drawing.Size(1368, 638);
             this.ControlBox = false;
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.TabControl);

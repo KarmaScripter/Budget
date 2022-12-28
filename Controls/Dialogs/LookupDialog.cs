@@ -47,6 +47,9 @@ namespace BudgetExecution
         public LookupDialog( )
         {
             InitializeComponent( );
+            
+            // Basic Properties
+            Size = new Size( 1380, 650 );
             Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
@@ -73,10 +76,10 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
-                TablePanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-                ColumnPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-                ProviderPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-                ValuePanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+                TablePanelLabel.ForeColor = Color.LightGray;
+                ColumnPanelLabel.ForeColor = Color.LightGray;
+                ProviderPanelLabel.ForeColor = Color.LightGray;
+                ValuePanelLabel.ForeColor = Color.LightGray;
                 TablePanelLabel.Text = TablePrefix + TableListBox.Items.Count;
                 ColumnPanelLabel.Text = ColumnPrefix;
             }

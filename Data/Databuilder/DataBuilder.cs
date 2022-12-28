@@ -93,6 +93,21 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns,
+            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
+            : base( source, provider, columns, numerics, where, commandType )
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         public DataBuilder( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
@@ -176,7 +191,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRows?.Where( p => p.Field<string>( name ).Equals( value ) )
+                    var _query = dataRows
+                        ?.Where( p => p.Field<string>( name ).Equals( value ) )
                         ?.Select( p => p );
 
                     return _query?.Any( ) == true
@@ -200,6 +216,7 @@ namespace BudgetExecution
         /// <param name="name">The field.</param>
         /// <param name="value">The filter.</param>
         /// <returns></returns>
+        [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
         public static IDictionary<string, IEnumerable<string>> CreateSeries( 
             IEnumerable<DataRow> dataRows, string name, string value )
         {

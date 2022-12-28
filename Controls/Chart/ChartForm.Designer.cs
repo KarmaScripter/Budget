@@ -177,7 +177,7 @@
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 662);
+            this.ToolStrip.Location = new System.Drawing.Point(0, 712);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
@@ -284,7 +284,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(216, 32);
+            this.TextBox.Size = new System.Drawing.Size(212, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -706,7 +706,7 @@
             this.Chart.ShowScrollBars = false;
             this.Chart.ShowToolbar = true;
             this.Chart.ShowToolTips = true;
-            this.Chart.Size = new System.Drawing.Size(978, 577);
+            this.Chart.Size = new System.Drawing.Size(978, 613);
             this.Chart.Source = BudgetExecution.Source.External;
             this.Chart.Spacing = 5F;
             this.Chart.SpacingBetweenPoints = 5F;
@@ -755,7 +755,7 @@
             this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.FilterTable.Size = new System.Drawing.Size(311, 659);
+            this.FilterTable.Size = new System.Drawing.Size(311, 682);
             this.FilterTable.TabIndex = 3;
             // 
             // FirstFilterLabel
@@ -829,6 +829,9 @@
             // 
             // FirstFilterPanel
             // 
+            this.FirstFilterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstFilterPanel.BackColor = System.Drawing.Color.Transparent;
             this.FirstFilterPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FirstFilterPanel.BindingSource = null;
@@ -891,6 +894,9 @@
             // 
             // SecondFilterPanel
             // 
+            this.SecondFilterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SecondFilterPanel.BackColor = System.Drawing.Color.Transparent;
             this.SecondFilterPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondFilterPanel.BindingSource = null;
@@ -906,7 +912,7 @@
             this.SecondFilterPanel.Location = new System.Drawing.Point(3, 245);
             this.SecondFilterPanel.Name = "SecondFilterPanel";
             this.SecondFilterPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondFilterPanel.Size = new System.Drawing.Size(305, 181);
+            this.SecondFilterPanel.Size = new System.Drawing.Size(305, 184);
             this.SecondFilterPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondFilterPanel.StyleManager = null;
             this.SecondFilterPanel.TabIndex = 4;
@@ -943,7 +949,7 @@
             this.SecondFilterListBox.SelectedValue = null;
             this.SecondFilterListBox.ShowBorder = false;
             this.SecondFilterListBox.ShowScrollBar = false;
-            this.SecondFilterListBox.Size = new System.Drawing.Size(266, 148);
+            this.SecondFilterListBox.Size = new System.Drawing.Size(266, 151);
             this.SecondFilterListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondFilterListBox.StyleManager = null;
             this.SecondFilterListBox.TabIndex = 0;
@@ -953,6 +959,9 @@
             // 
             // ThirdFilterPanel
             // 
+            this.ThirdFilterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ThirdFilterPanel.BackColor = System.Drawing.Color.Transparent;
             this.ThirdFilterPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ThirdFilterPanel.BindingSource = null;
@@ -968,7 +977,7 @@
             this.ThirdFilterPanel.Location = new System.Drawing.Point(3, 461);
             this.ThirdFilterPanel.Name = "ThirdFilterPanel";
             this.ThirdFilterPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdFilterPanel.Size = new System.Drawing.Size(305, 185);
+            this.ThirdFilterPanel.Size = new System.Drawing.Size(305, 218);
             this.ThirdFilterPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdFilterPanel.StyleManager = null;
             this.ThirdFilterPanel.TabIndex = 5;
@@ -1005,7 +1014,7 @@
             this.ThirdFilterListBox.SelectedValue = null;
             this.ThirdFilterListBox.ShowBorder = false;
             this.ThirdFilterListBox.ShowScrollBar = false;
-            this.ThirdFilterListBox.Size = new System.Drawing.Size(266, 148);
+            this.ThirdFilterListBox.Size = new System.Drawing.Size(266, 166);
             this.ThirdFilterListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdFilterListBox.StyleManager = null;
             this.ThirdFilterListBox.TabIndex = 0;
@@ -1033,7 +1042,7 @@
             this.ChartPanel.Location = new System.Drawing.Point(20, 30);
             this.ChartPanel.Name = "ChartPanel";
             this.ChartPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ChartPanel.Size = new System.Drawing.Size(1017, 617);
+            this.ChartPanel.Size = new System.Drawing.Size(1017, 653);
             this.ChartPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ChartPanel.StyleManager = null;
             this.ChartPanel.TabIndex = 4;
@@ -1053,7 +1062,7 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(1388, 712);
+            this.ClientSize = new System.Drawing.Size(1388, 762);
             this.Controls.Add(this.ChartPanel);
             this.Controls.Add(this.FilterTable);
             this.Controls.Add(this.ToolStrip);

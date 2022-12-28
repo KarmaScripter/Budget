@@ -36,6 +36,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
+            Size = new Size( 1380, 650 );
             SqliteRadioButton.Tag = "SQLite";
             SqlServerRadioButton.Tag = "SqlServer";
             AccessRadioButton.Tag = "Access";
@@ -44,9 +45,9 @@ namespace BudgetExecution
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
             TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-            ProviderPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            TablePanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            SchemaPanelLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            ProviderPanelLabel.ForeColor = Color.LightGray;
+            TablePanelLabel.ForeColor = Color.LightGray;
+            SchemaPanelLabel.ForeColor = Color.LightGray;
             
             // Populate Controls
             TabPages = GetTabPages( );

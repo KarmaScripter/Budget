@@ -10165,6 +10165,17 @@
             <param name="where">The criteria.</param>
             <param name="commandType">Type of the command.</param>
         </member>
+        <member name="M:BudgetExecution.DataBuilder.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="columns">The columns.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="where">The where.</param>
+            <param name="commandType">Type of the command.</param>
+        </member>
         <member name="M:BudgetExecution.DataBuilder.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder"/> class.
@@ -10369,6 +10380,17 @@
             <param name="where">The criteria.</param>
             <param name="commandType">Type of the command.</param>
         </member>
+        <member name="M:BudgetExecution.DataModel.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataModel"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="columns">The columns.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="where">The where.</param>
+            <param name="commandType">Type of the command.</param>
+        </member>
         <member name="M:BudgetExecution.DataModel.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.DataModel"/> class.
@@ -10420,13 +10442,6 @@
             Gets the schema table.
             </summary>
             <param name="dataTable">The dataRows table.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.DataModel.CreateTableFromExcel(System.String)">
-            <summary>
-            Creates the table from excel.
-            </summary>
-            <param name="filePath">The file path.</param>
             <returns></returns>
         </member>
         <member name="M:BudgetExecution.DataModel.CreateTableFromExcel(System.String,System.Boolean)">
@@ -12606,7 +12621,7 @@
             <param name="provider"></param>
             <param name="columns"></param>
             <param name="numerics"></param>
-            <param name="where"></param>
+            <param name="having"></param>
             <param name="commandType"></param>
         </member>
         <member name="M:BudgetExecution.SqlBase.GetSelectStatement">
@@ -12835,8 +12850,8 @@
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="columns">The columns.</param>
-            <param name="aggregates">The aggregates.</param>
-            <param name="where">The where.</param>
+            <param name="numerics">The aggregates.</param>
+            <param name="having">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
         <member name="M:BudgetExecution.SqlStatement.GetUpdateText">
@@ -12871,6 +12886,15 @@
             </summary>
             <param name="columns">The columns.</param>
             <param name="where">The dictionary.</param>
+            <param name="commandType">Type of the command.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.SqlStatement.GetCommandText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Gets the command text.
+            </summary>
+            <param name="columns">The columns.</param>
+            <param name="having">The dictionary.</param>
             <param name="commandType">Type of the command.</param>
             <returns></returns>
         </member>

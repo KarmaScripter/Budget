@@ -214,10 +214,10 @@ namespace BudgetExecution
         /// <param name="provider"></param>
         /// <param name="columns"></param>
         /// <param name="numerics"></param>
-        /// <param name="where"></param>
+        /// <param name="having"></param>
         /// <param name="commandType"></param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
-            IEnumerable<string> numerics, IDictionary<string, object> where,
+            IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
         {
             DbPath = new ConnectionBuilder( source, provider ).DbPath;
@@ -225,7 +225,7 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             TableName = source.ToString( );
-            Criteria = where;
+            Criteria = having;
             Columns = columns.ToList( );
             Numerics = numerics.ToList( );
         }

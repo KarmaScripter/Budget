@@ -120,16 +120,16 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="columns">The columns.</param>
-        /// <param name="aggregates">The aggregates.</param>
-        /// <param name="where">The where.</param>
+        /// <param name="numerics">The aggregates.</param>
+        /// <param name="having">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> columns,
-            IEnumerable<string> aggregates, IDictionary<string, object> where,
+            IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, aggregates, where,
+            : base( source, provider, columns, numerics, having,
                 commandType )
         {
-            CommandText = GetCommandText( columns, where, commandType );
+            CommandText = GetCommandText( columns, having, commandType );
         }
 
         /// <summary>
@@ -272,6 +272,51 @@ namespace BudgetExecution
                         case SQL.DELETE:
                         {
                             return CreateDeleteStatement( where );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+
+            return string.Empty;
+        }
+        
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="having">The dictionary.</param>
+        /// <param name="commandType">Type of the command.</param>
+        /// <returns></returns>
+        public string GetCommandText( IEnumerable<string> columns, IEnumerable<string> numerics,
+            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        {
+            if( having?.Any( ) == true
+               && columns?.Any( ) == true
+               && Enum.IsDefined( typeof( Source ), Source ) )
+            {
+                try
+                {
+                    switch( commandType )
+                    {
+                        case SQL.SELECT:
+                        {
+                            return CreateSelectStatement( columns, numerics, having );
+                        }
+                        case SQL.SELECTALL:
+                        {
+                            return CreateSelectStatement( having );
+                        }
+                        case SQL.INSERT:
+                        {
+                            return CreateInsertStatement( having );
+                        }
+                        case SQL.DELETE:
+                        {
+                            return CreateDeleteStatement( having );
                         }
                     }
                 }

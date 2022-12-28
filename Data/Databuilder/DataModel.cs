@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Data.OleDb;
     using System.IO;
     using BudgetExecution;
     using OfficeOpenXml;
@@ -117,6 +116,33 @@ namespace BudgetExecution
             Provider = provider;
             ConnectionBuilder = new ConnectionBuilder( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames(  );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public DataModel( Source source, Provider provider, IEnumerable<string> columns, 
+            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            SqlStatement = new SqlStatement( source, provider, columns, numerics, where, 
+                commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             TableName = SqlStatement.TableName;
@@ -294,55 +320,6 @@ namespace BudgetExecution
                     return _schema?.Rows?.Count > 0
                         ? _schema
                         : default( DataTable );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
-        }
-
-        /// <summary>
-        /// Creates the table from excel.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
-        public static DataTable CreateTableFromExcel( string filePath )
-        {
-            if( !string.IsNullOrEmpty( filePath )
-               && File.Exists( filePath ) )
-            {
-                try
-                {
-                    var _connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
-                        + filePath + ";Extended Properties='Excel 12.0;HDR=YES;IMEX=1;';";
-
-                    using var _connection = new OleDbConnection( _connectionString );
-                    _connection?.Open( );
-                    using var _dataSet = new DataSet( );
-                    using var _schema = _connection?.GetSchema( );
-                    var _sheetName = string.Empty;
-                    if( _schema != null )
-                    {
-                        var _dataTable = _schema?.AsEnumerable( )
-                            ?.Where( r => r.Field<string>( "TABLE_NAME" ).Contains( "FilterDatabase" ) )
-                            ?.Select( r => r )
-                            ?.CopyToDataTable( );
-
-                        _sheetName = _dataTable.Rows[ 0 ][ "TABLE_NAME" ].ToString( );
-                    }
-
-                    using var _command = new OleDbCommand( );
-                    _command.Connection = _connection;
-                    _command.CommandText = "SELECT * FROM [" + _sheetName + "]";
-                    using var _dataAdapter = new OleDbDataAdapter( _command );
-                    _dataAdapter.Fill( _dataSet, "ExcelData" );
-                    using var _table = _dataSet.Tables[ "ExcelData" ];
-                    _connection.Close( );
-                    return _table;
                 }
                 catch( Exception ex )
                 {

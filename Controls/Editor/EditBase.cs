@@ -44,7 +44,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            Size = new Size( 1380, 600 );
+            Size = new Size( 1380, 650);
             Text = string.Empty;
         }
 

@@ -80,12 +80,13 @@ namespace BudgetExecution
 
             // Basic Properties
             StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size( 1400, 750 );
+            Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
+            MinimumSize = new Size( 1400, 750  );
+            FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -101,14 +102,14 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // Label Properties
-            StaticGridLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticGridLabel.ForeColor = Color.LightGray;
-            StaticTableLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticTableLabel.ForeColor = Color.LightGray;
-            StaticColumnLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticColumnLabel.ForeColor = Color.LightGray;
-            StaticValueLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticValueLabel.ForeColor = Color.LightGray;
+            GridLabel.Font = new Font( "Roboto", 9 );
+            GridLabel.ForeColor = Color.LightGray;
+            TableLabel.Font = new Font( "Roboto", 9 );
+            TableLabel.ForeColor = Color.LightGray;
+            ColumnLabel.Font = new Font( "Roboto", 9 );
+            ColumnLabel.ForeColor = Color.LightGray;
+            ValueLabel.Font = new Font( "Roboto", 9 );
+            ValueLabel.ForeColor = Color.LightGray;
 
             // Event Wiring
             Load += OnLoad;
@@ -156,16 +157,14 @@ namespace BudgetExecution
                 ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
                 ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
                 ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                TableLabel.Text = TableListBox.Items.Count.ToString( );
-                ColumnLabel.Text = string.Empty;
-                ValueLabel.Text = string.Empty;
-                DataSourceLabel.Text = DataModel.DataTable.TableName.SplitPascal( );
+                TableLabel.Text = "Tables: " + TableListBox.Items.Count;
+                ColumnLabel.Text = "Columns: " + string.Empty;
+                ValueLabel.Text = "Values: " + string.Empty;
+                GridLabel.Text = "Data Source:  " + DataModel.DataTable.TableName.SplitPascal( );
                 SelectedTable = string.Empty;
                 SelectedColumn = string.Empty;
                 SelectedValue = string.Empty;
                 SqlQuery = string.Empty;
-                LeftHeaderLabel.Text = string.Empty;
-                RightHeaderLabel.Text = string.Empty;
                 ToolStrip.Text = string.Empty;
                 Text = DataModel.Provider + " Data";
                 ExitButton.Click += OnExitButtonClicked;
@@ -236,7 +235,6 @@ namespace BudgetExecution
             {
                 FormFilter.Clear( );
                 SqlQuery = string.Empty;
-                LeftHeaderLabel.Text = string.Empty;
                 ColumnListBox.Items.Clear( );
                 ValueListBox.Items.Clear( );
                 ColumnPanel.Text = string.Empty;
@@ -251,14 +249,15 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    DataSourceLabel.Text = DataModel.DataTable.TableName?.SplitPascal( );
+                    var _name = DataModel.DataTable.TableName;
+                    GridLabel.Text = "Data Source:  " + _name?.SplitPascal( );
                     var _columns = DataModel.GetDataColumns( );
                     foreach( var col in _columns )
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
 
-                    ColumnLabel.Text = ColumnListBox.Items.Count.ToString( );
+                    ColumnLabel.Text = "Columns: " + ColumnListBox.Items.Count;
                 }
             }
             catch( Exception ex )
@@ -277,7 +276,6 @@ namespace BudgetExecution
             {
                 ValueListBox.Items.Clear( );
                 SqlQuery = string.Empty;
-                LeftHeaderLabel.Text = string.Empty;
                 var _listBox = sender as ListBox;
                 var _column = _listBox?.SelectedValue?.ToString( );
                 var _series = DataModel.DataElements;
@@ -290,7 +288,7 @@ namespace BudgetExecution
                     }
                 }
 
-                ValueLabel.Text = ValueListBox.Items.Count.ToString( );
+                ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
             }
             catch( Exception ex )
             {
@@ -307,7 +305,6 @@ namespace BudgetExecution
             try
             {
                 SqlQuery = string.Empty;
-                LeftHeaderLabel.Text = string.Empty;
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedValue?.ToString( );
                 SelectedValue = _value?.Trim( );
@@ -321,8 +318,7 @@ namespace BudgetExecution
                 }
 
                 SqlQuery = _query;
-                LeftHeaderLabel.Text = SqlQuery;
-                ValueLabel.Text = ValueListBox.Items.Count.ToString( );
+                ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
             }
             catch( Exception ex )
             {
