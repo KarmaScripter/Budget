@@ -27,7 +27,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             Size = new Size( 1400, 750 );
             MaximumSize = new Size( 1400, 800 );
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -117,6 +117,8 @@ namespace BudgetExecution
         {
             try
             {
+                BackButton.Click += null;
+                BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
@@ -127,6 +129,27 @@ namespace BudgetExecution
             }
         }
         
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.BackButton )
+                {
+                    Close(  );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

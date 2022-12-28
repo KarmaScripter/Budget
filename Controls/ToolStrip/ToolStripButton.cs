@@ -158,6 +158,11 @@ namespace BudgetExecution
                             BindingSource?.MoveLast( );
                             break;
                         }
+                        case ToolType.ExitButton:
+                        case ToolType.BackButton:
+                        {
+                            break;
+                        }
                         case ToolType.ExcelButton:
                         {
                             var _excel =
@@ -244,7 +249,6 @@ namespace BudgetExecution
                         case ToolType.MetricsButton:
                         case ToolType.WebNextButton:
                         case ToolType.WebBackButton:
-                        case ToolType.ExitButton:
                         case ToolType.ExportButton:
                         case ToolType.ImportButton:
                         case ToolType.TableButton:

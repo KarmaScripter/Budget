@@ -58,10 +58,11 @@
             this.toolSeparator12 = new BudgetExecution.ToolSeparator();
             this.CalculatorButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator13 = new BudgetExecution.ToolSeparator();
-            this.HomeButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator15 = new BudgetExecution.ToolSeparator();
-            this.LogoutButton = new BudgetExecution.ToolStripButton();
+            this.BackButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator16 = new BudgetExecution.ToolSeparator();
+            this.HomeButton = new BudgetExecution.ToolStripButton();
+            this.toolSeparator17 = new BudgetExecution.ToolSeparator();
+            this.toolSeparator15 = new BudgetExecution.ToolSeparator();
             this.Chart = new BudgetExecution.Chart();
             this.FilterTable = new System.Windows.Forms.TableLayoutPanel();
             this.FirstFilterLabel = new BudgetExecution.Label();
@@ -139,7 +140,7 @@
             this.ToolStrip.HomeButton = null;
             this.ToolStrip.Image = null;
             this.ToolStrip.ImageDirectory = null;
-            this.ToolStrip.ImageScalingSize = new System.Drawing.Size(20, 18);
+            this.ToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ToolStrip.ImageSize = new System.Drawing.Size(0, 0);
             this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolSeparator2,
@@ -169,14 +170,14 @@
             this.toolSeparator12,
             this.CalculatorButton,
             this.toolSeparator13,
+            this.BackButton,
+            this.toolSeparator16,
             this.HomeButton,
-            this.toolSeparator15,
-            this.LogoutButton,
-            this.toolSeparator16});
+            this.toolSeparator17});
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 664);
+            this.ToolStrip.Location = new System.Drawing.Point(0, 660);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
@@ -193,7 +194,7 @@
             this.ToolStrip.Separators = null;
             this.ToolStrip.ShowCaption = true;
             this.ToolStrip.ShowLauncher = true;
-            this.ToolStrip.Size = new System.Drawing.Size(1388, 48);
+            this.ToolStrip.Size = new System.Drawing.Size(1388, 52);
             this.ToolStrip.TabIndex = 0;
             this.ToolStrip.Text = "toolStrip1";
             this.ToolStrip.TextBox = null;
@@ -215,7 +216,7 @@
             this.toolSeparator2.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator2.Name = "toolSeparator2";
             this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator2.Size = new System.Drawing.Size(6, 34);
             // 
             // Label
             // 
@@ -229,7 +230,7 @@
             this.Label.Margin = new System.Windows.Forms.Padding(1);
             this.Label.Name = "Label";
             this.Label.Padding = new System.Windows.Forms.Padding(1);
-            this.Label.Size = new System.Drawing.Size(75, 30);
+            this.Label.Size = new System.Drawing.Size(75, 34);
             this.Label.Tag = "";
             this.Label.Text = "Data Search";
             this.Label.ToolTip = this.ToolTip;
@@ -240,7 +241,7 @@
             this.toolSeparator1.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator1.Name = "toolSeparator1";
             this.toolSeparator1.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator1.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator1.Size = new System.Drawing.Size(6, 34);
             // 
             // LookupButton
             // 
@@ -258,7 +259,7 @@
             this.LookupButton.Margin = new System.Windows.Forms.Padding(3);
             this.LookupButton.Name = "LookupButton";
             this.LookupButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LookupButton.Size = new System.Drawing.Size(26, 26);
+            this.LookupButton.Size = new System.Drawing.Size(26, 30);
             this.LookupButton.Text = "toolStripButton1";
             this.LookupButton.ToolTip = null;
             this.LookupButton.ToolType = BudgetExecution.ToolType.NS;
@@ -269,7 +270,7 @@
             this.toolSeparator3.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator3.Name = "toolSeparator3";
             this.toolSeparator3.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator3.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator3.Size = new System.Drawing.Size(6, 34);
             // 
             // TextBox
             // 
@@ -282,7 +283,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(232, 30);
+            this.TextBox.Size = new System.Drawing.Size(224, 34);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -292,7 +293,7 @@
             this.toolSeparator4.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator4.Name = "toolSeparator4";
             this.toolSeparator4.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator4.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator4.Size = new System.Drawing.Size(6, 34);
             // 
             // FirstButton
             // 
@@ -310,7 +311,7 @@
             this.FirstButton.Margin = new System.Windows.Forms.Padding(3);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstButton.Size = new System.Drawing.Size(26, 26);
+            this.FirstButton.Size = new System.Drawing.Size(26, 30);
             this.FirstButton.Text = "toolStripButton1";
             this.FirstButton.ToolTip = this.ToolTip;
             this.FirstButton.ToolType = BudgetExecution.ToolType.FirstButton;
@@ -321,7 +322,7 @@
             this.toolSeparator5.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator5.Name = "toolSeparator5";
             this.toolSeparator5.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator5.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator5.Size = new System.Drawing.Size(6, 34);
             // 
             // PreviousButton
             // 
@@ -339,7 +340,7 @@
             this.PreviousButton.Margin = new System.Windows.Forms.Padding(3);
             this.PreviousButton.Name = "PreviousButton";
             this.PreviousButton.Padding = new System.Windows.Forms.Padding(1);
-            this.PreviousButton.Size = new System.Drawing.Size(26, 26);
+            this.PreviousButton.Size = new System.Drawing.Size(26, 30);
             this.PreviousButton.Text = "toolStripButton2";
             this.PreviousButton.ToolTip = this.ToolTip;
             this.PreviousButton.ToolType = BudgetExecution.ToolType.PreviousButton;
@@ -350,7 +351,7 @@
             this.toolSeparator6.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator6.Name = "toolSeparator6";
             this.toolSeparator6.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator6.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator6.Size = new System.Drawing.Size(6, 34);
             // 
             // NextButton
             // 
@@ -368,7 +369,7 @@
             this.NextButton.Margin = new System.Windows.Forms.Padding(3);
             this.NextButton.Name = "NextButton";
             this.NextButton.Padding = new System.Windows.Forms.Padding(1);
-            this.NextButton.Size = new System.Drawing.Size(26, 26);
+            this.NextButton.Size = new System.Drawing.Size(26, 30);
             this.NextButton.Text = "toolStripButton3";
             this.NextButton.ToolTip = null;
             this.NextButton.ToolType = BudgetExecution.ToolType.NS;
@@ -379,7 +380,7 @@
             this.toolSeparator8.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator8.Name = "toolSeparator8";
             this.toolSeparator8.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator8.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator8.Size = new System.Drawing.Size(6, 34);
             // 
             // LastButton
             // 
@@ -397,7 +398,7 @@
             this.LastButton.Margin = new System.Windows.Forms.Padding(3);
             this.LastButton.Name = "LastButton";
             this.LastButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LastButton.Size = new System.Drawing.Size(26, 26);
+            this.LastButton.Size = new System.Drawing.Size(26, 30);
             this.LastButton.Text = "toolStripButton4";
             this.LastButton.ToolTip = this.ToolTip;
             this.LastButton.ToolType = BudgetExecution.ToolType.LastButton;
@@ -408,7 +409,7 @@
             this.toolSeparator7.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator7.Name = "toolSeparator7";
             this.toolSeparator7.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator7.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator7.Size = new System.Drawing.Size(6, 34);
             // 
             // DropDown
             // 
@@ -426,7 +427,7 @@
             this.DropDown.Name = "DropDown";
             this.DropDown.Numeric = BudgetExecution.Numeric.Accepted;
             this.DropDown.Padding = new System.Windows.Forms.Padding(1);
-            this.DropDown.Size = new System.Drawing.Size(252, 30);
+            this.DropDown.Size = new System.Drawing.Size(252, 34);
             this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             this.DropDown.Tag = "Make Selection";
             this.DropDown.ToolTip = this.ToolTip;
@@ -438,7 +439,7 @@
             this.toolSeparator9.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator9.Name = "toolSeparator9";
             this.toolSeparator9.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator9.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator9.Size = new System.Drawing.Size(6, 34);
             // 
             // RefreshDataButton
             // 
@@ -456,7 +457,7 @@
             this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(3);
             this.RefreshDataButton.Name = "RefreshDataButton";
             this.RefreshDataButton.Padding = new System.Windows.Forms.Padding(1);
-            this.RefreshDataButton.Size = new System.Drawing.Size(26, 26);
+            this.RefreshDataButton.Size = new System.Drawing.Size(26, 30);
             this.RefreshDataButton.Text = "toolStripButton1";
             this.RefreshDataButton.ToolTip = this.ToolTip;
             this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RefreshDataButton;
@@ -467,7 +468,7 @@
             this.toolSeparator10.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator10.Name = "toolSeparator10";
             this.toolSeparator10.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator10.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator10.Size = new System.Drawing.Size(6, 34);
             // 
             // TableButton
             // 
@@ -485,7 +486,7 @@
             this.TableButton.Margin = new System.Windows.Forms.Padding(3);
             this.TableButton.Name = "TableButton";
             this.TableButton.Padding = new System.Windows.Forms.Padding(1);
-            this.TableButton.Size = new System.Drawing.Size(26, 26);
+            this.TableButton.Size = new System.Drawing.Size(26, 30);
             this.TableButton.Text = "toolStripButton5";
             this.TableButton.ToolTip = this.ToolTip;
             this.TableButton.ToolType = BudgetExecution.ToolType.TableButton;
@@ -496,7 +497,7 @@
             this.toolSeparator14.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator14.Name = "toolSeparator14";
             this.toolSeparator14.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator14.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator14.Size = new System.Drawing.Size(6, 34);
             // 
             // ExcelButton
             // 
@@ -514,7 +515,7 @@
             this.ExcelButton.Margin = new System.Windows.Forms.Padding(3);
             this.ExcelButton.Name = "ExcelButton";
             this.ExcelButton.Padding = new System.Windows.Forms.Padding(1);
-            this.ExcelButton.Size = new System.Drawing.Size(26, 26);
+            this.ExcelButton.Size = new System.Drawing.Size(26, 30);
             this.ExcelButton.Text = "toolStripButton2";
             this.ExcelButton.ToolTip = this.ToolTip;
             this.ExcelButton.ToolType = BudgetExecution.ToolType.ExcelButton;
@@ -525,7 +526,7 @@
             this.toolSeparator11.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator11.Name = "toolSeparator11";
             this.toolSeparator11.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator11.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator11.Size = new System.Drawing.Size(6, 34);
             // 
             // CalendarButton
             // 
@@ -543,7 +544,7 @@
             this.CalendarButton.Margin = new System.Windows.Forms.Padding(3);
             this.CalendarButton.Name = "CalendarButton";
             this.CalendarButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CalendarButton.Size = new System.Drawing.Size(26, 26);
+            this.CalendarButton.Size = new System.Drawing.Size(26, 30);
             this.CalendarButton.Text = "toolStripButton3";
             this.CalendarButton.ToolTip = this.ToolTip;
             this.CalendarButton.ToolType = BudgetExecution.ToolType.CalendarButton;
@@ -554,7 +555,7 @@
             this.toolSeparator12.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator12.Name = "toolSeparator12";
             this.toolSeparator12.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator12.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator12.Size = new System.Drawing.Size(6, 34);
             // 
             // CalculatorButton
             // 
@@ -572,7 +573,7 @@
             this.CalculatorButton.Margin = new System.Windows.Forms.Padding(3);
             this.CalculatorButton.Name = "CalculatorButton";
             this.CalculatorButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CalculatorButton.Size = new System.Drawing.Size(26, 26);
+            this.CalculatorButton.Size = new System.Drawing.Size(26, 30);
             this.CalculatorButton.Text = "toolStripButton4";
             this.CalculatorButton.ToolTip = this.ToolTip;
             this.CalculatorButton.ToolType = BudgetExecution.ToolType.CalculatorButton;
@@ -583,7 +584,36 @@
             this.toolSeparator13.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator13.Name = "toolSeparator13";
             this.toolSeparator13.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator13.Size = new System.Drawing.Size(6, 30);
+            this.toolSeparator13.Size = new System.Drawing.Size(6, 34);
+            // 
+            // BackButton
+            // 
+            this.BackButton.AutoToolTip = false;
+            this.BackButton.BackColor = System.Drawing.Color.Transparent;
+            this.BackButton.BindingSource = this.BindingSource;
+            this.BackButton.DataFilter = null;
+            this.BackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BackButton.Field = BudgetExecution.Field.AccountCode;
+            this.BackButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BackButton.ForeColor = System.Drawing.Color.LightGray;
+            this.BackButton.HoverText = "Go Back";
+            this.BackButton.Image = global::BudgetExecution.Properties.Resources.BackButton;
+            this.BackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Padding = new System.Windows.Forms.Padding(1);
+            this.BackButton.Size = new System.Drawing.Size(26, 30);
+            this.BackButton.Text = "toolStripButton1";
+            this.BackButton.ToolTip = this.ToolTip;
+            this.BackButton.ToolType = BudgetExecution.ToolType.BackButton;
+            // 
+            // toolSeparator16
+            // 
+            this.toolSeparator16.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator16.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator16.Name = "toolSeparator16";
+            this.toolSeparator16.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator16.Size = new System.Drawing.Size(6, 34);
             // 
             // HomeButton
             // 
@@ -601,10 +631,18 @@
             this.HomeButton.Margin = new System.Windows.Forms.Padding(3);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Size = new System.Drawing.Size(26, 26);
+            this.HomeButton.Size = new System.Drawing.Size(26, 30);
             this.HomeButton.Text = "toolStripButton1";
             this.HomeButton.ToolTip = this.ToolTip;
             this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
+            // 
+            // toolSeparator17
+            // 
+            this.toolSeparator17.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator17.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator17.Name = "toolSeparator17";
+            this.toolSeparator17.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator17.Size = new System.Drawing.Size(6, 34);
             // 
             // toolSeparator15
             // 
@@ -613,35 +651,6 @@
             this.toolSeparator15.Name = "toolSeparator15";
             this.toolSeparator15.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator15.Size = new System.Drawing.Size(6, 30);
-            // 
-            // LogoutButton
-            // 
-            this.LogoutButton.AutoToolTip = false;
-            this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
-            this.LogoutButton.BindingSource = this.BindingSource;
-            this.LogoutButton.DataFilter = null;
-            this.LogoutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.LogoutButton.Field = BudgetExecution.Field.AccountCode;
-            this.LogoutButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LogoutButton.ForeColor = System.Drawing.Color.LightGray;
-            this.LogoutButton.HoverText = "Exit Application";
-            this.LogoutButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
-            this.LogoutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.LogoutButton.Margin = new System.Windows.Forms.Padding(3);
-            this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LogoutButton.Size = new System.Drawing.Size(26, 26);
-            this.LogoutButton.Text = "toolStripButton2";
-            this.LogoutButton.ToolTip = this.ToolTip;
-            this.LogoutButton.ToolType = BudgetExecution.ToolType.LogoutButton;
-            // 
-            // toolSeparator16
-            // 
-            this.toolSeparator16.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator16.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator16.Name = "toolSeparator16";
-            this.toolSeparator16.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator16.Size = new System.Drawing.Size(6, 30);
             // 
             // Chart
             // 
@@ -1110,7 +1119,6 @@
         private ToolSeparator toolSeparator13;
         public ToolStripButton HomeButton;
         private ToolSeparator toolSeparator15;
-        public ToolStripButton LogoutButton;
         private ToolSeparator toolSeparator16;
         public System.Windows.Forms.TableLayoutPanel FilterTable;
         public Label FirstFilterLabel;
@@ -1123,5 +1131,7 @@
         public Layout ThirdFilterPanel;
         public ListBox ThirdFilterListBox;
         private Layout ChartPanel;
+        public ToolStripButton BackButton;
+        private ToolSeparator toolSeparator17;
     }
 }

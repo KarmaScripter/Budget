@@ -86,7 +86,7 @@ namespace BudgetExecution
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            ImageScalingSize = new Size( 20, 22 );
+            ImageScalingSize = new Size( 20, 20 );
             Office12Mode = true;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;
@@ -99,6 +99,7 @@ namespace BudgetExecution
             ThemeStyle.CaptionBackColor = Color.FromArgb( 28, 28, 28 );
             ThemeStyle.CaptionForeColor = Color.Black;
             ThemeStyle.ComboBoxStyle.BorderColor = Color.FromArgb( 65, 65, 65 );
+            ThemeStyle.DropDownStyle.BorderColor = Color.FromArgb( 40, 40, 40 );
             ThemeStyle.ComboBoxStyle.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.HoverItemBackColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.HoverItemForeColor = Color.White;

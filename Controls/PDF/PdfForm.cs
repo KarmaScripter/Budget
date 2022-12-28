@@ -116,6 +116,7 @@ namespace BudgetExecution
             try
             {
                 Text = @"PDF Document";
+                BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
@@ -124,6 +125,27 @@ namespace BudgetExecution
                 LoadDocuments(  );
             }
             catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.BackButton )
+                {
+                    Close(  );
+                }
+            }
+            catch( Exception ex )
             {
                 Fail( ex );
             }

@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System;
     using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.Data;
     using System.Drawing;
     using System.Linq;
@@ -103,13 +102,13 @@ namespace BudgetExecution
             
             // Label Properties
             StaticGridLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticGridLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticGridLabel.ForeColor = Color.LightGray;
             StaticTableLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticTableLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticTableLabel.ForeColor = Color.LightGray;
             StaticColumnLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticColumnLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticColumnLabel.ForeColor = Color.LightGray;
             StaticValueLabel.Font = new Font( "Roboto", 9, FontStyle.Bold  );
-            StaticValueLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            StaticValueLabel.ForeColor = Color.LightGray;
 
             // Event Wiring
             Load += OnLoad;
@@ -169,13 +168,14 @@ namespace BudgetExecution
                 RightHeaderLabel.Text = string.Empty;
                 ToolStrip.Text = string.Empty;
                 Text = DataModel.Provider + " Data";
+                ExitButton.Click += OnExitButtonClicked;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the ListBox items.
         /// </summary>
@@ -347,7 +347,30 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [exit button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnExitButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.ExitButton )
+                {
+                    Close(  );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
