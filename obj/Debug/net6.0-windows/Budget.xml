@@ -3263,6 +3263,22 @@
             The name of the file.
             </value>
         </member>
+        <member name="P:BudgetExecution.ExcelForm.RowCount">
+            <summary>
+            Gets or sets the row count.
+            </summary>
+            <value>
+            The row count.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ExcelForm.ColCount">
+            <summary>
+            Gets or sets the col count.
+            </summary>
+            <value>
+            The col count.
+            </value>
+        </member>
         <member name="P:BudgetExecution.ExcelForm.Grid">
             <summary>
             Gets or sets the grid.

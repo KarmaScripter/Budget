@@ -118,18 +118,18 @@
             this.BrowseButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator1 = new BudgetExecution.ToolSeparator();
             this.WebButton = new BudgetExecution.ToolStripButton();
-            this.Separator22 = new BudgetExecution.ToolSeparator();
             this.toolSeparator3 = new BudgetExecution.ToolSeparator();
+            this.ComboBox = new BudgetExecution.ToolStripDropDown();
+            this.Separator27 = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
             this.Separator28 = new BudgetExecution.ToolSeparator();
             this.ExitButton = new BudgetExecution.ToolStripButton();
-            this.Separator27 = new BudgetExecution.ToolSeparator();
+            this.Separator22 = new BudgetExecution.ToolSeparator();
             this.Separator23 = new BudgetExecution.ToolSeparator();
             this.Separator1 = new BudgetExecution.ToolSeparator();
             this.Separator25 = new BudgetExecution.ToolSeparator();
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
-            this.ComboBox = new BudgetExecution.ToolStripDropDown();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -842,6 +842,7 @@
             this.ToolStrip.DeleteRecordButton = this.DeleteRecordButton;
             this.ToolStrip.DeleteTableButton = this.DeleteTableButton;
             this.ToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ToolStrip.DropDown = null;
             this.ToolStrip.EditButton = this.EditSqlButton;
             this.ToolStrip.EditColumnButton = this.EditColumnButton;
             this.ToolStrip.EditRecordButton = this.EditRecordButton;
@@ -891,10 +892,10 @@
             this.AddTableButton,
             this.toolSeparator16,
             this.LookupButton,
-            this.toolSeparator17,
-            this.EditSqlButton,
             this.Separator18,
             this.ExcelButton,
+            this.toolSeparator17,
+            this.EditSqlButton,
             this.Separator19,
             this.ChartButton,
             this.Separator20,
@@ -947,6 +948,7 @@
             this.ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
             this.ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.SteelBlue;
             this.ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             this.ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
@@ -1088,7 +1090,7 @@
             this.ExcelButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExcelButton.ForeColor = System.Drawing.Color.LightGray;
             this.ExcelButton.HoverText = "Excel Export";
-            this.ExcelButton.Image = global::BudgetExecution.Properties.Resources.ExcelExportButton;
+            this.ExcelButton.Image = global::BudgetExecution.Properties.Resources.ExcelButton;
             this.ExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExcelButton.Margin = new System.Windows.Forms.Padding(1);
             this.ExcelButton.Name = "ExcelButton";
@@ -1117,7 +1119,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(145, 32);
+            this.TextBox.Size = new System.Drawing.Size(143, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1669,14 +1671,6 @@
             this.WebButton.ToolTip = this.ToolTip;
             this.WebButton.ToolType = BudgetExecution.ToolType.WebButton;
             // 
-            // Separator22
-            // 
-            this.Separator22.ForeColor = System.Drawing.Color.Black;
-            this.Separator22.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator22.Name = "Separator22";
-            this.Separator22.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator22.Size = new System.Drawing.Size(6, 32);
-            // 
             // toolSeparator3
             // 
             this.toolSeparator3.ForeColor = System.Drawing.Color.Black;
@@ -1684,6 +1678,36 @@
             this.toolSeparator3.Name = "toolSeparator3";
             this.toolSeparator3.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator3.Size = new System.Drawing.Size(6, 32);
+            // 
+            // ComboBox
+            // 
+            this.ComboBox.AllowDrop = true;
+            this.ComboBox.BindingSource = null;
+            this.ComboBox.DataFilter = null;
+            this.ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox.Field = BudgetExecution.Field.AccountCode;
+            this.ComboBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.ComboBox.HoverText = "Make Selection";
+            this.ComboBox.Margin = new System.Windows.Forms.Padding(1);
+            this.ComboBox.MaxDropDownItems = 100;
+            this.ComboBox.MaxLength = 32767;
+            this.ComboBox.Name = "ComboBox";
+            this.ComboBox.Numeric = BudgetExecution.Numeric.Accepted;
+            this.ComboBox.Padding = new System.Windows.Forms.Padding(1);
+            this.ComboBox.Size = new System.Drawing.Size(200, 32);
+            this.ComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
+            this.ComboBox.Tag = "Make Selection";
+            this.ComboBox.ToolTip = this.ToolTip;
+            this.ComboBox.ToolTipText = "Make Selection";
+            // 
+            // Separator27
+            // 
+            this.Separator27.ForeColor = System.Drawing.Color.Black;
+            this.Separator27.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator27.Name = "Separator27";
+            this.Separator27.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator27.Size = new System.Drawing.Size(6, 32);
             // 
             // MenuButton
             // 
@@ -1735,13 +1759,13 @@
             this.ExitButton.ToolTip = this.ToolTip;
             this.ExitButton.ToolType = BudgetExecution.ToolType.ExitButton;
             // 
-            // Separator27
+            // Separator22
             // 
-            this.Separator27.ForeColor = System.Drawing.Color.Black;
-            this.Separator27.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator27.Name = "Separator27";
-            this.Separator27.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator27.Size = new System.Drawing.Size(6, 32);
+            this.Separator22.ForeColor = System.Drawing.Color.Black;
+            this.Separator22.Margin = new System.Windows.Forms.Padding(1);
+            this.Separator22.Name = "Separator22";
+            this.Separator22.Padding = new System.Windows.Forms.Padding(1);
+            this.Separator22.Size = new System.Drawing.Size(6, 32);
             // 
             // Separator23
             // 
@@ -1796,28 +1820,6 @@
             this.DropDown.Tag = "Make Selection";
             this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
-            // 
-            // ComboBox
-            // 
-            this.ComboBox.AllowDrop = true;
-            this.ComboBox.BindingSource = null;
-            this.ComboBox.DataFilter = null;
-            this.ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBox.Field = BudgetExecution.Field.AccountCode;
-            this.ComboBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.ComboBox.HoverText = "Make Selection";
-            this.ComboBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ComboBox.MaxDropDownItems = 100;
-            this.ComboBox.MaxLength = 32767;
-            this.ComboBox.Name = "ComboBox";
-            this.ComboBox.Numeric = BudgetExecution.Numeric.Accepted;
-            this.ComboBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ComboBox.Size = new System.Drawing.Size(200, 32);
-            this.ComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
-            this.ComboBox.Tag = "Make Selection";
-            this.ComboBox.ToolTip = this.ToolTip;
-            this.ComboBox.ToolTipText = "Make Selection";
             // 
             // DataGridForm
             // 

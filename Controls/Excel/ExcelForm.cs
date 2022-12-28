@@ -44,6 +44,22 @@ namespace BudgetExecution
         /// The name of the file.
         /// </value>
         public string FileName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the row count.
+        /// </summary>
+        /// <value>
+        /// The row count.
+        /// </value>
+        public int RowCount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the col count.
+        /// </summary>
+        /// <value>
+        /// The col count.
+        /// </value>
+        public int ColCount { get; set; }
         
         /// <summary>
         /// Gets or sets the grid.
@@ -189,10 +205,19 @@ namespace BudgetExecution
                 PopulateToolBarDropDownItems( );
                 if( DataTable != null )
                 {
-                    ToolStrip.Label.Text = $"{ DataTable.TableName.SplitPascal( ) }";
                     Spreadsheet.SetActiveSheet( "Sheet1" );
                     Spreadsheet.ActiveSheet.ImportDataTable( DataTable, true, 1, 1 );
                     Spreadsheet.SetZoomFactor( "Sheet1", 100 );
+                    RowCount = DataTable.Rows.Count;
+                    ColCount = DataTable.Columns.Count;
+                    var _name = DataTable.TableName;
+                    var _range = Spreadsheet.Workbook.ActiveSheet.UsedRange;
+                    var _table = 
+                        Spreadsheet.Workbook.ActiveSheet.ListObjects.Create( _name, _range );
+
+                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    Spreadsheet.ActiveGrid.InvalidateCells( );
+                    ToolStrip.Label.Text = $"{ _name.SplitPascal( ) }";
                 }
             }
             catch ( Exception ex )
