@@ -115,7 +115,7 @@
             this.ToolStrip.Label = this.Label;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 661);
+            this.ToolStrip.Location = new System.Drawing.Point(0, 663);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
@@ -132,7 +132,7 @@
             this.ToolStrip.Separators = null;
             this.ToolStrip.ShowCaption = true;
             this.ToolStrip.ShowLauncher = true;
-            this.ToolStrip.Size = new System.Drawing.Size(1388, 52);
+            this.ToolStrip.Size = new System.Drawing.Size(1388, 50);
             this.ToolStrip.TabIndex = 1;
             this.ToolStrip.Text = "toolStrip1";
             this.ToolStrip.TextBox = null;
@@ -144,6 +144,7 @@
             this.ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
             this.ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.SteelBlue;
             this.ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             this.ToolStrip.UseWaitCursor = true;
@@ -165,7 +166,7 @@
             this.DropDown.Name = "DropDown";
             this.DropDown.Numeric = BudgetExecution.Numeric.Accepted;
             this.DropDown.Padding = new System.Windows.Forms.Padding(1);
-            this.DropDown.Size = new System.Drawing.Size(352, 34);
+            this.DropDown.Size = new System.Drawing.Size(352, 32);
             this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             this.DropDown.Tag = "Make Selection";
             this.DropDown.ToolTip = this.ToolTip;
@@ -207,7 +208,7 @@
             this.HomeButton.Margin = new System.Windows.Forms.Padding(1);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Size = new System.Drawing.Size(26, 34);
+            this.HomeButton.Size = new System.Drawing.Size(26, 32);
             this.HomeButton.Text = "toolStripButton1";
             this.HomeButton.ToolTip = null;
             this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
@@ -218,7 +219,7 @@
             this.Separator1.Margin = new System.Windows.Forms.Padding(1);
             this.Separator1.Name = "Separator1";
             this.Separator1.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator1.Size = new System.Drawing.Size(6, 34);
+            this.Separator1.Size = new System.Drawing.Size(6, 32);
             // 
             // Label
             // 
@@ -232,7 +233,7 @@
             this.Label.Margin = new System.Windows.Forms.Padding(1);
             this.Label.Name = "Label";
             this.Label.Padding = new System.Windows.Forms.Padding(1);
-            this.Label.Size = new System.Drawing.Size(125, 34);
+            this.Label.Size = new System.Drawing.Size(125, 32);
             this.Label.Tag = "";
             this.Label.Text = "Guidance Documents";
             this.Label.ToolTip = this.ToolTip;
@@ -243,7 +244,7 @@
             this.Separator2.Margin = new System.Windows.Forms.Padding(1);
             this.Separator2.Name = "Separator2";
             this.Separator2.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator2.Size = new System.Drawing.Size(6, 34);
+            this.Separator2.Size = new System.Drawing.Size(6, 32);
             // 
             // Separator3
             // 
@@ -251,7 +252,7 @@
             this.Separator3.Margin = new System.Windows.Forms.Padding(1);
             this.Separator3.Name = "Separator3";
             this.Separator3.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator3.Size = new System.Drawing.Size(6, 34);
+            this.Separator3.Size = new System.Drawing.Size(6, 32);
             // 
             // LookupButton
             // 
@@ -269,7 +270,7 @@
             this.LookupButton.Margin = new System.Windows.Forms.Padding(1);
             this.LookupButton.Name = "LookupButton";
             this.LookupButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LookupButton.Size = new System.Drawing.Size(26, 34);
+            this.LookupButton.Size = new System.Drawing.Size(26, 32);
             this.LookupButton.Text = "toolStripButton1";
             this.LookupButton.ToolTip = null;
             this.LookupButton.ToolType = BudgetExecution.ToolType.LookupButton;
@@ -280,7 +281,7 @@
             this.Separator6.Margin = new System.Windows.Forms.Padding(1);
             this.Separator6.Name = "Separator6";
             this.Separator6.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator6.Size = new System.Drawing.Size(6, 34);
+            this.Separator6.Size = new System.Drawing.Size(6, 32);
             // 
             // DatabaseButton
             // 
@@ -298,7 +299,7 @@
             this.DatabaseButton.Margin = new System.Windows.Forms.Padding(1);
             this.DatabaseButton.Name = "DatabaseButton";
             this.DatabaseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.DatabaseButton.Size = new System.Drawing.Size(26, 34);
+            this.DatabaseButton.Size = new System.Drawing.Size(26, 32);
             this.DatabaseButton.Text = "toolStripButton1";
             this.DatabaseButton.ToolTip = null;
             this.DatabaseButton.ToolType = BudgetExecution.ToolType.DatabaseButton;
@@ -309,7 +310,7 @@
             this.Separator4.Margin = new System.Windows.Forms.Padding(1);
             this.Separator4.Name = "Separator4";
             this.Separator4.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator4.Size = new System.Drawing.Size(6, 34);
+            this.Separator4.Size = new System.Drawing.Size(6, 32);
             // 
             // BackButton
             // 
@@ -327,7 +328,7 @@
             this.BackButton.Margin = new System.Windows.Forms.Padding(3);
             this.BackButton.Name = "BackButton";
             this.BackButton.Padding = new System.Windows.Forms.Padding(1);
-            this.BackButton.Size = new System.Drawing.Size(26, 30);
+            this.BackButton.Size = new System.Drawing.Size(26, 28);
             this.BackButton.Text = "toolStripButton1";
             this.BackButton.ToolTip = null;
             this.BackButton.ToolType = BudgetExecution.ToolType.BackButton;
@@ -338,7 +339,7 @@
             this.toolSeparator7.Margin = new System.Windows.Forms.Padding(1);
             this.toolSeparator7.Name = "toolSeparator7";
             this.toolSeparator7.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator7.Size = new System.Drawing.Size(6, 34);
+            this.toolSeparator7.Size = new System.Drawing.Size(6, 32);
             // 
             // Separator5
             // 
@@ -346,7 +347,7 @@
             this.Separator5.Margin = new System.Windows.Forms.Padding(1);
             this.Separator5.Name = "Separator5";
             this.Separator5.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator5.Size = new System.Drawing.Size(6, 34);
+            this.Separator5.Size = new System.Drawing.Size(6, 32);
             // 
             // toolSeparator1
             // 
@@ -400,7 +401,7 @@
             this.DocViewer.ShowHorizontalScrollBar = true;
             this.DocViewer.ShowToolBar = true;
             this.DocViewer.ShowVerticalScrollBar = true;
-            this.DocViewer.Size = new System.Drawing.Size(1388, 661);
+            this.DocViewer.Size = new System.Drawing.Size(1388, 663);
             this.DocViewer.SpaceBetweenPages = 8;
             this.DocViewer.TabIndex = 2;
             this.DocViewer.Text = "pdfViewerControl1";
@@ -421,9 +422,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.Red;
+            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 713);
@@ -433,7 +434,7 @@
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.MinimizeBox = false;
             this.Name = "PdfForm";
             this.ShowIcon = false;

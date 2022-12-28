@@ -563,6 +563,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap RemoveFiltersButton {
+            get {
+                object obj = ResourceManager.GetObject("RemoveFiltersButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap SaveAsButton {
             get {
                 object obj = ResourceManager.GetObject("SaveAsButton", resourceCulture);

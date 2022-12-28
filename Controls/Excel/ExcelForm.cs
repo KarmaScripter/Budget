@@ -22,14 +22,6 @@ namespace BudgetExecution
     public partial class ExcelForm : MetroForm
     {
         /// <summary>
-        /// Gets or sets the icon path.
-        /// </summary>
-        /// <value>
-        /// The icon path.
-        /// </value>
-        public string IconPath { get; set; }
-
-        /// <summary>
         /// Gets or sets the file path.
         /// </summary>
         /// <value>
@@ -132,6 +124,7 @@ namespace BudgetExecution
             Spreadsheet.DefaultColumnCount = 40;
             Spreadsheet.DefaultRowCount = 60;
             Spreadsheet.AllowZooming = true;
+            Spreadsheet.AllowFiltering = true;
             
             // Event Wiring
             Load += OnLoad;
@@ -201,24 +194,10 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Label.Text = $"{ DataTable?.TableName?.SplitPascal( ) }";
                 Ribbon.Spreadsheet = Spreadsheet;
                 PopulateToolBarDropDownItems( );
-                if( DataTable != null )
-                {
-                    Spreadsheet.SetActiveSheet( "Sheet1" );
-                    Spreadsheet.ActiveSheet.ImportDataTable( DataTable, true, 1, 1 );
-                    Spreadsheet.SetZoomFactor( "Sheet1", 100 );
-                    RowCount = DataTable.Rows.Count;
-                    ColCount = DataTable.Columns.Count;
-                    var _name = DataTable.TableName;
-                    var _range = Spreadsheet.Workbook.ActiveSheet.UsedRange;
-                    var _table = 
-                        Spreadsheet.Workbook.ActiveSheet.ListObjects.Create( _name, _range );
-
-                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    Spreadsheet.ActiveGrid.InvalidateCells( );
-                    ToolStrip.Label.Text = $"{ _name.SplitPascal( ) }";
-                }
+                SetTableProperties( DataTable );
             }
             catch ( Exception ex )
             {
@@ -249,6 +228,39 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the table properties.
+        /// </summary>
+        private void SetTableProperties( DataTable table )
+        {
+            if( table != null 
+               && table?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    Spreadsheet?.SetActiveSheet( "Sheet1" );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( DataTable, true, 1, 1 );
+                    Spreadsheet?.SetZoomFactor( "Sheet1", 100 );
+                    RowCount = DataTable.Rows.Count;
+                    ColCount = DataTable.Columns.Count;
+                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                    var _name = table.TableName ?? "DataTable";
+                    var _range = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( _name, _range );
+                    if( _table != null )
+                    {
+                        _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    }
+
+                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Called when [back button clicked].
         /// </summary>

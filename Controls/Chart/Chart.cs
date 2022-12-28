@@ -253,7 +253,7 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             Data = dataRows;
         }
-        
+
         /// <summary>
         /// Creates the series.
         /// </summary>

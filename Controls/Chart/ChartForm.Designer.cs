@@ -284,7 +284,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(222, 32);
+            this.TextBox.Size = new System.Drawing.Size(218, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -452,8 +452,8 @@
             this.RefreshDataButton.Field = BudgetExecution.Field.AccountCode;
             this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
-            this.RefreshDataButton.HoverText = "Refresh Data";
-            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshDataButton;
+            this.RefreshDataButton.HoverText = "Remove Filters";
+            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RemoveFiltersButton;
             this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(3);
             this.RefreshDataButton.Name = "RefreshDataButton";
@@ -461,7 +461,7 @@
             this.RefreshDataButton.Size = new System.Drawing.Size(26, 28);
             this.RefreshDataButton.Text = "toolStripButton1";
             this.RefreshDataButton.ToolTip = this.ToolTip;
-            this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RefreshDataButton;
+            this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RemoveFiltersButton;
             // 
             // toolSeparator10
             // 
@@ -686,7 +686,7 @@
             this.Chart.Legend.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Chart.Legend.ItemsAlignment = System.Drawing.StringAlignment.Center;
             this.Chart.Legend.ItemsSize = new System.Drawing.Size(10, 10);
-            this.Chart.Legend.Location = new System.Drawing.Point(875, 88);
+            this.Chart.Legend.Location = new System.Drawing.Point(875, 86);
             this.Chart.Legend.ShowItemsShadow = true;
             this.Chart.Legend.ShowSymbol = true;
             this.Chart.Legend.VisibleCheckBox = true;
@@ -726,6 +726,7 @@
             this.Chart.Title.Name = "Default";
             this.Chart.Titles.Add(this.Chart.Title);
             this.Chart.ToolBar.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Chart.ToolBar.ButtonSize = new System.Drawing.Size(20, 20);
             this.Chart.ToolBar.ShowBorder = false;
             this.Chart.ToolBar.ShowGrip = false;
             this.Chart.ToolBar.Visible = true;
@@ -1050,7 +1051,7 @@
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.Red;
+            this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 712);

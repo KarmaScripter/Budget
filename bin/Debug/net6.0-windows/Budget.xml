@@ -3239,14 +3239,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.ExcelForm.IconPath">
-            <summary>
-            Gets or sets the icon path.
-            </summary>
-            <value>
-            The icon path.
-            </value>
-        </member>
         <member name="P:BudgetExecution.ExcelForm.FilePath">
             <summary>
             Gets or sets the file path.
@@ -3349,6 +3341,11 @@
         <member name="M:BudgetExecution.ExcelForm.PopulateToolBarDropDownItems">
             <summary>
             Populates the tool bar drop down items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ExcelForm.SetTableProperties(System.Data.DataTable)">
+            <summary>
+            Sets the table properties.
             </summary>
         </member>
         <member name="M:BudgetExecution.ExcelForm.OnBackButtonClicked(System.Object,System.EventArgs)">
@@ -35439,6 +35436,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.RefreshDataButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.RemoveFiltersButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

@@ -102,8 +102,8 @@
             this.AddTableButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator16 = new BudgetExecution.ToolSeparator();
             this.LookupButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator17 = new BudgetExecution.ToolSeparator();
             this.Separator18 = new BudgetExecution.ToolSeparator();
+            this.toolSeparator17 = new BudgetExecution.ToolSeparator();
             this.Separator19 = new BudgetExecution.ToolSeparator();
             this.ChartButton = new BudgetExecution.ToolStripButton();
             this.Separator20 = new BudgetExecution.ToolSeparator();
@@ -1119,7 +1119,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(143, 32);
+            this.TextBox.Size = new System.Drawing.Size(141, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1452,14 +1452,6 @@
             this.LookupButton.ToolTip = this.ToolTip;
             this.LookupButton.ToolType = BudgetExecution.ToolType.LookupButton;
             // 
-            // toolSeparator17
-            // 
-            this.toolSeparator17.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator17.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator17.Name = "toolSeparator17";
-            this.toolSeparator17.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator17.Size = new System.Drawing.Size(6, 32);
-            // 
             // Separator18
             // 
             this.Separator18.ForeColor = System.Drawing.Color.Black;
@@ -1467,6 +1459,14 @@
             this.Separator18.Name = "Separator18";
             this.Separator18.Padding = new System.Windows.Forms.Padding(1);
             this.Separator18.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolSeparator17
+            // 
+            this.toolSeparator17.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator17.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator17.Name = "toolSeparator17";
+            this.toolSeparator17.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator17.Size = new System.Drawing.Size(6, 32);
             // 
             // Separator19
             // 
@@ -1830,7 +1830,7 @@
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.Red;
+            this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 712);
