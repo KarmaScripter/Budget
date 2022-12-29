@@ -8,15 +8,18 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Diagnostics.Eventing.Reader;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    
+
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="DataGridView" />
     /// <seealso/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public class DataGrid : DataGridView, IDataGrid
     {
         /// <summary>
@@ -180,7 +183,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = dataRows.CopyToDataTable( );
                     BindingSource.Filter = GetFilterValues( dict );
                     DataSource = BindingSource;
-                    PascalizeHeaders( dataRows );
+                    PascalizeHeaders( );
                 }
                 catch( Exception ex )
                 {
@@ -193,27 +196,31 @@ namespace BudgetExecution
         /// Pascalizes the headers.
         /// </summary>
         /// <param name="dataRows">The data.</param>
-        public void PascalizeHeaders( IEnumerable<DataRow> dataRows )
+        public void PascalizeHeaders( )
         {
-            if( dataRows?.Any( ) == true )
+            try
             {
-                try
+                var _dataTable = (DataTable)BindingSource.DataSource;
+                if( _dataTable?.Columns?.Count > 0 )
                 {
-                    if( dataRows?.CopyToDataTable( )?.Columns?.Count > 0 )
+                    var _count = _dataTable.Columns.Count;
+                    var _columns = _dataTable.Columns;
+                    for( var i = 0; i < _count; i++ )
                     {
-                        var _count = dataRows.CopyToDataTable( ).Columns.Count;
-                        var _columns = dataRows.CopyToDataTable( ).Columns;
-
-                        for( var i = 0; i < _count; i++ )
+                        if( !string.IsNullOrEmpty( _columns[ i ].Caption ) ) 
+                        {
+                            Columns[ i ].HeaderText = _columns[ i ].Caption;
+                        }
+                        else
                         {
                             Columns[ i ].HeaderText = _columns[ i ]?.ColumnName?.SplitPascal( );
                         }
                     }
                 }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -230,7 +237,6 @@ namespace BudgetExecution
                     try
                     {
                         var _vals = string.Empty;
-
                         foreach( var _kvp in dict )
                         {
                             _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
@@ -241,7 +247,6 @@ namespace BudgetExecution
                     catch( Exception ex )
                     {
                         Fail( ex );
-
                         return default;
                     }
                 }
@@ -256,19 +261,23 @@ namespace BudgetExecution
         /// <returns></returns>
         public DataRow GetCurrentDataRow( )
         {
-            try
+            if( BindingSource.DataSource != null )
             {
-                using var _message = new Message( "Not Yet Implemented." );
-                _message?.ShowDialog( );
-
-                return default;
+                try
+                {
+                    var _dataRow = BindingSource.GetCurrentDataRow(  );
+                    return _dataRow?.ItemArray?.Length > 0
+                        ? _dataRow
+                        : default( DataRow );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataRow );
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-
-                return default;
-            }
+            
+            return default( DataRow );
         }
 
         /// <summary>
@@ -283,11 +292,8 @@ namespace BudgetExecution
                 try
                 {
                     var _columnConfiguration = new ColumnConfiguration( this );
-
                     _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
-
                     _columnConfiguration.ColumnListBox?.Items?.Clear( );
-
                     foreach( DataGridViewColumn c in Columns )
                     {
                         _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
@@ -310,7 +316,6 @@ namespace BudgetExecution
             try
             {
                 ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle( );
-
                 ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );
                 ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -330,14 +335,11 @@ namespace BudgetExecution
             try
             {
                 RowHeadersDefaultCellStyle = new DataGridViewCellStyle( );
-
                 RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
                 RowHeadersDefaultCellStyle.ForeColor = Color.Black;
                 RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );
                 RowHeadersDefaultCellStyle.BackColor = Color.FromArgb( 141, 139, 138 );
-
                 RowsDefaultCellStyle = new DataGridViewCellStyle( );
-
                 RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
                 RowsDefaultCellStyle.SelectionForeColor = Color.Black;
                 RowsDefaultCellStyle.SelectionBackColor = SystemColors.ControlLight;

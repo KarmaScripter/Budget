@@ -24,7 +24,7 @@ namespace BudgetExecution
         /// Pascalizes the headers.
         /// </summary>
         /// <param name="dataRows">The data.</param>
-        void PascalizeHeaders( IEnumerable<DataRow> dataRows );
+        void PascalizeHeaders( );
 
         /// <summary>
         /// Gets the filter values.

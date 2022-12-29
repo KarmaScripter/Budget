@@ -1771,7 +1771,7 @@
             <param name="dataRows">The data.</param>
             <param name="dict">The dictionary.</param>
         </member>
-        <member name="M:BudgetExecution.DataGrid.PascalizeHeaders(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
+        <member name="M:BudgetExecution.DataGrid.PascalizeHeaders">
             <summary>
             Pascalizes the headers.
             </summary>
@@ -1901,12 +1901,17 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.SetLabelConfiguration">
+            <summary>
+            Sets the label configuration.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.PopulateTableListBoxItems">
             <summary>
             Populates the ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateToolBarDropDownItems">
+        <member name="M:BudgetExecution.DataGridForm.PopulateToolStripComboBoxItems">
             <summary>
             Populates the tool bar drop down items.
             </summary>
@@ -22435,7 +22440,7 @@
             <param name="dataRows">The data.</param>
             <param name="dict">The dictionary.</param>
         </member>
-        <member name="M:BudgetExecution.IDataGrid.PascalizeHeaders(System.Collections.Generic.IEnumerable{System.Data.DataRow})">
+        <member name="M:BudgetExecution.IDataGrid.PascalizeHeaders">
             <summary>
             Pascalizes the headers.
             </summary>
@@ -22569,24 +22574,6 @@
             Gets the Data.
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.IDataModel.GetDataTable">
-            <summary>
-            Gets the Data table.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.IDataModel.GetDataSet">
-            <summary>
-            Gets the Data set.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.IDataModel.SetColumnCaptions(System.Data.DataTable)">
-            <summary>
-            Sets the column captions.
-            </summary>
-            <param name="dataTable">The Data table.</param>
         </member>
         <member name="M:BudgetExecution.IDataModel.GetTableSchema">
             <summary>

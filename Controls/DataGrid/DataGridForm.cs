@@ -110,9 +110,17 @@ namespace BudgetExecution
             ColumnLabel.ForeColor = Color.LightGray;
             ValueLabel.Font = new Font( "Roboto", 9 );
             ValueLabel.ForeColor = Color.LightGray;
+            
+            // ToolStrip Properties
+            ToolStrip.Text = string.Empty;
+            ToolStrip.Office12Mode = true;
+            ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
+            ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+            ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
 
             // Event Wiring
             Load += OnLoad;
+            ExitButton.Click += OnExitButtonClicked;
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
@@ -142,47 +150,57 @@ namespace BudgetExecution
         {
             try
             {
-                var _fields = new List<string>( );
-                _fields.Add( "BFY" );
-                _fields.Add( "EFY" );
-                _fields.Add( "FundName" );
-                _fields.Add( "RpioCode" );
-                _fields.Add( "RpioName" );
-                _fields.Add( "Amount" );
-                _fields.Add( "Available" );
+                var _fields = new List<string>
+                {
+                    "BFY",
+                    "EFY",
+                    "FundName",
+                    "RpioCode",
+                    "RpioName",
+                    "Amount",
+                    "Available"
+                };
+
                 FormFilter = new Dictionary<string, object>
                 {
                     { "BFY", "2022" }
                 };
 
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
-                var _summary = DataModel.Compress( _fields, FormFilter );
-                BindingSource.DataSource = _summary;
-                DataGrid.DataSource = BindingSource;
+                BindingSource.DataSource = DataModel.DataTable;
+                DataGrid.BindingSource = BindingSource;
                 PopulateTableListBoxItems( );
-                PopulateToolBarDropDownItems( );
-                ToolStrip.Office12Mode = true;
-                ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
-                ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
-                ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                TableLabel.Text = "Tables: " + TableListBox.Items.Count;
-                ColumnLabel.Text = "Columns: " + string.Empty;
-                ValueLabel.Text = "Values: " + string.Empty;
-                DataGridLabel.Text = "Data Source:  " + DataModel.Source.ToString( ).SplitPascal( );
+                PopulateToolStripComboBoxItems( );
                 SelectedTable = string.Empty;
                 SelectedColumn = string.Empty;
                 SelectedValue = string.Empty;
                 SqlQuery = string.Empty;
-                ToolStrip.Text = string.Empty;
                 Text = DataModel.Provider + " Data";
-                ExitButton.Click += OnExitButtonClicked;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-
+        
+        /// <summary>
+        /// Sets the label configuration.
+        /// </summary>
+        private void SetLabelConfiguration( )
+        {
+            try
+            {
+                TableLabel.Text = "Tables: " + TableListBox.Items.Count;
+                ColumnLabel.Text = "Columns: " + ColumnListBox.Items?.Count;
+                ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
+                DataGridLabel.Text = "Data Source:  " + DataModel.Source.ToString( ).SplitPascal( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Populates the ListBox items.
         /// </summary>
@@ -213,7 +231,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the tool bar drop down items.
         /// </summary>
-        public void PopulateToolBarDropDownItems( )
+        public void PopulateToolStripComboBoxItems( )
         {
             try
             {
@@ -246,10 +264,8 @@ namespace BudgetExecution
                 SqlQuery = string.Empty;
                 ColumnListBox.Items.Clear( );
                 ValueListBox.Items.Clear( );
-                ColumnPanel.Text = string.Empty;
-                ValuePanel.Text = string.Empty;
                 var _listBox = sender as ListBox;
-                var _value = _listBox?.SelectedValue.ToString( );
+                var _value = _listBox?.SelectedValue?.ToString( );
                 SelectedTable = _value;
                 if( !string.IsNullOrEmpty( _value ) )
                 {
@@ -258,16 +274,16 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    var _name = DataModel.DataTable?.TableName;
-                    DataGridLabel.Text = "Data Source:  " + _name?.SplitPascal( );
+                    SelectedTable = DataModel.DataTable?.TableName;
+                    DataGridLabel.Text = "Data Source:  " + SelectedTable.SplitPascal( );
                     var _columns = DataModel.GetDataColumns( );
                     foreach( var col in _columns )
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
-
-                    ColumnLabel.Text = "Columns: " + ColumnListBox.Items?.Count;
                 }
+                
+                SetLabelConfiguration(  );
             }
             catch( Exception ex )
             {
@@ -281,27 +297,29 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>\
         public void OnColumnListBoxSelectionChanged( object sender )
         {
-            try
+            if( sender is ListBox _listBox )
             {
-                ValueListBox.Items.Clear( );
-                SqlQuery = string.Empty;
-                var _listBox = sender as ListBox;
-                var _column = _listBox?.SelectedValue?.ToString( );
-                var _series = DataModel.DataElements;
-                if( !string.IsNullOrEmpty( _column ) )
+                try
                 {
-                    SelectedColumn = _column?.Trim( );
-                    foreach( var item in _series[ _column ] )
+                    ValueListBox.Items.Clear( );
+                    SqlQuery = string.Empty;
+                    var _column = _listBox?.SelectedValue?.ToString( );
+                    var _series = DataModel.DataElements;
+                    if( !string.IsNullOrEmpty( _column ) )
                     {
-                        ValueListBox.Items.Add( item );
+                        SelectedColumn = _column?.Trim( );
+                        foreach( var item in _series[ _column ] )
+                        {
+                            ValueListBox.Items.Add( item );
+                        }
                     }
-                }
 
-                ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                    ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -311,27 +329,29 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         public void OnValueListBoxSelectionChanged( object sender )
         {
-            try
+            if( sender is ListBox _listBox )
             {
-                SqlQuery = string.Empty;
-                var _listBox = sender as ListBox;
-                var _value = _listBox?.SelectedValue?.ToString( );
-                SelectedValue = _value?.Trim( );
-                var _query = string.Empty;
-                if( !string.IsNullOrEmpty( SelectedTable )
-                   & !string.IsNullOrEmpty( SelectedColumn ) )
+                try
                 {
-                    FormFilter.Add( SelectedColumn, SelectedValue );
-                    _query = $"SELECT * FROM { SelectedTable } "
-                        + $"WHERE { SelectedColumn } = '{ SelectedValue }';";
-                }
+                    SqlQuery = string.Empty;
+                    var _value = _listBox?.SelectedValue?.ToString( );
+                    SelectedValue = _value?.Trim( );
+                    var _query = string.Empty;
+                    if( !string.IsNullOrEmpty( SelectedTable )
+                       & !string.IsNullOrEmpty( SelectedColumn ) )
+                    {
+                        FormFilter.Add( SelectedColumn, SelectedValue );
+                        _query = $"SELECT * FROM { SelectedTable } "
+                            + $"WHERE { SelectedColumn } = '{ SelectedValue }';";
+                    }
 
-                SqlQuery = _query;
-                ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                    SqlQuery = _query;
+                    ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 

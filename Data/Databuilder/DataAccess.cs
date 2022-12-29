@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// <seealso cref="DataConfig" />
     /// <seealso cref="ISource" />
     /// <seealso cref="IProvider" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class DataAccess : DataConfig, ISource, IProvider
     {
         /// <summary>
@@ -51,7 +52,7 @@ namespace BudgetExecution
         /// Gets the Data table.
         /// </summary>
         /// <returns></returns>
-        public DataTable GetDataTable( )
+        private protected DataTable GetDataTable( )
         {
             if( Query != null )
             {
@@ -81,7 +82,7 @@ namespace BudgetExecution
         /// Gets the Data set.
         /// </summary>
         /// <returns></returns>
-        public DataSet GetDataSet( )
+        private protected DataSet GetDataSet( )
         {
             if( Query != null )
             {
@@ -111,7 +112,7 @@ namespace BudgetExecution
         /// Sets the column captions.
         /// </summary>
         /// <param name="dataTable">The Data table.</param>
-        public void SetColumnCaptions( DataTable dataTable )
+        private protected void SetColumnCaptions( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
             {
@@ -329,7 +330,7 @@ namespace BudgetExecution
                         }
                     }
                     
-                    var _dataSet = new DataSet( $"Chart" );
+                    var _dataSet = new DataSet( $"UI" );
                     var _dataTable = new DataTable( $"{ Source }" );
                     _dataSet.Tables.Add( _dataTable );
                     var _sqlStatement = new SqlStatement( Source, Provider, _fields,

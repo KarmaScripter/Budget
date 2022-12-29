@@ -113,25 +113,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         IEnumerable<DataRow> GetData( );
-
-        /// <summary>
-        /// Gets the Data table.
-        /// </summary>
-        /// <returns></returns>
-        DataTable GetDataTable( );
-
-        /// <summary>
-        /// Gets the Data set.
-        /// </summary>
-        /// <returns></returns>
-        DataSet GetDataSet( );
-
-        /// <summary>
-        /// Sets the column captions.
-        /// </summary>
-        /// <param name="dataTable">The Data table.</param>
-        void SetColumnCaptions( DataTable dataTable );
-
+        
         /// <summary>
         /// Gets the column schema.
         /// </summary>
