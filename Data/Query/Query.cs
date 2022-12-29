@@ -9,10 +9,12 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
+    using DocumentFormat.OpenXml.Bibliography;
 
     /// <summary>
     /// </summary>
     /// <seealso cref = "IDisposable"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Query : QueryBase, IQuery
     {
         /// <summary>
@@ -40,12 +42,11 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -71,12 +72,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -95,12 +95,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -119,12 +118,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -144,12 +142,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = having;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, columns, having, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
         
@@ -165,12 +162,11 @@ namespace BudgetExecution
             Source = sqlStatement.Source;
             Provider = sqlStatement.Provider;
             Criteria = sqlStatement.Criteria;
-            ConnectionBuilder = new ConnectionBuilder( Source, Provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = sqlStatement;
-            CommandBuilder = new CommandBuilder( sqlStatement );
-            DataCommand = CommandBuilder.GetCommand( sqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -185,11 +181,11 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( Source, Provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, sqlText );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
             Criteria = null;
         }
@@ -212,11 +208,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( Source, Provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, where );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -234,16 +230,15 @@ namespace BudgetExecution
             : base( fullPath, sqlText, commandType )
         {
             Criteria = null;
-            ConnectionBuilder = new ConnectionBuilder( fullPath );
-            Provider = ConnectionBuilder.Provider;
-            Source = ConnectionBuilder.Source;
-            DataConnection = ConnectionBuilder.Connection;
-            SqlStatement = new SqlStatement( ConnectionBuilder.Source, ConnectionBuilder.Provider,
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Provider = ConnectionFactory.Provider;
+            Source = ConnectionFactory.Source;
+            DataConnection = ConnectionFactory.Connection;
+            SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider,
                 sqlText );
-
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -263,14 +258,13 @@ namespace BudgetExecution
             : base( fullPath, commandType, where )
         {
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( fullPath );
-            Source = ConnectionBuilder.Source;
-            Provider = ConnectionBuilder.Provider;
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Source = ConnectionFactory.Source;
+            Provider = ConnectionFactory.Provider;
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( Source, Provider, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
-            DataCommand = CommandBuilder.GetCommand( SqlStatement );
-            DataAdapter = new AdapterBuilder( CommandBuilder ).GetAdapter( );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
             IsDisposed = false;
         }
 

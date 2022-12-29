@@ -70,7 +70,8 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, provider, updates,
+                where, commandType )
         {
         }
 
@@ -84,7 +85,8 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, where, commandType )
+            : base( source, provider, columns, 
+                where, commandType )
         {
         }
 
@@ -93,13 +95,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
+        /// <param name="fields"></param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns,
+        public DataBuilder( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
-            : base( source, provider, columns, numerics, where, commandType )
+            : base( source, provider, fields, 
+                numerics, where, commandType )
         {
         }
         

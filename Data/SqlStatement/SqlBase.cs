@@ -23,27 +23,27 @@ namespace BudgetExecution
         /// <summary>
         /// The extension
         /// </summary>
-        public virtual EXT Extension { get; set; }
+        public EXT Extension { get; set; }
 
         /// <summary>
         /// The source
         /// </summary>
-        public virtual Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// The provider
         /// </summary>
-        public virtual Provider Provider { get; set; }
+        public Provider Provider { get; set; }
 
         /// <summary>
         /// The command type
         /// </summary>
-        public virtual SQL CommandType { get; set; }
+        public SQL CommandType { get; set; }
 
         /// <summary>
         /// The arguments
         /// </summary>
-        public virtual IDictionary<string, object> Criteria { get; set; }
+        public IDictionary<string, object> Criteria { get; set; }
 
         /// <summary>
         /// Gets or sets the updates.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The updates.
         /// </value>
-        public virtual IDictionary<string, object> Updates { get; set; }
+        public IDictionary<string, object> Updates { get; set; }
 
         /// <summary>
         /// Gets or sets the columns.
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The columns.
         /// </value>
-        public virtual IEnumerable<string> Fields { get; set; }
+        public IList<string> Fields { get; set; }
 
         /// <summary>
         /// Gets or sets the numerics.
@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The numerics.
         /// </value>
-        public virtual IEnumerable<string> Numerics { get; set; }
+        public IList<string> Numerics { get; set; }
 
         /// <summary>
         /// Gets or sets the groups.
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The groups.
         /// </value>
-        public virtual IEnumerable<string> Groups { get; set; }
+        public IList<string> Groups { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -83,17 +83,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the table.
         /// </value>
-        public virtual string TableName { get; set; }
+        public string TableName { get; set; }
 
         /// <summary>
         /// The provider path
         /// </summary>
-        public virtual string DbPath { get; set; }
+        public string DbPath { get; set; }
 
         /// <summary>
         /// The file name
         /// </summary>
-        public virtual string FileName { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// Gets or sets the select statement.
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The select statement.
         /// </value>
-        public virtual string CommandText { get; set; }
+        public string CommandText { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlBase"/> class.
@@ -123,15 +123,11 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL ) 
             : this( )
         {
-            DbPath = new ConnectionBuilder( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
             CommandType = commandType;
             Source = source;
             TableName = source.ToString( );
             Provider = provider;
-            Criteria = new Dictionary<string, object>( );
-            Fields = new List<string>( );
-            Numerics = new List<string>( );
-            Groups = new List<string>( );
             CommandText = $"SELECT * FROM { source }";
         }
 
@@ -143,14 +139,14 @@ namespace BudgetExecution
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
         protected SqlBase( Source source, Provider provider, string sqlText,
-            SQL commandType = SQL.SELECT ) 
+            SQL commandType ) 
             : this( )
         {
-            DbPath = new ConnectionBuilder( source, provider ).DbPath;
-            Source = source;
-            TableName = source.ToString( );
-            Provider = provider;
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
             CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
             CommandText = sqlText;
         }
 
@@ -165,7 +161,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECTALL ) 
             : this( )
         {
-            DbPath = new ConnectionBuilder( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -186,7 +182,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE ) 
             : this( )
         {
-            DbPath = new ConnectionBuilder( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -208,7 +204,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT ) 
             : this( )
         {
-            DbPath = new ConnectionBuilder( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -231,7 +227,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECT ) 
             : this( )
         {
-            DbPath = new ConnectionBuilder( source, provider ).DbPath;
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
             CommandType = commandType;
             Source = source;
             Provider = provider;
@@ -247,35 +243,55 @@ namespace BudgetExecution
         public virtual string GetSelectStatement( )
         {
             if( Fields?.Any( ) == true
-               && Criteria?.Any( ) == true )
+               && Criteria?.Any( ) == true
+               && Numerics?.Any( ) == false )
             {
-                try
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var name in Fields )
                 {
-                    var _criteria = Criteria.ToCriteria( );
-                    var _columns = string.Empty;
-                    foreach( var col in Fields )
-                    {
-                        _columns += $"{col}, ";
-                    }
+                    _cols += $"{ name }, ";
+                }
                     
-                    _columns = _columns.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT DISTINCT { _columns } FROM { Source } "
-                        + $"GROUP BY { _columns } HAVING { _criteria };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( string );
-                }
+                var _criteria = Criteria.ToCriteria( );
+                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT DISTINCT { _columns } FROM { Source } "
+                    + $"GROUP BY { _columns } HAVING { _criteria };";
             }
-            else if( Fields == null
-                    && Criteria?.Any( ) == true )
+            else if( Fields?.Any( ) == true
+                    && Criteria?.Any( ) == true
+                    && Numerics?.Any( ) == true )
+            { 
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                var _grp = string.Empty;
+                foreach( var name in Fields )
+                {
+                    _cols += $"{ name }, ";
+                }
+
+                foreach( var _numeric in Numerics )
+                {
+                    _grp += $"SUM({ _numeric }), ";
+                    _aggr += $"SUM({ _numeric }) AS { _numeric }, ";
+                }
+
+                var _criteria = Criteria.ToCriteria( );
+                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                var _groups = _cols + _grp.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT DISTINCT { _columns } FROM { Source } "
+                    + $"GROUP BY { _groups } HAVING { _criteria };";
+            }
+            else if( Fields?.Any( ) == false
+                    && Criteria?.Any( ) == true
+                    && Numerics?.Any( ) == false  )
             {
                 var _criteria = Criteria.ToCriteria( );
                 return $"SELECT * FROM { Source } WHERE { _criteria };";
             }
-            else if( Fields == null
-                    && Criteria == null )
+            else if( Fields?.Any( ) == false
+                    && Criteria?.Any( ) == false
+                    && Numerics?.Any( ) == false  )
             {
                 return $"SELECT * FROM { Source };";
             }
@@ -287,100 +303,14 @@ namespace BudgetExecution
         /// Sets the select statement.
         /// </summary>
         /// <param name="where">The dictionary.</param>
-        public virtual string CreateSelectStatement( IDictionary<string, object> where )
+        private protected string GetDeleteStatement( IDictionary<string, object> where )
         {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && where?.Any( ) == true )
+            if( Criteria?.Any( ) == true )
             {
                 try
                 {
-                    var _criteria = where.ToCriteria( );
-                    return $"SELECT * FROM { Source } WHERE { _criteria };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
-
-        /// <summary>
-        /// Creates the select statement.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="having">The having.</param>
-        /// <returns></returns>
-        public virtual string CreateSelectStatement( IEnumerable<string> fields,
-            IDictionary<string, object> having )
-        {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && having?.Any( ) == true
-               && fields?.Any( ) == true )
-            {
-                try
-                {
-                    var _cols = string.Empty;
-                    var _aggr = string.Empty;
-                    var _grp = string.Empty;
-                    foreach( var name in fields )
-                    {
-                        _cols += $"{ name }, ";
-                    }
-                    
-                    var _criteria = having.ToCriteria( );
-                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT DISTINCT { _columns } FROM { Source } "
-                        + $"GROUP BY { _columns } HAVING { _criteria };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
-        
-        /// <summary>
-        /// Creates the select statement.
-        /// </summary>
-        /// <param name="fields">The columns.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="having">The having.</param>
-        /// <returns></returns>
-        public virtual string CreateSelectStatement( IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> having )
-        {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && having?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
-            {
-                try
-                {
-                    var _cols = string.Empty;
-                    var _aggr = string.Empty;
-                    var _grp = string.Empty;
-                    foreach( var name in fields )
-                    {
-                        _cols += $"{ name }, ";
-                    }
-
-                    foreach( var _numeric in numerics )
-                    {
-                        _grp += $"SUM({ _numeric }), ";
-                        _aggr += $"SUM({ _numeric }) AS { _numeric }, ";
-                    }
-
-                    var _criteria = having.ToCriteria( );
-                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    var _groups = _cols + _grp.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT DISTINCT { _columns } FROM { Source } "
-                        + $"GROUP BY { _groups } HAVING { _criteria };";
+                    var _criteria = Criteria.ToCriteria( );
+                    return $"DELETE FROM { Source } WHERE { _criteria };";
                 }
                 catch( Exception ex )
                 {
@@ -397,32 +327,31 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="updates">The dictionary.</param>
         /// <param name = "where" > </param>
-        public virtual string CreateUpdateStatement( IDictionary<string, object> updates,
-            IDictionary<string, object> where )
+        public virtual string GetUpdateStatement( )
         {
-            if( updates?.Any( ) == true
-               && where?.Any( ) == true
+            if( Updates?.Any( ) == true
+               && Criteria?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try
                 {
                     var _update = string.Empty;
-                    if( updates.Count == 1 )
+                    if( Updates.Count == 1 )
                     {
-                        foreach( var kvp in updates )
+                        foreach( var kvp in Updates )
                         {
                             _update += $"{ kvp.Key } = '{ kvp.Value }'";
                         }
                     }
-                    else if( updates.Count > 1 )
+                    else if( Updates.Count > 1 )
                     {
-                        foreach( var kvp in updates )
+                        foreach( var kvp in Updates )
                         {
                             _update += $"{ kvp.Key } = '{ kvp.Value }', ";
                         }
                     }
 
-                    var _criteria = where.ToCriteria( );
+                    var _criteria = Criteria.ToCriteria( );
                     var _values = _update.TrimEnd( ", ".ToCharArray( ) );
                     return $"UPDATE { Source } SET { _values } WHERE { _criteria };";
                 }
@@ -439,27 +368,26 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the insert statement.
         /// </summary>
-        /// <param name="updates">The dictionary.</param>
-        public virtual string CreateInsertStatement( IDictionary<string, object> updates )
+        public virtual string GetInsertStatement( )
         {
-            if( updates?.Any( ) == true
+            if( Updates?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try
                 {
                     var _columns = string.Empty;
                     var _values = string.Empty;
-                    if( updates.Count == 1 )
+                    if( Updates.Count == 1 )
                     {
-                        foreach( var kvp in updates )
+                        foreach( var kvp in Updates )
                         {
                             _columns += $"{ kvp.Key }";
                             _values += $"{ kvp.Value }";
                         }
                     }
-                    else if( updates.Count > 1 )
+                    else if( Updates.Count > 1 )
                     {
-                        foreach( var kvp in updates )
+                        foreach( var kvp in Updates )
                         {
                             _columns += $"{ kvp.Key }, ";
                             _values += $"{ kvp.Value }, ";

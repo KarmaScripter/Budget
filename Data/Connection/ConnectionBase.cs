@@ -17,13 +17,13 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ConnectionBase
     {
         /// <summary>
         /// The connector
         /// </summary>
-        public virtual ConnectionStringSettingsCollection ConnectionPath { get; } =
-            ConfigurationManager.ConnectionStrings;
+        public ConnectionStringSettingsCollection ConnectionPath { get; set; } 
 
         /// <summary>
         /// Gets the client path.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The client path.
         /// </value>
-        public virtual NameValueCollection DbClientPath { get; } = ConfigurationManager.AppSettings;
+        public NameValueCollection DbClientPath { get; set; } 
 
         /// <summary>
         /// Gets or sets the connection.
@@ -39,27 +39,27 @@ namespace BudgetExecution
         /// <value>
         /// The connection.
         /// </value>
-        public virtual DbConnection Connection { get; set; }
+        public DbConnection Connection { get; set; }
 
         /// <summary>
         /// The provider path
         /// </summary>
-        public virtual string DbPath { get; set; }
+        public string DbPath { get; set; }
 
         /// <summary>
         /// The source
         /// </summary>
-        public virtual Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// The provider
         /// </summary>
-        public virtual Provider Provider { get; set; }
+        public Provider Provider { get; set; }
 
         /// <summary>
         /// The file extension
         /// </summary>
-        public virtual EXT Extension { get; set; }
+        public EXT Extension { get; set; }
 
         /// <summary>
         /// Gets or sets the path extension.
@@ -67,54 +67,35 @@ namespace BudgetExecution
         /// <value>
         /// The path extension.
         /// </value>
-        public virtual string PathExtension { get; set; }
+        public string PathExtension { get; set; }
 
         /// <summary>
         /// The file path
         /// </summary>
-        public virtual string FilePath { get; set; }
+        public string FilePath { get; set; }
 
         /// <summary>
         /// The file name
         /// </summary>
-        public virtual string FileName { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// The table name
         /// </summary>
-        public virtual string TableName { get; set; }
+        public string TableName { get; set; }
 
         /// <summary>
         /// The connection string
         /// </summary>
-        public virtual string ConnectionString { get; set; }
+        public string ConnectionString { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
         /// </summary>
         protected ConnectionBase( )
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        protected ConnectionBase( Source source, Provider provider = Provider.Access )
-        {
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            ConnectionString = GetConnectionString( provider );
-            FilePath = GetDbClientPath( provider );
-            PathExtension = Path.GetExtension( FilePath )?.Replace( ".", "" );
-            FileName = Path.GetFileNameWithoutExtension( FilePath );
-            if( !string.IsNullOrEmpty( PathExtension ) )
-            {
-                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                DbPath = DbClientPath[ Extension.ToString( ) ];
-            }
+            ConnectionPath = ConfigurationManager.ConnectionStrings;
+            DbClientPath = ConfigurationManager.AppSettings; 
         }
 
         /// <summary>
@@ -122,6 +103,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         protected ConnectionBase( string fullPath )
+            : this( )
         {
             Source = Source.External;
             FilePath = fullPath;
@@ -143,6 +125,7 @@ namespace BudgetExecution
         /// <param name="fullPath">The full path.</param>
         /// <param name="provider">The provider.</param>
         protected ConnectionBase( string fullPath, Provider provider )
+            : this( )
         {
             Source = Source.External;
             Provider = provider;
@@ -157,13 +140,35 @@ namespace BudgetExecution
                 ConnectionString = GetConnectionString( Provider );
             }
         }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConnectionBase"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        protected ConnectionBase( Source source, Provider provider = Provider.Access ) 
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            ConnectionString = GetConnectionString( provider );
+            FilePath = GetDbClientPath( provider );
+            PathExtension = Path.GetExtension( FilePath )?.Replace( ".", "" );
+            FileName = Path.GetFileNameWithoutExtension( FilePath );
+            if( !string.IsNullOrEmpty( PathExtension ) )
+            {
+                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
+                DbPath = DbClientPath[ Extension.ToString( ) ];
+            }
+        }
 
         /// <summary>
         /// Gets the file path.
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        public virtual string GetDbClientPath( Provider provider )
+        private protected string GetDbClientPath( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
             {
@@ -189,31 +194,12 @@ namespace BudgetExecution
 
             return string.Empty;
         }
-
-        /// <summary>
-        /// Sets the file path.
-        /// </summary>
-        /// <param name="filePath">The filePath.</param>
-        public virtual string GetFilePath( string filePath )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( filePath ) && File.Exists( filePath )
-                    ? Path.GetFullPath( filePath )
-                    : default( string );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
+        
         /// <summary>
         /// Sets the provider path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public virtual string GetDbClientPath( string filePath )
+        private protected string GetDbClientPath( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
                && Path.HasExtension( filePath ) )
@@ -227,7 +213,7 @@ namespace BudgetExecution
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _ext.ToString( ) ) == true )
                         {
-                            var _clientPath = DbClientPath[ $"{_ext}" ];
+                            var _clientPath = DbClientPath[ $"{ _ext }" ];
                             return !string.IsNullOrEmpty( _clientPath )
                                 ? _clientPath
                                 : string.Empty;
@@ -247,7 +233,7 @@ namespace BudgetExecution
         /// Sets the connection string.
         /// </summary>
         /// <param name="provider">The provider.</param>
-        public virtual string GetConnectionString( Provider provider )
+        private protected virtual string GetConnectionString( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider )
                && !string.IsNullOrEmpty( FilePath ) )
@@ -273,7 +259,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        public virtual string GetConnectionString( string filePath )
+        private protected virtual string GetConnectionString( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
                && File.Exists( filePath )

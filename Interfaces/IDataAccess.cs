@@ -15,10 +15,11 @@ namespace BudgetExecution
         IQuery GetQuery( );
 
         /// <summary> Gets the query. </summary>
-        /// <param name = "connectionBuilder" > The connectionBuilder. </param>
+        /// <param> The connectionBuilder. </param>
+        /// <param name = "connection" > </param>
         /// <param name = "sqlStatement" > The sqlStatement. </param>
         /// <returns> </returns>
-        IQuery GetQuery( IConnectionBuilder connectionBuilder, ISqlStatement sqlStatement );
+        IQuery GetQuery( IConnectionFactory connectionFactory, ISqlStatement sqlStatement );
 
         /// <summary> Gets the record. </summary>
         /// <returns> </returns>

@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection builder.
         /// </value>
-        IConnectionBuilder ConnectionBuilder { get; set; }
+        IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
         /// Gets or sets the SQL statement.

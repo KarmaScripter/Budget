@@ -42,7 +42,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -64,7 +64,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -89,7 +89,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -140,7 +140,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, numerics, where, 
                 commandType );
             Query = new Query( SqlStatement );
@@ -162,7 +162,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = Provider.Access;
-            ConnectionBuilder = new ConnectionBuilder( source, Provider.Access );
+            ConnectionFactory = new ConnectionFactory( source, Provider.Access );
             SqlStatement = new SqlStatement( source, Provider.Access, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -184,7 +184,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
+            ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, sqlText );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -204,9 +204,9 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
-            ConnectionBuilder = new ConnectionBuilder( fullPath );
-            Source = ConnectionBuilder.Source;
-            Provider = ConnectionBuilder.Provider;
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Source = ConnectionFactory.Source;
+            Provider = ConnectionFactory.Provider;
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
@@ -227,7 +227,7 @@ namespace BudgetExecution
             Query = query;
             Source = query.Source;
             Provider = query.Provider;
-            ConnectionBuilder = query.ConnectionBuilder;
+            ConnectionFactory = query.ConnectionFactory;
             SqlStatement = query.SqlStatement;
             DataTable = GetDataTable( );
             TableName = SqlStatement.TableName;
@@ -280,7 +280,6 @@ namespace BudgetExecution
             string value )
         {
             if( dataRows?.Any( ) == true
-               && Enum.IsDefined( typeof( Field ), name )
                && !string.IsNullOrEmpty( value ) )
             {
                 try

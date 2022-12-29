@@ -6,19 +6,33 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using OfficeOpenXml.DataValidation;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.SqlBase" />
     /// <seealso cref="BudgetExecution.ISqlStatement" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SqlStatement : SqlBase, ISqlStatement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlStatement"/> class.
         /// </summary>
         public SqlStatement( )
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlStatement"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public SqlStatement( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+            : base( source, provider, commandType )
         {
         }
 
@@ -29,7 +43,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         public SqlStatement( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
+            : base( source, provider, sqlText, SQL.SELECT )
         {
         }
 
@@ -41,19 +55,8 @@ namespace BudgetExecution
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
         public SqlStatement( Source source, Provider provider, string sqlText,
-            SQL commandType = SQL.SELECT )
+            SQL commandType )
             : base( source, provider, sqlText, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SqlStatement"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="commandType">Type of the command.</param>
-        public SqlStatement( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
-            : base( source, provider, commandType )
         {
         }
 
@@ -92,6 +95,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
         /// <param name="where">The arguments.</param>
+        /// 
         public SqlStatement( Source source, Provider provider, SQL commandType,
             IDictionary<string, object> where )
             : base( source, provider, where, commandType )
@@ -129,71 +133,32 @@ namespace BudgetExecution
             : base( source, provider, columns, numerics, having,
                 commandType )
         {
-            CommandText = GetCommandText( columns, having, commandType );
-        }
-
-        /// <summary>
-        /// Gets the update statement.
-        /// </summary>
-        /// <returns></returns>
-        public string GetUpdateText( )
-        {
-            if( Criteria != null
-               && Updates != null )
-            {
-                try
-                {
-                    var _update = CreateUpdateStatement( Updates, Criteria );
-                    return !string.IsNullOrEmpty( _update )
-                        ? _update
-                        : string.Empty;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( string );
-                }
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// Gets the insert statement.
-        /// </summary>
-        /// <returns></returns>
-        public string GetInsertText( )
-        {
-            try
-            {
-                return Updates?.Any( ) == true
-                    ? CreateInsertStatement( Updates )
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
+            CommandText = GetCommandText( columns, numerics, having, commandType );
         }
 
         /// <summary>
         /// Gets the delete statement.
         /// </summary>
         /// <returns></returns>
-        public string GetDeleteText( )
+        public string GetDeleteStatement( )
         {
-            try
+            if( Criteria?.Any( ) == true )
             {
-                return Criteria?.Any( ) == true
-                    ? CreateDeleteStatement( Criteria )
-                    : $"DELETE FROM { Source }";
+                try
+                {
+                    var _criteria = Criteria.ToCriteria(  );
+                    return !string.IsNullOrEmpty( _criteria )
+                        ? $"DELETE FROM { Source } WHERE { _criteria };"
+                        : $"DELETE FROM { Source };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -213,20 +178,17 @@ namespace BudgetExecution
                     switch( commandType )
                     {
                         case SQL.SELECT:
-                        {
-                            return CreateSelectStatement( dict );
-                        }
                         case SQL.SELECTALL:
                         {
-                            return CreateSelectStatement( dict );
+                            return GetSelectStatement( );
                         }
                         case SQL.INSERT:
                         {
-                            return CreateInsertStatement( dict );
+                            return GetInsertStatement( );
                         }
                         case SQL.DELETE:
                         {
-                            return CreateDeleteStatement( dict );
+                            return GetDeleteStatement( );
                         }
                     }
                 }
@@ -249,8 +211,8 @@ namespace BudgetExecution
         public string GetCommandText( IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
-            if( where?.Any( ) == true
-               && columns?.Any( ) == true
+            if( Criteria?.Any( ) == true
+               && Fields?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try
@@ -258,20 +220,17 @@ namespace BudgetExecution
                     switch( commandType )
                     {
                         case SQL.SELECT:
-                        {
-                            return GetCommandText( columns, where );
-                        }
                         case SQL.SELECTALL:
                         {
-                            return CreateSelectStatement( where );
+                            return GetSelectStatement( );
                         }
                         case SQL.INSERT:
                         {
-                            return CreateInsertStatement( where );
+                            return GetInsertStatement( );
                         }
                         case SQL.DELETE:
                         {
-                            return CreateDeleteStatement( where );
+                            return GetDeleteStatement( );
                         }
                     }
                 }
@@ -304,20 +263,17 @@ namespace BudgetExecution
                     switch( commandType )
                     {
                         case SQL.SELECT:
-                        {
-                            return CreateSelectStatement( columns, numerics, having );
-                        }
                         case SQL.SELECTALL:
                         {
-                            return CreateSelectStatement( having );
+                            return GetSelectStatement( );
                         }
                         case SQL.INSERT:
                         {
-                            return CreateInsertStatement( having );
+                            return GetInsertStatement( );
                         }
                         case SQL.DELETE:
                         {
-                            return CreateDeleteStatement( having );
+                            return GetDeleteStatement( );
                         }
                     }
                 }
@@ -349,25 +305,21 @@ namespace BudgetExecution
                     switch( commandType )
                     {
                         case SQL.SELECT:
-                        {
-                            var _cols = updates.Keys.ToList( );
-                            return GetCommandText( _cols, where );
-                        }
                         case SQL.SELECTALL:
                         {
-                            return CreateSelectStatement( where );
+                            return GetSelectStatement( );
                         }
                         case SQL.INSERT:
                         {
-                            return CreateInsertStatement( where );
+                            return GetInsertStatement( );
                         }
                         case SQL.UPDATE:
                         {
-                            return CreateUpdateStatement( updates, where );
+                            return GetUpdateStatement( );
                         }
                         case SQL.DELETE:
                         {
-                            return CreateDeleteStatement( where );
+                            return GetDeleteStatement( );
                         }
                     }
                 }
@@ -380,73 +332,6 @@ namespace BudgetExecution
             return string.Empty;
         }
         
-        /// <summary>
-        /// Creates the select statement.
-        /// </summary>
-        /// <param name="columns">The columns.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <returns></returns>
-        public string CreateSelectStatement( IEnumerable<string> columns, 
-            IEnumerable<string> numerics )
-        {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && columns?.Any( ) == true )
-            {
-                try
-                {
-                    var _cols = string.Empty;
-                    var _aggr = string.Empty;
-                    var _grp = string.Empty;
-                    foreach( var name in columns )
-                    {
-                        _cols += $"{ name }, ";
-                    }
-
-                    foreach( var _numeric in numerics )
-                    {
-                        _grp += $"SUM({ _numeric }), ";
-                        _aggr += $"SUM({ _numeric }) AS { _numeric }, ";
-                    }
-                    
-                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    var _groups = _cols + _grp.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT { _columns } FROM { Source } "
-                        + $"GROUP BY { _groups };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
-        
-        /// <summary>
-        /// Sets the delete statement.
-        /// </summary>
-        /// <param name="where">The dictionary.</param>
-        public string CreateDeleteStatement( IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && Enum.IsDefined( typeof( Source ), Source ) )
-            {
-                try
-                {
-                    var _criteria = where.ToCriteria( );
-                    return $"{ SQL.DELETE } FROM {Source} WHERE { _criteria };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
-
         /// <summary>
         /// Converts to string.
         /// </summary>

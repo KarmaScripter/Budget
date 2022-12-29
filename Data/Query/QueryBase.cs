@@ -45,15 +45,7 @@ namespace BudgetExecution
         /// The arguments.
         /// </value>
         public virtual IDictionary<string, object> Criteria { get; set; }
-
-        /// <summary>
-        /// Gets the connection manager.
-        /// </summary>
-        /// <value>
-        /// The connection manager.
-        /// </value>
-        public virtual IConnectionBuilder ConnectionBuilder { get; set; }
-
+        
         /// <summary>
         /// Gets the SQL statement.
         /// </summary>
@@ -76,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The commander.
         /// </value>
-        public virtual ICommandBuilder CommandBuilder { get; set; }
+        public virtual ICommandFactory CommandFactory { get; set; }
 
         /// <summary>
         /// Gets or sets the connection.
@@ -145,10 +137,9 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             CommandType = commandType;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -165,10 +156,9 @@ namespace BudgetExecution
             Provider = provider;
             Criteria = where;
             CommandType = commandType;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -183,11 +173,10 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             CommandType = sqlStatement.CommandType;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             Criteria = sqlStatement.Criteria ?? null;
             SqlStatement = sqlStatement;
-            CommandBuilder = new CommandBuilder( sqlStatement );
         }
 
         /// <summary>
@@ -201,11 +190,10 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, where, SQL.SELECT );
             CommandType = SqlStatement.CommandType;
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -223,10 +211,9 @@ namespace BudgetExecution
             Provider = provider;
             Criteria = where;
             CommandType = commandType;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -245,10 +232,9 @@ namespace BudgetExecution
             Provider = provider;
             Criteria = where;
             CommandType = commandType;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -267,10 +253,9 @@ namespace BudgetExecution
             Provider = provider;
             Criteria = having;
             CommandType = commandType;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, columns, having, commandType );
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -283,11 +268,10 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionBuilder = new ConnectionBuilder( source, provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( source, provider, sqlText );
             CommandType = SqlStatement.CommandType;
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -299,15 +283,14 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         protected QueryBase( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
-            ConnectionBuilder = new ConnectionBuilder( fullPath );
-            Provider = ConnectionBuilder.Provider;
-            Source = ConnectionBuilder.Source;
-            DataConnection = ConnectionBuilder.Connection;
-            SqlStatement = new SqlStatement( ConnectionBuilder.Source, ConnectionBuilder.Provider,
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Provider = ConnectionFactory.Provider;
+            Source = ConnectionFactory.Source;
+            DataConnection = ConnectionFactory.Connection;
+            SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider,
                 sqlText );
 
             CommandType = commandType;
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -320,13 +303,12 @@ namespace BudgetExecution
         protected QueryBase( string fullPath, SQL commandType, IDictionary<string, object> where )
         {
             Criteria = where;
-            ConnectionBuilder = new ConnectionBuilder( fullPath );
-            Source = ConnectionBuilder.Source;
-            Provider = ConnectionBuilder.Provider;
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Source = ConnectionFactory.Source;
+            Provider = ConnectionFactory.Provider;
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = new SqlStatement( Source, Provider, where, commandType );
             CommandType = commandType;
-            CommandBuilder = new CommandBuilder( SqlStatement );
         }
 
         /// <summary>
@@ -338,11 +320,10 @@ namespace BudgetExecution
             Criteria = null;
             Source = sqlStatement.Source;
             Provider = sqlStatement.Provider;
-            ConnectionBuilder = new ConnectionBuilder( sqlStatement.Source, sqlStatement.Provider );
-            DataConnection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+            DataConnection = ConnectionFactory.Connection;
             SqlStatement = sqlStatement;
             CommandType = sqlStatement.CommandType;
-            CommandBuilder = new CommandBuilder( sqlStatement );
         }
 
         /// <inheritdoc/>
@@ -354,7 +335,7 @@ namespace BudgetExecution
         public DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
-               && CommandBuilder != null )
+               && CommandFactory != null )
             {
                 try
                 {
@@ -365,27 +346,27 @@ namespace BudgetExecution
                         case Provider.OleDb:
                         case Provider.Access:
                         {
-                            var _builder = new AdapterBuilder( CommandBuilder );
+                            var _builder = new AdapterBuilder( CommandFactory );
                             return _builder?.GetAdapter( ) as OleDbDataAdapter;
                         }
                         case Provider.SQLite:
                         {
-                            var _builder = new AdapterBuilder( CommandBuilder );
+                            var _builder = new AdapterBuilder( CommandFactory );
                             return _builder?.GetAdapter( ) as SQLiteDataAdapter;
                         }
                         case Provider.SqlCe:
                         {
-                            var _builder = new AdapterBuilder( CommandBuilder );
+                            var _builder = new AdapterBuilder( CommandFactory );
                             return _builder?.GetAdapter( ) as SqlCeDataAdapter;
                         }
                         case Provider.SqlServer:
                         {
-                            var _builder = new AdapterBuilder( CommandBuilder );
+                            var _builder = new AdapterBuilder( CommandFactory );
                             return _builder?.GetAdapter( ) as SqlDataAdapter;
                         }
                         default:
                         {
-                            var _builder = new AdapterBuilder( CommandBuilder );
+                            var _builder = new AdapterBuilder( CommandFactory );
                             return _builder?.GetAdapter( ) as OleDbDataAdapter;
                         }
                     }

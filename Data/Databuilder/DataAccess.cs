@@ -194,12 +194,12 @@ namespace BudgetExecution
         /// <summary>
         /// Compresses the specified column names.
         /// </summary>
-        /// <param name="columnNames">The column names.</param>
+        /// <param name="fields">The column names.</param>
         /// <param name="having">The where.</param>
         /// <returns></returns>
-        public DataTable Compress( IEnumerable<string> columnNames, IDictionary<string, object> having )
+        public DataTable Compress( IEnumerable<string> fields, IDictionary<string, object> having )
         {
-            if( columnNames?.Any( ) == true 
+            if( fields?.Any( ) == true 
                && having?.Any( ) == true
                && DataTable != null )
             {
@@ -207,17 +207,15 @@ namespace BudgetExecution
                 {
                     var _fields = new List<string>( );
                     var _numerics = new List<string>( );
-                    var _pack = new List<DataColumn>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        foreach( var name in columnNames )
+                        foreach( var name in fields )
                         {
                             if( col.ColumnName == name
                                && col.Ordinal > 0
                                && col.DataType == typeof( string ) )
                             {
                                 _fields.Add( col.ColumnName );
-                                _pack.Add( col );
                             }
                             else if( col.ColumnName == name 
                                     && col.Ordinal > 0 
@@ -225,12 +223,11 @@ namespace BudgetExecution
                                     && col.DataType != typeof( DateTime ) )
                             {
                                 _numerics.Add( col.ColumnName );
-                                _pack.Add( col );
                             }
                         }
                     }
                     
-                    var _dataSet = new DataSet( $"{ Provider }" );
+                    var _dataSet = new DataSet( $"Chart" );
                     var _dataTable = new DataTable( $"{ Source }" );
                     _dataSet.Tables.Add( _dataTable );
                     var _sqlStatement = new SqlStatement( Source, Provider, _fields,

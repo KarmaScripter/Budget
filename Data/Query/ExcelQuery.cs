@@ -93,7 +93,13 @@ namespace BudgetExecution
             : base( source, provider, columns, criteria, commandType )
         {
         }
-
+        
+        public ExcelQuery( Source source, Provider provider, IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> criteria, 
+            SQL commandType = SQL.SELECT )
+            : base( source, provider, fields, numerics, criteria, commandType )
+        {
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref = "ExcelQuery"/> class.
         /// </summary>
@@ -324,9 +330,13 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
+        /// <summary>
+        /// Gets the connection.
+        /// </summary>
+        /// <returns></returns>
         private DbConnection GetConnection( )
         {
-            throw new NotImplementedException( );
+            return ConnectionFactory.Connection;
         }
 
         /// <summary>
@@ -345,8 +355,8 @@ namespace BudgetExecution
                     var _data = new DataSet( );
                     var _sql = $"SELECT * FROM {sheetName}";
                     var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;"
-                    + $"Data Source={Path.GetDirectoryName( fileName )} "
-                    + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
+                        + $"Data Source={Path.GetDirectoryName( fileName )} "
+                        + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     var _connection = new OleDbConnection( _connectionString );
                     var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
@@ -386,7 +396,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _filePath = ConnectionBuilder.DbPath;
+                var _filePath = ConnectionFactory.DbPath;
                 var _stream = new FileInfo( _filePath );
                 var _application = new ExcelPackage( _stream );
                 var _workbook = _application.Workbook;

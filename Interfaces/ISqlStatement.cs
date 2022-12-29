@@ -58,7 +58,15 @@ namespace BudgetExecution
         /// <value>
         /// The columns.
         /// </value>
-        IEnumerable<string> Fields { get; set; }
+        IList<string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        IList<string> Numerics { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -77,24 +85,6 @@ namespace BudgetExecution
         /// The file name
         /// </summary>
         string FileName { get; set; }
-
-        /// <summary>
-        /// Gets the update statement.
-        /// </summary>
-        /// <returns></returns>
-        string GetUpdateText( );
-
-        /// <summary>
-        /// Gets the insert statement.
-        /// </summary>
-        /// <returns></returns>
-        string GetInsertText( );
-
-        /// <summary>
-        /// Gets the delete statement.
-        /// </summary>
-        /// <returns></returns>
-        string GetDeleteText( );
 
         /// <summary>
         /// Gets the command text.
@@ -136,31 +126,24 @@ namespace BudgetExecution
         /// Sets the select statement.
         /// </summary>
         string GetSelectStatement( );
-
-        /// <summary>
-        /// Sets the select statement.
-        /// </summary>
-        /// <param name="where">The dictionary.</param>
-        string CreateSelectStatement( IDictionary<string, object> where );
         
         /// <summary>
         /// Sets the update statement.
         /// </summary>
         /// <param name="updates">The dictionary.</param>
         /// <param name = "where" > </param>
-        string CreateUpdateStatement( IDictionary<string, object> updates,
-            IDictionary<string, object> where );
+        string GetUpdateStatement( );
 
         /// <summary>
         /// Sets the insert statement.
         /// </summary>
         /// <param name="dict">The dictionary.</param>
-        string CreateInsertStatement( IDictionary<string, object> dict );
+        string GetInsertStatement( );
 
         /// <summary>
         /// Sets the delete statement.
         /// </summary>
         /// <param name="where">The dictionary.</param>
-        string CreateDeleteStatement( IDictionary<string, object> where );
+        string GetDeleteStatement( );
     }
 }

@@ -1,5 +1,5 @@
-﻿// <copyright file = "AdapterBuilder.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -17,7 +17,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="DbDataAdapter" />
-    public class AdapterBuilder : DbDataAdapter
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class AdapterBuilder : DbDataAdapter, ISource, IProvider
     {
         /// <summary>
         /// Gets or sets the source.
@@ -48,7 +49,7 @@ namespace BudgetExecution
         /// <summary>
         /// The connection builder
         /// </summary>
-        public IConnectionBuilder ConnectionBuilder { get; set; }
+        public IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
         /// Gets the command builder.
@@ -56,7 +57,7 @@ namespace BudgetExecution
         /// <value>
         /// The command builder.
         /// </value>
-        public ICommandBuilder CommandBuilder { get; set; }
+        public ICommand Command { get; set; }
 
         /// <summary>
         /// Gets the command factory.
@@ -89,16 +90,16 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="AdapterBuilder"/> class.
         /// </summary>
-        /// <param name="commandBuilder">The commandbuilder.</param>
-        public AdapterBuilder( ICommandBuilder commandBuilder )
+        /// <param name="commandFactory">The commandbuilder.</param>
+        public AdapterBuilder( ICommandFactory commandFactory )
             : this( )
         {
-            Source = commandBuilder.Source;
-            Provider = commandBuilder.Provider;
-            CommandBuilder = commandBuilder;
-            SqlStatement = commandBuilder.SqlStatement;
-            ConnectionBuilder = commandBuilder.ConnectionBuilder;
-            Connection = ConnectionBuilder.Connection;
+            Source = commandFactory.Source;
+            Provider = commandFactory.Provider;
+            CommandFactory = commandFactory;
+            SqlStatement = new SqlStatement( commandFactory.Source, commandFactory.Provider, SQL.SELECT );
+            ConnectionFactory = new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
+            Connection = ConnectionFactory.GetConnection(  );
             CommandText = SqlStatement.CommandText;
         }
 
@@ -112,9 +113,8 @@ namespace BudgetExecution
             Source = sqlStatement.Source;
             Provider = sqlStatement.Provider;
             SqlStatement = sqlStatement;
-            ConnectionBuilder = new ConnectionBuilder( sqlStatement.Source, sqlStatement.Provider );
-            CommandBuilder = new CommandBuilder( sqlStatement );
-            Connection = ConnectionBuilder.Connection;
+            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+            Connection = ConnectionFactory.Connection;
             CommandText = sqlStatement.CommandText;
         }
 
@@ -139,7 +139,6 @@ namespace BudgetExecution
 
                             return _adapter;
                         }
-
                         case Provider.SqlCe:
                         {
                             var _adapter = new SqlCeDataAdapter( CommandText,
@@ -147,7 +146,6 @@ namespace BudgetExecution
 
                             return _adapter;
                         }
-
                         case Provider.SqlServer:
                         {
                             var _adapter = new SqlDataAdapter( CommandText,
@@ -155,7 +153,6 @@ namespace BudgetExecution
 
                             return _adapter;
                         }
-
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
@@ -170,11 +167,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DbDataAdapter );
+                    return default;
                 }
             }
 
-            return default( DbDataAdapter );
+            return default;
         }
 
         /// <summary>

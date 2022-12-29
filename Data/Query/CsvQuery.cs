@@ -310,25 +310,21 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _excelPackage = CreateCsvFile( filePath );
+                    using var _excel = CreateCsvFile( filePath );
                     var _withoutExtension = Path.GetFileNameWithoutExtension( filePath );
-                    var _excelWorksheet =
-                        _excelPackage.Workbook.Worksheets.Add( _withoutExtension );
-
+                    var _sheet = _excel.Workbook.Worksheets.Add( _withoutExtension );
                     var _columns = table.Columns.Count;
                     var _rows = table.Rows.Count;
                     for( var column = 1; column <= _columns; column++ )
                     {
-                        _excelWorksheet.Cells[ 1, column ].Value =
-                            table.Columns[ column - 1 ].ColumnName;
+                        _sheet.Cells[ 1, column ].Value = table.Columns[ column - 1 ].ColumnName;
                     }
 
                     for( var row = 1; row <= _rows; row++ )
                     {
                         for( var col = 0; col < _columns; col++ )
                         {
-                            _excelWorksheet.Cells[ row + 1, col + 1 ].Value =
-                                table.Rows[ row - 1 ][ col ];
+                            _sheet.Cells[ row + 1, col + 1 ].Value = table.Rows[ row - 1 ][ col ];
                         }
                     }
                 }
@@ -348,27 +344,26 @@ namespace BudgetExecution
         public void CsvExport( DataGridView dataGrid )
         {
             if( dataGrid?.DataSource != null
-               && ConnectionBuilder != null )
+               && ConnectionFactory != null )
             {
                 try
                 {
-                    var _filePath = ConnectionBuilder.DbPath;
-                    using var _excelPackage = new ExcelPackage( new FileInfo( _filePath ) );
-                    var _excelWorkbook = _excelPackage.Workbook;
-                    var _excelWorksheet = _excelWorkbook.Worksheets[ 1 ];
-                    var _rows = _excelWorksheet.SelectedRange.Rows;
-                    var _columns = _excelWorksheet.SelectedRange.Columns;
+                    var _filePath = ConnectionFactory.DbPath;
+                    using var _excel = new ExcelPackage( new FileInfo( _filePath ) );
+                    var _workbook = _excel.Workbook;
+                    var _worksheet = _workbook.Worksheets[ 1 ];
+                    var _rows = _worksheet.SelectedRange.Rows;
+                    var _columns = _worksheet.SelectedRange.Columns;
                     dataGrid.ColumnCount = _columns;
                     dataGrid.RowCount = _rows;
                     for( var i = 1; i <= _rows; i++ )
                     {
                         for( var j = 1; j <= _columns; j++ )
                         {
-                            if( _excelWorksheet.Cells[ i, j ] != null
-                               && _excelWorksheet.Cells[ i, j ].Value != null )
+                            var _value = _worksheet.Cells[ i, j ].Value.ToString( );
+                            if( !string.IsNullOrEmpty( _value ) )
                             {
-                                dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value =
-                                    _excelWorksheet.Cells[ i, j ].Value.ToString( );
+                                dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value = _value;
                             }
                         }
                     }

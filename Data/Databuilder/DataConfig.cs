@@ -12,6 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class DataConfig
     {
         /// <summary>
@@ -37,7 +38,7 @@ namespace BudgetExecution
         /// <summary>
         /// The connection builder
         /// </summary>
-        public IConnectionBuilder ConnectionBuilder { get; set; }
+        public IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
         /// The arguments

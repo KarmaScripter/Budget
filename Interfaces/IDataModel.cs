@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <summary>
         /// The connection builder
         /// </summary>
-        IConnectionBuilder ConnectionBuilder { get; set; }
+        IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
         /// The arguments
