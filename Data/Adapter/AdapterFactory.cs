@@ -5,14 +5,8 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Data;
     using System.Data.Common;
-    using System.Data.OleDb;
-    using System.Data.SqlClient;
-    using System.Data.SqlServerCe;
-    using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
-    using System.Collections.Generic;
 
     /// <summary>
     /// 
@@ -62,70 +56,22 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            var _connection = Connection as SQLiteConnection;
-                            var _adapter = new SQLiteDataAdapter( CommandText, _connection );
-                            _adapter.ContinueUpdateOnError = true;
-                            _adapter.AcceptChangesDuringFill = true;
-                            _adapter.AcceptChangesDuringUpdate = true;
-                            _adapter.ReturnProviderSpecificTypes = true;
-                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                            var _builder = new SQLiteCommandBuilder( _adapter );
-                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                            return _adapter;
+                            return GetSQLiteAdapter(  );
                         }
                         case Provider.SqlCe:
                         {
-                            var _connection = Connection as SqlCeConnection;
-                            var _adapter = new SqlCeDataAdapter( CommandText, _connection );
-                            _adapter.ContinueUpdateOnError = true;
-                            _adapter.AcceptChangesDuringFill = true;
-                            _adapter.AcceptChangesDuringUpdate = true;
-                            _adapter.ReturnProviderSpecificTypes = true;
-                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                            var _builder = new SqlCeCommandBuilder( _adapter );
-                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                            return _adapter;
+                            return GetSqlCeAdapter(  );
                         }
                         case Provider.SqlServer:
                         {
-                            var _connection = Connection as SqlConnection;
-                            var _adapter = new SqlDataAdapter( CommandText, _connection );
-                            _adapter.ContinueUpdateOnError = true;
-                            _adapter.AcceptChangesDuringFill = true;
-                            _adapter.AcceptChangesDuringUpdate = true;
-                            _adapter.ReturnProviderSpecificTypes = true;
-                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                            var _builder = new SqlCommandBuilder( _adapter );
-                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                            return _adapter;
+                            return GetSqlAdapter(  );
                         }
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
                         case Provider.OleDb:
                         {
-                            var _connection = Connection as OleDbConnection;
-                            var _adapter = new OleDbDataAdapter( CommandText, _connection );
-                            _adapter.ContinueUpdateOnError = true;
-                            _adapter.AcceptChangesDuringFill = true;
-                            _adapter.AcceptChangesDuringUpdate = true;
-                            _adapter.ReturnProviderSpecificTypes = true;
-                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                            var _builder = new OleDbCommandBuilder( _adapter );
-                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                            return _adapter;
+                            return GetOleDbAdapter(  );
                         }
                     }
                 }
@@ -137,17 +83,6 @@ namespace BudgetExecution
             }
 
             return default( DbDataAdapter );
-        }
-        
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -8789,6 +8789,36 @@
             </summary>
             <param name="sqlStatement">The SQL statement.</param>
         </member>
+        <member name="M:BudgetExecution.AdapterBase.GetSQLiteAdapter">
+            <summary>
+            Gets the sq lite adapter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.AdapterBase.GetSqlAdapter">
+            <summary>
+            Gets the SQL adapter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.AdapterBase.GetOleDbAdapter">
+            <summary>
+            Gets the OLE database adapter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.AdapterBase.GetSqlCeAdapter">
+            <summary>
+            Gets the SQL ce adapter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.AdapterBase.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
         <member name="T:BudgetExecution.AdapterFactory">
             <summary>
             
@@ -8817,12 +8847,6 @@
             Gets the adapter.
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.AdapterFactory.Fail(System.Exception)">
-            <summary>
-            Get Error Dialog.
-            </summary>
-            <param name="ex">The ex.</param>
         </member>
         <member name="T:BudgetExecution.CommandBase">
             <summary>

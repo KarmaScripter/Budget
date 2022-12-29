@@ -14,9 +14,6 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// 
@@ -120,6 +117,157 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
             Connection = ConnectionFactory.GetConnection(  );
             CommandText = sqlStatement.CommandText;
+        }
+
+        /// <summary>
+        /// Gets the sq lite adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected SQLiteDataAdapter GetSQLiteAdapter( )
+        {
+            if( Connection != null
+               && !string.IsNullOrEmpty( CommandText )  )
+            {
+                try
+                {
+                    var _connection = Connection as SQLiteConnection;
+                    var _adapter = new SQLiteDataAdapter( CommandText, _connection );
+                    _adapter.ContinueUpdateOnError = true;
+                    _adapter.AcceptChangesDuringFill = true;
+                    _adapter.AcceptChangesDuringUpdate = true;
+                    _adapter.ReturnProviderSpecificTypes = true;
+                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                    var _builder = new SQLiteCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                    return _adapter;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( SQLiteDataAdapter );
+                }
+            }
+            
+            return default( SQLiteDataAdapter );
+        }
+
+        /// <summary>
+        /// Gets the SQL adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected SqlDataAdapter GetSqlAdapter( )
+        {
+            if( Connection != null 
+               && !string.IsNullOrEmpty( CommandText )  )
+            {
+                try
+                {
+                    var _connection = Connection as SqlConnection;
+                    var _adapter = new SqlDataAdapter( CommandText, _connection );
+                    _adapter.ContinueUpdateOnError = true;
+                    _adapter.AcceptChangesDuringFill = true;
+                    _adapter.AcceptChangesDuringUpdate = true;
+                    _adapter.ReturnProviderSpecificTypes = true;
+                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                    var _builder = new SqlCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                    return _adapter;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( SqlDataAdapter );
+                }
+            }
+            
+            return default( SqlDataAdapter );
+        }
+
+        /// <summary>
+        /// Gets the OLE database adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected OleDbDataAdapter GetOleDbAdapter( )
+        {
+            if( Connection != null
+               && !string.IsNullOrEmpty( CommandText )  )
+            {
+                try
+                {
+                    var _connection = Connection as OleDbConnection;
+                    var _adapter = new OleDbDataAdapter( CommandText, _connection );
+                    _adapter.ContinueUpdateOnError = true;
+                    _adapter.AcceptChangesDuringFill = true;
+                    _adapter.AcceptChangesDuringUpdate = true;
+                    _adapter.ReturnProviderSpecificTypes = true;
+                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                    var _builder = new OleDbCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                    return _adapter;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( OleDbDataAdapter );
+                }
+            }
+            
+            return default( OleDbDataAdapter );
+        }
+
+        /// <summary>
+        /// Gets the SQL ce adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected DbDataAdapter GetSqlCeAdapter( )
+        {
+            if( Connection != null
+               && !string.IsNullOrEmpty( CommandText )  )
+            {
+                try
+                {
+                    var _connection = Connection as SqlCeConnection;
+                    var _adapter = new SqlCeDataAdapter( CommandText, _connection );
+                    _adapter.ContinueUpdateOnError = true;
+                    _adapter.AcceptChangesDuringFill = true;
+                    _adapter.AcceptChangesDuringUpdate = true;
+                    _adapter.ReturnProviderSpecificTypes = true;
+                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                    var _builder = new SqlCeCommandBuilder( _adapter );
+                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                    return _adapter;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( SqlCeDataAdapter );
+                }
+            }
+            
+            return default( SqlCeDataAdapter );
+        }
+        
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
