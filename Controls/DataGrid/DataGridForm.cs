@@ -142,14 +142,22 @@ namespace BudgetExecution
         {
             try
             {
+                var _fields = new List<string>( );
+                _fields.Add( "BFY" );
+                _fields.Add( "EFY" );
+                _fields.Add( "FundName" );
+                _fields.Add( "RpioCode" );
+                _fields.Add( "RpioName" );
+                _fields.Add( "Amount" );
+                _fields.Add( "Available" );
                 FormFilter = new Dictionary<string, object>
                 {
-                    { "BFY", "2023" },
-                    { "FundCode", "B" }
+                    { "BFY", "2022" }
                 };
 
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
-                BindingSource.DataSource = DataModel.DataTable;
+                var _summary = DataModel.Compress( _fields, FormFilter );
+                BindingSource.DataSource = _summary;
                 DataGrid.DataSource = BindingSource;
                 PopulateTableListBoxItems( );
                 PopulateToolBarDropDownItems( );
@@ -234,6 +242,7 @@ namespace BudgetExecution
             try
             {
                 FormFilter.Clear( );
+                BindingSource.DataSource = null;
                 SqlQuery = string.Empty;
                 ColumnListBox.Items.Clear( );
                 ValueListBox.Items.Clear( );

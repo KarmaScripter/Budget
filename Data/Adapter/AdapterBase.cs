@@ -136,13 +136,19 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                    var _builder = new SQLiteCommandBuilder( _adapter );
-                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                    return _adapter;
+                    if( CommandText.StartsWith( "SELECT *" ) 
+                       || CommandText.StartsWith( "SELECT ALL" ) )
+                    {
+                        var _builder = new SQLiteCommandBuilder( _adapter );
+                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        return _adapter;
+                    }
+                    else
+                    {
+                        return _adapter;
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -171,13 +177,19 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                    var _builder = new SqlCommandBuilder( _adapter );
-                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                    return _adapter;
+                    if( CommandText.StartsWith( "SELECT *" ) 
+                       || CommandText.StartsWith( "SELECT ALL" ) )
+                    {
+                        var _builder = new SqlCommandBuilder( _adapter );
+                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        return _adapter;
+                    }
+                    else
+                    {
+                        return _adapter;
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -206,13 +218,19 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                    var _builder = new OleDbCommandBuilder( _adapter );
-                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                    return _adapter;
+                    if( CommandText.StartsWith( "SELECT *" ) 
+                       || CommandText.StartsWith( "SELECT ALL" ) )
+                    {
+                        var _builder = new OleDbCommandBuilder( _adapter );
+                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        return _adapter;
+                    }
+                    else
+                    {
+                        return _adapter;
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -241,13 +259,19 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                    _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
-                    var _builder = new SqlCeCommandBuilder( _adapter );
-                    _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                    _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                    _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
-                    return _adapter;
+                    if( CommandText.StartsWith( "SELECT *" ) 
+                       || CommandText.StartsWith( "SELECT ALL" ) )
+                    {
+                        var _builder = new SqlCeCommandBuilder( _adapter );
+                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        return _adapter;
+                    }
+                    else
+                    {
+                        return _adapter;
+                    }
                 }
                 catch( Exception ex )
                 {

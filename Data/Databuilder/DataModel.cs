@@ -50,6 +50,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -73,6 +76,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -99,6 +105,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -125,6 +134,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -153,6 +165,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -175,6 +190,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -198,6 +216,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -221,6 +242,9 @@ namespace BudgetExecution
             TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
@@ -242,6 +266,9 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
+            Fields = GetFields(  );
+            Numerics = GetNumerics(  );
+            Dates = GetDates(  );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );

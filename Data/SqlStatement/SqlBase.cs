@@ -18,6 +18,7 @@ namespace BudgetExecution
     /// <seealso cref="ISource" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class SqlBase
     {
         /// <summary>
@@ -190,6 +191,7 @@ namespace BudgetExecution
             Updates = updates;
             Criteria = where;
             Fields = updates.Keys.ToList( );
+            CommandText = GetCommandText(  );
         }
 
         /// <summary>
@@ -211,6 +213,7 @@ namespace BudgetExecution
             TableName = source.ToString( );
             Criteria = where;
             Fields = columns.ToList( );
+            CommandText = GetCommandText(  );
         }
 
         /// <summary>
@@ -235,12 +238,58 @@ namespace BudgetExecution
             Criteria = having;
             Fields = columns.ToList( );
             Numerics = numerics.ToList( );
+            CommandText = GetCommandText(  );
+        }
+        
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public string GetCommandText(  )
+        {
+            if( Enum.IsDefined( typeof( SQL ), CommandType ) )
+            {
+                try
+                {
+                    switch( CommandType )
+                    {
+                        case SQL.SELECT:
+                        case SQL.SELECTALL:
+                        {
+                            return GetSelectStatement( );
+                        }
+                        case SQL.INSERT:
+                        {
+                            return GetInsertStatement( );
+                        }
+                        case SQL.UPDATE:
+                        {
+                            return GetUpdateStatement(  );
+                        }
+                        case SQL.DELETE:
+                        {
+                            return GetDeleteStatement( );
+                        }
+                        default:
+                        {
+                            return GetSelectStatement(  );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Sets the select statement.
         /// </summary>
-        protected string GetSelectStatement( )
+        private protected string GetSelectStatement( )
         { 
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -262,9 +311,10 @@ namespace BudgetExecution
 
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                var _groups = _cols + _grp.TrimEnd( ", ".ToCharArray( ) );
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 return $"SELECT DISTINCT { _columns } FROM { Source } "
-                    + $"GROUP BY { _groups } HAVING { _criteria };";
+                    + $"WHERE { _criteria } "
+                    + $"GROUP BY { _groups };";
             }
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -280,7 +330,8 @@ namespace BudgetExecution
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
                 return $"SELECT DISTINCT { _columns } FROM { Source } "
-                    + $"GROUP BY { _columns } HAVING { _criteria };";
+                    + $"WHERE { _criteria } "
+                    + $"GROUP BY { _cols };";
             }
             else if( Fields?.Any( ) == false
                     && Criteria?.Any( ) == true
@@ -304,7 +355,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="updates">The dictionary.</param>
         /// <param name = "where" > </param>
-        protected string GetUpdateStatement( )
+        private protected string GetUpdateStatement( )
         {
             if( Updates?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -345,7 +396,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the insert statement.
         /// </summary>
-        protected string GetInsertStatement( )
+        private protected string GetInsertStatement( )
         {
             if( Updates?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
@@ -390,7 +441,7 @@ namespace BudgetExecution
         /// Gets the delete statement.
         /// </summary>
         /// <returns></returns>
-        protected string GetDeleteStatement( )
+        private protected string GetDeleteStatement( )
         {
             if( Criteria?.Any( ) == true )
             {

@@ -1,31 +1,37 @@
-﻿// <copyright file = "IQuery.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
-    using System;
     using System.Collections.Generic;
     using System.Data.Common;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.IDisposable" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
-    public interface IQuery : IDisposable, ISource, IProvider
+    public interface IQuery
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is disposed.
+        /// Gets the source.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
-        /// </value>
-        bool IsDisposed { get; set; }
+        Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the arguments.
+        /// Gets the Provider
+        /// </summary>
+        Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        SQL CommandType { get; set; }
+
+        /// <summary>
+        /// Gets the arguments.
         /// </summary>
         /// <value>
         /// The arguments.
@@ -33,21 +39,38 @@ namespace BudgetExecution
         IDictionary<string, object> Criteria { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection builder.
-        /// </summary>
-        /// <value>
-        /// The connection builder.
-        /// </value>
-        IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SQL statement.
+        /// Gets the SQL statement.
         /// </summary>
         /// <value>
         /// The SQL statement.
         /// </value>
         ISqlStatement SqlStatement { get; set; }
 
+        /// <summary>
+        /// Gets the connector.
+        /// </summary>
+        /// <value>
+        /// The connector.
+        /// </value>
+        IConnectionFactory ConnectionFactory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection.
+        /// </summary>
+        /// <value>
+        /// The connection.
+        /// </value>
+        DbConnection DataConnection { get; set; }
+
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
+        /// <value>
+        /// The adapter.
+        /// </value>
+        DbDataAdapter DataAdapter { get; set; }
+
+        /// <inheritdoc/>
         /// <summary>
         /// Gets the adapter.
         /// </summary>

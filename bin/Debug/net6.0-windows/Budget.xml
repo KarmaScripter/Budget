@@ -10173,11 +10173,29 @@
             <param name="dataRows">The Data rows.</param>
             <returns></returns>
         </member>
+        <member name="M:BudgetExecution.DataAccess.GetFields">
+            <summary>
+            Gets the fields.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.DataAccess.GetNumerics">
+            <summary>
+            Gets the numerics.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.DataAccess.GetDates">
+            <summary>
+            Gets the dates.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:BudgetExecution.DataAccess.Compress(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Compresses the specified column names.
             </summary>
-            <param name="fields">The column names.</param>
+            <param name="columnNames">The column names.</param>
             <param name="having">The where.</param>
             <returns></returns>
         </member>
@@ -10313,16 +10331,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.DataConfig.IsCompressed">
-            <summary>
-            Gets or sets a value indicating
-            whether this instance is compressed.
-            </summary>
-            <value>
-              <c>true</c> if this instance is compressed;
-            otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="P:BudgetExecution.DataConfig.Source">
             <summary>
             The source
@@ -10377,6 +10385,30 @@
             </summary>
             <value>
             The column names.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataConfig.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataConfig.Dates">
+            <summary>
+            Gets or sets the dates.
+            </summary>
+            <value>
+            The dates.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataConfig.Numerics">
+            <summary>
+            Gets or sets the numerics.
+            </summary>
+            <value>
+            The numerics.
             </value>
         </member>
         <member name="P:BudgetExecution.DataConfig.TableName">
@@ -12685,6 +12717,13 @@
             <param name="having"></param>
             <param name="commandType"></param>
         </member>
+        <member name="M:BudgetExecution.SqlBase.GetCommandText">
+            <summary>
+            Gets the command text.
+            </summary>
+            <returns>
+            </returns>
+        </member>
         <member name="M:BudgetExecution.SqlBase.GetSelectStatement">
             <summary>
             Sets the select statement.
@@ -12891,42 +12930,6 @@
             <param name="numerics">The aggregates.</param>
             <param name="having">The where.</param>
             <param name="commandType">Type of the command.</param>
-        </member>
-        <member name="M:BudgetExecution.SqlStatement.GetCommandText">
-            <summary>
-            Gets the command text.
-            </summary>
-            <param name="dict">The dictionary.</param>
-            <param name="commandType">Type of the command.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.SqlStatement.GetCommandText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
-            <summary>
-            Gets the command text.
-            </summary>
-            <param name="columns">The columns.</param>
-            <param name="where">The dictionary.</param>
-            <param name="commandType">Type of the command.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.SqlStatement.GetCommandText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
-            <summary>
-            Gets the command text.
-            </summary>
-            <param name="columns">The columns.</param>
-            <param name="numerics">The numerics.</param>
-            <param name="having">The having.</param>
-            <param name="commandType">Type of the command.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.SqlStatement.GetCommandText(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
-            <summary>
-            Gets the command text.
-            </summary>
-            <param name = "updates" > </param>
-            <param name = "where" > </param>
-            <param name="commandType">Type of the command.</param>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.SqlStatement.ToString">
             <summary>
@@ -24073,43 +24076,67 @@
             <summary>
             
             </summary>
-            <seealso cref="T:System.IDisposable" />
-            <seealso cref="T:BudgetExecution.ISource" />
-            <seealso cref="T:BudgetExecution.IProvider" />
         </member>
-        <member name="P:BudgetExecution.IQuery.IsDisposed">
+        <member name="P:BudgetExecution.IQuery.Source">
             <summary>
-            Gets or sets a value indicating whether this instance is disposed.
+            Gets the source.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.IQuery.Provider">
+            <summary>
+            Gets the Provider
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.IQuery.CommandType">
+            <summary>
+            Gets or sets the type of the command.
             </summary>
             <value>
-              <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
+            The type of the command.
             </value>
         </member>
         <member name="P:BudgetExecution.IQuery.Criteria">
             <summary>
-            Gets or sets the arguments.
+            Gets the arguments.
             </summary>
             <value>
             The arguments.
             </value>
         </member>
-        <member name="P:BudgetExecution.IQuery.ConnectionFactory">
-            <summary>
-            Gets or sets the connection builder.
-            </summary>
-            <value>
-            The connection builder.
-            </value>
-        </member>
         <member name="P:BudgetExecution.IQuery.SqlStatement">
             <summary>
-            Gets or sets the SQL statement.
+            Gets the SQL statement.
             </summary>
             <value>
             The SQL statement.
             </value>
         </member>
+        <member name="P:BudgetExecution.IQuery.ConnectionFactory">
+            <summary>
+            Gets the connector.
+            </summary>
+            <value>
+            The connector.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.IQuery.DataConnection">
+            <summary>
+            Gets or sets the connection.
+            </summary>
+            <value>
+            The connection.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.IQuery.DataAdapter">
+            <summary>
+            Gets the adapter.
+            </summary>
+            <value>
+            The adapter.
+            </value>
+        </member>
         <member name="M:BudgetExecution.IQuery.GetAdapter">
+            <inheritdoc/>
             <summary>
             Gets the adapter.
             </summary>

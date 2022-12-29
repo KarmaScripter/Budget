@@ -60,8 +60,8 @@ namespace BudgetExecution
                     DataSet = new DataSet( $"{ Provider }" );
                     DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
-                    using var _adapter = Query.GetAdapter(  );
-                    _adapter?.Fill( DataSet, DataTable.TableName );
+                    var _adapter = Query.DataAdapter;
+                    _adapter.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
                     return DataTable?.Rows?.Count > 0
                         ? DataTable
@@ -90,7 +90,7 @@ namespace BudgetExecution
                     DataSet = new DataSet( $"{ Provider }" );
                     DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
-                    using var _adapter = Query.GetAdapter( );
+                    var _adapter = Query.DataAdapter;
                     _adapter?.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
                     return DataSet?.Tables?.Count > 0
@@ -146,7 +146,7 @@ namespace BudgetExecution
                     DataSet = new DataSet( $"{ Provider }" );
                     DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
-                    using var _adapter = Query?.GetAdapter( );
+                    var _adapter = Query?.DataAdapter;
                     _adapter?.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
                     return DataTable?.Columns?.Count > 0
@@ -192,14 +192,116 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetFields( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _fields = new List<string>( );
+                    foreach( DataColumn col in DataTable.Columns )
+                    {
+                        if( col.Ordinal > 0
+                           && col.DataType == typeof( string ) )
+                        {
+                            _fields.Add( col.ColumnName );
+                        }
+                    }
+
+                    return _fields?.Any( ) == true
+                        ? _fields
+                        : default( IList<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<string> );
+                }
+            }
+            
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetNumerics( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _numerics = new List<string>( );
+                    foreach( DataColumn col in DataTable.Columns )
+                    {
+                        if( col.Ordinal > 0
+                           && col.DataType != typeof( string ) )
+                        {
+                            _numerics.Add( col.ColumnName );
+                        }
+                    }
+
+                    return _numerics?.Any( ) == true
+                        ? _numerics
+                        : default( IList<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<string> );
+                }
+            }
+            
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Gets the dates.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetDates( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _numerics = new List<string>( );
+                    foreach( DataColumn col in DataTable.Columns )
+                    {
+                        if( col.Ordinal > 0
+                           && ( col.DataType == typeof( DateTime ) 
+                               || col.DataType == typeof( DateOnly ) ) )
+                        {
+                            _numerics.Add( col.ColumnName );
+                        }
+                    }
+
+                    return _numerics?.Any( ) == true
+                        ? _numerics
+                        : default( IList<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<string> );
+                }
+            }
+            
+            return default( IList<string> );
+        }
+        /// <summary>
         /// Compresses the specified column names.
         /// </summary>
-        /// <param name="fields">The column names.</param>
+        /// <param name="columnNames">The column names.</param>
         /// <param name="having">The where.</param>
         /// <returns></returns>
-        public DataTable Compress( IEnumerable<string> fields, IDictionary<string, object> having )
+        public DataTable Compress( IEnumerable<string> columnNames, IDictionary<string, object> having )
         {
-            if( fields?.Any( ) == true 
+            if( columnNames?.Any( ) == true 
                && having?.Any( ) == true
                && DataTable != null )
             {
@@ -209,7 +311,7 @@ namespace BudgetExecution
                     var _numerics = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        foreach( var name in fields )
+                        foreach( var name in columnNames )
                         {
                             if( col.ColumnName == name
                                && col.Ordinal > 0
@@ -233,7 +335,7 @@ namespace BudgetExecution
                     var _sqlStatement = new SqlStatement( Source, Provider, _fields,
                         _numerics, having, SQL.SELECT );
                     var _query = new Query( _sqlStatement );
-                    using var _adapter = _query?.GetAdapter( );
+                    var _adapter = _query?.DataAdapter;
                     _adapter?.Fill( _dataSet, _dataTable.TableName );
                     SetColumnCaptions( _dataTable );
                     return _dataTable;
