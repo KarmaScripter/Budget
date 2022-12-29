@@ -12,12 +12,15 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
+    using System.Data;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class QueryBase
     {
         /// <summary>
@@ -44,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public virtual IDictionary<string, object> Criteria { get; set; }
+        public IDictionary<string, object> Criteria { get; set; }
         
         /// <summary>
         /// Gets the SQL statement.
@@ -52,7 +55,7 @@ namespace BudgetExecution
         /// <value>
         /// The SQL statement.
         /// </value>
-        public virtual ISqlStatement SqlStatement { get; set; }
+        public ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
         /// Gets the connector.
@@ -60,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The connector.
         /// </value>
-        public virtual IConnectionFactory ConnectionFactory { get; set; }
+        public IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
         /// Gets the commander.
@@ -68,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The commander.
         /// </value>
-        public virtual ICommandFactory CommandFactory { get; set; }
+        public ICommandFactory CommandFactory { get; set; }
 
         /// <summary>
         /// Gets or sets the connection.
@@ -76,7 +79,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection.
         /// </value>
-        public virtual DbConnection DataConnection { get; set; }
+        public DbConnection DataConnection { get; set; }
 
         /// <summary>
         /// Gets the command.
@@ -84,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         /// The command.
         /// </value>
-        public virtual DbCommand DataCommand { get; set; }
+        public DbCommand DataCommand { get; set; }
 
         /// <summary>
         /// Gets the adapter.
@@ -92,7 +95,7 @@ namespace BudgetExecution
         /// <value>
         /// The adapter.
         /// </value>
-        public virtual DbDataAdapter DataAdapter { get; set; }
+        public DbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.
@@ -107,7 +110,7 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </value>
-        public virtual bool IsDisposed { get; set; }
+        public bool IsDisposed { get; set; }
 
         /// <summary>
         /// Gets or sets the Data reader.
@@ -115,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data reader.
         /// </value>
-        public virtual DbDataReader DataReader { get; set; }
+        public DbDataReader DataReader { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the 
@@ -131,15 +134,18 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider = Provider.SQLite,
-            SQL commandType = SQL.SELECT )
+        protected QueryBase( Source source, Provider provider = Provider.Access,
+            SQL commandType = SQL.SELECTALL )
         {
             Source = source;
             Provider = provider;
-            CommandType = commandType;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, commandType );
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
@@ -155,47 +161,15 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            CommandType = commandType;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, where, commandType );
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
+            IsDisposed = false;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/> class.
-        /// </summary>
-        /// <param name = "provider" > </param>
-        /// <param name="sqlStatement">The SQL statement.</param>
-        /// <param name = "source" > </param>
-        protected QueryBase( Source source, Provider provider, ISqlStatement sqlStatement )
-        {
-            Source = source;
-            Provider = provider;
-            CommandType = sqlStatement.CommandType;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            Criteria = sqlStatement.Criteria ?? null;
-            SqlStatement = sqlStatement;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The dictionary.</param>
-        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where )
-        {
-            Source = source;
-            Provider = provider;
-            Criteria = where;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, where, SQL.SELECT );
-            CommandType = SqlStatement.CommandType;
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
@@ -210,10 +184,13 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             Criteria = where;
-            CommandType = commandType;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
@@ -233,8 +210,12 @@ namespace BudgetExecution
             Criteria = where;
             CommandType = commandType;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection(  );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
@@ -242,20 +223,23 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
+        /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="having">The having.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns,
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having, SQL commandType = SQL.SELECT )
         {
             Source = source;
             Provider = provider;
             Criteria = having;
-            CommandType = commandType;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, columns, having, commandType );
+            DataConnection = ConnectionFactory.GetConnection(  );
+            SqlStatement = new SqlStatement( source, provider, fields, having, commandType );
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
@@ -269,9 +253,13 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, sqlText );
-            CommandType = SqlStatement.CommandType;
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
+            Criteria = null;
         }
 
         /// <summary>
@@ -283,14 +271,18 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         protected QueryBase( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
+            Criteria = null;
             ConnectionFactory = new ConnectionFactory( fullPath );
             Provider = ConnectionFactory.Provider;
             Source = ConnectionFactory.Source;
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider,
                 sqlText );
-
-            CommandType = commandType;
+            
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
@@ -302,13 +294,17 @@ namespace BudgetExecution
         /// <param name="where">The dictionary.</param>
         protected QueryBase( string fullPath, SQL commandType, IDictionary<string, object> where )
         {
-            Criteria = where;
             ConnectionFactory = new ConnectionFactory( fullPath );
+            Criteria = where;
+            CommandType = commandType;
             Source = ConnectionFactory.Source;
             Provider = ConnectionFactory.Provider;
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection(  );
             SqlStatement = new SqlStatement( Source, Provider, where, commandType );
-            CommandType = commandType;
+            CommandFactory = new CommandFactory( SqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <summary>
@@ -317,13 +313,16 @@ namespace BudgetExecution
         /// <param name="sqlStatement">The SQL statement.</param>
         protected QueryBase( ISqlStatement sqlStatement )
         {
-            Criteria = null;
             Source = sqlStatement.Source;
             Provider = sqlStatement.Provider;
+            Criteria = sqlStatement.Criteria;
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            DataConnection = ConnectionFactory.Connection;
+            DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = sqlStatement;
-            CommandType = sqlStatement.CommandType;
+            CommandFactory = new CommandFactory( sqlStatement );
+            DataCommand = CommandFactory.GetCommand( );
+            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            IsDisposed = false;
         }
 
         /// <inheritdoc/>

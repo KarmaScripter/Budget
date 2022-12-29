@@ -97,10 +97,9 @@ namespace BudgetExecution
             Source = commandFactory.Source;
             Provider = commandFactory.Provider;
             CommandFactory = commandFactory;
-            SqlStatement = new SqlStatement( commandFactory.Source, commandFactory.Provider, SQL.SELECT );
             ConnectionFactory = new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
             Connection = ConnectionFactory.GetConnection(  );
-            CommandText = SqlStatement.CommandText;
+            CommandText = CommandFactory.GetCommand(  ).CommandText;
         }
 
         /// <summary>
@@ -114,7 +113,7 @@ namespace BudgetExecution
             Provider = sqlStatement.Provider;
             SqlStatement = sqlStatement;
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            Connection = ConnectionFactory.Connection;
+            Connection = ConnectionFactory.GetConnection(  );
             CommandText = sqlStatement.CommandText;
         }
 

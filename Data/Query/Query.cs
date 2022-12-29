@@ -40,14 +40,6 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECTALL )
             : base( source, provider, commandType )
         {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, commandType );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -69,15 +61,6 @@ namespace BudgetExecution
             SQL commandType )
             : base( source, provider, where, commandType )
         {
-            Source = source;
-            Provider = provider;
-            Criteria = where;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, where, commandType );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -92,15 +75,6 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
-            Source = source;
-            Provider = provider;
-            Criteria = where;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -115,15 +89,6 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
-            Source = source;
-            Provider = provider;
-            Criteria = where;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -139,15 +104,6 @@ namespace BudgetExecution
             IEnumerable<string> numerics, IDictionary<string, object> having, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, having, commandType )
         {
-            Source = source;
-            Provider = provider;
-            Criteria = having;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, columns, having, commandType );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
         
         /// <summary>
@@ -157,17 +113,8 @@ namespace BudgetExecution
         /// The sqlStatement.
         /// </param>
         public Query( ISqlStatement sqlStatement )
-            : base( sqlStatement.Source, sqlStatement.Provider, sqlStatement )
+            : base( sqlStatement )
         {
-            Source = sqlStatement.Source;
-            Provider = sqlStatement.Provider;
-            Criteria = sqlStatement.Criteria;
-            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = sqlStatement;
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -179,15 +126,6 @@ namespace BudgetExecution
         public Query( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, sqlText );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
-            Criteria = null;
         }
 
         /// <summary>
@@ -205,15 +143,6 @@ namespace BudgetExecution
         public Query( Source source, Provider provider, IDictionary<string, object> where )
             : base( source, provider, where )
         {
-            Source = source;
-            Provider = provider;
-            Criteria = where;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( source, provider, where );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -229,17 +158,6 @@ namespace BudgetExecution
         public Query( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
-            Criteria = null;
-            ConnectionFactory = new ConnectionFactory( fullPath );
-            Provider = ConnectionFactory.Provider;
-            Source = ConnectionFactory.Source;
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider,
-                sqlText );
-            
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <summary>
@@ -257,15 +175,6 @@ namespace BudgetExecution
         public Query( string fullPath, SQL commandType, IDictionary<string, object> where )
             : base( fullPath, commandType, where )
         {
-            Criteria = where;
-            ConnectionFactory = new ConnectionFactory( fullPath );
-            Source = ConnectionFactory.Source;
-            Provider = ConnectionFactory.Provider;
-            DataConnection = ConnectionFactory.Connection;
-            SqlStatement = new SqlStatement( Source, Provider, where, commandType );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
-            IsDisposed = false;
         }
 
         /// <inheritdoc/>
