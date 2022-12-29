@@ -8,6 +8,9 @@ using System.Collections.Specialized;
 using System.Configuration;
 using System.Data.Common;
 
+/// <summary>
+/// 
+/// </summary>
 public interface IConnectionFactory
 {
     /// <summary>
