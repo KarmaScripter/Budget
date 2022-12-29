@@ -6,7 +6,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Data.Common;
 
     /// <summary>
@@ -55,15 +54,5 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         DbDataAdapter GetAdapter( );
-
-        /// <summary>
-        /// Sets the Data reader.
-        /// </summary>
-        /// <param name = "behavior" >
-        /// The behavior.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        DbDataReader GetDataReader( CommandBehavior behavior = CommandBehavior.CloseConnection );
     }
 }

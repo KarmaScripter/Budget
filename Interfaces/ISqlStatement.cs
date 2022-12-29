@@ -92,58 +92,6 @@ namespace BudgetExecution
         /// <param name="dict">The dictionary.</param>
         /// <param name="commandType">Type of the command.</param>
         /// <returns></returns>
-        string GetCommandText( IDictionary<string, object> dict, SQL commandType = SQL.SELECT );
-
-        /// <summary>
-        /// Gets the command text.
-        /// </summary>
-        /// <param name="columns">The columns.</param>
-        /// <param name="where">The dictionary.</param>
-        /// <param name="commandType">Type of the command.</param>
-        /// <returns></returns>
-        string GetCommandText( IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT );
-
-        /// <summary>
-        /// Gets the command text.
-        /// </summary>
-        /// <param name = "updates" > </param>
-        /// <param name = "where" > </param>
-        /// <param name="commandType">Type of the command.</param>
-        /// <returns></returns>
-        string GetCommandText( IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE );
-
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        string ToString( );
-
-        /// <summary>
-        /// Sets the select statement.
-        /// </summary>
-        string GetSelectStatement( );
-        
-        /// <summary>
-        /// Sets the update statement.
-        /// </summary>
-        /// <param name="updates">The dictionary.</param>
-        /// <param name = "where" > </param>
-        string GetUpdateStatement( );
-
-        /// <summary>
-        /// Sets the insert statement.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        string GetInsertStatement( );
-
-        /// <summary>
-        /// Sets the delete statement.
-        /// </summary>
-        /// <param name="where">The dictionary.</param>
-        string GetDeleteStatement( );
+        string GetCommandText( );
     }
 }

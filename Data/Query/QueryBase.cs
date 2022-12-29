@@ -64,15 +64,7 @@ namespace BudgetExecution
         /// The connector.
         /// </value>
         public IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary>
-        /// Gets the commander.
-        /// </summary>
-        /// <value>
-        /// The commander.
-        /// </value>
-        public ICommandFactory CommandFactory { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the connection.
         /// </summary>
@@ -80,15 +72,7 @@ namespace BudgetExecution
         /// The connection.
         /// </value>
         public DbConnection DataConnection { get; set; }
-
-        /// <summary>
-        /// Gets the command.
-        /// </summary>
-        /// <value>
-        /// The command.
-        /// </value>
-        public DbCommand DataCommand { get; set; }
-
+        
         /// <summary>
         /// Gets the adapter.
         /// </summary>
@@ -142,9 +126,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, commandType );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -164,9 +146,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, where, commandType );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( CommandFactory ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
         
@@ -187,9 +167,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -212,9 +190,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             DataConnection = ConnectionFactory.GetConnection(  );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -236,9 +212,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             DataConnection = ConnectionFactory.GetConnection(  );
             SqlStatement = new SqlStatement( source, provider, fields, having, commandType );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -255,9 +229,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = new SqlStatement( source, provider, sqlText );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
             Criteria = null;
         }
@@ -279,9 +251,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider,
                 sqlText );
             
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -301,9 +271,7 @@ namespace BudgetExecution
             Provider = ConnectionFactory.Provider;
             DataConnection = ConnectionFactory.GetConnection(  );
             SqlStatement = new SqlStatement( Source, Provider, where, commandType );
-            CommandFactory = new CommandFactory( SqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -319,9 +287,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
             DataConnection = ConnectionFactory.GetConnection( );
             SqlStatement = sqlStatement;
-            CommandFactory = new CommandFactory( sqlStatement );
-            DataCommand = CommandFactory.GetCommand( );
-            DataAdapter = new AdapterBuilder( SqlStatement ).GetAdapter( );
+            DataAdapter = new AdapterFactory( sqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
@@ -334,7 +300,7 @@ namespace BudgetExecution
         public DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
-               && CommandFactory != null )
+               && SqlStatement != null )
             {
                 try
                 {
@@ -345,27 +311,27 @@ namespace BudgetExecution
                         case Provider.OleDb:
                         case Provider.Access:
                         {
-                            var _builder = new AdapterBuilder( CommandFactory );
+                            var _builder = new AdapterFactory( SqlStatement );
                             return _builder?.GetAdapter( ) as OleDbDataAdapter;
                         }
                         case Provider.SQLite:
                         {
-                            var _builder = new AdapterBuilder( CommandFactory );
+                            var _builder = new AdapterFactory( SqlStatement );
                             return _builder?.GetAdapter( ) as SQLiteDataAdapter;
                         }
                         case Provider.SqlCe:
                         {
-                            var _builder = new AdapterBuilder( CommandFactory );
+                            var _builder = new AdapterFactory( SqlStatement );
                             return _builder?.GetAdapter( ) as SqlCeDataAdapter;
                         }
                         case Provider.SqlServer:
                         {
-                            var _builder = new AdapterBuilder( CommandFactory );
+                            var _builder = new AdapterFactory( SqlStatement );
                             return _builder?.GetAdapter( ) as SqlDataAdapter;
                         }
                         default:
                         {
-                            var _builder = new AdapterBuilder( CommandFactory );
+                            var _builder = new AdapterFactory( SqlStatement );
                             return _builder?.GetAdapter( ) as OleDbDataAdapter;
                         }
                     }

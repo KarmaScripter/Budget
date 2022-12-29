@@ -6,8 +6,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
-    using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
     using DocumentFormat.OpenXml.Bibliography;
 
@@ -175,49 +173,6 @@ namespace BudgetExecution
         public Query( string fullPath, SQL commandType, IDictionary<string, object> where )
             : base( fullPath, commandType, where )
         {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Sets the Data reader.
-        /// </summary>
-        /// <param name = "behavior" >
-        /// The behavior.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        public DbDataReader GetDataReader( CommandBehavior behavior = CommandBehavior.CloseConnection )
-        {
-            if( DataConnection != null
-               && !string.IsNullOrEmpty( DataCommand?.CommandText )
-               && Enum.IsDefined( typeof( CommandBehavior ), behavior ) )
-            {
-                try
-                {
-                    if( DataCommand.Connection?.State != ConnectionState.Open )
-                    {
-                        DataCommand.Connection?.Open( );
-                        return DataCommand.ExecuteReader( CommandBehavior.CloseConnection );
-                    }
-
-                    if( DataCommand.Connection?.State == ConnectionState.Open )
-                    {
-                        return DataCommand.ExecuteReader( CommandBehavior.CloseConnection );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    if( DataCommand.Connection?.State == ConnectionState.Open )
-                    {
-                        DataCommand.Connection?.Close( );
-                    }
-
-                    Fail( ex );
-                    return default( DbDataReader );
-                }
-            }
-
-            return default( DbDataReader );
         }
 
         /// <summary>

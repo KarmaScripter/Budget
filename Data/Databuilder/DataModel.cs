@@ -46,6 +46,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -68,6 +69,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -93,6 +95,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -118,6 +121,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -145,6 +149,7 @@ namespace BudgetExecution
                 commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -166,6 +171,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, Provider.Access, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -188,6 +194,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, sqlText );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -210,6 +217,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );
@@ -230,6 +238,7 @@ namespace BudgetExecution
             ConnectionFactory = query.ConnectionFactory;
             SqlStatement = query.SqlStatement;
             DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames(  );

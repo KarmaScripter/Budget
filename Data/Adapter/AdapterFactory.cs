@@ -12,109 +12,38 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Data.SQLite;
     using System.Diagnostics.CodeAnalysis;
+    using System.Collections.Generic;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="DbDataAdapter" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AdapterBuilder : DbDataAdapter, ISource, IProvider
+    public class AdapterFactory : AdapterBase
     {
         /// <summary>
-        /// Gets or sets the source.
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// The connection
-        /// </summary>
-        public DbConnection Connection { get; set; }
-
-        /// <summary>
-        /// The SQL statement
-        /// </summary>
-        public ISqlStatement SqlStatement { get; set; }
-
-        /// <summary>
-        /// The connection builder
-        /// </summary>
-        public IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary>
-        /// Gets the command builder.
-        /// </summary>
-        /// <value>
-        /// The command builder.
-        /// </value>
-        public ICommand Command { get; set; }
-
-        /// <summary>
-        /// Gets the command factory.
-        /// </summary>
-        /// <value>
-        /// The command factory.
-        /// </value>
-        public ICommandFactory CommandFactory { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command text.
-        /// </summary>
-        /// <value>
-        /// The command text.
-        /// </value>
-        public string CommandText { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterBuilder"/> class.
-        /// </summary>
-        public AdapterBuilder( )
+        public AdapterFactory( )
         {
-            MissingMappingAction = MissingMappingAction.Ignore;
-            MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            ContinueUpdateOnError = true;
-            AcceptChangesDuringFill = true;
-            AcceptChangesDuringUpdate = true;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterBuilder"/> class.
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
         /// <param name="commandFactory">The commandbuilder.</param>
-        public AdapterBuilder( ICommandFactory commandFactory )
-            : this( )
+        public AdapterFactory( ICommandFactory commandFactory )
+            : base( commandFactory )
         {
-            Source = commandFactory.Source;
-            Provider = commandFactory.Provider;
-            CommandFactory = commandFactory;
-            ConnectionFactory = new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
-            Connection = ConnectionFactory.GetConnection(  );
-            CommandText = CommandFactory.GetCommand(  ).CommandText;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdapterBuilder"/> class.
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
         /// <param name="sqlStatement">The sqlstatement.</param>
-        public AdapterBuilder( ISqlStatement sqlStatement )
-            : this( )
+        public AdapterFactory( ISqlStatement sqlStatement )
+            : base( sqlStatement )
         {
-            Source = sqlStatement.Source;
-            Provider = sqlStatement.Provider;
-            SqlStatement = sqlStatement;
-            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            Connection = ConnectionFactory.GetConnection(  );
-            CommandText = sqlStatement.CommandText;
         }
 
         /// <summary>
@@ -133,23 +62,50 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            var _adapter = new SQLiteDataAdapter( CommandText,
-                                Connection as SQLiteConnection );
-
+                            var _connection = Connection as SQLiteConnection;
+                            var _adapter = new SQLiteDataAdapter( CommandText, _connection );
+                            _adapter.ContinueUpdateOnError = true;
+                            _adapter.AcceptChangesDuringFill = true;
+                            _adapter.AcceptChangesDuringUpdate = true;
+                            _adapter.ReturnProviderSpecificTypes = true;
+                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                            var _builder = new SQLiteCommandBuilder( _adapter );
+                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
                             return _adapter;
                         }
                         case Provider.SqlCe:
                         {
-                            var _adapter = new SqlCeDataAdapter( CommandText,
-                                Connection as SqlCeConnection );
-
+                            var _connection = Connection as SqlCeConnection;
+                            var _adapter = new SqlCeDataAdapter( CommandText, _connection );
+                            _adapter.ContinueUpdateOnError = true;
+                            _adapter.AcceptChangesDuringFill = true;
+                            _adapter.AcceptChangesDuringUpdate = true;
+                            _adapter.ReturnProviderSpecificTypes = true;
+                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                            var _builder = new SqlCeCommandBuilder( _adapter );
+                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
                             return _adapter;
                         }
                         case Provider.SqlServer:
                         {
-                            var _adapter = new SqlDataAdapter( CommandText,
-                                Connection as SqlConnection );
-
+                            var _connection = Connection as SqlConnection;
+                            var _adapter = new SqlDataAdapter( CommandText, _connection );
+                            _adapter.ContinueUpdateOnError = true;
+                            _adapter.AcceptChangesDuringFill = true;
+                            _adapter.AcceptChangesDuringUpdate = true;
+                            _adapter.ReturnProviderSpecificTypes = true;
+                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                            var _builder = new SqlCommandBuilder( _adapter );
+                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
                             return _adapter;
                         }
                         case Provider.Excel:
@@ -159,6 +115,16 @@ namespace BudgetExecution
                         {
                             var _connection = Connection as OleDbConnection;
                             var _adapter = new OleDbDataAdapter( CommandText, _connection );
+                            _adapter.ContinueUpdateOnError = true;
+                            _adapter.AcceptChangesDuringFill = true;
+                            _adapter.AcceptChangesDuringUpdate = true;
+                            _adapter.ReturnProviderSpecificTypes = true;
+                            _adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            _adapter.MissingMappingAction = MissingMappingAction.Passthrough;
+                            var _builder = new OleDbCommandBuilder( _adapter );
+                            _adapter.InsertCommand = _builder.GetInsertCommand(  );
+                            _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
+                            _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
                             return _adapter;
                         }
                     }
@@ -166,13 +132,13 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DbDataAdapter );
                 }
             }
 
-            return default;
+            return default( DbDataAdapter );
         }
-
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

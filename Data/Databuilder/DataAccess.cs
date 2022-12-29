@@ -60,7 +60,7 @@ namespace BudgetExecution
                     DataSet = new DataSet( $"{ Provider }" );
                     DataTable = new DataTable( $"{ Source }" );
                     DataSet.Tables.Add( DataTable );
-                    using var _adapter = Query.GetAdapter( );
+                    using var _adapter = Query.GetAdapter(  );
                     _adapter?.Fill( DataSet, DataTable.TableName );
                     SetColumnCaptions( DataTable );
                     return DataTable?.Rows?.Count > 0

@@ -240,27 +240,11 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the select statement.
         /// </summary>
-        public virtual string GetSelectStatement( )
-        {
+        protected string GetSelectStatement( )
+        { 
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
-               && Numerics?.Any( ) == false )
-            {
-                var _cols = string.Empty;
-                var _aggr = string.Empty;
-                foreach( var name in Fields )
-                {
-                    _cols += $"{ name }, ";
-                }
-                    
-                var _criteria = Criteria.ToCriteria( );
-                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT DISTINCT { _columns } FROM { Source } "
-                    + $"GROUP BY { _columns } HAVING { _criteria };";
-            }
-            else if( Fields?.Any( ) == true
-                    && Criteria?.Any( ) == true
-                    && Numerics?.Any( ) == true )
+               && Numerics?.Any( ) == true )
             { 
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
@@ -282,6 +266,22 @@ namespace BudgetExecution
                 return $"SELECT DISTINCT { _columns } FROM { Source } "
                     + $"GROUP BY { _groups } HAVING { _criteria };";
             }
+            if( Fields?.Any( ) == true
+               && Criteria?.Any( ) == true
+               && Numerics?.Any( ) == false )
+            {
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var name in Fields )
+                {
+                    _cols += $"{ name }, ";
+                }
+                    
+                var _criteria = Criteria.ToCriteria( );
+                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT DISTINCT { _columns } FROM { Source } "
+                    + $"GROUP BY { _columns } HAVING { _criteria };";
+            }
             else if( Fields?.Any( ) == false
                     && Criteria?.Any( ) == true
                     && Numerics?.Any( ) == false  )
@@ -300,34 +300,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the select statement.
-        /// </summary>
-        /// <param name="where">The dictionary.</param>
-        private protected string GetDeleteStatement( IDictionary<string, object> where )
-        {
-            if( Criteria?.Any( ) == true )
-            {
-                try
-                {
-                    var _criteria = Criteria.ToCriteria( );
-                    return $"DELETE FROM { Source } WHERE { _criteria };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-
-            return string.Empty;
-        }
-
-        /// <summary>
         /// Sets the update statement.
         /// </summary>
         /// <param name="updates">The dictionary.</param>
         /// <param name = "where" > </param>
-        public virtual string GetUpdateStatement( )
+        protected string GetUpdateStatement( )
         {
             if( Updates?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -368,7 +345,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the insert statement.
         /// </summary>
-        public virtual string GetInsertStatement( )
+        protected string GetInsertStatement( )
         {
             if( Updates?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
@@ -398,6 +375,31 @@ namespace BudgetExecution
                         + $" VALUES ({ _values.TrimEnd( ", ".ToCharArray( ) ) })";
 
                     return $"INSERT INTO { Source } { _columnValues };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+        
+        /// <summary>
+        /// Gets the delete statement.
+        /// </summary>
+        /// <returns></returns>
+        protected string GetDeleteStatement( )
+        {
+            if( Criteria?.Any( ) == true )
+            {
+                try
+                {
+                    var _criteria = Criteria.ToCriteria(  );
+                    return !string.IsNullOrEmpty( _criteria )
+                        ? $"DELETE FROM { Source } WHERE { _criteria };"
+                        : $"DELETE FROM { Source };";
                 }
                 catch( Exception ex )
                 {

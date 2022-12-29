@@ -8712,13 +8712,12 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:BudgetExecution.AdapterBuilder">
+        <member name="T:BudgetExecution.AdapterBase">
             <summary>
             
             </summary>
-            <seealso cref="T:System.Data.Common.DbDataAdapter" />
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.Source">
+        <member name="P:BudgetExecution.AdapterBase.Source">
             <summary>
             Gets or sets the source.
             </summary>
@@ -8726,7 +8725,7 @@
             The source.
             </value>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.Provider">
+        <member name="P:BudgetExecution.AdapterBase.Provider">
             <summary>
             Gets or sets the provider.
             </summary>
@@ -8734,22 +8733,22 @@
             The provider.
             </value>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.Connection">
+        <member name="P:BudgetExecution.AdapterBase.Connection">
             <summary>
             The connection
             </summary>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.SqlStatement">
+        <member name="P:BudgetExecution.AdapterBase.SqlStatement">
             <summary>
             The SQL statement
             </summary>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.ConnectionFactory">
+        <member name="P:BudgetExecution.AdapterBase.ConnectionFactory">
             <summary>
             The connection builder
             </summary>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.Command">
+        <member name="P:BudgetExecution.AdapterBase.Commands">
             <summary>
             Gets the command builder.
             </summary>
@@ -8757,7 +8756,7 @@
             The command builder.
             </value>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.CommandFactory">
+        <member name="P:BudgetExecution.AdapterBase.CommandFactory">
             <summary>
             Gets the command factory.
             </summary>
@@ -8765,7 +8764,7 @@
             The command factory.
             </value>
         </member>
-        <member name="P:BudgetExecution.AdapterBuilder.CommandText">
+        <member name="P:BudgetExecution.AdapterBase.CommandText">
             <summary>
             Gets or sets the command text.
             </summary>
@@ -8773,30 +8772,53 @@
             The command text.
             </value>
         </member>
-        <member name="M:BudgetExecution.AdapterBuilder.#ctor">
+        <member name="M:BudgetExecution.AdapterBase.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterBuilder"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterBase"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.AdapterBuilder.#ctor(BudgetExecution.ICommandFactory)">
+        <member name="M:BudgetExecution.AdapterBase.#ctor(BudgetExecution.ICommandFactory)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterBuilder"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterBase"/> class.
+            </summary>
+            <param name="commandFactory">The command factory.</param>
+        </member>
+        <member name="M:BudgetExecution.AdapterBase.#ctor(BudgetExecution.ISqlStatement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterBase"/> class.
+            </summary>
+            <param name="sqlStatement">The SQL statement.</param>
+        </member>
+        <member name="T:BudgetExecution.AdapterFactory">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:System.Data.Common.DbDataAdapter" />
+        </member>
+        <member name="M:BudgetExecution.AdapterFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.AdapterFactory.#ctor(BudgetExecution.ICommandFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterFactory"/> class.
             </summary>
             <param name="commandFactory">The commandbuilder.</param>
         </member>
-        <member name="M:BudgetExecution.AdapterBuilder.#ctor(BudgetExecution.ISqlStatement)">
+        <member name="M:BudgetExecution.AdapterFactory.#ctor(BudgetExecution.ISqlStatement)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterBuilder"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.AdapterFactory"/> class.
             </summary>
             <param name="sqlStatement">The sqlstatement.</param>
         </member>
-        <member name="M:BudgetExecution.AdapterBuilder.GetAdapter">
+        <member name="M:BudgetExecution.AdapterFactory.GetAdapter">
             <summary>
             Gets the adapter.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.AdapterBuilder.Fail(System.Exception)">
+        <member name="M:BudgetExecution.AdapterFactory.Fail(System.Exception)">
             <summary>
             Get Error Dialog.
             </summary>
@@ -9203,6 +9225,11 @@
             Gets the connection.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:BudgetExecution.IConnectionFactory">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:BudgetExecution.IConnectionFactory.GetConnection">
             <summary>
@@ -11773,17 +11800,6 @@
             The dictionary.
             </param>
         </member>
-        <member name="M:BudgetExecution.Query.GetDataReader(System.Data.CommandBehavior)">
-            <inheritdoc/>
-            <summary>
-            Sets the Data reader.
-            </summary>
-            <param name = "behavior" >
-            The behavior.
-            </param>
-            <returns>
-            </returns>
-        </member>
         <member name="M:BudgetExecution.Query.Dispose(System.Boolean)">
             <summary>
             Releases unmanaged and - optionally - managed resources.
@@ -11853,28 +11869,12 @@
             The connector.
             </value>
         </member>
-        <member name="P:BudgetExecution.QueryBase.CommandFactory">
-            <summary>
-            Gets the commander.
-            </summary>
-            <value>
-            The commander.
-            </value>
-        </member>
         <member name="P:BudgetExecution.QueryBase.DataConnection">
             <summary>
             Gets or sets the connection.
             </summary>
             <value>
             The connection.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryBase.DataCommand">
-            <summary>
-            Gets the command.
-            </summary>
-            <value>
-            The command.
             </value>
         </member>
         <member name="P:BudgetExecution.QueryBase.DataAdapter">
@@ -12666,12 +12666,6 @@
             Sets the select statement.
             </summary>
         </member>
-        <member name="M:BudgetExecution.SqlBase.GetDeleteStatement(System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Sets the select statement.
-            </summary>
-            <param name="where">The dictionary.</param>
-        </member>
         <member name="M:BudgetExecution.SqlBase.GetUpdateStatement">
             <summary>
             Sets the update statement.
@@ -12683,6 +12677,12 @@
             <summary>
             Sets the insert statement.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.SqlBase.GetDeleteStatement">
+            <summary>
+            Gets the delete statement.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:BudgetExecution.SqlBase.Fail(System.Exception)">
             <summary>
@@ -12868,13 +12868,7 @@
             <param name="having">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
-        <member name="M:BudgetExecution.SqlStatement.GetDeleteStatement">
-            <summary>
-            Gets the delete statement.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.SqlStatement.GetCommandText(System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlStatement.GetCommandText">
             <summary>
             Gets the command text.
             </summary>
@@ -24098,16 +24092,6 @@
             <returns>
             </returns>
         </member>
-        <member name="M:BudgetExecution.IQuery.GetDataReader(System.Data.CommandBehavior)">
-            <summary>
-            Sets the Data reader.
-            </summary>
-            <param name = "behavior" >
-            The behavior.
-            </param>
-            <returns>
-            </returns>
-        </member>
         <member name="T:BudgetExecution.IResourcePlanningOffice">
             <summary>
             
@@ -24326,63 +24310,13 @@
             The file name
             </summary>
         </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetCommandText(System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.ISqlStatement.GetCommandText">
             <summary>
             Gets the command text.
             </summary>
             <param name="dict">The dictionary.</param>
             <param name="commandType">Type of the command.</param>
             <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetCommandText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
-            <summary>
-            Gets the command text.
-            </summary>
-            <param name="columns">The columns.</param>
-            <param name="where">The dictionary.</param>
-            <param name="commandType">Type of the command.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetCommandText(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
-            <summary>
-            Gets the command text.
-            </summary>
-            <param name = "updates" > </param>
-            <param name = "where" > </param>
-            <param name="commandType">Type of the command.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.ToString">
-            <summary>
-            Converts to string.
-            </summary>
-            <returns>
-            A <see cref="T:System.String" /> that represents this instance.
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetSelectStatement">
-            <summary>
-            Sets the select statement.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetUpdateStatement">
-            <summary>
-            Sets the update statement.
-            </summary>
-            <param name="updates">The dictionary.</param>
-            <param name = "where" > </param>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetInsertStatement">
-            <summary>
-            Sets the insert statement.
-            </summary>
-            <param name="dict">The dictionary.</param>
-        </member>
-        <member name="M:BudgetExecution.ISqlStatement.GetDeleteStatement">
-            <summary>
-            Sets the delete statement.
-            </summary>
-            <param name="where">The dictionary.</param>
         </member>
         <member name="T:BudgetExecution.ISupplemental">
             <summary>

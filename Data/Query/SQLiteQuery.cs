@@ -369,9 +369,8 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _fullPath ) )
                     {
                         var _csvQuery = new CsvQuery( _fullPath, _sql );
-                        var _select = _csvQuery.DataCommand;
                         var _connection = _csvQuery.DataConnection as OleDbConnection;
-                        var _adapter = new OleDbDataAdapter( _select.CommandText, _connection );
+                        var _adapter = new OleDbDataAdapter( _sql, _connection );
                         _adapter?.Fill( _dataSet, sheetName );
                         return _dataTable.Columns.Count > 0
                             ? _dataTable
