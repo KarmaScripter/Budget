@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Data.Extensions;
 
     /// <summary>
     /// 
@@ -119,11 +120,11 @@ namespace BudgetExecution
             ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
 
             // Event Wiring
-            Load += OnLoad;
-            ExitButton.Click += OnExitButtonClicked;
+            ExitButton.Click += null;
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
             ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -134,11 +135,6 @@ namespace BudgetExecution
         public DataGridForm( Source source, Provider provider ) 
             : this( )
         {
-            InitializeComponent( );
-            Load += OnLoad;
-            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
-            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
-            ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
         }
 
         /// <summary>
@@ -153,7 +149,7 @@ namespace BudgetExecution
                 FormFilter = new Dictionary<string, object>( );
                 FormFilter.Add( "BFY", "2022" );
                 FormFilter.Add( "FundCode", "B" );
-                SetDataSource( Source.StatusOfFunds, Provider.Access, FormFilter );
+                BindDataSource( Source.StatusOfFunds, Provider.Access, FormFilter );
                 SetLabelConfiguration(  );
                 PopulateTableListBoxItems( );
                 PopulateToolStripComboBoxItems( );
@@ -162,6 +158,7 @@ namespace BudgetExecution
                 SelectedValue = string.Empty;
                 SqlQuery = string.Empty;
                 Text = DataModel.Provider + " Data";
+                ExitButton.Click += OnExitButtonClicked;
             }
             catch( Exception ex )
             {
@@ -175,7 +172,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        private void SetDataSource( Source source, Provider provider, IDictionary<string, object> where )
+        private void BindDataSource( Source source, Provider provider, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), source ) 
                && Enum.IsDefined( typeof( Provider ), provider ) 
@@ -183,7 +180,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
+                    DataModel = new DataBuilder( source, provider, where );
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
@@ -271,7 +268,11 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter.Clear( );
+                if( FormFilter.Keys.Count > 0 )
+                {
+                    FormFilter.Clear( );
+                }
+                
                 BindingSource.DataSource = null;
                 SqlQuery = string.Empty;
                 ColumnListBox.Items.Clear( );

@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
@@ -214,14 +215,17 @@ namespace BudgetExecution
         {
             try
             {
-                var _names = Enum.GetNames( typeof( TableBuiltInStyles ) );
-                for( var _i = 0; _i < _names.Length; _i++ )
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData(  );
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.ToList(  );
+                
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
-                    if( name != "NS" )
-                    {
-                        DropDown.Items.Add( name );
-                    }
+                    DropDown.Items.Add( name );
                 }
             }
             catch( Exception ex )
@@ -243,12 +247,15 @@ namespace BudgetExecution
                     Spreadsheet?.SetActiveSheet( "Sheet1" );
                     Spreadsheet?.ActiveSheet?.ImportDataTable( DataTable, true, 1, 1 );
                     Spreadsheet?.SetZoomFactor( "Sheet1", 100 );
+                    Spreadsheet?.SetGridLinesVisibility( false );
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
                     var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
                     var _name = table.TableName ?? "DataTable";
-                    var _range = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( _name, _range );
+                    var _usedRange = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( _name, _usedRange );
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
+                    _topRow?.AutofitColumns(  );
                     if( _table != null )
                     {
                         _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
