@@ -89,7 +89,7 @@
             this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CloseButton.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -144,7 +144,7 @@
             this.TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.TextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.TextBox.HoverText = null;
             this.TextBox.IsDerivedStyle = true;

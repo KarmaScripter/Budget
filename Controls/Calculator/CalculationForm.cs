@@ -35,7 +35,7 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11  );
+            CaptionFont = new Font( "Roboto", 10  );
             CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
             CaptionButtonHoverColor = Color.Red;
             MinimizeBox = false;

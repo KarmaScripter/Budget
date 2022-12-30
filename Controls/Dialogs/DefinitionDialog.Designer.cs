@@ -208,7 +208,7 @@
             this.SchemaPanelTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.SchemaPanelTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.SchemaPanelTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SchemaPanelTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SchemaPanelTextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SchemaPanelTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.SchemaPanelTextBox.HoverText = "Enter Column Name";
             this.SchemaPanelTextBox.Image = null;
@@ -219,7 +219,7 @@
             this.SchemaPanelTextBox.Multiline = false;
             this.SchemaPanelTextBox.Name = "SchemaPanelTextBox";
             this.SchemaPanelTextBox.ReadOnly = false;
-            this.SchemaPanelTextBox.Size = new System.Drawing.Size(292, 23);
+            this.SchemaPanelTextBox.Size = new System.Drawing.Size(292, 25);
             this.SchemaPanelTextBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SchemaPanelTextBox.StyleManager = null;
             this.SchemaPanelTextBox.TabIndex = 6;
@@ -261,7 +261,7 @@
             this.AddColumnButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.AddColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.AddColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddColumnButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddColumnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.AddColumnButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -307,7 +307,7 @@
             this.DataTypeComboBox.DropDownHeight = 100;
             this.DataTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DataTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DataTypeComboBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataTypeComboBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DataTypeComboBox.FormattingEnabled = true;
             this.DataTypeComboBox.HoverText = null;
             this.DataTypeComboBox.IntegralHeight = false;
@@ -374,7 +374,7 @@
             this.TableNameComboBox.DropDownHeight = 100;
             this.TableNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TableNameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TableNameComboBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableNameComboBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableNameComboBox.FormattingEnabled = true;
             this.TableNameComboBox.HoverText = null;
             this.TableNameComboBox.IntegralHeight = false;
@@ -406,7 +406,7 @@
             this.TablePanelTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.TablePanelTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.TablePanelTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.TablePanelTextBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelTextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TablePanelTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.TablePanelTextBox.HoverText = "Enter Column Name";
             this.TablePanelTextBox.Image = null;
@@ -417,12 +417,12 @@
             this.TablePanelTextBox.Multiline = false;
             this.TablePanelTextBox.Name = "TablePanelTextBox";
             this.TablePanelTextBox.ReadOnly = false;
-            this.TablePanelTextBox.Size = new System.Drawing.Size(292, 26);
+            this.TablePanelTextBox.Size = new System.Drawing.Size(292, 25);
             this.TablePanelTextBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TablePanelTextBox.StyleManager = null;
             this.TablePanelTextBox.TabIndex = 7;
             this.TablePanelTextBox.Text = "Enter New Name";
-            this.TablePanelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.TablePanelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TablePanelTextBox.ThemeAuthor = "Terry D. Eppler";
             this.TablePanelTextBox.ThemeName = "BudgetExecution";
             this.TablePanelTextBox.ToolTip = this.ToolTip;
@@ -653,6 +653,7 @@
             this.listBox5.IsDerivedStyle = true;
             this.listBox5.ItemHeight = 30;
             this.listBox5.Location = new System.Drawing.Point(15, 37);
+            this.listBox5.Margin = new System.Windows.Forms.Padding(1);
             this.listBox5.MultiSelect = false;
             this.listBox5.Name = "listBox5";
             this.listBox5.Padding = new System.Windows.Forms.Padding(1);
@@ -689,6 +690,7 @@
             this.listBox6.IsDerivedStyle = true;
             this.listBox6.ItemHeight = 30;
             this.listBox6.Location = new System.Drawing.Point(15, 37);
+            this.listBox6.Margin = new System.Windows.Forms.Padding(1);
             this.listBox6.MultiSelect = false;
             this.listBox6.Name = "listBox6";
             this.listBox6.Padding = new System.Windows.Forms.Padding(1);
@@ -856,7 +858,7 @@
             this.SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SelectButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SelectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.SelectButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -893,7 +895,7 @@
             this.RefreshButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.RefreshButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.RefreshButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.RefreshButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RefreshButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RefreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.RefreshButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.RefreshButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -930,7 +932,7 @@
             this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));

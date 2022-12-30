@@ -56,11 +56,11 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
+            ThemeName = "Budget Execution";
             BackColor = Color.FromArgb( 40, 40, 40 );
             ForeColor = Color.LightGray;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             HoverColor = Color.FromArgb( 50, 93, 129 );
             TextAlign = HorizontalAlignment.Left;
 

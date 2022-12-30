@@ -113,6 +113,7 @@ namespace BudgetExecution
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Name = "CalculationForm";
+            this.ShowIcon = false;
             this.Text = "Form1";
             this.ResumeLayout(false);
 

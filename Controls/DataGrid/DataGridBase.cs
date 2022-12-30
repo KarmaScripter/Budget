@@ -29,13 +29,12 @@ namespace BudgetExecution
             // Basic Properties
             ForeColor = Color.LightGray;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
             Size = new Size( 700, 400 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
-            Font = new Font( "Roboto", 9 );
             Visible = true;
             Enabled = true;
 
@@ -68,7 +67,7 @@ namespace BudgetExecution
             TableStyle.HorizontalAlignment = GridHorizontalAlignment.Center;
             TableStyle.AutoFit = AutoFitOptions.Both;
             TableStyle.Font.Facename = "Roboto";
-            TableStyle.Font.Size = 9;
+            TableStyle.Font.Size = 8;
         }
     }
 }

@@ -40,7 +40,7 @@ namespace BudgetExecution
             SqliteRadioButton.Tag = "SQLite";
             SqlServerRadioButton.Tag = "SqlServer";
             AccessRadioButton.Tag = "Access";
-            TabPage.TabFont = new Font( "Roboto", 9, FontStyle.Bold );
+            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Bold );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );

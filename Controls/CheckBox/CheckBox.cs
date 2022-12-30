@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
     using CheckState = MetroSet_UI.Enums.CheckState;
@@ -60,10 +59,10 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
+            ThemeName = "Budget Execution";
             Size = new Size( 125, 25 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Font = new Font( "Roboto", 8 );
             ForeColor = Color.LightGray;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;

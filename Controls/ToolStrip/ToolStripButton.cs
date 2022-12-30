@@ -313,9 +313,8 @@ namespace BudgetExecution
                         {
                             if( BindingSource?.DataSource != null )
                             {
-                                using var _chartForm = new ChartForm( );
-                                _chartForm.BindingSource = BindingSource;
-                                _chartForm?.ShowDialog( );
+                                var _chartDialog = new ChartDialog( BindingSource );
+                                _chartDialog?.ShowDialog( );
                             }
                             else if( BindingSource == null )
                             {

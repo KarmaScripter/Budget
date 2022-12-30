@@ -35,14 +35,14 @@
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
             this.LookupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.ColumnListBox = new BudgetExecution.ListBox();
-            this.ToolTip = new BudgetExecution.SmallTip();
             this.ValuePanelLabel = new BudgetExecution.Label();
             this.ColumnPanelLabel = new BudgetExecution.Label();
             this.TablePanelLabel = new BudgetExecution.Label();
             this.ValuePanel = new BudgetExecution.Layout();
             this.ValueListBox = new BudgetExecution.ListBox();
+            this.ToolTip = new BudgetExecution.SmallTip();
             this.ColumnPanel = new BudgetExecution.Layout();
+            this.ColumnListBox = new BudgetExecution.ListBox();
             this.TablePanel = new BudgetExecution.Layout();
             this.TableListBox = new BudgetExecution.ListBox();
             this.ProviderPanelLabel = new BudgetExecution.Label();
@@ -91,6 +91,7 @@
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
+            this.TabControl.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ItemSize = new System.Drawing.Size(158, 23);
@@ -126,6 +127,7 @@
             this.LookupTabPage.Controls.Add(this.TablePanel);
             this.LookupTabPage.Controls.Add(this.ProviderPanelLabel);
             this.LookupTabPage.Controls.Add(this.ProviderPanel);
+            this.LookupTabPage.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LookupTabPage.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.LookupTabPage.Image = null;
             this.LookupTabPage.ImageSize = new System.Drawing.Size(12, 12);
@@ -139,64 +141,6 @@
             this.LookupTabPage.Text = "  Look Up";
             this.LookupTabPage.ThemesEnabled = false;
             // 
-            // ColumnListBox
-            // 
-            this.ColumnListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ColumnListBox.BindingSource = null;
-            this.ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ColumnListBox.DataFilter = null;
-            this.ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.ColumnListBox.HoverText = null;
-            this.ColumnListBox.IsDerivedStyle = true;
-            this.ColumnListBox.ItemHeight = 30;
-            this.ColumnListBox.Location = new System.Drawing.Point(31, 19);
-            this.ColumnListBox.MultiSelect = false;
-            this.ColumnListBox.Name = "ColumnListBox";
-            this.ColumnListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnListBox.SelectedIndex = -1;
-            this.ColumnListBox.SelectedItem = null;
-            this.ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.ColumnListBox.SelectedText = null;
-            this.ColumnListBox.SelectedValue = null;
-            this.ColumnListBox.ShowBorder = false;
-            this.ColumnListBox.ShowScrollBar = false;
-            this.ColumnListBox.Size = new System.Drawing.Size(348, 130);
-            this.ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ColumnListBox.StyleManager = null;
-            this.ColumnListBox.TabIndex = 2;
-            this.ColumnListBox.Text = "listBox1";
-            this.ColumnListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ColumnListBox.ThemeName = "BudgetExecution";
-            this.ColumnListBox.ToolTip = this.ToolTip;
-            // 
-            // ToolTip
-            // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = null;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = null;
-            this.ToolTip.TipTitle = null;
-            // 
             // ValuePanelLabel
             // 
             this.ValuePanelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -205,7 +149,7 @@
             this.ValuePanelLabel.BindingSource = null;
             this.ValuePanelLabel.DataFilter = null;
             this.ValuePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ValuePanelLabel.HoverText = null;
             this.ValuePanelLabel.IsDerivedStyle = true;
             this.ValuePanelLabel.Location = new System.Drawing.Point(712, 275);
@@ -230,7 +174,7 @@
             this.ColumnPanelLabel.BindingSource = null;
             this.ColumnPanelLabel.DataFilter = null;
             this.ColumnPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ColumnPanelLabel.HoverText = null;
             this.ColumnPanelLabel.IsDerivedStyle = true;
             this.ColumnPanelLabel.Location = new System.Drawing.Point(177, 275);
@@ -255,7 +199,7 @@
             this.TablePanelLabel.BindingSource = null;
             this.TablePanelLabel.DataFilter = null;
             this.TablePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TablePanelLabel.HoverText = null;
             this.TablePanelLabel.IsDerivedStyle = true;
             this.TablePanelLabel.Location = new System.Drawing.Point(712, 40);
@@ -285,7 +229,7 @@
             this.ValuePanel.Children = null;
             this.ValuePanel.Controls.Add(this.ValueListBox);
             this.ValuePanel.DataFilter = null;
-            this.ValuePanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ValuePanel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             this.ValuePanel.HoverText = null;
             this.ValuePanel.IsDerivedStyle = true;
@@ -307,17 +251,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ValueListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ValueListBox.BindingSource = null;
-            this.ValueListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ValueListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ValueListBox.DataFilter = null;
             this.ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ValueListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ValueListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.ValueListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.ValueListBox.HoverText = null;
             this.ValueListBox.IsDerivedStyle = true;
             this.ValueListBox.ItemHeight = 30;
             this.ValueListBox.Location = new System.Drawing.Point(15, 13);
+            this.ValueListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ValueListBox.MultiSelect = false;
             this.ValueListBox.Name = "ValueListBox";
             this.ValueListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -338,6 +283,26 @@
             this.ValueListBox.ThemeName = "BudgetExecution";
             this.ValueListBox.ToolTip = this.ToolTip;
             // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.ToolTip.BindingSource = null;
+            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
+            this.ToolTip.Name = null;
+            this.ToolTip.OwnerDraw = true;
+            this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ToolTip.StyleManager = null;
+            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
+            this.ToolTip.ThemeName = "Budget Execution";
+            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.TipText = null;
+            this.ToolTip.TipTitle = null;
+            // 
             // ColumnPanel
             // 
             this.ColumnPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -351,7 +316,7 @@
             this.ColumnPanel.Children = null;
             this.ColumnPanel.Controls.Add(this.ColumnListBox);
             this.ColumnPanel.DataFilter = null;
-            this.ColumnPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ColumnPanel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ColumnPanel.HoverText = null;
             this.ColumnPanel.IsDerivedStyle = true;
@@ -366,6 +331,45 @@
             this.ColumnPanel.ThemeName = "BudgetExecution";
             this.ColumnPanel.ToolTip = null;
             // 
+            // ColumnListBox
+            // 
+            this.ColumnListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ColumnListBox.BindingSource = null;
+            this.ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.ColumnListBox.DataFilter = null;
+            this.ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.ColumnListBox.HoverText = null;
+            this.ColumnListBox.IsDerivedStyle = true;
+            this.ColumnListBox.ItemHeight = 30;
+            this.ColumnListBox.Location = new System.Drawing.Point(31, 19);
+            this.ColumnListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.ColumnListBox.MultiSelect = false;
+            this.ColumnListBox.Name = "ColumnListBox";
+            this.ColumnListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.ColumnListBox.SelectedIndex = -1;
+            this.ColumnListBox.SelectedItem = null;
+            this.ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.ColumnListBox.SelectedText = null;
+            this.ColumnListBox.SelectedValue = null;
+            this.ColumnListBox.ShowBorder = false;
+            this.ColumnListBox.ShowScrollBar = false;
+            this.ColumnListBox.Size = new System.Drawing.Size(348, 130);
+            this.ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ColumnListBox.StyleManager = null;
+            this.ColumnListBox.TabIndex = 2;
+            this.ColumnListBox.Text = "listBox1";
+            this.ColumnListBox.ThemeAuthor = "Terry D. Eppler";
+            this.ColumnListBox.ThemeName = "BudgetExecution";
+            this.ColumnListBox.ToolTip = this.ToolTip;
+            // 
             // TablePanel
             // 
             this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -379,7 +383,7 @@
             this.TablePanel.Children = null;
             this.TablePanel.Controls.Add(this.TableListBox);
             this.TablePanel.DataFilter = null;
-            this.TablePanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
             this.TablePanel.HoverText = null;
             this.TablePanel.IsDerivedStyle = true;
@@ -401,17 +405,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.TableListBox.BindingSource = null;
-            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.TableListBox.DataFilter = null;
             this.TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.TableListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.TableListBox.HoverText = null;
             this.TableListBox.IsDerivedStyle = true;
             this.TableListBox.ItemHeight = 30;
             this.TableListBox.Location = new System.Drawing.Point(15, 17);
+            this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
             this.TableListBox.MultiSelect = false;
             this.TableListBox.Name = "TableListBox";
             this.TableListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -440,7 +445,7 @@
             this.ProviderPanelLabel.BindingSource = null;
             this.ProviderPanelLabel.DataFilter = null;
             this.ProviderPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProviderPanelLabel.HoverText = null;
             this.ProviderPanelLabel.IsDerivedStyle = true;
             this.ProviderPanelLabel.Location = new System.Drawing.Point(176, 39);
@@ -472,7 +477,7 @@
             this.ProviderPanel.Controls.Add(this.AccessRadioButton);
             this.ProviderPanel.Controls.Add(this.SqlServerRadioButton);
             this.ProviderPanel.DataFilter = null;
-            this.ProviderPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProviderPanel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProviderPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ProviderPanel.HoverText = null;
             this.ProviderPanel.IsDerivedStyle = true;
@@ -628,6 +633,7 @@
             this.listBox5.IsDerivedStyle = true;
             this.listBox5.ItemHeight = 30;
             this.listBox5.Location = new System.Drawing.Point(15, 37);
+            this.listBox5.Margin = new System.Windows.Forms.Padding(1);
             this.listBox5.MultiSelect = false;
             this.listBox5.Name = "listBox5";
             this.listBox5.Padding = new System.Windows.Forms.Padding(1);
@@ -664,6 +670,7 @@
             this.listBox6.IsDerivedStyle = true;
             this.listBox6.ItemHeight = 30;
             this.listBox6.Location = new System.Drawing.Point(15, 37);
+            this.listBox6.Margin = new System.Windows.Forms.Padding(1);
             this.listBox6.MultiSelect = false;
             this.listBox6.Name = "listBox6";
             this.listBox6.Padding = new System.Windows.Forms.Padding(1);
@@ -835,7 +842,7 @@
             this.SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SelectButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SelectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.SelectButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -871,7 +878,7 @@
             this.RefreshButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.RefreshButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.RefreshButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.RefreshButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RefreshButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RefreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.RefreshButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.RefreshButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -908,7 +915,7 @@
             this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));

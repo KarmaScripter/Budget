@@ -33,7 +33,7 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             ForeColor = Color.White;
             Enabled = true;
             Visible = true;

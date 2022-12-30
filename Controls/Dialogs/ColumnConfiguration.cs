@@ -80,7 +80,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [datagrid right click].
+        /// Called when [data grid right click].
         /// </summary>
         /// <param name = "sender" >
         /// The sender.
@@ -97,15 +97,19 @@ namespace BudgetExecution
                 try
                 {
                     ColumnListBox?.Items?.Clear( );
-
-                    foreach( DataGridViewColumn c in Grid?.Columns )
+                    if( Grid?.Columns != null )
                     {
-                        ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                        foreach( DataGridViewColumn c in Grid.Columns )
+                        {
+                            ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                        }
                     }
 
                     var _columnConfiguration = new ColumnConfiguration( Grid );
-
-                    _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
+                    if( Grid != null )
+                    {
+                        _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
+                    }
 
                     _columnConfiguration?.ShowDialog( );
                     _columnConfiguration.TopMost = true;
@@ -115,17 +119,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
 
         /// <summary>
@@ -143,17 +136,14 @@ namespace BudgetExecution
                 try
                 {
                     var _controlHost = new ToolStripControlHost( this );
-
                     _controlHost.AutoSize = true;
                     _controlHost.Margin = Padding.Empty;
                     _controlHost.Padding = Padding.Empty;
-
                     return _controlHost;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -183,6 +173,17 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+        
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

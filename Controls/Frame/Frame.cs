@@ -39,7 +39,7 @@ namespace BudgetExecution
             Table.BackColor = Color.Transparent;
             Table.ColumnCount = 1;
             Table.RowCount = 2;
-            Table.Font = new Font( "Roboto", 9 );
+            Table.Font = new Font( "Roboto", 8 );
             Table.ForeColor = Color.LightGray;
         }
     }

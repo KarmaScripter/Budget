@@ -61,11 +61,11 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
+            ThemeName = "Budget Execution";
             Size = new Size( 165, 23 );
             BackColor = Color.Transparent;
             ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;

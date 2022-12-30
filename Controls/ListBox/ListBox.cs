@@ -60,7 +60,7 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
+            ThemeName = "Budget Execution";
             Size = new Size( 200, 100 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
@@ -70,6 +70,8 @@ namespace BudgetExecution
             ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
+            ShowBorder = false;
+            BorderColor = Color.FromArgb( 55, 55, 55 );
 
             // BackColor SeriesConfiguration
             BackColor = Color.FromArgb( 40, 40, 40 );
@@ -81,8 +83,8 @@ namespace BudgetExecution
             DisabledForeColor = Color.FromArgb( 20, 20, 20 );
 
             // Item Configuration
-            ItemHeight = 20;
-            HoveredItemColor = Color.LightSteelBlue;
+            ItemHeight = 28;
+            HoveredItemColor = Color.White;
             HoveredItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;
             SelectedItemBackColor = Color.FromArgb( 0, 120, 212 );

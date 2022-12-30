@@ -55,7 +55,7 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 9 );
+            CaptionFont = new Font( "Roboto", 12 );
             MetroColor = Color.FromArgb( 20, 20, 20 );
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = new Icon( IconPath, 33, 32 );
@@ -69,6 +69,7 @@ namespace BudgetExecution
             HeaderLabel.ForeColor = Color.Red;
 
             // TextBox Properties
+            TextBox.Font = new Font( "Roboto", 8 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             TextBox.Parent = BackPanel;
             TextBox.Dock = DockStyle.Fill;

@@ -21,11 +21,11 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1400, 750 );
+            Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             FormBorderStyle = FormBorderStyle.Sizable;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;

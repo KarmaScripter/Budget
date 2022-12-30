@@ -4,6 +4,9 @@
     <Compile Update="ChartBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="ChartDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Binding\BindingBase.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -56,13 +56,13 @@ namespace BudgetExecution
             // Basic Properties
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
+            ThemeName = "Budget Execution";
             Size = new Size( 140, 30 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             ForeColor = Color.White;
             BackColor = Color.FromArgb( 40, 40, 40 );
             Enabled = true;
@@ -72,6 +72,7 @@ namespace BudgetExecution
 
             // Border SeriesConfiguration
             BorderColor = Color.FromArgb( 65, 65, 65 );
+            HoverColor = Color.FromArgb( 0, 120, 212 );
         }
 
         /// <summary>

@@ -12,7 +12,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Data.Extensions;
 
     /// <summary>
     /// 
@@ -93,7 +92,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );

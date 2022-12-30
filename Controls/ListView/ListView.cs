@@ -22,7 +22,7 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = new Size( 250, 150 );
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;

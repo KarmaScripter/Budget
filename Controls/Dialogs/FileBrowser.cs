@@ -95,6 +95,7 @@ namespace BudgetExecution
             InitialDirPaths = GetInitialDirPaths( );
             RadioButtons = GetRadioButtons( );
             FileExtension = "xlsx";
+            Extension = EXT.XLSX;
             Picture.Image = GetImage( );
             FilePaths = GetListViewPaths( );
             FileDialog.DefaultExt = FileExtension;
@@ -119,6 +120,7 @@ namespace BudgetExecution
                 {
                     PopulateListBox( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
+                    Header.Text = $"{ Extension } File Search";
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
                 }
@@ -146,7 +148,10 @@ namespace BudgetExecution
                         if( _files?.Any( ) == true )
                         {
                             var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
-                            var _file = _files.Where( f => f.Contains( _extension ) )?.First( );
+                            var _file = _files
+                                ?.Where( f => f.Contains( _extension ) )
+                                ?.First( );
+                            
                             using var stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( stream );
                             return new Bitmap( _img, 22, 22 );
@@ -281,6 +286,12 @@ namespace BudgetExecution
                 try
                 {
                     FileExtension = _radioButton?.Result;
+                    var _ext = _radioButton.Tag
+                        ?.ToString(  )
+                        ?.Trim( ".".ToCharArray(  ) )
+                        ?.ToUpper(  );
+
+                    Header.Text = $"{ _ext } File Search";
                     MessageLabel.Text = string.Empty;
                     FoundLabel.Text = string.Empty;
                     var _paths = GetListViewPaths( );

@@ -355,17 +355,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.TableListBox.BindingSource = null;
-            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.TableListBox.DataFilter = null;
             this.TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TableListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.TableListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.TableListBox.HoveredItemColor = System.Drawing.Color.White;
             this.TableListBox.HoverText = null;
             this.TableListBox.IsDerivedStyle = true;
-            this.TableListBox.ItemHeight = 22;
+            this.TableListBox.ItemHeight = 28;
             this.TableListBox.Location = new System.Drawing.Point(18, 20);
+            this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
             this.TableListBox.MultiSelect = false;
             this.TableListBox.Name = "TableListBox";
             this.TableListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -382,7 +383,7 @@
             this.TableListBox.StyleManager = null;
             this.TableListBox.TabIndex = 32;
             this.TableListBox.ThemeAuthor = "Terry D. Eppler";
-            this.TableListBox.ThemeName = "BudgetExecution";
+            this.TableListBox.ThemeName = "Budget Execution";
             this.TableListBox.ToolTip = null;
             // 
             // ColumnPanel
@@ -418,17 +419,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ColumnListBox.BindingSource = null;
-            this.ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ColumnListBox.DataFilter = null;
             this.ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.ColumnListBox.HoveredItemColor = System.Drawing.Color.White;
             this.ColumnListBox.HoverText = null;
             this.ColumnListBox.IsDerivedStyle = true;
-            this.ColumnListBox.ItemHeight = 22;
+            this.ColumnListBox.ItemHeight = 28;
             this.ColumnListBox.Location = new System.Drawing.Point(18, 14);
+            this.ColumnListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ColumnListBox.MultiSelect = false;
             this.ColumnListBox.Name = "ColumnListBox";
             this.ColumnListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -445,7 +447,7 @@
             this.ColumnListBox.StyleManager = null;
             this.ColumnListBox.TabIndex = 33;
             this.ColumnListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ColumnListBox.ThemeName = "BudgetExecution";
+            this.ColumnListBox.ThemeName = "Budget Execution";
             this.ColumnListBox.ToolTip = null;
             // 
             // ValuePanel
@@ -481,17 +483,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ValueListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ValueListBox.BindingSource = null;
-            this.ValueListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ValueListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ValueListBox.DataFilter = null;
             this.ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ValueListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ValueListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.ValueListBox.HoveredItemColor = System.Drawing.Color.White;
             this.ValueListBox.HoverText = null;
             this.ValueListBox.IsDerivedStyle = true;
-            this.ValueListBox.ItemHeight = 22;
+            this.ValueListBox.ItemHeight = 28;
             this.ValueListBox.Location = new System.Drawing.Point(18, 19);
+            this.ValueListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ValueListBox.MultiSelect = false;
             this.ValueListBox.Name = "ValueListBox";
             this.ValueListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -508,7 +511,7 @@
             this.ValueListBox.StyleManager = null;
             this.ValueListBox.TabIndex = 32;
             this.ValueListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ValueListBox.ThemeName = "BudgetExecution";
+            this.ValueListBox.ThemeName = "Budget Execution";
             this.ValueListBox.ToolTip = null;
             // 
             // DataGridLabel
@@ -945,7 +948,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(157, 28);
+            this.TextBox.Size = new System.Drawing.Size(155, 28);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 

@@ -37,7 +37,6 @@ namespace BudgetExecution
             {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Message));
-            this.TextBox = new BudgetExecution.TextBox();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OpenButton = new BudgetExecution.Button();
             this.ToolTip = new BudgetExecution.SmallTip();
@@ -46,43 +45,11 @@ namespace BudgetExecution
             this.Picture = new BudgetExecution.Picture();
             this.Header = new BudgetExecution.Label();
             this.BackPanel = new BudgetExecution.Layout();
+            this.TextBox = new BudgetExecution.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.BackPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // TextBox
-            // 
-            this.TextBox.AutoCompleteCustomSource = null;
-            this.TextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.TextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.TextBox.BindingSource = this.BindingSource;
-            this.TextBox.BorderColor = System.Drawing.Color.Transparent;
-            this.TextBox.DataFilter = null;
-            this.TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.TextBox.HoverText = null;
-            this.TextBox.Image = null;
-            this.TextBox.IsDerivedStyle = true;
-            this.TextBox.Lines = null;
-            this.TextBox.Location = new System.Drawing.Point(27, 19);
-            this.TextBox.MaxLength = 2147483647;
-            this.TextBox.Multiline = false;
-            this.TextBox.Name = "TextBox";
-            this.TextBox.ReadOnly = true;
-            this.TextBox.Size = new System.Drawing.Size(490, 186);
-            this.TextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TextBox.StyleManager = null;
-            this.TextBox.TabIndex = 8;
-            this.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TextBox.ThemeAuthor = "Terry D. Eppler";
-            this.TextBox.ThemeName = "BudgetExecution";
-            this.TextBox.ToolTip = null;
-            this.TextBox.UseSystemPasswordChar = false;
-            this.TextBox.WatermarkText = "";
             // 
             // OpenButton
             // 
@@ -94,12 +61,12 @@ namespace BudgetExecution
             this.OpenButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.OpenButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.OpenButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.OpenButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OpenButton.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OpenButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OpenButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.OpenButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.OpenButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.OpenButton.HoverText = null;
-            this.OpenButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.OpenButton.HoverTextColor = System.Drawing.Color.White;
             this.OpenButton.IsDerivedStyle = true;
             this.OpenButton.Location = new System.Drawing.Point(70, 327);
             this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
@@ -117,7 +84,7 @@ namespace BudgetExecution
             this.OpenButton.TabIndex = 9;
             this.OpenButton.Text = "Open";
             this.OpenButton.ThemeAuthor = "Terry D. Eppler";
-            this.OpenButton.ThemeName = "BudgetExecution";
+            this.OpenButton.ThemeName = "Budget Execution";
             this.OpenButton.ToolTip = this.ToolTip;
             // 
             // ToolTip
@@ -150,12 +117,12 @@ namespace BudgetExecution
             this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CloseButton.ForeColor = System.Drawing.Color.SteelBlue;
+            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverText = null;
-            this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.CloseButton.HoverTextColor = System.Drawing.Color.White;
             this.CloseButton.IsDerivedStyle = true;
             this.CloseButton.Location = new System.Drawing.Point(485, 327);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
@@ -173,7 +140,7 @@ namespace BudgetExecution
             this.CloseButton.TabIndex = 10;
             this.CloseButton.Text = "Close";
             this.CloseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloseButton.ThemeName = "BudgetExecution";
+            this.CloseButton.ThemeName = "Budget Execution";
             this.CloseButton.ToolTip = this.ToolTip;
             // 
             // Label
@@ -249,7 +216,7 @@ namespace BudgetExecution
             this.BackPanel.Children = null;
             this.BackPanel.Controls.Add(this.TextBox);
             this.BackPanel.DataFilter = null;
-            this.BackPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BackPanel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BackPanel.ForeColor = System.Drawing.Color.Transparent;
             this.BackPanel.HoverText = null;
             this.BackPanel.IsDerivedStyle = true;
@@ -263,6 +230,35 @@ namespace BudgetExecution
             this.BackPanel.ThemeAuthor = "Terry D. Eppler";
             this.BackPanel.ThemeName = "BudgetExecution";
             this.BackPanel.ToolTip = null;
+            // 
+            // TextBox
+            // 
+            this.TextBox.AutoWordSelection = false;
+            this.TextBox.BindingSource = null;
+            this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.TextBox.DataFilter = null;
+            this.TextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TextBox.HoverText = null;
+            this.TextBox.IsDerivedStyle = true;
+            this.TextBox.Lines = null;
+            this.TextBox.Location = new System.Drawing.Point(33, 24);
+            this.TextBox.MaxLength = 32767;
+            this.TextBox.Name = "TextBox";
+            this.TextBox.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBox.ReadOnly = false;
+            this.TextBox.Size = new System.Drawing.Size(478, 175);
+            this.TextBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TextBox.StyleManager = null;
+            this.TextBox.TabIndex = 0;
+            this.TextBox.Text = " ";
+            this.TextBox.ThemeAuthor = "Terry D. Eppler";
+            this.TextBox.ThemeName = "Budget Execution";
+            this.TextBox.ToolTip = this.ToolTip;
+            this.TextBox.WordWrap = true;
             // 
             // Message
             // 
@@ -304,7 +300,6 @@ namespace BudgetExecution
             }
 
             #endregion
-        public TextBox TextBox;
         public Button OpenButton;
         public SmallTip ToolTip;
         public Button CloseButton;
@@ -313,6 +308,7 @@ namespace BudgetExecution
         private Label Header;
         public BindingSource BindingSource;
         private Layout BackPanel;
+        private RichTextBox TextBox;
     }
     
 }

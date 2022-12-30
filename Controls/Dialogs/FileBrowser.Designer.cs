@@ -451,13 +451,14 @@ namespace BudgetExecution
             this.FileList.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FileList.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FileList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FileList.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FileList.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FileList.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.FileList.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.FileList.HoverText = null;
             this.FileList.IsDerivedStyle = true;
             this.FileList.ItemHeight = 30;
-            this.FileList.Location = new System.Drawing.Point(90, 4);
+            this.FileList.Location = new System.Drawing.Point(88, 2);
+            this.FileList.Margin = new System.Windows.Forms.Padding(1);
             this.FileList.MultiSelect = false;
             this.FileList.Name = "FileList";
             this.FileList.Padding = new System.Windows.Forms.Padding(1);
@@ -469,7 +470,7 @@ namespace BudgetExecution
             this.FileList.SelectedValue = null;
             this.FileList.ShowBorder = false;
             this.FileList.ShowScrollBar = false;
-            this.FileList.Size = new System.Drawing.Size(480, 283);
+            this.FileList.Size = new System.Drawing.Size(484, 287);
             this.FileList.Style = MetroSet_UI.Enums.Style.Custom;
             this.FileList.StyleManager = null;
             this.FileList.TabIndex = 3;
@@ -560,15 +561,16 @@ namespace BudgetExecution
             // 
             this.Header.BindingSource = null;
             this.Header.DataFilter = null;
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Header.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Header.HoverText = null;
             this.Header.IsDerivedStyle = true;
             this.Header.Location = new System.Drawing.Point(42, 3);
             this.Header.Margin = new System.Windows.Forms.Padding(3);
             this.Header.Name = "Header";
             this.Header.Padding = new System.Windows.Forms.Padding(1);
-            this.Header.Size = new System.Drawing.Size(95, 31);
+            this.Header.Size = new System.Drawing.Size(643, 31);
             this.Header.Style = MetroSet_UI.Enums.Style.Custom;
             this.Header.StyleManager = null;
             this.Header.TabIndex = 0;
@@ -607,7 +609,7 @@ namespace BudgetExecution
             this.SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SelectButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SelectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.SelectButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
@@ -641,7 +643,7 @@ namespace BudgetExecution
             this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));

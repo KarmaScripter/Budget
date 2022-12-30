@@ -146,7 +146,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -203,11 +203,11 @@ namespace BudgetExecution
             try
             {
                 Text = $"{ DataTable.TableName.SplitPascal( ) } Query";
-                PopulateFirstComoBoxItems(  );
-                FirstButton.Visible = false;
-                SecondButton.Visible = false;
-                SecondFilterTable.Visible = false;
-                ThirdFilterTable.Visible = false;
+                PopulateFirstComoBoxItems( );
+                FirstButton.Visible = !FirstButton.Visible;
+                SecondButton.Visible = !SecondButton.Visible;
+                SecondFilterTable.Visible = !SecondFilterTable.Visible;
+                ThirdFilterTable.Visible = !ThirdFilterTable.Visible;
                 FormFilter = new Dictionary<string, object>( );
             }
             catch( Exception ex )
@@ -284,9 +284,9 @@ namespace BudgetExecution
                     FirstValue = _listBox.SelectedValue.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComoBoxItems(  );
-                    SecondFilterTable.Visible = true;
-                    FirstButton.Visible = true;
-                    SecondButton.Visible = true;
+                    SecondFilterTable.Visible = !SecondFilterTable.Visible;
+                    FirstButton.Visible = !FirstButton.Visible;
+                    SecondButton.Visible = !SecondButton.Visible;
                 }
                 catch( Exception ex )
                 {
@@ -379,7 +379,7 @@ namespace BudgetExecution
                     SecondValue = _listBox.SelectedValue.ToString( );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComoBoxItems(  );
-                    ThirdFilterTable.Visible = true;
+                    ThirdFilterTable.Visible = !ThirdFilterTable.Visible;
                 }
                 catch( Exception ex )
                 {

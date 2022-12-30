@@ -110,7 +110,7 @@ partial class FilterDialog
             // 
             this.FirstListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.FirstListBox.BindingSource = null;
-            this.FirstListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.FirstListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.FirstListBox.DataFilter = null;
             this.FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -119,7 +119,7 @@ partial class FilterDialog
             this.FirstListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.FirstListBox.HoverText = null;
             this.FirstListBox.IsDerivedStyle = true;
-            this.FirstListBox.ItemHeight = 20;
+            this.FirstListBox.ItemHeight = 28;
             this.FirstListBox.Location = new System.Drawing.Point(17, 19);
             this.FirstListBox.Margin = new System.Windows.Forms.Padding(1);
             this.FirstListBox.MultiSelect = false;
@@ -303,7 +303,7 @@ partial class FilterDialog
             // 
             this.ThirdListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ThirdListBox.BindingSource = null;
-            this.ThirdListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ThirdListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ThirdListBox.DataFilter = null;
             this.ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -312,7 +312,7 @@ partial class FilterDialog
             this.ThirdListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdListBox.HoverText = null;
             this.ThirdListBox.IsDerivedStyle = true;
-            this.ThirdListBox.ItemHeight = 20;
+            this.ThirdListBox.ItemHeight = 28;
             this.ThirdListBox.Location = new System.Drawing.Point(18, 19);
             this.ThirdListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ThirdListBox.MultiSelect = false;
@@ -363,7 +363,7 @@ partial class FilterDialog
             // 
             this.SecondListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SecondListBox.BindingSource = null;
-            this.SecondListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.SecondListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.SecondListBox.DataFilter = null;
             this.SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -372,7 +372,7 @@ partial class FilterDialog
             this.SecondListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.SecondListBox.HoverText = null;
             this.SecondListBox.IsDerivedStyle = true;
-            this.SecondListBox.ItemHeight = 20;
+            this.SecondListBox.ItemHeight = 28;
             this.SecondListBox.Location = new System.Drawing.Point(17, 19);
             this.SecondListBox.Margin = new System.Windows.Forms.Padding(1);
             this.SecondListBox.MultiSelect = false;

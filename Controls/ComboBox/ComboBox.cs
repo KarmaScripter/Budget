@@ -55,13 +55,13 @@ namespace BudgetExecution
         {
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
+            ThemeName = "Budget Execution";
             ArrowColor = Color.FromArgb( 0, 120, 212 );
             ForeColor = Color.LightSteelBlue;
             FlatStyle = FlatStyle.Flat;
             DropDownStyle = ComboBoxStyle.DropDownList;
             ItemHeight = 24;
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             BackColor = Color.FromArgb( 40, 40, 40 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
 

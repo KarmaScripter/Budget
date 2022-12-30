@@ -291,7 +291,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(206, 32);
+            this.TextBox.Size = new System.Drawing.Size(204, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -685,6 +685,7 @@
             this.Chart.DisplaySeriesContextMenu = false;
             this.Chart.EnableMouseRotation = true;
             this.Chart.Field = BudgetExecution.Field.AccountCode;
+            this.Chart.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Chart.IsWindowLess = false;
             // 
             // 
@@ -842,17 +843,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstFilterListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.FirstFilterListBox.BindingSource = null;
-            this.FirstFilterListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.FirstFilterListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.FirstFilterListBox.DataFilter = null;
             this.FirstFilterListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FirstFilterListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstFilterListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstFilterListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FirstFilterListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.FirstFilterListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.FirstFilterListBox.HoverText = null;
             this.FirstFilterListBox.IsDerivedStyle = true;
-            this.FirstFilterListBox.ItemHeight = 20;
+            this.FirstFilterListBox.ItemHeight = 28;
             this.FirstFilterListBox.Location = new System.Drawing.Point(19, 19);
+            this.FirstFilterListBox.Margin = new System.Windows.Forms.Padding(1);
             this.FirstFilterListBox.MultiSelect = false;
             this.FirstFilterListBox.Name = "FirstFilterListBox";
             this.FirstFilterListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -905,17 +907,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SecondFilterListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SecondFilterListBox.BindingSource = null;
-            this.SecondFilterListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.SecondFilterListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.SecondFilterListBox.DataFilter = null;
             this.SecondFilterListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondFilterListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondFilterListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondFilterListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondFilterListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.SecondFilterListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.SecondFilterListBox.HoverText = null;
             this.SecondFilterListBox.IsDerivedStyle = true;
-            this.SecondFilterListBox.ItemHeight = 20;
+            this.SecondFilterListBox.ItemHeight = 28;
             this.SecondFilterListBox.Location = new System.Drawing.Point(19, 14);
+            this.SecondFilterListBox.Margin = new System.Windows.Forms.Padding(1);
             this.SecondFilterListBox.MultiSelect = false;
             this.SecondFilterListBox.Name = "SecondFilterListBox";
             this.SecondFilterListBox.Padding = new System.Windows.Forms.Padding(1);
@@ -968,17 +971,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ThirdFilterListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ThirdFilterListBox.BindingSource = null;
-            this.ThirdFilterListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ThirdFilterListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ThirdFilterListBox.DataFilter = null;
             this.ThirdFilterListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ThirdFilterListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdFilterListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdFilterListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdFilterListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.ThirdFilterListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdFilterListBox.HoverText = null;
             this.ThirdFilterListBox.IsDerivedStyle = true;
-            this.ThirdFilterListBox.ItemHeight = 20;
+            this.ThirdFilterListBox.ItemHeight = 28;
             this.ThirdFilterListBox.Location = new System.Drawing.Point(22, 19);
+            this.ThirdFilterListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ThirdFilterListBox.MultiSelect = false;
             this.ThirdFilterListBox.Name = "ThirdFilterListBox";
             this.ThirdFilterListBox.Padding = new System.Windows.Forms.Padding(1);

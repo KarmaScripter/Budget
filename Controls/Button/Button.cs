@@ -63,8 +63,8 @@ namespace BudgetExecution
             // Basic SeriesConfiguration
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "BudgetExecution";
-            Font = new Font( "Roboto", 9 );
+            ThemeName = "Budget Execution";
+            Font = new Font( "Roboto", 8 );
             ForeColor = Color.FromArgb( 0, 120, 212 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );

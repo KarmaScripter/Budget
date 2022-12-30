@@ -58,7 +58,7 @@ namespace BudgetExecution
             // Basic Carousel Properties
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.White;
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             CarouselPath = CarouselPath.Default;
             ImageSlides = true;
             PadX = 0;

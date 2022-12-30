@@ -30,6 +30,7 @@ namespace BudgetExecution
             ShowToolbar = true;
             ShowToolTips = true;
             ShowScrollBars = false;
+            Font = new Font( "Roboto", 8 );
             EnableMouseRotation = true;
             Padding = new Padding( 1 );
             Margin = new Padding( 3 );

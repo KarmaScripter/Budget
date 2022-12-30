@@ -102,7 +102,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -122,7 +122,7 @@ namespace BudgetExecution
             Spreadsheet.CanOverrideStyle = true;
             Spreadsheet.Margin = new Padding( 1 );
             Spreadsheet.Padding = new Padding( 1 );
-            Spreadsheet.Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Spreadsheet.Font = new Font( "Roboto", 8, FontStyle.Regular );
             Spreadsheet.ForeColor = Color.Black;
             Spreadsheet.DefaultColumnCount = 40;
             Spreadsheet.DefaultRowCount = 60;

@@ -74,7 +74,7 @@ namespace BudgetExecution
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.White;
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             Size = new Size( 300, 150 );
             BorderStyle = Border3DStyle.Etched;
             BorderType = SplashBorderType.Border3D;

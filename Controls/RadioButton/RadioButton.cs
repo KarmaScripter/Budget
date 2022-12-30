@@ -53,7 +53,7 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             BackgroundColor = Color.FromArgb( 30, 30, 30 );
-            Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
             ForeColor = Color.LightSteelBlue;
             CheckSignColor = Color.LimeGreen;
             BorderColor = Color.FromArgb( 0, 120, 212 );

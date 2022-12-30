@@ -11,7 +11,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
-    
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>

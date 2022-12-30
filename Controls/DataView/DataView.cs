@@ -38,7 +38,7 @@ namespace BudgetExecution
             ExcelLikeAlignment = true;
             BackColor = Color.FromArgb( 78, 78, 79 );
             ForeColor = Color.Black;
-            Font = new Font( "Roboto", 9, FontStyle.Regular );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
             GridOfficeScrollBars = OfficeScrollBars.Office2010;
             Office2010ScrollBarsColorScheme = Office2010ColorScheme.Black;
             ColorStyles = ColorStyles.Office2016DarkGray;
@@ -49,7 +49,7 @@ namespace BudgetExecution
             VerticalScrollTips = true;
             VerticalThumbTrack = true;
             DefaultGridBorderStyle = GridBorderStyle.Dotted;
-            AlphaBlendSelectionColor = Color.SteelBlue;
+            AlphaBlendSelectionColor = Color.FromArgb( 0, 120, 212 );
 
             // ThemStyle Properties
             ThemeStyle.CellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -58,7 +58,7 @@ namespace BudgetExecution
             ThemeStyle.CellStyle.BackColor = Color.FromArgb( 78, 78, 79 );
             ThemeStyle.CellStyle.TextColor = Color.LightSteelBlue;
             ThemeStyle.HeaderStyle.HoverTextColor = Color.White;
-            ThemeStyle.HeaderStyle.HoverBackColor = Color.SteelBlue;
+            ThemeStyle.HeaderStyle.HoverBackColor = Color.FromArgb( 0, 120, 212 );
 
             // Model Properties
             Model.Rows.DefaultSize = 22;
