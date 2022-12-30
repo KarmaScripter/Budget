@@ -159,13 +159,14 @@ namespace BudgetExecution
                 SqlQuery = string.Empty;
                 Text = DataModel.Provider + " Data";
                 ExitButton.Click += OnExitButtonClicked;
+                SearchButton.Click += OnSearchButtonClicked;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Sets the data source.
         /// </summary>
@@ -379,6 +380,29 @@ namespace BudgetExecution
             {
                 var _pdf = new PdfForm( );
                 _pdf.ShowDialog(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [search button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnSearchButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _source = DataModel.Source;
+                var _provider = DataModel.Provider;
+                var _dialog = new FilterDialog( _source, _provider );
+                _dialog.ShowDialog( );
             }
             catch( Exception ex )
             {

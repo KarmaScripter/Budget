@@ -158,6 +158,7 @@ namespace BudgetExecution
                             BindingSource?.MoveLast( );
                             break;
                         }
+                        case ToolType.SearchDataButton:
                         case ToolType.ExitButton:
                         case ToolType.BackButton:
                         {
@@ -271,7 +272,6 @@ namespace BudgetExecution
                             _notification.Show(  );
                             break;
                         }
-                        case ToolType.SearchDataButton:
                         case ToolType.LookupButton:
                         {
                             var _dialog = new LookupDialog( );

@@ -251,7 +251,7 @@
             this.DataGridPanel.Location = new System.Drawing.Point(3, 28);
             this.DataGridPanel.Name = "DataGridPanel";
             this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridPanel.Size = new System.Drawing.Size(942, 619);
+            this.DataGridPanel.Size = new System.Drawing.Size(946, 619);
             this.DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataGridPanel.StyleManager = null;
             this.DataGridPanel.TabIndex = 24;
@@ -319,7 +319,7 @@
             this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGrid.RowTemplate.Height = 25;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(879, 573);
+            this.DataGrid.Size = new System.Drawing.Size(883, 573);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.ToolTip = null;
             // 
@@ -341,7 +341,7 @@
             this.TablePanel.Location = new System.Drawing.Point(4, 30);
             this.TablePanel.Name = "TablePanel";
             this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.TablePanel.Size = new System.Drawing.Size(393, 184);
+            this.TablePanel.Size = new System.Drawing.Size(392, 184);
             this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TablePanel.StyleManager = null;
             this.TablePanel.TabIndex = 26;
@@ -378,7 +378,7 @@
             this.TableListBox.SelectedValue = null;
             this.TableListBox.ShowBorder = false;
             this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(357, 145);
+            this.TableListBox.Size = new System.Drawing.Size(356, 145);
             this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableListBox.StyleManager = null;
             this.TableListBox.TabIndex = 32;
@@ -404,7 +404,7 @@
             this.ColumnPanel.Location = new System.Drawing.Point(4, 246);
             this.ColumnPanel.Name = "ColumnPanel";
             this.ColumnPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnPanel.Size = new System.Drawing.Size(393, 184);
+            this.ColumnPanel.Size = new System.Drawing.Size(392, 184);
             this.ColumnPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnPanel.StyleManager = null;
             this.ColumnPanel.TabIndex = 27;
@@ -441,7 +441,7 @@
             this.ColumnListBox.SelectedValue = null;
             this.ColumnListBox.ShowBorder = false;
             this.ColumnListBox.ShowScrollBar = false;
-            this.ColumnListBox.Size = new System.Drawing.Size(357, 149);
+            this.ColumnListBox.Size = new System.Drawing.Size(356, 149);
             this.ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnListBox.StyleManager = null;
             this.ColumnListBox.TabIndex = 33;
@@ -467,7 +467,7 @@
             this.ValuePanel.Location = new System.Drawing.Point(4, 462);
             this.ValuePanel.Name = "ValuePanel";
             this.ValuePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValuePanel.Size = new System.Drawing.Size(393, 184);
+            this.ValuePanel.Size = new System.Drawing.Size(392, 184);
             this.ValuePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValuePanel.StyleManager = null;
             this.ValuePanel.TabIndex = 28;
@@ -504,7 +504,7 @@
             this.ValueListBox.SelectedValue = null;
             this.ValueListBox.ShowBorder = false;
             this.ValueListBox.ShowScrollBar = false;
-            this.ValueListBox.Size = new System.Drawing.Size(357, 140);
+            this.ValueListBox.Size = new System.Drawing.Size(356, 140);
             this.ValueListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValueListBox.StyleManager = null;
             this.ValueListBox.TabIndex = 32;
@@ -525,7 +525,7 @@
             this.DataGridLabel.Margin = new System.Windows.Forms.Padding(3);
             this.DataGridLabel.Name = "DataGridLabel";
             this.DataGridLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridLabel.Size = new System.Drawing.Size(942, 19);
+            this.DataGridLabel.Size = new System.Drawing.Size(946, 19);
             this.DataGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataGridLabel.StyleManager = null;
             this.DataGridLabel.TabIndex = 33;
@@ -548,7 +548,7 @@
             this.TableLabel.Margin = new System.Windows.Forms.Padding(3);
             this.TableLabel.Name = "TableLabel";
             this.TableLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.TableLabel.Size = new System.Drawing.Size(393, 20);
+            this.TableLabel.Size = new System.Drawing.Size(392, 20);
             this.TableLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableLabel.StyleManager = null;
             this.TableLabel.TabIndex = 34;
@@ -572,7 +572,7 @@
             this.ColumnLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ColumnLabel.Name = "ColumnLabel";
             this.ColumnLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnLabel.Size = new System.Drawing.Size(393, 20);
+            this.ColumnLabel.Size = new System.Drawing.Size(392, 20);
             this.ColumnLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ColumnLabel.StyleManager = null;
             this.ColumnLabel.TabIndex = 35;
@@ -596,7 +596,7 @@
             this.ValueLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ValueLabel.Name = "ValueLabel";
             this.ValueLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValueLabel.Size = new System.Drawing.Size(393, 20);
+            this.ValueLabel.Size = new System.Drawing.Size(392, 20);
             this.ValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValueLabel.StyleManager = null;
             this.ValueLabel.TabIndex = 36;
@@ -623,14 +623,11 @@
             this.GridTable.RowCount = 2;
             this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.GridTable.Size = new System.Drawing.Size(948, 650);
+            this.GridTable.Size = new System.Drawing.Size(952, 650);
             this.GridTable.TabIndex = 37;
             // 
             // TableLayout
             // 
-            this.TableLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TableLayout.ColumnCount = 1;
             this.TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -650,7 +647,7 @@
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.TableLayout.Size = new System.Drawing.Size(401, 649);
+            this.TableLayout.Size = new System.Drawing.Size(400, 649);
             this.TableLayout.TabIndex = 38;
             // 
             // ToolStrip
@@ -951,7 +948,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(99, 32);
+            this.TextBox.Size = new System.Drawing.Size(173, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -974,7 +971,7 @@
             this.SearchButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SearchButton.ForeColor = System.Drawing.Color.LightGray;
             this.SearchButton.HoverText = "Search";
-            this.SearchButton.Image = global::BudgetExecution.Properties.Resources.LookupButton;
+            this.SearchButton.Image = global::BudgetExecution.Properties.Resources.DataSearchButton;
             this.SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SearchButton.Margin = new System.Windows.Forms.Padding(3);
             this.SearchButton.Name = "SearchButton";
@@ -982,7 +979,7 @@
             this.SearchButton.Size = new System.Drawing.Size(26, 28);
             this.SearchButton.Text = "toolStripButton1";
             this.SearchButton.ToolTip = this.ToolTip;
-            this.SearchButton.ToolType = BudgetExecution.ToolType.LookupButton;
+            this.SearchButton.ToolType = BudgetExecution.ToolType.SearchDataButton;
             // 
             // toolSeparator2
             // 

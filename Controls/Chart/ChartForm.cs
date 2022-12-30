@@ -73,6 +73,22 @@ namespace BudgetExecution
         public string SqlQuery { get; set; }
 
         /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+        
+        /// <summary>
         /// Initializes a new instance of the <see cref="ChartForm"/> class.
         /// </summary>
         public ChartForm( )

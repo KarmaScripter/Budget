@@ -1025,6 +1025,22 @@
             The SQL query.
             </value>
         </member>
+        <member name="P:BudgetExecution.ChartForm.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
         <member name="M:BudgetExecution.ChartForm.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.ChartForm"/> class.
@@ -2026,6 +2042,16 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.OnSearchButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [search button clicked].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.OnExitButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [exit button clicked].
@@ -2741,6 +2767,257 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:BudgetExecution.FileBrowser.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.FilterDialog">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.FirstCategory">
+            <summary>
+            Gets or sets the first selected item.
+            </summary>
+            <value>
+            The first selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.FirstValue">
+            <summary>
+            Gets or sets the first value.
+            </summary>
+            <value>
+            The first value.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.SecondCategory">
+            <summary>
+            Gets or sets the second selected item.
+            </summary>
+            <value>
+            The second selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.SecondValue">
+            <summary>
+            Gets or sets the second value.
+            </summary>
+            <value>
+            The second value.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.ThirdCategory">
+            <summary>
+            Gets or sets the third selected item.
+            </summary>
+            <value>
+            The third selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.ThirdValue">
+            <summary>
+            Gets or sets the third value.
+            </summary>
+            <value>
+            The third value.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.SqlQuery">
+            <summary>
+            Gets or sets the SQL query.
+            </summary>
+            <value>
+            The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.FilterDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.#ctor(BudgetExecution.Source,BudgetExecution.Provider)">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.FilterDialog"/> class.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="provider">
+            The provider.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The
+            <see cref="T:System.EventArgs"/> instance containing
+            the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateFirstComoBoxItems">
+            <summary>
+            Populates the first como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnFirstComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [first ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnFirstListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [first item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateSecondComoBoxItems">
+            <summary>
+            Populates the second como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnSecondComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [second item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnSecondListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [second ListBox item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateThirdComoBoxItems">
+            <summary>
+            Populates the third como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnThirdComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [third item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnThirdListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [third ListBox item selected].
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnFirstButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            Called when [close button click].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnSecondButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            Called when [select button click].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnThirdButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            Called when [third button click].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.FilterDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -7119,6 +7396,33 @@
             Fails the specified ex.
             </summary>
             <param name="ex">The ex.</param>
+        </member>
+        <member name="T:BudgetExecution.Controls.TabControl.TabControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Controls.TabControl.TabControl.BindingSource">
+            <summary>
+            Gets or sets the binding source.
+            </summary>
+            <value>
+            The binding source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Controls.TabControl.TabControl.ToolTip">
+            <summary>
+            Gets or sets the tool tip.
+            </summary>
+            <value>
+            The tool tip.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.Controls.TabControl.TabControl.#ctor">
+            <summary>
+            Initializes a new
+            instance of the <see cref="T:BudgetExecution.Controls.TabControl.TabControl"/> class.
+            </summary>
         </member>
         <member name="T:BudgetExecution.TextBox">
             <summary>
