@@ -154,7 +154,7 @@ namespace BudgetExecution
             ShowMouseOver = true;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 887, 470 );
+            Size = new Size( 890, 455 );
             
             // Event Wiring
             Load += OnLoad;
@@ -202,12 +202,13 @@ namespace BudgetExecution
         {
             try
             {
-                Text = $"{ DataTable.TableName.SplitPascal( ) } Data";
+                Text = $"{ DataTable.TableName.SplitPascal( ) } Query Builder";
                 PopulateFirstComoBoxItems(  );
                 FirstButton.Visible = false;
                 SecondButton.Visible = false;
                 SecondFilterTable.Visible = false;
                 ThirdFilterTable.Visible = false;
+                FormFilter = new Dictionary<string, object>( );
             }
             catch( Exception ex )
             {
@@ -228,6 +229,8 @@ namespace BudgetExecution
                     {
                         FirstComboBox.Items.Add( item );
                     }
+
+                    FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
                 }
                 catch( Exception ex )
                 {
@@ -257,8 +260,7 @@ namespace BudgetExecution
                             FirstListBox.Items.Add( item );
                         }
                     
-                        FirstLabel.Text = "Available Values : " 
-                            + FirstComboBox.Items.Count;
+                        FirstLabel.Text = "Values : " + FirstComboBox.Items.Count;
                     }
                 }
                 catch( Exception ex )
@@ -280,6 +282,7 @@ namespace BudgetExecution
                 try
                 {
                     FirstValue = _listBox.SelectedValue.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComoBoxItems(  );
                     SecondFilterTable.Visible = true;
                     FirstButton.Visible = true;
@@ -318,6 +321,8 @@ namespace BudgetExecution
                             SecondComboBox.Items.Add( item );
                         }
                     }
+                    
+                    SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
                 }
                 catch( Exception ex )
                 {
@@ -350,8 +355,7 @@ namespace BudgetExecution
                             SecondListBox.Items.Add( item );
                         }
                         
-                        SecondLabel.Text = "Available Values : " 
-                            + SecondListBox.Items.Count;
+                        SecondLabel.Text = "Values : " + SecondListBox.Items.Count;
                     }
                 }
                 catch( Exception ex )
@@ -373,6 +377,7 @@ namespace BudgetExecution
                 try
                 {
                     SecondValue = _listBox.SelectedValue.ToString( );
+                    FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComoBoxItems(  );
                     ThirdFilterTable.Visible = true;
                 }
@@ -393,7 +398,7 @@ namespace BudgetExecution
                 try
                 {
                     if( !string.IsNullOrEmpty( FirstValue ) 
-                       && !string.IsNullOrEmpty( SecondValue) )
+                       && !string.IsNullOrEmpty( SecondValue ) )
                     {
                         foreach( var item in Fields )
                         {
@@ -403,6 +408,8 @@ namespace BudgetExecution
                                 ThirdComboBox.Items.Add( item );
                             }
                         }
+                        
+                        ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
                     }
                 }
                 catch( Exception ex )
@@ -436,8 +443,7 @@ namespace BudgetExecution
                             ThirdListBox.Items.Add( item );
                         }
                         
-                        ThirdLabel.Text = "Available Values : " 
-                            + ThirdListBox.Items.Count;
+                        ThirdLabel.Text = "Values : " + ThirdListBox.Items.Count;
                     }
                 }
                 catch( Exception ex )
@@ -460,6 +466,9 @@ namespace BudgetExecution
                 try
                 {
                     ThirdValue = _listBox.SelectedValue.ToString( );
+                    FormFilter.Add( ThirdCategory, ThirdValue  );
+                    SqlQuery = $"SELECT * FROM { Source } "
+                        + $"WHERE { FormFilter.ToCriteria(  ) };";
                 }
                 catch( Exception ex )
                 {

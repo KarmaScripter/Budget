@@ -64,9 +64,9 @@ namespace BudgetExecution
             Size = new Size( 200, 100 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
-            Margin = new Padding( 3 );
+            Margin = new Padding( 1 );
             Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 9 );
+            Font = new Font( "Roboto", 8 );
             ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
