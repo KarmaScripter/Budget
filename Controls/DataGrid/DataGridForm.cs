@@ -161,14 +161,11 @@ namespace BudgetExecution
                     "Available"
                 };
 
-                FormFilter = new Dictionary<string, object>
-                {
-                    { "BFY", "2022" }
-                };
-
-                DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
-                BindingSource.DataSource = DataModel.DataTable;
-                DataGrid.BindingSource = BindingSource;
+                FormFilter = new Dictionary<string, object>( );
+                FormFilter.Add( "BFY", "2022" );
+                FormFilter.Add( "FundCode", "B" );
+                SetDataSource( Source.StatusOfFunds, Provider.Access, FormFilter );
+                SetLabelConfiguration(  );
                 PopulateTableListBoxItems( );
                 PopulateToolStripComboBoxItems( );
                 SelectedTable = string.Empty;
@@ -181,6 +178,32 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Sets the data source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        private void SetDataSource( Source source, Provider provider, IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), source ) 
+               && Enum.IsDefined( typeof( Provider ), provider ) 
+               && where?.Any( ) == true )
+            {
+                try
+                {
+                    DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
+                    BindingSource.DataSource = DataModel.DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                } 
+            } 
         }
         
         /// <summary>
