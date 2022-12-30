@@ -75,7 +75,7 @@ partial class FilterDialog
             this.FirstFilterTable.Location = new System.Drawing.Point(12, 18);
             this.FirstFilterTable.Name = "FirstFilterTable";
             this.FirstFilterTable.RowCount = 3;
-            this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
             this.FirstFilterTable.Size = new System.Drawing.Size(268, 330);
@@ -95,7 +95,7 @@ partial class FilterDialog
             this.FirstFilterPanel.ForeColor = System.Drawing.Color.Transparent;
             this.FirstFilterPanel.HoverText = null;
             this.FirstFilterPanel.IsDerivedStyle = true;
-            this.FirstFilterPanel.Location = new System.Drawing.Point(3, 57);
+            this.FirstFilterPanel.Location = new System.Drawing.Point(3, 61);
             this.FirstFilterPanel.Name = "FirstFilterPanel";
             this.FirstFilterPanel.Padding = new System.Windows.Forms.Padding(1);
             this.FirstFilterPanel.Size = new System.Drawing.Size(262, 265);
@@ -154,7 +154,7 @@ partial class FilterDialog
             this.FirstLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FirstLabel.Name = "FirstLabel";
             this.FirstLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstLabel.Size = new System.Drawing.Size(262, 14);
+            this.FirstLabel.Size = new System.Drawing.Size(262, 18);
             this.FirstLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstLabel.StyleManager = null;
             this.FirstLabel.TabIndex = 0;
@@ -186,7 +186,7 @@ partial class FilterDialog
             this.FirstComboBox.HoverText = "Select First Category";
             this.FirstComboBox.IsDerivedStyle = true;
             this.FirstComboBox.ItemHeight = 24;
-            this.FirstComboBox.Location = new System.Drawing.Point(3, 23);
+            this.FirstComboBox.Location = new System.Drawing.Point(3, 27);
             this.FirstComboBox.MaxDropDownItems = 60;
             this.FirstComboBox.Name = "FirstComboBox";
             this.FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -210,7 +210,7 @@ partial class FilterDialog
             this.ThirdFilterTable.Location = new System.Drawing.Point(595, 18);
             this.ThirdFilterTable.Name = "ThirdFilterTable";
             this.ThirdFilterTable.RowCount = 3;
-            this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
             this.ThirdFilterTable.Size = new System.Drawing.Size(266, 330);
@@ -229,7 +229,7 @@ partial class FilterDialog
             this.ThirdLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ThirdLabel.Name = "ThirdLabel";
             this.ThirdLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdLabel.Size = new System.Drawing.Size(260, 14);
+            this.ThirdLabel.Size = new System.Drawing.Size(260, 18);
             this.ThirdLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdLabel.StyleManager = null;
             this.ThirdLabel.TabIndex = 0;
@@ -261,7 +261,7 @@ partial class FilterDialog
             this.ThirdComboBox.HoverText = "Select Third Category";
             this.ThirdComboBox.IsDerivedStyle = true;
             this.ThirdComboBox.ItemHeight = 24;
-            this.ThirdComboBox.Location = new System.Drawing.Point(3, 23);
+            this.ThirdComboBox.Location = new System.Drawing.Point(3, 27);
             this.ThirdComboBox.MaxDropDownItems = 60;
             this.ThirdComboBox.Name = "ThirdComboBox";
             this.ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -288,7 +288,7 @@ partial class FilterDialog
             this.ThirdFilterPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ThirdFilterPanel.HoverText = null;
             this.ThirdFilterPanel.IsDerivedStyle = true;
-            this.ThirdFilterPanel.Location = new System.Drawing.Point(3, 57);
+            this.ThirdFilterPanel.Location = new System.Drawing.Point(3, 61);
             this.ThirdFilterPanel.Name = "ThirdFilterPanel";
             this.ThirdFilterPanel.Padding = new System.Windows.Forms.Padding(1);
             this.ThirdFilterPanel.Size = new System.Drawing.Size(260, 265);
@@ -348,7 +348,7 @@ partial class FilterDialog
             this.SecondFilterPanel.ForeColor = System.Drawing.Color.Transparent;
             this.SecondFilterPanel.HoverText = null;
             this.SecondFilterPanel.IsDerivedStyle = true;
-            this.SecondFilterPanel.Location = new System.Drawing.Point(3, 57);
+            this.SecondFilterPanel.Location = new System.Drawing.Point(3, 61);
             this.SecondFilterPanel.Name = "SecondFilterPanel";
             this.SecondFilterPanel.Padding = new System.Windows.Forms.Padding(1);
             this.SecondFilterPanel.Size = new System.Drawing.Size(260, 265);
@@ -416,7 +416,7 @@ partial class FilterDialog
             this.SecondComboBox.HoverText = "Select Second Category";
             this.SecondComboBox.IsDerivedStyle = true;
             this.SecondComboBox.ItemHeight = 24;
-            this.SecondComboBox.Location = new System.Drawing.Point(3, 23);
+            this.SecondComboBox.Location = new System.Drawing.Point(3, 27);
             this.SecondComboBox.MaxDropDownItems = 60;
             this.SecondComboBox.Name = "SecondComboBox";
             this.SecondComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -442,7 +442,7 @@ partial class FilterDialog
             this.SecondLabel.Margin = new System.Windows.Forms.Padding(3);
             this.SecondLabel.Name = "SecondLabel";
             this.SecondLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondLabel.Size = new System.Drawing.Size(260, 14);
+            this.SecondLabel.Size = new System.Drawing.Size(260, 18);
             this.SecondLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondLabel.StyleManager = null;
             this.SecondLabel.TabIndex = 0;
@@ -463,7 +463,7 @@ partial class FilterDialog
             this.SecondFilterTable.Location = new System.Drawing.Point(304, 18);
             this.SecondFilterTable.Name = "SecondFilterTable";
             this.SecondFilterTable.RowCount = 3;
-            this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
             this.SecondFilterTable.Size = new System.Drawing.Size(266, 330);
@@ -597,7 +597,7 @@ partial class FilterDialog
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(878, 417);
+            this.ClientSize = new System.Drawing.Size(870, 417);
             this.Controls.Add(this.FirstFilterTable);
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.SecondButton);

@@ -154,7 +154,7 @@ namespace BudgetExecution
             ShowMouseOver = true;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 890, 455 );
+            Size = new Size( 882, 455 );
             
             // Event Wiring
             Load += OnLoad;
@@ -202,7 +202,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = $"{ DataTable.TableName.SplitPascal( ) } Query Builder";
+                Text = $"{ DataTable.TableName.SplitPascal( ) } Query";
                 PopulateFirstComoBoxItems(  );
                 FirstButton.Visible = false;
                 SecondButton.Visible = false;
