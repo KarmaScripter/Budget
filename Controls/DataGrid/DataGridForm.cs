@@ -150,17 +150,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _fields = new List<string>
-                {
-                    "BFY",
-                    "EFY",
-                    "FundName",
-                    "RpioCode",
-                    "RpioName",
-                    "Amount",
-                    "Available"
-                };
-
                 FormFilter = new Dictionary<string, object>( );
                 FormFilter.Add( "BFY", "2022" );
                 FormFilter.Add( "FundCode", "B" );
