@@ -150,6 +150,18 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.ChartDialog.PopulateNumericListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartDialog.OnNumericListBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [numeric ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="M:BudgetExecution.ChartDialog.Fail(System.Exception)">
             <summary>
             Get Error Dialog.

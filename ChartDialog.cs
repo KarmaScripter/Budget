@@ -148,6 +148,13 @@ namespace BudgetExecution
                 FieldListBox.MultiSelect = true;
                 NumericListBox.MultiSelect = true;
                 PopulateTableListBox(  );
+                DataTable = (DataTable)BindingSource.DataSource;
+                Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+                DataModel = new DataBuilder( Source, Provider.Access );
+                Fields = DataModel.Fields;
+                Numerics = DataModel.Numerics;
+                PopulateFieldListBox(  );
+                PopulateNumericListBox(  );
             }
             catch( Exception ex )
             {
@@ -223,17 +230,15 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter.Keys.Count > 0 )
+                if( FormFilter?.Keys?.Count > 0 )
                 {
                     FormFilter.Clear( );
                 }
                 
                 BindingSource.DataSource = null;
                 SqlQuery = string.Empty;
-                Fields.Clear();
-                FieldListBox.Items.Clear( );
-                Numerics.Clear(  );
-                NumericListBox.Items.Clear( );
+                FieldListBox.Items?.Clear( );
+                NumericListBox.Items?.Clear( );
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedValue?.ToString( );
                 SelectedTable = _value;

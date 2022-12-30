@@ -252,7 +252,7 @@ partial class ChartDialog
             this.FieldListBox.ItemHeight = 20;
             this.FieldListBox.Location = new System.Drawing.Point(18, 13);
             this.FieldListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.FieldListBox.MultiSelect = false;
+            this.FieldListBox.MultiSelect = true;
             this.FieldListBox.Name = "FieldListBox";
             this.FieldListBox.Padding = new System.Windows.Forms.Padding(1);
             this.FieldListBox.SelectedIndex = -1;
@@ -376,7 +376,7 @@ partial class ChartDialog
             this.NumericListBox.ItemHeight = 20;
             this.NumericListBox.Location = new System.Drawing.Point(18, 13);
             this.NumericListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.NumericListBox.MultiSelect = false;
+            this.NumericListBox.MultiSelect = true;
             this.NumericListBox.Name = "NumericListBox";
             this.NumericListBox.Padding = new System.Windows.Forms.Padding(1);
             this.NumericListBox.SelectedIndex = -1;
