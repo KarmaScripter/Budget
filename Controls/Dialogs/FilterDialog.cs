@@ -151,7 +151,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = true;
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
             Size = new Size( 882, 455 );
@@ -204,6 +204,7 @@ namespace BudgetExecution
             {
                 Text = $"{ DataTable.TableName.SplitPascal( ) } Query";
                 PopulateFirstComoBoxItems( );
+                SetLabelConfiguration(  );
                 FirstButton.Visible = !FirstButton.Visible;
                 SecondButton.Visible = !SecondButton.Visible;
                 SecondFilterTable.Visible = !SecondFilterTable.Visible;
@@ -229,8 +230,8 @@ namespace BudgetExecution
                     {
                         FirstComboBox.Items.Add( item );
                     }
-
-                    FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
+                    
+                    SetLabelConfiguration(  );
                 }
                 catch( Exception ex )
                 {
@@ -259,8 +260,8 @@ namespace BudgetExecution
                         {
                             FirstListBox.Items.Add( item );
                         }
-                    
-                        FirstLabel.Text = "Values : " + FirstComboBox.Items.Count;
+                        
+                        SetLabelConfiguration(  );
                     }
                 }
                 catch( Exception ex )
@@ -321,8 +322,9 @@ namespace BudgetExecution
                             SecondComboBox.Items.Add( item );
                         }
                     }
-                    
-                    SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
+
+                    SecondComboBox.SelectedIndex = -1;
+                    SetLabelConfiguration(  );
                 }
                 catch( Exception ex )
                 {
@@ -355,7 +357,7 @@ namespace BudgetExecution
                             SecondListBox.Items.Add( item );
                         }
                         
-                        SecondLabel.Text = "Values : " + SecondListBox.Items.Count;
+                        SetLabelConfiguration(  );
                     }
                 }
                 catch( Exception ex )
@@ -408,8 +410,9 @@ namespace BudgetExecution
                                 ThirdComboBox.Items.Add( item );
                             }
                         }
-                        
-                        ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
+
+                        ThirdComboBox.SelectedIndex = -1;
+                        SetLabelConfiguration(  );
                     }
                 }
                 catch( Exception ex )
@@ -443,7 +446,7 @@ namespace BudgetExecution
                             ThirdListBox.Items.Add( item );
                         }
                         
-                        ThirdLabel.Text = "Values : " + ThirdListBox.Items.Count;
+                        SetLabelConfiguration(  );
                     }
                 }
                 catch( Exception ex )
@@ -489,9 +492,25 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _message = "NOT YET IMPLEMENTED!";
-                    var _notification = new Notification( _message );
-                    _notification.Show( );
+                    if( FormFilter?.Any( ) == true )
+                    {
+                        FormFilter.Clear(  );
+                        FirstCategory = null;
+                        FirstValue = null;
+                        FirstListBox.Items.Clear( );
+                        SecondCategory = null;
+                        SecondValue = null;
+                        SecondListBox.Items.Clear( );
+                        ThirdCategory = null;
+                        ThirdValue = null;
+                        ThirdListBox.Items.Clear(  );
+                        FirstButton.Visible = !FirstButton.Visible;
+                        SecondButton.Visible = !SecondButton.Visible;
+                        SecondFilterTable.Visible = false;
+                        ThirdFilterTable.Visible = false;
+                        PopulateFirstComoBoxItems(  );
+                        SetLabelConfiguration(  );
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -544,6 +563,23 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+        
+        /// <summary>
+        /// Sets the label configuration.
+        /// </summary>
+        private void SetLabelConfiguration( )
+        {
+            try
+            {
+                FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
+                SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
+                ThirdLabel.Text = "Values : " + ThirdListBox.Items.Count;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
         

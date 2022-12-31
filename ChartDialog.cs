@@ -12,8 +12,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using C1.Framework;
     using Syncfusion.Windows.Forms;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
     /// 
@@ -55,12 +55,12 @@ namespace BudgetExecution
         public IDictionary<string, object> FormFilter { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected table.
+        /// Gets or sets the selected columns.
         /// </summary>
         /// <value>
-        /// The selected table.
+        /// The selected columns.
         /// </value>
-        public string SelectedTable { get; set; }
+        public IList<string> SelectedColumns { get; set; }
 
         /// <summary>
         /// Gets or sets the numerics.
@@ -103,7 +103,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 900, 500 );
+            Size = new Size( 704, 541 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -123,31 +123,22 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             
+            // ListBox Properties
+            FirstListBox.MultiSelect = true;
+            SecondListBox.MultiSelect = true;
+            
             // TableProperties
-            FirstTable.Location = new Point( 12, 12 );
-            FirstTable.Size = new Size( 280, 376 );
             FirstTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             FirstTable.Visible = true;
-            SecondTable.Location = new Point( 306, 12 );
-            SecondTable.Size = new Size( 280, 376 );
             SecondTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            SecondTable.Visible = true;
-            ThirdTable.Location = new Point( 598, 12 );
-            ThirdTable.Size = new Size( 280, 376 );
-            ThirdTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            ThirdTable.Visible = true;
-            
-            // Button Properties
-            FirstButton.Size = new Size( 160, 55 );
-            FirstButton.Location = new Point( 12, 400 );
-            SecondButton.Size = new Size( 160, 55 );
-            SecondButton.Location = new Point( 345, 400 );
-            ThirdButton.Size = new Size( 160, 55 );
-            ThirdButton.Location = new Point( 650, 400 );
             
             // Event Wiring
             Load += OnLoad;
-            FirstListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxSelectedValueChanged;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxSelectedValueChanged;
+            FirstButton.Click += OnFirstButtonClicked;
+            SecondButton.Click += OnSecondButtonClicked;
+            ThirdButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -155,55 +146,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public ChartDialog( BindingSource bindingSource ) 
+            : this( )
         {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 620, 500 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-            
-            // TableProperties
-            FirstTable.Location = new Point( 12, 12 );
-            FirstTable.Size = new Size( 280, 376 );
-            FirstTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            FirstTable.Visible = true;
-            SecondTable.Location = new Point( 306, 12 );
-            SecondTable.Size = new Size( 280, 376 );
-            SecondTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            SecondTable.Visible = true;
-            ThirdTable.Location = new Point( 598, 12 );
-            ThirdTable.Size = new Size( 280, 376 );
-            ThirdTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            ThirdTable.Visible = false;
-            
-            // Button Properties
-            FirstButton.Size = new Size( 160, 55 );
-            FirstButton.Location = new Point( 12, 400 );
-            SecondButton.Size = new Size( 160, 55 );
-            SecondButton.Location = new Point( 200, 400 );
-            ThirdButton.Size = new Size( 160, 55 );
-            ThirdButton.Location = new Point( 406, 400 );
-            
-            // Event Wiring
-            Load += OnLoad;
-            FirstListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            BindingSource = bindingSource;
         }
 
         /// <summary>
@@ -215,19 +160,18 @@ namespace BudgetExecution
         {
             try
             {
+                SelectedColumns = new List<string>( );
+                SelectionsTextBox.Text = string.Empty;
+                SelectionsTextBox.Visible = false;
                 ThirdButton.Click += OnCloseButtonClicked;
-                SecondListBox.MultiSelect = true;
-                ThirdListBox.MultiSelect = true;
-                PopulateTableListBox(  );
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                PopulateFieldListBox(  );
-                PopulateNumericListBox( );
+                PopulateFirstListBox( );
+                PopulateSecondListBox( );
                 SetLabelConfiguration( );
-                FirstListBox.SelectedValue = $"{ Source }";
             }
             catch( Exception ex )
             {
@@ -242,16 +186,189 @@ namespace BudgetExecution
         {
             try
             {
-                var _tableText = "Tables: " + FirstListBox.Items.Count;
-                var _selected = _tableText + "  Selected:  " + DataModel.TableName;
-                FirstLabel.Text = "Tables: " + FirstListBox.Items.Count;
-                SecondLabel.Text = "Fields: " + SecondListBox.Items?.Count;
+                FirstLabel.Text = "Fields:  " + SecondListBox.Items?.Count;
+                SecondLabel.Text = "Numerics:  " + SecondListBox.Items?.Count;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
+        
+        /// <summary>
+        /// Populates the column ListBox.
+        /// </summary>
+        private void PopulateFirstListBox( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    foreach( var _item in Fields )
+                    {
+                        FirstListBox.Items.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [column ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnFirstListBoxSelectedValueChanged( object sender )
+        {
+            try
+            {
+                var _selectedItem = FirstListBox.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem ) )
+                {
+                    SelectedColumns.Add( _selectedItem );
+                }
+                
+                UpdateHeaderText(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateSecondListBox( )
+        {
+            if( Numerics?.Any( ) == true )
+            {
+                try
+                {
+                    for( var _i = 0; _i < Numerics.Count; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
+                        {
+                            SecondListBox.Items.Add( Numerics[ _i ] );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Called when [numeric ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnSecondListBoxSelectedValueChanged( object sender )
+        {
+            try
+            {
+                var _selectedItem = SecondListBox.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem ) )
+                {
+                    SelectedColumns.Add( _selectedItem );
+                }
+                
+                UpdateHeaderText(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnFirstButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( FirstListBox.SelectedItems?.Count > 0 )
+                {
+                    FirstListBox.SelectedItems.Clear(  );
+                    FirstListBox.Items.Clear( );
+                    PopulateFirstListBox(  );
+                }
+                
+                if( SecondListBox.SelectedItems?.Count > 0 )
+                {
+                    SecondListBox.SelectedItems.Clear(  );
+                    SecondListBox.Items.Clear(  );
+                    PopulateSecondListBox(  );
+                }
+                
+                if( SelectedColumns?.Count > 0 )
+                {
+                    SelectedColumns.Clear(  );
+                }
+
+                SelectionsTextBox.Text = string.Empty;
+                SelectionsTextBox.Visible = false;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [second button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnSecondButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                UpdateHeaderText(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the header text.
+        /// </summary>
+        private void UpdateHeaderText( )
+        {
+            try
+            {
+                var _text = string.Empty;
+                var _selections = string.Empty;
+                if( SelectedColumns?.Any(  ) == true )
+                {
+                    foreach( var item in SelectedColumns )
+                    {
+                        _selections += $"{ item }, ";
+                    }
+
+                    var _trimmed = _selections?.TrimEnd( ", ".ToCharArray(  ) );
+                    SelectionsTextBox.Text = _text + _trimmed;
+                    SelectionsTextBox.BorderColor = Color.FromArgb( 65, 65, 65 );
+                    SelectionsTextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+                    SelectionsTextBox.Visible = true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
@@ -269,154 +386,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the table ListBox.
-        /// </summary>
-        private void PopulateTableListBox( )
-        {
-            try
-            {
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.ToList(  );
-            
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var name = _names[ _i ];
-                    FirstListBox.Items.Add( name );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [table ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnTableListBoxItemSelected( object sender )
-        {
-            try
-            {
-                if( FormFilter?.Keys?.Count > 0 )
-                {
-                    FormFilter.Clear( );
-                }
-                
-                BindingSource.DataSource = null;
-                SqlQuery = string.Empty;
-                SecondListBox.Items?.Clear( );
-                ThirdListBox.Items?.Clear( );
-                var _listBox = sender as ListBox;
-                var _value = _listBox?.SelectedValue?.ToString( );
-                SelectedTable = _value;
-                if( !string.IsNullOrEmpty( _value ) )
-                {
-                    var _source = (Source)Enum.Parse( typeof( Source ), _value );
-                    DataModel = new DataBuilder( _source, Provider.Access );
-                    BindingSource.DataSource = DataModel.DataTable;
-                    SelectedTable = DataModel.DataTable?.TableName;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    PopulateFieldListBox( );
-                    PopulateNumericListBox( );
-                }
-                
-                SetLabelConfiguration(  );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the column ListBox.
-        /// </summary>
-        private void PopulateFieldListBox( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    Fields = DataModel.Fields;
-                    foreach( var col in Fields )
-                    {
-                        SecondListBox.Items.Add( col );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [column ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFieldListBoxItemSelected( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
-        private void PopulateNumericListBox( )
-        {
-            if( Numerics?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var col in Numerics )
-                    {
-                        ThirdListBox.Items.Add( col );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Called when [numeric ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnNumericListBoxItemSelected( object sender, EventArgs e )
-        {
-            if( Numerics?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var col in Numerics )
-                    {
-                        ThirdListBox.Items.Add( col );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

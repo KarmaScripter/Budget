@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.CodeDom;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -240,7 +241,9 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( col.Ordinal > 0
-                           && col.DataType != typeof( string ) )
+                           && ( col.DataType == typeof( double ) 
+                               | col.DataType == typeof( decimal ) 
+                               | col.DataType == typeof( float ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }

@@ -147,7 +147,7 @@
             this.SchemaPanelLabel.BindingSource = null;
             this.SchemaPanelLabel.DataFilter = null;
             this.SchemaPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SchemaPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SchemaPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SchemaPanelLabel.HoverText = null;
             this.SchemaPanelLabel.IsDerivedStyle = true;
             this.SchemaPanelLabel.Location = new System.Drawing.Point(188, 273);
@@ -179,7 +179,7 @@
             this.SchemaPanel.Controls.Add(this.AddColumnButton);
             this.SchemaPanel.Controls.Add(this.DataTypeComboBox);
             this.SchemaPanel.DataFilter = null;
-            this.SchemaPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SchemaPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SchemaPanel.ForeColor = System.Drawing.Color.Transparent;
             this.SchemaPanel.HoverText = null;
             this.SchemaPanel.IsDerivedStyle = true;
@@ -339,7 +339,7 @@
             this.TablePanel.Controls.Add(this.TableNameComboBox);
             this.TablePanel.Controls.Add(this.TablePanelTextBox);
             this.TablePanel.DataFilter = null;
-            this.TablePanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
             this.TablePanel.HoverText = null;
             this.TablePanel.IsDerivedStyle = true;
@@ -437,7 +437,7 @@
             this.TablePanelLabel.BindingSource = null;
             this.TablePanelLabel.DataFilter = null;
             this.TablePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TablePanelLabel.HoverText = null;
             this.TablePanelLabel.IsDerivedStyle = true;
             this.TablePanelLabel.Location = new System.Drawing.Point(829, 37);
@@ -469,7 +469,7 @@
             this.ProviderPanel.Controls.Add(this.AccessRadioButton);
             this.ProviderPanel.Controls.Add(this.SqlServerRadioButton);
             this.ProviderPanel.DataFilter = null;
-            this.ProviderPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProviderPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProviderPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ProviderPanel.HoverText = null;
             this.ProviderPanel.IsDerivedStyle = true;
@@ -579,7 +579,7 @@
             this.ProviderPanelLabel.BindingSource = null;
             this.ProviderPanelLabel.DataFilter = null;
             this.ProviderPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProviderPanelLabel.HoverText = null;
             this.ProviderPanelLabel.IsDerivedStyle = true;
             this.ProviderPanelLabel.Location = new System.Drawing.Point(187, 37);

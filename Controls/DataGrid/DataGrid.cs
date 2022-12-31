@@ -88,7 +88,7 @@ namespace BudgetExecution
 
             // Column SeriesConfiguration
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            ColumnHeadersHeight = 24;
+            ColumnHeadersHeight = 26;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;

@@ -37,8 +37,8 @@ partial class ChartDialog
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartDialog));
             this.SecondButton = new BudgetExecution.Button();
             this.ThirdButton = new BudgetExecution.Button();
-            this.FirstListBox = new BudgetExecution.ListBox();
             this.FirstPanel = new BudgetExecution.Layout();
+            this.FirstListBox = new BudgetExecution.ListBox();
             this.FirstButton = new BudgetExecution.Button();
             this.SecondPanel = new BudgetExecution.Layout();
             this.SecondListBox = new BudgetExecution.ListBox();
@@ -46,19 +46,15 @@ partial class ChartDialog
             this.SecondLabel = new BudgetExecution.Label();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolTip = new BudgetExecution.SmallTip();
-            this.ThirdPanel = new BudgetExecution.Layout();
-            this.ThirdListBox = new BudgetExecution.ListBox();
-            this.ThirdLabel = new BudgetExecution.Label();
             this.FirstTable = new System.Windows.Forms.TableLayoutPanel();
             this.SecondTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
+            this.SelectionsTextBox = new BudgetExecution.TextBox();
+            this.label1 = new BudgetExecution.Label();
             this.FirstPanel.SuspendLayout();
             this.SecondPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
-            this.ThirdPanel.SuspendLayout();
             this.FirstTable.SuspendLayout();
             this.SecondTable.SuspendLayout();
-            this.ThirdTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // SecondButton
@@ -75,7 +71,7 @@ partial class ChartDialog
             this.SecondButton.HoverText = null;
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(198, 400);
+            this.SecondButton.Location = new System.Drawing.Point(277, 437);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SecondButton.NormalColor = System.Drawing.Color.Transparent;
@@ -84,7 +80,7 @@ partial class ChartDialog
             this.SecondButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondButton.PressTextColor = System.Drawing.Color.White;
-            this.SecondButton.Size = new System.Drawing.Size(160, 53);
+            this.SecondButton.Size = new System.Drawing.Size(140, 53);
             this.SecondButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondButton.StyleManager = null;
             this.SecondButton.TabIndex = 0;
@@ -107,7 +103,7 @@ partial class ChartDialog
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(423, 398);
+            this.ThirdButton.Location = new System.Drawing.Point(484, 437);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;
@@ -116,7 +112,7 @@ partial class ChartDialog
             this.ThirdButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdButton.PressTextColor = System.Drawing.Color.White;
-            this.ThirdButton.Size = new System.Drawing.Size(160, 53);
+            this.ThirdButton.Size = new System.Drawing.Size(140, 53);
             this.ThirdButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdButton.StyleManager = null;
             this.ThirdButton.TabIndex = 1;
@@ -124,41 +120,6 @@ partial class ChartDialog
             this.ThirdButton.ThemeAuthor = "Terry D. Eppler";
             this.ThirdButton.ThemeName = "BudgetExecution";
             this.ThirdButton.ToolTip = null;
-            // 
-            // FirstListBox
-            // 
-            this.FirstListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FirstListBox.BindingSource = null;
-            this.FirstListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.FirstListBox.DataFilter = null;
-            this.FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.FirstListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.FirstListBox.HoverText = null;
-            this.FirstListBox.IsDerivedStyle = true;
-            this.FirstListBox.ItemHeight = 20;
-            this.FirstListBox.Location = new System.Drawing.Point(15, 13);
-            this.FirstListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.FirstListBox.MultiSelect = false;
-            this.FirstListBox.Name = "FirstListBox";
-            this.FirstListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstListBox.SelectedIndex = -1;
-            this.FirstListBox.SelectedItem = null;
-            this.FirstListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.FirstListBox.SelectedText = null;
-            this.FirstListBox.SelectedValue = null;
-            this.FirstListBox.ShowBorder = false;
-            this.FirstListBox.ShowScrollBar = false;
-            this.FirstListBox.Size = new System.Drawing.Size(240, 310);
-            this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FirstListBox.StyleManager = null;
-            this.FirstListBox.TabIndex = 2;
-            this.FirstListBox.ThemeAuthor = "Terry D. Eppler";
-            this.FirstListBox.ThemeName = "BudgetExecution";
-            this.FirstListBox.ToolTip = null;
             // 
             // FirstPanel
             // 
@@ -175,16 +136,51 @@ partial class ChartDialog
             this.FirstPanel.ForeColor = System.Drawing.Color.Transparent;
             this.FirstPanel.HoverText = null;
             this.FirstPanel.IsDerivedStyle = true;
-            this.FirstPanel.Location = new System.Drawing.Point(3, 38);
+            this.FirstPanel.Location = new System.Drawing.Point(3, 35);
             this.FirstPanel.Name = "FirstPanel";
             this.FirstPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstPanel.Size = new System.Drawing.Size(274, 335);
+            this.FirstPanel.Size = new System.Drawing.Size(239, 264);
             this.FirstPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstPanel.StyleManager = null;
             this.FirstPanel.TabIndex = 3;
             this.FirstPanel.ThemeAuthor = "Terry D. Eppler";
             this.FirstPanel.ThemeName = "BudgetExecution";
             this.FirstPanel.ToolTip = null;
+            // 
+            // FirstListBox
+            // 
+            this.FirstListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.FirstListBox.BindingSource = null;
+            this.FirstListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.FirstListBox.DataFilter = null;
+            this.FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.FirstListBox.HoveredItemColor = System.Drawing.Color.White;
+            this.FirstListBox.HoverText = null;
+            this.FirstListBox.IsDerivedStyle = true;
+            this.FirstListBox.ItemHeight = 28;
+            this.FirstListBox.Location = new System.Drawing.Point(11, 14);
+            this.FirstListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.FirstListBox.MultiSelect = true;
+            this.FirstListBox.Name = "FirstListBox";
+            this.FirstListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstListBox.SelectedIndex = -1;
+            this.FirstListBox.SelectedItem = null;
+            this.FirstListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.FirstListBox.SelectedText = null;
+            this.FirstListBox.SelectedValue = null;
+            this.FirstListBox.ShowBorder = false;
+            this.FirstListBox.ShowScrollBar = false;
+            this.FirstListBox.Size = new System.Drawing.Size(214, 234);
+            this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstListBox.StyleManager = null;
+            this.FirstListBox.TabIndex = 0;
+            this.FirstListBox.ThemeAuthor = "Terry D. Eppler";
+            this.FirstListBox.ThemeName = "Budget Execution";
+            this.FirstListBox.ToolTip = null;
             // 
             // FirstButton
             // 
@@ -200,7 +196,7 @@ partial class ChartDialog
             this.FirstButton.HoverText = null;
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(12, 400);
+            this.FirstButton.Location = new System.Drawing.Point(65, 437);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.FirstButton.NormalColor = System.Drawing.Color.Transparent;
@@ -209,11 +205,11 @@ partial class ChartDialog
             this.FirstButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstButton.PressTextColor = System.Drawing.Color.White;
-            this.FirstButton.Size = new System.Drawing.Size(160, 55);
+            this.FirstButton.Size = new System.Drawing.Size(140, 55);
             this.FirstButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstButton.StyleManager = null;
             this.FirstButton.TabIndex = 4;
-            this.FirstButton.Text = "Undo / Clear";
+            this.FirstButton.Text = "Clear";
             this.FirstButton.ThemeAuthor = "Terry D. Eppler";
             this.FirstButton.ThemeName = "Budget Execution";
             this.FirstButton.ToolTip = null;
@@ -233,10 +229,10 @@ partial class ChartDialog
             this.SecondPanel.ForeColor = System.Drawing.Color.Transparent;
             this.SecondPanel.HoverText = null;
             this.SecondPanel.IsDerivedStyle = true;
-            this.SecondPanel.Location = new System.Drawing.Point(3, 39);
+            this.SecondPanel.Location = new System.Drawing.Point(3, 33);
             this.SecondPanel.Name = "SecondPanel";
             this.SecondPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondPanel.Size = new System.Drawing.Size(274, 334);
+            this.SecondPanel.Size = new System.Drawing.Size(239, 266);
             this.SecondPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondPanel.StyleManager = null;
             this.SecondPanel.TabIndex = 5;
@@ -248,17 +244,17 @@ partial class ChartDialog
             // 
             this.SecondListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SecondListBox.BindingSource = null;
-            this.SecondListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.SecondListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.SecondListBox.DataFilter = null;
             this.SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SecondListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.SecondListBox.HoveredItemColor = System.Drawing.Color.White;
             this.SecondListBox.HoverText = null;
             this.SecondListBox.IsDerivedStyle = true;
-            this.SecondListBox.ItemHeight = 20;
-            this.SecondListBox.Location = new System.Drawing.Point(18, 13);
+            this.SecondListBox.ItemHeight = 28;
+            this.SecondListBox.Location = new System.Drawing.Point(13, 16);
             this.SecondListBox.Margin = new System.Windows.Forms.Padding(1);
             this.SecondListBox.MultiSelect = true;
             this.SecondListBox.Name = "SecondListBox";
@@ -271,12 +267,12 @@ partial class ChartDialog
             this.SecondListBox.SelectedValue = null;
             this.SecondListBox.ShowBorder = false;
             this.SecondListBox.ShowScrollBar = false;
-            this.SecondListBox.Size = new System.Drawing.Size(240, 310);
+            this.SecondListBox.Size = new System.Drawing.Size(214, 234);
             this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondListBox.StyleManager = null;
-            this.SecondListBox.TabIndex = 2;
+            this.SecondListBox.TabIndex = 0;
             this.SecondListBox.ThemeAuthor = "Terry D. Eppler";
-            this.SecondListBox.ThemeName = "BudgetExecution";
+            this.SecondListBox.ThemeName = "Budget Execution";
             this.SecondListBox.ToolTip = null;
             // 
             // FirstLabel
@@ -285,18 +281,18 @@ partial class ChartDialog
             this.FirstLabel.DataFilter = null;
             this.FirstLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FirstLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FirstLabel.HoverText = null;
             this.FirstLabel.IsDerivedStyle = true;
             this.FirstLabel.Location = new System.Drawing.Point(3, 3);
             this.FirstLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FirstLabel.Name = "FirstLabel";
             this.FirstLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstLabel.Size = new System.Drawing.Size(274, 29);
+            this.FirstLabel.Size = new System.Drawing.Size(239, 26);
             this.FirstLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstLabel.StyleManager = null;
             this.FirstLabel.TabIndex = 3;
-            this.FirstLabel.Text = "Tables :";
+            this.FirstLabel.Text = "Fields :";
             this.FirstLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.FirstLabel.ThemeAuthor = "Terry D. Eppler";
             this.FirstLabel.ThemeName = "BudgetExecution";
@@ -308,18 +304,18 @@ partial class ChartDialog
             this.SecondLabel.DataFilter = null;
             this.SecondLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SecondLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondLabel.HoverText = null;
             this.SecondLabel.IsDerivedStyle = true;
             this.SecondLabel.Location = new System.Drawing.Point(3, 3);
             this.SecondLabel.Margin = new System.Windows.Forms.Padding(3);
             this.SecondLabel.Name = "SecondLabel";
             this.SecondLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondLabel.Size = new System.Drawing.Size(274, 30);
+            this.SecondLabel.Size = new System.Drawing.Size(239, 24);
             this.SecondLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondLabel.StyleManager = null;
             this.SecondLabel.TabIndex = 3;
-            this.SecondLabel.Text = "Fields :";
+            this.SecondLabel.Text = "Numerics:";
             this.SecondLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.SecondLabel.ThemeAuthor = "Terry D. Eppler";
             this.SecondLabel.ThemeName = "BudgetExecution";
@@ -345,90 +341,6 @@ partial class ChartDialog
             this.ToolTip.TipText = null;
             this.ToolTip.TipTitle = null;
             // 
-            // ThirdPanel
-            // 
-            this.ThirdPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ThirdPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdPanel.BindingSource = null;
-            this.ThirdPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ThirdPanel.BorderThickness = 1;
-            this.ThirdPanel.Children = null;
-            this.ThirdPanel.Controls.Add(this.ThirdListBox);
-            this.ThirdPanel.DataFilter = null;
-            this.ThirdPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThirdPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.ThirdPanel.HoverText = null;
-            this.ThirdPanel.IsDerivedStyle = true;
-            this.ThirdPanel.Location = new System.Drawing.Point(3, 38);
-            this.ThirdPanel.Name = "ThirdPanel";
-            this.ThirdPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdPanel.Size = new System.Drawing.Size(274, 335);
-            this.ThirdPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdPanel.StyleManager = null;
-            this.ThirdPanel.TabIndex = 6;
-            this.ThirdPanel.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdPanel.ThemeName = "BudgetExecution";
-            this.ThirdPanel.ToolTip = null;
-            // 
-            // ThirdListBox
-            // 
-            this.ThirdListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ThirdListBox.BindingSource = null;
-            this.ThirdListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ThirdListBox.DataFilter = null;
-            this.ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ThirdListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.ThirdListBox.HoverText = null;
-            this.ThirdListBox.IsDerivedStyle = true;
-            this.ThirdListBox.ItemHeight = 20;
-            this.ThirdListBox.Location = new System.Drawing.Point(18, 13);
-            this.ThirdListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ThirdListBox.MultiSelect = true;
-            this.ThirdListBox.Name = "ThirdListBox";
-            this.ThirdListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdListBox.SelectedIndex = -1;
-            this.ThirdListBox.SelectedItem = null;
-            this.ThirdListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ThirdListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.ThirdListBox.SelectedText = null;
-            this.ThirdListBox.SelectedValue = null;
-            this.ThirdListBox.ShowBorder = false;
-            this.ThirdListBox.ShowScrollBar = false;
-            this.ThirdListBox.Size = new System.Drawing.Size(240, 310);
-            this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdListBox.StyleManager = null;
-            this.ThirdListBox.TabIndex = 2;
-            this.ThirdListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdListBox.ThemeName = "BudgetExecution";
-            this.ThirdListBox.ToolTip = null;
-            // 
-            // ThirdLabel
-            // 
-            this.ThirdLabel.BindingSource = null;
-            this.ThirdLabel.DataFilter = null;
-            this.ThirdLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThirdLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ThirdLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdLabel.HoverText = null;
-            this.ThirdLabel.IsDerivedStyle = true;
-            this.ThirdLabel.Location = new System.Drawing.Point(3, 3);
-            this.ThirdLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.ThirdLabel.Name = "ThirdLabel";
-            this.ThirdLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdLabel.Size = new System.Drawing.Size(274, 29);
-            this.ThirdLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdLabel.StyleManager = null;
-            this.ThirdLabel.TabIndex = 7;
-            this.ThirdLabel.Text = "Numerics :";
-            this.ThirdLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.ThirdLabel.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdLabel.ThemeName = "BudgetExecution";
-            this.ThirdLabel.ToolTip = null;
-            // 
             // FirstTable
             // 
             this.FirstTable.ColumnCount = 1;
@@ -436,12 +348,12 @@ partial class ChartDialog
             this.FirstTable.Controls.Add(this.FirstLabel, 0, 0);
             this.FirstTable.Controls.Add(this.FirstPanel, 0, 1);
             this.FirstTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.FirstTable.Location = new System.Drawing.Point(12, 12);
+            this.FirstTable.Location = new System.Drawing.Point(65, 36);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 2;
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.574468F));
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.42553F));
-            this.FirstTable.Size = new System.Drawing.Size(280, 376);
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.59603F));
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.40398F));
+            this.FirstTable.Size = new System.Drawing.Size(245, 302);
             this.FirstTable.TabIndex = 8;
             // 
             // SecondTable
@@ -451,32 +363,72 @@ partial class ChartDialog
             this.SecondTable.Controls.Add(this.SecondLabel, 0, 0);
             this.SecondTable.Controls.Add(this.SecondPanel, 0, 1);
             this.SecondTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SecondTable.Location = new System.Drawing.Point(306, 12);
+            this.SecondTable.Location = new System.Drawing.Point(379, 36);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.793815F));
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.20618F));
-            this.SecondTable.Size = new System.Drawing.Size(280, 376);
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.03344F));
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.96655F));
+            this.SecondTable.Size = new System.Drawing.Size(245, 302);
             this.SecondTable.TabIndex = 9;
             // 
-            // ThirdTable
+            // SelectionsTextBox
             // 
-            this.ThirdTable.ColumnCount = 1;
-            this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ThirdTable.Controls.Add(this.ThirdLabel, 0, 0);
-            this.ThirdTable.Controls.Add(this.ThirdPanel, 0, 1);
-            this.ThirdTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ThirdTable.Location = new System.Drawing.Point(598, 12);
-            this.ThirdTable.Name = "ThirdTable";
-            this.ThirdTable.RowCount = 2;
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.308511F));
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.69149F));
-            this.ThirdTable.Size = new System.Drawing.Size(280, 376);
-            this.ThirdTable.TabIndex = 10;
+            this.SelectionsTextBox.AutoCompleteCustomSource = null;
+            this.SelectionsTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.SelectionsTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.SelectionsTextBox.BindingSource = null;
+            this.SelectionsTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SelectionsTextBox.DataFilter = null;
+            this.SelectionsTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.SelectionsTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.SelectionsTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.SelectionsTextBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectionsTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SelectionsTextBox.HoverText = null;
+            this.SelectionsTextBox.Image = null;
+            this.SelectionsTextBox.IsDerivedStyle = true;
+            this.SelectionsTextBox.Lines = null;
+            this.SelectionsTextBox.Location = new System.Drawing.Point(138, 354);
+            this.SelectionsTextBox.MaxLength = 32767;
+            this.SelectionsTextBox.Multiline = true;
+            this.SelectionsTextBox.Name = "SelectionsTextBox";
+            this.SelectionsTextBox.ReadOnly = false;
+            this.SelectionsTextBox.Size = new System.Drawing.Size(483, 41);
+            this.SelectionsTextBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SelectionsTextBox.StyleManager = null;
+            this.SelectionsTextBox.TabIndex = 10;
+            this.SelectionsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SelectionsTextBox.ThemeAuthor = "Terry D. Eppler";
+            this.SelectionsTextBox.ThemeName = "Budget Execution";
+            this.SelectionsTextBox.ToolTip = null;
+            this.SelectionsTextBox.UseSystemPasswordChar = false;
+            this.SelectionsTextBox.WatermarkText = "";
+            // 
+            // label1
+            // 
+            this.label1.BindingSource = null;
+            this.label1.DataFilter = null;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.HoverText = null;
+            this.label1.IsDerivedStyle = true;
+            this.label1.Location = new System.Drawing.Point(65, 354);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(1);
+            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
+            this.label1.StyleManager = null;
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Selected :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label1.ThemeAuthor = "Terry D. Eppler";
+            this.label1.ThemeName = "Budget Execution";
+            this.label1.ToolTip = null;
             // 
             // ChartDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -484,20 +436,21 @@ partial class ChartDialog
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(888, 463);
-            this.Controls.Add(this.ThirdTable);
+            this.ClientSize = new System.Drawing.Size(692, 504);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SelectionsTextBox);
             this.Controls.Add(this.SecondTable);
             this.Controls.Add(this.FirstTable);
             this.Controls.Add(this.FirstButton);
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.SecondButton);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Name = "ChartDialog";
             this.ShowIcon = false;
@@ -506,10 +459,8 @@ partial class ChartDialog
             this.FirstPanel.ResumeLayout(false);
             this.SecondPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
-            this.ThirdPanel.ResumeLayout(false);
             this.FirstTable.ResumeLayout(false);
             this.SecondTable.ResumeLayout(false);
-            this.ThirdTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -518,19 +469,17 @@ partial class ChartDialog
 
     private Button SecondButton;
     public Button ThirdButton;
-    private ListBox FirstListBox;
     private Layout FirstPanel;
     public Button FirstButton;
     private Layout SecondPanel;
-    private ListBox SecondListBox;
     private Label FirstLabel;
     private Label SecondLabel;
     public System.Windows.Forms.BindingSource BindingSource;
     public SmallTip ToolTip;
-    private Layout ThirdPanel;
-    private ListBox ThirdListBox;
-    private Label ThirdLabel;
     private System.Windows.Forms.TableLayoutPanel FirstTable;
     private System.Windows.Forms.TableLayoutPanel SecondTable;
-    private System.Windows.Forms.TableLayoutPanel ThirdTable;
+    public ListBox FirstListBox;
+    private ListBox SecondListBox;
+    public TextBox SelectionsTextBox;
+    private Label label1;
 }

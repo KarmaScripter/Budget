@@ -59,9 +59,9 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
             BackColor = Color.FromArgb( 40, 40, 40 );
             ForeColor = Color.LightGray;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderColor = Color.FromArgb( 65, 65, 65 );
             Font = new Font( "Roboto", 8 );
-            HoverColor = Color.FromArgb( 50, 93, 129 );
+            HoverColor = Color.FromArgb( 0, 120, 212 );
             TextAlign = HorizontalAlignment.Left;
 
             // Disabled Color Configuration

@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class CheckBox : MetroSetCheckBox
     {
         /// <summary>
@@ -62,12 +63,14 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
             Size = new Size( 125, 25 );
             BackColor = Color.FromArgb( 20, 20, 20 );
+            DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
             Font = new Font( "Roboto", 8 );
             ForeColor = Color.LightGray;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;
             BorderColor = Color.FromArgb( 0, 120, 212 );
+            CheckSignColor = Color.LimeGreen;
             CheckState = CheckState.Unchecked;
 
             // Disabled Color Configuration

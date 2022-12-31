@@ -70,13 +70,11 @@ namespace BudgetExecution
             ForeColor = Color.LightGray;
             Enabled = true;
             Visible = true;
-            ShowBorder = false;
-            BorderColor = Color.FromArgb( 55, 55, 55 );
 
             // BackColor SeriesConfiguration
             BackColor = Color.FromArgb( 40, 40, 40 );
             ShowBorder = false;
-            BorderColor = Color.FromArgb( 50, 50, 50 );
+            BorderColor = Color.FromArgb( 55, 55, 55 );
 
             // Disabled Color Configuration
             DisabledBackColor = Color.FromArgb( 20, 20, 20 ); 
@@ -84,6 +82,7 @@ namespace BudgetExecution
 
             // Item Configuration
             ItemHeight = 28;
+            MultiSelect = true;
             HoveredItemColor = Color.White;
             HoveredItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;

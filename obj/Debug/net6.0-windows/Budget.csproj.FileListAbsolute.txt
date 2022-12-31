@@ -368,6 +368,7 @@ C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Runtime.Remot
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.csproj.AssemblyReference.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.csproj.SuggestedBindingRedirects.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.dll.config
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.ChartDialog.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.CalculationForm.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.CalendarForm.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.CarouselForm.resources
@@ -378,6 +379,7 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.Defi
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.EditDialog.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.Error.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.FileBrowser.resources
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.FilterDialog.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.LookupDialog.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.Message.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.SqlDialog.resources
@@ -394,6 +396,7 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.Pivo
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.SplashControl.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.WebPage.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.Properties.Resources.resources
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.QueryDialog.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.csproj.GenerateResource.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.AssemblyInfoInputs.cache
@@ -405,9 +408,3 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\refint\Budget.dll
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.xml
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.pdb
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.genruntimeconfig.cache
-C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Budget.pdb
-C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Budget.xml
-C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
-C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.FilterDialog.resources
-C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.ChartDialog.resources
-C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.QueryDialog.resources

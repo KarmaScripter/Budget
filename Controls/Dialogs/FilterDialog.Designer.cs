@@ -71,6 +71,7 @@ partial class FilterDialog
             this.FirstFilterTable.Controls.Add(this.FirstFilterPanel, 0, 2);
             this.FirstFilterTable.Controls.Add(this.FirstLabel, 0, 0);
             this.FirstFilterTable.Controls.Add(this.FirstComboBox, 0, 1);
+            this.FirstFilterTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FirstFilterTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.FirstFilterTable.Location = new System.Drawing.Point(12, 18);
             this.FirstFilterTable.Name = "FirstFilterTable";
@@ -91,7 +92,7 @@ partial class FilterDialog
             this.FirstFilterPanel.Children = null;
             this.FirstFilterPanel.Controls.Add(this.FirstListBox);
             this.FirstFilterPanel.DataFilter = null;
-            this.FirstFilterPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstFilterPanel.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FirstFilterPanel.ForeColor = System.Drawing.Color.Transparent;
             this.FirstFilterPanel.HoverText = null;
             this.FirstFilterPanel.IsDerivedStyle = true;
@@ -147,7 +148,7 @@ partial class FilterDialog
             this.FirstLabel.DataFilter = null;
             this.FirstLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FirstLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FirstLabel.HoverText = null;
             this.FirstLabel.IsDerivedStyle = true;
             this.FirstLabel.Location = new System.Drawing.Point(3, 3);
@@ -171,7 +172,7 @@ partial class FilterDialog
             this.FirstComboBox.BackColor = System.Drawing.Color.Transparent;
             this.FirstComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FirstComboBox.BindingSource = null;
-            this.FirstComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.FirstComboBox.CausesValidation = false;
             this.FirstComboBox.DataFilter = null;
             this.FirstComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -206,6 +207,7 @@ partial class FilterDialog
             this.ThirdFilterTable.Controls.Add(this.ThirdLabel, 0, 0);
             this.ThirdFilterTable.Controls.Add(this.ThirdComboBox, 0, 1);
             this.ThirdFilterTable.Controls.Add(this.ThirdFilterPanel, 0, 2);
+            this.ThirdFilterTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdFilterTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.ThirdFilterTable.Location = new System.Drawing.Point(595, 18);
             this.ThirdFilterTable.Name = "ThirdFilterTable";
@@ -222,7 +224,7 @@ partial class FilterDialog
             this.ThirdLabel.DataFilter = null;
             this.ThirdLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ThirdLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ThirdLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdLabel.HoverText = null;
             this.ThirdLabel.IsDerivedStyle = true;
             this.ThirdLabel.Location = new System.Drawing.Point(3, 3);
@@ -246,7 +248,7 @@ partial class FilterDialog
             this.ThirdComboBox.BackColor = System.Drawing.Color.Transparent;
             this.ThirdComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ThirdComboBox.BindingSource = null;
-            this.ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.ThirdComboBox.CausesValidation = false;
             this.ThirdComboBox.DataFilter = null;
             this.ThirdComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -284,7 +286,7 @@ partial class FilterDialog
             this.ThirdFilterPanel.Children = null;
             this.ThirdFilterPanel.Controls.Add(this.ThirdListBox);
             this.ThirdFilterPanel.DataFilter = null;
-            this.ThirdFilterPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdFilterPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdFilterPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ThirdFilterPanel.HoverText = null;
             this.ThirdFilterPanel.IsDerivedStyle = true;
@@ -344,7 +346,7 @@ partial class FilterDialog
             this.SecondFilterPanel.Children = null;
             this.SecondFilterPanel.Controls.Add(this.SecondListBox);
             this.SecondFilterPanel.DataFilter = null;
-            this.SecondFilterPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondFilterPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondFilterPanel.ForeColor = System.Drawing.Color.Transparent;
             this.SecondFilterPanel.HoverText = null;
             this.SecondFilterPanel.IsDerivedStyle = true;
@@ -401,7 +403,7 @@ partial class FilterDialog
             this.SecondComboBox.BackColor = System.Drawing.Color.Transparent;
             this.SecondComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondComboBox.BindingSource = null;
-            this.SecondComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.SecondComboBox.CausesValidation = false;
             this.SecondComboBox.DataFilter = null;
             this.SecondComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -435,7 +437,7 @@ partial class FilterDialog
             this.SecondLabel.DataFilter = null;
             this.SecondLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SecondLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondLabel.HoverText = null;
             this.SecondLabel.IsDerivedStyle = true;
             this.SecondLabel.Location = new System.Drawing.Point(3, 3);
@@ -459,6 +461,7 @@ partial class FilterDialog
             this.SecondFilterTable.Controls.Add(this.SecondLabel, 0, 0);
             this.SecondFilterTable.Controls.Add(this.SecondComboBox, 0, 1);
             this.SecondFilterTable.Controls.Add(this.SecondFilterPanel, 0, 2);
+            this.SecondFilterTable.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondFilterTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.SecondFilterTable.Location = new System.Drawing.Point(304, 18);
             this.SecondFilterTable.Name = "SecondFilterTable";
@@ -595,9 +598,9 @@ partial class FilterDialog
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(870, 417);
+            this.ClientSize = new System.Drawing.Size(870, 419);
             this.Controls.Add(this.FirstFilterTable);
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.SecondButton);
