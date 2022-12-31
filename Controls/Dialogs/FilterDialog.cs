@@ -202,7 +202,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = $"{ DataTable.TableName.SplitPascal( ) } Query";
+                Text = $"Filter:  { DataTable.TableName.SplitPascal( ) }";
                 PopulateFirstComoBoxItems( );
                 SetLabelConfiguration(  );
                 FirstButton.Visible = !FirstButton.Visible;
@@ -230,8 +230,6 @@ namespace BudgetExecution
                     {
                         FirstComboBox.Items.Add( item );
                     }
-                    
-                    SetLabelConfiguration(  );
                 }
                 catch( Exception ex )
                 {
@@ -497,12 +495,15 @@ namespace BudgetExecution
                         FormFilter.Clear(  );
                         FirstCategory = null;
                         FirstValue = null;
+                        FirstComboBox.Items.Clear( ); 
                         FirstListBox.Items.Clear( );
                         SecondCategory = null;
                         SecondValue = null;
+                        SecondComboBox.Items.Clear( );
                         SecondListBox.Items.Clear( );
                         ThirdCategory = null;
                         ThirdValue = null;
+                        ThirdComboBox.Items.Clear( );
                         ThirdListBox.Items.Clear(  );
                         FirstButton.Visible = !FirstButton.Visible;
                         SecondButton.Visible = !SecondButton.Visible;
@@ -575,7 +576,7 @@ namespace BudgetExecution
             {
                 FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
                 SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
-                ThirdLabel.Text = "Values : " + ThirdListBox.Items.Count;
+                ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
             }
             catch( Exception ex )
             {

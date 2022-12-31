@@ -114,7 +114,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -167,6 +167,7 @@ namespace BudgetExecution
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );
+                Text = "Schema: " + DataTable.TableName.SplitPascal(  );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
                 PopulateFirstListBox( );
