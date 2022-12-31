@@ -42,14 +42,13 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1380, 600 );
-            TabPage.TabFont = new Font( "Roboto", 9, FontStyle.Bold );
+            Size = new Size( 1380, 675 );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            AcceptButton.Text = "Save";
-            CloseButton.Text = "Exit";
+            FirstButton.Text = "Save";
+            ThirdButton.Text = "Exit";
             
             // Event Wiring
-            CloseButton.Click += OnCloseButtonClicked;
+            ThirdButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>

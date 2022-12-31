@@ -247,10 +247,10 @@
             this.DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
             this.DataGridPanel.HoverText = null;
             this.DataGridPanel.IsDerivedStyle = true;
-            this.DataGridPanel.Location = new System.Drawing.Point(3, 28);
+            this.DataGridPanel.Location = new System.Drawing.Point(3, 29);
             this.DataGridPanel.Name = "DataGridPanel";
             this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridPanel.Size = new System.Drawing.Size(946, 619);
+            this.DataGridPanel.Size = new System.Drawing.Size(946, 614);
             this.DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataGridPanel.StyleManager = null;
             this.DataGridPanel.TabIndex = 24;
@@ -318,7 +318,7 @@
             this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGrid.RowTemplate.Height = 25;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(883, 573);
+            this.DataGrid.Size = new System.Drawing.Size(883, 568);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.ToolTip = null;
             // 
@@ -460,7 +460,6 @@
             this.ValuePanel.Children = null;
             this.ValuePanel.Controls.Add(this.ValueListBox);
             this.ValuePanel.DataFilter = null;
-            this.ValuePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ValuePanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             this.ValuePanel.HoverText = null;
@@ -468,7 +467,7 @@
             this.ValuePanel.Location = new System.Drawing.Point(4, 462);
             this.ValuePanel.Name = "ValuePanel";
             this.ValuePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValuePanel.Size = new System.Drawing.Size(392, 184);
+            this.ValuePanel.Size = new System.Drawing.Size(392, 181);
             this.ValuePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValuePanel.StyleManager = null;
             this.ValuePanel.TabIndex = 28;
@@ -506,7 +505,7 @@
             this.ValueListBox.SelectedValue = null;
             this.ValueListBox.ShowBorder = false;
             this.ValueListBox.ShowScrollBar = false;
-            this.ValueListBox.Size = new System.Drawing.Size(356, 140);
+            this.ValueListBox.Size = new System.Drawing.Size(356, 134);
             this.ValueListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ValueListBox.StyleManager = null;
             this.ValueListBox.TabIndex = 32;
@@ -527,7 +526,7 @@
             this.DataGridLabel.Margin = new System.Windows.Forms.Padding(3);
             this.DataGridLabel.Name = "DataGridLabel";
             this.DataGridLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridLabel.Size = new System.Drawing.Size(946, 19);
+            this.DataGridLabel.Size = new System.Drawing.Size(946, 20);
             this.DataGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataGridLabel.StyleManager = null;
             this.DataGridLabel.TabIndex = 33;
@@ -623,9 +622,9 @@
             this.GridTable.Location = new System.Drawing.Point(33, 45);
             this.GridTable.Name = "GridTable";
             this.GridTable.RowCount = 2;
-            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.GridTable.Size = new System.Drawing.Size(952, 650);
+            this.GridTable.Size = new System.Drawing.Size(952, 646);
             this.GridTable.TabIndex = 37;
             // 
             // TableLayout
@@ -649,7 +648,7 @@
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.TableLayout.Size = new System.Drawing.Size(400, 649);
+            this.TableLayout.Size = new System.Drawing.Size(400, 646);
             this.TableLayout.TabIndex = 38;
             // 
             // ToolStrip
@@ -748,7 +747,7 @@
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = this.LastButton;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 716);
+            this.ToolStrip.Location = new System.Drawing.Point(0, 718);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = this.NextButton;
@@ -948,7 +947,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(147, 28);
+            this.TextBox.Size = new System.Drawing.Size(139, 28);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1528,7 +1527,7 @@
             this.MenuButton.Size = new System.Drawing.Size(26, 28);
             this.MenuButton.Text = "toolStripButton2";
             this.MenuButton.ToolTip = this.ToolTip;
-            this.MenuButton.ToolType = BudgetExecution.ToolType.HomeButton;
+            this.MenuButton.ToolType = BudgetExecution.ToolType.MenuButton;
             // 
             // Separator28
             // 
@@ -1639,9 +1638,9 @@
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(1388, 762);
+            this.ClientSize = new System.Drawing.Size(1388, 764);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.TableLayout);
             this.Controls.Add(this.GridTable);

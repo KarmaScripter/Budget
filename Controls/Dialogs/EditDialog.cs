@@ -45,8 +45,8 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1380, 650 );
-            TabPage.TabFont = new Font( "Roboto", 9, FontStyle.Bold );
+            Size = new Size( 1380, 675 );
+            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Bold );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             SelectButton.Text = "Save";
             CloseButton.Text = "Exit";
@@ -148,38 +148,32 @@ namespace BudgetExecution
                     {
                         case ToolType.CopyButton:
                         {
-                            TabPage.Text = "Copy Data";
                             ActiveTab = TabPage;
                             break;
                         }
                         case ToolType.AddRecordButton:
                         {
-                            TabPage.Text = "Add Record";
                             ActiveTab = TabPage;
                             break;
                         }
                         case ToolType.AddButton:
                         {
-                            TabPage.Text = "Add Data";
                             ActiveTab = TabPage;
                             break;
                         }
                         case ToolType.EditRecordButton:
                         {
-                            TabPage.Text = "Edit Record";
                             ActiveTab = TabPage;
                             break;
                         }
                         case ToolType.DeleteRecordButton:
                         {
-                            TabPage.Text = "Delete Data";
                             ActiveTab = TabPage;
                             SelectButton.Text = "Delete";
                             break;
                         }
                         default:
                         {
-                            TabPage.Text = "Edit Data";
                             ActiveTab = TabPage;
                             break;
                         }
@@ -333,6 +327,7 @@ namespace BudgetExecution
                             _tabPages.Add( tabpage.Name, tabpage );
                         }
                     }
+                    
                     return _tabPages?.Any( ) == true
                         ? _tabPages
                         : default( IDictionary<string, TabPageAdv> );

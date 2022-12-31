@@ -5,17 +5,13 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
-    using Syncfusion.Pdf;
     using Syncfusion.Pdf.Parsing;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.PdfViewer;
-    using Syncfusion.Windows.Forms.Spreadsheet;
 
     /// <summary>
     /// 

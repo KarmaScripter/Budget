@@ -49,7 +49,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1380, 650 );
+            Size = new Size( 1380, 675 );
             Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
@@ -141,6 +141,7 @@ namespace BudgetExecution
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
+                    
                     ColumnPanelLabel.Text = ColumnPrefix + ColumnListBox.Items.Count;
                     ValuePanelLabel.Text = ValuePrefix;
                 }
@@ -170,6 +171,7 @@ namespace BudgetExecution
                         ValueListBox.Items.Add( item );
                     }
                 }
+                
                 ValuePanelLabel.Text = ValuePrefix + ValueListBox.Items.Count;
             }
             catch( Exception ex )

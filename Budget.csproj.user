@@ -64,7 +64,7 @@
     <Compile Update="Controls\DataView\DataViewBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\ChartDialog.cs">
+    <Compile Update="Controls\Dialogs\SchemaDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\ColumnConfiguration.cs">
@@ -169,6 +169,9 @@
     <Compile Update="Controls\TextBox\TextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Tile\Tile.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\ToolStrip\ToolButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -229,8 +232,11 @@
     <Compile Update="Controls\Dialogs\FilterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="QueryDialog.cs">
+    <Compile Update="Controls\Dialogs\QueryDialog.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Tile\TileBase.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

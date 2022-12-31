@@ -164,6 +164,16 @@ namespace BudgetExecution
                         {
                             break;
                         }
+                        case ToolType.ImportDatabaseButton:
+                        case ToolType.ImportButton:
+                        case ToolType.CsvImportButton:
+                        case ToolType.PdfImportButton:
+                        case ToolType.ExcelImportButton:
+                        {
+                            var _fileDialog = new FileBrowser(  );
+                            _fileDialog.ShowDialog(  );
+                            break;
+                        }
                         case ToolType.ExcelButton:
                         {
                             var _excel =
@@ -225,13 +235,10 @@ namespace BudgetExecution
                         case ToolType.CancelRequestButton:
                         case ToolType.CsvButton:
                         case ToolType.CsvExportButton:
-                        case ToolType.CsvImportButton:
-                        case ToolType.ExcelImportButton:
                         case ToolType.DataConfigButton:
                         case ToolType.EmailButton:
                         case ToolType.ExportDatabaseButton:
                         case ToolType.PauseButton:
-                        case ToolType.ImportDatabaseButton:
                         case ToolType.GridButton:
                         case ToolType.PlayButton:
                         case ToolType.DownloadButton:
@@ -239,7 +246,6 @@ namespace BudgetExecution
                         case ToolType.DatabaseSettingsButton:
                         case ToolType.NavigationButton:
                         case ToolType.PdfExportButton:
-                        case ToolType.PdfImportButton:
                         case ToolType.PowerPointButton:
                         case ToolType.PrintButton:
                         case ToolType.RedoButton:
@@ -252,7 +258,6 @@ namespace BudgetExecution
                         case ToolType.WebNextButton:
                         case ToolType.WebBackButton:
                         case ToolType.ExportButton:
-                        case ToolType.ImportButton:
                         case ToolType.TableButton:
                         case ToolType.RewindButton:
                         case ToolType.SettingsButton:
@@ -297,9 +302,10 @@ namespace BudgetExecution
                             _browser?.ShowDialog( );
                             break;
                         }
+                        case ToolType.MenuButton:
                         case ToolType.HomeButton:
                         {
-                            using var _form = new MainForm( );
+                            var _form = new MainForm( );
                             _form?.Show( );
                             break;
                         }
@@ -313,7 +319,7 @@ namespace BudgetExecution
                         {
                             if( BindingSource?.DataSource != null )
                             {
-                                var _chartDialog = new ChartDialog( BindingSource );
+                                var _chartDialog = new SchemaDialog( BindingSource );
                                 _chartDialog?.ShowDialog( );
                             }
                             else if( BindingSource == null )

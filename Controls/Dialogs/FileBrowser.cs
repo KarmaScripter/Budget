@@ -98,13 +98,13 @@ namespace BudgetExecution
             Extension = EXT.XLSX;
             Picture.Image = GetImage( );
             FilePaths = GetListViewPaths( );
-            FileDialog.DefaultExt = FileExtension;
-            FileDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
-            FileDialog.CheckFileExists = true;
             FileList.BackColor = Color.FromArgb( 40, 40, 40 );
+            
+            // Event Wiring
+            Load += OnLoaded;
             CloseButton.Click += OnCloseButtonClicked;
             FileList.SelectedValueChanged += OnPathSelected;
-            Load += OnLoaded;
+            FindButton.Click += OnFindButtonClicked;
         }
 
         /// <summary>
@@ -440,6 +440,39 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [find button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public virtual void OnFindButtonClicked( object sender, EventArgs e )
+        {
+            if( sender is Button )
+            {
+                try
+                {
+                    FileDialog = new OpenFileDialog(  );
+                    FileDialog.DefaultExt = FileExtension;
+                    FileDialog.CheckFileExists = true;
+                    FileDialog.CheckPathExists = true;
+                    FileDialog.Multiselect = false;
+                    var _ext = FileExtension.ToLower(  );
+                    FileDialog.Filter = $@"File Extension | *{ _ext  }";
+                    FileDialog.Title = $@"Search Directories for *{ _ext } files...";
+                    FileDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
+                    FileDialog.ShowDialog(  );
+                    var _selectedPath = FileDialog.FileName;
+                    if( !string.IsNullOrEmpty( _selectedPath ) )
+                    {
+                        SelectedPath = _selectedPath;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>

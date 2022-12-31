@@ -22,8 +22,9 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1400, 750 );
+            Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
+            MinimumSize = new Size( 1400, 750 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -35,7 +36,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             ShowMouseOver = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.LightSteelBlue;
             CaptionButtonColor = Color.FromArgb( 65, 65, 65 );

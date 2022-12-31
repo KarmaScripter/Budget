@@ -139,13 +139,13 @@
             // 
             this.TextBox.AutoWordSelection = false;
             this.TextBox.BindingSource = null;
-            this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TextBox.BorderColor = System.Drawing.Color.Red;
             this.TextBox.DataFilter = null;
             this.TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
             this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TextBox.HoverColor = System.Drawing.Color.Red;
             this.TextBox.HoverText = null;
             this.TextBox.IsDerivedStyle = true;
             this.TextBox.Lines = null;

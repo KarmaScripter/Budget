@@ -53,13 +53,14 @@ namespace BudgetExecution
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 26;
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 12 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             MetroColor = Color.FromArgb( 20, 20, 20 );
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = new Icon( IconPath, 33, 32 );
             ShowIcon = false;
+            ShowMouseOver = false;
             ShowInTaskbar = true;
             Padding = new Padding( 1 );
             Text = string.Empty;
@@ -80,18 +81,18 @@ namespace BudgetExecution
             Controls.Add( BackPanel );
 
             // Event Wiring
-            CloseButton.Click += OnClick;
+            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Error"/> class.
         /// </summary>
         /// <param name="ext">The ext.</param>
-        public Error( Exception ext )
+        public Error( Exception ext ) 
+            : this( )
         {
-            InitializeComponent( );
             Exception = ext;
-            Text = ext.ToLogString( Exception?.Message );
+            TextBox.Text = ext.ToLogString( Exception?.Message );
         }
 
         /// <summary>
@@ -99,12 +100,30 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="message">The message.</param>
         public Error( string message )
+            : this( )
         {
-            InitializeComponent( );
             Exception = null;
             TextBox.Text = message;
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                HeaderLabel.ForeColor = Color.Red;
+                TextBox.BorderColor = Color.Red;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Sets the text.
         /// </summary>
@@ -117,7 +136,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Console.WriteLine( ex.StackTrace );
+                Fail( ex );
             }
         }
 
@@ -133,7 +152,7 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Console.WriteLine( ex.StackTrace );
+                Fail( ex );
             }
         }
 
@@ -146,28 +165,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch ( Exception ex )
-            {
-                Console.WriteLine( ex );
-                throw;
-            }
-        }
-        
-        /// <summary>
         /// Called when [click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnClick( object sender, EventArgs e )
+        public void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button )
             {
@@ -177,9 +179,18 @@ namespace BudgetExecution
                 }
                 catch( Exception ex )
                 {
-                    Console.WriteLine( ex.Message );
+                    Fail( ex );
                 }
             }
+        }
+        
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The exception.</param>
+        private static void Fail( Exception ex )
+        {
+            Console.WriteLine( ex.Message );
         }
     }
 }

@@ -102,13 +102,13 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // Label Properties
-            DataGridLabel.Font = new Font( "Roboto", 9 );
+            DataGridLabel.Font = new Font( "Roboto", 8 );
             DataGridLabel.ForeColor = Color.LightGray;
-            TableLabel.Font = new Font( "Roboto", 9 );
+            TableLabel.Font = new Font( "Roboto", 8 );
             TableLabel.ForeColor = Color.LightGray;
-            ColumnLabel.Font = new Font( "Roboto", 9 );
+            ColumnLabel.Font = new Font( "Roboto", 8 );
             ColumnLabel.ForeColor = Color.LightGray;
-            ValueLabel.Font = new Font( "Roboto", 9 );
+            ValueLabel.Font = new Font( "Roboto", 8 );
             ValueLabel.ForeColor = Color.LightGray;
             
             // ToolStrip Properties

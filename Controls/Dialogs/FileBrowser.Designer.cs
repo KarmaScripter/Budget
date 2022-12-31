@@ -64,6 +64,7 @@ namespace BudgetExecution
             this.MessageLabel = new BudgetExecution.Label();
             this.SelectButton = new BudgetExecution.Button();
             this.CloseButton = new BudgetExecution.Button();
+            this.FindButton = new BudgetExecution.Button();
             this.TextBoxLayout.SuspendLayout();
             this.CheckBoxLayout.SuspendLayout();
             this.TopTablePanel.SuspendLayout();
@@ -616,7 +617,7 @@ namespace BudgetExecution
             this.SelectButton.HoverText = "Select File";
             this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(40, 411);
+            this.SelectButton.Location = new System.Drawing.Point(286, 411);
             this.SelectButton.Margin = new System.Windows.Forms.Padding(0);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -669,6 +670,40 @@ namespace BudgetExecution
             this.CloseButton.ThemeName = "BudgetExecution";
             this.CloseButton.ToolTip = null;
             // 
+            // FindButton
+            // 
+            this.FindButton.BackColor = System.Drawing.Color.Transparent;
+            this.FindButton.BindingSource = null;
+            this.FindButton.DataFilter = null;
+            this.FindButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.FindButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.FindButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.FindButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FindButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FindButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.FindButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.FindButton.HoverText = "Select File";
+            this.FindButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.FindButton.IsDerivedStyle = true;
+            this.FindButton.Location = new System.Drawing.Point(42, 411);
+            this.FindButton.Margin = new System.Windows.Forms.Padding(0);
+            this.FindButton.Name = "FindButton";
+            this.FindButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.FindButton.NormalColor = System.Drawing.Color.Transparent;
+            this.FindButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FindButton.Padding = new System.Windows.Forms.Padding(1);
+            this.FindButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FindButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FindButton.PressTextColor = System.Drawing.Color.White;
+            this.FindButton.Size = new System.Drawing.Size(120, 48);
+            this.FindButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FindButton.StyleManager = null;
+            this.FindButton.TabIndex = 13;
+            this.FindButton.Text = "Find";
+            this.FindButton.ThemeAuthor = "Terry D. Eppler";
+            this.FindButton.ThemeName = "Budget Execution";
+            this.FindButton.ToolTip = null;
+            // 
             // FileBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -683,6 +718,7 @@ namespace BudgetExecution
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(688, 468);
             this.ControlBox = false;
+            this.Controls.Add(this.FindButton);
             this.Controls.Add(this.MessageLabel);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.CloseButton);
@@ -740,6 +776,7 @@ namespace BudgetExecution
         public RadioButton SqlServerRadioButton;
         public RadioButton WordRadioButton;
         public RadioButton PdfRadioButton;
+        public Button FindButton;
     }
     
 }

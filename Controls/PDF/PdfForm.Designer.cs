@@ -115,7 +115,7 @@
             this.ToolStrip.Label = this.Label;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 663);
+            this.ToolStrip.Location = new System.Drawing.Point(0, 664);
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
@@ -401,7 +401,7 @@
             this.DocViewer.ShowHorizontalScrollBar = true;
             this.DocViewer.ShowToolBar = true;
             this.DocViewer.ShowVerticalScrollBar = true;
-            this.DocViewer.Size = new System.Drawing.Size(1388, 663);
+            this.DocViewer.Size = new System.Drawing.Size(1388, 664);
             this.DocViewer.SpaceBetweenPages = 8;
             this.DocViewer.TabIndex = 2;
             this.DocViewer.Text = "pdfViewerControl1";
@@ -425,9 +425,9 @@
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(1388, 713);
+            this.ClientSize = new System.Drawing.Size(1388, 714);
             this.Controls.Add(this.DocViewer);
             this.Controls.Add(this.ToolStrip);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

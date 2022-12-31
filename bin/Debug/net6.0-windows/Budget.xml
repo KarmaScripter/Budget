@@ -4,181 +4,6 @@
         <name>Budget</name>
     </assembly>
     <members>
-        <member name="T:BudgetExecution.ChartDialog">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.SqlQuery">
-            <summary>
-            Gets or sets the SQL query.
-            </summary>
-            <value>
-            The SQL query.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.DataModel">
-            <summary>
-            Gets or sets the data model.
-            </summary>
-            <value>
-            The data model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.DataTable">
-            <summary>
-            Gets or sets the data table.
-            </summary>
-            <value>
-            The data table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.FormFilter">
-            <summary>
-            Gets or sets the form filter.
-            </summary>
-            <value>
-            The form filter.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.SelectedColumns">
-            <summary>
-            Gets or sets the selected columns.
-            </summary>
-            <value>
-            The selected columns.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.Numerics">
-            <summary>
-            Gets or sets the numerics.
-            </summary>
-            <value>
-            The numerics.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.Fields">
-            <summary>
-            Gets or sets the fields.
-            </summary>
-            <value>
-            The fields.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.Source">
-            <summary>
-            Gets or sets the source.
-            </summary>
-            <value>
-            The source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ChartDialog.Provider">
-            <summary>
-            Gets or sets the provider.
-            </summary>
-            <value>
-            The provider.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.#ctor">
-            <summary>
-            Initializes a new
-            instance of the <see cref="T:BudgetExecution.ChartDialog"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.#ctor(System.Windows.Forms.BindingSource)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ChartDialog"/> class.
-            </summary>
-            <param name="bindingSource">The binding source.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.OnLoad(System.Object,System.EventArgs)">
-            <summary>
-            Called when [load].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.SetLabelConfiguration">
-            <summary>
-            Sets the label configuration.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.PopulateFirstListBox">
-            <summary>
-            Populates the column ListBox.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.OnFirstListBoxSelectedValueChanged(System.Object)">
-            <summary>
-            Called when [column ListBox item selected].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.PopulateSecondListBox">
-            <summary>
-            Populates the numeric ListBox.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.OnSecondListBoxSelectedValueChanged(System.Object)">
-            <summary>
-            Called when [numeric ListBox item selected].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.OnFirstButtonClicked(System.Object,System.EventArgs)">
-            <summary>
-            Called when [first button clicked].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.OnSecondButtonClicked(System.Object,System.EventArgs)">
-            <summary>
-            Called when [second button clicked].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.UpdateHeaderText">
-            <summary>
-            Updates the header text.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
-            <summary>
-            Called when [close button clicked].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.Fail(System.Exception)">
-            <summary>
-            Get Error Dialog.
-            </summary>
-            <param name="ex">The ex.</param>
-        </member>
-        <member name="F:BudgetExecution.ChartDialog.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartDialog.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="T:BudgetExecution.BindingBase">
             <summary>
             
@@ -1195,7 +1020,7 @@
             The filter.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.FirstSelection">
+        <member name="P:BudgetExecution.ChartForm.FirstSelectedItem">
             <summary>
             Gets or sets the selected table.
             </summary>
@@ -1203,7 +1028,7 @@
             The selected table.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.SecondSelection">
+        <member name="P:BudgetExecution.ChartForm.SecondSelectedItem">
             <summary>
             Gets or sets the selected column.
             </summary>
@@ -1211,7 +1036,7 @@
             The selected column.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.ThirdSelection">
+        <member name="P:BudgetExecution.ChartForm.ThirdSelectedItem">
             <summary>
             Gets or sets the selected value.
             </summary>
@@ -1295,7 +1120,7 @@
             Populates the first ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnFirstFilterSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.OnFirstListBoxSelected(System.Object)">
             <summary>
             Called when [first filter selected].
             </summary>
@@ -1306,7 +1131,7 @@
             Populates the second ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnSecondFilterSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.OnSecondListBoxSelected(System.Object)">
             <summary>
             Called when [second filter selected].
             </summary>
@@ -1317,7 +1142,7 @@
             Populates the third ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnThirdFilterSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.OnThirdListBoxSelected(System.Object)">
             <summary>
             Called when [third filter selected].
             </summary>
@@ -2769,6 +2594,13 @@
             </summary>
             <param name="message">The message.</param>
         </member>
+        <member name="M:BudgetExecution.Error.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:BudgetExecution.Error.SetText">
             <summary>
             Sets the text.
@@ -2784,19 +2616,18 @@
             Sets the text.
             </summary>
         </member>
-        <member name="M:BudgetExecution.Error.OnLoad(System.Object,System.EventArgs)">
-            <summary>
-            
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:BudgetExecution.Error.OnClick(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.Error.OnCloseButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [click].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.Error.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The exception.</param>
         </member>
         <member name="F:BudgetExecution.Error.components">
             <summary>
@@ -2943,6 +2774,13 @@
             Called when [path selected].
             </summary>
             <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.FileBrowser.OnFindButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [find button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.FileBrowser.OnCloseButtonClicked(System.Object,System.EventArgs)">
             <summary>
@@ -3368,6 +3206,341 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:BudgetExecution.Message.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.QueryDialog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.SqlQuery">
+            <summary>
+            Gets or sets the SQL query.
+            </summary>
+            <value>
+            The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.SelectedTable">
+            <summary>
+            Gets or sets the selected table.
+            </summary>
+            <value>
+            The selected table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Numerics">
+            <summary>
+            Gets or sets the numerics.
+            </summary>
+            <value>
+            The numerics.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.#ctor">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.QueryDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.SetLabelConfiguration">
+            <summary>
+            Sets the label configuration.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [close button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.PopulateTableListBox">
+            <summary>
+            Populates the table ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.OnTableListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [table ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.PopulateFieldListBox">
+            <summary>
+            Populates the column ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.OnFieldListBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [column ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.PopulateNumericListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.OnNumericListBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [numeric ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.QueryDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.SchemaDialog">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.SqlQuery">
+            <summary>
+            Gets or sets the SQL query.
+            </summary>
+            <value>
+            The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.SelectedColumns">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.Numerics">
+            <summary>
+            Gets or sets the numerics.
+            </summary>
+            <value>
+            The numerics.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.SchemaDialog.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.#ctor">
+            <summary>
+            Initializes a new
+            instance of the <see cref="T:BudgetExecution.SchemaDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.#ctor(System.Windows.Forms.BindingSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.SchemaDialog"/> class.
+            </summary>
+            <param name="bindingSource">The binding source.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.SetLabelConfiguration">
+            <summary>
+            Sets the label configuration.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.PopulateFirstListBox">
+            <summary>
+            Populates the column ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.OnFirstListBoxSelectedValueChanged(System.Object)">
+            <summary>
+            Called when [column ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.PopulateSecondListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.OnSecondListBoxSelectedValueChanged(System.Object)">
+            <summary>
+            Called when [numeric ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.OnFirstButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [first button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.OnSecondButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [second button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.UpdateHeaderText">
+            <summary>
+            Updates the header text.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [close button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.SchemaDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -7802,6 +7975,184 @@
             <param name="headerText">The header text.</param>
             <param name="bodyText">The body text.</param>
             <param name="footerText">The footer text.</param>
+        </member>
+        <member name="T:BudgetExecution.Tile">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:BudgetExecution.Controls.Tile.TileBase" />
+        </member>
+        <member name="M:BudgetExecution.Tile.#ctor">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.Tile"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Tile.#ctor(Syncfusion.Windows.Forms.Tools.HubTileType)">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.Tile"/> class.
+            </summary>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:BudgetExecution.Tile.#ctor(System.String,Syncfusion.Windows.Forms.Tools.HubTileType)">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.Tile"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:BudgetExecution.Tile.#ctor(System.Drawing.Point,System.Drawing.Size,Syncfusion.Windows.Forms.Tools.HubTileType)">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.Tile"/> class.
+            </summary>
+            <param name="location">The location.</param>
+            <param name="size">The size.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="T:BudgetExecution.TileBase">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.Tools.HubTile" />
+        </member>
+        <member name="P:BudgetExecution.TileBase.BindingSource">
+            <summary>
+            Gets or sets the binding source.
+            </summary>
+            <value>
+            The binding source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.TileBase.ToolTip">
+            <summary>
+            Gets or sets the tool tip.
+            </summary>
+            <value>
+            The tool tip.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.TileBase.HoverText">
+            <summary>
+            Gets or sets the hover text.
+            </summary>
+            <value>
+            The hover text.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.TileBase.DataFilter">
+            <summary>
+            Gets or sets the filter.
+            </summary>
+            <value>
+            The filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.TileBase.Font">
+            <summary>
+            Gets/Sets HubTile Font
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.TileBase.HoverColor">
+            <summary>
+            Gets or sets the color of the hover.
+            </summary>
+            <value>
+            The color of the hover.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.TileBase.#ctor">
+            <summary>
+            Initializes a new instance of the
+             <see cref="T:BudgetExecution.TileBase"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetLocation(System.Int32,System.Int32)">
+            <summary>
+            Sets the location.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetSize(System.Int32,System.Int32)">
+            <summary>
+            Sets the size.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetImageConfiguration(System.Drawing.Image,System.Int32)">
+            <summary>
+            Sets the image configuration.
+            </summary>
+            <param name="image">The image.</param>
+            <param name="speed">The speed.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetTileType(Syncfusion.Windows.Forms.Tools.HubTileType)">
+            <summary>
+            Sets the type of the tile.
+            </summary>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetTitleText(System.String)">
+            <summary>
+            Sets the title text.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetTitleConfiguration(System.Drawing.Font,System.Drawing.Color)">
+            <summary>
+            Sets the title configuration.
+            </summary>
+            <param name="font">The font.</param>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetBodyText(System.String)">
+            <summary>
+            Sets the body text.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetBodyConfiguration(System.Drawing.Font,System.Drawing.Color)">
+            <summary>
+            Sets the body configuration.
+            </summary>
+            <param name="font">The font.</param>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetBannerText(System.String)">
+            <summary>
+            Sets the banner text.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetBannerConfiguration(System.Drawing.Font,System.Drawing.Color,System.Int32)">
+            <summary>
+            Sets the banner configuration.
+            </summary>
+            <param name="font">The font.</param>
+            <param name="color">The color.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetBannerIcon(System.Drawing.Image)">
+            <summary>
+            Sets the banner icon.
+            </summary>
+            <param name="image">The image.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.SetSlideTransition(Syncfusion.Windows.Forms.Tools.TransitionDirection)">
+            <summary>
+            Sets the slide transition.
+            </summary>
+            <param name="direction">The direction.</param>
+        </member>
+        <member name="M:BudgetExecution.TileBase.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
         </member>
         <member name="T:BudgetExecution.ToolButtonBase">
             <summary>
@@ -35890,166 +36241,6 @@
         <member name="P:BudgetExecution.Properties.Resources.WebSearchButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="T:BudgetExecution.QueryDialog">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.SqlQuery">
-            <summary>
-            Gets or sets the SQL query.
-            </summary>
-            <value>
-            The SQL query.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.DataModel">
-            <summary>
-            Gets or sets the data model.
-            </summary>
-            <value>
-            The data model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.DataTable">
-            <summary>
-            Gets or sets the data table.
-            </summary>
-            <value>
-            The data table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.FormFilter">
-            <summary>
-            Gets or sets the form filter.
-            </summary>
-            <value>
-            The form filter.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.SelectedTable">
-            <summary>
-            Gets or sets the selected table.
-            </summary>
-            <value>
-            The selected table.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.Numerics">
-            <summary>
-            Gets or sets the numerics.
-            </summary>
-            <value>
-            The numerics.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.Fields">
-            <summary>
-            Gets or sets the fields.
-            </summary>
-            <value>
-            The fields.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.Source">
-            <summary>
-            Gets or sets the source.
-            </summary>
-            <value>
-            The source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.QueryDialog.Provider">
-            <summary>
-            Gets or sets the provider.
-            </summary>
-            <value>
-            The provider.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.#ctor">
-            <summary>
-            Initializes a new instance
-            of the <see cref="T:BudgetExecution.QueryDialog"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.OnLoad(System.Object,System.EventArgs)">
-            <summary>
-            Called when [load].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.SetLabelConfiguration">
-            <summary>
-            Sets the label configuration.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
-            <summary>
-            Called when [close button clicked].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateTableListBox">
-            <summary>
-            Populates the table ListBox.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.OnTableListBoxItemSelected(System.Object)">
-            <summary>
-            Called when [table ListBox item selected].
-            </summary>
-            <param name="sender">The sender.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateFieldListBox">
-            <summary>
-            Populates the column ListBox.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.OnFieldListBoxItemSelected(System.Object,System.EventArgs)">
-            <summary>
-            Called when [column ListBox item selected].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateNumericListBox">
-            <summary>
-            Populates the numeric ListBox.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.OnNumericListBoxItemSelected(System.Object,System.EventArgs)">
-            <summary>
-            Called when [numeric ListBox item selected].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.Fail(System.Exception)">
-            <summary>
-            Get Error Dialog.
-            </summary>
-            <param name="ex">The ex.</param>
-        </member>
-        <member name="F:BudgetExecution.QueryDialog.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:BudgetExecution.Resource">

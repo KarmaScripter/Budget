@@ -36,7 +36,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1380, 650 );
+            Size = new Size( 1380, 675 );
             SqliteRadioButton.Tag = "SQLite";
             SqlServerRadioButton.Tag = "SqlServer";
             AccessRadioButton.Tag = "Access";
@@ -206,56 +206,48 @@ namespace BudgetExecution
                     {
                         case ToolType.AddColumnButton:
                         {
-                            TabPage.Text = "Add Column";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.AddDatabaseButton:
                         {
-                            TabPage.Text = "Add Database";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.AddTableButton:
                         {
-                            TabPage.Text = "Add Table";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.EditColumnButton:
                         {
-                            TabPage.Text = "Edit Column";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.DeleteColumnButton:
                         {
-                            TabPage.Text = "Delete Column";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.DeleteTableButton:
                         {
-                            TabPage.Text = "Delete Table";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         case ToolType.DeleteDatabaseButton:
                         {
-                            TabPage.Text = "Delete Database";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
                         }
                         default:
                         {
-                            TabPage.Text = "Edit Data";
                             ActiveTab = TabPage;
                             AccessRadioButton.Checked = true;
                             break;
