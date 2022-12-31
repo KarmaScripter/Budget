@@ -64,7 +64,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             MinimumSize = new Size( 1400, 750  );
@@ -78,14 +78,14 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ShowIcon = false;
             ShowInTaskbar = true;
-            ShowMouseOver = true;
+            ShowMouseOver = false;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 12 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
             ToolStrip.Text = string.Empty;
@@ -200,8 +200,10 @@ namespace BudgetExecution
                 var _item = ToolStrip.DropDown.Items[ _index ].ToString( );
                 var _name = _item?.Replace( " ", "" );
                 var _path = DirectoryPath + $"\\{ _name }" + ".pdf";
+                var _fileName = Path.GetFileNameWithoutExtension( _path );
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
+                Text = _fileName.SplitPascal(  );
             }
             catch ( Exception ex )
             {

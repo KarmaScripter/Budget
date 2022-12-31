@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected table.
         /// </value>
-        public string FirstSelection { get; set; }
+        public string FirstSelectedItem { get; set; }
 
         /// <summary>
         /// Gets or sets the selected column.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected column.
         /// </value>
-        public string SecondSelection { get; set; }
+        public string SecondSelectedItem { get; set; }
 
         /// <summary>
         /// Gets or sets the selected value.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected value.
         /// </value>
-        public string ThirdSelection { get; set; }
+        public string ThirdSelectedItem { get; set; }
 
         /// <summary>
         /// Gets or sets the SQL query.
@@ -95,7 +95,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             MinimumSize = new Size( 1400, 750  );
@@ -107,7 +107,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            ShowMouseOver = true;
+            ShowMouseOver = false;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
@@ -119,9 +119,9 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // Label Properties
-            FirstFilterLabel.ForeColor = Color.LightGray;
-            SecondFilterLabel.ForeColor = Color.LightGray;
-            ThirdFilterLabel.ForeColor = Color.LightGray;
+            FirstLabel.ForeColor = Color.LightGray;
+            SecondLabel.ForeColor = Color.LightGray;
+            ThirdLabel.ForeColor = Color.LightGray;
             
             // Chart Properties
             Chart.Title.Text = string.Empty;
@@ -269,7 +269,7 @@ namespace BudgetExecution
         /// Called when [first filter selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnFirstFilterSelected( object sender )
+        public void OnFirstListBoxSelected( object sender )
         {
             if( sender is ListBox listBox )
             {
@@ -308,7 +308,7 @@ namespace BudgetExecution
         /// Called when [second filter selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnSecondFilterSelected( object sender )
+        public void OnSecondListBoxSelected( object sender )
         {
             if( sender is ListBox listBox )
             {
@@ -340,7 +340,7 @@ namespace BudgetExecution
         /// Called when [third filter selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnThirdFilterSelected( object sender )
+        public void OnThirdListBoxSelected( object sender )
         {
             if( sender is ListBox listBox )
             {
@@ -361,10 +361,10 @@ namespace BudgetExecution
         {
             try
             {
-                ChartLabel.Text = "Chart";
-                FirstFilterLabel.Text = "First: ";
-                SecondFilterLabel.Text = "Second: ";
-                ThirdFilterLabel.Text = "Third: ";
+                Header.Text = "Chart";
+                FirstLabel.Text = "First: ";
+                SecondLabel.Text = "Second: ";
+                ThirdLabel.Text = "Third: ";
             }
             catch( Exception ex )
             {
@@ -384,9 +384,9 @@ namespace BudgetExecution
                     FormFilter.Clear( );
                 }
 
-                FirstSelection = string.Empty;
-                SecondSelection = string.Empty;
-                ThirdSelection = string.Empty;
+                FirstSelectedItem = string.Empty;
+                SecondSelectedItem = string.Empty;
+                ThirdSelectedItem = string.Empty;
             }
             catch( Exception ex )
             {
