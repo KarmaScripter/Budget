@@ -136,7 +136,6 @@
             Called when [table ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.ChartDialog.PopulateFieldListBox">
             <summary>
@@ -35878,6 +35877,89 @@
         <member name="P:BudgetExecution.Properties.Resources.WebSearchButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.QueryDialog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.SqlQuery">
+            <summary>
+            Gets or sets the SQL query.
+            </summary>
+            <value>
+            The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.SelectedTable">
+            <summary>
+            Gets or sets the selected table.
+            </summary>
+            <value>
+            The selected table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Numerics">
+            <summary>
+            Gets or sets the numerics.
+            </summary>
+            <value>
+            The numerics.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.QueryDialog.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.#ctor">
+            <summary>
+            Initializes a new instance
+            of the <see cref="T:BudgetExecution.QueryDialog"/> class.
             </summary>
         </member>
         <member name="T:BudgetExecution.Resource">

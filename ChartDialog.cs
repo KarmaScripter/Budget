@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ChartDialog : MetroForm
     {
         /// <summary>
@@ -101,6 +103,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
+            Size = new Size( 900, 500 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -116,13 +119,35 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = true;
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
             
+            // TableProperties
+            FirstTable.Location = new Point( 12, 12 );
+            FirstTable.Size = new Size( 280, 376 );
+            FirstTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            FirstTable.Visible = true;
+            SecondTable.Location = new Point( 306, 12 );
+            SecondTable.Size = new Size( 280, 376 );
+            SecondTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            SecondTable.Visible = true;
+            ThirdTable.Location = new Point( 598, 12 );
+            ThirdTable.Size = new Size( 280, 376 );
+            ThirdTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            ThirdTable.Visible = true;
+            
+            // Button Properties
+            FirstButton.Size = new Size( 160, 55 );
+            FirstButton.Location = new Point( 12, 400 );
+            SecondButton.Size = new Size( 160, 55 );
+            SecondButton.Location = new Point( 345, 400 );
+            ThirdButton.Size = new Size( 160, 55 );
+            ThirdButton.Location = new Point( 650, 400 );
+            
             // Event Wiring
             Load += OnLoad;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnTableListBoxItemSelected;
         }
 
         /// <summary>
@@ -130,9 +155,55 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public ChartDialog( BindingSource bindingSource ) 
-            : this( )
         {
-            BindingSource = bindingSource;
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 620, 500 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.Sizable;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            
+            // TableProperties
+            FirstTable.Location = new Point( 12, 12 );
+            FirstTable.Size = new Size( 280, 376 );
+            FirstTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            FirstTable.Visible = true;
+            SecondTable.Location = new Point( 306, 12 );
+            SecondTable.Size = new Size( 280, 376 );
+            SecondTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            SecondTable.Visible = true;
+            ThirdTable.Location = new Point( 598, 12 );
+            ThirdTable.Size = new Size( 280, 376 );
+            ThirdTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            ThirdTable.Visible = false;
+            
+            // Button Properties
+            FirstButton.Size = new Size( 160, 55 );
+            FirstButton.Location = new Point( 12, 400 );
+            SecondButton.Size = new Size( 160, 55 );
+            SecondButton.Location = new Point( 200, 400 );
+            ThirdButton.Size = new Size( 160, 55 );
+            ThirdButton.Location = new Point( 406, 400 );
+            
+            // Event Wiring
+            Load += OnLoad;
+            FirstListBox.SelectedValueChanged += OnTableListBoxItemSelected;
         }
 
         /// <summary>
@@ -145,8 +216,8 @@ namespace BudgetExecution
             try
             {
                 ThirdButton.Click += OnCloseButtonClicked;
-                FieldListBox.MultiSelect = true;
-                NumericListBox.MultiSelect = true;
+                SecondListBox.MultiSelect = true;
+                ThirdListBox.MultiSelect = true;
                 PopulateTableListBox(  );
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
@@ -154,7 +225,9 @@ namespace BudgetExecution
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
                 PopulateFieldListBox(  );
-                PopulateNumericListBox(  );
+                PopulateNumericListBox( );
+                SetLabelConfiguration( );
+                FirstListBox.SelectedValue = $"{ Source }";
             }
             catch( Exception ex )
             {
@@ -169,9 +242,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _tableText = "Tables: " + TableListBox.Items.Count;
-                TablesLabel.Text = "Tables: " + TableListBox.Items.Count;
-                ColumnLabel.Text = "Columns: " + FieldListBox.Items?.Count;
+                var _tableText = "Tables: " + FirstListBox.Items.Count;
+                var _selected = _tableText + "  Selected:  " + DataModel.TableName;
+                FirstLabel.Text = "Tables: " + FirstListBox.Items.Count;
+                SecondLabel.Text = "Fields: " + SecondListBox.Items?.Count;
             }
             catch( Exception ex )
             {
@@ -208,11 +282,11 @@ namespace BudgetExecution
                     ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList(  );
-                
+            
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
-                    TableListBox.Items.Add( name );
+                    FirstListBox.Items.Add( name );
                 }
             }
             catch( Exception ex )
@@ -225,7 +299,6 @@ namespace BudgetExecution
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnTableListBoxItemSelected( object sender )
         {
             try
@@ -237,8 +310,8 @@ namespace BudgetExecution
                 
                 BindingSource.DataSource = null;
                 SqlQuery = string.Empty;
-                FieldListBox.Items?.Clear( );
-                NumericListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
+                ThirdListBox.Items?.Clear( );
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedValue?.ToString( );
                 SelectedTable = _value;
@@ -250,8 +323,8 @@ namespace BudgetExecution
                     SelectedTable = DataModel.DataTable?.TableName;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    PopulateFieldListBox(  );
-                    PopulateNumericListBox(  );
+                    PopulateFieldListBox( );
+                    PopulateNumericListBox( );
                 }
                 
                 SetLabelConfiguration(  );
@@ -274,7 +347,7 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     foreach( var col in Fields )
                     {
-                        FieldListBox.Items.Add( col );
+                        SecondListBox.Items.Add( col );
                     }
                 }
                 catch( Exception ex )
@@ -311,7 +384,7 @@ namespace BudgetExecution
                 {
                     foreach( var col in Numerics )
                     {
-                        NumericListBox.Items.Add( col );
+                        ThirdListBox.Items.Add( col );
                     }
                 }
                 catch( Exception ex )
@@ -334,7 +407,7 @@ namespace BudgetExecution
                 {
                     foreach( var col in Numerics )
                     {
-                        NumericListBox.Items.Add( col );
+                        ThirdListBox.Items.Add( col );
                     }
                 }
                 catch( Exception ex )

@@ -410,3 +410,4 @@ C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Budget.xml
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.FilterDialog.resources
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.ChartDialog.resources
+C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\BudgetExecution.QueryDialog.resources
