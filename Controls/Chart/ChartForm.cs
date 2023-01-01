@@ -118,11 +118,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             
-            // Label Properties
-            FirstLabel.ForeColor = Color.LightGray;
-            SecondLabel.ForeColor = Color.LightGray;
-            ThirdLabel.ForeColor = Color.LightGray;
-            
             // Chart Properties
             Chart.Title.Text = string.Empty;
             
@@ -362,9 +357,6 @@ namespace BudgetExecution
             try
             {
                 Header.Text = "Chart";
-                FirstLabel.Text = "First: ";
-                SecondLabel.Text = "Second: ";
-                ThirdLabel.Text = "Third: ";
             }
             catch( Exception ex )
             {
@@ -403,6 +395,11 @@ namespace BudgetExecution
             using var _error = new Error( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        private void ChartPanel_Paint( object sender, PaintEventArgs e )
+        {
+
         }
     }
 }
