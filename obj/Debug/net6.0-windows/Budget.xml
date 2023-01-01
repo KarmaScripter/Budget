@@ -3211,6 +3211,169 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:BudgetExecution.ProgramProjectDialog">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.SelectedValue">
+            <summary>
+            Gets or sets the selected value.
+            </summary>
+            <value>
+            The selected value.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.SqlQuery">
+            <summary>
+            Gets or sets the SQL query.
+            </summary>
+            <value>
+            The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.SelectedProgram">
+            <summary>
+            Gets or sets the select project.
+            </summary>
+            <value>
+            The select project.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramProjectDialog.Current">
+            <summary>
+            Gets or sets the current.
+            </summary>
+            <value>
+            The current.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.ProgramProjectDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of
+            the <see cref="T:BudgetExecution.ProgramProjectDialog"/> class.
+            </summary>
+            <param name="code">The code.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.PopulateListBoxItems">
+            <summary>
+            Populates the ComboBox items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.UpdateHeaderTitle(System.Object,System.EventArgs)">
+            <summary>
+            Gets the current program title.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.CreateBindings">
+            <summary>
+            Creates the bindings.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [close button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.OnPreviousButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [previous button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.OnNextButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [next button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.OnListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.ProgramProjectDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.ProgramProjectDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:BudgetExecution.QueryDialog">
             <summary>
             
@@ -3293,6 +3456,12 @@
             Initializes a new instance
             of the <see cref="T:BudgetExecution.QueryDialog"/> class.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.#ctor(System.Windows.Forms.BindingSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.QueryDialog"/> class.
+            </summary>
+            <param name="bindingSource">The binding source.</param>
         </member>
         <member name="M:BudgetExecution.QueryDialog.OnLoad(System.Object,System.EventArgs)">
             <summary>
@@ -7980,7 +8149,7 @@
             <summary>
             
             </summary>
-            <seealso cref="!:BudgetExecution.Controls.Tile.TileBase" />
+            <seealso cref="T:BudgetExecution.TileBase" />
         </member>
         <member name="M:BudgetExecution.Tile.#ctor">
             <summary>
@@ -36044,6 +36213,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.EditSqlButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.EPA">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

@@ -121,6 +121,7 @@
             this.Separator25 = new BudgetExecution.ToolSeparator();
             this.toolSeparator24 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
+            this.TestButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -947,7 +948,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(139, 28);
+            this.TextBox.Size = new System.Drawing.Size(131, 28);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1628,6 +1629,38 @@
             this.DropDown.ToolTip = this.ToolTip;
             this.DropDown.ToolTipText = "Make Selection";
             // 
+            // TestButton
+            // 
+            this.TestButton.BindingSource = null;
+            this.TestButton.DataFilter = null;
+            this.TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TestButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TestButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TestButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TestButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TestButton.HoverText = null;
+            this.TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.TestButton.IsDerivedStyle = true;
+            this.TestButton.Location = new System.Drawing.Point(1302, 14);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.TestButton.NormalColor = System.Drawing.Color.Transparent;
+            this.TestButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.Padding = new System.Windows.Forms.Padding(1);
+            this.TestButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.PressTextColor = System.Drawing.Color.White;
+            this.TestButton.Size = new System.Drawing.Size(63, 25);
+            this.TestButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TestButton.StyleManager = null;
+            this.TestButton.TabIndex = 1;
+            this.TestButton.Text = "Test";
+            this.TestButton.ThemeAuthor = "Terry D. Eppler";
+            this.TestButton.ThemeName = "Budget Execution";
+            this.TestButton.ToolTip = null;
+            // 
             // DataGridForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1641,6 +1674,7 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 764);
+            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.TableLayout);
             this.Controls.Add(this.GridTable);
@@ -1758,5 +1792,6 @@
         public ListBox ValueListBox;
         public System.Windows.Forms.TableLayoutPanel TableLayout;
         public ListBox TableListBox;
+        private Button TestButton;
     }
 }

@@ -64,7 +64,7 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 8 );
             ForeColor = Color.LightGray;
-            BackColor = Color.FromArgb( 40, 40, 40 );
+            BackColor = Color.FromArgb( 30, 30, 30 );
             Enabled = true;
             Visible = true;
 

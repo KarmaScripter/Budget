@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Controls.Tile.TileBase" />
+    /// <seealso cref="BudgetExecution.TileBase" />
     public class Tile : TileBase
     {
         /// <summary>
@@ -21,19 +21,22 @@ namespace BudgetExecution
         public Tile( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.White;
+            ForeColor = Color.LightSteelBlue;
             Size = new Size( 140, 140 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 8, FontStyle.Bold );
-            Title.TextColor = Color.White;
+            Title.Font = new Font( "Roboto", 12, FontStyle.Bold );
+            Title.TextColor = Color.LightSteelBlue;
             Body.TextColor = Color.LightSteelBlue;
-            Body.Font = new Font( "Roboto", 11 );
+            Body.Font = new Font( "Roboto", 10 );
+            Footer.TextColor = Color.LightSteelBlue;
+            Footer.Font = new Font( "Roboto", 8 );
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = false;
-            HoveredBorderColor = Color.SteelBlue;
+            HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
+            HoverColor = Color.FromArgb( 30, 30, 30 );
             HoverBorderLength = 1;
             EnableHoverColor = true;
             EnableSelectionMarker = false;

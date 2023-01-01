@@ -159,6 +159,7 @@ namespace BudgetExecution
                 Text = DataModel.Provider + " Data";
                 ExitButton.Click += OnExitButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
+                TestButton.Click += OnTestButtonClicked;
             }
             catch( Exception ex )
             {
@@ -377,8 +378,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _pdf = new PdfForm( );
-                _pdf.ShowDialog(  );
+                var _program = new ProgramProjectDialog( );
+                _program.ShowDialog(  );
             }
             catch( Exception ex )
             {

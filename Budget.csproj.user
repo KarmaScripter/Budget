@@ -238,6 +238,9 @@
     <Compile Update="Controls\Tile\TileBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

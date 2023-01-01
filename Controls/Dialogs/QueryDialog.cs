@@ -152,6 +152,16 @@ namespace BudgetExecution
             Load += OnLoad;
             FirstListBox.SelectedValueChanged += OnTableListBoxItemSelected;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryDialog"/> class.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        public QueryDialog( BindingSource bindingSource ) 
+            : this( )
+        {
+            BindingSource = bindingSource;
+        }
         
         /// <summary>
         /// Called when [load].
