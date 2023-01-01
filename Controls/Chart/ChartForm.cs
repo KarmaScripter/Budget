@@ -24,44 +24,52 @@ namespace BudgetExecution
     public partial class ChartForm : MetroForm
     {
         /// <summary>
-        /// Gets or sets the data model.
+        /// Gets or sets the first selected item.
         /// </summary>
         /// <value>
-        /// The data model.
+        /// The first selected item.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public string FirstCategory { get; set; }
 
         /// <summary>
-        /// Gets or sets the filter.
+        /// Gets or sets the first value.
         /// </summary>
         /// <value>
-        /// The filter.
+        /// The first value.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public string FirstValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second selected item.
+        /// </summary>
+        /// <value>
+        /// The second selected item.
+        /// </value>
+        public string SecondCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
+        public string SecondValue { get; set; }
         
         /// <summary>
-        /// Gets or sets the selected table.
+        /// Gets or sets the third selected item.
         /// </summary>
         /// <value>
-        /// The selected table.
+        /// The third selected item.
         /// </value>
-        public string FirstSelectedItem { get; set; }
+        public string ThirdCategory { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected column.
+        /// Gets or sets the third value.
         /// </summary>
         /// <value>
-        /// The selected column.
+        /// The third value.
         /// </value>
-        public string SecondSelectedItem { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected value.
-        /// </summary>
-        /// <value>
-        /// The selected value.
-        /// </value>
-        public string ThirdSelectedItem { get; set; }
+        public string ThirdValue { get; set; }
 
         /// <summary>
         /// Gets or sets the SQL query.
@@ -70,6 +78,38 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> FormFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IEnumerable<string> Fields { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -123,6 +163,12 @@ namespace BudgetExecution
             
             // Event Wiring
             Load += OnLoad;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
         }
 
         /// <summary>
@@ -175,25 +221,22 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
-        /// Sets the data source.
+        /// Initializes the data.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The where.</param>
-        private void BindDataSource( Source source, Provider provider, IDictionary<string, object> where )
+        private void InitData( )
         {
-            if( Enum.IsDefined( typeof( Source ), source ) 
-               && Enum.IsDefined( typeof( Provider ), provider ) 
-               && where?.Any( ) == true )
+            if( BindingSource.DataSource != null )
             {
                 try
                 {
-                    DataModel = new DataBuilder( source, provider, where );
-                    BindingSource.DataSource = DataModel.DataTable;
-                    Chart.BindingSource = BindingSource;
-                    ToolStrip.BindingSource = BindingSource;
+                    SecondTable.Visible = !SecondTable.Visible;
+                    ThirdTable.Visible = !ThirdTable.Visible;
+                    DataTable = (DataTable)BindingSource.DataSource;
+                    Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+                    DataModel = new DataBuilder( Source, Provider.Access );
+                    PopulateFirstComboBoxItems(  );
                 }
                 catch( Exception ex )
                 {
@@ -201,7 +244,7 @@ namespace BudgetExecution
                 } 
             } 
         }
-
+        
         /// <summary>
         /// Populates the tool bar drop down items.
         /// </summary>
@@ -245,26 +288,81 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+        
+        /// <summary>
+        /// Populates the first ComboBox items.
+        /// </summary>
+        public void PopulateFirstComboBoxItems( )
+        {
+            if( DataModel != null )
+            {
+                try
+                {
+                    var _fields = DataModel.Fields;
 
+                    for( var _i = 0; _i < _fields.Count; _i++ )
+                    {
+                        var element = _fields[ _i ];
+                        if( !string.IsNullOrEmpty( element ) )
+                        {
+                            FirstComboBox.Items.Add( element );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Populates the first ListBox items.
         /// </summary>
         public void PopulateFirstListBoxItems( )
         {
-            try
+            if( !string.IsNullOrEmpty( FirstCategory ) )
             {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    var _data = DataModel.DataElements[ $"{ FirstCategory }" ];
+                    foreach( var item in _data )
+                    {
+                        FirstListBox.Items.Add( item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
         /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <returns></returns>
+        public void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ListBox listBox )
+            {
+                try
+                {
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
         /// Called when [first filter selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnFirstListBoxSelected( object sender )
+        public void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox listBox )
             {
@@ -277,6 +375,7 @@ namespace BudgetExecution
                 
                     BindingSource.DataSource = null;
                     SqlQuery = string.Empty;
+                    SecondTable.Visible = !SecondTable.Visible;
                 }
                 catch( Exception ex )
                 {
@@ -285,6 +384,34 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Populates the second ComboBox items.
+        /// </summary>
+        public void PopulateSecondComboBoxItems( )
+        {
+            if( DataModel != null 
+               && !string.IsNullOrEmpty( FirstCategory ) )
+            {
+                try
+                {
+                    var _fields = DataModel.Fields;
+                    for( var _i = 0; _i < _fields.Count; _i++ )
+                    {
+                        var element = _fields[ _i ];
+                        if( !string.IsNullOrEmpty( element ) 
+                           && !element.Equals( FirstCategory ) )
+                        {
+                            FirstComboBox.Items.Add( element );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Populates the second ListBox items.
         /// </summary>
@@ -300,10 +427,95 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [second ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <returns></returns>
+        public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ListBox listBox )
+            {
+                try
+                {
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
         /// Called when [second filter selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnSecondListBoxSelected( object sender )
+        public void OnSecondListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox listBox )
+            {
+                try
+                {
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Populates the third ComboBox items.
+        /// </summary>
+        public void PopulateThirdComboBoxItems( )
+        {
+            if( DataModel != null 
+               && !string.IsNullOrEmpty( FirstCategory )
+               && !string.IsNullOrEmpty( SecondCategory )
+              )
+            {
+                try
+                {
+                    var _fields = DataModel.Fields;
+                    for( var _i = 0; _i < _fields.Count; _i++ )
+                    {
+                        var element = _fields[ _i ];
+                        if( !string.IsNullOrEmpty( element ) 
+                           && !element.Equals( FirstCategory ) 
+                           && !element.Equals( SecondCategory ) )
+                        {
+                            FirstComboBox.Items.Add( element );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Populates the third ListBox items.
+        /// </summary>
+        public void PopulateThirdListBoxItems( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <returns></returns>
+        public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ListBox listBox )
             {
@@ -318,24 +530,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the third ListBox items.
-        /// </summary>
-        public void PopulateThirdListBoxItems( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        
-        /// <summary>
         /// Called when [third filter selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public void OnThirdListBoxSelected( object sender )
+        public void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox listBox )
             {
@@ -376,9 +574,9 @@ namespace BudgetExecution
                     FormFilter.Clear( );
                 }
 
-                FirstSelectedItem = string.Empty;
-                SecondSelectedItem = string.Empty;
-                ThirdSelectedItem = string.Empty;
+                FirstCategory = string.Empty;
+                SecondCategory = string.Empty;
+                ThirdCategory = string.Empty;
             }
             catch( Exception ex )
             {
@@ -395,11 +593,6 @@ namespace BudgetExecution
             using var _error = new Error( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        private void ChartPanel_Paint( object sender, PaintEventArgs e )
-        {
-
         }
     }
 }
