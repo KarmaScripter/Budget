@@ -187,6 +187,7 @@ namespace BudgetExecution
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
+            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
         }
 
         /// <summary>
@@ -429,20 +430,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Populates the second ListBox items.
-        /// </summary>
-        public void PopulateSecondListBoxItems( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -649,6 +636,28 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [fourth ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnFourthListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    FourthValue = _listBox.SelectedValue.ToString( );
+                    FormFilter.Add( FourthCategory, FourthValue  );
+                    SqlQuery = $"SELECT * FROM { Source } "
+                        + $"WHERE { FormFilter.ToCriteria(  ) };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Clears the selected filter values.
         /// </summary>
