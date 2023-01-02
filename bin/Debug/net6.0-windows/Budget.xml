@@ -1004,44 +1004,52 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.ChartForm.DataModel">
+        <member name="P:BudgetExecution.ChartForm.FirstCategory">
             <summary>
-            Gets or sets the data model.
+            Gets or sets the first selected item.
             </summary>
             <value>
-            The data model.
+            The first selected item.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.FormFilter">
+        <member name="P:BudgetExecution.ChartForm.FirstValue">
             <summary>
-            Gets or sets the filter.
+            Gets or sets the first value.
             </summary>
             <value>
-            The filter.
+            The first value.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.FirstSelectedItem">
+        <member name="P:BudgetExecution.ChartForm.SecondCategory">
             <summary>
-            Gets or sets the selected table.
+            Gets or sets the second selected item.
             </summary>
             <value>
-            The selected table.
+            The second selected item.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.SecondSelectedItem">
+        <member name="P:BudgetExecution.ChartForm.SecondValue">
             <summary>
-            Gets or sets the selected column.
+            Gets or sets the second value.
             </summary>
             <value>
-            The selected column.
+            The second value.
             </value>
         </member>
-        <member name="P:BudgetExecution.ChartForm.ThirdSelectedItem">
+        <member name="P:BudgetExecution.ChartForm.ThirdCategory">
             <summary>
-            Gets or sets the selected value.
+            Gets or sets the third selected item.
             </summary>
             <value>
-            The selected value.
+            The third selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.ThirdValue">
+            <summary>
+            Gets or sets the third value.
+            </summary>
+            <value>
+            The third value.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.SqlQuery">
@@ -1050,6 +1058,38 @@
             </summary>
             <value>
             The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.Source">
@@ -1095,13 +1135,10 @@
             The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
+        <member name="M:BudgetExecution.ChartForm.InitData">
             <summary>
-            Sets the data source.
+            Initializes the data.
             </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="where">The where.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateToolBarDropDownItems">
             <summary>
@@ -1115,34 +1152,73 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.ChartForm.PopulateFirstComboBoxItems">
+            <summary>
+            Populates the first ComboBox items.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.ChartForm.PopulateFirstListBoxItems">
             <summary>
             Populates the first ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnFirstListBoxSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.OnFirstComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [first ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnFirstListBoxItemSelected(System.Object)">
             <summary>
             Called when [first filter selected].
             </summary>
             <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.PopulateSecondComboBoxItems">
+            <summary>
+            Populates the second ComboBox items.
+            </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateSecondListBoxItems">
             <summary>
             Populates the second ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnSecondListBoxSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.OnSecondComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [second ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnSecondListBoxItemSelected(System.Object)">
             <summary>
             Called when [second filter selected].
             </summary>
             <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.PopulateThirdComboBoxItems">
+            <summary>
+            Populates the third ComboBox items.
+            </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateThirdListBoxItems">
             <summary>
             Populates the third ListBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnThirdListBoxSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.OnThirdComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [third ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnThirdListBoxItemSelected(System.Object)">
             <summary>
             Called when [third filter selected].
             </summary>

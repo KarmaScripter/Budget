@@ -319,7 +319,7 @@ namespace BudgetExecution
                         {
                             if( BindingSource?.DataSource != null )
                             {
-                                var _chartDialog = new SchemaDialog( BindingSource );
+                                var _chartDialog = new ChartForm( BindingSource );
                                 _chartDialog?.ShowDialog( );
                             }
                             else if( BindingSource == null )
