@@ -15,6 +15,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Chart;
     using System.Drawing;
     using DocumentFormat.OpenXml.Office2010.Excel;
+    using SQLite.Designer;
     using Color = System.Drawing.Color;
 
     /// <summary>
@@ -176,9 +177,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             
-            // Chart Properties
-            Chart.Title.Text = string.Empty;
-            
             // Event Wiring
             Load += OnLoad;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -200,25 +198,6 @@ namespace BudgetExecution
             : this( )
         {
             BindingSource = bindingSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource = BindingSource;
-            ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
-            Chart.BindingSource = BindingSource;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        public ChartForm( DataTable dataTable )
-            : this( )
-        {
-            DataTable = dataTable;
-            BindingSource.DataSource = dataTable;
-            ToolStrip.BindingSource = BindingSource;
-            ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
-            Chart.BindingSource = BindingSource;
         }
         
         /// <summary>
@@ -237,7 +216,11 @@ namespace BudgetExecution
                 BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Text = string.Empty;
+                Header.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
+                SecondTable.Visible = !SecondTable.Visible;
+                ThirdTable.Visible = !ThirdTable.Visible;
+                FourthTable.Visible = !FourthTable.Visible;
                 InitData(  );
             }
             catch ( Exception ex )
@@ -251,15 +234,19 @@ namespace BudgetExecution
         /// </summary>
         private void InitData( )
         {
-            if( BindingSource.DataSource != null )
+            if( BindingSource != null )
             {
                 try
                 {
-                    SecondTable.Visible = !SecondTable.Visible;
-                    ThirdTable.Visible = !ThirdTable.Visible;
-                    FourthTable.Visible = !FourthTable.Visible;
+                    DataTable = (DataTable)BindingSource.DataSource;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    ToolStrip.BindingSource.DataSource = BindingSource.DataSource;
+                    Chart.BindingSource = BindingSource;
                     Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-                    DataModel = new DataBuilder( Source, Provider.Access );
+                    Chart.Title.Text = $"{ Source.ToString( ).SplitPascal( ) }";
+                    Provider = Provider.Access;
+                    DataModel = new DataBuilder( Source, Provider );
                     Fields = DataModel.Fields;
                     PopulateToolBarDropDownItems( );
                     PopulateFirstComboBoxItems( );
