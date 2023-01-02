@@ -150,7 +150,7 @@ namespace BudgetExecution
             
             // Event Wiring
             Load += OnLoad;
-            FirstListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
         }
 
         /// <summary>
@@ -175,14 +175,14 @@ namespace BudgetExecution
                 ThirdButton.Click += OnCloseButtonClicked;
                 SecondListBox.MultiSelect = true;
                 ThirdListBox.MultiSelect = true;
-                PopulateTableListBox(  );
+                PopulateFirstListBoxItems(  );
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                PopulateFieldListBox(  );
-                PopulateNumericListBox( );
+                PopulateSecondListBox(  );
+                PopulateThirdListBoxItems( );
                 SetLabelConfiguration( );
                 FirstListBox.SelectedValue = $"{ Source }";
             }
@@ -229,7 +229,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the table ListBox.
         /// </summary>
-        private void PopulateTableListBox( )
+        private void PopulateFirstListBoxItems( )
         {
             try
             {
@@ -256,7 +256,7 @@ namespace BudgetExecution
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnTableListBoxItemSelected( object sender )
+        private void OnFirstListBoxItemSelected( object sender )
         {
             try
             {
@@ -280,8 +280,8 @@ namespace BudgetExecution
                     SelectedTable = DataModel.DataTable?.TableName;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    PopulateFieldListBox( );
-                    PopulateNumericListBox( );
+                    PopulateSecondListBox( );
+                    PopulateThirdListBoxItems( );
                 }
                 
                 SetLabelConfiguration(  );
@@ -295,7 +295,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the column ListBox.
         /// </summary>
-        private void PopulateFieldListBox( )
+        private void PopulateSecondListBox( )
         {
             if( Fields?.Any( ) == true )
             {
@@ -319,7 +319,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFieldListBoxItemSelected( object sender, EventArgs e )
+        private void OnSecondListBoxItemSelected( object sender, EventArgs e )
         {
             try
             {
@@ -333,7 +333,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the numeric ListBox.
         /// </summary>
-        private void PopulateNumericListBox( )
+        private void PopulateThirdListBoxItems( )
         {
             if( Numerics?.Any( ) == true )
             {
@@ -356,7 +356,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnNumericListBoxItemSelected( object sender, EventArgs e )
+        private void OnThirdListBoxItemSelected( object sender, EventArgs e )
         {
             if( Numerics?.Any( ) == true )
             {

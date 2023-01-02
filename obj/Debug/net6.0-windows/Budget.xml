@@ -2207,6 +2207,11 @@
             The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.ClearFilterSelections">
+            <summary>
+            Clears the filter selections.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.Fail(System.Exception)">
             <summary>
             Get Error Dialog.
@@ -3613,35 +3618,35 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateTableListBox">
+        <member name="M:BudgetExecution.QueryDialog.PopulateFirstListBoxItems">
             <summary>
             Populates the table ListBox.
             </summary>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.OnTableListBoxItemSelected(System.Object)">
+        <member name="M:BudgetExecution.QueryDialog.OnFirstListBoxItemSelected(System.Object)">
             <summary>
             Called when [table ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateFieldListBox">
+        <member name="M:BudgetExecution.QueryDialog.PopulateSecondListBox">
             <summary>
             Populates the column ListBox.
             </summary>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.OnFieldListBoxItemSelected(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.QueryDialog.OnSecondListBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
             Called when [column ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateNumericListBox">
+        <member name="M:BudgetExecution.QueryDialog.PopulateThirdListBoxItems">
             <summary>
             Populates the numeric ListBox.
             </summary>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.OnNumericListBoxItemSelected(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.QueryDialog.OnThirdListBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
             Called when [numeric ListBox item selected].
             </summary>
@@ -4908,27 +4913,6 @@
             From.
             </param>
         </member>
-        <member name="M:BudgetExecution.Grid.GetAddress">
-            <summary>
-            Gets the address.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Grid.GetRange">
-            <summary>
-            Gets the range.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Grid.GetWorksheet">
-            <summary>
-            Gets the workSheet.
-            </summary>
-            <returns>
-            </returns>
-        </member>
         <member name="M:BudgetExecution.Grid.CountCells(OfficeOpenXml.ExcelRange)">
             <summary>
             Counts the cells.
@@ -4949,20 +4933,6 @@
         <member name="M:BudgetExecution.Grid.GetColumnCount">
             <summary>
             Gets the column count.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Grid.GetFrom">
-            <summary>
-            Gets from.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Grid.GetTo">
-            <summary>
-            Gets to.
             </summary>
             <returns>
             </returns>
@@ -5143,6 +5113,61 @@
             </summary>
             <param name="grid">The grid.</param>
             <param name="caption">The caption.</param>
+        </member>
+        <member name="P:BudgetExecution.IGrid.Range">
+            <summary>
+            The range
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.IGrid.Worksheet">
+            <summary>
+            The workSheet
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.IGrid.Address">
+            <summary>
+            The address
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.IGrid.From">
+            <summary>
+            Gets or sets from.
+            </summary>
+            <value>
+            From.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.IGrid.To">
+            <summary>
+            Gets or sets to.
+            </summary>
+            <value>
+            To.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.IGrid.CountCells(OfficeOpenXml.ExcelRange)">
+            <summary>
+            Counts the cells.
+            </summary>
+            <param name = "range" >
+            The range.
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:BudgetExecution.IGrid.GetRowCount">
+            <summary>
+            Gets the row count.
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:BudgetExecution.IGrid.GetColumnCount">
+            <summary>
+            Gets the column count.
+            </summary>
+            <returns>
+            </returns>
         </member>
         <member name="T:BudgetExecution.RibbonBase">
             <summary>
@@ -24457,56 +24482,6 @@
         <member name="M:BudgetExecution.IGoal.GetGoal">
             <summary>
             Gets the goal.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="T:BudgetExecution.IGrid">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.IGrid.GetAddress">
-            <summary>
-            Gets the address.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IGrid.GetRange">
-            <summary>
-            Gets the _range.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IGrid.GetWorksheet">
-            <summary>
-            Gets the workSheet.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IGrid.CountCells(OfficeOpenXml.ExcelRange)">
-            <summary>
-            Counts the cells.
-            </summary>
-            <param name = "range" >
-            The _range.
-            </param>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IGrid.GetRowCount">
-            <summary>
-            Gets the row count.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.IGrid.GetColumnCount">
-            <summary>
-            Gets the column count.
             </summary>
             <returns>
             </returns>

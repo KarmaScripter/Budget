@@ -69,7 +69,7 @@ namespace BudgetExecution
             this.ThirdTable.Controls.Add(this.ThirdLabel, 0, 0);
             this.ThirdTable.Controls.Add(this.ThirdPanel, 0, 1);
             this.ThirdTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ThirdTable.Location = new System.Drawing.Point(596, 12);
+            this.ThirdTable.Location = new System.Drawing.Point(596, 28);
             this.ThirdTable.Name = "ThirdTable";
             this.ThirdTable.RowCount = 2;
             this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.308511F));
@@ -168,7 +168,7 @@ namespace BudgetExecution
             this.SecondTable.Controls.Add(this.SecondLabel, 0, 0);
             this.SecondTable.Controls.Add(this.SecondPanel, 0, 1);
             this.SecondTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SecondTable.Location = new System.Drawing.Point(306, 12);
+            this.SecondTable.Location = new System.Drawing.Point(306, 28);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
             this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.793815F));
@@ -252,7 +252,7 @@ namespace BudgetExecution
             this.SecondListBox.SelectedValue = null;
             this.SecondListBox.ShowBorder = false;
             this.SecondListBox.ShowScrollBar = false;
-            this.SecondListBox.Size = new System.Drawing.Size(242, 289);
+            this.SecondListBox.Size = new System.Drawing.Size(242, 288);
             this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondListBox.StyleManager = null;
             this.SecondListBox.TabIndex = 2;
@@ -267,7 +267,7 @@ namespace BudgetExecution
             this.FirstTable.Controls.Add(this.FirstLabel, 0, 0);
             this.FirstTable.Controls.Add(this.FirstPanel, 0, 1);
             this.FirstTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.FirstTable.Location = new System.Drawing.Point(12, 12);
+            this.FirstTable.Location = new System.Drawing.Point(12, 28);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 2;
             this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.574468F));
@@ -405,7 +405,7 @@ namespace BudgetExecution
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(686, 400);
+            this.ThirdButton.Location = new System.Drawing.Point(685, 400);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;

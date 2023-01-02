@@ -12,6 +12,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml;
+    using Syncfusion.Grouping;
+    using Syncfusion.XlsIO.Implementation.Collections;
 
     /// <summary>
     /// 
@@ -104,12 +107,12 @@ namespace BudgetExecution
             // Label Properties
             DataGridLabel.Font = new Font( "Roboto", 8 );
             DataGridLabel.ForeColor = Color.LightGray;
-            TableLabel.Font = new Font( "Roboto", 8 );
-            TableLabel.ForeColor = Color.LightGray;
-            ColumnLabel.Font = new Font( "Roboto", 8 );
-            ColumnLabel.ForeColor = Color.LightGray;
-            ValueLabel.Font = new Font( "Roboto", 8 );
-            ValueLabel.ForeColor = Color.LightGray;
+            FirstLabel.Font = new Font( "Roboto", 8 );
+            FirstLabel.ForeColor = Color.LightGray;
+            SecondLabel.Font = new Font( "Roboto", 8 );
+            SecondLabel.ForeColor = Color.LightGray;
+            ThirdLabel.Font = new Font( "Roboto", 8 );
+            ThirdLabel.ForeColor = Color.LightGray;
             
             // ToolStrip Properties
             ToolStrip.Text = string.Empty;
@@ -120,9 +123,9 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += null;
-            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
-            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
-            ValueListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
+            FirstListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
+            SecondListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
+            ThirdListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
             Load += OnLoad;
         }
 
@@ -200,9 +203,9 @@ namespace BudgetExecution
         {
             try
             {
-                TableLabel.Text = "Tables: " + TableListBox.Items.Count;
-                ColumnLabel.Text = "Columns: " + ColumnListBox.Items?.Count;
-                ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
+                FirstLabel.Text = "Tables: " + FirstListBox.Items.Count;
+                SecondLabel.Text = "Columns: " + SecondListBox.Items?.Count;
+                ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
                 DataGridLabel.Text = "Data Source:  " + DataModel.Source.ToString( ).SplitPascal( );
             }
             catch( Exception ex )
@@ -218,7 +221,7 @@ namespace BudgetExecution
         {
             try
             {
-                TableListBox.Items.Clear( );
+                FirstListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
                 var _names = _data
@@ -229,7 +232,7 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
-                    TableListBox.Items.Add( name );
+                    FirstListBox.Items.Add( name );
                 }
             }
             catch( Exception ex )
@@ -276,8 +279,8 @@ namespace BudgetExecution
                 
                 BindingSource.DataSource = null;
                 SqlQuery = string.Empty;
-                ColumnListBox.Items.Clear( );
-                ValueListBox.Items.Clear( );
+                SecondListBox.Items.Clear( );
+                ThirdListBox.Items.Clear( );
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedValue?.ToString( );
                 SelectedTable = _value;
@@ -293,7 +296,7 @@ namespace BudgetExecution
                     var _columns = DataModel.GetDataColumns( );
                     foreach( var col in _columns )
                     {
-                        ColumnListBox.Items.Add( col.ColumnName );
+                        SecondListBox.Items.Add( col.ColumnName );
                     }
                 }
                 
@@ -315,7 +318,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ValueListBox.Items.Clear( );
+                    ThirdListBox.Items.Clear( );
                     SqlQuery = string.Empty;
                     var _column = _listBox?.SelectedValue?.ToString( );
                     var _series = DataModel.DataElements;
@@ -324,11 +327,11 @@ namespace BudgetExecution
                         SelectedColumn = _column?.Trim( );
                         foreach( var item in _series[ _column ] )
                         {
-                            ValueListBox.Items.Add( item );
+                            ThirdListBox.Items.Add( item );
                         }
                     }
 
-                    ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
+                    ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
                 }
                 catch( Exception ex )
                 {
@@ -360,7 +363,7 @@ namespace BudgetExecution
                     }
 
                     SqlQuery = _query;
-                    ValueLabel.Text = "Values: " + ValueListBox.Items.Count;
+                    ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
                 }
                 catch( Exception ex )
                 {
@@ -426,6 +429,26 @@ namespace BudgetExecution
                 {
                     Close(  );
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter selections.
+        /// </summary>
+        private void ClearFilterSelections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear(  );
+                }
+                
+                FirstButton.Visible = !FirstButton.Visible;
             }
             catch( Exception ex )
             {
