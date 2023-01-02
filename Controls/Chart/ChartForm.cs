@@ -119,7 +119,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public SortedDictionary<string, object> FormFilter { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -233,7 +233,7 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter = new Dictionary<string, object>( );
+                FormFilter = new SortedDictionary<string, object>( );
                 BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Text = string.Empty;
@@ -370,11 +370,15 @@ namespace BudgetExecution
             {
                 try
                 {
+                    SqlQuery = string.Empty;
+                    Header.Text = string.Empty;
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
                     if( FirstListBox.Items.Count > 0 )
                     {
                         FirstListBox.Items.Clear(  );
                     }
-
+                    
                     var _filter = _comboBox.SelectedItem.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
@@ -421,6 +425,9 @@ namespace BudgetExecution
                     {
                         FourthTable.Visible = !FourthTable.Visible;
                     }
+
+                    SqlQuery = CreateSqlText( FormFilter );
+                    Header.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -475,6 +482,10 @@ namespace BudgetExecution
             {
                 try
                 {
+                    SqlQuery = string.Empty;
+                    Header.Text = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
                     if( SecondListBox.Items.Count > 0 )
                     {
                         SecondListBox.Items.Clear(  );
@@ -508,12 +519,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.ContainsKey( SecondCategory ) )
+                    if( FormFilter.Keys.Count > 0 )
                     {
-                        FormFilter.Remove( SecondCategory );
+                        FormFilter.Clear( );
                     }
-                    
+
                     SecondValue = _listBox.SelectedValue.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComboBoxItems(  );
                     if( ThirdTable.Visible != true )
@@ -525,6 +537,9 @@ namespace BudgetExecution
                     {
                         FourthTable.Visible = !FourthTable.Visible;
                     }
+                    
+                    SqlQuery = CreateSqlText( FormFilter );
+                    Header.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -574,6 +589,10 @@ namespace BudgetExecution
             {
                 try
                 {
+                    SqlQuery = string.Empty;
+                    Header.Text = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
                     if( ThirdListBox.Items.Count > 0 )
                     {
                         ThirdListBox.Items.Clear(  );
@@ -607,9 +626,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.ContainsKey( ThirdCategory ) )
+                    if( FormFilter.Keys.Count > 0 )
                     {
-                        FormFilter.Remove( ThirdCategory );
+                        FormFilter.Clear( );
                     }
 
                     ThirdValue = _listBox?.SelectedValue?.ToString( );
@@ -619,7 +638,11 @@ namespace BudgetExecution
                         FourthTable.Visible = !FourthTable.Visible;
                     }
                     
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue  );
                     FormFilter.Add( ThirdCategory, ThirdValue );
+                    SqlQuery = CreateSqlText( FormFilter );
+                    Header.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -670,11 +693,15 @@ namespace BudgetExecution
             {
                 try
                 {
+                    SqlQuery = string.Empty;
+                    Header.Text = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     if( FourthListBox.Items.Count > 0 )
                     {
                         FourthListBox.Items.Clear(  );
                     }
-
+                    
                     var _filter = _comboBox.SelectedItem.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
@@ -703,10 +730,18 @@ namespace BudgetExecution
             {
                 try
                 {
+                    if( FormFilter.Keys.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
                     FourthValue = _listBox.SelectedValue.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue  );
+                    FormFilter.Add( ThirdCategory, ThirdValue  );
                     FormFilter.Add( FourthCategory, FourthValue  );
-                    SqlQuery = $"SELECT * FROM { Source } "
-                        + $"WHERE { FormFilter.ToCriteria(  ) };";
+                    SqlQuery = CreateSqlText( FormFilter );
+                    Header.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -722,12 +757,14 @@ namespace BudgetExecution
         {
             try
             {
+                SqlQuery = string.Empty;
+                Header.Text = string.Empty;
                 if( FormFilter.Keys.Count > 0 )
                 {
                     FormFilter.Clear( );
                 }
                 
-                if( !string.IsNullOrEmpty( FourthCategory ) )
+                if( !string.IsNullOrEmpty( FourthValue ) )
                 {
                     FourthComboBox.Items.Clear( );
                     FourthListBox.Items.Clear( );
@@ -736,7 +773,7 @@ namespace BudgetExecution
                     FourthTable.Visible = !FourthTable.Visible;
                 } 
                 
-                if( !string.IsNullOrEmpty( ThirdCategory ) )
+                if( !string.IsNullOrEmpty( ThirdValue ) )
                 {
                     ThirdComboBox.Items.Clear( );
                     ThirdListBox.Items.Clear( );
@@ -745,7 +782,7 @@ namespace BudgetExecution
                     ThirdTable.Visible = !ThirdTable.Visible;
                 }
                 
-                if( !string.IsNullOrEmpty( SecondCategory ) )
+                if( !string.IsNullOrEmpty( SecondValue ) )
                 {
                     SecondComboBox.Items.Clear( );
                     SecondListBox.Items.Clear( );
@@ -754,7 +791,7 @@ namespace BudgetExecution
                     SecondTable.Visible = !SecondTable.Visible;
                 }
                 
-                if( !string.IsNullOrEmpty( FirstCategory ) )
+                if( !string.IsNullOrEmpty( FirstValue ) )
                 {
                     FirstComboBox.Items.Clear( );
                     FirstListBox.Items.Clear( );
