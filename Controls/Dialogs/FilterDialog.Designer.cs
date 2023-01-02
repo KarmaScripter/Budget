@@ -35,77 +35,77 @@ partial class FilterDialog
     {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FilterDialog));
-            this.FirstFilterTable = new System.Windows.Forms.TableLayoutPanel();
-            this.FirstFilterPanel = new BudgetExecution.Layout();
+            this.FirstTable = new System.Windows.Forms.TableLayoutPanel();
+            this.FirstPanel = new BudgetExecution.Layout();
             this.FirstListBox = new BudgetExecution.ListBox();
             this.FirstLabel = new BudgetExecution.Label();
             this.FirstComboBox = new BudgetExecution.ComboBox();
-            this.ThirdFilterTable = new System.Windows.Forms.TableLayoutPanel();
+            this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
             this.ThirdLabel = new BudgetExecution.Label();
             this.ThirdComboBox = new BudgetExecution.ComboBox();
-            this.ThirdFilterPanel = new BudgetExecution.Layout();
+            this.ThirdPanel = new BudgetExecution.Layout();
             this.ThirdListBox = new BudgetExecution.ListBox();
-            this.SecondFilterPanel = new BudgetExecution.Layout();
+            this.SecondPanel = new BudgetExecution.Layout();
             this.SecondListBox = new BudgetExecution.ListBox();
             this.SecondComboBox = new BudgetExecution.ComboBox();
             this.SecondLabel = new BudgetExecution.Label();
-            this.SecondFilterTable = new System.Windows.Forms.TableLayoutPanel();
+            this.SecondTable = new System.Windows.Forms.TableLayoutPanel();
             this.FirstButton = new BudgetExecution.Button();
             this.SecondButton = new BudgetExecution.Button();
             this.ThirdButton = new BudgetExecution.Button();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolTip = new BudgetExecution.SmallTip();
-            this.FirstFilterTable.SuspendLayout();
-            this.FirstFilterPanel.SuspendLayout();
-            this.ThirdFilterTable.SuspendLayout();
-            this.ThirdFilterPanel.SuspendLayout();
-            this.SecondFilterPanel.SuspendLayout();
-            this.SecondFilterTable.SuspendLayout();
+            this.FirstTable.SuspendLayout();
+            this.FirstPanel.SuspendLayout();
+            this.ThirdTable.SuspendLayout();
+            this.ThirdPanel.SuspendLayout();
+            this.SecondPanel.SuspendLayout();
+            this.SecondTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // FirstFilterTable
+            // FirstTable
             // 
-            this.FirstFilterTable.ColumnCount = 1;
-            this.FirstFilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.FirstFilterTable.Controls.Add(this.FirstFilterPanel, 0, 2);
-            this.FirstFilterTable.Controls.Add(this.FirstLabel, 0, 0);
-            this.FirstFilterTable.Controls.Add(this.FirstComboBox, 0, 1);
-            this.FirstFilterTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstFilterTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.FirstFilterTable.Location = new System.Drawing.Point(12, 18);
-            this.FirstFilterTable.Name = "FirstFilterTable";
-            this.FirstFilterTable.RowCount = 3;
-            this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.FirstFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
-            this.FirstFilterTable.Size = new System.Drawing.Size(268, 330);
-            this.FirstFilterTable.TabIndex = 5;
+            this.FirstTable.ColumnCount = 1;
+            this.FirstTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.FirstTable.Controls.Add(this.FirstPanel, 0, 2);
+            this.FirstTable.Controls.Add(this.FirstLabel, 0, 0);
+            this.FirstTable.Controls.Add(this.FirstComboBox, 0, 1);
+            this.FirstTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.FirstTable.Location = new System.Drawing.Point(12, 18);
+            this.FirstTable.Name = "FirstTable";
+            this.FirstTable.RowCount = 3;
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
+            this.FirstTable.Size = new System.Drawing.Size(268, 330);
+            this.FirstTable.TabIndex = 5;
             // 
-            // FirstFilterPanel
+            // FirstPanel
             // 
-            this.FirstFilterPanel.BackColor = System.Drawing.Color.Transparent;
-            this.FirstFilterPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstFilterPanel.BindingSource = null;
-            this.FirstFilterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.FirstFilterPanel.BorderThickness = 1;
-            this.FirstFilterPanel.Children = null;
-            this.FirstFilterPanel.Controls.Add(this.FirstListBox);
-            this.FirstFilterPanel.DataFilter = null;
-            this.FirstFilterPanel.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstFilterPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.FirstFilterPanel.HoverText = null;
-            this.FirstFilterPanel.IsDerivedStyle = true;
-            this.FirstFilterPanel.Location = new System.Drawing.Point(3, 61);
-            this.FirstFilterPanel.Name = "FirstFilterPanel";
-            this.FirstFilterPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstFilterPanel.Size = new System.Drawing.Size(262, 265);
-            this.FirstFilterPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FirstFilterPanel.StyleManager = null;
-            this.FirstFilterPanel.TabIndex = 2;
-            this.FirstFilterPanel.ThemeAuthor = "Terry D. Eppler";
-            this.FirstFilterPanel.ThemeName = "BudgetExecution";
-            this.FirstFilterPanel.ToolTip = null;
+            this.FirstPanel.BackColor = System.Drawing.Color.Transparent;
+            this.FirstPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstPanel.BindingSource = null;
+            this.FirstPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FirstPanel.BorderThickness = 1;
+            this.FirstPanel.Children = null;
+            this.FirstPanel.Controls.Add(this.FirstListBox);
+            this.FirstPanel.DataFilter = null;
+            this.FirstPanel.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.FirstPanel.HoverText = null;
+            this.FirstPanel.IsDerivedStyle = true;
+            this.FirstPanel.Location = new System.Drawing.Point(3, 61);
+            this.FirstPanel.Name = "FirstPanel";
+            this.FirstPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstPanel.Size = new System.Drawing.Size(262, 265);
+            this.FirstPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstPanel.StyleManager = null;
+            this.FirstPanel.TabIndex = 2;
+            this.FirstPanel.ThemeAuthor = "Terry D. Eppler";
+            this.FirstPanel.ThemeName = "BudgetExecution";
+            this.FirstPanel.ToolTip = null;
             // 
             // FirstListBox
             // 
@@ -200,23 +200,23 @@ partial class FilterDialog
             this.FirstComboBox.ThemeName = "BudgetExecution";
             this.FirstComboBox.ToolTip = null;
             // 
-            // ThirdFilterTable
+            // ThirdTable
             // 
-            this.ThirdFilterTable.ColumnCount = 1;
-            this.ThirdFilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ThirdFilterTable.Controls.Add(this.ThirdLabel, 0, 0);
-            this.ThirdFilterTable.Controls.Add(this.ThirdComboBox, 0, 1);
-            this.ThirdFilterTable.Controls.Add(this.ThirdFilterPanel, 0, 2);
-            this.ThirdFilterTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdFilterTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ThirdFilterTable.Location = new System.Drawing.Point(595, 18);
-            this.ThirdFilterTable.Name = "ThirdFilterTable";
-            this.ThirdFilterTable.RowCount = 3;
-            this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.ThirdFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
-            this.ThirdFilterTable.Size = new System.Drawing.Size(266, 330);
-            this.ThirdFilterTable.TabIndex = 7;
+            this.ThirdTable.ColumnCount = 1;
+            this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ThirdTable.Controls.Add(this.ThirdLabel, 0, 0);
+            this.ThirdTable.Controls.Add(this.ThirdComboBox, 0, 1);
+            this.ThirdTable.Controls.Add(this.ThirdPanel, 0, 2);
+            this.ThirdTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.ThirdTable.Location = new System.Drawing.Point(595, 18);
+            this.ThirdTable.Name = "ThirdTable";
+            this.ThirdTable.RowCount = 3;
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
+            this.ThirdTable.Size = new System.Drawing.Size(266, 330);
+            this.ThirdTable.TabIndex = 7;
             // 
             // ThirdLabel
             // 
@@ -276,30 +276,30 @@ partial class FilterDialog
             this.ThirdComboBox.ThemeName = "BudgetExecution";
             this.ThirdComboBox.ToolTip = null;
             // 
-            // ThirdFilterPanel
+            // ThirdPanel
             // 
-            this.ThirdFilterPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ThirdFilterPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdFilterPanel.BindingSource = null;
-            this.ThirdFilterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ThirdFilterPanel.BorderThickness = 1;
-            this.ThirdFilterPanel.Children = null;
-            this.ThirdFilterPanel.Controls.Add(this.ThirdListBox);
-            this.ThirdFilterPanel.DataFilter = null;
-            this.ThirdFilterPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdFilterPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.ThirdFilterPanel.HoverText = null;
-            this.ThirdFilterPanel.IsDerivedStyle = true;
-            this.ThirdFilterPanel.Location = new System.Drawing.Point(3, 61);
-            this.ThirdFilterPanel.Name = "ThirdFilterPanel";
-            this.ThirdFilterPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdFilterPanel.Size = new System.Drawing.Size(260, 265);
-            this.ThirdFilterPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdFilterPanel.StyleManager = null;
-            this.ThirdFilterPanel.TabIndex = 2;
-            this.ThirdFilterPanel.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdFilterPanel.ThemeName = "BudgetExecution";
-            this.ThirdFilterPanel.ToolTip = null;
+            this.ThirdPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ThirdPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ThirdPanel.BindingSource = null;
+            this.ThirdPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ThirdPanel.BorderThickness = 1;
+            this.ThirdPanel.Children = null;
+            this.ThirdPanel.Controls.Add(this.ThirdListBox);
+            this.ThirdPanel.DataFilter = null;
+            this.ThirdPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.ThirdPanel.HoverText = null;
+            this.ThirdPanel.IsDerivedStyle = true;
+            this.ThirdPanel.Location = new System.Drawing.Point(3, 61);
+            this.ThirdPanel.Name = "ThirdPanel";
+            this.ThirdPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.ThirdPanel.Size = new System.Drawing.Size(260, 265);
+            this.ThirdPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ThirdPanel.StyleManager = null;
+            this.ThirdPanel.TabIndex = 2;
+            this.ThirdPanel.ThemeAuthor = "Terry D. Eppler";
+            this.ThirdPanel.ThemeName = "BudgetExecution";
+            this.ThirdPanel.ToolTip = null;
             // 
             // ThirdListBox
             // 
@@ -336,30 +336,30 @@ partial class FilterDialog
             this.ThirdListBox.ThemeName = "BudgetExecution";
             this.ThirdListBox.ToolTip = null;
             // 
-            // SecondFilterPanel
+            // SecondPanel
             // 
-            this.SecondFilterPanel.BackColor = System.Drawing.Color.Transparent;
-            this.SecondFilterPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondFilterPanel.BindingSource = null;
-            this.SecondFilterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.SecondFilterPanel.BorderThickness = 1;
-            this.SecondFilterPanel.Children = null;
-            this.SecondFilterPanel.Controls.Add(this.SecondListBox);
-            this.SecondFilterPanel.DataFilter = null;
-            this.SecondFilterPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondFilterPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.SecondFilterPanel.HoverText = null;
-            this.SecondFilterPanel.IsDerivedStyle = true;
-            this.SecondFilterPanel.Location = new System.Drawing.Point(3, 61);
-            this.SecondFilterPanel.Name = "SecondFilterPanel";
-            this.SecondFilterPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondFilterPanel.Size = new System.Drawing.Size(260, 265);
-            this.SecondFilterPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondFilterPanel.StyleManager = null;
-            this.SecondFilterPanel.TabIndex = 2;
-            this.SecondFilterPanel.ThemeAuthor = "Terry D. Eppler";
-            this.SecondFilterPanel.ThemeName = "BudgetExecution";
-            this.SecondFilterPanel.ToolTip = null;
+            this.SecondPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SecondPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondPanel.BindingSource = null;
+            this.SecondPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondPanel.BorderThickness = 1;
+            this.SecondPanel.Children = null;
+            this.SecondPanel.Controls.Add(this.SecondListBox);
+            this.SecondPanel.DataFilter = null;
+            this.SecondPanel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SecondPanel.HoverText = null;
+            this.SecondPanel.IsDerivedStyle = true;
+            this.SecondPanel.Location = new System.Drawing.Point(3, 61);
+            this.SecondPanel.Name = "SecondPanel";
+            this.SecondPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondPanel.Size = new System.Drawing.Size(260, 265);
+            this.SecondPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondPanel.StyleManager = null;
+            this.SecondPanel.TabIndex = 2;
+            this.SecondPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondPanel.ThemeName = "BudgetExecution";
+            this.SecondPanel.ToolTip = null;
             // 
             // SecondListBox
             // 
@@ -454,23 +454,23 @@ partial class FilterDialog
             this.SecondLabel.ThemeName = "BudgetExecution";
             this.SecondLabel.ToolTip = null;
             // 
-            // SecondFilterTable
+            // SecondTable
             // 
-            this.SecondFilterTable.ColumnCount = 1;
-            this.SecondFilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SecondFilterTable.Controls.Add(this.SecondLabel, 0, 0);
-            this.SecondFilterTable.Controls.Add(this.SecondComboBox, 0, 1);
-            this.SecondFilterTable.Controls.Add(this.SecondFilterPanel, 0, 2);
-            this.SecondFilterTable.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondFilterTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SecondFilterTable.Location = new System.Drawing.Point(304, 18);
-            this.SecondFilterTable.Name = "SecondFilterTable";
-            this.SecondFilterTable.RowCount = 3;
-            this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.SecondFilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
-            this.SecondFilterTable.Size = new System.Drawing.Size(266, 330);
-            this.SecondFilterTable.TabIndex = 6;
+            this.SecondTable.ColumnCount = 1;
+            this.SecondTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SecondTable.Controls.Add(this.SecondLabel, 0, 0);
+            this.SecondTable.Controls.Add(this.SecondComboBox, 0, 1);
+            this.SecondTable.Controls.Add(this.SecondPanel, 0, 2);
+            this.SecondTable.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.SecondTable.Location = new System.Drawing.Point(304, 18);
+            this.SecondTable.Name = "SecondTable";
+            this.SecondTable.RowCount = 3;
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
+            this.SecondTable.Size = new System.Drawing.Size(266, 330);
+            this.SecondTable.TabIndex = 6;
             // 
             // FirstButton
             // 
@@ -601,12 +601,12 @@ partial class FilterDialog
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(870, 419);
-            this.Controls.Add(this.FirstFilterTable);
+            this.Controls.Add(this.FirstTable);
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.SecondButton);
             this.Controls.Add(this.FirstButton);
-            this.Controls.Add(this.ThirdFilterTable);
-            this.Controls.Add(this.SecondFilterTable);
+            this.Controls.Add(this.ThirdTable);
+            this.Controls.Add(this.SecondTable);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -621,12 +621,12 @@ partial class FilterDialog
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DataSource Name";
-            this.FirstFilterTable.ResumeLayout(false);
-            this.FirstFilterPanel.ResumeLayout(false);
-            this.ThirdFilterTable.ResumeLayout(false);
-            this.ThirdFilterPanel.ResumeLayout(false);
-            this.SecondFilterPanel.ResumeLayout(false);
-            this.SecondFilterTable.ResumeLayout(false);
+            this.FirstTable.ResumeLayout(false);
+            this.FirstPanel.ResumeLayout(false);
+            this.ThirdTable.ResumeLayout(false);
+            this.ThirdPanel.ResumeLayout(false);
+            this.SecondPanel.ResumeLayout(false);
+            this.SecondTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -634,21 +634,21 @@ partial class FilterDialog
 
     #endregion
 
-    public System.Windows.Forms.TableLayoutPanel FirstFilterTable;
+    public System.Windows.Forms.TableLayoutPanel FirstTable;
     public Label FirstLabel;
     public ComboBox FirstComboBox;
-    public Layout FirstFilterPanel;
+    public Layout FirstPanel;
     public ListBox FirstListBox;
-    public System.Windows.Forms.TableLayoutPanel ThirdFilterTable;
+    public System.Windows.Forms.TableLayoutPanel ThirdTable;
     public Label ThirdLabel;
     public ComboBox ThirdComboBox;
-    public Layout ThirdFilterPanel;
+    public Layout ThirdPanel;
     public ListBox ThirdListBox;
-    public Layout SecondFilterPanel;
+    public Layout SecondPanel;
     public ListBox SecondListBox;
     public ComboBox SecondComboBox;
     public Label SecondLabel;
-    public System.Windows.Forms.TableLayoutPanel SecondFilterTable;
+    public System.Windows.Forms.TableLayoutPanel SecondTable;
     public Button FirstButton;
     public Button SecondButton;
     public Button ThirdButton;

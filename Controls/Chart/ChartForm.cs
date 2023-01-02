@@ -97,6 +97,22 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the x axis.
+        /// </summary>
+        /// <value>
+        /// The x axis.
+        /// </value>
+        public string xAxis { get; set; }
+
+        /// <summary>
+        /// Gets or sets the y axis.
+        /// </summary>
+        /// <value>
+        /// The y axis.
+        /// </value>
+        public string yAxis { get; set; }
         
         /// <summary>
         /// Gets or sets the data model.
@@ -361,6 +377,12 @@ namespace BudgetExecution
                     Header.Text = string.Empty;
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     if( FirstListBox.Items.Count > 0 )
                     {
                         FirstListBox.Items.Clear(  );
@@ -376,6 +398,10 @@ namespace BudgetExecution
                             FirstListBox.Items.Add( item );
                         }
                     }
+
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
+                    FourthTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -405,16 +431,18 @@ namespace BudgetExecution
                     SecondTable.Visible = !SecondTable.Visible;
                     if( ThirdTable.Visible == true )
                     {
-                        ThirdTable.Visible = !ThirdTable.Visible;
+                        ThirdTable.Visible = false;
                     }
 
                     if( FourthTable.Visible == true )
                     {
-                        FourthTable.Visible = !FourthTable.Visible;
+                        FourthTable.Visible = false;
                     }
 
                     SqlQuery = CreateSqlText( FormFilter );
                     Header.Text = SqlQuery;
+                    ThirdTable.Visible = false;
+                    FourthTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -473,6 +501,10 @@ namespace BudgetExecution
                     Header.Text = string.Empty;
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     if( SecondListBox.Items.Count > 0 )
                     {
                         SecondListBox.Items.Clear(  );
@@ -488,6 +520,9 @@ namespace BudgetExecution
                             SecondListBox.Items.Add( item );
                         }
                     }
+                    
+                    ThirdTable.Visible = false;
+                    FourthTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -515,16 +550,12 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComboBoxItems(  );
-                    if( ThirdTable.Visible != true )
+                    if( ThirdTable.Visible == false )
                     {
-                        ThirdTable.Visible = !ThirdTable.Visible;
-                    }
-
-                    if( FourthTable.Visible == true )
-                    {
-                        FourthTable.Visible = !FourthTable.Visible;
+                        ThirdTable.Visible = true;
                     }
                     
+                    FourthTable.Visible = false;
                     SqlQuery = CreateSqlText( FormFilter );
                     Header.Text = SqlQuery;
                 }
@@ -580,6 +611,8 @@ namespace BudgetExecution
                     Header.Text = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     if( ThirdListBox.Items.Count > 0 )
                     {
                         ThirdListBox.Items.Clear(  );
@@ -595,6 +628,8 @@ namespace BudgetExecution
                             ThirdListBox.Items.Add( item );
                         }
                     }
+
+                    FourthTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -622,7 +657,7 @@ namespace BudgetExecution
                     PopulateFourthComboBoxItems(  );
                     if( FourthTable.Visible == false )
                     {
-                        FourthTable.Visible = !FourthTable.Visible;
+                        FourthTable.Visible = true;
                     }
                     
                     FormFilter.Add( FirstCategory, FirstValue );
@@ -689,7 +724,7 @@ namespace BudgetExecution
                         FourthListBox.Items.Clear(  );
                     }
                     
-                    var _filter = _comboBox.SelectedItem.ToString(  );
+                    var _filter = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         FourthCategory = _filter;
@@ -722,7 +757,7 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    FourthValue = _listBox.SelectedValue.ToString( );
+                    FourthValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     FormFilter.Add( ThirdCategory, ThirdValue  );
