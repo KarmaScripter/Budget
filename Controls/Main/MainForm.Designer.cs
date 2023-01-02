@@ -61,9 +61,9 @@
             this.tile3 = new BudgetExecution.Tile();
             this.tile4 = new BudgetExecution.Tile();
             this.tile5 = new BudgetExecution.Tile();
+            this.FirstTile = new BudgetExecution.Tile();
             this.Darkmode = new MetroSet_UI.Components.StyleManager();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.FirstTile = new BudgetExecution.Tile();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +89,7 @@
             textItem3.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile1.Footer = textItem3;
             this.tile1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.tile1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tile1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.tile1.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.tile1.HoverText = null;
             this.tile1.Location = new System.Drawing.Point(701, 64);
@@ -104,6 +104,7 @@
             textItem4.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile1.Title = textItem4;
             this.tile1.ToolTip = null;
+            this.tile1.TurnLiveTileOn = true;
             // 
             // tile2
             // 
@@ -127,7 +128,7 @@
             textItem7.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile2.Footer = textItem7;
             this.tile2.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.tile2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tile2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.tile2.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.tile2.HoverText = null;
             this.tile2.Location = new System.Drawing.Point(701, 459);
@@ -142,6 +143,7 @@
             textItem8.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile2.Title = textItem8;
             this.tile2.ToolTip = null;
+            this.tile2.TurnLiveTileOn = true;
             // 
             // tile3
             // 
@@ -165,7 +167,7 @@
             textItem11.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile3.Footer = textItem11;
             this.tile3.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.tile3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tile3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.tile3.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.tile3.HoverText = null;
             this.tile3.Location = new System.Drawing.Point(1058, 459);
@@ -180,6 +182,7 @@
             textItem12.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile3.Title = textItem12;
             this.tile3.ToolTip = null;
+            this.tile3.TurnLiveTileOn = true;
             // 
             // tile4
             // 
@@ -203,7 +206,7 @@
             textItem15.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile4.Footer = textItem15;
             this.tile4.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.tile4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tile4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.tile4.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.tile4.HoverText = null;
             this.tile4.Location = new System.Drawing.Point(92, 459);
@@ -218,6 +221,7 @@
             textItem16.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile4.Title = textItem16;
             this.tile4.ToolTip = null;
+            this.tile4.TurnLiveTileOn = true;
             // 
             // tile5
             // 
@@ -241,7 +245,7 @@
             textItem19.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile5.Footer = textItem19;
             this.tile5.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.tile5.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tile5.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.tile5.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.tile5.HoverText = null;
             this.tile5.Location = new System.Drawing.Point(410, 64);
@@ -256,14 +260,7 @@
             textItem20.TextColor = System.Drawing.Color.LightSteelBlue;
             this.tile5.Title = textItem20;
             this.tile5.ToolTip = null;
-            // 
-            // Darkmode
-            // 
-            this.Darkmode.CustomTheme = "C:\\Users\\terry\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
-            this.Darkmode.MetroForm = this;
-            this.Darkmode.Style = MetroSet_UI.Enums.Style.Custom;
-            this.Darkmode.ThemeAuthor = "Terry D. Eppler";
-            this.Darkmode.ThemeName = "BudgetExecution";
+            this.tile5.TurnLiveTileOn = true;
             // 
             // FirstTile
             // 
@@ -287,7 +284,7 @@
             textItem23.TextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstTile.Footer = textItem23;
             this.FirstTile.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.FirstTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.FirstTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.FirstTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstTile.HoverText = null;
             this.FirstTile.Location = new System.Drawing.Point(92, 64);
@@ -302,6 +299,15 @@
             textItem24.TextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstTile.Title = textItem24;
             this.FirstTile.ToolTip = null;
+            this.FirstTile.TurnLiveTileOn = true;
+            // 
+            // Darkmode
+            // 
+            this.Darkmode.CustomTheme = "C:\\Users\\terry\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            this.Darkmode.MetroForm = this;
+            this.Darkmode.Style = MetroSet_UI.Enums.Style.Custom;
+            this.Darkmode.ThemeAuthor = "Terry D. Eppler";
+            this.Darkmode.ThemeName = "BudgetExecution";
             // 
             // MainForm
             // 

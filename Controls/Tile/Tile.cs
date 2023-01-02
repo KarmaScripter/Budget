@@ -35,8 +35,8 @@ namespace BudgetExecution
             Footer.Font = new Font( "Roboto", 8 );
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = false;
-            HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
-            HoverColor = Color.FromArgb( 30, 30, 30 );
+            HoveredBorderColor = Color.FromArgb( 50, 93, 129 );
+            HoverColor = Color.FromArgb( 50, 93, 129 );
             HoverBorderLength = 1;
             EnableHoverColor = true;
             EnableSelectionMarker = false;
