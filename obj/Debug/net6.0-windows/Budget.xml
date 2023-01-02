@@ -1052,6 +1052,22 @@
             The third value.
             </value>
         </member>
+        <member name="P:BudgetExecution.ChartForm.FourthCategory">
+            <summary>
+            Gets or sets the fourth category.
+            </summary>
+            <value>
+            The fourth category.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.FourthValue">
+            <summary>
+            Gets or sets the fourth value.
+            </summary>
+            <value>
+            The fourth value.
+            </value>
+        </member>
         <member name="P:BudgetExecution.ChartForm.SqlQuery">
             <summary>
             Gets or sets the SQL query.
@@ -1157,11 +1173,6 @@
             Populates the first ComboBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.PopulateFirstListBoxItems">
-            <summary>
-            Populates the first ListBox items.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.ChartForm.OnFirstComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
             Called when [first ComboBox item selected].
@@ -1205,11 +1216,6 @@
             Populates the third ComboBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.PopulateThirdListBoxItems">
-            <summary>
-            Populates the third ListBox items.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.ChartForm.OnThirdComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
             Called when [third ComboBox item selected].
@@ -1224,14 +1230,26 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.SetLabelText">
+        <member name="M:BudgetExecution.ChartForm.PopulateFourthComboBoxItems">
             <summary>
-            Sets the label configuration.
+            Populates the fourth ComboBox items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.ChartForm.ClearSelectedFilterValues">
+        <member name="M:BudgetExecution.ChartForm.OnFourthComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [fourth ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.ClearFilterSelections">
             <summary>
             Clears the selected filter values.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.SetLabelConfiguration">
+            <summary>
+            Sets the label configuration.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.Fail(System.Exception)">

@@ -21,7 +21,7 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AssemblyName>Budget</AssemblyName>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <BaseOutputPath>C:\Users\terry\source\repos\Budget\bin\Debug</BaseOutputPath>
+    <BaseOutputPath>C:\Users\terry\source\repos\Budget\bin</BaseOutputPath>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
