@@ -47,8 +47,8 @@ namespace BudgetExecution
             // Form Property Values
             BackColor = Color.FromArgb( 20, 20, 20 );
             BorderThickness = 1;
-            BorderColor = Color.FromArgb( 192, 0, 0 );
-            Size = new Size( 700, 550 );
+            BorderColor = Color.Red;
+            Size = new Size( 700, 450 );
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 26;
@@ -57,30 +57,25 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            Icon = new Icon( IconPath, 33, 32 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             ShowIcon = false;
             ShowMouseOver = false;
             ShowInTaskbar = true;
             Padding = new Padding( 1 );
             Text = string.Empty;
-            Size = new Size( 812, 486 );
             
             // Header Label Properties
             HeaderLabel.ForeColor = Color.Red;
 
             // TextBox Properties
             TextBox.Font = new Font( "Roboto", 8 );
+            TextBox.ForeColor = Color.White;
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            TextBox.Parent = BackPanel;
-            TextBox.Dock = DockStyle.Fill;
-            BackPanel.BackColor = Color.FromArgb( 40, 40, 40 );
-            BackPanel.Parent = this;
-            BackPanel.Location = new Point( 61, 48 );
-            BackPanel.Controls.Add( TextBox );
-            Controls.Add( BackPanel );
+            TextBox.BorderColor = Color.Maroon;
+            TextBox.HoverColor = Color.Maroon;
 
             // Event Wiring
+            Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
         }
 
@@ -115,8 +110,13 @@ namespace BudgetExecution
         {
             try
             {
+                HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
                 HeaderLabel.ForeColor = Color.Red;
-                TextBox.BorderColor = Color.Red;
+                if( Exception != null )
+                {
+                    var _message = Exception.Message ;
+                    TextBox.Text = Exception.ToLogString( _message );
+                }
             }
             catch( Exception ex )
             {

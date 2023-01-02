@@ -68,7 +68,7 @@
             this.HeaderLabel.HoverText = null;
             this.HeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.HeaderLabel.IsDerivedStyle = true;
-            this.HeaderLabel.Location = new System.Drawing.Point(85, 30);
+            this.HeaderLabel.Location = new System.Drawing.Point(85, 28);
             this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Padding = new System.Windows.Forms.Padding(1);
@@ -96,7 +96,7 @@
             this.CloseButton.HoverText = null;
             this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(471, 366);
+            this.CloseButton.Location = new System.Drawing.Point(471, 364);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -112,7 +112,7 @@
             this.CloseButton.TabIndex = 9;
             this.CloseButton.Text = "Close";
             this.CloseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloseButton.ThemeName = "BudgetExecution";
+            this.CloseButton.ThemeName = "Budget Execution";
             this.CloseButton.ToolTip = this.ToolTip;
             // 
             // ToolTip
@@ -139,36 +139,36 @@
             // 
             this.TextBox.AutoWordSelection = false;
             this.TextBox.BindingSource = null;
-            this.TextBox.BorderColor = System.Drawing.Color.Red;
+            this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.TextBox.DataFilter = null;
             this.TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
             this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBox.HoverColor = System.Drawing.Color.Red;
+            this.TextBox.HoverColor = System.Drawing.Color.Maroon;
             this.TextBox.HoverText = null;
             this.TextBox.IsDerivedStyle = true;
             this.TextBox.Lines = null;
-            this.TextBox.Location = new System.Drawing.Point(85, 73);
+            this.TextBox.Location = new System.Drawing.Point(85, 91);
             this.TextBox.MaxLength = 32767;
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
             this.TextBox.ReadOnly = false;
-            this.TextBox.Size = new System.Drawing.Size(526, 248);
+            this.TextBox.Size = new System.Drawing.Size(526, 230);
             this.TextBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TextBox.StyleManager = null;
             this.TextBox.TabIndex = 0;
             this.TextBox.Text = "TextBox";
             this.TextBox.ThemeAuthor = "Terry D. Eppler";
-            this.TextBox.ThemeName = "BudgetExecution";
-            this.TextBox.ToolTip = null;
+            this.TextBox.ThemeName = "Budget Execution";
+            this.TextBox.ToolTip = this.ToolTip;
             this.TextBox.WordWrap = true;
             // 
             // Error
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BorderColor = System.Drawing.Color.SteelBlue;
+            this.BorderColor = System.Drawing.Color.Maroon;
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionBarHeight = 1;
@@ -176,7 +176,7 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(688, 450);
+            this.ClientSize = new System.Drawing.Size(688, 443);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.Picture);
             this.Controls.Add(this.HeaderLabel);
