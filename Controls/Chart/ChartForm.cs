@@ -188,6 +188,7 @@ namespace BudgetExecution
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
             FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
+            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
         }
 
         /// <summary>
@@ -311,7 +312,28 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [remove filter button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.RemoveFiltersButton )
+                {
+                    ClearFilterSelections(  );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
@@ -669,15 +691,43 @@ namespace BudgetExecution
                 {
                     FormFilter.Clear( );
                 }
-
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                FourthCategory = string.Empty;
-                FourthValue = string.Empty;
+                
+                if( !string.IsNullOrEmpty( FourthCategory ) )
+                {
+                    FourthComboBox.Items.Clear( );
+                    FourthListBox.Items.Clear( );
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
+                    FourthTable.Visible = !FourthTable.Visible;
+                } 
+                
+                if( !string.IsNullOrEmpty( ThirdCategory ) )
+                {
+                    ThirdComboBox.Items.Clear( );
+                    ThirdListBox.Items.Clear( );
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    ThirdTable.Visible = !ThirdTable.Visible;
+                }
+                
+                if( !string.IsNullOrEmpty( SecondCategory ) )
+                {
+                    SecondComboBox.Items.Clear( );
+                    SecondListBox.Items.Clear( );
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    SecondTable.Visible = !SecondTable.Visible;
+                }
+                
+                if( !string.IsNullOrEmpty( FirstCategory ) )
+                {
+                    FirstComboBox.Items.Clear( );
+                    FirstListBox.Items.Clear( );
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
+                }
+                
+                PopulateFirstComboBoxItems(  );
             }
             catch( Exception ex )
             {

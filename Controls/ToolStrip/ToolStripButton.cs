@@ -158,6 +158,8 @@ namespace BudgetExecution
                             BindingSource?.MoveLast( );
                             break;
                         }
+                        case ToolType.RemoveFiltersButton:
+                        case ToolType.RefreshButton:
                         case ToolType.SearchDataButton:
                         case ToolType.ExitButton:
                         case ToolType.BackButton:
@@ -270,8 +272,6 @@ namespace BudgetExecution
                         case ToolType.UploadDataButton:
                         case ToolType.UndoButton:
                         case ToolType.WordButton:
-                        case ToolType.RemoveFiltersButton:
-                        case ToolType.RefreshButton:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show(  );

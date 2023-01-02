@@ -48,7 +48,7 @@
             this.toolSeparator7 = new BudgetExecution.ToolSeparator();
             this.DropDown = new BudgetExecution.ToolStripDropDown();
             this.toolSeparator9 = new BudgetExecution.ToolSeparator();
-            this.RefreshDataButton = new BudgetExecution.ToolStripButton();
+            this.RemoveFiltersButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator10 = new BudgetExecution.ToolSeparator();
             this.TableButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator14 = new BudgetExecution.ToolSeparator();
@@ -80,10 +80,10 @@
             this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
             this.ThirdComboBox = new BudgetExecution.ComboBox();
             this.FourthTable = new System.Windows.Forms.TableLayoutPanel();
-            this.FourthComboBox = new BudgetExecution.ComboBox();
             this.FourthPanel = new BudgetExecution.Layout();
-            this.listBox1 = new BudgetExecution.ListBox();
             this.FourthListBox = new BudgetExecution.ListBox();
+            this.listBox1 = new BudgetExecution.ListBox();
+            this.FourthComboBox = new BudgetExecution.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
             this.FirstPanel.SuspendLayout();
@@ -174,7 +174,7 @@
             this.toolSeparator7,
             this.DropDown,
             this.toolSeparator9,
-            this.RefreshDataButton,
+            this.RemoveFiltersButton,
             this.toolSeparator10,
             this.TableButton,
             this.toolSeparator14,
@@ -298,7 +298,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(190, 32);
+            this.TextBox.Size = new System.Drawing.Size(188, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -456,26 +456,26 @@
             this.toolSeparator9.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator9.Size = new System.Drawing.Size(6, 32);
             // 
-            // RefreshDataButton
+            // RemoveFiltersButton
             // 
-            this.RefreshDataButton.AutoToolTip = false;
-            this.RefreshDataButton.BackColor = System.Drawing.Color.Transparent;
-            this.RefreshDataButton.BindingSource = this.BindingSource;
-            this.RefreshDataButton.DataFilter = null;
-            this.RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RefreshDataButton.Field = BudgetExecution.Field.AccountCode;
-            this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
-            this.RefreshDataButton.HoverText = "Remove Filters";
-            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RemoveFiltersButton;
-            this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(3);
-            this.RefreshDataButton.Name = "RefreshDataButton";
-            this.RefreshDataButton.Padding = new System.Windows.Forms.Padding(1);
-            this.RefreshDataButton.Size = new System.Drawing.Size(26, 28);
-            this.RefreshDataButton.Text = "toolStripButton1";
-            this.RefreshDataButton.ToolTip = this.ToolTip;
-            this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RemoveFiltersButton;
+            this.RemoveFiltersButton.AutoToolTip = false;
+            this.RemoveFiltersButton.BackColor = System.Drawing.Color.Transparent;
+            this.RemoveFiltersButton.BindingSource = this.BindingSource;
+            this.RemoveFiltersButton.DataFilter = null;
+            this.RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.RemoveFiltersButton.Field = BudgetExecution.Field.AccountCode;
+            this.RemoveFiltersButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
+            this.RemoveFiltersButton.HoverText = "Remove Filters";
+            this.RemoveFiltersButton.Image = global::BudgetExecution.Properties.Resources.RemoveFiltersButton;
+            this.RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RemoveFiltersButton.Margin = new System.Windows.Forms.Padding(3);
+            this.RemoveFiltersButton.Name = "RemoveFiltersButton";
+            this.RemoveFiltersButton.Padding = new System.Windows.Forms.Padding(1);
+            this.RemoveFiltersButton.Size = new System.Drawing.Size(26, 28);
+            this.RemoveFiltersButton.Text = "toolStripButton1";
+            this.RemoveFiltersButton.ToolTip = this.ToolTip;
+            this.RemoveFiltersButton.ToolType = BudgetExecution.ToolType.RemoveFiltersButton;
             // 
             // toolSeparator10
             // 
@@ -1170,40 +1170,6 @@
             this.FourthTable.Size = new System.Drawing.Size(285, 171);
             this.FourthTable.TabIndex = 9;
             // 
-            // FourthComboBox
-            // 
-            this.FourthComboBox.AllowDrop = true;
-            this.FourthComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FourthComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.FourthComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.FourthComboBox.BindingSource = null;
-            this.FourthComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.FourthComboBox.CausesValidation = false;
-            this.FourthComboBox.DataFilter = null;
-            this.FourthComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.FourthComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.FourthComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.FourthComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FourthComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.FourthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FourthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FourthComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FourthComboBox.FormattingEnabled = true;
-            this.FourthComboBox.HoverText = null;
-            this.FourthComboBox.IsDerivedStyle = true;
-            this.FourthComboBox.ItemHeight = 24;
-            this.FourthComboBox.Location = new System.Drawing.Point(3, 3);
-            this.FourthComboBox.Name = "FourthComboBox";
-            this.FourthComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FourthComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.FourthComboBox.Size = new System.Drawing.Size(279, 30);
-            this.FourthComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FourthComboBox.StyleManager = null;
-            this.FourthComboBox.TabIndex = 5;
-            this.FourthComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.FourthComboBox.ThemeName = "Budget Execution";
-            this.FourthComboBox.ToolTip = null;
-            // 
             // FourthPanel
             // 
             this.FourthPanel.BackColor = System.Drawing.Color.Transparent;
@@ -1229,6 +1195,41 @@
             this.FourthPanel.ThemeAuthor = "Terry D. Eppler";
             this.FourthPanel.ThemeName = "BudgetExecution";
             this.FourthPanel.ToolTip = null;
+            // 
+            // FourthListBox
+            // 
+            this.FourthListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.FourthListBox.BindingSource = null;
+            this.FourthListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.FourthListBox.DataFilter = null;
+            this.FourthListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FourthListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FourthListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FourthListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.FourthListBox.HoveredItemColor = System.Drawing.Color.White;
+            this.FourthListBox.HoverText = null;
+            this.FourthListBox.IsDerivedStyle = true;
+            this.FourthListBox.ItemHeight = 28;
+            this.FourthListBox.Location = new System.Drawing.Point(21, 15);
+            this.FourthListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.FourthListBox.MultiSelect = true;
+            this.FourthListBox.Name = "FourthListBox";
+            this.FourthListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.FourthListBox.SelectedIndex = -1;
+            this.FourthListBox.SelectedItem = null;
+            this.FourthListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FourthListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.FourthListBox.SelectedText = null;
+            this.FourthListBox.SelectedValue = null;
+            this.FourthListBox.ShowBorder = false;
+            this.FourthListBox.ShowScrollBar = true;
+            this.FourthListBox.Size = new System.Drawing.Size(238, 100);
+            this.FourthListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FourthListBox.StyleManager = null;
+            this.FourthListBox.TabIndex = 1;
+            this.FourthListBox.ThemeAuthor = "Terry D. Eppler";
+            this.FourthListBox.ThemeName = "Budget Execution";
+            this.FourthListBox.ToolTip = null;
             // 
             // listBox1
             // 
@@ -1268,40 +1269,39 @@
             this.listBox1.ThemeName = "BudgetExecution";
             this.listBox1.ToolTip = null;
             // 
-            // FourthListBox
+            // FourthComboBox
             // 
-            this.FourthListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FourthListBox.BindingSource = null;
-            this.FourthListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.FourthListBox.DataFilter = null;
-            this.FourthListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FourthListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FourthListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FourthListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.FourthListBox.HoveredItemColor = System.Drawing.Color.White;
-            this.FourthListBox.HoverText = null;
-            this.FourthListBox.IsDerivedStyle = true;
-            this.FourthListBox.ItemHeight = 28;
-            this.FourthListBox.Location = new System.Drawing.Point(21, 15);
-            this.FourthListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.FourthListBox.MultiSelect = true;
-            this.FourthListBox.Name = "FourthListBox";
-            this.FourthListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.FourthListBox.SelectedIndex = -1;
-            this.FourthListBox.SelectedItem = null;
-            this.FourthListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FourthListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.FourthListBox.SelectedText = null;
-            this.FourthListBox.SelectedValue = null;
-            this.FourthListBox.ShowBorder = false;
-            this.FourthListBox.ShowScrollBar = true;
-            this.FourthListBox.Size = new System.Drawing.Size(238, 100);
-            this.FourthListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FourthListBox.StyleManager = null;
-            this.FourthListBox.TabIndex = 1;
-            this.FourthListBox.ThemeAuthor = "Terry D. Eppler";
-            this.FourthListBox.ThemeName = "Budget Execution";
-            this.FourthListBox.ToolTip = null;
+            this.FourthComboBox.AllowDrop = true;
+            this.FourthComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FourthComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.FourthComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.FourthComboBox.BindingSource = null;
+            this.FourthComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FourthComboBox.CausesValidation = false;
+            this.FourthComboBox.DataFilter = null;
+            this.FourthComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.FourthComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.FourthComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.FourthComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FourthComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.FourthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FourthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FourthComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FourthComboBox.FormattingEnabled = true;
+            this.FourthComboBox.HoverText = null;
+            this.FourthComboBox.IsDerivedStyle = true;
+            this.FourthComboBox.ItemHeight = 24;
+            this.FourthComboBox.Location = new System.Drawing.Point(3, 3);
+            this.FourthComboBox.Name = "FourthComboBox";
+            this.FourthComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FourthComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.FourthComboBox.Size = new System.Drawing.Size(279, 30);
+            this.FourthComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FourthComboBox.StyleManager = null;
+            this.FourthComboBox.TabIndex = 5;
+            this.FourthComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.FourthComboBox.ThemeName = "Budget Execution";
+            this.FourthComboBox.ToolTip = null;
             // 
             // ChartForm
             // 
@@ -1378,7 +1378,7 @@
         public ToolStripDropDown DropDown;
         private ToolSeparator toolSeparator9;
         public Chart Chart;
-        public ToolStripButton RefreshDataButton;
+        public ToolStripButton RemoveFiltersButton;
         private ToolSeparator toolSeparator10;
         public ToolStripButton TableButton;
         private ToolSeparator toolSeparator14;

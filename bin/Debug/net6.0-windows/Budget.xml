@@ -1168,6 +1168,13 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.ChartForm.OnRemoveFilterButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [remove filter button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="M:BudgetExecution.ChartForm.PopulateFirstComboBoxItems">
             <summary>
             Populates the first ComboBox items.
@@ -1190,11 +1197,6 @@
         <member name="M:BudgetExecution.ChartForm.PopulateSecondComboBoxItems">
             <summary>
             Populates the second ComboBox items.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.ChartForm.PopulateSecondListBoxItems">
-            <summary>
-            Populates the second ListBox items.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnSecondComboBoxItemSelected(System.Object,System.EventArgs)">
@@ -1241,6 +1243,12 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnFourthListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [fourth ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.ClearFilterSelections">
             <summary>
