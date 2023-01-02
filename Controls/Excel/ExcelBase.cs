@@ -118,12 +118,12 @@ namespace BudgetExecution
         /// <param name="width">The width.</param>
         public void SetColumnWidth( Grid grid, double width )
         {
-            if( grid?.GetWorksheet( ) != null
+            if( grid?.Worksheet != null
                && width > 0d )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.AutoFitColumns( width );
                 }
                 catch( Exception ex )
@@ -140,13 +140,13 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public void SetBackgroundColor( Grid grid, Color color )
         {
-            if( grid?.GetWorksheet( ) != null
-               && grid?.GetRange( ) != null
+            if( grid?.Worksheet != null
+               && grid?.Range != null
                && color != Color.Empty )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( color );
                     _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -165,13 +165,13 @@ namespace BudgetExecution
         /// <param name="font">The font.</param>
         public void SetRangeFont( Grid grid, Font font )
         {
-            if( grid?.GetWorksheet( ) != null
-               && grid?.GetRange( ) != null
+            if( grid?.Worksheet != null
+               && grid?.Range != null
                && font != null )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Style.Font.SetFromFont( font.Name, font.Size );
                 }
                 catch( Exception ex )
@@ -188,13 +188,13 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public void SetFontColor( Grid grid, Color color )
         {
-            if( grid?.GetWorksheet( ) != null
-               && grid?.GetRange( ) != null
+            if( grid?.Worksheet != null
+               && grid?.Range != null
                && color != Color.Empty )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Style.Font.Color.SetColor( color );
                     _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                 }
@@ -213,14 +213,14 @@ namespace BudgetExecution
         /// <param name="style">The style.</param>
         public void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
         {
-            if( grid?.GetWorksheet( ) != null
-               && grid?.GetRange( ) != null
+            if( grid?.Worksheet != null
+               && grid?.Range != null
                && Enum.IsDefined( typeof( ExcelBorderStyle ), style )
                && Enum.IsDefined( typeof( BorderSide ), side ) )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     switch( side )
                     {
                         case BorderSide.Top:
@@ -264,13 +264,13 @@ namespace BudgetExecution
         /// <param name="align">The align.</param>
         public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
-            if( grid?.GetWorksheet( ) != null
-               && grid?.GetRange( ) != null
+            if( grid?.Worksheet != null
+               && grid?.Range != null
                && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Style.HorizontalAlignment = align;
                 }
                 catch( Exception ex )
@@ -287,12 +287,12 @@ namespace BudgetExecution
         /// <param name="align">The align.</param>
         public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
-            if( grid?.GetWorksheet( ) != null
+            if( grid?.Worksheet != null
                && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Style.VerticalAlignment = align;
                 }
                 catch( Exception ex )
@@ -308,12 +308,12 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void MergeCells( Grid grid )
         {
-            if( grid?.GetWorksheet( ) != null
-               && grid?.GetRange( ) != null )
+            if( grid?.Worksheet != null
+               && grid?.Range != null )
             {
                 try
                 {
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Merge = true;
                 }
                 catch( Exception ex )

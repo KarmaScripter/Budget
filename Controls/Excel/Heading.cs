@@ -53,9 +53,9 @@ namespace BudgetExecution
         /// <param name="grid"></param>
         public Heading( IGrid grid )
         {
-            Worksheet = grid.GetWorksheet( );
-            Range = grid.GetRange( );
-            Address = grid.GetAddress( );
+            Worksheet = grid.Worksheet;
+            Range = grid.Range;
+            Address = grid.Address;
             From = ( Range.Start.Row, Range.Start.Column );
             To = ( Range.Start.Row, Range.End.Column );
             Anchor = ( From.Row, From.Column );

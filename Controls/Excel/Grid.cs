@@ -181,67 +181,7 @@ namespace BudgetExecution
             From = from;
             To = From;
         }
-
-        /// <summary>
-        /// Gets the address.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public ExcelAddress GetAddress( )
-        {
-            try
-            {
-                return Address.Columns > 0
-                    ? Address
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the range.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public ExcelRange GetRange( )
-        {
-            try
-            {
-                return Range.Columns > 0
-                    ? Range
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the workSheet.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public ExcelWorksheet GetWorksheet( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( Worksheet.Name )
-                    ? Worksheet
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
+        
         /// <summary>
         /// Counts the cells.
         /// </summary>
@@ -302,47 +242,7 @@ namespace BudgetExecution
                 return default;
             }
         }
-
-        /// <summary>
-        /// Gets from.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public (int Row, int Column) GetFrom( )
-        {
-            try
-            {
-                return From.Row > 0 && From.Column > 0
-                    ? ( From.Row, From.Column )
-                    : default( (int, int) );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( (int, int) );
-            }
-        }
-
-        /// <summary>
-        /// Gets to.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public (int Row, int Column) GetTo( )
-        {
-            try
-            {
-                return To.Row > 0 && To.Column > 0
-                    ? ( To.Row, To.Column )
-                    : default( (int, int) );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( (int, int) );
-            }
-        }
-
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

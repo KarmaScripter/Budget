@@ -373,7 +373,7 @@ namespace BudgetExecution
             this.FirstButton.HoverText = null;
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(30, 400);
+            this.FirstButton.Location = new System.Drawing.Point(76, 400);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.FirstButton.NormalColor = System.Drawing.Color.Transparent;
@@ -382,7 +382,7 @@ namespace BudgetExecution
             this.FirstButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstButton.PressTextColor = System.Drawing.Color.White;
-            this.FirstButton.Size = new System.Drawing.Size(160, 51);
+            this.FirstButton.Size = new System.Drawing.Size(122, 49);
             this.FirstButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstButton.StyleManager = null;
             this.FirstButton.TabIndex = 16;
@@ -405,7 +405,7 @@ namespace BudgetExecution
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(670, 400);
+            this.ThirdButton.Location = new System.Drawing.Point(686, 400);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;
@@ -414,7 +414,7 @@ namespace BudgetExecution
             this.ThirdButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdButton.PressTextColor = System.Drawing.Color.White;
-            this.ThirdButton.Size = new System.Drawing.Size(160, 49);
+            this.ThirdButton.Size = new System.Drawing.Size(122, 49);
             this.ThirdButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdButton.StyleManager = null;
             this.ThirdButton.TabIndex = 15;
@@ -437,7 +437,7 @@ namespace BudgetExecution
             this.SecondButton.HoverText = null;
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(352, 400);
+            this.SecondButton.Location = new System.Drawing.Point(383, 400);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SecondButton.NormalColor = System.Drawing.Color.Transparent;
@@ -446,7 +446,7 @@ namespace BudgetExecution
             this.SecondButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondButton.PressTextColor = System.Drawing.Color.White;
-            this.SecondButton.Size = new System.Drawing.Size(160, 49);
+            this.SecondButton.Size = new System.Drawing.Size(122, 49);
             this.SecondButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondButton.StyleManager = null;
             this.SecondButton.TabIndex = 14;

@@ -145,7 +145,7 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetHeaderFormat( Grid grid )
         {
-            if( grid?.GetWorksheet( ) != null )
+            if( grid?.Worksheet != null )
             {
                 try
                 {
@@ -170,12 +170,12 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetHeaderText( Grid grid )
         {
-            if( grid?.GetWorksheet( ) != null )
+            if( grid?.Worksheet != null )
             {
                 try
                 {
-                    using var _worksheet = grid.GetWorksheet( );
-                    using var _range = grid.GetRange( );
+                    using var _worksheet = grid.Worksheet;
+                    using var _range = grid.Range;
                     var _row = _range.Start.Row;
                     var _column = _range.Start.Column;
                     SetFontColor( grid, FontColor );
@@ -321,12 +321,12 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetTableFormat( Grid grid )
         {
-            if( grid?.GetWorksheet( ) != null )
+            if( grid?.Worksheet != null )
             {
                 try
                 {
                     SetHeaderText( grid );
-                    using var _range = grid.GetRange( );
+                    using var _range = grid.Range;
                     _range.Style.Font.SetFromFont( TitleFont.Name, TitleFont.Size );
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;

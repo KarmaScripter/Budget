@@ -393,7 +393,7 @@ partial class SchemaDialog
             this.SelectionsTextBox.Multiline = true;
             this.SelectionsTextBox.Name = "SelectionsTextBox";
             this.SelectionsTextBox.ReadOnly = false;
-            this.SelectionsTextBox.Size = new System.Drawing.Size(483, 41);
+            this.SelectionsTextBox.Size = new System.Drawing.Size(483, 47);
             this.SelectionsTextBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SelectionsTextBox.StyleManager = null;
             this.SelectionsTextBox.TabIndex = 10;
@@ -426,7 +426,7 @@ partial class SchemaDialog
             this.label1.ThemeName = "Budget Execution";
             this.label1.ToolTip = null;
             // 
-            // ChartDialog
+            // SchemaDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

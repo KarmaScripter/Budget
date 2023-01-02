@@ -428,7 +428,7 @@ namespace BudgetExecution
                     FirstValue = _listBox?.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems(  );
-                    SecondTable.Visible = !SecondTable.Visible;
+                    SecondTable.Visible = true;
                     if( ThirdTable.Visible == true )
                     {
                         ThirdTable.Visible = false;
@@ -792,7 +792,7 @@ namespace BudgetExecution
                     FourthListBox.Items.Clear( );
                     FourthCategory = string.Empty;
                     FourthValue = string.Empty;
-                    FourthTable.Visible = !FourthTable.Visible;
+                    FourthTable.Visible = false;
                 } 
                 
                 if( !string.IsNullOrEmpty( ThirdValue ) )
@@ -801,7 +801,7 @@ namespace BudgetExecution
                     ThirdListBox.Items.Clear( );
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    ThirdTable.Visible = !ThirdTable.Visible;
+                    ThirdTable.Visible = false;
                 }
                 
                 if( !string.IsNullOrEmpty( SecondValue ) )
@@ -810,7 +810,7 @@ namespace BudgetExecution
                     SecondListBox.Items.Clear( );
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
-                    SecondTable.Visible = !SecondTable.Visible;
+                    SecondTable.Visible = false;
                 }
                 
                 if( !string.IsNullOrEmpty( FirstValue ) )
@@ -819,6 +819,7 @@ namespace BudgetExecution
                     FirstListBox.Items.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
+                    FirstTable.Visible = true;
                 }
                 
                 PopulateFirstComboBoxItems(  );

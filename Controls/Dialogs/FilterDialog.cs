@@ -11,9 +11,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Grouping;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.XlsIO.Implementation.Collections;
     using DataTable = System.Data.DataTable;
     using Size = System.Drawing.Size;
 
@@ -209,8 +207,6 @@ namespace BudgetExecution
                 SetLabelConfiguration(  );
                 FirstButton.Visible = !FirstButton.Visible;
                 SecondButton.Visible = !SecondButton.Visible;
-                SecondTable.Visible = !SecondTable.Visible;
-                ThirdTable.Visible = !ThirdTable.Visible;
                 FormFilter = new Dictionary<string, object>( );
                 SqlQuery = string.Empty;
             }
@@ -258,26 +254,23 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    if( FirstListBox.Items.Count > 0 )
+                    if( FirstListBox.Items?.Count > 0 )
                     {
                         FirstListBox.Items.Clear(  );
                     }
 
-                    var _filter = _comboBox.SelectedItem.ToString(  );
+                    var _filter = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         FirstCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
                         {
-                            FirstListBox.Items.Add( item );
+                            FirstListBox?.Items?.Add( item );
                         }
                         
                         SetLabelConfiguration(  );
                     }
-                    
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -302,21 +295,18 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    FirstValue = _listBox.SelectedValue.ToString( );
+                    FirstValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems(  );
-                    if( SecondTable.Visible == true )
+                    if( FirstButton.Visible != true )
+                    {
+                        FirstButton.Visible = true;
+                    }
+                    
+                    if( SecondButton.Visible != false )
                     {
                         SecondTable.Visible = false;
                     }
-                    
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                    }
-
-                    FirstButton.Visible = !FirstButton.Visible;
-                    SecondButton.Visible = !SecondButton.Visible;
                 }
                 catch( Exception ex )
                 {
@@ -386,7 +376,7 @@ namespace BudgetExecution
                         SecondListBox.Items.Clear(  );
                     }
 
-                    var _filter = _comboBox.SelectedItem.ToString(  );
+                    var _filter = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         SecondCategory = _filter;
@@ -398,8 +388,6 @@ namespace BudgetExecution
                         
                         SetLabelConfiguration(  );
                     }
-                    
-                    ThirdTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -419,16 +407,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Keys.Count > 0 )
+                    if( FormFilter.Keys?.Count > 0 )
                     {
                         FormFilter.Clear( );
                     }
 
-                    SecondValue = _listBox.SelectedValue.ToString( );
+                    SecondValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComboBoxItems(  );
-                    if( ThirdTable.Visible == false )
+                    if( ThirdTable.Visible != true )
                     {
                         ThirdTable.Visible = true;
                     }
@@ -494,7 +482,7 @@ namespace BudgetExecution
                         ThirdListBox.Items.Clear(  );
                     }
 
-                    var _filter = _comboBox.SelectedItem.ToString(  );
+                    var _filter = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         ThirdCategory = _filter;
@@ -531,7 +519,7 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    ThirdValue = _listBox.SelectedValue.ToString( );
+                    ThirdValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     FormFilter.Add( ThirdCategory, ThirdValue );

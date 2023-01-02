@@ -265,7 +265,6 @@ namespace BudgetExecution
             try
             {
                 var _path = GetExtension( filePath );
-
                 if( _path != null )
                 {
                     var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
@@ -398,7 +397,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _range = grid?.GetRange( );
+                    using var _range = grid?.Range;
                     var _excelComment = _range?.AddComment( text, "Budget" );
                     if( _excelComment != null )
                     {
@@ -430,9 +429,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _sheet = grid.GetWorksheet( );
-                    var _row = grid.GetRange( ).Start.Row;
-                    var _column = grid.GetRange( ).Start.Column;
+                    using var _sheet = grid.Worksheet;
+                    var _row = grid.Range.Start.Row;
+                    var _column = grid.Range.Start.Column;
                     _sheet.Cells[ _row, _column ].Value = "Account";
                     _sheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
                     _sheet.Cells[ _row, _column + 2 ].Value = "Travel";
@@ -457,11 +456,11 @@ namespace BudgetExecution
         {
             if( grid != null
                && text?.Any( ) == true
-               && grid.GetRange( ).Any( ) )
+               && grid.Range.Any( ) )
             {
                 try
                 {
-                    foreach( var cell in grid.GetRange( ) )
+                    foreach( var cell in grid.Range )
                     {
                         foreach( var caption in text )
                         {

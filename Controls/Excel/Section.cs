@@ -66,9 +66,9 @@ namespace BudgetExecution
 
         {
             Grid = grid;
-            Worksheet = Grid.GetWorksheet( );
-            Range = Grid.GetRange( );
-            Address = Grid.GetAddress( );
+            Worksheet = Grid.Worksheet;
+            Range = Grid.Range;
+            Address = Grid.Address;
             From = ( Range.Start.Row, Range.Start.Column );
             To = ( Range.End.Row, Range.End.Column );
             Span = Range.Columns;
