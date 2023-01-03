@@ -313,7 +313,7 @@ namespace BudgetExecution
                     var _columns = DataModel?.GetDataColumns( );
                     foreach( var col in _columns )
                     {
-                        SecondListBox.Items.Add( col.ColumnName );
+                        SecondListBox?.Items?.Add( col.ColumnName );
                     }
                 }
                 
