@@ -12,9 +12,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml;
-    using Syncfusion.Grouping;
-    using Syncfusion.XlsIO.Implementation.Collections;
 
     /// <summary>
     /// 
@@ -155,10 +152,7 @@ namespace BudgetExecution
                 SetLabelConfiguration(  );
                 PopulateTableListBoxItems( );
                 PopulateToolStripComboBoxItems( );
-                SelectedTable = string.Empty;
-                SelectedColumn = string.Empty;
-                SelectedValue = string.Empty;
-                SqlQuery = string.Empty;
+                ClearSelections(  );
                 Text = DataModel.Provider + " Data";
                 ExitButton.Click += OnExitButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
@@ -207,6 +201,28 @@ namespace BudgetExecution
                 SecondLabel.Text = "Columns: " + SecondListBox.Items?.Count;
                 ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
                 DataGridLabel.Text = "Data Source:  " + DataModel.Source.ToString( ).SplitPascal( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                SelectedTable = string.Empty;
+                SelectedColumn = string.Empty;
+                SelectedValue = string.Empty;
+                SqlQuery = string.Empty;
+                if( FormFilter?.Keys?.Count > 0 )
+                {
+                    FormFilter.Clear( );
+                }
             }
             catch( Exception ex )
             {
@@ -292,8 +308,9 @@ namespace BudgetExecution
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
                     SelectedTable = DataModel.DataTable?.TableName;
-                    DataGridLabel.Text = "Data Source:  " + SelectedTable.SplitPascal( );
-                    var _columns = DataModel.GetDataColumns( );
+                    var _text = "Data Source:  " + SelectedTable.SplitPascal( );
+                    DataGridLabel.Text = _text + DataModel?.DataTable?.Rows?.Count;
+                    var _columns = DataModel?.GetDataColumns( );
                     foreach( var col in _columns )
                     {
                         SecondListBox.Items.Add( col.ColumnName );

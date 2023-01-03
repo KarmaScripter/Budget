@@ -84,6 +84,9 @@
             this.FourthListBox = new BudgetExecution.ListBox();
             this.listBox1 = new BudgetExecution.ListBox();
             this.FourthComboBox = new BudgetExecution.ComboBox();
+            this.tabControlAdv1 = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
+            this.tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.tabPageAdv2 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
             this.FirstPanel.SuspendLayout();
@@ -96,6 +99,8 @@
             this.ThirdTable.SuspendLayout();
             this.FourthTable.SuspendLayout();
             this.FourthPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
+            this.tabControlAdv1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ToolTip
@@ -298,7 +303,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(168, 32);
+            this.TextBox.Size = new System.Drawing.Size(166, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -1210,7 +1215,7 @@
             this.FourthListBox.HoverText = null;
             this.FourthListBox.IsDerivedStyle = true;
             this.FourthListBox.ItemHeight = 28;
-            this.FourthListBox.Location = new System.Drawing.Point(21, 15);
+            this.FourthListBox.Location = new System.Drawing.Point(16, 19);
             this.FourthListBox.Margin = new System.Windows.Forms.Padding(1);
             this.FourthListBox.MultiSelect = true;
             this.FourthListBox.Name = "FourthListBox";
@@ -1223,7 +1228,7 @@
             this.FourthListBox.SelectedValue = null;
             this.FourthListBox.ShowBorder = false;
             this.FourthListBox.ShowScrollBar = true;
-            this.FourthListBox.Size = new System.Drawing.Size(238, 100);
+            this.FourthListBox.Size = new System.Drawing.Size(246, 98);
             this.FourthListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FourthListBox.StyleManager = null;
             this.FourthListBox.TabIndex = 1;
@@ -1303,6 +1308,47 @@
             this.FourthComboBox.ThemeName = "Budget Execution";
             this.FourthComboBox.ToolTip = null;
             // 
+            // tabControlAdv1
+            // 
+            this.tabControlAdv1.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.tabControlAdv1.ActiveTabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabControlAdv1.BeforeTouchSize = new System.Drawing.Size(363, 666);
+            this.tabControlAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabControlAdv1.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.tabControlAdv1.Controls.Add(this.tabPageAdv1);
+            this.tabControlAdv1.Controls.Add(this.tabPageAdv2);
+            this.tabControlAdv1.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.tabControlAdv1.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.tabControlAdv1.Location = new System.Drawing.Point(860, 30);
+            this.tabControlAdv1.Name = "tabControlAdv1";
+            this.tabControlAdv1.Size = new System.Drawing.Size(363, 666);
+            this.tabControlAdv1.TabIndex = 10;
+            // 
+            // tabPageAdv1
+            // 
+            this.tabPageAdv1.ForeColor = System.Drawing.Color.White;
+            this.tabPageAdv1.Image = null;
+            this.tabPageAdv1.ImageSize = new System.Drawing.Size(16, 16);
+            this.tabPageAdv1.Location = new System.Drawing.Point(1, 26);
+            this.tabPageAdv1.Name = "tabPageAdv1";
+            this.tabPageAdv1.ShowCloseButton = true;
+            this.tabPageAdv1.Size = new System.Drawing.Size(361, 639);
+            this.tabPageAdv1.TabIndex = 1;
+            this.tabPageAdv1.Text = "Tab Page";
+            this.tabPageAdv1.ThemesEnabled = false;
+            // 
+            // tabPageAdv2
+            // 
+            this.tabPageAdv2.Image = null;
+            this.tabPageAdv2.ImageSize = new System.Drawing.Size(16, 16);
+            this.tabPageAdv2.Location = new System.Drawing.Point(1, 26);
+            this.tabPageAdv2.Name = "tabPageAdv2";
+            this.tabPageAdv2.ShowCloseButton = true;
+            this.tabPageAdv2.Size = new System.Drawing.Size(361, 639);
+            this.tabPageAdv2.TabIndex = 2;
+            this.tabPageAdv2.Text = "Tab Page";
+            this.tabPageAdv2.ThemesEnabled = false;
+            // 
             // ChartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1316,6 +1362,7 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 764);
+            this.Controls.Add(this.tabControlAdv1);
             this.Controls.Add(this.FourthTable);
             this.Controls.Add(this.ThirdTable);
             this.Controls.Add(this.SecondTable);
@@ -1349,6 +1396,8 @@
             this.ThirdTable.ResumeLayout(false);
             this.FourthTable.ResumeLayout(false);
             this.FourthPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).EndInit();
+            this.tabControlAdv1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1413,5 +1462,8 @@
         private ListBox FourthListBox;
         public ListBox listBox1;
         private ComboBox FourthComboBox;
+        private Syncfusion.Windows.Forms.Tools.TabControlAdv tabControlAdv1;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv2;
     }
 }

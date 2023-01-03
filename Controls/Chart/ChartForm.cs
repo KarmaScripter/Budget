@@ -13,10 +13,6 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
-    using System.Drawing;
-    using DocumentFormat.OpenXml.Office2010.Excel;
-    using SQLite.Designer;
-    using Color = System.Drawing.Color;
 
     /// <summary>
     /// 
@@ -250,7 +246,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitData( )
         {
-            if( BindingSource != null )
+            if( BindingSource.DataSource != null )
             {
                 try
                 {

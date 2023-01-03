@@ -166,6 +166,9 @@
     <Compile Update="Controls\SplashControl\SplashControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\TabControl\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\TextBox\TextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -224,9 +227,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\TabControl\TabControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\FilterDialog.cs">

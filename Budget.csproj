@@ -176,4 +176,7 @@
     </None>
     <None Remove="bin\**" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\TabControl\" />
+  </ItemGroup>
 </Project>

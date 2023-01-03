@@ -7,13 +7,12 @@ namespace BudgetExecution.Controls.TabControl
     using System;
     using System.Drawing;
     using System.Windows.Forms;
-    using MetroSet_UI.Controls;
-    using MetroSet_UI.Enums;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
     /// </summary>
-    public class TabControl : MetroSetTabControl
+    public class TabControl : TabControlAdv
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -37,20 +36,24 @@ namespace BudgetExecution.Controls.TabControl
         /// </summary>
         public TabControl( )
         {
-            BackgroundColor = Color.FromArgb( 20, 20, 20 );
-            Appearance = TabAppearance.FlatButtons;
+            BackColor = Color.FromArgb( 20, 20, 20 );
             Size = new Size( 350, 500 );
             Font = new Font( "Roboto", 8 );
             ForeColor = Color.LightGray;
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            SelectedTextColor = Color.White;
-            UnselectedTextColor = Color.FromArgb( 65, 65, 65 );
-            Speed = 100;
-            AnimateTime = 200;
-            AnimateEasingType = EasingType.Linear;
-            Appearance = TabAppearance.FlatButtons;
+            FixedSingleBorderColor = Color.FromArgb( 20, 20, 20 );
+            SeparatorColor = Color.FromArgb( 65, 65, 65 );
+            InactiveCloseButtonForeColor = Color.FromArgb( 20, 20, 20 );
+            InActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
+            InactiveTabColor = Color.FromArgb( 20, 20, 20 );
+            ActiveTabForeColor = Color.FromArgb( 0, 120, 212 );
+            BorderStyle = BorderStyle.FixedSingle;
+            CloseButtonBackColor = Color.FromArgb( 20, 20, 20 );
+            CloseButtonForeColor = Color.FromArgb( 20, 20, 20 );
+            CloseButtonHoverForeColor = Color.FromArgb( 20, 20, 20 );
+            CloseButtonPressedForeColor = Color.FromArgb( 20, 20, 20 );
+            ActiveTabFont = new Font( "Roboto", 8  );
+            ActiveTabColor = Color.FromArgb( 0, 120, 212 );
+            ActiveTabForeColor = Color.White;
         }
     }
 }

@@ -2153,6 +2153,11 @@
             Sets the label configuration.
             </summary>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.ClearSelections">
+            <summary>
+            Clears the selections.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.PopulateTableListBoxItems">
             <summary>
             Populates the ListBox items.
