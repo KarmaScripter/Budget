@@ -28,36 +28,26 @@ namespace BudgetExecution
             try
             {
                 type = Nullable.GetUnderlyingType( type ) ?? type;
-
                 switch( type.Name )
                 {
                     case "String":
                     case "Boolean":
-
                     {
                         return "Text";
                     }
-
                     case "IsDateTime":
-
                     {
                         return "Date";
                     }
-
                     case "Int32":
-
                     {
                         return "Double";
                     }
-
                     case "Decimal":
-
                     {
                         return "Currency";
                     }
-
                     default:
-
                     {
                         return type.Name;
                     }
@@ -66,7 +56,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-
                 return default;
             }
         }
@@ -89,7 +78,6 @@ namespace BudgetExecution
 
                 var _command = connection?.CreateCommand( );
                 _command.CommandText = sql;
-
                 return !string.IsNullOrEmpty( _command?.CommandText )
                     ? _command
                     : default;
@@ -152,7 +140,6 @@ namespace BudgetExecution
                     var _exception = ex;
                     _stringBuilder.Append( "Exception:" );
                     _stringBuilder.Append( Environment.NewLine );
-
                     while( _exception != null )
                     {
                         _stringBuilder.Append( _exception.Message );
@@ -195,7 +182,6 @@ namespace BudgetExecution
                     }
 
                     var _baseException = ex.GetBaseException( );
-
                     if( _baseException != null )
                     {
                         _stringBuilder.Append( "BaseException:" );
@@ -224,7 +210,6 @@ namespace BudgetExecution
             try
             {
                 var _dictionary = new Dictionary<string, object>( );
-
                 if( nvm != null )
                 {
                     foreach( var _key in nvm.AllKeys )
