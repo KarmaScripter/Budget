@@ -18,7 +18,6 @@ namespace BudgetExecution
     /// established in IFMS with the enactment of EPA's appropriation act. PRCs may be
     /// updated at any time.
     /// </summary>
-    /// <seealso cref = "PrcConfig"/>
     /// <seealso cref = "IProgramResultsCode"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "IDataModel"/>

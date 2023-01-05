@@ -1,4 +1,4 @@
-﻿// <copyright file = "Deobligations.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Reports.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Deobligations
+    public class Report
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }  = Source.Deobligations;
+        public Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deobligations"/> class.
+        /// Initializes a new instance of the <see cref="Report"/> class.
         /// </summary>
-        public Deobligations( )
+        public Report( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deobligations"/> class.
+        /// Initializes a new instance of the <see cref="Report"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Deobligations( IQuery query )
+        public Report( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deobligations"/> class.
+        /// Initializes a new instance of the <see cref="Report"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Deobligations( IDataModel builder )
+        public Report( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deobligations"/> class.
+        /// Initializes a new instance of the <see cref="Report"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Deobligations( DataRow dataRow )
+        public Report( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

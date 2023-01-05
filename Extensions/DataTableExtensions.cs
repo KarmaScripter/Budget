@@ -152,7 +152,7 @@ namespace BudgetExecution
                     using var _adapter = new OleDbDataAdapter( _sql, _connectionString );
                     var _table = new DataTable( );
                     _table.TableName = sheetName;
-                    _adapter?.FillSchema( _table, SchemaType.Source );
+                    _adapter?.FillSchema( _table, System.Data.SchemaType.Source );
                     _adapter.Fill( _table, _table.TableName );
                     return _table;
                 }

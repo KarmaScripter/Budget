@@ -1,4 +1,4 @@
-﻿// <copyright file = "SchemaType.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Deobligations.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SchemaTypes
+    public class Deobligation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source { get; set; }  = Source.Deobligations;
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaTypes"/> class.
+        /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
-        public SchemaTypes( )
+        public Deobligation( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaTypes"/> class.
+        /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public SchemaTypes( IQuery query )
+        public Deobligation( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaTypes"/> class.
+        /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public SchemaTypes( IDataModel builder )
+        public Deobligation( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaTypes"/> class.
+        /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public SchemaTypes( DataRow dataRow )
+        public Deobligation( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

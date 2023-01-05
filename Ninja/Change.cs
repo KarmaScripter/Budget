@@ -1,4 +1,4 @@
-﻿// <copyright file = "CarryoverOutlays.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Changes.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CarryoverOutlays
+    public class Change
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Change"/> class.
         /// </summary>
-        public CarryoverOutlays( )
+        public Change( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Change"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CarryoverOutlays( IQuery query )
+        public Change( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Change"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public CarryoverOutlays( IDataModel builder )
+        public Change( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CarryoverOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Change"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public CarryoverOutlays( DataRow dataRow )
+        public Change( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

@@ -1,4 +1,4 @@
-﻿// <copyright file = "MonthlyOutlays.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Actuals.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -11,8 +11,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class MonthlyOutlays
+    public class Actual
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +48,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MonthlyOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
-        public MonthlyOutlays( )
+        public Actual( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MonthlyOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public MonthlyOutlays( IQuery query )
+        public Actual( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MonthlyOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public MonthlyOutlays( IDataModel builder )
+        public Actual( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MonthlyOutlays"/> class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public MonthlyOutlays( DataRow dataRow )
+        public Actual( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

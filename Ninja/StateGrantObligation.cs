@@ -1,4 +1,4 @@
-﻿// <copyright file = "StatusOfBudgetaryResources.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "StateGrantObligation.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -11,8 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StatusOfBudgetaryResources
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class StateGrantObligation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfBudgetaryResources"/> class.
+        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
         /// </summary>
-        public StatusOfBudgetaryResources( )
+        public StateGrantObligation( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfBudgetaryResources"/> class.
+        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StatusOfBudgetaryResources( IQuery query )
+        public StateGrantObligation( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfBudgetaryResources"/> class.
+        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StatusOfBudgetaryResources( IDataModel builder )
+        public StateGrantObligation( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfBudgetaryResources"/> class.
+        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StatusOfBudgetaryResources( DataRow dataRow )
+        public StateGrantObligation( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

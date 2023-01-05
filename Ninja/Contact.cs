@@ -1,4 +1,4 @@
-﻿// <copyright file = "StateGrantObligation.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Contacts.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StateGrantObligations
+    public class Contact
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligations"/> class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
-        public StateGrantObligations( )
+        public Contact( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligations"/> class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StateGrantObligations( IQuery query )
+        public Contact( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligations"/> class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StateGrantObligations( IDataModel builder )
+        public Contact( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligations"/> class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StateGrantObligations( DataRow dataRow )
+        public Contact( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

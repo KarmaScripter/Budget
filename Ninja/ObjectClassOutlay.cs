@@ -10,7 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public class ObjectClassOutlays
+    public class ObjectClassOutlay
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -45,33 +45,33 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectClassOutlays"/> class.
+        /// Initializes a new instance of the <see cref="ObjectClassOutlay"/> class.
         /// </summary>
-        public ObjectClassOutlays( )
+        public ObjectClassOutlay( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectClassOutlays"/> class.
+        /// Initializes a new instance of the <see cref="ObjectClassOutlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ObjectClassOutlays( IQuery query )
+        public ObjectClassOutlay( IQuery query )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectClassOutlays"/> class.
+        /// Initializes a new instance of the <see cref="ObjectClassOutlay"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public ObjectClassOutlays( IDataModel builder )
+        public ObjectClassOutlay( IDataModel builder )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectClassOutlays"/> class.
+        /// Initializes a new instance of the <see cref="ObjectClassOutlay"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public ObjectClassOutlays( DataRow dataRow )
+        public ObjectClassOutlay( DataRow dataRow )
         {
         }
     }

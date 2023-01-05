@@ -1,4 +1,4 @@
-﻿// <copyright file = "JobsActCarryoverEstimates.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "SchemaType.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -11,9 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class JobsActCarryoverEstimates
+    public class SchemaType
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -48,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="SchemaType"/> class.
         /// </summary>
-        public JobsActCarryoverEstimates( )
+        public SchemaType( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="SchemaType"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public JobsActCarryoverEstimates( IQuery query )
+        public SchemaType( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="SchemaType"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public JobsActCarryoverEstimates( IDataModel builder )
+        public SchemaType( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="SchemaType"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public JobsActCarryoverEstimates( DataRow dataRow )
+        public SchemaType( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

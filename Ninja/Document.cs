@@ -1,4 +1,4 @@
-﻿// <copyright file = "Actuals.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Document.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -11,9 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Actuals
+    public class Document
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -48,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actuals"/> class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
-        public Actuals( )
+        public Document( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actuals"/> class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Actuals( IQuery query )
+        public Document( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actuals"/> class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Actuals( IDataModel builder )
+        public Document( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actuals"/> class.
+        /// Initializes a new instance of the <see cref="Document"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Actuals( DataRow dataRow )
+        public Document( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

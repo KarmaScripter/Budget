@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public enum FederalHoliday
+    public enum NationalHoliday
     {
         /// <summary>
         /// Creates new years.
@@ -28,6 +28,11 @@ namespace BudgetExecution
         /// The memorial
         /// </summary>
         Memorial,
+
+        /// <summary>
+        /// The juneteenth
+        /// </summary>
+        Juneteenth,
 
         /// <summary>
         /// The independence

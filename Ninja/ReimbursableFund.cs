@@ -1,4 +1,4 @@
-﻿// <copyright file = "Changes.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "ReimbursableFunds.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Changes
+    public class ReimbursableFund
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Changes"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableFund"/> class.
         /// </summary>
-        public Changes( )
+        public ReimbursableFund( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Changes"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableFund"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Changes( IQuery query )
+        public ReimbursableFund( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Changes"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableFund"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Changes( IDataModel builder )
+        public ReimbursableFund( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Changes"/> class.
+        /// Initializes a new instance of the <see cref="ReimbursableFund"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Changes( DataRow dataRow )
+        public ReimbursableFund( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

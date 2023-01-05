@@ -1,4 +1,4 @@
-﻿// <copyright file = "SupplementalCarryoverEstimates.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "BudgetOutlays.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -11,8 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SupplementalCarryoverEstimates
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class BudgetOutlay
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// The data row.
         /// </value>
         public DataRow Record { get; set; }
-
+        
         /// <summary>
         /// Gets the arguments.
         /// </summary>
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
         /// </summary>
-        public SupplementalCarryoverEstimates( )
+        public BudgetOutlay( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public SupplementalCarryoverEstimates( IQuery query )
+        public BudgetOutlay( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public SupplementalCarryoverEstimates( IDataModel builder )
+        public BudgetOutlay( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimates"/> class.
+        /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public SupplementalCarryoverEstimates( DataRow dataRow )
+        public BudgetOutlay( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

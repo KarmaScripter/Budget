@@ -1,4 +1,4 @@
-﻿// <copyright file = "Images.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "SupplementalCarryoverEstimates.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -11,8 +11,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Images
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class SupplementalCarryoverEstimate
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Images"/> class.
+        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
         /// </summary>
-        public Images( )
+        public SupplementalCarryoverEstimate( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Images"/> class.
+        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Images( IQuery query )
+        public SupplementalCarryoverEstimate( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Images"/> class.
+        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Images( IDataModel builder )
+        public SupplementalCarryoverEstimate( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Images"/> class.
+        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Images( DataRow dataRow )
+        public SupplementalCarryoverEstimate( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

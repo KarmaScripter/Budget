@@ -364,7 +364,7 @@ namespace BudgetExecution
                     _dataSet.DataSetName = fileName;
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
-                    var _sql = $"SELECT * FROM [{sheetName}]";
+                    var _sql = $"SELECT * FROM [{ sheetName }]";
                     var _fullPath = GetExcelFilePath( );
                     if( !string.IsNullOrEmpty( _fullPath ) )
                     {
@@ -450,31 +450,24 @@ namespace BudgetExecution
         /// </summary>
         private void CreateDatabase( )
         {
-            var _commandText = @"CREATE TABLE IF NOT EXISTS [MyTable] (
-                                    [ID] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                                    [Key] NVARCHAR(2048)  NULL,
-                                    [Value] VARCHAR(2048)  NULL
-                                    )";
-
-            SQLiteConnection.CreateFile( "databaseFile.db" );
-            using var _connection = new SQLiteConnection( "Data source=databaseFile.db3" );
+            var _commandText = @"CREATE TABLE IF NOT EXISTS [MyTable] 
+                                    ( [ID] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                                      [Key] NVARCHAR(2048)  NULL,
+                                      [Value] VARCHAR(2048)  NULL )";
+            
+            using var _connection = new SQLiteConnection( "Data source=databaseFile.db" );
             var _command = new SQLiteCommand( _connection );
             _connection.Open( );
             _command.CommandText = _commandText;
             _command.ExecuteNonQuery( );
-            _command.CommandText = "INSERT INTO MyTable ( Key,Value ) Values ( 'key one','value one' )";
+            _command.CommandText = "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key one','value one' )";
             _command.ExecuteNonQuery( );
             _command.CommandText =
-                "INSERT INTO MyTable ( Key,Value ) Values ( 'key two','value value' )";
+                "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key two','value value' )";
 
             _command.ExecuteNonQuery( );
-            _command.CommandText = "Select * FROM MyTable";
+            _command.CommandText = "SELECT * FROM MyTable";
             var _reader = _command.ExecuteReader( );
-            while( _reader.Read( ) )
-            {
-                Console.WriteLine( _reader[ "Key" ] + " : " + _reader[ "Value" ] );
-            }
-
             _connection.Close( );
         }
 

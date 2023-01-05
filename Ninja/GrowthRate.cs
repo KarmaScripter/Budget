@@ -1,4 +1,4 @@
-﻿// <copyright file = "Document.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "GrowthRates.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Documents
+    public class GrowthRate
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Documents"/> class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
-        public Documents( )
+        public GrowthRate( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Documents"/> class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Documents( IQuery query )
+        public GrowthRate( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Documents"/> class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Documents( IDataModel builder )
+        public GrowthRate( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Documents"/> class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Documents( DataRow dataRow )
+        public GrowthRate( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

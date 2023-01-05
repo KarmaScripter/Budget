@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CompassLevels
+    public class CompassLevel
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,37 +47,37 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevels"/> class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
-        public CompassLevels( )
+        public CompassLevel( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevels"/> class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CompassLevels( IQuery query )
+        public CompassLevel( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevels"/> class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public CompassLevels( IDataModel builder )
+        public CompassLevel( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevels"/> class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public CompassLevels( DataRow dataRow )
+        public CompassLevel( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
