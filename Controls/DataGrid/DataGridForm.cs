@@ -149,11 +149,11 @@ namespace BudgetExecution
                 FormFilter.Add( "BFY", "2022" );
                 FormFilter.Add( "FundCode", "B" );
                 BindDataSource( Source.StatusOfFunds, Provider.Access, FormFilter );
-                SetLabelConfiguration(  );
+                SetLabelText(  );
                 PopulateTableListBoxItems( );
                 PopulateToolStripComboBoxItems( );
                 ClearSelections(  );
-                Text = DataModel.Provider + " Data";
+                Text = DataModel.Provider + " Data: " + DataModel.Source.ToString( ).SplitPascal( );
                 ExitButton.Click += OnExitButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
                 TestButton.Click += OnTestButtonClicked;
@@ -193,7 +193,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the label configuration.
         /// </summary>
-        private void SetLabelConfiguration( )
+        private void SetLabelText( )
         {
             try
             {
@@ -288,7 +288,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter.Keys.Count > 0 )
+                if( FormFilter?.Keys?.Count > 0 )
                 {
                     FormFilter.Clear( );
                 }
@@ -299,25 +299,24 @@ namespace BudgetExecution
                 ThirdListBox.Items.Clear( );
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedValue?.ToString( );
-                SelectedTable = _value;
                 if( !string.IsNullOrEmpty( _value ) )
                 {
+                    SelectedTable = _value;
                     var _source = (Source)Enum.Parse( typeof( Source ), _value );
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    SelectedTable = DataModel.DataTable?.TableName;
+                    SelectedTable = DataModel.DataTable.TableName;
                     var _text = "Data Source:  " + SelectedTable.SplitPascal( );
-                    DataGridLabel.Text = _text + DataModel?.DataTable?.Rows?.Count;
-                    var _columns = DataModel?.GetDataColumns( );
-                    foreach( var col in _columns )
+                    DataGridLabel.Text = _text + DataModel.DataTable.Rows.Count;
+                    foreach( var col in DataModel.DataColumns )
                     {
-                        SecondListBox?.Items?.Add( col.ColumnName );
+                        SecondListBox.Items?.Add( col?.ColumnName );
                     }
                 }
                 
-                SetLabelConfiguration(  );
+                SetLabelText(  );
             }
             catch( Exception ex )
             {
@@ -338,11 +337,11 @@ namespace BudgetExecution
                     ThirdListBox.Items.Clear( );
                     SqlQuery = string.Empty;
                     var _column = _listBox?.SelectedValue?.ToString( );
-                    var _series = DataModel.DataElements;
+                    var _elements = DataModel.DataElements;
                     if( !string.IsNullOrEmpty( _column ) )
                     {
                         SelectedColumn = _column?.Trim( );
-                        foreach( var item in _series[ _column ] )
+                        foreach( var item in _elements[ _column ] )
                         {
                             ThirdListBox.Items.Add( item );
                         }
@@ -472,7 +471,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
