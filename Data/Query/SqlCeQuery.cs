@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// The source.
         /// </param>
         public SqlCeQuery( Source source )
-            : base( source, Provider.Access, SQL.SELECT )
+            : base( source, Provider.SqlCe, SQL.SELECT )
         {
         }
 
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// The dictionary.
         /// </param>
         public SqlCeQuery( Source source, IDictionary<string, object> dict )
-            : base( source, Provider.Access, dict, SQL.SELECT )
+            : base( source, Provider.SqlCe, dict, SQL.SELECT )
         {
         }
 
@@ -55,9 +55,9 @@ namespace BudgetExecution
         /// <param name="provider">The provider used.</param>
         /// <param name="dict">The dictionary of parameters.</param>
         /// <param name="commandType">The type of sql command.</param>
-        public SqlCeQuery( Source source, Provider provider, IDictionary<string, object> dict,
+        public SqlCeQuery( Source source, IDictionary<string, object> dict,
             SQL commandType )
-            : base( source, provider, dict, commandType )
+            : base( source, Provider.SqlCe, dict, commandType )
         {
         }
 
@@ -69,9 +69,9 @@ namespace BudgetExecution
         /// <param name="updates"></param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SqlCeQuery( Source source, Provider provider, IDictionary<string, object> updates,
+        public SqlCeQuery( Source source, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, Provider.SqlCe, updates, where, commandType )
         {
         }
 
@@ -83,9 +83,9 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="criteria">The criteria.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SqlCeQuery( Source source, Provider provider, IEnumerable<string> columns,
+        public SqlCeQuery( Source source, IEnumerable<string> columns,
             IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, criteria, commandType )
+            : base( source, Provider.SqlCe, columns, criteria, commandType )
         {
         }
 
@@ -106,19 +106,8 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public SqlCeQuery( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SqlCeQuery"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="dict">The dictionary.</param>
-        public SqlCeQuery( Source source, Provider provider, IDictionary<string, object> dict )
-            : base( source, provider, dict )
+        public SqlCeQuery( Source source, string sqlText )
+            : base( source, Provider.SqlCe, sqlText )
         {
         }
 

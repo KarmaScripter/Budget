@@ -66,9 +66,9 @@ namespace BudgetExecution
         /// <param name="provider">The provider used.</param>
         /// <param name="dict">The dictionary of parameters.</param>
         /// <param name="commandType">The type of sql command.</param>
-        public SQLiteQuery( Source source, Provider provider, IDictionary<string, object> dict,
+        public SQLiteQuery( Source source, IDictionary<string, object> dict,
             SQL commandType )
-            : base( source, provider, dict, commandType )
+            : base( source, Provider.SQLite, dict, commandType )
         {
         }
 
@@ -80,9 +80,9 @@ namespace BudgetExecution
         /// <param name="updates"></param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SQLiteQuery( Source source, Provider provider, IDictionary<string, object> updates,
+        public SQLiteQuery( Source source, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, Provider.SQLite, updates, where, commandType )
         {
         }
 
@@ -94,9 +94,9 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="criteria">The criteria.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SQLiteQuery( Source source, Provider provider, IEnumerable<string> columns,
+        public SQLiteQuery( Source source, IEnumerable<string> columns,
             IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, criteria, commandType )
+            : base( source,  Provider.SQLite, columns, criteria, commandType )
         {
         }
 
@@ -117,22 +117,11 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public SQLiteQuery( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
+        public SQLiteQuery( Source source, string sqlText )
+            : base( source, Provider.SQLite, sqlText )
         {
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="dict">The dictionary.</param>
-        public SQLiteQuery( Source source, Provider provider, IDictionary<string, object> dict )
-            : base( source, provider, dict )
-        {
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
         /// </summary>

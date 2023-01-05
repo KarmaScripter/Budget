@@ -782,42 +782,26 @@ namespace BudgetExecution
                     FormFilter.Clear( );
                 }
                 
-                if( !string.IsNullOrEmpty( FourthValue ) )
-                {
-                    FourthComboBox.Items.Clear( );
-                    FourthListBox.Items.Clear( );
-                    FourthCategory = string.Empty;
-                    FourthValue = string.Empty;
-                    FourthTable.Visible = false;
-                } 
-                
-                if( !string.IsNullOrEmpty( ThirdValue ) )
-                {
-                    ThirdComboBox.Items.Clear( );
-                    ThirdListBox.Items.Clear( );
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
-                    ThirdTable.Visible = false;
-                }
-                
-                if( !string.IsNullOrEmpty( SecondValue ) )
-                {
-                    SecondComboBox.Items.Clear( );
-                    SecondListBox.Items.Clear( );
-                    SecondCategory = string.Empty;
-                    SecondValue = string.Empty;
-                    SecondTable.Visible = false;
-                }
-                
-                if( !string.IsNullOrEmpty( FirstValue ) )
-                {
-                    FirstComboBox.Items.Clear( );
-                    FirstListBox.Items.Clear( );
-                    FirstCategory = string.Empty;
-                    FirstValue = string.Empty;
-                    FirstTable.Visible = true;
-                }
-                
+                FourthComboBox.Items.Clear( );
+                FourthListBox.Items.Clear( );
+                FourthCategory = string.Empty;
+                FourthValue = string.Empty;
+                FourthTable.Visible = false;
+                ThirdComboBox.Items.Clear( );
+                ThirdListBox.Items.Clear( );
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                ThirdTable.Visible = false;
+                SecondComboBox.Items.Clear( );
+                SecondListBox.Items.Clear( );
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                SecondTable.Visible = false;
+                FirstComboBox.Items.Clear( );
+                FirstListBox.Items.Clear( );
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
+                FirstTable.Visible = true;
                 PopulateFirstComboBoxItems(  );
             }
             catch( Exception ex )

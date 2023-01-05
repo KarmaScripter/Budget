@@ -246,7 +246,6 @@ namespace BudgetExecution
                    && dataTable.Columns?.Count > 0 )
                 {
                     var _list = new List<int>( );
-
                     foreach( var _row in dataTable.AsEnumerable( ) )
                     {
                         if( _row?.HasPrimaryKey( ) == true
@@ -286,11 +285,9 @@ namespace BudgetExecution
                 {
                     var _list = new List<int>( );
                     var _criteria = dict.ToCriteria( );
-
                     if( !string.IsNullOrEmpty( _criteria ) )
                     {
                         var _dataRows = dataTable.Select( _criteria );
-
                         if( _dataRows?.Any( ) == true )
                         {
                             foreach( var row in _dataRows )
@@ -332,10 +329,11 @@ namespace BudgetExecution
                 try
                 {
                     var _enumerable = dataTable?.AsEnumerable( )
-                        ?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
+                        ?.Select( p => p.Field<string>( columnName ) )
+                        ?.Distinct( );
 
-                    var _array = _enumerable as string[ ] ?? _enumerable.ToArray( );
-                    return _array.Any( )
+                    var _array = _enumerable as string[ ] ?? _enumerable?.ToArray( );
+                    return _array?.Any( ) == true
                         ? _array
                         : default;
                 }
@@ -388,14 +386,16 @@ namespace BudgetExecution
             try
             {
                 var _fields = new string[ dataTable.Columns.Count ];
-
                 for( var i = 0; i < dataTable.Columns.Count; i++ )
                 {
                     _fields[ i ] = dataTable.Columns[ i ].ColumnName;
                 }
 
-                var _names = _fields?.OrderBy( f => f.IndexOf( f ) )?.Select( f => f )?.ToArray( );
-                return _names.Any( )
+                var _names = _fields?.OrderBy( f => f.IndexOf( f ) )
+                    ?.Select( f => f )
+                    ?.ToArray( );
+                
+                return _names?.Any( ) == true
                     ? _names
                     : default;
             }
@@ -416,7 +416,6 @@ namespace BudgetExecution
             try
             {
                 var _index = new Dictionary<string, int>( );
-
                 for( var i = 0; i < dataTable.Columns.Count; i++ )
                 {
                     _index.Add( dataTable.Columns[ i ].ColumnName, i );
@@ -445,7 +444,6 @@ namespace BudgetExecution
                 try
                 {
                     var _bindingList = new BindingList<DataRow>( );
-
                     foreach( DataRow row in dataTable.Rows )
                     {
                         _bindingList.Add( row );

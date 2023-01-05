@@ -7,12 +7,12 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using DocumentFormat.OpenXml.Bibliography;
 
     /// <summary>
     /// </summary>
     /// <seealso cref = "IDisposable"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class Query : QueryBase, IQuery
     {
         /// <summary>

@@ -1,5 +1,5 @@
-﻿// <copyright file = "ExcelQuery.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// The source.
         /// </param>
         public ExcelQuery( Source source )
-            : base( source, Provider.Access, SQL.SELECT )
+            : base( source, Provider.Excel, SQL.SELECT )
         {
         }
 
@@ -49,7 +49,7 @@ namespace BudgetExecution
         /// The dictionary.
         /// </param>
         public ExcelQuery( Source source, IDictionary<string, object> dict )
-            : base( source, Provider.Access, dict, SQL.SELECT )
+            : base( source, Provider.Excel, dict, SQL.SELECT )
         {
         }
 
@@ -60,9 +60,8 @@ namespace BudgetExecution
         /// <param name="provider">The provider used.</param>
         /// <param name="dict">The dictionary of parameters.</param>
         /// <param name="commandType">The type of sql command.</param>
-        public ExcelQuery( Source source, Provider provider, IDictionary<string, object> dict,
-            SQL commandType )
-            : base( source, provider, dict, commandType )
+        public ExcelQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+            : base( source, Provider.Excel, dict, commandType )
         {
         }
 
@@ -74,9 +73,9 @@ namespace BudgetExecution
         /// <param name="updates"></param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public ExcelQuery( Source source, Provider provider, IDictionary<string, object> updates,
+        public ExcelQuery( Source source, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, Provider.Excel, updates, where, commandType )
         {
         }
 
@@ -88,18 +87,28 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="criteria">The criteria.</param>
         /// <param name="commandType">Type of the command.</param>
-        public ExcelQuery( Source source, Provider provider, IEnumerable<string> columns,
+        public ExcelQuery( Source source, IEnumerable<string> columns,
             IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, criteria, commandType )
+            : base( source, Provider.Excel, columns, criteria, commandType )
         {
         }
-        
-        public ExcelQuery( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> criteria, 
-            SQL commandType = SQL.SELECT )
-            : base( source, provider, fields, numerics, criteria, commandType )
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields"></param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="criteria"></param>
+        /// <param name="commandType">Type of the command.</param>
+        public ExcelQuery( Source source, IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            : base( source, Provider.Excel, fields, numerics, criteria,
+                commandType )
         {
         }
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "ExcelQuery"/> class.
         /// </summary>
@@ -117,19 +126,8 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public ExcelQuery( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelQuery"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="dict">The dictionary.</param>
-        public ExcelQuery( Source source, Provider provider, IDictionary<string, object> dict )
-            : base( source, provider, dict )
+        public ExcelQuery( Source source, string sqlText )
+            : base( source, Provider.Excel, sqlText )
         {
         }
 
@@ -194,7 +192,7 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public void WriteExcelFile( DataTable table, string filePath )
         {
-            if( table?.Columns.Count > 0 
+            if( table?.Columns.Count > 0
                && !string.IsNullOrEmpty( filePath ) )
             {
                 try
@@ -204,6 +202,7 @@ namespace BudgetExecution
                     var _excelWorksheet = _excelPackage?.Workbook?.Worksheets?.Add( _name );
                     var _columns = table?.Columns?.Count;
                     var _rows = table?.Rows?.Count;
+
                     for( var column = 1; column <= _columns; column++ )
                     {
                         if( _excelWorksheet != null )
@@ -249,11 +248,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( ExcelPackage );
+                    return default;
                 }
             }
 
-            return default( ExcelPackage );
+            return default;
         }
 
         /// <summary>
@@ -284,7 +283,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+                return default;
             }
         }
 
@@ -304,6 +303,7 @@ namespace BudgetExecution
                     _connection?.Open( );
                     var _sql = $"SELECT * FROM {sheetName}";
                     var _schema = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
+
                     if( _schema?.Columns?.Count > 0
                        && !SheetExists( sheetName, _schema ) )
                     {
@@ -323,11 +323,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DataTable );
+                    return default;
                 }
             }
 
-            return default( DataTable );
+            return default;
         }
 
         /// <summary>
@@ -353,18 +353,19 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new DataSet( );
-                    var _sql = $"SELECT * FROM {sheetName}";
-                    var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;"
-                        + $"Data Source={Path.GetDirectoryName( fileName )} "
+                    var _sql = $"SELECT * FROM { sheetName }";
+                    var _connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;"
+                        + $"Data Source={ Path.GetDirectoryName( fileName ) } "
                         + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
                     var _connection = new OleDbConnection( _connectionString );
                     var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
+
                     if( !string.IsNullOrEmpty( sheetName ) )
                     {
                         if( !SheetExists( sheetName, _schema ) )
                         {
-                            var _msg = $"{sheetName} in {fileName} Does Not Exist!";
+                            var _msg = $"{ sheetName } in {fileName} Does Not Exist!";
                             var _message = new Message( _msg );
                             _message?.ShowDialog( );
                         }
@@ -381,11 +382,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DataTable );
+                    return default;
                 }
             }
 
-            return default( DataTable );
+            return default;
         }
 
         /// <summary>
@@ -406,6 +407,7 @@ namespace BudgetExecution
                 var _columns = _range.Columns;
                 dataGrid.ColumnCount = _columns;
                 dataGrid.RowCount = _rows;
+
                 for( var i = 1; i <= _rows; i++ )
                 {
                     for( var j = 1; j <= _columns; j++ )
@@ -443,6 +445,7 @@ namespace BudgetExecution
                     for( var i = 0; i < dataTable.Rows.Count; i++ )
                     {
                         var _dataRow = dataTable.Rows[ i ];
+
                         if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                         {
                             return true;

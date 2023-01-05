@@ -89,8 +89,6 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the command text.
         /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <param name="commandType">Type of the command.</param>
         /// <returns></returns>
         string GetCommandText( );
     }

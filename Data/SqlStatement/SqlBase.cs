@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Diagnostics.CodeAnalysis;
     using BudgetExecution;
-    using Syncfusion.GridHelperClasses;
 
     /// <summary>
     /// 
@@ -311,7 +310,7 @@ namespace BudgetExecution
 
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                var _groups = _grp.TrimEnd( ", ".ToCharArray( ) );
                 return $"SELECT DISTINCT { _columns } FROM { Source } "
                     + $"WHERE { _criteria } "
                     + $"GROUP BY { _groups };";
@@ -351,10 +350,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the update statement.
+        /// Gets the update statement.
         /// </summary>
-        /// <param name="updates">The dictionary.</param>
-        /// <param name = "where" > </param>
+        /// <returns></returns>
         private protected string GetUpdateStatement( )
         {
             if( Updates?.Any( ) == true

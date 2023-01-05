@@ -60,7 +60,6 @@ namespace BudgetExecution
             try
             {
                 var _files = folder?.GetFiles( );
-
                 if( _files?.Any( ) == true )
                 {
                     foreach( var _fileInfo in _files )
@@ -233,6 +232,7 @@ namespace BudgetExecution
                 var _dialog = new OpenFileDialog( );
                 _dialog.CheckFileExists = true;
                 _dialog.CheckPathExists = true;
+                _dialog.ShowDialog( );
                 return _dialog.FileName;
             }
             catch( Exception ex )

@@ -12513,87 +12513,62 @@
             </summary>
             <seealso cref="T:BudgetExecution.Query" />
         </member>
-        <member name="P:BudgetExecution.AccessQuery.Provider">
-            <summary>
-            Gets the Provider
-            </summary>
-        </member>
         <member name="M:BudgetExecution.AccessQuery.#ctor">
             <summary>
-            Initializes a new instance of the <see cref = "T:BudgetExecution.AccessQuery"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
         </member>
         <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source)">
             <summary>
-            Initializes a new instance of the <see cref = "T:BudgetExecution.AccessQuery"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
-            <param name = "source" >
-            The source.
-            </param>
+            <param name="source">The source.</param>
         </member>
         <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
-            Initializes a new instance of the <see cref = "T:BudgetExecution.AccessQuery"/> class.
-            </summary>
-            <param name = "source" >
-            The source.
-            </param>
-            <param name = "dict" >
-            The dictionary.
-            </param>
-        </member>
-        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
-            <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
-            <param name="source">The source Data.</param>
-            <param name="provider">The provider used.</param>
-            <param name="dict">The dictionary of parameters.</param>
-            <param name="commandType">The type of sql command.</param>
+            <param name="source">The source.</param>
+            <param name="dict">The dictionary.</param>
         </member>
-        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
             <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="updates"></param>
+            <param name="dict">The dictionary.</param>
+            <param name="commandType">Type of the command.</param>
+        </member>
+        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="updates">The updates.</param>
             <param name="where">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
-        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
             <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
             <param name="columns">The columns.</param>
             <param name="criteria">The criteria.</param>
             <param name="commandType">Type of the command.</param>
         </member>
         <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.ISqlStatement)">
             <summary>
-            Initializes a new instance of the <see cref = "T:BudgetExecution.AccessQuery"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
-            <param name = "sqlStatement" >
-            The sqlStatement.
-            </param>
+            <param name="sqlStatement">The sqlStatement.</param>
         </member>
-        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
             </summary>
             <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
-        </member>
-        <member name="M:BudgetExecution.AccessQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.AccessQuery"/> class.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="dict">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.AccessQuery.#ctor(System.String,System.String,BudgetExecution.SQL)">
             <summary>
@@ -12609,12 +12584,20 @@
             </summary>
             <param name="fullPath">The fullpath.</param>
             <param name="commandType">The commandType.</param>
-            <param name="dict">The dictionary.</param>
+            <param name="dict"></param>
         </member>
         <member name="M:BudgetExecution.AccessQuery.Dispose(System.Boolean)">
             <summary>
-            The Dispose
+            Releases unmanaged and - optionally - managed resources.
             </summary>
+            <param name="disposing"><c>
+            true
+            </c>
+            to release both managed and unmanaged resources;
+            <c>
+            false
+            </c>
+            to release only unmanaged resources.</param>
         </member>
         <member name="T:BudgetExecution.CsvQuery">
             <summary>
@@ -12832,7 +12815,7 @@
             The dictionary.
             </param>
         </member>
-        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.ExcelQuery"/> class.
             </summary>
@@ -12841,7 +12824,7 @@
             <param name="dict">The dictionary of parameters.</param>
             <param name="commandType">The type of sql command.</param>
         </member>
-        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.ExcelQuery"/> class.
             </summary>
@@ -12851,7 +12834,7 @@
             <param name="where">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
-        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.ExcelQuery"/> class.
             </summary>
@@ -12859,6 +12842,17 @@
             <param name="provider">The provider.</param>
             <param name="columns">The columns.</param>
             <param name="criteria">The criteria.</param>
+            <param name="commandType">Type of the command.</param>
+        </member>
+        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.ExcelQuery"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="fields"></param>
+            <param name="numerics">The numerics.</param>
+            <param name="criteria"></param>
             <param name="commandType">Type of the command.</param>
         </member>
         <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.ISqlStatement)">
@@ -12869,21 +12863,13 @@
             The sqlStatement.
             </param>
         </member>
-        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.ExcelQuery"/> class.
             </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
-        </member>
-        <member name="M:BudgetExecution.ExcelQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.ExcelQuery"/> class.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="dict">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.ExcelQuery.#ctor(System.String,System.String,BudgetExecution.SQL)">
             <summary>
@@ -13350,7 +13336,7 @@
             The dictionary.
             </param>
         </member>
-        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlCeQuery"/> class.
             </summary>
@@ -13359,7 +13345,7 @@
             <param name="dict">The dictionary of parameters.</param>
             <param name="commandType">The type of sql command.</param>
         </member>
-        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlCeQuery"/> class.
             </summary>
@@ -13369,7 +13355,7 @@
             <param name="where">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
-        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlCeQuery"/> class.
             </summary>
@@ -13387,21 +13373,13 @@
             The sqlStatement.
             </param>
         </member>
-        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlCeQuery"/> class.
             </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
-        </member>
-        <member name="M:BudgetExecution.SqlCeQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.SqlCeQuery"/> class.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="dict">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.SqlCeQuery.#ctor(System.String,System.String,BudgetExecution.SQL)">
             <summary>
@@ -13507,7 +13485,7 @@
             The dictionary.
             </param>
         </member>
-        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SQLiteQuery"/> class.
             </summary>
@@ -13516,7 +13494,7 @@
             <param name="dict">The dictionary of parameters.</param>
             <param name="commandType">The type of sql command.</param>
         </member>
-        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SQLiteQuery"/> class.
             </summary>
@@ -13526,7 +13504,7 @@
             <param name="where">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
-        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SQLiteQuery"/> class.
             </summary>
@@ -13544,21 +13522,13 @@
             The sqlStatement.
             </param>
         </member>
-        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SQLiteQuery"/> class.
             </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
-        </member>
-        <member name="M:BudgetExecution.SQLiteQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.SQLiteQuery"/> class.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="dict">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.SQLiteQuery.#ctor(System.String,System.String,BudgetExecution.SQL)">
             <summary>
@@ -13740,7 +13710,7 @@
             <param name="source">The source.</param>
             <param name="dict">The dictionary.</param>
         </member>
-        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlServerQuery"/> class.
             </summary>
@@ -13749,7 +13719,7 @@
             <param name="dict">The dictionary of parameters.</param>
             <param name="commandType">The type of sql command.</param>
         </member>
-        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlServerQuery"/> class.
             </summary>
@@ -13759,7 +13729,7 @@
             <param name="where">The where.</param>
             <param name="commandType">Type of the command.</param>
         </member>
-        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
+        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object},BudgetExecution.SQL)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlServerQuery"/> class.
             </summary>
@@ -13775,21 +13745,13 @@
             </summary>
             <param name="sqlStatement">The sqlStatement.</param>
         </member>
-        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.SqlServerQuery"/> class.
             </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
-        </member>
-        <member name="M:BudgetExecution.SqlServerQuery.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.SqlServerQuery"/> class.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="dict">The dictionary.</param>
         </member>
         <member name="M:BudgetExecution.SqlServerQuery.#ctor(System.String,System.String,BudgetExecution.SQL)">
             <summary>
@@ -13986,10 +13948,9 @@
         </member>
         <member name="M:BudgetExecution.SqlBase.GetUpdateStatement">
             <summary>
-            Sets the update statement.
+            Gets the update statement.
             </summary>
-            <param name="updates">The dictionary.</param>
-            <param name = "where" > </param>
+            <returns></returns>
         </member>
         <member name="M:BudgetExecution.SqlBase.GetInsertStatement">
             <summary>
@@ -14524,36 +14485,6 @@
             Defines the FileStream
             </summary>
         </member>
-        <member name="T:BudgetExecution.Document">
-            <summary>
-            Defines the Reports
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Document.NS">
-            <summary>
-            Defines the None
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Document.Budget">
-            <summary>
-            Defines the Internal
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Document.External">
-            <summary>
-            Defines the External
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Document.Report">
-            <summary>
-            Defines the Budget
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.Document.Analysis">
-            <summary>
-            Defines the Analysis
-            </summary>
-        </member>
         <member name="T:BudgetExecution.EventDate">
             <summary>
             
@@ -14867,61 +14798,6 @@
         <member name="F:BudgetExecution.EXT.GIF">
             <summary>
             Identifies the .gif file extension for gifs
-            </summary>
-        </member>
-        <member name="T:BudgetExecution.FederalHoliday">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.NewYears">
-            <summary>
-            Creates new years.
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.MartinLutherKing">
-            <summary>
-            The martin luther king
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Presidents">
-            <summary>
-            The presidents
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Memorial">
-            <summary>
-            The memorial
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Independence">
-            <summary>
-            The independence
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Veterans">
-            <summary>
-            The veterans
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Labor">
-            <summary>
-            The labor
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Columbus">
-            <summary>
-            The columbus
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Thanksgiving">
-            <summary>
-            The thanksgiving
-            </summary>
-        </member>
-        <member name="F:BudgetExecution.FederalHoliday.Christmas">
-            <summary>
-            The christmas
             </summary>
         </member>
         <member name="T:BudgetExecution.Field">
@@ -18077,6 +17953,66 @@
         <member name="F:BudgetExecution.Logic.OR">
             <summary>
             The or
+            </summary>
+        </member>
+        <member name="T:BudgetExecution.NationalHoliday">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.NewYears">
+            <summary>
+            Creates new years.
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.MartinLutherKing">
+            <summary>
+            The martin luther king
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Presidents">
+            <summary>
+            The presidents
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Memorial">
+            <summary>
+            The memorial
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Juneteenth">
+            <summary>
+            The juneteenth
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Independence">
+            <summary>
+            The independence
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Veterans">
+            <summary>
+            The veterans
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Labor">
+            <summary>
+            The labor
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Columbus">
+            <summary>
+            The columbus
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Thanksgiving">
+            <summary>
+            The thanksgiving
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.NationalHoliday.Christmas">
+            <summary>
+            The christmas
             </summary>
         </member>
         <member name="T:BudgetExecution.Net">
@@ -23628,11 +23564,12 @@
             <returns> </returns>
         </member>
         <member name="M:BudgetExecution.IDataAccess.GetQuery(BudgetExecution.IConnectionFactory,BudgetExecution.ISqlStatement)">
-            <summary> Gets the query. </summary>
-            <param> The connectionBuilder. </param>
-            <param name = "connection" > </param>
-            <param name = "sqlStatement" > The sqlStatement. </param>
-            <returns> </returns>
+            <summary>
+            Gets the query.
+            </summary>
+            <param name="connectionFactory">The connection factory.</param>
+            <param name="sqlStatement">The SQL statement.</param>
+            <returns></returns>
         </member>
         <member name="M:BudgetExecution.IDataAccess.GetRecord">
             <summary> Gets the record. </summary>
@@ -25552,8 +25489,6 @@
             <summary>
             Gets the command text.
             </summary>
-            <param name="dict">The dictionary.</param>
-            <param name="commandType">Type of the command.</param>
             <returns></returns>
         </member>
         <member name="T:BudgetExecution.ISupplemental">
@@ -29771,6 +29706,66 @@
             The name of the program area.
             </value>
         </member>
+        <member name="T:BudgetExecution.Document">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Document.ID">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Document.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Document.Record">
+            <summary>
+            Gets or sets the Record property.
+            </summary>
+            <value>
+            The data row.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Document.Data">
+            <summary>
+            Gets the arguments.
+            </summary>
+            <value>
+            The arguments.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.Document.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Document"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.Document.#ctor(BudgetExecution.IQuery)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Document"/> class.
+            </summary>
+            <param name="query">The query.</param>
+        </member>
+        <member name="M:BudgetExecution.Document.#ctor(BudgetExecution.IDataModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Document"/> class.
+            </summary>
+            <param name="builder">The builder.</param>
+        </member>
+        <member name="M:BudgetExecution.Document.#ctor(System.Data.DataRow)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.Document"/> class.
+            </summary>
+            <param name="dataRow">The data row.</param>
+        </member>
         <member name="T:BudgetExecution.DocumentControlNumber">
             <summary>
             
@@ -29828,66 +29823,6 @@
         <member name="M:BudgetExecution.DocumentControlNumber.#ctor(System.Data.DataRow)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.DocumentControlNumber"/> class.
-            </summary>
-            <param name="dataRow">The data row.</param>
-        </member>
-        <member name="T:BudgetExecution.Documents">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Documents.ID">
-            <summary>
-            Gets or sets the identifier.
-            </summary>
-            <value>
-            The identifier.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.Documents.Source">
-            <summary>
-            Gets or sets the source.
-            </summary>
-            <value>
-            The source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.Documents.Record">
-            <summary>
-            Gets or sets the Record property.
-            </summary>
-            <value>
-            The data row.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.Documents.Data">
-            <summary>
-            Gets the arguments.
-            </summary>
-            <value>
-            The arguments.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.Documents.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Documents"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Documents.#ctor(BudgetExecution.IQuery)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Documents"/> class.
-            </summary>
-            <param name="query">The query.</param>
-        </member>
-        <member name="M:BudgetExecution.Documents.#ctor(BudgetExecution.IDataModel)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Documents"/> class.
-            </summary>
-            <param name="builder">The builder.</param>
-        </member>
-        <member name="M:BudgetExecution.Documents.#ctor(System.Data.DataRow)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Documents"/> class.
             </summary>
             <param name="dataRow">The data row.</param>
         </member>

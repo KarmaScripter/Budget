@@ -13,37 +13,26 @@ namespace BudgetExecution
     public class AccessQuery : Query
     {
         /// <summary>
-        /// Gets the Provider
-        /// </summary>
-        public override Provider Provider { get; set; } = Provider.Access;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "AccessQuery"/> class.
+        /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
         public AccessQuery( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "AccessQuery"/> class.
+        /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
-        /// <param name = "source" >
-        /// The source.
-        /// </param>
+        /// <param name="source">The source.</param>
         public AccessQuery( Source source )
             : base( source, Provider.Access, SQL.SELECT )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "AccessQuery"/> class.
+        /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
-        /// <param name = "source" >
-        /// The source.
-        /// </param>
-        /// <param name = "dict" >
-        /// The dictionary.
-        /// </param>
+        /// <param name="source">The source.</param>
+        /// <param name="dict">The dictionary.</param>
         public AccessQuery( Source source, IDictionary<string, object> dict )
             : base( source, Provider.Access, dict, SQL.SELECT )
         {
@@ -52,13 +41,12 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
-        /// <param name="source">The source Data.</param>
-        /// <param name="provider">The provider used.</param>
-        /// <param name="dict">The dictionary of parameters.</param>
-        /// <param name="commandType">The type of sql command.</param>
-        public AccessQuery( Source source, Provider provider, IDictionary<string, object> dict,
+        /// <param name="source">The source.</param>
+        /// <param name="dict">The dictionary.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public AccessQuery( Source source, IDictionary<string, object> dict,
             SQL commandType )
-            : base( source, provider, dict, commandType )
+            : base( source, Provider.Access, dict, commandType )
         {
         }
 
@@ -66,13 +54,12 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="updates"></param>
+        /// <param name="updates">The updates.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public AccessQuery( Source source, Provider provider, IDictionary<string, object> updates,
+        public AccessQuery( Source source, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, Provider.Access, updates, where, commandType )
         {
         }
 
@@ -80,22 +67,19 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
         /// <param name="columns">The columns.</param>
         /// <param name="criteria">The criteria.</param>
         /// <param name="commandType">Type of the command.</param>
-        public AccessQuery( Source source, Provider provider, IEnumerable<string> columns,
+        public AccessQuery( Source source, IEnumerable<string> columns,
             IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, criteria, commandType )
+            : base( source, Provider.Access, columns, criteria, commandType )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "AccessQuery"/> class.
+        /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
-        /// <param name = "sqlStatement" >
-        /// The sqlStatement.
-        /// </param>
+        /// <param name="sqlStatement">The sqlStatement.</param>
         public AccessQuery( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
@@ -105,21 +89,9 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="AccessQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public AccessQuery( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AccessQuery"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="dict">The dictionary.</param>
-        public AccessQuery( Source source, Provider provider, IDictionary<string, object> dict )
-            : base( source, provider, dict )
+        public AccessQuery( Source source, string sqlText )
+            : base( source, Provider.Access, sqlText )
         {
         }
 
@@ -139,15 +111,23 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="fullPath">The fullpath.</param>
         /// <param name="commandType">The commandType.</param>
-        /// <param name="dict">The dictionary.</param>
+        /// <param name="dict"></param>
         public AccessQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }
 
         /// <summary>
-        /// The Dispose
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
+        /// <param name="disposing"><c>
+        /// true
+        /// </c>
+        /// to release both managed and unmanaged resources;
+        /// <c>
+        /// false
+        /// </c>
+        /// to release only unmanaged resources.</param>
         protected override void Dispose( bool disposing )
         {
             if( disposing )
