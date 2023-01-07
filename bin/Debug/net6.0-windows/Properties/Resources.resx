@@ -316,4 +316,28 @@
   <data name="EPA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\EPA\EPA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ChartTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ChartTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DatabaseTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\DatabaseTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\SettingsTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToolsTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ToolsTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UtilityTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\UtilityTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GuidanceTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\GuidanceTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClientTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ClientTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TableTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\TableTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

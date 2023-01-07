@@ -21,24 +21,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     public partial class DataGridForm : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
-        public DataBuilder DataModel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
-        
         /// <summary>
         /// Gets or sets the selected table.
         /// </summary>
@@ -64,12 +50,108 @@ namespace BudgetExecution
         public string SelectedValue { get; set; }
 
         /// <summary>
+        /// Gets or sets the first selected item.
+        /// </summary>
+        /// <value>
+        /// The first selected item.
+        /// </value>
+        public string FirstCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first value.
+        /// </summary>
+        /// <value>
+        /// The first value.
+        /// </value>
+        public string FirstValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second selected item.
+        /// </summary>
+        /// <value>
+        /// The second selected item.
+        /// </value>
+        public string SecondCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
+        public string SecondValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third selected item.
+        /// </summary>
+        /// <value>
+        /// The third selected item.
+        /// </value>
+        public string ThirdCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third value.
+        /// </summary>
+        /// <value>
+        /// The third value.
+        /// </value>
+        public string ThirdValue { get; set; }
+
+        /// <summary>
         /// Gets or sets the SQL query.
         /// </summary>
         /// <value>
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> FormFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IEnumerable<string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridForm"/> class.
@@ -104,12 +186,6 @@ namespace BudgetExecution
             // Label Properties
             DataGridLabel.Font = new Font( "Roboto", 8 );
             DataGridLabel.ForeColor = Color.LightGray;
-            FirstLabel.Font = new Font( "Roboto", 8 );
-            FirstLabel.ForeColor = Color.LightGray;
-            SecondLabel.Font = new Font( "Roboto", 8 );
-            SecondLabel.ForeColor = Color.LightGray;
-            ThirdLabel.Font = new Font( "Roboto", 8 );
-            ThirdLabel.ForeColor = Color.LightGray;
             
             // ToolStrip Properties
             ToolStrip.Text = string.Empty;
@@ -120,9 +196,10 @@ namespace BudgetExecution
 
             // Event Wiring
             ExitButton.Click += null;
-            FirstListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
-            SecondListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
-            ThirdListBox.SelectedValueChanged += OnValueListBoxSelectionChanged;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             Load += OnLoad;
         }
 
@@ -134,6 +211,13 @@ namespace BudgetExecution
         public DataGridForm( Source source, Provider provider ) 
             : this( )
         {
+            Source = source;
+            Provider = provider;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataTable;
+            Fields = DataModel.Fields;
         }
 
         /// <summary>
@@ -148,12 +232,18 @@ namespace BudgetExecution
                 FormFilter = new Dictionary<string, object>( );
                 FormFilter.Add( "BFY", "2022" );
                 FormFilter.Add( "FundCode", "B" );
+                TabControl.SelectedTab = FirstTab;
+                FirstTable.Visible = false;
+                SecondTable.Visible = false;
+                ThirdTable.Visible = false;
                 BindDataSource( Source.StatusOfFunds, Provider.Access, FormFilter );
                 SetLabelText(  );
                 PopulateTableListBoxItems( );
                 PopulateToolStripComboBoxItems( );
                 ClearSelections(  );
-                Text = DataModel.Provider + " Data: " + DataModel.Source.ToString( ).SplitPascal( );
+                Text = DataModel.Provider + " Data: " 
+                    + DataModel.Source.ToString( ).SplitPascal( );
+                
                 ExitButton.Click += OnExitButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
                 TestButton.Click += OnTestButtonClicked;
@@ -178,10 +268,13 @@ namespace BudgetExecution
             {
                 try
                 {
+                    Source = source;
+                    Provider = provider;
                     DataModel = new DataBuilder( source, provider, where );
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
                 }
                 catch( Exception ex )
                 {
@@ -189,7 +282,31 @@ namespace BudgetExecution
                 } 
             } 
         }
-        
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
+            {
+                try
+                {
+                    return $"SELECT * FROM { Source } " 
+                        + $"WHERE { where.ToCriteria(  ) };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
         /// <summary>
         /// Sets the label configuration.
         /// </summary>
@@ -197,10 +314,8 @@ namespace BudgetExecution
         {
             try
             {
-                FirstLabel.Text = "Tables: " + FirstListBox.Items.Count;
-                SecondLabel.Text = "Columns: " + SecondListBox.Items?.Count;
-                ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
-                DataGridLabel.Text = "Data Source:  " + DataModel.Source.ToString( ).SplitPascal( );
+                DataGridLabel.Text = "Data Source:  " 
+                    + DataModel.Source.ToString( ).SplitPascal( );
             }
             catch( Exception ex )
             {
@@ -209,47 +324,47 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the selections.
+        /// Clears the selected filter values.
         /// </summary>
         private void ClearSelections( )
         {
             try
             {
-                SelectedTable = string.Empty;
-                SelectedColumn = string.Empty;
-                SelectedValue = string.Empty;
                 SqlQuery = string.Empty;
-                if( FormFilter?.Keys?.Count > 0 )
+
+                if( FormFilter.Keys.Count > 0 )
                 {
                     FormFilter.Clear( );
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        
-        /// <summary>
-        /// Populates the ListBox items.
-        /// </summary>
-        public void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                FirstListBox.Items.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.ToList(  );
-                
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+
+                if( !string.IsNullOrEmpty( ThirdValue ) )
                 {
-                    var name = _names[ _i ];
-                    FirstListBox.Items.Add( name );
+                    ThirdComboBox.Items.Clear( );
+                    ThirdListBox.Items.Clear( );
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    ThirdPanel.Visible = !ThirdPanel.Visible;
                 }
+
+                if( !string.IsNullOrEmpty( SecondValue ) )
+                {
+                    SecondComboBox.Items.Clear( );
+                    SecondListBox.Items.Clear( );
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    SecondTable.Visible = !SecondTable.Visible;
+                }
+
+                if( !string.IsNullOrEmpty( FirstValue ) )
+                {
+                    FirstComboBox.Items.Clear( );
+                    FirstListBox.Items.Clear( );
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
+                    FirstTable.Visible = !FirstTable.Visible;
+                }
+
+                PopulateFirstComboBoxItems(  );
             }
             catch( Exception ex )
             {
@@ -265,9 +380,11 @@ namespace BudgetExecution
             try
             {
                 var _names = Enum.GetNames( typeof( SQL ) );
+
                 for( var _i = 0; _i < _names.Length; _i++ )
                 {
                     var name = _names[ _i ];
+
                     if( name != "NS" )
                     {
                         ComboBox.Items.Add( name );
@@ -281,42 +398,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [table ListBox selection changed].
+        /// Populates the ListBox items.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnTableListBoxSelectionChanged( object sender )
+        public void PopulateTableListBoxItems( )
         {
             try
             {
-                if( FormFilter?.Keys?.Count > 0 )
-                {
-                    FormFilter.Clear( );
-                }
+                TableListBox.Items.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData(  );
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.ToList(  );
                 
-                BindingSource.DataSource = null;
-                SqlQuery = string.Empty;
-                SecondListBox.Items.Clear( );
-                ThirdListBox.Items.Clear( );
-                var _listBox = sender as ListBox;
-                var _value = _listBox?.SelectedValue?.ToString( );
-                if( !string.IsNullOrEmpty( _value ) )
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    SelectedTable = _value;
-                    var _source = (Source)Enum.Parse( typeof( Source ), _value );
-                    DataModel = new DataBuilder( _source, Provider.Access );
-                    BindingSource.DataSource = DataModel.DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    ToolStrip.BindingSource = BindingSource;
-                    SelectedTable = DataModel.DataTable.TableName;
-                    var _text = "Data Source:  " + SelectedTable.SplitPascal( );
-                    DataGridLabel.Text = _text + DataModel.DataTable.Rows.Count;
-                    foreach( var col in DataModel.DataColumns )
-                    {
-                        SecondListBox.Items?.Add( col?.ColumnName );
-                    }
+                    var name = _names[ _i ];
+                    TableListBox.Items.Add( name );
                 }
-                
-                SetLabelText(  );
             }
             catch( Exception ex )
             {
@@ -325,29 +425,46 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [column ListBox selection changed].
+        /// Called when [table ListBox item selected].
         /// </summary>
-        /// <param name="sender">The sender.</param>\
-        public void OnColumnListBoxSelectionChanged( object sender )
+        /// <param name="sender">The sender.</param>
+        public void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
                 try
                 {
-                    ThirdListBox.Items.Clear( );
-                    SqlQuery = string.Empty;
-                    var _column = _listBox?.SelectedValue?.ToString( );
-                    var _elements = DataModel.DataElements;
-                    if( !string.IsNullOrEmpty( _column ) )
+                    if( FormFilter.Keys.Count > 0 )
                     {
-                        SelectedColumn = _column?.Trim( );
-                        foreach( var item in _elements[ _column ] )
-                        {
-                            ThirdListBox.Items.Add( item );
-                        }
+                        FormFilter.Clear( );
                     }
 
-                    ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
+                    SelectedTable = _listBox.SelectedValue?.ToString( );
+                    if( !string.IsNullOrEmpty( SelectedTable ) )
+                    {
+                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                        DataModel = new DataBuilder( Source, Provider );
+                        BindingSource.DataSource = DataModel.DataTable;
+                        DataGrid.DataSource = BindingSource;
+                        ToolStrip.BindingSource = BindingSource;
+                        Fields = DataModel.Fields;
+                    }
+
+                    PopulateFirstComboBoxItems(  );
+                    if( FirstTable.Visible == false )
+                    {
+                        FirstTable.Visible = true;
+                    }
+
+                    if( SecondTable.Visible == true )
+                    {
+                        SecondTable.Visible = false;
+                    }
+
+                    if( ThirdTable.Visible == true )
+                    {
+                        ThirdTable.Visible = false;
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -357,29 +474,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [value ListBox selection changed].
+        /// Populates the first como box items.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnValueListBoxSelectionChanged( object sender )
+        public void PopulateFirstComboBoxItems( )
         {
-            if( sender is ListBox _listBox )
+            if( Fields?.Any( ) == true )
             {
                 try
                 {
-                    SqlQuery = string.Empty;
-                    var _value = _listBox?.SelectedValue?.ToString( );
-                    SelectedValue = _value?.Trim( );
-                    var _query = string.Empty;
-                    if( !string.IsNullOrEmpty( SelectedTable )
-                       & !string.IsNullOrEmpty( SelectedColumn ) )
+                    foreach( var item in Fields )
                     {
-                        FormFilter.Add( SelectedColumn, SelectedValue );
-                        _query = $"SELECT * FROM { SelectedTable } "
-                            + $"WHERE { SelectedColumn } = '{ SelectedValue }';";
+                        FirstComboBox.Items.Add( item );
                     }
-
-                    SqlQuery = _query;
-                    ThirdLabel.Text = "Values: " + ThirdListBox.Items.Count;
                 }
                 catch( Exception ex )
                 {
@@ -388,6 +494,292 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( FirstListBox.Items?.Count > 0 )
+                    {
+                        FirstListBox.Items.Clear(  );
+                    }
+
+                    FirstCategory = _comboBox.SelectedItem?.ToString(  );
+                    if( !string.IsNullOrEmpty( FirstCategory ) )
+                    {
+                        var _data = DataModel.DataElements[ FirstCategory ];
+                        foreach( var item in _data )
+                        {
+                            FirstListBox?.Items?.Add( item );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Called when [first item selected].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        public void OnFirstListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    FirstValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    PopulateSecondComboBoxItems(  );
+                    if( SecondTable.Visible == false )
+                    {
+                        SecondTable.Visible = true;
+                    }
+
+                    if( ThirdPanel.Visible == true )
+                    {
+                        ThirdPanel.Visible = false;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Populates the second como box items.
+        /// </summary>
+        public void PopulateSecondComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue ) )
+                    {
+                        foreach( var item in Fields )
+                        {
+                            if( !item.Equals( FirstCategory ) )
+                            {
+                                SecondComboBox.Items.Add( item );
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach( var item in Fields )
+                        {
+                            SecondComboBox.Items.Add( item );
+                        }
+                    }
+
+                    SecondComboBox.SelectedIndex = -1;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Called when [second item selected].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    SqlQuery = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( SecondListBox.Items.Count > 0 )
+                    {
+                        SecondListBox.Items.Clear(  );
+                    }
+
+                    var _filter = _comboBox.SelectedItem?.ToString(  );
+                    if( !string.IsNullOrEmpty( _filter ) )
+                    {
+                        SecondCategory = _filter;
+                        var _data = DataModel.DataElements[ _filter ];
+                        foreach( var item in _data )
+                        {
+                            SecondListBox.Items.Add( item );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        public void OnSecondListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys?.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    SecondValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue  );
+                    PopulateThirdComboBoxItems(  );
+                    if( ThirdPanel.Visible != true )
+                    {
+                        ThirdPanel.Visible = true;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Populates the third como box items.
+        /// </summary>
+        public void PopulateThirdComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue ) 
+                       && !string.IsNullOrEmpty( SecondValue ) )
+                    {
+                        foreach( var item in Fields )
+                        {
+                            if( !item.Equals( FirstCategory ) 
+                               && !item.Equals( SecondCategory ) )
+                            {
+                                ThirdComboBox.Items.Add( item );
+                            }
+                        }
+
+                        ThirdComboBox.SelectedIndex = -1;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third item selected].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    SqlQuery = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( ThirdListBox.Items.Count > 0 )
+                    {
+                        ThirdListBox.Items.Clear(  );
+                    }
+
+                    ThirdCategory = _comboBox.SelectedItem?.ToString(  );
+                    if( !string.IsNullOrEmpty( ThirdCategory ) )
+                    {
+                        var _data = DataModel.DataElements[ ThirdCategory ];
+                        foreach( var item in _data )
+                        {
+                            ThirdListBox.Items.Add( item );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ListBox item selected].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        public void OnThirdListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    ThirdValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue  );
+                    FormFilter.Add( ThirdCategory, ThirdValue );
+                    SqlQuery = $"SELECT * FROM { Source } "
+                        + $"WHERE { FormFilter.ToCriteria(  ) };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Called when [test button clicked].
         /// </summary>

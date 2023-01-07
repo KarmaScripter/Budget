@@ -362,9 +362,6 @@ C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\SQLite.Designer.xml
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.Entity.xml
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.Entity.Design.xml
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.Linq.xml
-C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.SQLite.xml
-C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.SQLite.dll.config
-C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.xml
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Data.SQLite.Linq.xml
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\System.Runtime.Remoting.xml
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.csproj.AssemblyReference.cache
@@ -412,3 +409,14 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.xml
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.pdb
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.genruntimeconfig.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

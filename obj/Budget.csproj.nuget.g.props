@@ -13,7 +13,12 @@
     <SourceRoot Include="C:\Users\terry\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\20.3.0.47\ToolboxNuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)\entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)\entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props')" />
+  </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\terry\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\terry\.nuget\packages\system.data.sqlite.ef6\1.0.117</PkgSystem_Data_SQLite_EF6>
     <PkgSyncfusion_Shared_Base Condition=" '$(PkgSyncfusion_Shared_Base)' == '' ">C:\Users\terry\.nuget\packages\syncfusion.shared.base\20.3.0.61</PkgSyncfusion_Shared_Base>
     <PkgSyncfusion_TreeMap_Windows Condition=" '$(PkgSyncfusion_TreeMap_Windows)' == '' ">C:\Users\terry\.nuget\packages\syncfusion.treemap.windows\20.3.0.61</PkgSyncfusion_TreeMap_Windows>
     <PkgSyncfusion_Grid_Windows Condition=" '$(PkgSyncfusion_Grid_Windows)' == '' ">C:\Users\terry\.nuget\packages\syncfusion.grid.windows\20.3.0.61</PkgSyncfusion_Grid_Windows>

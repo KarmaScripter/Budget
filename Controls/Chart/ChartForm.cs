@@ -837,7 +837,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the label configuration.
         /// </summary>
-        private void SetLabelConfiguration( )
+        private void SetLabelText( )
         {
             try
             {

@@ -972,33 +972,6 @@
             instance of the <see cref="T:BudgetExecution.Controls.Chart.ChartBase"/> class.
             </summary>
         </member>
-        <member name="T:BudgetExecution.Controls.TabControl.TabControl">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Controls.TabControl.TabControl.BindingSource">
-            <summary>
-            Gets or sets the binding source.
-            </summary>
-            <value>
-            The binding source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.Controls.TabControl.TabControl.ToolTip">
-            <summary>
-            Gets or sets the tool tip.
-            </summary>
-            <value>
-            The tool tip.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.Controls.TabControl.TabControl.#ctor">
-            <summary>
-            Initializes a new
-            instance of the <see cref="T:BudgetExecution.Controls.TabControl.TabControl"/> class.
-            </summary>
-        </member>
         <member name="T:BudgetExecution.ChartForm">
             <summary>
             
@@ -1272,7 +1245,7 @@
             <param name="where">The where.</param>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.ChartForm.SetLabelConfiguration">
+        <member name="M:BudgetExecution.ChartForm.SetLabelText">
             <summary>
             Sets the label configuration.
             </summary>
@@ -2073,22 +2046,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.DataGridForm.DataModel">
-            <summary>
-            Gets or sets the data model.
-            </summary>
-            <value>
-            The data model.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.DataGridForm.FormFilter">
-            <summary>
-            Gets or sets the form filter.
-            </summary>
-            <value>
-            The form filter.
-            </value>
-        </member>
         <member name="P:BudgetExecution.DataGridForm.SelectedTable">
             <summary>
             Gets or sets the selected table.
@@ -2113,12 +2070,108 @@
             The selected value.
             </value>
         </member>
+        <member name="P:BudgetExecution.DataGridForm.FirstCategory">
+            <summary>
+            Gets or sets the first selected item.
+            </summary>
+            <value>
+            The first selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.FirstValue">
+            <summary>
+            Gets or sets the first value.
+            </summary>
+            <value>
+            The first value.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.SecondCategory">
+            <summary>
+            Gets or sets the second selected item.
+            </summary>
+            <value>
+            The second selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.SecondValue">
+            <summary>
+            Gets or sets the second value.
+            </summary>
+            <value>
+            The second value.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.ThirdCategory">
+            <summary>
+            Gets or sets the third selected item.
+            </summary>
+            <value>
+            The third selected item.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.ThirdValue">
+            <summary>
+            Gets or sets the third value.
+            </summary>
+            <value>
+            The third value.
+            </value>
+        </member>
         <member name="P:BudgetExecution.DataGridForm.SqlQuery">
             <summary>
             Gets or sets the SQL query.
             </summary>
             <value>
             The SQL query.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.FormFilter">
+            <summary>
+            Gets or sets the form filter.
+            </summary>
+            <value>
+            The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.DataTable">
+            <summary>
+            Gets or sets the data table.
+            </summary>
+            <value>
+            The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
             </value>
         </member>
         <member name="M:BudgetExecution.DataGridForm.#ctor">
@@ -2148,6 +2201,13 @@
             <param name="provider">The provider.</param>
             <param name="where">The where.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.CreateSqlText(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates the SQL text.
+            </summary>
+            <param name="where">The where.</param>
+            <returns></returns>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.SetLabelText">
             <summary>
             Sets the label configuration.
@@ -2155,12 +2215,7 @@
         </member>
         <member name="M:BudgetExecution.DataGridForm.ClearSelections">
             <summary>
-            Clears the selections.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateTableListBoxItems">
-            <summary>
-            Populates the ListBox items.
+            Clears the selected filter values.
             </summary>
         </member>
         <member name="M:BudgetExecution.DataGridForm.PopulateToolStripComboBoxItems">
@@ -2168,23 +2223,80 @@
             Populates the tool bar drop down items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.OnTableListBoxSelectionChanged(System.Object)">
+        <member name="M:BudgetExecution.DataGridForm.PopulateTableListBoxItems">
             <summary>
-            Called when [table ListBox selection changed].
+            Populates the ListBox items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnTableListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [table ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.OnColumnListBoxSelectionChanged(System.Object)">
+        <member name="M:BudgetExecution.DataGridForm.PopulateFirstComboBoxItems">
             <summary>
-            Called when [column ListBox selection changed].
+            Populates the first como box items.
             </summary>
-            <param name="sender">The sender.</param>\
         </member>
-        <member name="M:BudgetExecution.DataGridForm.OnValueListBoxSelectionChanged(System.Object)">
+        <member name="M:BudgetExecution.DataGridForm.OnFirstComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
-            Called when [value ListBox selection changed].
+            Called when [first ComboBox item selected].
             </summary>
             <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnFirstListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [first item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateSecondComboBoxItems">
+            <summary>
+            Populates the second como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnSecondComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [second item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnSecondListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [second ListBox item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateThirdComboBoxItems">
+            <summary>
+            Populates the third como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnThirdComboBoxItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [third item selected].
+            </summary>
+            <param name="sender">The sender.
+            </param>
+            <param name="e">The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnThirdListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [third ListBox item selected].
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
         </member>
         <member name="M:BudgetExecution.DataGridForm.OnTestButtonClicked(System.Object,System.EventArgs)">
             <summary>
@@ -8107,6 +8219,33 @@
             </summary>
             <param name="ex">The ex.</param>
         </member>
+        <member name="T:BudgetExecution.TabControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.TabControl.BindingSource">
+            <summary>
+            Gets or sets the binding source.
+            </summary>
+            <value>
+            The binding source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.TabControl.ToolTip">
+            <summary>
+            Gets or sets the tool tip.
+            </summary>
+            <value>
+            The tool tip.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.TabControl.#ctor">
+            <summary>
+            Initializes a new
+            instance of the <see cref="T:BudgetExecution.TabControl"/> class.
+            </summary>
+        </member>
         <member name="T:BudgetExecution.TextBox">
             <summary>
             
@@ -8341,6 +8480,20 @@
             <param name="location">The location.</param>
             <param name="size">The size.</param>
             <param name="type">The type.</param>
+        </member>
+        <member name="M:BudgetExecution.Tile.OnMouseEnter(System.Object,System.EventArgs)">
+            <summary>
+            Called when [mouse enter].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.Tile.OnMouseLeave(System.Object,System.EventArgs)">
+            <summary>
+            Called when [mouse leave].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="T:BudgetExecution.TileBase">
             <summary>
@@ -36072,6 +36225,16 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.ChartTile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.ClientTile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.CsvExportButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -36088,6 +36251,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.DatabaseSettingsButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.DatabaseTile">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
@@ -36197,6 +36365,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.GuidanceTile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.HomeButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -36287,12 +36460,27 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.SettingsTile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.StopButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.TableButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.TableTile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.ToolsTile">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
@@ -36308,6 +36496,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.UploadButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.UtilityTile">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

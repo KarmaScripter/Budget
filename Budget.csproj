@@ -71,6 +71,9 @@
     <PackageReference Include="Syncfusion.Gauge.Windows" Version="20.3.0.61" />
     <PackageReference Include="Syncfusion.Maps.Windows" Version="20.3.0.61" />
     <PackageReference Include="Syncfusion.SfSmithChart.WinForms" Version="20.3.0.61" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
+    <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
 </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">
@@ -175,6 +178,9 @@
       <PackagePath>\</PackagePath>
     </None>
     <None Remove="bin\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Controls\TabControl\TabControl.cs~RFa766426.TMP" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\TabControl\" />
