@@ -331,7 +331,6 @@ namespace BudgetExecution
             try
             {
                 SqlQuery = string.Empty;
-
                 if( FormFilter.Keys.Count > 0 )
                 {
                     FormFilter.Clear( );
@@ -629,11 +628,10 @@ namespace BudgetExecution
                         SecondListBox.Items.Clear(  );
                     }
 
-                    var _filter = _comboBox.SelectedItem?.ToString(  );
-                    if( !string.IsNullOrEmpty( _filter ) )
+                    SecondCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        SecondCategory = _filter;
-                        var _data = DataModel.DataElements[ _filter ];
+                        var _data = DataModel.DataElements[ SecondCategory ];
                         foreach( var item in _data )
                         {
                             SecondListBox.Items.Add( item );
