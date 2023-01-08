@@ -53,8 +53,12 @@
             this.SecondListBox = new BudgetExecution.ListBox();
             this.ThirdPanel = new BudgetExecution.Layout();
             this.ThirdListBox = new BudgetExecution.ListBox();
-            this.DataGridLabel = new BudgetExecution.Label();
+            this.DataSourceLabel = new BudgetExecution.Label();
             this.GridTable = new System.Windows.Forms.TableLayoutPanel();
+            this.LabelTable = new System.Windows.Forms.TableLayoutPanel();
+            this.RecordLabel = new BudgetExecution.Label();
+            this.NumericLabel = new BudgetExecution.Label();
+            this.FieldLabel = new BudgetExecution.Label();
             this.ToolStrip = new BudgetExecution.ToolStrip();
             this.DeleteColumnButton = new BudgetExecution.ToolStripButton();
             this.DeleteRecordButton = new BudgetExecution.ToolStripButton();
@@ -144,6 +148,7 @@
             this.SecondPanel.SuspendLayout();
             this.ThirdPanel.SuspendLayout();
             this.GridTable.SuspendLayout();
+            this.LabelTable.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
@@ -258,9 +263,6 @@
             // 
             // DataGridPanel
             // 
-            this.DataGridPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridPanel.BackColor = System.Drawing.Color.Transparent;
             this.DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.DataGridPanel.BindingSource = null;
@@ -273,10 +275,10 @@
             this.DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
             this.DataGridPanel.HoverText = null;
             this.DataGridPanel.IsDerivedStyle = true;
-            this.DataGridPanel.Location = new System.Drawing.Point(3, 29);
+            this.DataGridPanel.Location = new System.Drawing.Point(39, 76);
             this.DataGridPanel.Name = "DataGridPanel";
             this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridPanel.Size = new System.Drawing.Size(973, 614);
+            this.DataGridPanel.Size = new System.Drawing.Size(967, 612);
             this.DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.DataGridPanel.StyleManager = null;
             this.DataGridPanel.TabIndex = 24;
@@ -323,7 +325,7 @@
             this.DataGrid.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
             this.DataGrid.HoverText = null;
-            this.DataGrid.Location = new System.Drawing.Point(32, 21);
+            this.DataGrid.Location = new System.Drawing.Point(13, 12);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
@@ -344,7 +346,7 @@
             this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGrid.RowTemplate.Height = 25;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(910, 576);
+            this.DataGrid.Size = new System.Drawing.Size(940, 591);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.ToolTip = null;
             // 
@@ -391,7 +393,7 @@
             this.FirstListBox.HoverText = null;
             this.FirstListBox.IsDerivedStyle = true;
             this.FirstListBox.ItemHeight = 28;
-            this.FirstListBox.Location = new System.Drawing.Point(21, 21);
+            this.FirstListBox.Location = new System.Drawing.Point(12, 12);
             this.FirstListBox.Margin = new System.Windows.Forms.Padding(1);
             this.FirstListBox.MultiSelect = false;
             this.FirstListBox.Name = "FirstListBox";
@@ -404,7 +406,7 @@
             this.FirstListBox.SelectedValue = null;
             this.FirstListBox.ShowBorder = false;
             this.FirstListBox.ShowScrollBar = false;
-            this.FirstListBox.Size = new System.Drawing.Size(299, 81);
+            this.FirstListBox.Size = new System.Drawing.Size(312, 98);
             this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstListBox.StyleManager = null;
             this.FirstListBox.TabIndex = 32;
@@ -455,7 +457,7 @@
             this.SecondListBox.HoverText = null;
             this.SecondListBox.IsDerivedStyle = true;
             this.SecondListBox.ItemHeight = 28;
-            this.SecondListBox.Location = new System.Drawing.Point(18, 22);
+            this.SecondListBox.Location = new System.Drawing.Point(12, 12);
             this.SecondListBox.Margin = new System.Windows.Forms.Padding(1);
             this.SecondListBox.MultiSelect = false;
             this.SecondListBox.Name = "SecondListBox";
@@ -468,7 +470,7 @@
             this.SecondListBox.SelectedValue = null;
             this.SecondListBox.ShowBorder = false;
             this.SecondListBox.ShowScrollBar = false;
-            this.SecondListBox.Size = new System.Drawing.Size(302, 83);
+            this.SecondListBox.Size = new System.Drawing.Size(312, 98);
             this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondListBox.StyleManager = null;
             this.SecondListBox.TabIndex = 33;
@@ -519,7 +521,7 @@
             this.ThirdListBox.HoverText = null;
             this.ThirdListBox.IsDerivedStyle = true;
             this.ThirdListBox.ItemHeight = 28;
-            this.ThirdListBox.Location = new System.Drawing.Point(18, 18);
+            this.ThirdListBox.Location = new System.Drawing.Point(12, 10);
             this.ThirdListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ThirdListBox.MultiSelect = false;
             this.ThirdListBox.Name = "ThirdListBox";
@@ -532,7 +534,7 @@
             this.ThirdListBox.SelectedValue = null;
             this.ThirdListBox.ShowBorder = false;
             this.ThirdListBox.ShowScrollBar = false;
-            this.ThirdListBox.Size = new System.Drawing.Size(302, 82);
+            this.ThirdListBox.Size = new System.Drawing.Size(312, 98);
             this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdListBox.StyleManager = null;
             this.ThirdListBox.TabIndex = 32;
@@ -540,27 +542,28 @@
             this.ThirdListBox.ThemeName = "Budget Execution";
             this.ThirdListBox.ToolTip = null;
             // 
-            // DataGridLabel
+            // DataSourceLabel
             // 
-            this.DataGridLabel.BindingSource = null;
-            this.DataGridLabel.DataFilter = null;
-            this.DataGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DataGridLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DataGridLabel.HoverText = null;
-            this.DataGridLabel.IsDerivedStyle = true;
-            this.DataGridLabel.Location = new System.Drawing.Point(3, 3);
-            this.DataGridLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.DataGridLabel.Name = "DataGridLabel";
-            this.DataGridLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridLabel.Size = new System.Drawing.Size(404, 20);
-            this.DataGridLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DataGridLabel.StyleManager = null;
-            this.DataGridLabel.TabIndex = 33;
-            this.DataGridLabel.Text = "Source";
-            this.DataGridLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.DataGridLabel.ThemeAuthor = "Terry D. Eppler";
-            this.DataGridLabel.ThemeName = "BudgetExecution";
-            this.DataGridLabel.ToolTip = null;
+            this.DataSourceLabel.BindingSource = null;
+            this.DataSourceLabel.DataFilter = null;
+            this.DataSourceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataSourceLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DataSourceLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataSourceLabel.HoverText = null;
+            this.DataSourceLabel.IsDerivedStyle = true;
+            this.DataSourceLabel.Location = new System.Drawing.Point(3, 3);
+            this.DataSourceLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.DataSourceLabel.Name = "DataSourceLabel";
+            this.DataSourceLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.DataSourceLabel.Size = new System.Drawing.Size(355, 20);
+            this.DataSourceLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DataSourceLabel.StyleManager = null;
+            this.DataSourceLabel.TabIndex = 33;
+            this.DataSourceLabel.Text = "Source";
+            this.DataSourceLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.DataSourceLabel.ThemeAuthor = "Terry D. Eppler";
+            this.DataSourceLabel.ThemeName = "BudgetExecution";
+            this.DataSourceLabel.ToolTip = null;
             // 
             // GridTable
             // 
@@ -571,15 +574,102 @@
             this.GridTable.BackColor = System.Drawing.Color.Transparent;
             this.GridTable.ColumnCount = 1;
             this.GridTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.GridTable.Controls.Add(this.DataGridLabel, 0, 0);
-            this.GridTable.Controls.Add(this.DataGridPanel, 0, 1);
-            this.GridTable.Location = new System.Drawing.Point(33, 45);
+            this.GridTable.Controls.Add(this.LabelTable, 0, 0);
+            this.GridTable.Location = new System.Drawing.Point(33, 41);
             this.GridTable.Name = "GridTable";
             this.GridTable.RowCount = 2;
-            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.GridTable.Size = new System.Drawing.Size(979, 646);
+            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.GridTable.Size = new System.Drawing.Size(979, 650);
             this.GridTable.TabIndex = 37;
+            // 
+            // LabelTable
+            // 
+            this.LabelTable.ColumnCount = 4;
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.63636F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.LabelTable.Controls.Add(this.RecordLabel, 1, 0);
+            this.LabelTable.Controls.Add(this.NumericLabel, 3, 0);
+            this.LabelTable.Controls.Add(this.DataSourceLabel, 0, 0);
+            this.LabelTable.Controls.Add(this.FieldLabel, 2, 0);
+            this.LabelTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelTable.Location = new System.Drawing.Point(3, 3);
+            this.LabelTable.Name = "LabelTable";
+            this.LabelTable.RowCount = 1;
+            this.LabelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LabelTable.Size = new System.Drawing.Size(973, 26);
+            this.LabelTable.TabIndex = 1;
+            // 
+            // RecordLabel
+            // 
+            this.RecordLabel.BindingSource = null;
+            this.RecordLabel.DataFilter = null;
+            this.RecordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecordLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecordLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RecordLabel.HoverText = null;
+            this.RecordLabel.IsDerivedStyle = true;
+            this.RecordLabel.Location = new System.Drawing.Point(364, 3);
+            this.RecordLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.RecordLabel.Name = "RecordLabel";
+            this.RecordLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.RecordLabel.Size = new System.Drawing.Size(200, 20);
+            this.RecordLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.RecordLabel.StyleManager = null;
+            this.RecordLabel.TabIndex = 44;
+            this.RecordLabel.Text = "Source";
+            this.RecordLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.RecordLabel.ThemeAuthor = "Terry D. Eppler";
+            this.RecordLabel.ThemeName = "BudgetExecution";
+            this.RecordLabel.ToolTip = null;
+            // 
+            // NumericLabel
+            // 
+            this.NumericLabel.BindingSource = null;
+            this.NumericLabel.DataFilter = null;
+            this.NumericLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NumericLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NumericLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NumericLabel.HoverText = null;
+            this.NumericLabel.IsDerivedStyle = true;
+            this.NumericLabel.Location = new System.Drawing.Point(779, 3);
+            this.NumericLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.NumericLabel.Name = "NumericLabel";
+            this.NumericLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.NumericLabel.Size = new System.Drawing.Size(191, 20);
+            this.NumericLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.NumericLabel.StyleManager = null;
+            this.NumericLabel.TabIndex = 44;
+            this.NumericLabel.Text = "Source";
+            this.NumericLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.NumericLabel.ThemeAuthor = "Terry D. Eppler";
+            this.NumericLabel.ThemeName = "BudgetExecution";
+            this.NumericLabel.ToolTip = null;
+            // 
+            // FieldLabel
+            // 
+            this.FieldLabel.BindingSource = null;
+            this.FieldLabel.DataFilter = null;
+            this.FieldLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FieldLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FieldLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FieldLabel.HoverText = null;
+            this.FieldLabel.IsDerivedStyle = true;
+            this.FieldLabel.Location = new System.Drawing.Point(570, 3);
+            this.FieldLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.FieldLabel.Name = "FieldLabel";
+            this.FieldLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.FieldLabel.Size = new System.Drawing.Size(203, 20);
+            this.FieldLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FieldLabel.StyleManager = null;
+            this.FieldLabel.TabIndex = 43;
+            this.FieldLabel.Text = "Source";
+            this.FieldLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.FieldLabel.ThemeAuthor = "Terry D. Eppler";
+            this.FieldLabel.ThemeName = "BudgetExecution";
+            this.FieldLabel.ToolTip = null;
             // 
             // ToolStrip
             // 
@@ -879,7 +969,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(176, 32);
+            this.TextBox.Size = new System.Drawing.Size(166, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1603,7 +1693,7 @@
             this.TestButton.HoverText = null;
             this.TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.TestButton.IsDerivedStyle = true;
-            this.TestButton.Location = new System.Drawing.Point(308, 12);
+            this.TestButton.Location = new System.Drawing.Point(309, -1);
             this.TestButton.Name = "TestButton";
             this.TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.TestButton.NormalColor = System.Drawing.Color.Transparent;
@@ -1726,7 +1816,7 @@
             this.TableListBox.HoverText = null;
             this.TableListBox.IsDerivedStyle = true;
             this.TableListBox.ItemHeight = 28;
-            this.TableListBox.Location = new System.Drawing.Point(21, 20);
+            this.TableListBox.Location = new System.Drawing.Point(12, 12);
             this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
             this.TableListBox.MultiSelect = true;
             this.TableListBox.Name = "TableListBox";
@@ -1739,7 +1829,7 @@
             this.TableListBox.SelectedValue = null;
             this.TableListBox.ShowBorder = false;
             this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(299, 73);
+            this.TableListBox.Size = new System.Drawing.Size(312, 90);
             this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableListBox.StyleManager = null;
             this.TableListBox.TabIndex = 0;
@@ -2060,6 +2150,7 @@
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1388, 764);
+            this.Controls.Add(this.DataGridPanel);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.ToolStrip);
@@ -2085,6 +2176,7 @@
             this.SecondPanel.ResumeLayout(false);
             this.ThirdPanel.ResumeLayout(false);
             this.GridTable.ResumeLayout(false);
+            this.LabelTable.ResumeLayout(false);
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
@@ -2117,7 +2209,7 @@
         public Layout SecondPanel;
         public Layout ThirdPanel;
         public DataGrid DataGrid;
-        private Label DataGridLabel;
+        private Label DataSourceLabel;
         private System.Windows.Forms.TableLayoutPanel GridTable;
         private ToolSeparator Separator1;
         private ToolSeparator Separator3;
@@ -2204,5 +2296,9 @@
         public System.Windows.Forms.TableLayoutPanel ThirdTable;
         public System.Windows.Forms.TableLayoutPanel SecondTable;
         public System.Windows.Forms.TableLayoutPanel FirstTable;
+        private Label FieldLabel;
+        private Label NumericLabel;
+        private System.Windows.Forms.TableLayoutPanel LabelTable;
+        private Label RecordLabel;
     }
 }

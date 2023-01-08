@@ -2142,6 +2142,14 @@
             The fields.
             </value>
         </member>
+        <member name="P:BudgetExecution.DataGridForm.Numerics">
+            <summary>
+            Gets or sets the numerics.
+            </summary>
+            <value>
+            The numerics.
+            </value>
+        </member>
         <member name="P:BudgetExecution.DataGridForm.Source">
             <summary>
             Gets or sets the source.
@@ -2207,6 +2215,11 @@
             </summary>
             <param name="where">The where.</param>
             <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.ClearLabelText">
+            <summary>
+            Clears the label text.
+            </summary>
         </member>
         <member name="M:BudgetExecution.DataGridForm.SetLabelText">
             <summary>
@@ -2324,10 +2337,12 @@
             The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.ClearFilterSelections">
+        <member name="M:BudgetExecution.DataGridForm.OnRemoveFilterButtonClicked(System.Object,System.EventArgs)">
             <summary>
-            Clears the filter selections.
+            Called when [remove filter button clicked].
             </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.DataGridForm.Fail(System.Exception)">
             <summary>

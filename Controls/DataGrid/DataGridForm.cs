@@ -122,6 +122,13 @@ namespace BudgetExecution
         public IEnumerable<string> Fields { get; set; }
 
         /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IEnumerable<string> Numerics { get; set; }
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -184,8 +191,17 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // Label Properties
-            DataGridLabel.Font = new Font( "Roboto", 8 );
-            DataGridLabel.ForeColor = Color.LightGray;
+            DataSourceLabel.Font = new Font( "Roboto", 8 );
+            DataSourceLabel.ForeColor = Color.LightGray;
+            FieldLabel.Font = new Font( "Roboto", 8 );
+            FieldLabel.ForeColor = Color.LightGray;
+            FieldLabel.Text = string.Empty;
+            NumericLabel.Font = new Font( "Roboto", 8 );
+            NumericLabel.ForeColor = Color.LightGray;
+            NumericLabel.Text = string.Empty;
+            RecordLabel.Font = new Font( "Roboto", 8 );
+            RecordLabel.ForeColor = Color.LightGray;
+            RecordLabel.Text = string.Empty;
             
             // ToolStrip Properties
             ToolStrip.Text = string.Empty;
@@ -204,6 +220,7 @@ namespace BudgetExecution
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             ExitButton.Click += null;
+            RemoveFiltersButton.Click += null;
         }
 
         /// <summary>
@@ -221,6 +238,7 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             BindingSource.DataSource = DataTable;
             Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
         }
 
         /// <summary>
@@ -248,6 +266,7 @@ namespace BudgetExecution
                     + DataModel.Source.ToString( ).SplitPascal( );
                 
                 ExitButton.Click += OnExitButtonClicked;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
                 TestButton.Click += OnTestButtonClicked;
             }
@@ -274,10 +293,12 @@ namespace BudgetExecution
                     Source = source;
                     Provider = provider;
                     DataModel = new DataBuilder( source, provider, where );
+                    DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataModel.DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -311,14 +332,33 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabelText( )
+        {
+            try
+            {
+                RecordLabel.Text = string.Empty;
+                FieldLabel.Text = string.Empty;
+                NumericLabel.Text = string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the label configuration.
         /// </summary>
         private void SetLabelText( )
         {
             try
             {
-                DataGridLabel.Text = "Data Source:  " 
-                    + DataModel.Source.ToString( ).SplitPascal( );
+                DataSourceLabel.Text = $"Data Source :  { Source.ToString( ).SplitPascal( ) }";
+                RecordLabel.Text = $"Data Records : { DataTable.Rows.Count } ";
+                FieldLabel.Text = $"Text Fields : { Fields.ToArray(  ).Length } ";
+                NumericLabel.Text = $"Numeric Fields : { Numerics.ToArray(  ).Length } ";
             }
             catch( Exception ex )
             {
@@ -339,33 +379,37 @@ namespace BudgetExecution
                     FormFilter.Clear( );
                 }
 
-                if( !string.IsNullOrEmpty( ThirdValue ) )
+                if( !string.IsNullOrEmpty( ThirdValue ) 
+                   || ThirdTable.Visible )
                 {
                     ThirdComboBox.Items.Clear( );
                     ThirdListBox.Items.Clear( );
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    ThirdPanel.Visible = !ThirdPanel.Visible;
+                    ThirdTable.Visible = false;
                 }
 
-                if( !string.IsNullOrEmpty( SecondValue ) )
+                if( !string.IsNullOrEmpty( SecondValue )
+                   || SecondTable.Visible )
                 {
                     SecondComboBox.Items.Clear( );
                     SecondListBox.Items.Clear( );
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
-                    SecondTable.Visible = !SecondTable.Visible;
+                    SecondTable.Visible = false;
                 }
 
-                if( !string.IsNullOrEmpty( FirstValue ) )
+                if( !string.IsNullOrEmpty( FirstValue )
+                   || FirstTable.Visible )
                 {
                     FirstComboBox.Items.Clear( );
                     FirstListBox.Items.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
-                    FirstTable.Visible = !FirstTable.Visible;
+                    FirstTable.Visible = false;
                 }
 
+                ClearLabelText( );
                 PopulateFirstComboBoxItems(  );
             }
             catch( Exception ex )
@@ -446,13 +490,16 @@ namespace BudgetExecution
                     {
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
+                        DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
                         DataGrid.DataSource = BindingSource;
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
+                        Numerics = DataModel.Numerics;
                     }
 
-                    PopulateFirstComboBoxItems(  );
+                    SetLabelText( );
+                    PopulateFirstComboBoxItems( );
                     if( FirstTable.Visible == false )
                     {
                         FirstTable.Visible = true;
@@ -484,9 +531,19 @@ namespace BudgetExecution
             {
                 try
                 {
+                    if( FirstComboBox.Items?.Count > 0 )
+                    {
+                        FirstComboBox.Items.Clear( );
+                    }
+                    
                     foreach( var item in Fields )
                     {
                         FirstComboBox.Items.Add( item );
+                    }
+
+                    if( FirstListBox.Items?.Count > 0 )
+                    {
+                        FirstListBox.Items.Clear( );
                     }
                 }
                 catch( Exception ex )
@@ -553,16 +610,20 @@ namespace BudgetExecution
 
                     FirstValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
-                    PopulateSecondComboBoxItems(  );
+                    PopulateSecondComboBoxItems( );
                     if( SecondTable.Visible == false )
                     {
                         SecondTable.Visible = true;
                     }
 
-                    if( ThirdPanel.Visible == true )
+                    if( ThirdTable.Visible == true )
                     {
-                        ThirdPanel.Visible = false;
+                        ThirdTable.Visible = false;
                     }
+
+                    BindDataSource( Source, Provider, FormFilter );
+                    ClearLabelText( );
+                    SetLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -668,10 +729,14 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComboBoxItems(  );
-                    if( ThirdPanel.Visible != true )
+                    if( ThirdTable.Visible  == false )
                     {
-                        ThirdPanel.Visible = true;
+                        ThirdTable.Visible = true;
                     }
+
+                    BindDataSource( Source, Provider, FormFilter );
+                    ClearLabelText( );
+                    SetLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -771,8 +836,9 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    SqlQuery = $"SELECT * FROM { Source } "
-                        + $"WHERE { FormFilter.ToCriteria(  ) };";
+                    BindDataSource( Source, Provider, FormFilter );
+                    ClearLabelText( );
+                    SetLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -836,7 +902,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.ExitButton )
                 {
-                    Close(  );
+                    Close( );
                 }
             }
             catch( Exception ex )
@@ -846,25 +912,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the filter selections.
+        /// Called when [remove filter button clicked].
         /// </summary>
-        private void ClearFilterSelections( )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.RemoveFiltersButton )
                 {
-                    FormFilter.Clear(  );
+                    ClearSelections( );
                 }
-                
-                FirstButton.Visible = !FirstButton.Visible;
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

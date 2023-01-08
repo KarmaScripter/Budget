@@ -298,7 +298,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(78, 32);
+            this.TextBox.Size = new System.Drawing.Size(56, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -719,7 +719,6 @@
             this.Chart.Series3D = true;
             this.Chart.SeriesHighlight = true;
             this.Chart.ShowScrollBars = false;
-            this.Chart.ShowToolbar = true;
             this.Chart.ShowToolTips = true;
             this.Chart.Size = new System.Drawing.Size(1011, 618);
             this.Chart.Source = BudgetExecution.Source.External;
@@ -743,7 +742,6 @@
             this.Chart.ToolBar.ButtonSize = new System.Drawing.Size(20, 20);
             this.Chart.ToolBar.ShowBorder = false;
             this.Chart.ToolBar.ShowGrip = false;
-            this.Chart.ToolBar.Visible = true;
             this.Chart.VisualTheme = "";
             this.Chart.xAxis = null;
             this.Chart.yValue = null;
