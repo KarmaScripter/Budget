@@ -209,6 +209,9 @@ namespace BudgetExecution
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
             ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
+            
+            // Initialize Default Provider
+            Provider = Provider.Access;
 
             // Event Wiring
             Load += OnLoad;
@@ -233,8 +236,26 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            Provider = provider;
             DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataGridForm"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        public DataGridForm( Source source, Provider provider, IDictionary<string, object> where )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            FormFilter = where;
+            DataModel = new DataBuilder( source, provider, where );
             DataTable = DataModel.DataTable;
             BindingSource.DataSource = DataTable;
             Fields = DataModel.Fields;
@@ -251,20 +272,14 @@ namespace BudgetExecution
             try
             {
                 FormFilter = new Dictionary<string, object>( );
-                FormFilter.Add( "BFY", "2022" );
-                FormFilter.Add( "FundCode", "B" );
                 TabControl.SelectedTab = FirstTabPage;
                 FirstTable.Visible = false;
                 SecondTable.Visible = false;
                 ThirdTable.Visible = false;
-                BindDataSource( Source.StatusOfFunds, Provider.Access, FormFilter );
-                SetLabelText(  );
                 PopulateTableListBoxItems( );
                 PopulateToolStripComboBoxItems( );
                 ClearSelections(  );
-                Text = DataModel.Provider + " Data: " 
-                    + DataModel.Source.ToString( ).SplitPascal( );
-                
+                ClearLabelText( );
                 ExitButton.Click += OnExitButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
@@ -338,6 +353,8 @@ namespace BudgetExecution
         {
             try
             {
+                Text = "Database ";
+                DataSourceLabel.Text = string.Empty;
                 RecordLabel.Text = string.Empty;
                 FieldLabel.Text = string.Empty;
                 NumericLabel.Text = string.Empty;
@@ -355,10 +372,11 @@ namespace BudgetExecution
         {
             try
             {
-                DataSourceLabel.Text = $"Data Source :  { Source.ToString( ).SplitPascal( ) }";
-                RecordLabel.Text = $"Data Records : { DataTable.Rows.Count } ";
-                FieldLabel.Text = $"Text Fields : { Fields.ToArray(  ).Length } ";
-                NumericLabel.Text = $"Numeric Fields : { Numerics.ToArray(  ).Length } ";
+                Text = $"{ Provider } Data ";
+                DataSourceLabel.Text = $"Source :  { Source.ToString( ).SplitPascal( ) }";
+                RecordLabel.Text = $"Records : { DataTable.Rows.Count } ";
+                FieldLabel.Text = $"Fields : { Fields.ToArray(  ).Length } ";
+                NumericLabel.Text = $"Measures : { Numerics.ToArray(  ).Length } ";
             }
             catch( Exception ex )
             {

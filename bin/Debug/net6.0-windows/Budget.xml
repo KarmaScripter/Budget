@@ -2194,6 +2194,14 @@
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="where">The where.</param>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
             Called when [load].
