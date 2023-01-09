@@ -57,3 +57,5 @@ dkms.conf
 *.sdf
 *.laccdb
 *.sdf
+*.laccdb
+*.sdf

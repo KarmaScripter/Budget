@@ -253,7 +253,7 @@ namespace BudgetExecution
                 FormFilter = new Dictionary<string, object>( );
                 FormFilter.Add( "BFY", "2022" );
                 FormFilter.Add( "FundCode", "B" );
-                TabControl.SelectedTab = FirstTab;
+                TabControl.SelectedTab = FirstTabPage;
                 FirstTable.Visible = false;
                 SecondTable.Visible = false;
                 ThirdTable.Visible = false;
@@ -410,7 +410,8 @@ namespace BudgetExecution
                 }
 
                 ClearLabelText( );
-                PopulateFirstComboBoxItems(  );
+                SelectedTable = string.Empty;
+                TabControl.SelectedTab = FirstTabPage;
             }
             catch( Exception ex )
             {
@@ -496,6 +497,7 @@ namespace BudgetExecution
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
+                        TabControl.SelectedTab = SecondTabPage;
                     }
 
                     SetLabelText( );

@@ -125,22 +125,23 @@
             this.DropDown = new BudgetExecution.ToolStripDropDown();
             this.TestButton = new BudgetExecution.Button();
             this.TabControl = new BudgetExecution.TabControl();
-            this.FirstTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.TableLayout = new BudgetExecution.Layout();
-            this.TableListBox = new BudgetExecution.ListBox();
+            this.SecondTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
             this.ThirdComboBox = new BudgetExecution.ComboBox();
             this.SecondTable = new System.Windows.Forms.TableLayoutPanel();
             this.SecondComboBox = new BudgetExecution.ComboBox();
             this.FirstTable = new System.Windows.Forms.TableLayoutPanel();
             this.FirstComboBox = new BudgetExecution.ComboBox();
-            this.SecondTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.ThirdTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.layout1 = new BudgetExecution.Layout();
             this.listBox1 = new BudgetExecution.ListBox();
             this.layout2 = new BudgetExecution.Layout();
             this.listBox2 = new BudgetExecution.ListBox();
+            this.FirstTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.SourceTable = new System.Windows.Forms.TableLayoutPanel();
+            this.TablePanel = new BudgetExecution.Layout();
+            this.TableListBox = new BudgetExecution.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -152,15 +153,16 @@
             this.ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.FirstTab.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.TableLayout.SuspendLayout();
+            this.SecondTabPage.SuspendLayout();
             this.ThirdTable.SuspendLayout();
             this.SecondTable.SuspendLayout();
             this.FirstTable.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.layout1.SuspendLayout();
             this.layout2.SuspendLayout();
+            this.FirstTabPage.SuspendLayout();
+            this.SourceTable.SuspendLayout();
+            this.TablePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ToolTip
@@ -365,10 +367,10 @@
             this.FirstPanel.ForeColor = System.Drawing.Color.Transparent;
             this.FirstPanel.HoverText = null;
             this.FirstPanel.IsDerivedStyle = true;
-            this.FirstPanel.Location = new System.Drawing.Point(3, 40);
+            this.FirstPanel.Location = new System.Drawing.Point(3, 37);
             this.FirstPanel.Name = "FirstPanel";
             this.FirstPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstPanel.Size = new System.Drawing.Size(338, 121);
+            this.FirstPanel.Size = new System.Drawing.Size(338, 162);
             this.FirstPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstPanel.StyleManager = null;
             this.FirstPanel.TabIndex = 26;
@@ -406,7 +408,7 @@
             this.FirstListBox.SelectedValue = null;
             this.FirstListBox.ShowBorder = false;
             this.FirstListBox.ShowScrollBar = false;
-            this.FirstListBox.Size = new System.Drawing.Size(312, 98);
+            this.FirstListBox.Size = new System.Drawing.Size(312, 139);
             this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstListBox.StyleManager = null;
             this.FirstListBox.TabIndex = 32;
@@ -429,10 +431,10 @@
             this.SecondPanel.ForeColor = System.Drawing.Color.Transparent;
             this.SecondPanel.HoverText = null;
             this.SecondPanel.IsDerivedStyle = true;
-            this.SecondPanel.Location = new System.Drawing.Point(3, 40);
+            this.SecondPanel.Location = new System.Drawing.Point(3, 38);
             this.SecondPanel.Name = "SecondPanel";
             this.SecondPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondPanel.Size = new System.Drawing.Size(338, 123);
+            this.SecondPanel.Size = new System.Drawing.Size(338, 156);
             this.SecondPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondPanel.StyleManager = null;
             this.SecondPanel.TabIndex = 27;
@@ -470,7 +472,7 @@
             this.SecondListBox.SelectedValue = null;
             this.SecondListBox.ShowBorder = false;
             this.SecondListBox.ShowScrollBar = false;
-            this.SecondListBox.Size = new System.Drawing.Size(312, 98);
+            this.SecondListBox.Size = new System.Drawing.Size(312, 131);
             this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondListBox.StyleManager = null;
             this.SecondListBox.TabIndex = 33;
@@ -493,10 +495,10 @@
             this.ThirdPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ThirdPanel.HoverText = null;
             this.ThirdPanel.IsDerivedStyle = true;
-            this.ThirdPanel.Location = new System.Drawing.Point(3, 40);
+            this.ThirdPanel.Location = new System.Drawing.Point(3, 37);
             this.ThirdPanel.Name = "ThirdPanel";
             this.ThirdPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdPanel.Size = new System.Drawing.Size(338, 117);
+            this.ThirdPanel.Size = new System.Drawing.Size(338, 167);
             this.ThirdPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdPanel.StyleManager = null;
             this.ThirdPanel.TabIndex = 28;
@@ -534,7 +536,7 @@
             this.ThirdListBox.SelectedValue = null;
             this.ThirdListBox.ShowBorder = false;
             this.ThirdListBox.ShowScrollBar = false;
-            this.ThirdListBox.Size = new System.Drawing.Size(312, 98);
+            this.ThirdListBox.Size = new System.Drawing.Size(312, 148);
             this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdListBox.StyleManager = null;
             this.ThirdListBox.TabIndex = 32;
@@ -548,7 +550,7 @@
             this.DataSourceLabel.DataFilter = null;
             this.DataSourceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataSourceLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DataSourceLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataSourceLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DataSourceLabel.HoverText = null;
             this.DataSourceLabel.IsDerivedStyle = true;
             this.DataSourceLabel.Location = new System.Drawing.Point(3, 3);
@@ -608,7 +610,7 @@
             this.RecordLabel.DataFilter = null;
             this.RecordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RecordLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecordLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RecordLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RecordLabel.HoverText = null;
             this.RecordLabel.IsDerivedStyle = true;
             this.RecordLabel.Location = new System.Drawing.Point(364, 3);
@@ -631,7 +633,7 @@
             this.NumericLabel.DataFilter = null;
             this.NumericLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NumericLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NumericLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NumericLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NumericLabel.HoverText = null;
             this.NumericLabel.IsDerivedStyle = true;
             this.NumericLabel.Location = new System.Drawing.Point(779, 3);
@@ -654,7 +656,7 @@
             this.FieldLabel.DataFilter = null;
             this.FieldLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FieldLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FieldLabel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FieldLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FieldLabel.HoverText = null;
             this.FieldLabel.IsDerivedStyle = true;
             this.FieldLabel.Location = new System.Drawing.Point(570, 3);
@@ -969,7 +971,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(166, 32);
+            this.TextBox.Size = new System.Drawing.Size(162, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1716,22 +1718,24 @@
             this.TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ActiveTabFont = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.BeforeTouchSize = new System.Drawing.Size(350, 671);
+            this.TabControl.BeforeTouchSize = new System.Drawing.Size(350, 659);
             this.TabControl.BindingSource = null;
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.FirstTab);
-            this.TabControl.Controls.Add(this.SecondTab);
+            this.TabControl.Controls.Add(this.FirstTabPage);
+            this.TabControl.Controls.Add(this.SecondTabPage);
+            this.TabControl.Controls.Add(this.ThirdTabPage);
+            this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
             this.TabControl.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TabControl.ForeColor = System.Drawing.Color.LightGray;
             this.TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ItemSize = new System.Drawing.Size(100, 30);
-            this.TabControl.Location = new System.Drawing.Point(1026, 29);
+            this.TabControl.Location = new System.Drawing.Point(1026, 41);
             this.TabControl.Name = "TabControl";
-            this.TabControl.Size = new System.Drawing.Size(350, 671);
+            this.TabControl.Size = new System.Drawing.Size(350, 659);
             this.TabControl.TabIndex = 42;
             this.TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
@@ -1746,96 +1750,23 @@
             this.TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ToolTip = null;
             // 
-            // FirstTab
+            // SecondTabPage
             // 
-            this.FirstTab.Controls.Add(this.tableLayoutPanel5);
-            this.FirstTab.Controls.Add(this.ThirdTable);
-            this.FirstTab.Controls.Add(this.SecondTable);
-            this.FirstTab.Controls.Add(this.FirstTable);
-            this.FirstTab.Image = null;
-            this.FirstTab.ImageSize = new System.Drawing.Size(16, 16);
-            this.FirstTab.Location = new System.Drawing.Point(0, 29);
-            this.FirstTab.Name = "FirstTab";
-            this.FirstTab.ShowCloseButton = true;
-            this.FirstTab.Size = new System.Drawing.Size(350, 642);
-            this.FirstTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstTab.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstTab.TabIndex = 1;
-            this.FirstTab.Text = "Filter";
-            this.FirstTab.ThemesEnabled = false;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.TableLayout, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 15);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.77311F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 119);
-            this.tableLayoutPanel5.TabIndex = 46;
-            // 
-            // TableLayout
-            // 
-            this.TableLayout.BackColor = System.Drawing.Color.Transparent;
-            this.TableLayout.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableLayout.BindingSource = null;
-            this.TableLayout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.TableLayout.BorderThickness = 1;
-            this.TableLayout.Children = null;
-            this.TableLayout.Controls.Add(this.TableListBox);
-            this.TableLayout.DataFilter = null;
-            this.TableLayout.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TableLayout.ForeColor = System.Drawing.Color.Transparent;
-            this.TableLayout.HoverText = null;
-            this.TableLayout.IsDerivedStyle = true;
-            this.TableLayout.Location = new System.Drawing.Point(3, 3);
-            this.TableLayout.Name = "TableLayout";
-            this.TableLayout.Padding = new System.Windows.Forms.Padding(1);
-            this.TableLayout.Size = new System.Drawing.Size(338, 113);
-            this.TableLayout.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TableLayout.StyleManager = null;
-            this.TableLayout.TabIndex = 0;
-            this.TableLayout.ThemeAuthor = "Terry D. Eppler";
-            this.TableLayout.ThemeName = "Budget Execution";
-            this.TableLayout.ToolTip = null;
-            // 
-            // TableListBox
-            // 
-            this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.TableListBox.BindingSource = null;
-            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.TableListBox.DataFilter = null;
-            this.TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.TableListBox.HoveredItemColor = System.Drawing.Color.White;
-            this.TableListBox.HoverText = null;
-            this.TableListBox.IsDerivedStyle = true;
-            this.TableListBox.ItemHeight = 28;
-            this.TableListBox.Location = new System.Drawing.Point(12, 12);
-            this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.TableListBox.MultiSelect = true;
-            this.TableListBox.Name = "TableListBox";
-            this.TableListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TableListBox.SelectedIndex = -1;
-            this.TableListBox.SelectedItem = null;
-            this.TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TableListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.TableListBox.SelectedText = null;
-            this.TableListBox.SelectedValue = null;
-            this.TableListBox.ShowBorder = false;
-            this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(312, 90);
-            this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TableListBox.StyleManager = null;
-            this.TableListBox.TabIndex = 0;
-            this.TableListBox.ThemeAuthor = "Terry D. Eppler";
-            this.TableListBox.ThemeName = "Budget Execution";
-            this.TableListBox.ToolTip = null;
+            this.SecondTabPage.Controls.Add(this.ThirdTable);
+            this.SecondTabPage.Controls.Add(this.SecondTable);
+            this.SecondTabPage.Controls.Add(this.FirstTable);
+            this.SecondTabPage.Image = null;
+            this.SecondTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.SecondTabPage.Location = new System.Drawing.Point(0, 29);
+            this.SecondTabPage.Name = "SecondTabPage";
+            this.SecondTabPage.ShowCloseButton = true;
+            this.SecondTabPage.Size = new System.Drawing.Size(350, 630);
+            this.SecondTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondTabPage.TabIndex = 1;
+            this.SecondTabPage.Text = "Filter";
+            this.SecondTabPage.ThemesEnabled = false;
             // 
             // ThirdTable
             // 
@@ -1843,12 +1774,12 @@
             this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.ThirdTable.Controls.Add(this.ThirdComboBox, 0, 0);
             this.ThirdTable.Controls.Add(this.ThirdPanel, 0, 1);
-            this.ThirdTable.Location = new System.Drawing.Point(3, 473);
+            this.ThirdTable.Location = new System.Drawing.Point(3, 414);
             this.ThirdTable.Name = "ThirdTable";
             this.ThirdTable.RowCount = 2;
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.45679F));
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.54321F));
-            this.ThirdTable.Size = new System.Drawing.Size(344, 160);
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.42512F));
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.57488F));
+            this.ThirdTable.Size = new System.Drawing.Size(344, 207);
             this.ThirdTable.TabIndex = 45;
             // 
             // ThirdComboBox
@@ -1891,12 +1822,12 @@
             this.SecondTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.SecondTable.Controls.Add(this.SecondComboBox, 0, 0);
             this.SecondTable.Controls.Add(this.SecondPanel, 0, 1);
-            this.SecondTable.Location = new System.Drawing.Point(3, 304);
+            this.SecondTable.Location = new System.Drawing.Point(3, 211);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.48521F));
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.51479F));
-            this.SecondTable.Size = new System.Drawing.Size(344, 166);
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.26923F));
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.73077F));
+            this.SecondTable.Size = new System.Drawing.Size(344, 197);
             this.SecondTable.TabIndex = 44;
             // 
             // SecondComboBox
@@ -1939,12 +1870,12 @@
             this.FirstTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.FirstTable.Controls.Add(this.FirstPanel, 0, 1);
             this.FirstTable.Controls.Add(this.FirstComboBox, 0, 0);
-            this.FirstTable.Location = new System.Drawing.Point(3, 137);
+            this.FirstTable.Location = new System.Drawing.Point(3, 6);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 2;
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.98137F));
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.01863F));
-            this.FirstTable.Size = new System.Drawing.Size(344, 164);
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.12963F));
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.87037F));
+            this.FirstTable.Size = new System.Drawing.Size(344, 202);
             this.FirstTable.TabIndex = 43;
             // 
             // FirstComboBox
@@ -1981,20 +1912,20 @@
             this.FirstComboBox.ThemeName = "Budget Execution";
             this.FirstComboBox.ToolTip = null;
             // 
-            // SecondTab
+            // ThirdTabPage
             // 
-            this.SecondTab.Image = null;
-            this.SecondTab.ImageSize = new System.Drawing.Size(16, 16);
-            this.SecondTab.Location = new System.Drawing.Point(0, 29);
-            this.SecondTab.Name = "SecondTab";
-            this.SecondTab.ShowCloseButton = true;
-            this.SecondTab.Size = new System.Drawing.Size(350, 642);
-            this.SecondTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondTab.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondTab.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondTab.TabIndex = 2;
-            this.SecondTab.Text = "Fold";
-            this.SecondTab.ThemesEnabled = false;
+            this.ThirdTabPage.Image = null;
+            this.ThirdTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.ThirdTabPage.Location = new System.Drawing.Point(0, 29);
+            this.ThirdTabPage.Name = "ThirdTabPage";
+            this.ThirdTabPage.ShowCloseButton = true;
+            this.ThirdTabPage.Size = new System.Drawing.Size(350, 630);
+            this.ThirdTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ThirdTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdTabPage.TabIndex = 2;
+            this.ThirdTabPage.Text = "Fold";
+            this.ThirdTabPage.ThemesEnabled = false;
             // 
             // tableLayoutPanel1
             // 
@@ -2137,6 +2068,94 @@
             this.listBox2.ThemeName = "Budget Execution";
             this.listBox2.ToolTip = null;
             // 
+            // FirstTabPage
+            // 
+            this.FirstTabPage.Controls.Add(this.SourceTable);
+            this.FirstTabPage.Image = null;
+            this.FirstTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.FirstTabPage.Location = new System.Drawing.Point(0, 29);
+            this.FirstTabPage.Name = "FirstTabPage";
+            this.FirstTabPage.ShowCloseButton = true;
+            this.FirstTabPage.Size = new System.Drawing.Size(350, 630);
+            this.FirstTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstTabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstTabPage.TabIndex = 3;
+            this.FirstTabPage.Text = "Tables";
+            this.FirstTabPage.ThemesEnabled = false;
+            // 
+            // SourceTable
+            // 
+            this.SourceTable.ColumnCount = 1;
+            this.SourceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SourceTable.Controls.Add(this.TablePanel, 0, 0);
+            this.SourceTable.Location = new System.Drawing.Point(3, 0);
+            this.SourceTable.Name = "SourceTable";
+            this.SourceTable.RowCount = 1;
+            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.77311F));
+            this.SourceTable.Size = new System.Drawing.Size(344, 627);
+            this.SourceTable.TabIndex = 47;
+            // 
+            // TablePanel
+            // 
+            this.TablePanel.BackColor = System.Drawing.Color.Transparent;
+            this.TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TablePanel.BindingSource = null;
+            this.TablePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.TablePanel.BorderThickness = 1;
+            this.TablePanel.Children = null;
+            this.TablePanel.Controls.Add(this.TableListBox);
+            this.TablePanel.DataFilter = null;
+            this.TablePanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
+            this.TablePanel.HoverText = null;
+            this.TablePanel.IsDerivedStyle = true;
+            this.TablePanel.Location = new System.Drawing.Point(3, 3);
+            this.TablePanel.Name = "TablePanel";
+            this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
+            this.TablePanel.Size = new System.Drawing.Size(338, 618);
+            this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TablePanel.StyleManager = null;
+            this.TablePanel.TabIndex = 0;
+            this.TablePanel.ThemeAuthor = "Terry D. Eppler";
+            this.TablePanel.ThemeName = "Budget Execution";
+            this.TablePanel.ToolTip = null;
+            // 
+            // TableListBox
+            // 
+            this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TableListBox.BindingSource = null;
+            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.TableListBox.DataFilter = null;
+            this.TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TableListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TableListBox.HoveredItemColor = System.Drawing.Color.White;
+            this.TableListBox.HoverText = null;
+            this.TableListBox.IsDerivedStyle = true;
+            this.TableListBox.ItemHeight = 28;
+            this.TableListBox.Location = new System.Drawing.Point(12, 12);
+            this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.TableListBox.MultiSelect = true;
+            this.TableListBox.Name = "TableListBox";
+            this.TableListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.TableListBox.SelectedIndex = -1;
+            this.TableListBox.SelectedItem = null;
+            this.TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.TableListBox.SelectedText = null;
+            this.TableListBox.SelectedValue = null;
+            this.TableListBox.ShowBorder = false;
+            this.TableListBox.ShowScrollBar = false;
+            this.TableListBox.Size = new System.Drawing.Size(312, 594);
+            this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TableListBox.StyleManager = null;
+            this.TableListBox.TabIndex = 0;
+            this.TableListBox.ThemeAuthor = "Terry D. Eppler";
+            this.TableListBox.ThemeName = "Budget Execution";
+            this.TableListBox.ToolTip = null;
+            // 
             // DataGridForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2181,15 +2200,16 @@
             this.ToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.FirstTab.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.TableLayout.ResumeLayout(false);
+            this.SecondTabPage.ResumeLayout(false);
             this.ThirdTable.ResumeLayout(false);
             this.SecondTable.ResumeLayout(false);
             this.FirstTable.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.layout1.ResumeLayout(false);
             this.layout2.ResumeLayout(false);
+            this.FirstTabPage.ResumeLayout(false);
+            this.SourceTable.ResumeLayout(false);
+            this.TablePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2283,16 +2303,13 @@
         public ComboBox SecondComboBox;
         private ComboBox FirstComboBox;
         public TabControl TabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv FirstTab;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv SecondTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SecondTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv ThirdTabPage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public Layout layout1;
         public ListBox listBox1;
         public Layout layout2;
         public ListBox listBox2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Layout TableLayout;
-        private ListBox TableListBox;
         public System.Windows.Forms.TableLayoutPanel ThirdTable;
         public System.Windows.Forms.TableLayoutPanel SecondTable;
         public System.Windows.Forms.TableLayoutPanel FirstTable;
@@ -2300,5 +2317,9 @@
         private Label NumericLabel;
         private System.Windows.Forms.TableLayoutPanel LabelTable;
         private Label RecordLabel;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv FirstTabPage;
+        private System.Windows.Forms.TableLayoutPanel SourceTable;
+        private Layout TablePanel;
+        private ListBox TableListBox;
     }
 }
