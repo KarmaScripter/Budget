@@ -47,7 +47,6 @@ namespace BudgetExecution
         /// <param name="kvp">The KVP.</param>
         public Element( KeyValuePair<string, object> kvp )
         {
-            Field = (Field)Enum.Parse( typeof( Field ), kvp.Key );
             Name = kvp.Key;
             Value = kvp.Value;
         }
@@ -59,7 +58,6 @@ namespace BudgetExecution
         /// <param name="columnName">The value.</param>
         public Element( string name, string columnName = "" )
         {
-            Field = (Field)Enum.Parse( typeof( Field ), name );
             Name = name;
             Value = columnName;
         }
@@ -71,7 +69,6 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         public Element( DataRow dataRow, Field field )
         {
-            Field = field;
             Name = field.ToString( );
             Value = dataRow[ field.ToString( ) ];
         }
@@ -83,7 +80,6 @@ namespace BudgetExecution
         /// <param name="columnName">The value.</param>
         public Element( Field field, string columnName = "" )
         {
-            Field = field;
             Name = field.ToString( );
             Value = columnName;
         }
@@ -97,10 +93,6 @@ namespace BudgetExecution
         {
             Name = dataRow[ columnName ].ToString( );
             Value = dataRow[ columnName ];
-            if( !string.IsNullOrEmpty( Name ) )
-            {
-                Field = (Field)Enum.Parse( typeof( Field ), Name );
-            }
         }
 
         /// <summary>
@@ -110,7 +102,6 @@ namespace BudgetExecution
         /// <param name="dataColumn">The Data column.</param>
         public Element( DataRow dataRow, DataColumn dataColumn )
         {
-            Field = (Field)Enum.Parse( typeof( Field ), dataColumn.ColumnName );
             Name = dataColumn.ColumnName;
             Value = dataRow[ dataColumn ];
         }
@@ -232,100 +223,6 @@ namespace BudgetExecution
                     Name = _columnNames?.Contains( field.ToString( ) ) == true
                         ? field.ToString( )
                         : dataRow.Table.TableName;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name = "fieldName" > </param>
-        protected virtual void SetField( string fieldName )
-        {
-            if( !string.IsNullOrEmpty( fieldName )
-               && Enum.GetNames( typeof( Field ) )?.Contains( fieldName ) == true )
-            {
-                try
-                {
-                    var _input = (Field)Enum.Parse( typeof( Field ), fieldName );
-                    Field = !Enum.IsDefined( typeof( Field ), _input )
-                        ? (Field)Enum.Parse( typeof( Field ), fieldName )
-                        : default( Field );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name = "dataRow" > </param>
-        /// <param name = "fieldName" > </param>
-        protected virtual void SetField( DataRow dataRow, string fieldName )
-        {
-            if( dataRow != null
-               && !string.IsNullOrEmpty( fieldName )
-               && Enum.GetNames( typeof( Field ) )?.Contains( fieldName ) == true )
-            {
-                try
-                {
-                    var _input = (Field)Enum.Parse( typeof( Field ), fieldName );
-                    var _names = dataRow.Table?.GetColumnNames( );
-                    if( _names?.Any( ) == true
-                       && _names?.Contains( $" {_input}" ) == true )
-                    {
-                        Field = (Field)Enum.Parse( typeof( Field ), fieldName );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name = "field" > </param>
-        protected virtual void SetField( Field field )
-        {
-            try
-            {
-                Field = Enum.IsDefined( typeof( Field ), field )
-                    ? field
-                    : default( Field );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name = "dataRow" > </param>
-        /// <param name = "field" > </param>
-        protected virtual void SetField( DataRow dataRow, Field field )
-        {
-            if( dataRow != null
-               && dataRow.ItemArray.Length > 0
-               && Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    var _names = dataRow.Table?.GetColumnNames( );
-                    Field = _names?.Contains( field.ToString( ) ) == true
-                        ? field
-                        : default( Field );
                 }
                 catch( Exception ex )
                 {

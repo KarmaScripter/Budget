@@ -30,6 +30,8 @@ namespace BudgetExecution
         /// </value>
         public string Code { get; set; }
 
+        public string Name { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -68,6 +70,9 @@ namespace BudgetExecution
         public AccountingEvent( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) );
+            Code = Record[ $"{ Field.Code }" ].ToString( );
+            Name = Record[ $"{ Field.Name }" ].ToString( );
             Data = Record.ToDictionary( );
         }
 
@@ -78,6 +83,9 @@ namespace BudgetExecution
         public AccountingEvent( IDataModel builder )
         {
             Record = builder.Record;
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) );
+            Code = Record[ $"{ Field.Code }" ].ToString( );
+            Name = Record[ $"{ Field.Name }" ].ToString( );
             Data = Record.ToDictionary( );
         }
 
@@ -88,7 +96,12 @@ namespace BudgetExecution
         public AccountingEvent( DataRow dataRow )
         {
             Record = dataRow;
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) );
+            Code = Record[ $"{ Field.Code }" ].ToString( );
+            Name = Record[ $"{ Field.Name }" ].ToString( );
             Data = dataRow.ToDictionary( );
         }
+        
+        
     }
 }

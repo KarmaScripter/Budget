@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the field.
         /// </summary>
-        public virtual Field Field { get; set; }
+        public virtual string Code { get; set; }
 
         /// <summary>
         /// Determines whether the specified dataUnit is match.

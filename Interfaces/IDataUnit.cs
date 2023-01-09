@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The field.
         /// </value>
-        Field Field { get; set; }
+        string Code { get; set; }
 
         /// <summary> Determines whether the specified dataUnit is equal. </summary>
         /// <param name = "dataUnit" > The dataUnit. </param>
