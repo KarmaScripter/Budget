@@ -93,7 +93,7 @@ distribute such modifications or work under the terms of Section 1
 above, provided that you also meet all of these conditions:
 
     a) You must cause the modified files to carry prominent notices
-    stating that you changed the files and the date of any change.
+    stating that you changed the files and the today of any change.
 
     b) You must cause any work that you distribute or publish, that in
     whole or in part contains or is derived from the Program or any
@@ -320,7 +320,7 @@ when it starts in an interactive mode:
 The hypothetical commands `show w' and `show c' should show the appropriate
 parts of the General Public License.  Of course, the commands you use may
 be called something other than `show w' and `show c'; they could even be
-mouse-clicks or menu items--whatever suits your program.
+mouse-clicks or menu data--whatever suits your program.
 
 You should also get your employer (if you work as a programmer) or your
 school, if any, to sign a "copyright disclaimer" for the program, if
