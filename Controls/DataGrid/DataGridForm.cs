@@ -203,6 +203,12 @@ namespace BudgetExecution
             RecordLabel.ForeColor = Color.LightGray;
             RecordLabel.Text = string.Empty;
             
+            // TabPage Properties
+            TabControl.ActiveTabForeColor = Color.LightGray;
+            FirstTabPage.TabForeColor = Color.LightGray;
+            SecondTabPage.TabForeColor = Color.LightGray;
+            ThirdTabPage.TabForeColor = Color.LightGray;
+            
             // ToolStrip Properties
             ToolStrip.Text = string.Empty;
             ToolStrip.Office12Mode = true;
@@ -354,10 +360,10 @@ namespace BudgetExecution
             try
             {
                 Text = "Database ";
-                DataSourceLabel.Text = string.Empty;
-                RecordLabel.Text = string.Empty;
-                FieldLabel.Text = string.Empty;
-                NumericLabel.Text = string.Empty;
+                DataSourceLabel.Text = $"Source : ";
+                RecordLabel.Text = $"Records : ";
+                FieldLabel.Text = $"Fields : ";
+                NumericLabel.Text = $"Measures : ";
             }
             catch( Exception ex )
             {
@@ -429,6 +435,7 @@ namespace BudgetExecution
 
                 ClearLabelText( );
                 SelectedTable = string.Empty;
+                DataGrid.DataSource = null;
                 TabControl.SelectedTab = FirstTabPage;
             }
             catch( Exception ex )
@@ -603,6 +610,16 @@ namespace BudgetExecution
                         {
                             FirstListBox?.Items?.Add( item );
                         }
+                    }
+
+                    if( SecondTable.Visible == true )
+                    {
+                        SecondTable.Visible = false;
+                    }
+
+                    if( ThirdTable.Visible == true )
+                    {
+                        ThirdTable.Visible = false;
                     }
                 }
                 catch( Exception ex )
