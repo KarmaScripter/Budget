@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// The appropriation documents
         /// </summary>
         AppropriationDocuments,
-
+        
         /// <summary>
         /// The appropriation level authority
         /// </summary>
@@ -345,11 +345,6 @@ namespace BudgetExecution
         MonthlyOutlays,
 
         /// <summary>
-        /// The net authority
-        /// </summary>
-        NetAuthority,
-
-        /// <summary>
         /// The national programs
         /// </summary>
         NationalPrograms,
@@ -603,6 +598,11 @@ namespace BudgetExecution
         /// The spending rates
         /// </summary>
         SpendingRates,
+        
+        /// <summary>
+        /// The spending documents
+        /// </summary>
+        SpendingDocuments,
 
         /// <summary>
         /// The state organizations

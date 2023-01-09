@@ -21,13 +21,13 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AssemblyName>Budget</AssemblyName>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <BaseOutputPath>C:\Users\terry\source\repos\Budget\bin</BaseOutputPath>
+    <BaseOutputPath>C:\Users\teppler\source\repos\Budget\bin</BaseOutputPath>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <WarningLevel>5</WarningLevel>
-    <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
