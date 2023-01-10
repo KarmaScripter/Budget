@@ -71,12 +71,36 @@ namespace BudgetExecution
         public SpreadsheetGridModel Model { get; set; }
 
         /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; set; }
+
+        /// <summary>
         /// Gets or sets the data table.
         /// </summary>
         /// <value>
         /// The data table.
         /// </value>
         public DataTable DataTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel { get; set; }
 
         /// <summary>
         /// 
@@ -112,6 +136,8 @@ namespace BudgetExecution
             MaximizeBox = false;
             ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
             ToolStrip.Text = string.Empty;
+            TextBox.Font = new Font( "Roboto", 8 );
+            TextBox.ForeColor = Color.White;
             
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
@@ -166,6 +192,8 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Text = $"{ DataTable.TableName.SplitPascal( ) } ";
         }
 
         /// <summary>
@@ -178,6 +206,8 @@ namespace BudgetExecution
         {
             DataTable = dataTable;
             BindingSource.DataSource = dataTable;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Text = $"{ DataTable.TableName.SplitPascal( ) }";
         }
         /// <summary>
         /// Called when [load].
@@ -192,12 +222,11 @@ namespace BudgetExecution
         {
             try
             {
-                Text = @"Excel Document";
                 BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.Label.Text = $"{ DataTable?.TableName?.SplitPascal( ) }";
+                ToolStrip.Label.Text = $"Excel Data";
                 Ribbon.Spreadsheet = Spreadsheet;
                 PopulateToolBarDropDownItems( );
                 SetTableProperties( DataTable );
@@ -250,12 +279,24 @@ namespace BudgetExecution
                     Spreadsheet?.SetGridLinesVisibility( false );
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
+                    TextBox.Text = $"  Rows: { RowCount }  Columns: { ColCount }";
                     var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
                     var _name = table.TableName ?? "DataTable";
                     var _usedRange = _activeSheet?.UsedRange;
                     var _table = _activeSheet?.ListObjects?.Create( _name, _usedRange );
                     var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
-                    _topRow?.AutofitColumns(  );
+                    if( _topRow != null )
+                    {
+                        _topRow.AutofitColumns( );
+                        _topRow.FreezePanes( );
+                    }
+
+                    var _activeGrid = Spreadsheet?.ActiveGrid;
+                    if( _activeGrid != null )
+                    {
+                        _activeGrid.FrozenRows = 2;
+                    }
+
                     if( _table != null )
                     {
                         _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;

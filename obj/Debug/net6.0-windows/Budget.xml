@@ -4487,12 +4487,36 @@
             The model.
             </value>
         </member>
+        <member name="P:BudgetExecution.ExcelForm.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ExcelForm.Provider">
+            <summary>
+            Gets or sets the provider.
+            </summary>
+            <value>
+            The provider.
+            </value>
+        </member>
         <member name="P:BudgetExecution.ExcelForm.DataTable">
             <summary>
             Gets or sets the data table.
             </summary>
             <value>
             The data table.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ExcelForm.DataModel">
+            <summary>
+            Gets or sets the data model.
+            </summary>
+            <value>
+            The data model.
             </value>
         </member>
         <member name="M:BudgetExecution.ExcelForm.#ctor">
@@ -12309,7 +12333,7 @@
             The name.
             </value>
         </member>
-        <member name="P:BudgetExecution.DataUnit.Field">
+        <member name="P:BudgetExecution.DataUnit.Code">
             <summary>
             Gets the field.
             </summary>
@@ -12451,32 +12475,6 @@
         <member name="M:BudgetExecution.Element.SetName(System.Data.DataRow,BudgetExecution.Field)">
             <summary>
             Sets the columnName.
-            </summary>
-            <param name = "dataRow" > </param>
-            <param name = "field" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetField(System.String)">
-            <summary>
-            Sets the field.
-            </summary>
-            <param name = "fieldName" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetField(System.Data.DataRow,System.String)">
-            <summary>
-            Sets the field.
-            </summary>
-            <param name = "dataRow" > </param>
-            <param name = "fieldName" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetField(BudgetExecution.Field)">
-            <summary>
-            Sets the field.
-            </summary>
-            <param name = "field" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetField(System.Data.DataRow,BudgetExecution.Field)">
-            <summary>
-            Sets the field.
             </summary>
             <param name = "dataRow" > </param>
             <param name = "field" > </param>
@@ -20125,11 +20123,6 @@
             The monthly outlays
             </summary>
         </member>
-        <member name="F:BudgetExecution.Source.NetAuthority">
-            <summary>
-            The net authority
-            </summary>
-        </member>
         <member name="F:BudgetExecution.Source.NationalPrograms">
             <summary>
             The national programs
@@ -20383,6 +20376,11 @@
         <member name="F:BudgetExecution.Source.SpendingRates">
             <summary>
             The spending rates
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.Source.SpendingDocuments">
+            <summary>
+            The spending documents
             </summary>
         </member>
         <member name="F:BudgetExecution.Source.StateOrganizations">
@@ -24136,7 +24134,7 @@
             The name.
             </value>
         </member>
-        <member name="P:BudgetExecution.IDataUnit.Field">
+        <member name="P:BudgetExecution.IDataUnit.Code">
             <summary>
             Gets or sets the field.
             </summary>
@@ -25190,14 +25188,6 @@
             </summary>
             <value>
             The name.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IProgram.Field">
-            <summary>
-            Gets or sets the field.
-            </summary>
-            <value>
-            The field.
             </value>
         </member>
         <member name="P:BudgetExecution.IProgram.Code">
@@ -30122,12 +30112,12 @@
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
-        <member name="T:BudgetExecution.FederalHolidays">
+        <member name="T:BudgetExecution.FederalHoliday">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.FederalHolidays.ID">
+        <member name="P:BudgetExecution.FederalHoliday.ID">
             <summary>
             Gets or sets the identifier.
             </summary>
@@ -30135,7 +30125,7 @@
             The identifier.
             </value>
         </member>
-        <member name="P:BudgetExecution.FederalHolidays.Source">
+        <member name="P:BudgetExecution.FederalHoliday.Source">
             <summary>
             Gets or sets the source.
             </summary>
@@ -30143,7 +30133,7 @@
             The source.
             </value>
         </member>
-        <member name="P:BudgetExecution.FederalHolidays.Record">
+        <member name="P:BudgetExecution.FederalHoliday.Record">
             <summary>
             Gets or sets the Record property.
             </summary>
@@ -30151,7 +30141,7 @@
             The data row.
             </value>
         </member>
-        <member name="P:BudgetExecution.FederalHolidays.Data">
+        <member name="P:BudgetExecution.FederalHoliday.Data">
             <summary>
             Gets the arguments.
             </summary>
@@ -30159,26 +30149,26 @@
             The arguments.
             </value>
         </member>
-        <member name="M:BudgetExecution.FederalHolidays.#ctor">
+        <member name="M:BudgetExecution.FederalHoliday.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHolidays"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHoliday"/> class.
             </summary>
         </member>
-        <member name="M:BudgetExecution.FederalHolidays.#ctor(BudgetExecution.IQuery)">
+        <member name="M:BudgetExecution.FederalHoliday.#ctor(BudgetExecution.IQuery)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHolidays"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHoliday"/> class.
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:BudgetExecution.FederalHolidays.#ctor(BudgetExecution.IDataModel)">
+        <member name="M:BudgetExecution.FederalHoliday.#ctor(BudgetExecution.IDataModel)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHolidays"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHoliday"/> class.
             </summary>
             <param name="builder">The builder.</param>
         </member>
-        <member name="M:BudgetExecution.FederalHolidays.#ctor(System.Data.DataRow)">
+        <member name="M:BudgetExecution.FederalHoliday.#ctor(System.Data.DataRow)">
             <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHolidays"/> class.
+            Initializes a new instance of the <see cref="T:BudgetExecution.FederalHoliday"/> class.
             </summary>
             <param name="dataRow">The data row.</param>
         </member>

@@ -128,6 +128,7 @@ namespace BudgetExecution
         /// The numerics.
         /// </value>
         public IEnumerable<string> Numerics { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -192,15 +193,15 @@ namespace BudgetExecution
             
             // Label Properties
             DataSourceLabel.Font = new Font( "Roboto", 8 );
-            DataSourceLabel.ForeColor = Color.LightGray;
+            DataSourceLabel.ForeColor = Color.DarkGray;
             FieldLabel.Font = new Font( "Roboto", 8 );
-            FieldLabel.ForeColor = Color.LightGray;
+            FieldLabel.ForeColor = Color.DarkGray;
             FieldLabel.Text = string.Empty;
             NumericLabel.Font = new Font( "Roboto", 8 );
-            NumericLabel.ForeColor = Color.LightGray;
+            NumericLabel.ForeColor = Color.DarkGray;
             NumericLabel.Text = string.Empty;
             RecordLabel.Font = new Font( "Roboto", 8 );
-            RecordLabel.ForeColor = Color.LightGray;
+            RecordLabel.ForeColor = Color.DarkGray;
             RecordLabel.Text = string.Empty;
             
             // TabPage Properties
@@ -361,9 +362,9 @@ namespace BudgetExecution
             {
                 Text = "Database ";
                 DataSourceLabel.Text = $"Source : ";
-                RecordLabel.Text = $"Records : ";
-                FieldLabel.Text = $"Fields : ";
-                NumericLabel.Text = $"Measures : ";
+                RecordLabel.Text = string.Empty;
+                FieldLabel.Text = string.Empty;
+                NumericLabel.Text = string.Empty;
             }
             catch( Exception ex )
             {
