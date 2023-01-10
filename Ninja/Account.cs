@@ -17,6 +17,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Account : PRC, IAccount, ISource
     {
         /// <summary>
@@ -30,8 +31,12 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public string Code { get; set; }
+        public string GoalCode { get; set; }
         
+        public string ObjectiveCode { get; set; }
+        
+        public string NpmCode { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref = "Account"/> class.
         /// </summary>
@@ -48,8 +53,7 @@ namespace BudgetExecution
         public Account( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.AccountsId );
-            Code = Record[ $"{ Field.AccountCode }" ].ToString( );
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
             NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
             ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );
             ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
@@ -69,8 +73,7 @@ namespace BudgetExecution
         public Account( IDataModel dataBuilder )
         {
             Record = dataBuilder?.Record;
-            ID = GetId( Record, PrimaryKey.AccountsId );
-            Code = Record?[ $"{ Field.AccountCode }" ].ToString( );
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
             NpmCode = Record?[ $"{ Field.NpmCode }" ].ToString( );
             ProgramProjectCode = Record?[ $"{ Field.ProgramProjectCode }" ].ToString( );
             ActivityCode = Record?[ $"{ Field.ActivityCode }" ].ToString( );
@@ -89,7 +92,7 @@ namespace BudgetExecution
         public Account( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.AccountsId );
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
             Code = Record[ $"{ Field.AccountCode }" ].ToString( );
             NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
             ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );
@@ -109,7 +112,7 @@ namespace BudgetExecution
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.AccountsId );
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ].ToString(  ) );
             Code = Record[ $"{ Field.AccountCode }" ].ToString( );
             NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
             ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );

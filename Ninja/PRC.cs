@@ -16,16 +16,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public abstract class PRC
+    public abstract class PRC : DataUnit
     {
-        /// <summary>
-        /// Gets or sets the ProgramResultCodes identifier.
-        /// </summary>
-        /// <value>
-        /// The ProgramResultCodes identifier.
-        /// </value>
-        public virtual int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
@@ -35,63 +27,52 @@ namespace BudgetExecution
         public virtual string BudgetLevel { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the bfy.
         /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
         public virtual string BFY { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the rpio code.
         /// </summary>
-        public virtual string EFY { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual string FundCode { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
         public virtual string RpioCode { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the fund code.
         /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public virtual string FundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ah code.
+        /// </summary>
+        /// <value>
+        /// The ah code.
+        /// </value>
         public virtual string AhCode { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the org code.
         /// </summary>
+        /// <value>
+        /// The org code.
+        /// </value>
         public virtual string OrgCode { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the account code.
         /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
         public virtual string AccountCode { get; set; }
-        
-        /// <summary>
-        /// Gets the goal code.
-        /// </summary>
-        /// <value>
-        /// The goal code.
-        /// </value>
-        public string GoalCode { get; set; }
-
-        /// <summary>
-        /// Gets the objective code.
-        /// </summary>
-        /// <value>
-        /// The objective code.
-        /// </value>
-        public string ObjectiveCode { get; set; }
-        
-        /// <summary>
-        /// Gets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the activity code.
@@ -102,10 +83,13 @@ namespace BudgetExecution
         public virtual string ActivityCode { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the boc code.
         /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
         public virtual string BocCode { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the rc code.
         /// </summary>
@@ -154,14 +138,14 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public virtual string GetField( DataRow dataRow, Field field )
+        public virtual string GetField( DataRow dataRow, string field )
         {
             if( dataRow != null
-               && Enum.IsDefined( typeof( Field ), field ) )
+               && !string.IsNullOrEmpty( field ) )
             {
                 try
                 {
-                    return dataRow.GetField( field );
+                    return dataRow[ field ].ToString(  );
                 }
                 catch( Exception ex )
                 {
@@ -173,6 +157,44 @@ namespace BudgetExecution
             return default( string );
         }
         
+        public virtual double GetNumeric( DataRow dataRow, string field )
+        {
+            if( dataRow != null
+               && !string.IsNullOrEmpty( field ) )
+            {
+                try
+                {
+                    return double.Parse( dataRow[ field ]?.ToString( ) );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( double );
+                }
+            }
+
+            return default( double );
+        }
+
+        public virtual double GetNumeric( DataRow dataRow, Field field )
+        {
+            if( dataRow != null
+               && Enum.IsDefined( typeof( Field ), field ) )
+            {
+                try
+                {
+                    return double.Parse( dataRow[ $"{ field }" ]?.ToString( ) );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( double );
+                }
+            }
+
+            return default( double );
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -199,11 +221,11 @@ namespace BudgetExecution
         /// <param name="dataRow"></param>
         /// <param name="primaryKey"></param>
         /// <returns></returns>
-        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        public virtual int GetId( DataRow dataRow, string primaryKey )
         {
             try
             {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                return !string.IsNullOrEmpty( primaryKey ) && dataRow != null
                     ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
                     : -1;
             }
@@ -214,6 +236,21 @@ namespace BudgetExecution
             }
         }
         
+        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

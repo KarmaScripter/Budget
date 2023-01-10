@@ -13,10 +13,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="IDataUnit" />
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class DataUnit : IDataUnit
     {
         /// <summary>
-        /// The value
+        ///  
+        /// </summary>
+        public virtual int ID { get; set; }
+
+        /// <summary>
+        ///  
         /// </summary>
         public virtual object Value { get; set; }
 

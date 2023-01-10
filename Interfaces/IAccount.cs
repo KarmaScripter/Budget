@@ -10,27 +10,6 @@ namespace BudgetExecution
     public interface IAccount
     {
         /// <summary>
-        /// Gets the account.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets the activity
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        string ActivityCode { get; set; }
-
-        /// <summary>
-        /// Gets the national program code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        string NpmCode { get; set; }
-
-        /// <summary>
         /// Gets the goal code.
         /// </summary>
         /// <returns>
@@ -45,17 +24,18 @@ namespace BudgetExecution
         string ObjectiveCode { get; set; }
 
         /// <summary>
+        /// Gets the national program code.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        string NpmCode { get; set; }
+
+        /// <summary>
         /// Gets the program project code.
         /// </summary>
         /// <returns>
         /// </returns>
         string ProgramProjectCode { get; set; }
 
-        /// <summary>
-        /// Gets the program area code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        string ProgramAreaCode { get; set; }
     }
 }

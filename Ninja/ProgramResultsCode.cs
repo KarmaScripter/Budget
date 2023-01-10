@@ -41,14 +41,6 @@ namespace BudgetExecution
         public virtual Source Source { get; set; } = Source.Allocations;
 
         /// <summary>
-        /// Gets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
-        public double Amount { get; set; }
-
-        /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.
         /// </summary>
         /// <value>
@@ -167,6 +159,14 @@ namespace BudgetExecution
         /// The program area code.
         /// </value>
         public override string ProgramAreaCode { get; set; }
+
+        /// <summary>
+        /// Gets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        public double Amount { get; set; }
 
         /// <summary>
         /// Gets the arguments.
