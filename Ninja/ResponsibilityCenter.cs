@@ -20,6 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ResponsibilityCenter : Element, IResponsibilityCenter, ISource
     {
         /// <summary>
@@ -102,11 +103,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="ResponsibilityCenter" /> class.
         /// </summary>
-        /// <param name="data">The Data.</param>
-        public ResponsibilityCenter( DataRow data )
+        /// <param name="dataRow">The Data.</param>
+        public ResponsibilityCenter( DataRow dataRow )
             : this( )
         {
-            Record = data;
+            Record = dataRow;
             ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );

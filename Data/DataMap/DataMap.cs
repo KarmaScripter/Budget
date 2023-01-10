@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Arg" />
     /// <seealso cref="IMap" />
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataMap : Arg, IMap
     {
         /// <summary>
