@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Controls\Chart\ChartBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Binding\BindingBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -32,6 +29,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Chart\Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Chart\ChartBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Chart\ChartForm.cs">
@@ -64,9 +64,6 @@
     <Compile Update="Controls\DataView\DataViewBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\SchemaDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Controls\Dialogs\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,13 +79,22 @@
     <Compile Update="Controls\Dialogs\FileBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Dialogs\FilterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Dialogs\LookupDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\Message.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Notification\Notification.cs">
+    <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\QueryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\SchemaDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\SqlDialog.cs">
@@ -142,6 +148,9 @@
     <Compile Update="Controls\Main\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Notification\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\PDF\PdfForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +182,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Tile\Tile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Tile\TileBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ToolStrip\ToolButtonBase.cs">
@@ -220,26 +232,14 @@
     <Compile Update="Controls\ToolTips\SmallTip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Data\Adapter\AdapterBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\WebPage\WebPage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Data\Adapter\AdapterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Dialogs\FilterDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Dialogs\QueryDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Tile\TileBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

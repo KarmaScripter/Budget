@@ -33,14 +33,6 @@ namespace BudgetExecution
         string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        Field Field { get; set; }
-
-        /// <summary>
         /// Gets the code.
         /// </summary>
         /// <returns>
