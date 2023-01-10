@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IFinanceObjectClass : IElement
+    public interface IFinanceObjectClass : IDataUnit
     {
         /// <summary>
         /// Gets the finance object class.

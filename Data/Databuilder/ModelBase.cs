@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using BudgetExecution;
 
@@ -14,6 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="DataAccess" />
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class ModelBase : DataAccess
     {
         /// <summary>
@@ -94,50 +96,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, Type> );
         }
-
-        /// <summary>
-        /// Gets the elements.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<IElement> GetElements( )
-        {
-            if( Record != null )
-            {
-                try
-                {
-                    var _elements = new List<IElement>( );
-                    var _columns = Record?.Table?.Columns;
-                    var _fields = Enum.GetNames( typeof( Field ) );
-                    if( _columns?.Count > 0 )
-                    {
-                        foreach( DataColumn column in _columns )
-                        {
-                            if( column?.DataType == typeof( string )
-                               && _fields?.Contains( column?.ColumnName ) == true )
-                            {
-                                _elements?.Add( new Element( Record, column?.ColumnName ) );
-                            }
-                        }
-
-                        return _elements?.Any( ) == true
-                            ? _elements
-                            : default( IEnumerable<IElement> );
-                    }
-                    else
-                    {
-                        return default( IEnumerable<IElement> );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<IElement> );
-                }
-            }
-
-            return default( IEnumerable<IElement> );
-        }
-
+        
         /// <summary>
         /// Filters the data.
         /// </summary>

@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public class Element : DataUnit, IElement
+    public class Element : DataUnit, IDataUnit
     {
         /// <summary>
         /// Gets the code.
@@ -23,16 +23,10 @@ namespace BudgetExecution
         /// <returns>
         /// </returns>
         public virtual string Code { get; set; }
-
-        /// <summary>
-        /// The initial
-        /// </summary>
-        public virtual string Initial { get; set; }
-
         /// <summary>
         /// The default
         /// </summary>
-        public static readonly IElement Default = new Element( );
+        public static readonly IDataUnit Default = new Element( );
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Element"/> class.
@@ -48,7 +42,7 @@ namespace BudgetExecution
         public Element( KeyValuePair<string, object> kvp )
         {
             Name = kvp.Key;
-            Value = kvp.Value;
+            Code = kvp.Value.ToString(  );
         }
 
         /// <summary>
@@ -59,18 +53,7 @@ namespace BudgetExecution
         public Element( string name, string columnName = "" )
         {
             Name = name;
-            Value = columnName;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Element"/> class.
-        /// </summary>
-        /// <param name="dataRow">The Data row.</param>
-        /// <param name="field">The field.</param>
-        public Element( DataRow dataRow, Field field )
-        {
-            Name = field.ToString( );
-            Value = dataRow[ field.ToString( ) ];
+            Code = columnName;
         }
 
         /// <summary>
@@ -81,7 +64,7 @@ namespace BudgetExecution
         public Element( Field field, string columnName = "" )
         {
             Name = field.ToString( );
-            Value = columnName;
+            Code = columnName;
         }
 
         /// <summary>
@@ -92,7 +75,7 @@ namespace BudgetExecution
         public Element( DataRow dataRow, string columnName )
         {
             Name = dataRow[ columnName ].ToString( );
-            Value = dataRow[ columnName ];
+            Code = dataRow[ columnName ].ToString( );
         }
 
         /// <summary>
@@ -103,7 +86,7 @@ namespace BudgetExecution
         public Element( DataRow dataRow, DataColumn dataColumn )
         {
             Name = dataColumn.ColumnName;
-            Value = dataRow[ dataColumn ];
+            Code = dataRow[ dataColumn ].ToString( );
         }
 
         /// <summary>
@@ -119,7 +102,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( dataUnit.Value?.Equals( Value ) == true )
+                    if( dataUnit.Code?.Equals( Code ) == true )
                     {
                         return true;
                     }
@@ -142,11 +125,11 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
         /// </returns>
-        public static bool IsMatch( IElement primary, IElement secondary )
+        public static bool IsMatch( IDataUnit primary, IDataUnit secondary )
         {
             try
             {
-                if( primary.Value.Equals( secondary.Value )
+                if( primary.Code.Equals( secondary.Code )
                    && primary.Name.Equals( secondary.Name ) )
                 {
                     return true;
@@ -206,31 +189,7 @@ namespace BudgetExecution
                 }
             }
         }
-
-        /// <summary>
-        /// Sets the columnName.
-        /// </summary>
-        /// <param name = "dataRow" > </param>
-        /// <param name = "field" > </param>
-        protected virtual void SetName( DataRow dataRow, Field field )
-        {
-            if( dataRow != null
-               && Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    var _columnNames = dataRow.Table?.GetColumnNames( );
-                    Name = _columnNames?.Contains( field.ToString( ) ) == true
-                        ? field.ToString( )
-                        : dataRow.Table.TableName;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Sets the value.
         /// </summary>
@@ -241,7 +200,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( value?.ToString( ) ) )
                 {
-                    Value = value;
+                    Code = value?.ToString( );
                 }
             }
             catch( Exception ex )
@@ -249,56 +208,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Sets the value.
-        /// </summary>
-        /// <param name = "dataRow" > </param>
-        /// <param name = "columnName" > </param>
-        protected virtual void SetValue( DataRow dataRow, string columnName )
-        {
-            if( dataRow != null
-               && !string.IsNullOrEmpty( columnName )
-               && Enum.GetNames( typeof( Field ) ).Contains( columnName ) )
-            {
-                try
-                {
-                    var _names = dataRow.Table?.GetColumnNames( );
-                    Value = _names?.Contains( columnName ) == true
-                        ? dataRow[ columnName ]?.ToString( )
-                        : string.Empty;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the value.
-        /// </summary>
-        /// <param name = "dataRow" > </param>
-        /// <param name = "field" > </param>
-        protected virtual void SetValue( DataRow dataRow, Field field )
-        {
-            if( dataRow != null
-               && Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    var _names = dataRow.Table?.GetColumnNames( );
-                    Value = _names?.Contains( field.ToString( ) ) == true
-                        ? dataRow[ $"{ field }" ]?.ToString( )
-                        : string.Empty;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Gets the identifier.
         /// </summary>

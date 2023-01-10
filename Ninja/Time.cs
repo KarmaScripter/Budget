@@ -198,46 +198,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( day?.Value?.ToString( )?.Equals( Day ) == true )
-                    {
-                        return true;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return false;
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Determines whether the specified primary is equal.
-        /// </summary>
-        /// <param name="first">The primary.</param>
-        /// <param name="second">The secondary.</param>
-        /// <returns>
-        /// <c>
-        /// true
-        /// </c>
-        /// if the specified primary is equal; otherwise,
-        /// <c>
-        /// false
-        /// </c>
-        /// .
-        /// </returns>
-        public static bool IsEqual( ITime first, ITime second )
-        {
-            if( first != null
-               && first != Element.Default
-               && first != null
-               && second != Element.Default )
-            {
-                try
-                {
-                    if( first?.Value?.ToString( )?.Equals( second?.Value?.ToString( ) ) == true )
+                    if( day?.Code?.Equals( Code ) == true )
                     {
                         return true;
                     }

@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IResourcePlanningOffice : IElement
+    public interface IResourcePlanningOffice : IDataUnit
     {
         /// <summary>
         /// Gets the resource planning office.

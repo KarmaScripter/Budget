@@ -10,14 +10,6 @@ namespace BudgetExecution
     public interface IDataUnit
     {
         /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
-        object Value { get; set; }
-
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>

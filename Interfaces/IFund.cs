@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IFund : IElement
+    public interface IFund : IDataUnit
     {
         /// <summary>
         /// Gets the title.

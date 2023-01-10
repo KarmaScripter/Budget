@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IProgramArea : IElement
+    public interface IProgramArea : IDataUnit
     {
         /// <summary>
         /// Gets the program area.

@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IObjective : IElement
+    public interface IObjective : IDataUnit
     {
         /// <summary>
         /// Gets the objective.

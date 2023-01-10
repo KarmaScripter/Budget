@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// Gets the elements.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<IElement> GetElements( );
+        IEnumerable<string> GetElements( );
 
         /// <summary>
         /// Gets the input.

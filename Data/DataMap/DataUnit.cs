@@ -22,11 +22,6 @@ namespace BudgetExecution
         public virtual int ID { get; set; }
 
         /// <summary>
-        ///  
-        /// </summary>
-        public virtual object Value { get; set; }
-
-        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>
@@ -53,35 +48,8 @@ namespace BudgetExecution
                 try
                 {
                     var _name = dataUnit.Name;
-                    var _value = dataUnit.Value;
-                    return _value.Equals( Value ) && _name.Equals( Name );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return false;
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Determines whether the specified dataUnit is match.
-        /// </summary>
-        /// <param name="element">The dataUnit.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
-        /// </returns>
-        public virtual bool IsMatch( IElement element )
-        {
-            if( element != null )
-            {
-                try
-                {
-                    var _name = element.Name;
-                    var _value = element.Value;
-                    return _value.Equals( Value ) && _name.Equals( Name );
+                    var _code = dataUnit.Code;
+                    return _code.Equals( Code ) && _name.Equals( Name );
                 }
                 catch( Exception ex )
                 {
@@ -108,7 +76,7 @@ namespace BudgetExecution
                 {
                     var _name = dict.Keys.First( );
                     var _value = dict[ _name ];
-                    return _value.Equals( Value ) && _name.Equals( Name );
+                    return _value.Equals( Code ) && _name.Equals( Name );
                 }
                 catch( Exception ex )
                 {

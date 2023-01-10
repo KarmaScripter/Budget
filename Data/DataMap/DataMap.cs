@@ -176,35 +176,35 @@ namespace BudgetExecution
         /// Gets the elements.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<IElement> GetElements( )
+        public IEnumerable<string> GetElements( )
         {
             if( Output?.Any( ) == true )
             {
                 try
                 {
-                    var _output = new List<IElement>( );
+                    var _output = new List<string>( );
                     var _fields = Enum.GetNames( typeof( Field ) );
                     foreach( var kvp in Output )
                     {
                         if( !string.IsNullOrEmpty( kvp.Key )
                            && _fields?.Contains( kvp.Key ) == true )
                         {
-                            _output.Add( new Element( kvp ) );
+                            _output.Add( kvp.Key );
                         }
                     }
 
                     return _output?.Any( ) == true
                         ? _output
-                        : default( List<IElement> );
+                        : default( List<string> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IEnumerable<IElement> );
+                    return default( IEnumerable<string> );
                 }
             }
 
-            return default( IEnumerable<IElement> );
+            return default( IEnumerable<string> );
         }
     }
 }

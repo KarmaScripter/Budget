@@ -182,7 +182,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data elements.
         /// </value>
-        public IEnumerable<IElement> Elements { get; set; }
+        public IEnumerable<string> Elements { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramResultsCode"/> class.

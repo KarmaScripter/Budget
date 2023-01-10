@@ -7,7 +7,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IResponsibilityCenter : IElement
+    public interface IResponsibilityCenter : IDataUnit
     {
         /// <summary>
         /// Gets the responsibility center.
