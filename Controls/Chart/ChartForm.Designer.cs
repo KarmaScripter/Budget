@@ -60,7 +60,7 @@
             this.toolSeparator13 = new BudgetExecution.ToolSeparator();
             this.BackButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator16 = new BudgetExecution.ToolSeparator();
-            this.HomeButton = new BudgetExecution.ToolStripButton();
+            this.MenuButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator17 = new BudgetExecution.ToolSeparator();
             this.toolSeparator15 = new BudgetExecution.ToolSeparator();
             this.Chart = new BudgetExecution.Chart();
@@ -186,7 +186,7 @@
             this.toolSeparator13,
             this.BackButton,
             this.toolSeparator16,
-            this.HomeButton,
+            this.MenuButton,
             this.toolSeparator17});
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = null;
@@ -298,7 +298,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(54, 32);
+            this.TextBox.Size = new System.Drawing.Size(52, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -630,26 +630,26 @@
             this.toolSeparator16.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator16.Size = new System.Drawing.Size(6, 32);
             // 
-            // HomeButton
+            // MenuButton
             // 
-            this.HomeButton.AutoToolTip = false;
-            this.HomeButton.BackColor = System.Drawing.Color.Transparent;
-            this.HomeButton.BindingSource = this.BindingSource;
-            this.HomeButton.DataFilter = null;
-            this.HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.HomeButton.Field = BudgetExecution.Field.AccountCode;
-            this.HomeButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HomeButton.ForeColor = System.Drawing.Color.LightGray;
-            this.HomeButton.HoverText = "Main Menu";
-            this.HomeButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
-            this.HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(3);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Padding = new System.Windows.Forms.Padding(1);
-            this.HomeButton.Size = new System.Drawing.Size(26, 28);
-            this.HomeButton.Text = "toolStripButton1";
-            this.HomeButton.ToolTip = this.ToolTip;
-            this.HomeButton.ToolType = BudgetExecution.ToolType.HomeButton;
+            this.MenuButton.AutoToolTip = false;
+            this.MenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.MenuButton.BindingSource = this.BindingSource;
+            this.MenuButton.DataFilter = null;
+            this.MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.MenuButton.Field = BudgetExecution.Field.AccountCode;
+            this.MenuButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MenuButton.ForeColor = System.Drawing.Color.LightGray;
+            this.MenuButton.HoverText = "Main Menu";
+            this.MenuButton.Image = global::BudgetExecution.Properties.Resources.HomeButton;
+            this.MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.MenuButton.Margin = new System.Windows.Forms.Padding(3);
+            this.MenuButton.Name = "MenuButton";
+            this.MenuButton.Padding = new System.Windows.Forms.Padding(1);
+            this.MenuButton.Size = new System.Drawing.Size(26, 28);
+            this.MenuButton.Text = "toolStripButton1";
+            this.MenuButton.ToolTip = this.ToolTip;
+            this.MenuButton.ToolType = BudgetExecution.ToolType.MenuButton;
             // 
             // toolSeparator17
             // 
@@ -700,7 +700,7 @@
             this.Chart.Legend.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Chart.Legend.ItemsAlignment = System.Drawing.StringAlignment.Center;
             this.Chart.Legend.ItemsSize = new System.Drawing.Size(10, 10);
-            this.Chart.Legend.Location = new System.Drawing.Point(908, 86);
+            this.Chart.Legend.Location = new System.Drawing.Point(908, 62);
             this.Chart.Legend.ShowItemsShadow = true;
             this.Chart.Legend.ShowSymbol = true;
             this.Chart.Legend.VisibleCheckBox = true;
@@ -1380,7 +1380,7 @@
         private ToolSeparator toolSeparator12;
         public ToolStripButton CalculatorButton;
         private ToolSeparator toolSeparator13;
-        public ToolStripButton HomeButton;
+        public ToolStripButton MenuButton;
         private ToolSeparator toolSeparator15;
         private ToolSeparator toolSeparator16;
         public Layout FirstPanel;

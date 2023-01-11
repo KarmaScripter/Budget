@@ -81,7 +81,7 @@
             this.GuidanceTile.BannerColor = System.Drawing.Color.Transparent;
             this.GuidanceTile.BannerHeight = 30;
             this.GuidanceTile.BannerIcon = global::BudgetExecution.Properties.Resources.GuidanceTile;
-            this.GuidanceTile.BindingSource = null;
+            this.GuidanceTile.BindingSource = this.BindingSource;
             textItem2.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem2.HubTile = this.GuidanceTile;
             textItem2.Text = "Body Text";
@@ -111,7 +111,7 @@
             textItem4.Text = "This is the Title";
             textItem4.TextColor = System.Drawing.Color.LightSteelBlue;
             this.GuidanceTile.Title = textItem4;
-            this.GuidanceTile.ToolTip = null;
+            this.GuidanceTile.ToolTip = this.ToolTip;
             this.GuidanceTile.TurnLiveTileOn = true;
             // 
             // DatabaseTile
@@ -126,7 +126,7 @@
             this.DatabaseTile.BannerColor = System.Drawing.Color.Transparent;
             this.DatabaseTile.BannerHeight = 30;
             this.DatabaseTile.BannerIcon = global::BudgetExecution.Properties.Resources.SettingsTile;
-            this.DatabaseTile.BindingSource = null;
+            this.DatabaseTile.BindingSource = this.BindingSource;
             textItem6.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem6.HubTile = this.DatabaseTile;
             textItem6.Text = "Body Text";
@@ -156,7 +156,7 @@
             textItem8.Text = "This is the Title";
             textItem8.TextColor = System.Drawing.Color.LightSteelBlue;
             this.DatabaseTile.Title = textItem8;
-            this.DatabaseTile.ToolTip = null;
+            this.DatabaseTile.ToolTip = this.ToolTip;
             this.DatabaseTile.TurnLiveTileOn = true;
             // 
             // ToolTile
@@ -171,7 +171,7 @@
             this.ToolTile.BannerColor = System.Drawing.Color.Transparent;
             this.ToolTile.BannerHeight = 30;
             this.ToolTile.BannerIcon = global::BudgetExecution.Properties.Resources.ToolsTile;
-            this.ToolTile.BindingSource = null;
+            this.ToolTile.BindingSource = this.BindingSource;
             textItem10.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem10.HubTile = this.ToolTile;
             textItem10.Text = "Body Text";
@@ -201,7 +201,7 @@
             textItem12.Text = "This is the Title";
             textItem12.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ToolTile.Title = textItem12;
-            this.ToolTile.ToolTip = null;
+            this.ToolTile.ToolTip = this.ToolTip;
             this.ToolTile.TurnLiveTileOn = true;
             // 
             // ClientTile
@@ -216,7 +216,7 @@
             this.ClientTile.BannerColor = System.Drawing.Color.Transparent;
             this.ClientTile.BannerHeight = 30;
             this.ClientTile.BannerIcon = global::BudgetExecution.Properties.Resources.ClientTile;
-            this.ClientTile.BindingSource = null;
+            this.ClientTile.BindingSource = this.BindingSource;
             textItem14.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem14.HubTile = this.ClientTile;
             textItem14.Text = "Body Text";
@@ -246,7 +246,7 @@
             textItem16.Text = "This is the Title";
             textItem16.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ClientTile.Title = textItem16;
-            this.ClientTile.ToolTip = null;
+            this.ClientTile.ToolTip = this.ToolTip;
             this.ClientTile.TurnLiveTileOn = true;
             // 
             // UtilityTile
@@ -261,7 +261,7 @@
             this.UtilityTile.BannerColor = System.Drawing.Color.Transparent;
             this.UtilityTile.BannerHeight = 30;
             this.UtilityTile.BannerIcon = global::BudgetExecution.Properties.Resources.UtilityTile;
-            this.UtilityTile.BindingSource = null;
+            this.UtilityTile.BindingSource = this.BindingSource;
             textItem18.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem18.HubTile = this.UtilityTile;
             textItem18.Text = "Body Text";
@@ -291,7 +291,7 @@
             textItem20.Text = "This is the Title";
             textItem20.TextColor = System.Drawing.Color.LightSteelBlue;
             this.UtilityTile.Title = textItem20;
-            this.UtilityTile.ToolTip = null;
+            this.UtilityTile.ToolTip = this.ToolTip;
             this.UtilityTile.TurnLiveTileOn = true;
             // 
             // ReportingTile
@@ -306,7 +306,7 @@
             this.ReportingTile.BannerColor = System.Drawing.Color.Transparent;
             this.ReportingTile.BannerHeight = 30;
             this.ReportingTile.BannerIcon = global::BudgetExecution.Properties.Resources.ChartTile;
-            this.ReportingTile.BindingSource = null;
+            this.ReportingTile.BindingSource = this.BindingSource;
             textItem22.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem22.HubTile = this.ReportingTile;
             textItem22.Text = "Body Text";
@@ -336,7 +336,7 @@
             textItem24.Text = "This is the Title";
             textItem24.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ReportingTile.Title = textItem24;
-            this.ReportingTile.ToolTip = null;
+            this.ReportingTile.ToolTip = this.ToolTip;
             this.ReportingTile.TurnLiveTileOn = true;
             // 
             // Darkmode

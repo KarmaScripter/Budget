@@ -507,7 +507,7 @@ partial class FilterDialog
             this.FirstButton.HoverText = null;
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(45, 380);
+            this.FirstButton.Location = new System.Drawing.Point(46, 371);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.FirstButton.NormalColor = System.Drawing.Color.Transparent;
@@ -539,7 +539,7 @@ partial class FilterDialog
             this.SecondButton.HoverText = null;
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(323, 380);
+            this.SecondButton.Location = new System.Drawing.Point(324, 371);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SecondButton.NormalColor = System.Drawing.Color.Transparent;
@@ -571,7 +571,7 @@ partial class FilterDialog
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(610, 380);
+            this.ThirdButton.Location = new System.Drawing.Point(610, 371);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;
@@ -747,6 +747,7 @@ partial class FilterDialog
             this.AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.AccessRadioButton.StyleManager = null;
             this.AccessRadioButton.TabIndex = 2;
+            this.AccessRadioButton.Tag = "Access";
             this.AccessRadioButton.Text = "  MS Access";
             this.AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
             this.AccessRadioButton.ThemeName = "Budget Execution";
@@ -771,6 +772,7 @@ partial class FilterDialog
             this.SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqlServerRadioButton.StyleManager = null;
             this.SqlServerRadioButton.TabIndex = 1;
+            this.SqlServerRadioButton.Tag = "SqlServer";
             this.SqlServerRadioButton.Text = "  SQL Server";
             this.SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
             this.SqlServerRadioButton.ThemeName = "Budget Execution";
@@ -795,6 +797,7 @@ partial class FilterDialog
             this.SQLiteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SQLiteRadioButton.StyleManager = null;
             this.SQLiteRadioButton.TabIndex = 0;
+            this.SQLiteRadioButton.Tag = "SQLite";
             this.SQLiteRadioButton.Text = "  SQLite";
             this.SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
             this.SQLiteRadioButton.ThemeName = "Budget Execution";

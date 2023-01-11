@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using OfficeOpenXml.Drawing.Slicer;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -64,15 +65,15 @@ namespace BudgetExecution
             try
             {
                 DatabaseTile.Title.Text = "Data Management";
-                DatabaseTile.Body.Text = string.Empty;
+                DatabaseTile.Body.Text = "Data Tables - Providers - Schema - SQL Editor";
                 UtilityTile.Title.Text = "Utilities";
-                UtilityTile.Body.Text = string.Empty;
+                UtilityTile.Body.Text = "Calculators - Calendars - Spreadsheets - Web Browsers";
                 ReportingTile.Title.Text = "Reporting";
-                ReportingTile.Body.Text = string.Empty;
+                ReportingTile.Body.Text = "Charts and Visualizations";
                 ClientTile.Title.Text = "DB Clients";
-                ClientTile.Body.Text = string.Empty;
+                ClientTile.Body.Text = "SQLite - SQL Compact - MS Access - SQL Server";
                 GuidanceTile.Title.Text = "Guidance";
-                GuidanceTile.Body.Text = string.Empty;
+                GuidanceTile.Body.Text = "OMB A-11, Resource Management Directives - Money & Finance - Appropriations Law";
                 ToolTile.Title.Text = "Data Tools";
                 ToolTile.Body.Text = string.Empty;
             }
@@ -117,7 +118,8 @@ namespace BudgetExecution
             {
                 var _dataGridForm = new DataGridForm( );
                 _dataGridForm.StartPosition = FormStartPosition.CenterParent;
-                _dataGridForm.ShowDialog(  );
+                _dataGridForm.Show(  );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -137,12 +139,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FilterDialog( );
+                var _dialog = new FilterDialog( BindingSource );
+                _dialog.TabControl.SelectedTab = _dialog.TableTab;
+                BindingSource = _dialog.BindingSource;
                 _dialog.ShowDialog(  );
-                var _bindingSource = _dialog.BindingSource;
-                var _chartForm = new ChartForm( _bindingSource );
+                var _chartForm = new ChartForm( BindingSource );
                 _chartForm.StartPosition = FormStartPosition.CenterParent;
                 _chartForm.ShowDialog( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -208,7 +212,8 @@ namespace BudgetExecution
             {
                 var _pdf = new PdfForm( );
                 _pdf.StartPosition = FormStartPosition.CenterParent;
-                _pdf.ShowDialog( );
+                _pdf.Show( );
+                Visible = false;
             }
             catch( Exception ex )
             {

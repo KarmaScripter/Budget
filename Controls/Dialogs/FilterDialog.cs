@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using CheckState = MetroSet_UI.Enums.CheckState;
     using DataTable = System.Data.DataTable;
     using Size = System.Drawing.Size;
 
@@ -208,6 +209,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="FilterDialog"/> class.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        public FilterDialog( BindingSource bindingSource )
+            : this( )
+        {
+            BindingSource = bindingSource;
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -229,17 +240,51 @@ namespace BudgetExecution
                     FirstButton.Visible = !FirstButton.Visible;
                     SecondButton.Visible = !SecondButton.Visible;
                     TabControl.SelectedTab = FilterTab;
+                    Provider = DataModel.Provider;
+                    Source = DataModel.Source;
                 }
                 else
                 {
                     TabControl.SelectedTab = TableTab;
                     PopulateTableListBoxItems(  );
                     Text = "Data Source";
+                    AccessRadioButton.CheckState = CheckState.Checked;
+                    Provider = Provider.Access;
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        private void BindDataSource( Source source, Provider provider, 
+            IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), source )
+               && Enum.IsDefined( typeof( Provider ), provider )
+               && where?.Any( ) == true )
+            {
+                try
+                {
+                    Source = source;
+                    Provider = provider;
+                    DataModel = new DataBuilder( source, provider, where );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -794,7 +839,29 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Called when [select button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnSelectButtonClicked( object sender, EventArgs e )
+        {
+            if( sender is Button _button )
+            {
+                try
+                {
+                    Close( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Sets the label configuration.
         /// </summary>

@@ -1250,6 +1250,13 @@
             Sets the label configuration.
             </summary>
         </member>
+        <member name="M:BudgetExecution.ChartForm.OnExitButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [exit button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="M:BudgetExecution.ChartForm.Fail(System.Exception)">
             <summary>
             Fails the specified ex.
@@ -3226,6 +3233,12 @@
             The provider.
             </param>
         </member>
+        <member name="M:BudgetExecution.FilterDialog.#ctor(System.Windows.Forms.BindingSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.FilterDialog"/> class.
+            </summary>
+            <param name="bindingSource">The binding source.</param>
+        </member>
         <member name="M:BudgetExecution.FilterDialog.OnLoad(System.Object,System.EventArgs)">
             <summary>
             Called when [load].
@@ -3235,6 +3248,14 @@
             <see cref="T:System.EventArgs"/> instance containing
             the event data.
             </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="where">The where.</param>
         </member>
         <member name="M:BudgetExecution.FilterDialog.PopulateTableListBoxItems">
             <summary>
@@ -3349,6 +3370,15 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.
             </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnSelectButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [select button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.FilterDialog.SetLabelConfiguration">
             <summary>
