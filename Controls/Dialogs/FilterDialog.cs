@@ -7,6 +7,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
@@ -79,6 +80,14 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
+        public string SelectedTable { get; set; }
         
         /// <summary>
         /// Gets or sets the data model.
@@ -104,6 +113,14 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IEnumerable<string> Numerics { get; set; }
+        
         /// <summary>
         /// Gets or sets the fields.
         /// </summary>
@@ -202,17 +219,102 @@ namespace BudgetExecution
         {
             try
             {
-                Text = $"Filter:  { DataTable.TableName.SplitPascal( ) }";
-                PopulateFirstComboBoxItems( );
-                SetLabelConfiguration(  );
-                FirstButton.Visible = !FirstButton.Visible;
-                SecondButton.Visible = !SecondButton.Visible;
-                FormFilter = new Dictionary<string, object>( );
                 SqlQuery = string.Empty;
+                FormFilter = new Dictionary<string, object>( );
+                if( DataModel != null )
+                {
+                    var _text = $"{ DataTable.TableName } Filter";
+                    Text = $"{ _text.SplitPascal( ) } Filter";
+                    SetLabelConfiguration(  );
+                    FirstButton.Visible = !FirstButton.Visible;
+                    SecondButton.Visible = !SecondButton.Visible;
+                    TabControl.SelectedTab = FilterTab;
+                }
+                else
+                {
+                    TabControl.SelectedTab = TableTab;
+                    PopulateTableListBoxItems(  );
+                    Text = "Data Source";
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the ListBox items.
+        /// </summary>
+        public void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData(  );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList(  );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var name = _names[ _i ];
+                    TableListBox.Items.Add( name );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnTableListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    SelectedTable = _listBox.SelectedValue?.ToString( );
+                    if( !string.IsNullOrEmpty( SelectedTable ) )
+                    {
+                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                        DataModel = new DataBuilder( Source, Provider );
+                        DataTable = DataModel.DataTable;
+                        BindingSource.DataSource = DataModel.DataTable;
+                        Fields = DataModel.Fields;
+                        Numerics = DataModel.Numerics;
+                        TabControl.SelectedTab = FilterTab;
+                        PopulateFirstComboBoxItems( );
+                        if( FirstTable.Visible == false )
+                        {
+                            FirstTable.Visible = true;
+                        }
+
+                        if( SecondTable.Visible == true )
+                        {
+                            SecondTable.Visible = false;
+                        }
+
+                        if( ThirdTable.Visible == true )
+                        {
+                            ThirdTable.Visible = false;
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 

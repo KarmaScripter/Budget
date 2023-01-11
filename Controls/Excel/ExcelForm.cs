@@ -14,7 +14,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.XlsIO;
-    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -207,7 +206,7 @@ namespace BudgetExecution
             DataTable = dataTable;
             BindingSource.DataSource = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Text = $"{ DataTable.TableName.SplitPascal( ) }";
+            Text = $"{ DataTable.TableName.SplitPascal( ) } ";
         }
         /// <summary>
         /// Called when [load].
@@ -247,8 +246,8 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
                 var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )
                     ?.ToList(  );
                 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )

@@ -36,10 +36,12 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionFont = new Font( "Roboto", 10  );
-            CaptionButtonColor = Color.FromArgb( 65, 65, 65 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
+            ShowMouseOver = true;
             MinimizeBox = false;
             MaximizeBox = false;
+            StartPosition = FormStartPosition.CenterParent;
 
             // Calculator Configuration
             Calculator.Font = new Font( "Roboto", 10 );

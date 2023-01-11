@@ -2345,6 +2345,13 @@
             The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.OnMainMenuButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.OnRemoveFilterButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [remove filter button clicked].
@@ -3138,6 +3145,14 @@
             The SQL query.
             </value>
         </member>
+        <member name="P:BudgetExecution.FilterDialog.SelectedTable">
+            <summary>
+            Gets or sets the selected table.
+            </summary>
+            <value>
+            The selected table.
+            </value>
+        </member>
         <member name="P:BudgetExecution.FilterDialog.DataModel">
             <summary>
             Gets or sets the data model.
@@ -3160,6 +3175,14 @@
             </summary>
             <value>
             The form filter.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.Numerics">
+            <summary>
+            Gets or sets the numerics.
+            </summary>
+            <value>
+            The numerics.
             </value>
         </member>
         <member name="P:BudgetExecution.FilterDialog.Fields">
@@ -3212,6 +3235,17 @@
             <see cref="T:System.EventArgs"/> instance containing
             the event data.
             </param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateTableListBoxItems">
+            <summary>
+            Populates the ListBox items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.OnTableListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [table ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
         </member>
         <member name="M:BudgetExecution.FilterDialog.PopulateFirstComboBoxItems">
             <summary>
@@ -6708,6 +6742,93 @@
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.MainForm"/> class.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.MainForm.SetTileTitles">
+            <summary>
+            Sets the tile titles.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnDatabaseTileClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [database tile clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The
+            <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnReportingTileClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [reporting tile clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The
+            <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnClientTileClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [client tile clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnUtilityTileClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [utility tile clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnGuidanceTileClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [guidance tile clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.
+            </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnToolTileClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [tool tile clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.OnExitButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [exit button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.Fail(System.Exception)">
+            <summary>
+            Get Error Dialog.
+            </summary>
+            <param name="ex">The ex.</param>
         </member>
         <member name="F:BudgetExecution.MainForm.components">
             <summary>
@@ -12054,12 +12175,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.ModelBase.GetElements">
-            <summary>
-            Gets the elements.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:BudgetExecution.ModelBase.FilterData(System.Collections.Generic.IEnumerable{System.Data.DataRow},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Filters the data.
@@ -12320,9 +12435,9 @@
             </summary>
             <seealso cref="T:BudgetExecution.IDataUnit" />
         </member>
-        <member name="P:BudgetExecution.DataUnit.Value">
+        <member name="P:BudgetExecution.DataUnit.ID">
             <summary>
-            The value
+             
             </summary>
         </member>
         <member name="P:BudgetExecution.DataUnit.Name">
@@ -12347,15 +12462,6 @@
               <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:BudgetExecution.DataUnit.IsMatch(BudgetExecution.IElement)">
-            <summary>
-            Determines whether the specified dataUnit is match.
-            </summary>
-            <param name="element">The dataUnit.</param>
-            <returns>
-              <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
-            </returns>
-        </member>
         <member name="M:BudgetExecution.DataUnit.IsMatch(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Determines whether the specified dictionary is match.
@@ -12375,7 +12481,7 @@
             <summary>
             
             </summary>
-            <seealso cref="T:BudgetExecution.IElement" />
+            <seealso cref="!:IElement" />
         </member>
         <member name="P:BudgetExecution.Element.Code">
             <summary>
@@ -12383,11 +12489,6 @@
             </summary>
             <returns>
             </returns>
-        </member>
-        <member name="P:BudgetExecution.Element.Initial">
-            <summary>
-            The initial
-            </summary>
         </member>
         <member name="F:BudgetExecution.Element.Default">
             <summary>
@@ -12411,13 +12512,6 @@
             </summary>
             <param name="name">The name.</param>
             <param name="columnName">The value.</param>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor(System.Data.DataRow,BudgetExecution.Field)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-            <param name="dataRow">The Data row.</param>
-            <param name="field">The field.</param>
         </member>
         <member name="M:BudgetExecution.Element.#ctor(BudgetExecution.Field,System.String)">
             <summary>
@@ -12449,7 +12543,7 @@
               <c>true</c> if the specified element is match; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:BudgetExecution.Element.IsMatch(BudgetExecution.IElement,BudgetExecution.IElement)">
+        <member name="M:BudgetExecution.Element.IsMatch(BudgetExecution.IDataUnit,BudgetExecution.IDataUnit)">
             <summary>
             Determines whether the specified primary is match.
             </summary>
@@ -12472,32 +12566,11 @@
             </summary>
             <param name = "field" > </param>
         </member>
-        <member name="M:BudgetExecution.Element.SetName(System.Data.DataRow,BudgetExecution.Field)">
-            <summary>
-            Sets the columnName.
-            </summary>
-            <param name = "dataRow" > </param>
-            <param name = "field" > </param>
-        </member>
         <member name="M:BudgetExecution.Element.SetValue(System.Object)">
             <summary>
             Sets the value.
             </summary>
             <param name = "value" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetValue(System.Data.DataRow,System.String)">
-            <summary>
-            Sets the value.
-            </summary>
-            <param name = "dataRow" > </param>
-            <param name = "columnName" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetValue(System.Data.DataRow,BudgetExecution.Field)">
-            <summary>
-            Sets the value.
-            </summary>
-            <param name = "dataRow" > </param>
-            <param name = "field" > </param>
         </member>
         <member name="M:BudgetExecution.Element.GetId(System.Data.DataRow)">
             <summary>
@@ -22691,27 +22764,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.IAccount.AccountCode">
-            <summary>
-            Gets the account.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="P:BudgetExecution.IAccount.ActivityCode">
-            <summary>
-            Gets the activity
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="P:BudgetExecution.IAccount.NpmCode">
-            <summary>
-            Gets the national program code.
-            </summary>
-            <returns>
-            </returns>
-        </member>
         <member name="P:BudgetExecution.IAccount.GoalCode">
             <summary>
             Gets the goal code.
@@ -22726,16 +22778,16 @@
             <returns>
             </returns>
         </member>
-        <member name="P:BudgetExecution.IAccount.ProgramProjectCode">
+        <member name="P:BudgetExecution.IAccount.NpmCode">
             <summary>
-            Gets the program project code.
+            Gets the national program code.
             </summary>
             <returns>
             </returns>
         </member>
-        <member name="P:BudgetExecution.IAccount.ProgramAreaCode">
+        <member name="P:BudgetExecution.IAccount.ProgramProjectCode">
             <summary>
-            Gets the program area code.
+            Gets the program project code.
             </summary>
             <returns>
             </returns>
@@ -24118,14 +24170,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.IDataUnit.Value">
-            <summary>
-            Gets or sets the value.
-            </summary>
-            <value>
-            The value.
-            </value>
-        </member>
         <member name="P:BudgetExecution.IDataUnit.Name">
             <summary>
             Gets or sets the name.
@@ -24151,25 +24195,6 @@
             <c> false </c>
             .
             </returns>
-        </member>
-        <member name="T:BudgetExecution.IElement">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.IElement.Code">
-            <summary>
-            Gets the field.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:BudgetExecution.IElement.Initial">
-            <summary>
-            Gets or sets the initial.
-            </summary>
-            <value>
-            The initial.
-            </value>
         </member>
         <member name="T:BudgetExecution.IFederalHoliday">
             <summary>
@@ -25162,41 +25187,6 @@
             <see cref="T:System.EventArgs" />
             instance containing the event data.</param>
         </member>
-        <member name="T:BudgetExecution.IProgram">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.IProgram.ID">
-            <summary>
-            Gets the identifier.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="P:BudgetExecution.IProgram.Value">
-            <summary>
-            Gets or sets the value.
-            </summary>
-            <value>
-            The value.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IProgram.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>
-            The name.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.IProgram.Code">
-            <summary>
-            Gets the code.
-            </summary>
-            <returns>
-            </returns>
-        </member>
         <member name="T:BudgetExecution.IProgramArea">
             <summary>
             
@@ -25656,26 +25646,6 @@
             Gets the command text.
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:BudgetExecution.ISupplemental">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.ISupplemental.Type">
-            <summary>
-            Gets the fund code.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.ISupplemental.ToString">
-            <summary>
-            Converts to string.
-            </summary>
-            <returns>
-            A <see cref = "T:System.String"/> that represents this instance.
-            </returns>
         </member>
         <member name="T:BudgetExecution.ITime">
             <summary>
@@ -26926,7 +26896,7 @@
             The source
             </summary>
         </member>
-        <member name="P:BudgetExecution.Account.Code">
+        <member name="P:BudgetExecution.Account.GoalCode">
             <summary>
             Gets or sets the code.
             </summary>
@@ -27080,7 +27050,7 @@
             specific budget account—usually by project, activity, or organization.
             </summary>
             <seealso cref = "T:BudgetExecution.IActivity"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
             <seealso cref = "T:BudgetExecution.IActivity"/>
             <seealso cref = "T:BudgetExecution.IDataModel"/>
@@ -27394,7 +27364,7 @@
             Administrator being identified as the primary regional Allowance Holder.
             </summary>
             <seealso cref = "T:BudgetExecution.IAllowanceHolder"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
             <seealso cref = "T:BudgetExecution.IAllowanceHolder"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
@@ -28667,7 +28637,7 @@
             known as Finance Object Classes. EPA uses the categories defined by the values
             of the ObjectClasses enumeration.
             </summary>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.IBudgetObjectClass"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
             <seealso cref = "T:BudgetExecution.IDataModel"/>
@@ -30177,7 +30147,7 @@
             
             </summary>
             <seealso cref="T:BudgetExecution.IFinanceObjectClass" />
-            <seealso cref="T:BudgetExecution.IProgram" />
+            <seealso cref="!:IProgram" />
             <seealso cref="T:BudgetExecution.ISource" />
         </member>
         <member name="P:BudgetExecution.FinanceObjectClass.Source">
@@ -30814,7 +30784,7 @@
             
             </summary>
             <seealso cref = "T:BudgetExecution.IGoal"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
         </member>
         <member name="P:BudgetExecution.Goal.Source">
@@ -31759,7 +31729,7 @@
             
             </summary>
             <seealso cref = "T:BudgetExecution.INationalProgram"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
         </member>
         <member name="P:BudgetExecution.NationalProgram.Source">
@@ -32820,14 +32790,6 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.PRC.ID">
-            <summary>
-            Gets or sets the ProgramResultCodes identifier.
-            </summary>
-            <value>
-            The ProgramResultCodes identifier.
-            </value>
-        </member>
         <member name="P:BudgetExecution.PRC.BudgetLevel">
             <summary>
             Gets or sets the budget level.
@@ -32838,61 +32800,50 @@
         </member>
         <member name="P:BudgetExecution.PRC.BFY">
             <summary>
-            
+            Gets or sets the bfy.
             </summary>
-        </member>
-        <member name="P:BudgetExecution.PRC.EFY">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.PRC.FundCode">
-            <summary>
-            
-            </summary>
+            <value>
+            The bfy.
+            </value>
         </member>
         <member name="P:BudgetExecution.PRC.RpioCode">
             <summary>
-            
+            Gets or sets the rpio code.
             </summary>
+            <value>
+            The rpio code.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.PRC.FundCode">
+            <summary>
+            Gets or sets the fund code.
+            </summary>
+            <value>
+            The fund code.
+            </value>
         </member>
         <member name="P:BudgetExecution.PRC.AhCode">
             <summary>
-            
+            Gets or sets the ah code.
             </summary>
+            <value>
+            The ah code.
+            </value>
         </member>
         <member name="P:BudgetExecution.PRC.OrgCode">
             <summary>
-            
+            Gets or sets the org code.
             </summary>
+            <value>
+            The org code.
+            </value>
         </member>
         <member name="P:BudgetExecution.PRC.AccountCode">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.PRC.GoalCode">
-            <summary>
-            Gets the goal code.
+            Gets or sets the account code.
             </summary>
             <value>
-            The goal code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PRC.ObjectiveCode">
-            <summary>
-            Gets the objective code.
-            </summary>
-            <value>
-            The objective code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PRC.NpmCode">
-            <summary>
-            Gets the NPM code.
-            </summary>
-            <value>
-            The NPM code.
+            The account code.
             </value>
         </member>
         <member name="P:BudgetExecution.PRC.ActivityCode">
@@ -32905,8 +32856,11 @@
         </member>
         <member name="P:BudgetExecution.PRC.BocCode">
             <summary>
-            
+            Gets or sets the boc code.
             </summary>
+            <value>
+            The boc code.
+            </value>
         </member>
         <member name="P:BudgetExecution.PRC.RcCode">
             <summary>
@@ -32945,7 +32899,7 @@
             
             </summary>
         </member>
-        <member name="M:BudgetExecution.PRC.GetField(System.Data.DataRow,BudgetExecution.Field)">
+        <member name="M:BudgetExecution.PRC.GetField(System.Data.DataRow,System.String)">
             <summary>
             Sets the field.
             </summary>
@@ -32965,7 +32919,7 @@
             <param name="dataRow"></param>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.PRC.GetId(System.Data.DataRow,BudgetExecution.PrimaryKey)">
+        <member name="M:BudgetExecution.PRC.GetId(System.Data.DataRow,System.String)">
             <summary>
             
             </summary>
@@ -33232,93 +33186,6 @@
             </summary>
             <returns>
             </returns>
-        </member>
-        <member name="T:BudgetExecution.ProgramBase">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.ID">
-            <summary>
-            Gets the identifier.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Code">
-            <summary>
-            Gets the code.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>
-            The name.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Record">
-            <summary>
-            Gets the record.
-            </summary>
-            <value>
-            The record.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Data">
-            <summary>
-            Gets the arguments.
-            </summary>
-            <value>
-            The arguments.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Definition">
-            <summary>
-            Gets the definition.
-            </summary>
-            <value>
-            The definition.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Laws">
-            <summary>
-            Gets the laws.
-            </summary>
-            <value>
-            The laws.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Title">
-            <summary>
-            Gets the title.
-            </summary>
-            <value>
-            The title.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.Narrative">
-            <summary>
-            Gets the narrative.
-            </summary>
-            <value>
-            The narrative.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.ProgramAreaCode">
-            <summary>
-            Gets the program area code.
-            </summary>
-            <value>
-            The program area code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramBase.ProgramAreaName">
-            <summary>
-            Gets the name of the program area.
-            </summary>
-            <value>
-            The name of the program area.
-            </value>
         </member>
         <member name="T:BudgetExecution.ProgramDescription">
             <summary>
@@ -33596,7 +33463,7 @@
             updated at any time.
             </summary>
             <seealso cref = "T:BudgetExecution.IProgramResultsCode"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.IDataModel"/>
             <seealso cref = "T:BudgetExecution.IProgramResultsCode"/>
             <seealso cref = "T:BudgetExecution.IFund"/>
@@ -33608,14 +33475,6 @@
             </summary>
             <value>
             The source.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.ProgramResultsCode.Amount">
-            <summary>
-            Gets the amount.
-            </summary>
-            <value>
-            The amount.
             </value>
         </member>
         <member name="P:BudgetExecution.ProgramResultsCode.ID">
@@ -33736,6 +33595,14 @@
             </summary>
             <value>
             The program area code.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ProgramResultsCode.Amount">
+            <summary>
+            Gets the amount.
+            </summary>
+            <value>
+            The amount.
             </value>
         </member>
         <member name="P:BudgetExecution.ProgramResultsCode.Data">
@@ -34507,7 +34374,7 @@
             
             </summary>
             <seealso cref = "T:BudgetExecution.IResourcePlanningOffice"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
+            <seealso cref = "!:IProgram"/>
             <seealso cref = "T:BudgetExecution.ISource"/>
         </member>
         <member name="P:BudgetExecution.ResourcePlanningOffice.Source">
@@ -34703,7 +34570,7 @@
             Initializes a new instance of the
             <see cref="T:BudgetExecution.ResponsibilityCenter" /> class.
             </summary>
-            <param name="data">The Data.</param>
+            <param name="dataRow">The Data.</param>
         </member>
         <member name="M:BudgetExecution.ResponsibilityCenter.#ctor(System.String)">
             <summary>
@@ -35459,8 +35326,8 @@
             regular appropriations act.
             </summary>
             <seealso cref = "T:BudgetExecution.ProgramResultsCode"/>
-            <seealso cref = "T:BudgetExecution.IProgram"/>
-            <seealso cref = "T:BudgetExecution.ISupplemental"/>
+            <seealso cref = "!:IProgram"/>
+            <seealso cref = "!:ISupplemental"/>
         </member>
         <member name="P:BudgetExecution.Supplemental.Source">
             <summary>
@@ -35664,23 +35531,6 @@
             true
             </c>
             if the specified element is equal; otherwise,
-            <c>
-            false
-            </c>
-            .
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Time.IsEqual(BudgetExecution.ITime,BudgetExecution.ITime)">
-            <summary>
-            Determines whether the specified primary is equal.
-            </summary>
-            <param name="first">The primary.</param>
-            <param name="second">The secondary.</param>
-            <returns>
-            <c>
-            true
-            </c>
-            if the specified primary is equal; otherwise,
             <c>
             false
             </c>

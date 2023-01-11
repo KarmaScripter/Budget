@@ -169,7 +169,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             MinimumSize = new Size( 1400, 750  );
@@ -230,6 +230,7 @@ namespace BudgetExecution
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             ExitButton.Click += null;
+            MenuButton.Click += null;
             RemoveFiltersButton.Click += null;
         }
 
@@ -291,6 +292,7 @@ namespace BudgetExecution
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 SearchButton.Click += OnSearchButtonClicked;
                 TestButton.Click += OnTestButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
             }
             catch( Exception ex )
             {
@@ -949,6 +951,27 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.MenuButton )
+                {
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [remove filter button clicked].
         /// </summary>
