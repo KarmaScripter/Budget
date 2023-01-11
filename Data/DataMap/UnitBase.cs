@@ -13,11 +13,6 @@ namespace BudgetExecution
     public abstract class UnitBase
     {
         /// <summary>
-        /// The Data
-        /// </summary>
-        public object Data { get; set; }
-
-        /// <summary>
         /// The name
         /// </summary>
         public string Name { get; set; }

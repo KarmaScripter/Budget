@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
@@ -14,12 +15,20 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IDataUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class DataUnit : IDataUnit
+    public abstract class DataUnit : UnitBase, IDataUnit
     {
         /// <summary>
         ///  
         /// </summary>
         public virtual int ID { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        public virtual DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -88,6 +97,42 @@ namespace BudgetExecution
             return false;
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
+        protected virtual int GetId( DataRow dataRow )
+        {
+            if( dataRow != null)
+            {
+                return int.Parse( dataRow[ 0 ].ToString( ) );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
+        protected virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            if( dataRow != null
+               && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
+            {
+                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

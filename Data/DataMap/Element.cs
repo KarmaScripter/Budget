@@ -15,14 +15,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public class Element : DataUnit, IDataUnit
+    public class Element : DataUnit 
     {
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual string Code { get; set; }
         /// <summary>
         /// The default
         /// </summary>
@@ -144,71 +138,6 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Sets the columnName.
-        /// </summary>
-        /// <param name = "dataRow" > </param>
-        /// <param name = "columnName" > </param>
-        protected virtual void SetName( DataRow dataRow, string columnName )
-        {
-            if( dataRow != null
-               && !string.IsNullOrEmpty( columnName )
-               && Enum.GetNames( typeof( Field ) )?.Contains( columnName ) == true )
-            {
-                try
-                {
-                    var _names = dataRow.Table?.GetColumnNames( );
-                    Name = _names?.Contains( columnName ) == true
-                        ? columnName
-                        : dataRow.Table.TableName;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the columnName.
-        /// </summary>
-        /// <param name = "field" > </param>
-        protected virtual void SetName( Field field )
-        {
-            if( Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    Name = Enum.IsDefined( typeof( Field ), field )
-                        ? field.ToString( )
-                        : string.Empty;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Sets the value.
-        /// </summary>
-        /// <param name = "value" > </param>
-        protected virtual void SetValue( object value )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( value?.ToString( ) ) )
-                {
-                    Code = value?.ToString( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        
         /// <summary>
         /// Gets the identifier.
         /// </summary>

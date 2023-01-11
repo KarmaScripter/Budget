@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Actual
     {
@@ -23,6 +23,61 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        public string BFY { get; set; }
+
+        public string EFY  { get; set; }
+
+        public string FundCode { get; set; }
+        
+        public string FundName { get; set; }
+        
+        public string RpioCode { get; set; }
+        
+        public string RpioName { get; set; }
+        
+        public string AhCode { get; set; }
+        
+        public string AhName { get; set; }
+        
+        public string AppropriationCode { get; set; }
+        
+        public string AppropriationName { get; set; }
+
+        public string OrgCode { get; set; }
+        
+        public string OrgName { get; set; }
+        
+        public string AccountCode { get; set; }
+        
+        public string ProgramProjectCode { get; set; }
+        
+        public string ProgramProjectName { get; set; }
+        
+        public string RpioActivityCode { get; set; }
+        
+        public string RpioActivityName { get; set; }
+        
+        public string BocCode { get; set; }
+        
+        public string BocName { get; set; }
+        
+        public double ULO { get; set; }
+        
+        public double Obligations { get; set; }
+        
+        public double Balance { get; set; }
+        
+        public string ProgramAreaCode { get; set; }
+        
+        public string ProgramAreaName { get; set; }
+        
+        public string GoalCode { get; set; }
+        
+        public string GoalName { get; set; }
+        
+        public string ObjectiveCode { get; set; }
+        
+        public string ObjectiveName  { get; set; }
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
