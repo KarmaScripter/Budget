@@ -192,13 +192,15 @@ namespace BudgetExecution
         /// </summary>
         public Actual( )
         {
+            Source = Source.Actuals;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Actual( IQuery query )
+        public Actual( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -209,6 +211,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Actual( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -219,6 +222,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Actual( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

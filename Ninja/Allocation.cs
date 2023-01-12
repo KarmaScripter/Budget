@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Allocation : DataUnit
+    public class Allocation : Element
     {
         /// <summary>
         /// Gets or sets the source.
@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.

@@ -15,20 +15,17 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public class Element : DataUnit 
+    public class Element : DataUnit, ISource
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Source Source { get; set; }
+        
         /// <summary>
         /// The default
         /// </summary>
         public static readonly IDataUnit Default = new Element( );
-
-        /// <summary>
-        /// Gets the dataRow.
-        /// </summary>
-        /// <value>
-        /// The dataRow.
-        /// </value>
-        public virtual DataRow Record { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Element"/> class.
