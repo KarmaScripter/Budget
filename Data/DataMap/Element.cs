@@ -23,6 +23,14 @@ namespace BudgetExecution
         public static readonly IDataUnit Default = new Element( );
 
         /// <summary>
+        /// Gets the dataRow.
+        /// </summary>
+        /// <value>
+        /// The dataRow.
+        /// </value>
+        public virtual DataRow Record { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Element"/> class.
         /// </summary>
         public Element( )

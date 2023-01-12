@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Actual
+    public class Actual: Element
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -23,60 +23,144 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string BFY { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string EFY  { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string FundCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string FundName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string RpioCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string RpioName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string AhCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string AhName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string AppropriationCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string AppropriationName { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string OrgCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string OrgName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string AccountCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string ProgramProjectCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string ProgramProjectName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string RpioActivityCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string RpioActivityName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string BocCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string BocName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public double ULO { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public double Obligations { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public double Balance { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string ProgramAreaCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string ProgramAreaName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string GoalCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string GoalName { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string ObjectiveCode { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public string ObjectiveName  { get; set; }
         
         /// <summary>
@@ -93,7 +177,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.

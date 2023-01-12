@@ -10,17 +10,18 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class UnitBase
     {
         /// <summary>
         /// The name
         /// </summary>
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// The value
         /// </summary>
-        public string Value { get; set; }
+        public virtual object Value { get; set; }
 
         /// <summary>
         /// Get Error Dialog.

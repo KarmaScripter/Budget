@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IDataUnit" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class DataUnit : UnitBase, IDataUnit
     {
         /// <summary>
@@ -29,14 +30,6 @@ namespace BudgetExecution
         /// 
         /// </value>
         public virtual DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public virtual string Name { get; set; }
 
         /// <summary>
         /// Gets the field.
