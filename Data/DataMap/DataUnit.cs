@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         /// <returns></returns>
-        protected virtual int GetId( DataRow dataRow )
+        public virtual int GetId( DataRow dataRow )
         {
             if( dataRow != null)
             {
@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <param name="primaryKey">The primary key.</param>
         /// <returns></returns>
-        protected virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             if( dataRow != null
                && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
@@ -126,6 +126,7 @@ namespace BudgetExecution
             }
         }
         
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

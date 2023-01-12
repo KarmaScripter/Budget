@@ -278,7 +278,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"></param>
         /// <returns></returns>
-        protected override int GetId( DataRow dataRow )
+        public override int GetId( DataRow dataRow )
         {
             try
             {
@@ -299,7 +299,7 @@ namespace BudgetExecution
         /// <param name="dataRow"></param>
         /// <param name="primaryKey"></param>
         /// <returns></returns>
-        protected override int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try
             {

@@ -142,41 +142,5 @@ namespace BudgetExecution
 
             return false;
         }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
-        protected virtual int GetId( DataRow dataRow )
-        {
-            if( dataRow != null)
-            {
-                return int.Parse( dataRow[ 0 ].ToString( ) );
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
-        protected virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            if( dataRow != null
-               && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
-            {
-                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) );
-            }
-            else
-            {
-                return -1;
-            }
-        }
     }
 }

@@ -7,13 +7,13 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IActivity 
+    public interface IActivity
     {
         /// <summary>
         /// Gets the activity.
         /// </summary>
         /// <returns>
         /// </returns>
-        string Code { get; set; }
+        Activity GetActivity( );
     }
 }

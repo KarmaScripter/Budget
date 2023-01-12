@@ -166,7 +166,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                    return new Dictionary<string, object>
+                    {
+                        [ $"{ Field.ActivityCode }" ] = code
+                    };
                 }
                 catch( Exception ex )
                 {
@@ -196,6 +199,11 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IDictionary<string, object> );
             }
+        }
+
+        public Activity GetActivity( )
+        {
+            return MemberwiseClone(  ) as Activity;
         }
     }
 }

@@ -47,6 +47,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class AllowanceHolder : Element, IAllowanceHolder, ISource
     {
         /// <summary>
@@ -110,8 +111,8 @@ namespace BudgetExecution
         {
             Record = dataBuilder?.Record;
             ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record?[ $"{ Field.ActivityName }" ].ToString( );
-            Code = Record?[ $"{ Field.ActivityCode }" ].ToString( );
+            Name = Record?[ $"{ Field.AhName }" ].ToString( );
+            Code = Record?[ $"{ Field.AhCode }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -126,8 +127,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
-            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Name = Record[ $"{ Field.AhName }" ].ToString( );
+            Code = Record[ $"{ Field.AhCode }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -143,8 +144,8 @@ namespace BudgetExecution
         {
             Record = data;
             ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
-            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Name = Record[ $"{ Field.AhName }" ].ToString( );
+            Code = Record[ $"{ Field.AhCode }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -159,8 +160,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( ahCode ) )?.Record;
             ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
-            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Name = Record[ $"{ Field.AhName }" ].ToString( );
+            Code = Record[ $"{ Field.AhCode }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -178,7 +179,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                    return new Dictionary<string, object> { [ $"{ Field.AhCode }" ] = code };
                 }
                 catch( Exception ex )
                 {
@@ -208,6 +209,11 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IDictionary<string, object> );
             }
+        }
+
+        public AllowanceHolder GetAllowanceHolder( )
+        {
+            return MemberwiseClone(  ) as AllowanceHolder;
         }
     }
 }

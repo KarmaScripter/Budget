@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public abstract class PRC : DataUnit
+    public abstract class PRC : Element
     {
         /// <summary>
         /// Gets or sets the budget level.
@@ -125,7 +125,7 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        public virtual DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
         
         /// <summary>
         /// Sets the field.
@@ -157,6 +157,12 @@ namespace BudgetExecution
             return default( string );
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public virtual double GetNumeric( DataRow dataRow, string field )
         {
             if( dataRow != null
@@ -176,6 +182,12 @@ namespace BudgetExecution
             return default( double );
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
         public virtual double GetNumeric( DataRow dataRow, Field field )
         {
             if( dataRow != null
@@ -200,7 +212,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"></param>
         /// <returns></returns>
-        public virtual int GetId( DataRow dataRow )
+        public override int GetId( DataRow dataRow )
         {
             try
             {
