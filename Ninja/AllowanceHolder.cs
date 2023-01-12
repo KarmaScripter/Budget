@@ -48,7 +48,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class AllowanceHolder : Element, IAllowanceHolder, ISource
+    public class AllowanceHolder : DataUnit, IAllowanceHolder, ISource
     {
         /// <summary>
         /// The source

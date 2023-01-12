@@ -35,7 +35,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Activity : Element, IActivity, ISource
+    public class Activity : DataUnit, IActivity, ISource
     {
         /// <summary>
         /// Gets the source.

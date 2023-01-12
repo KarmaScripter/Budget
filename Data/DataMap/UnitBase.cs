@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
@@ -14,6 +15,11 @@ namespace BudgetExecution
     public abstract class UnitBase
     {
         /// <summary>
+        ///  
+        /// </summary>
+        public virtual int ID { get; set; }
+
+        /// <summary>
         /// The name
         /// </summary>
         public virtual string Name { get; set; }
@@ -22,6 +28,43 @@ namespace BudgetExecution
         /// The value
         /// </summary>
         public virtual object Value { get; set; }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow )
+        {
+            if( dataRow != null)
+            {
+                return int.Parse( dataRow[ 0 ].ToString( ) );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            if( dataRow != null
+               && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
+            {
+                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
 
         /// <summary>
         /// Get Error Dialog.

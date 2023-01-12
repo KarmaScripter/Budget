@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public abstract class DescriptionBase : Element 
+    public abstract class DescriptionBase : DataUnit 
     {
         /// <summary>
         /// Gets the record.

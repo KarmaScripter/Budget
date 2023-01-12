@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// c
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AmericanRescuePlan
+    public class AmericanRescuePlan : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.

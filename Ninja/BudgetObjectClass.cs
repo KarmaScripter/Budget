@@ -27,7 +27,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class BudgetObjectClass : Element, IBudgetObjectClass, ISource
+    public class BudgetObjectClass : DataUnit, IBudgetObjectClass, ISource
     {
         /// <summary>
         /// The codes

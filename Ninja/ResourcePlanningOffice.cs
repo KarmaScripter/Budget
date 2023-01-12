@@ -21,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public class ResourcePlanningOffice : Element, IResourcePlanningOffice,  ISource
+    public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice,  ISource
     {
         /// <summary>
         /// The source

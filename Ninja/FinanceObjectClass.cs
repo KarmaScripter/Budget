@@ -22,7 +22,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class FinanceObjectClass : Element, IFinanceObjectClass, ISource
+    public class FinanceObjectClass : DataUnit, IFinanceObjectClass, ISource
     {
         /// <summary>
         /// Gets the source.

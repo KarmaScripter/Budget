@@ -21,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "Performance", "CA1822:Mark members as static" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class NationalProgram : Element, INationalProgram, ISource
+    public class NationalProgram : DataUnit, INationalProgram, ISource
     {
         /// <summary>
         /// The source

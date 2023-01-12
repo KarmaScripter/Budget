@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Element" />
+    /// <seealso cref="DataUnit" />
     /// <seealso cref="BudgetExecution.IResponsibilityCenter" />
     /// <seealso cref="BudgetExecution.ISource" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -21,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class ResponsibilityCenter : Element, IResponsibilityCenter, ISource
+    public class ResponsibilityCenter : DataUnit, IResponsibilityCenter, ISource
     {
         /// <summary>
         /// Gets or sets the identifier.

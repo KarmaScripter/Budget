@@ -13,14 +13,14 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.Element" />
+    /// <seealso cref="DataUnit" />
     /// <seealso cref="BudgetExecution.IOrganization" />
     /// <seealso cref="BudgetExecution.ISource" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Organization : Element, IOrganization, ISource
+    public class Organization : DataUnit, IOrganization, ISource
     {
         /// <summary>
         /// The source

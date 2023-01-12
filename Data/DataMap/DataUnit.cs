@@ -1,4 +1,4 @@
-﻿// <copyright file = "DataUnit.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "Element.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -13,15 +13,24 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IDataUnit" />
+    /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class DataUnit : UnitBase, IDataUnit
+    public abstract class DataUnit : UnitBase, IDataUnit, ISource
     {
         /// <summary>
         ///  
         /// </summary>
         public virtual int ID { get; set; }
+
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        public virtual string Code { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Source Source { get; set; }
 
         /// <summary>
         /// 
@@ -32,16 +41,72 @@ namespace BudgetExecution
         public virtual DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the field.
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>
-        public virtual string Code { get; set; }
+        public DataUnit( )
+        {
+        }
 
         /// <summary>
-        /// Determines whether the specified dataUnit is match.
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>
-        /// <param name="dataUnit">The dataUnit.</param>
+        /// <param name="kvp">The KVP.</param>
+        public DataUnit( KeyValuePair<string, object> kvp )
+        {
+            Name = kvp.Key;
+            Code = kvp.Value.ToString(  );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="columnName">The value.</param>
+        protected DataUnit( string name, string columnName = "" )
+        {
+            Name = name;
+            Code = columnName;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <param name="columnName">The value.</param>
+        protected DataUnit( Field field, string columnName = "" )
+        {
+            Name = field.ToString( );
+            Code = columnName;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="dataRow">The Data row.</param>
+        /// <param name="columnName">The value.</param>
+        protected DataUnit( DataRow dataRow, string columnName )
+        {
+            Name = dataRow[ columnName ].ToString( );
+            Code = dataRow[ columnName ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="dataRow">The Data row.</param>
+        /// <param name="dataColumn">The Data column.</param>
+        protected DataUnit( DataRow dataRow, DataColumn dataColumn )
+        {
+            Name = dataColumn.ColumnName;
+            Code = dataRow[ dataColumn ].ToString( );
+        }
+
+        /// <summary>
+        /// Determines whether the specified element is match.
+        /// </summary>
+        /// <param name="dataUnit">The element.</param>
         /// <returns>
-        ///   <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified element is match; otherwise, <c>false</c>.
         /// </returns>
         public virtual bool IsMatch( IDataUnit dataUnit )
         {
@@ -49,15 +114,43 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _name = dataUnit.Name;
-                    var _code = dataUnit.Code;
-                    return _code.Equals( Code ) && _name.Equals( Name );
+                    if( dataUnit.Code?.Equals( Code ) == true )
+                    {
+                        return true;
+                    }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                     return false;
                 }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether the specified primary is match.
+        /// </summary>
+        /// <param name="primary">The primary.</param>
+        /// <param name="secondary">The secondary.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsMatch( IDataUnit primary, IDataUnit secondary )
+        {
+            try
+            {
+                if( primary.Code.Equals( secondary.Code )
+                   && primary.Name.Equals( secondary.Name ) )
+                {
+                    return true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return false;
             }
 
             return false;
@@ -88,54 +181,6 @@ namespace BudgetExecution
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
-        public virtual int GetId( DataRow dataRow )
-        {
-            if( dataRow != null)
-            {
-                return int.Parse( dataRow[ 0 ].ToString( ) );
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
-        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            if( dataRow != null
-               && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
-            {
-                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) );
-            }
-            else
-            {
-                return -1;
-            }
-        }
-        
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }
