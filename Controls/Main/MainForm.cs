@@ -7,7 +7,6 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Windows.Forms;
-    using OfficeOpenXml.Drawing.Slicer;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -65,15 +64,15 @@ namespace BudgetExecution
             try
             {
                 DatabaseTile.Title.Text = "Data Management";
-                DatabaseTile.Body.Text = "Data Tables - Providers - Schema - SQL Editor";
+                DatabaseTile.Body.Text = string.Empty;
                 UtilityTile.Title.Text = "Utilities";
-                UtilityTile.Body.Text = "Calculators - Calendars - Spreadsheets - Web Browsers";
+                UtilityTile.Body.Text = string.Empty;
                 ReportingTile.Title.Text = "Reporting";
-                ReportingTile.Body.Text = "Charts and Visualizations";
+                ReportingTile.Body.Text = string.Empty;
                 ClientTile.Title.Text = "DB Clients";
-                ClientTile.Body.Text = "SQLite - SQL Compact - MS Access - SQL Server";
+                ClientTile.Body.Text = string.Empty;
                 GuidanceTile.Title.Text = "Guidance";
-                GuidanceTile.Body.Text = "OMB A-11, Resource Management Directives - Money & Finance - Appropriations Law";
+                GuidanceTile.Body.Text = string.Empty;
                 ToolTile.Title.Text = "Data Tools";
                 ToolTile.Body.Text = string.Empty;
             }

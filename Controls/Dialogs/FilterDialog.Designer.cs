@@ -56,6 +56,7 @@ partial class FilterDialog
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolTip = new BudgetExecution.SmallTip();
             this.TabControl = new BudgetExecution.TabControl();
+            this.FilterTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.TableTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.ProviderTable = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new BudgetExecution.Label();
@@ -67,7 +68,6 @@ partial class FilterDialog
             this.TableLabel = new BudgetExecution.Label();
             this.layout1 = new BudgetExecution.Layout();
             this.TableListBox = new BudgetExecution.ListBox();
-            this.FilterTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.FirstTable.SuspendLayout();
             this.FirstPanel.SuspendLayout();
             this.ThirdTable.SuspendLayout();
@@ -77,12 +77,12 @@ partial class FilterDialog
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
+            this.FilterTab.SuspendLayout();
             this.TableTab.SuspendLayout();
             this.ProviderTable.SuspendLayout();
             this.ProviderPanel.SuspendLayout();
             this.SourceTable.SuspendLayout();
             this.layout1.SuspendLayout();
-            this.FilterTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // FirstTable
@@ -619,8 +619,8 @@ partial class FilterDialog
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.TableTab);
             this.TabControl.Controls.Add(this.FilterTab);
+            this.TabControl.Controls.Add(this.TableTab);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
@@ -645,6 +645,21 @@ partial class FilterDialog
             this.TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ToolTip = null;
+            // 
+            // FilterTab
+            // 
+            this.FilterTab.Controls.Add(this.FirstTable);
+            this.FilterTab.Controls.Add(this.SecondTable);
+            this.FilterTab.Controls.Add(this.ThirdTable);
+            this.FilterTab.Image = null;
+            this.FilterTab.ImageSize = new System.Drawing.Size(16, 16);
+            this.FilterTab.Location = new System.Drawing.Point(0, 29);
+            this.FilterTab.Name = "FilterTab";
+            this.FilterTab.ShowCloseButton = true;
+            this.FilterTab.Size = new System.Drawing.Size(862, 336);
+            this.FilterTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FilterTab.TabIndex = 1;
+            this.FilterTab.ThemesEnabled = false;
             // 
             // TableTab
             // 
@@ -903,21 +918,6 @@ partial class FilterDialog
             this.TableListBox.ThemeName = "BudgetExecution";
             this.TableListBox.ToolTip = null;
             // 
-            // FilterTab
-            // 
-            this.FilterTab.Controls.Add(this.FirstTable);
-            this.FilterTab.Controls.Add(this.SecondTable);
-            this.FilterTab.Controls.Add(this.ThirdTable);
-            this.FilterTab.Image = null;
-            this.FilterTab.ImageSize = new System.Drawing.Size(16, 16);
-            this.FilterTab.Location = new System.Drawing.Point(0, 29);
-            this.FilterTab.Name = "FilterTab";
-            this.FilterTab.ShowCloseButton = true;
-            this.FilterTab.Size = new System.Drawing.Size(862, 336);
-            this.FilterTab.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FilterTab.TabIndex = 1;
-            this.FilterTab.ThemesEnabled = false;
-            // 
             // FilterDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -958,12 +958,12 @@ partial class FilterDialog
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
+            this.FilterTab.ResumeLayout(false);
             this.TableTab.ResumeLayout(false);
             this.ProviderTable.ResumeLayout(false);
             this.ProviderPanel.ResumeLayout(false);
             this.SourceTable.ResumeLayout(false);
             this.layout1.ResumeLayout(false);
-            this.FilterTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }

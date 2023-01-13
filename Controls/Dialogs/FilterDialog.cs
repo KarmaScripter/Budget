@@ -172,10 +172,11 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 882, 455 );
+            Size = new Size( 874, 472 );
             
             // Event Wiring
             Load += OnLoad;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
             FirstButton.Click += OnFirstButtonClick;
@@ -236,7 +237,7 @@ namespace BudgetExecution
                 {
                     var _text = $"{ DataTable.TableName } Filter";
                     Text = $"{ _text.SplitPascal( ) } Filter";
-                    SetLabelConfiguration(  );
+                    SetLabelConfiguration( );
                     FirstButton.Visible = !FirstButton.Visible;
                     SecondButton.Visible = !SecondButton.Visible;
                     TabControl.SelectedTab = FilterTab;
@@ -246,10 +247,16 @@ namespace BudgetExecution
                 else
                 {
                     TabControl.SelectedTab = TableTab;
-                    PopulateTableListBoxItems(  );
+                    PopulateTableListBoxItems( );
                     Text = "Data Source";
                     AccessRadioButton.CheckState = CheckState.Checked;
                     Provider = Provider.Access;
+                    Source = Source.ApplicationTables;
+                    var _model = new DataBuilder( Source, Provider );
+                    var _data = _model.GetData( );
+                    var _names = _data
+                        ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                        ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
                 }
             }
             catch( Exception ex )
@@ -329,6 +336,7 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
+                    TabControl.SelectedTab = FilterTab;
                     SelectedTable = _listBox.SelectedValue?.ToString( );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
@@ -338,7 +346,6 @@ namespace BudgetExecution
                         BindingSource.DataSource = DataModel.DataTable;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
-                        TabControl.SelectedTab = FilterTab;
                         PopulateFirstComboBoxItems( );
                         if( FirstTable.Visible == false )
                         {
@@ -444,15 +451,15 @@ namespace BudgetExecution
 
                     FirstValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
-                    PopulateSecondComboBoxItems(  );
-                    if( FirstButton.Visible != true )
+                    PopulateSecondComboBoxItems( );
+                    if( SecondTable.Visible == false )
                     {
-                        FirstButton.Visible = true;
+                        SecondTable.Visible = true;
                     }
-                    
-                    if( SecondButton.Visible != false )
+
+                    if( ThirdTable.Visible == true )
                     {
-                        SecondTable.Visible = false;
+                        ThirdTable.Visible = false;
                     }
                 }
                 catch( Exception ex )

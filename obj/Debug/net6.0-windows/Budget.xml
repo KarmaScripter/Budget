@@ -12463,33 +12463,87 @@
             <summary>
             
             </summary>
-            <seealso cref="T:BudgetExecution.IDataUnit" />
+            <seealso cref="!:IElement" />
         </member>
         <member name="P:BudgetExecution.DataUnit.ID">
             <summary>
              
             </summary>
         </member>
-        <member name="P:BudgetExecution.DataUnit.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>
-            The name.
-            </value>
-        </member>
         <member name="P:BudgetExecution.DataUnit.Code">
             <summary>
             Gets the field.
             </summary>
         </member>
+        <member name="P:BudgetExecution.DataUnit.Source">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.DataUnit.Record">
+            <summary>
+            
+            </summary>
+            <value>
+            
+            </value>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataUnit"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.#ctor(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataUnit"/> class.
+            </summary>
+            <param name="kvp">The KVP.</param>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataUnit"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="columnName">The value.</param>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.#ctor(BudgetExecution.Field,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataUnit"/> class.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="columnName">The value.</param>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.#ctor(System.Data.DataRow,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataUnit"/> class.
+            </summary>
+            <param name="dataRow">The Data row.</param>
+            <param name="columnName">The value.</param>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.#ctor(System.Data.DataRow,System.Data.DataColumn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.DataUnit"/> class.
+            </summary>
+            <param name="dataRow">The Data row.</param>
+            <param name="dataColumn">The Data column.</param>
+        </member>
         <member name="M:BudgetExecution.DataUnit.IsMatch(BudgetExecution.IDataUnit)">
             <summary>
-            Determines whether the specified dataUnit is match.
+            Determines whether the specified element is match.
             </summary>
-            <param name="dataUnit">The dataUnit.</param>
+            <param name="dataUnit">The element.</param>
             <returns>
-              <c>true</c> if the specified dataUnit is match; otherwise, <c>false</c>.
+              <c>true</c> if the specified element is match; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:BudgetExecution.DataUnit.IsMatch(BudgetExecution.IDataUnit,BudgetExecution.IDataUnit)">
+            <summary>
+            Determines whether the specified primary is match.
+            </summary>
+            <param name="primary">The primary.</param>
+            <param name="secondary">The secondary.</param>
+            <returns>
+              <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
             </returns>
         </member>
         <member name="M:BudgetExecution.DataUnit.IsMatch(System.Collections.Generic.IDictionary{System.String,System.Object})">
@@ -12500,122 +12554,6 @@
             <returns>
               <c>true</c> if the specified dictionary is match; otherwise, <c>false</c>.
             </returns>
-        </member>
-        <member name="M:BudgetExecution.DataUnit.Fail(System.Exception)">
-            <summary>
-            Get Error Dialog.
-            </summary>
-            <param name="ex">The ex.</param>
-        </member>
-        <member name="T:BudgetExecution.Element">
-            <summary>
-            
-            </summary>
-            <seealso cref="!:IElement" />
-        </member>
-        <member name="P:BudgetExecution.Element.Code">
-            <summary>
-            Gets the code.
-            </summary>
-            <returns>
-            </returns>
-        </member>
-        <member name="F:BudgetExecution.Element.Default">
-            <summary>
-            The default
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-            <param name="kvp">The KVP.</param>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-            <param name="name">The name.</param>
-            <param name="columnName">The value.</param>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor(BudgetExecution.Field,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-            <param name="field">The field.</param>
-            <param name="columnName">The value.</param>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor(System.Data.DataRow,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-            <param name="dataRow">The Data row.</param>
-            <param name="columnName">The value.</param>
-        </member>
-        <member name="M:BudgetExecution.Element.#ctor(System.Data.DataRow,System.Data.DataColumn)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BudgetExecution.Element"/> class.
-            </summary>
-            <param name="dataRow">The Data row.</param>
-            <param name="dataColumn">The Data column.</param>
-        </member>
-        <member name="M:BudgetExecution.Element.IsMatch(BudgetExecution.IDataUnit)">
-            <summary>
-            Determines whether the specified element is match.
-            </summary>
-            <param name="dataUnit">The element.</param>
-            <returns>
-              <c>true</c> if the specified element is match; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Element.IsMatch(BudgetExecution.IDataUnit,BudgetExecution.IDataUnit)">
-            <summary>
-            Determines whether the specified primary is match.
-            </summary>
-            <param name="primary">The primary.</param>
-            <param name="secondary">The secondary.</param>
-            <returns>
-              <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:BudgetExecution.Element.SetName(System.Data.DataRow,System.String)">
-            <summary>
-            Sets the columnName.
-            </summary>
-            <param name = "dataRow" > </param>
-            <param name = "columnName" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetName(BudgetExecution.Field)">
-            <summary>
-            Sets the columnName.
-            </summary>
-            <param name = "field" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.SetValue(System.Object)">
-            <summary>
-            Sets the value.
-            </summary>
-            <param name = "value" > </param>
-        </member>
-        <member name="M:BudgetExecution.Element.GetId(System.Data.DataRow)">
-            <summary>
-            Gets the identifier.
-            </summary>
-            <param name="dataRow">The data row.</param>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.Element.GetId(System.Data.DataRow,BudgetExecution.PrimaryKey)">
-            <summary>
-            Gets the identifier.
-            </summary>
-            <param name="dataRow">The data row.</param>
-            <param name="primaryKey">The primary key.</param>
-            <returns></returns>
         </member>
         <member name="T:BudgetExecution.Key">
             <summary>
@@ -12763,9 +12701,9 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.UnitBase.Data">
+        <member name="P:BudgetExecution.UnitBase.ID">
             <summary>
-            The Data
+             
             </summary>
         </member>
         <member name="P:BudgetExecution.UnitBase.Name">
@@ -12777,6 +12715,21 @@
             <summary>
             The value
             </summary>
+        </member>
+        <member name="M:BudgetExecution.UnitBase.GetId(System.Data.DataRow)">
+            <summary>
+            Gets the identifier.
+            </summary>
+            <param name="dataRow">The data row.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.UnitBase.GetId(System.Data.DataRow,BudgetExecution.PrimaryKey)">
+            <summary>
+            Gets the identifier.
+            </summary>
+            <param name="dataRow">The data row.</param>
+            <param name="primaryKey">The primary key.</param>
+            <returns></returns>
         </member>
         <member name="M:BudgetExecution.UnitBase.Fail(System.Exception)">
             <summary>
@@ -22827,7 +22780,7 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.IActivity.Code">
+        <member name="M:BudgetExecution.IActivity.GetActivity">
             <summary>
             Gets the activity.
             </summary>
@@ -22864,7 +22817,7 @@
             
             </summary>
         </member>
-        <member name="P:BudgetExecution.IAllowanceHolder.Code">
+        <member name="M:BudgetExecution.IAllowanceHolder.GetAllowanceHolder">
             <summary>
             Gets the allowance holder.
             </summary>
@@ -27259,6 +27212,146 @@
             The identifier.
             </value>
         </member>
+        <member name="P:BudgetExecution.Actual.BFY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.EFY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.FundCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.FundName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.RpioCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.RpioName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.AhCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.AhName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.AppropriationCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.AppropriationName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.OrgCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.OrgName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.AccountCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ProgramProjectCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ProgramProjectName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.RpioActivityCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.RpioActivityName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.BocCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.BocName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ULO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.Obligations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.Balance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ProgramAreaCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ProgramAreaName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.GoalCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.GoalName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ObjectiveCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Actual.ObjectiveName">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Actual.Source">
             <summary>
             Gets or sets the source.
@@ -27306,18 +27399,34 @@
             </summary>
             <param name="dataRow">The data row.</param>
         </member>
+        <member name="P:BudgetExecution.AdministrativeRequest.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.AdministrativeRequest.Record">
+            <summary>
+            Gets or sets the Record property.
+            </summary>
+            <value>
+            The data row.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.AdministrativeRequest.Data">
+            <summary>
+            Gets the arguments.
+            </summary>
+            <value>
+            The arguments.
+            </value>
+        </member>
         <member name="T:BudgetExecution.Allocation">
             <summary>
             
             </summary>
-        </member>
-        <member name="P:BudgetExecution.Allocation.ID">
-            <summary>
-            Gets or sets the identifier.
-            </summary>
-            <value>
-            The identifier.
-            </value>
         </member>
         <member name="P:BudgetExecution.Allocation.Source">
             <summary>
@@ -27325,6 +27434,14 @@
             </summary>
             <value>
             The source.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.Allocation.ID">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
             </value>
         </member>
         <member name="P:BudgetExecution.Allocation.Record">
@@ -32421,7 +32538,7 @@
             <summary>
             
             </summary>
-            <seealso cref="T:BudgetExecution.Element" />
+            <seealso cref="T:BudgetExecution.DataUnit" />
             <seealso cref="T:BudgetExecution.IOrganization" />
             <seealso cref="T:BudgetExecution.ISource" />
         </member>
@@ -32942,6 +33059,22 @@
             <returns>
             </returns>
         </member>
+        <member name="M:BudgetExecution.PRC.GetNumeric(System.Data.DataRow,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dataRow"></param>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.PRC.GetNumeric(System.Data.DataRow,BudgetExecution.Field)">
+            <summary>
+            
+            </summary>
+            <param name="dataRow"></param>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
         <member name="M:BudgetExecution.PRC.GetId(System.Data.DataRow)">
             <summary>
             
@@ -32962,152 +33095,6 @@
             Get Error Dialog.
             </summary>
             <param name="ex">The ex.</param>
-        </member>
-        <member name="T:BudgetExecution.PrcBase">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.Record">
-            <summary>
-            Gets or sets the dataRow.
-            </summary>
-            <value>
-            The dataRow.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.Code">
-            <summary>
-            Gets or sets the code.
-            </summary>
-            <value>
-            The code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>
-            The name.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.ID">
-            <summary>
-            Gets or sets the ProgramResultCodes identifier.
-            </summary>
-            <value>
-            The ProgramResultCodes identifier.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.BudgetLevel">
-            <summary>
-            Gets or sets the budget level.
-            </summary>
-            <value>
-            The budget level.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.BFY">
-            <summary>
-            Gets or sets the bfy.
-            </summary>
-            <value>
-            The bfy.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.RpioCode">
-            <summary>
-            Gets or sets the rpio code.
-            </summary>
-            <value>
-            The rpio code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.FundCode">
-            <summary>
-            Gets or sets the fund code.
-            </summary>
-            <value>
-            The fund code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.AhCode">
-            <summary>
-            Gets or sets the ah code.
-            </summary>
-            <value>
-            The ah code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.OrgCode">
-            <summary>
-            Gets or sets the org code.
-            </summary>
-            <value>
-            The org code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.AccountCode">
-            <summary>
-            Gets or sets the account code.
-            </summary>
-            <value>
-            The account code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.ActivityCode">
-            <summary>
-            Gets or sets the activity code.
-            </summary>
-            <value>
-            The activity code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.BocCode">
-            <summary>
-            Gets or sets the boc code.
-            </summary>
-            <value>
-            The boc code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.RcCode">
-            <summary>
-            Gets or sets the rc code.
-            </summary>
-            <value>
-            The rc code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.ProgramProjectCode">
-            <summary>
-            Gets or sets the activity code.
-            </summary>
-            <value>
-            The activity code.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.PrcBase.ProgramAreaCode">
-            <summary>
-            Gets or sets the program area code.
-            </summary>
-            <value>
-            The program area code.
-            </value>
-        </member>
-        <member name="M:BudgetExecution.PrcBase.GetField(System.Data.DataRow,BudgetExecution.Field)">
-            <summary>
-            Sets the field.
-            </summary>
-            <param name = "dataRow" >
-            The dataRow.
-            </param>
-            <param name = "field" >
-            The field.
-            </param>
-            <returns>
-            </returns>
         </member>
         <member name="T:BudgetExecution.ProgramArea">
             <summary>
@@ -34534,7 +34521,7 @@
             <summary>
             
             </summary>
-            <seealso cref="T:BudgetExecution.Element" />
+            <seealso cref="T:BudgetExecution.DataUnit" />
             <seealso cref="T:BudgetExecution.IResponsibilityCenter" />
             <seealso cref="T:BudgetExecution.ISource" />
         </member>
@@ -35571,7 +35558,7 @@
             <summary>
             
             </summary>
-            <seealso cref="T:BudgetExecution.DataUnit" />
+            <seealso cref="!:DataElement" />
         </member>
         <member name="M:BudgetExecution.TimeBase.GetDate(System.String)">
             <summary>

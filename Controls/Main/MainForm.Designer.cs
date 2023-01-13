@@ -57,14 +57,14 @@
             Syncfusion.Windows.Forms.Tools.TextItem textItem24 = new Syncfusion.Windows.Forms.Tools.TextItem();
             Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
             this.GuidanceTile = new BudgetExecution.Tile();
+            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ToolTip = new BudgetExecution.SmallTip();
             this.DatabaseTile = new BudgetExecution.Tile();
             this.ToolTile = new BudgetExecution.Tile();
             this.ClientTile = new BudgetExecution.Tile();
             this.UtilityTile = new BudgetExecution.Tile();
             this.ReportingTile = new BudgetExecution.Tile();
             this.Darkmode = new MetroSet_UI.Components.StyleManager();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ToolTip = new BudgetExecution.SmallTip();
             this.ExitButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
@@ -98,13 +98,13 @@
             this.GuidanceTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoverText = null;
-            this.GuidanceTile.Location = new System.Drawing.Point(1012, 112);
+            this.GuidanceTile.Location = new System.Drawing.Point(1068, 112);
             this.GuidanceTile.Margin = new System.Windows.Forms.Padding(1);
             this.GuidanceTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.GuidanceTile.Name = "GuidanceTile";
             this.GuidanceTile.ShowBanner = true;
             this.GuidanceTile.ShowBannerIcon = true;
-            this.GuidanceTile.Size = new System.Drawing.Size(325, 137);
+            this.GuidanceTile.Size = new System.Drawing.Size(282, 113);
             this.GuidanceTile.TabIndex = 0;
             textItem4.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem4.HubTile = this.GuidanceTile;
@@ -113,6 +113,26 @@
             this.GuidanceTile.Title = textItem4;
             this.GuidanceTile.ToolTip = this.ToolTip;
             this.GuidanceTile.TurnLiveTileOn = true;
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.ToolTip.BindingSource = null;
+            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
+            this.ToolTip.Name = null;
+            this.ToolTip.OwnerDraw = true;
+            this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ToolTip.StyleManager = null;
+            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
+            this.ToolTip.ThemeName = "Budget Execution";
+            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.TipText = null;
+            this.ToolTip.TipTitle = null;
             // 
             // DatabaseTile
             // 
@@ -149,7 +169,7 @@
             this.DatabaseTile.Name = "DatabaseTile";
             this.DatabaseTile.ShowBanner = true;
             this.DatabaseTile.ShowBannerIcon = true;
-            this.DatabaseTile.Size = new System.Drawing.Size(325, 137);
+            this.DatabaseTile.Size = new System.Drawing.Size(282, 113);
             this.DatabaseTile.TabIndex = 1;
             textItem8.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem8.HubTile = this.DatabaseTile;
@@ -194,7 +214,7 @@
             this.ToolTile.Name = "ToolTile";
             this.ToolTile.ShowBanner = true;
             this.ToolTile.ShowBannerIcon = true;
-            this.ToolTile.Size = new System.Drawing.Size(325, 137);
+            this.ToolTile.Size = new System.Drawing.Size(282, 113);
             this.ToolTile.TabIndex = 2;
             textItem12.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem12.HubTile = this.ToolTile;
@@ -233,13 +253,13 @@
             this.ClientTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoverText = null;
-            this.ClientTile.Location = new System.Drawing.Point(1012, 452);
+            this.ClientTile.Location = new System.Drawing.Point(1068, 443);
             this.ClientTile.Margin = new System.Windows.Forms.Padding(1);
             this.ClientTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ClientTile.Name = "ClientTile";
             this.ClientTile.ShowBanner = true;
             this.ClientTile.ShowBannerIcon = true;
-            this.ClientTile.Size = new System.Drawing.Size(325, 137);
+            this.ClientTile.Size = new System.Drawing.Size(282, 113);
             this.ClientTile.TabIndex = 3;
             textItem16.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem16.HubTile = this.ClientTile;
@@ -278,13 +298,13 @@
             this.UtilityTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoverText = null;
-            this.UtilityTile.Location = new System.Drawing.Point(517, 452);
+            this.UtilityTile.Location = new System.Drawing.Point(577, 452);
             this.UtilityTile.Margin = new System.Windows.Forms.Padding(1);
             this.UtilityTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.UtilityTile.Name = "UtilityTile";
             this.UtilityTile.ShowBanner = true;
             this.UtilityTile.ShowBannerIcon = true;
-            this.UtilityTile.Size = new System.Drawing.Size(325, 137);
+            this.UtilityTile.Size = new System.Drawing.Size(282, 113);
             this.UtilityTile.TabIndex = 4;
             textItem20.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem20.HubTile = this.UtilityTile;
@@ -323,13 +343,13 @@
             this.ReportingTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ReportingTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ReportingTile.HoverText = null;
-            this.ReportingTile.Location = new System.Drawing.Point(499, 112);
+            this.ReportingTile.Location = new System.Drawing.Point(577, 112);
             this.ReportingTile.Margin = new System.Windows.Forms.Padding(1);
             this.ReportingTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ReportingTile.Name = "ReportingTile";
             this.ReportingTile.ShowBanner = true;
             this.ReportingTile.ShowBannerIcon = true;
-            this.ReportingTile.Size = new System.Drawing.Size(325, 137);
+            this.ReportingTile.Size = new System.Drawing.Size(282, 113);
             this.ReportingTile.TabIndex = 5;
             textItem24.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem24.HubTile = this.ReportingTile;
@@ -346,26 +366,6 @@
             this.Darkmode.Style = MetroSet_UI.Enums.Style.Custom;
             this.Darkmode.ThemeAuthor = "Terry D. Eppler";
             this.Darkmode.ThemeName = "BudgetExecution";
-            // 
-            // ToolTip
-            // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = null;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = null;
-            this.ToolTip.TipTitle = null;
             // 
             // ExitButton
             // 
