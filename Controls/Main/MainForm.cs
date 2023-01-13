@@ -7,7 +7,10 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Spreadsheet;
     using Syncfusion.Windows.Forms;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
 
     /// <summary>
     /// 
@@ -64,17 +67,23 @@ namespace BudgetExecution
             try
             {
                 DatabaseTile.Title.Text = "Data Management";
+                DatabaseTile.Banner.Text = "Tables, Schema, Records";
                 DatabaseTile.Body.Text = string.Empty;
                 UtilityTile.Title.Text = "Utilities";
                 UtilityTile.Body.Text = string.Empty;
+                UtilityTile.Banner.Text = "Calculator, Calendar, Web Browser";
                 ReportingTile.Title.Text = "Reporting";
                 ReportingTile.Body.Text = string.Empty;
+                ReportingTile.Banner.Text = "Charts, Spreadsheets, Graphs";
                 ClientTile.Title.Text = "DB Clients";
                 ClientTile.Body.Text = string.Empty;
+                ClientTile.Banner.Text = "SQLite, SQL Server, Access";
                 GuidanceTile.Title.Text = "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
+                GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
                 ToolTile.Title.Text = "Data Tools";
                 ToolTile.Body.Text = string.Empty;
+                ToolTile.Banner.Text = string.Empty;
             }
             catch( Exception ex )
             {

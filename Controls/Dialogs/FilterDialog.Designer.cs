@@ -94,7 +94,7 @@ partial class FilterDialog
             this.FirstTable.Controls.Add(this.FirstComboBox, 0, 1);
             this.FirstTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FirstTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.FirstTable.Location = new System.Drawing.Point(12, 3);
+            this.FirstTable.Location = new System.Drawing.Point(12, 2);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 3;
             this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -230,7 +230,7 @@ partial class FilterDialog
             this.ThirdTable.Controls.Add(this.ThirdPanel, 0, 2);
             this.ThirdTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ThirdTable.Location = new System.Drawing.Point(588, 3);
+            this.ThirdTable.Location = new System.Drawing.Point(588, 2);
             this.ThirdTable.Name = "ThirdTable";
             this.ThirdTable.RowCount = 3;
             this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -484,7 +484,7 @@ partial class FilterDialog
             this.SecondTable.Controls.Add(this.SecondPanel, 0, 2);
             this.SecondTable.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SecondTable.Location = new System.Drawing.Point(303, 3);
+            this.SecondTable.Location = new System.Drawing.Point(305, 2);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 3;
             this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -619,8 +619,8 @@ partial class FilterDialog
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.FilterTab);
             this.TabControl.Controls.Add(this.TableTab);
+            this.TabControl.Controls.Add(this.FilterTab);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
@@ -648,9 +648,9 @@ partial class FilterDialog
             // 
             // FilterTab
             // 
-            this.FilterTab.Controls.Add(this.FirstTable);
             this.FilterTab.Controls.Add(this.SecondTable);
             this.FilterTab.Controls.Add(this.ThirdTable);
+            this.FilterTab.Controls.Add(this.FirstTable);
             this.FilterTab.Image = null;
             this.FilterTab.ImageSize = new System.Drawing.Size(16, 16);
             this.FilterTab.Location = new System.Drawing.Point(0, 29);

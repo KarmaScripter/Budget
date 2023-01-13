@@ -24,6 +24,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     public partial class FilterDialog : MetroForm
     {
         /// <summary>
@@ -186,6 +187,9 @@ namespace BudgetExecution
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             ThirdButton.Click += OnThirdButtonClick;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
         }
         
         /// <summary>
@@ -233,7 +237,7 @@ namespace BudgetExecution
             {
                 SqlQuery = string.Empty;
                 FormFilter = new Dictionary<string, object>( );
-                if( DataModel != null )
+                if( BindingSource.DataSource != null )
                 {
                     var _text = $"{ DataTable.TableName } Filter";
                     Text = $"{ _text.SplitPascal( ) } Filter";
@@ -248,20 +252,47 @@ namespace BudgetExecution
                 {
                     TabControl.SelectedTab = TableTab;
                     PopulateTableListBoxItems( );
-                    Text = "Data Source";
-                    AccessRadioButton.CheckState = CheckState.Checked;
+                    Text = "Select Data Source";
+                    AccessRadioButton.Checked = true;
                     Provider = Provider.Access;
                     Source = Source.ApplicationTables;
-                    var _model = new DataBuilder( Source, Provider );
-                    var _data = _model.GetData( );
-                    var _names = _data
-                        ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                        ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [RadioButton checked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnRadioButtonChecked( object sender )
+        {
+            if( sender is RadioButton _radio 
+               && _radio.Tag != null )
+            {
+                try
+                {
+                    var _tag = _radio.Tag.ToString(  );
+
+                    if ( !string.IsNullOrEmpty( _tag ) )
+                    {
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _tag  );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -340,6 +371,7 @@ namespace BudgetExecution
                     SelectedTable = _listBox.SelectedValue?.ToString( );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
+                        BindingSource.DataSource = null;
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
