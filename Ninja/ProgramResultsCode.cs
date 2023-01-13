@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public virtual Source Source { get; set; } = Source.Allocations;
+        public  override Source Source { get; set; } = Source.Allocations;
 
         /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public string Code { get; set; }
+        public override string Code { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; set; }
+        public override string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public override IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Map { get; set; }
 
         /// <summary>
         /// Gets or sets the Data elements.
@@ -212,7 +212,7 @@ namespace BudgetExecution
             AccountCode = Record[ $"{ Field.AccountCode }" ].ToString( );
             ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
             Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace BudgetExecution
             AccountCode = Record?[ $"{ Field.AccountCode }" ].ToString( );
             ActivityCode = Record?[ $"{ Field.ActivityCode }" ].ToString( );
             Amount = double.Parse( Record?[ $"{ Numeric.Amount }" ].ToString( ) );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace BudgetExecution
             AccountCode = dataRow[ $"{ Field.AccountCode }" ].ToString( );
             ActivityCode = dataRow[ $"{ Field.ActivityCode }" ].ToString( );
             Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace BudgetExecution
             AccountCode = Record[ $"{ Field.AccountCode }" ].ToString( );
             ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
             Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -296,8 +296,8 @@ namespace BudgetExecution
         {
             try
             {
-                return Data?.Any( ) == true
-                    ? Data
+                return Map?.Any( ) == true
+                    ? Map
                     : default;
             }
             catch( Exception ex )

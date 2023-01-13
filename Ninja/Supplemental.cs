@@ -64,8 +64,8 @@ namespace BudgetExecution
         {
             try
             {
-                return ( Data?.Any( ) == true )
-                    ? new DataBuilder( Source, Data )
+                return ( Map?.Any( ) == true )
+                    ? new DataBuilder( Source, Map )
                     : default( DataBuilder );
             }
             catch( Exception ex )

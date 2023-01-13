@@ -13,43 +13,48 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <seealso cref="BudgetExecution.PRC" />
+    /// <seealso cref="BudgetExecution.IAccount" />
+    /// <seealso cref="BudgetExecution.ISource" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Account : PRC, IAccount, ISource
+    public class Account : PRC, IAccount 
     {
         /// <summary>
-        /// The source
         /// </summary>
-        public Source Source { get; set; } = Source.Accounts;
+        public override Source Source { get; set; } = Source.Accounts;
 
         /// <summary>
-        /// Gets or sets the code.
+        /// Gets the goal code.
         /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
         public string GoalCode { get; set; }
-        
+
+        /// <summary>
+        /// Gets the objective code.
+        /// </summary>
         public string ObjectiveCode { get; set; }
-        
+
+        /// <summary>
+        /// Gets the national program code.
+        /// </summary>
         public string NpmCode { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Account"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Account"/> class.
         /// </summary>
         public Account( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Account"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Account"/> class.
         /// </summary>
-        /// <param name = "query" >
-        /// The query.
-        /// </param>
+        /// <param name="query">The query.</param>
         public Account( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
@@ -61,15 +66,14 @@ namespace BudgetExecution
             GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
             ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Account"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Account"/> class.
         /// </summary>
-        /// <param name = "dataBuilder" >
-        /// The dataBuilder.
-        /// </param>
+        /// <param name="dataBuilder">The data builder.</param>
         public Account( IDataModel dataBuilder )
         {
             Record = dataBuilder?.Record;
@@ -80,15 +84,14 @@ namespace BudgetExecution
             ProgramAreaCode = Record?[ $"{ Field.ProgramAreaCode }" ].ToString( );
             GoalCode = Record?[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record?[ $"{ Field.ObjectiveCode }" ].ToString( );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Account"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Account"/> class.
         /// </summary>
-        /// <param name = "dataRow" >
-        /// The dataRow.
-        /// </param>
+        /// <param name="dataRow">The data row.</param>
         public Account( DataRow dataRow )
         {
             Record = dataRow;
@@ -100,15 +103,14 @@ namespace BudgetExecution
             ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
             GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Account"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Account"/> class.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
+        /// <param name="code">The code.</param>
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -120,17 +122,14 @@ namespace BudgetExecution
             ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
             GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
-            Data = Record?.ToDictionary( );
+            Map = Record?.ToDictionary( );
         }
-        
+
         /// <summary>
-        /// Sets the arguments.
+        /// Gets the arguments.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private protected IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )
@@ -152,8 +151,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the account.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public Account GetAccount( )
         {
             try
@@ -170,14 +168,13 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <returns></returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try
             {
-                return Data?.Any( ) == true
-                    ? Data
+                return Map?.Any( ) == true
+                    ? Map
                     : default( IDictionary<string, object> );
             }
             catch( Exception ex )

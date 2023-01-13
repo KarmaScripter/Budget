@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using BudgetExecution.Interfaces;
     using DocumentFormat.OpenXml.Bibliography;
 
     /// <summary>

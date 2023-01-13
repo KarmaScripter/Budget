@@ -48,12 +48,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class AllowanceHolder : DataUnit, IAllowanceHolder, ISource
+    public class AllowanceHolder : DataUnit, IAllowanceHolder 
     {
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; set; } =  Source.AllowanceHolders;
+        public override Source Source { get; set; } =  Source.AllowanceHolders;
 
         /// <summary>
         /// Gets or sets the dict.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The dict.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets the code.

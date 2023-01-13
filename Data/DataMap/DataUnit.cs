@@ -9,13 +9,13 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using BudgetExecution.Interfaces;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="IElement" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class DataUnit : UnitBase, IDataUnit, ISource
+    public abstract class DataUnit : IDataUnit, ISource
     {
         /// <summary>
         ///  
@@ -26,6 +26,16 @@ namespace BudgetExecution
         /// Gets the field.
         /// </summary>
         public virtual string Code { get; set; }
+
+        /// <summary>
+        /// The name
+        /// </summary>
+        public virtual string Name { get; set; }
+
+        /// <summary>
+        /// The value
+        /// </summary>
+        public virtual object Value { get; set; }
 
         /// <summary>
         /// 
@@ -43,7 +53,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>
-        public DataUnit( )
+        protected DataUnit( )
         {
         }
 
@@ -51,7 +61,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>
         /// <param name="kvp">The KVP.</param>
-        public DataUnit( KeyValuePair<string, object> kvp )
+        protected DataUnit( KeyValuePair<string, object> kvp )
         {
             Name = kvp.Key;
             Code = kvp.Value.ToString(  );
@@ -104,17 +114,17 @@ namespace BudgetExecution
         /// <summary>
         /// Determines whether the specified element is match.
         /// </summary>
-        /// <param name="dataUnit">The element.</param>
+        /// <param name="unit">The element.</param>
         /// <returns>
         ///   <c>true</c> if the specified element is match; otherwise, <c>false</c>.
         /// </returns>
-        public virtual bool IsMatch( IDataUnit dataUnit )
+        public virtual bool IsMatch( IDataUnit unit )
         {
-            if( dataUnit != null )
+            if( unit != null )
             {
                 try
                 {
-                    if( dataUnit.Code?.Equals( Code ) == true )
+                    if( unit.Code?.Equals( Code ) == true )
                     {
                         return true;
                     }
@@ -181,6 +191,74 @@ namespace BudgetExecution
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataRow"></param>
+        /// <param name="primaryKey"></param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow, string primaryKey )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) ?? string.Empty )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow )
+        {
+            if( dataRow != null )
+            {
+                return int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
+        /// <returns></returns>
+        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            if( dataRow != null
+               && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
+            {
+                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) ?? string.Empty );
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// Get Error Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

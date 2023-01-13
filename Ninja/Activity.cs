@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; } = Source.ActivityCodes;
+        public override Source Source { get; set; } = Source.ActivityCodes;
 
         /// <summary>
         /// Gets the dataRow.
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The dataRow.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.

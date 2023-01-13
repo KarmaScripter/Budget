@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; set; } = Source.Funds;
+        public override Source Source { get; set; } = Source.Funds;
 
         /// <summary>
         /// Gets the Data.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets the code.

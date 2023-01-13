@@ -25,7 +25,7 @@ namespace BudgetExecution
         /// <value>
         /// The dataRow.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets the code.
@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; set; } = Source.ProgramAreas;
+        public override Source Source { get; set; } = Source.ProgramAreas;
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramArea"/> class.

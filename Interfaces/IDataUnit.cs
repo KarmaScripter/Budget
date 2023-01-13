@@ -1,38 +1,69 @@
-﻿// <copyright file = "IDataUnit.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution
+namespace BudgetExecution.Interfaces;
+
+using System.Collections.Generic;
+using System.Data;
+using BudgetExecution;
+
+/// <summary>
+/// 
+/// </summary>
+public interface IDataUnit
 {
+    /// <summary>
+    ///  
+    /// </summary>
+    int ID { get; set; }
+
+    /// <summary>
+    /// Gets the field.
+    /// </summary>
+    string Code { get; set; }
+
+    /// <summary>
+    /// The name
+    /// </summary>
+    string Name { get; set; }
+
+    /// <summary>
+    /// The value
+    /// </summary>
+    object Value { get; set; }
+
     /// <summary>
     /// 
     /// </summary>
-    public interface IDataUnit
-    {
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        string Name { get; set; }
+    /// <value>
+    /// 
+    /// </value>
+    DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        string Code { get; set; }
+    /// <summary>
+    /// Determines whether the specified element is match.
+    /// </summary>
+    /// <param name="unit">The element.</param>
+    /// <returns>
+    ///   <c>true</c> if the specified element is match; otherwise, <c>false</c>.
+    /// </returns>
+    bool IsMatch( IDataUnit unit );
 
-        /// <summary> Determines whether the specified dataUnit is equal. </summary>
-        /// <param name = "dataUnit" > The dataUnit. </param>
-        /// <returns>
-        /// <c> true </c>
-        /// if the specified dataUnit is equal; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </returns>
-        bool IsMatch( IDataUnit dataUnit );
-    }
+    /// <summary>
+    /// Determines whether the specified dictionary is match.
+    /// </summary>
+    /// <param name="dict">The dictionary.</param>
+    /// <returns>
+    ///   <c>true</c> if the specified dictionary is match; otherwise, <c>false</c>.
+    /// </returns>
+    bool IsMatch( IDictionary<string, object> dict );
+
+    /// <summary>
+    /// Gets the identifier.
+    /// </summary>
+    /// <param name="dataRow">The data row.</param>
+    /// <param name="primaryKey">The primary key.</param>
+    /// <returns></returns>
+    int GetId( DataRow dataRow, PrimaryKey primaryKey );
 }

@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; } = Source.FinanceObjectClasses;
+        public override Source Source { get; set; } = Source.FinanceObjectClasses;
 
         /// <summary>
         /// Gets or sets the record.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets the code.

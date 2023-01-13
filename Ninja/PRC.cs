@@ -120,7 +120,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public virtual IDictionary<string, object> Data { get; set; }
+        public virtual IDictionary<string, object> Map { get; set; }
         
         /// <summary>
         /// 
@@ -170,7 +170,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return double.Parse( dataRow[ field ]?.ToString( ) );
+                    return double.Parse( dataRow[ field ]?.ToString( ) ?? string.Empty );
                 }
                 catch( Exception ex )
                 {
@@ -195,7 +195,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return double.Parse( dataRow[ $"{ field }" ]?.ToString( ) );
+                    return double.Parse( dataRow[ $"{ field }" ]?.ToString( ) ?? string.Empty );
                 }
                 catch( Exception ex )
                 {
@@ -205,73 +205,6 @@ namespace BudgetExecution
             }
 
             return default( double );
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <returns></returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <param name="primaryKey"></param>
-        /// <returns></returns>
-        public virtual int GetId( DataRow dataRow, string primaryKey )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-        
-        public virtual int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

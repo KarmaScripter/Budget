@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public Source Source { get; set; } = Source.ProgramDescriptions;
+        public override Source Source { get; set; } = Source.ProgramDescriptions;
         
         /// <summary>
         /// Initializes a new instance of the
