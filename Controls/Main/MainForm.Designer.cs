@@ -378,7 +378,7 @@
             this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ExitButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
             this.ExitButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ExitButton.HoverText = null;
+            this.ExitButton.HoverText = "Exit Application";
             this.ExitButton.HoverTextColor = System.Drawing.Color.White;
             this.ExitButton.IsDerivedStyle = true;
             this.ExitButton.Location = new System.Drawing.Point(1248, 721);

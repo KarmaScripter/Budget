@@ -7,10 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Drawing;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Spreadsheet;
     using Syncfusion.Windows.Forms;
-    using Color = System.Drawing.Color;
-    using Font = System.Drawing.Font;
 
     /// <summary>
     /// 
@@ -66,24 +63,24 @@ namespace BudgetExecution
         {
             try
             {
-                DatabaseTile.Title.Text = "Data Management";
-                DatabaseTile.Banner.Text = "Tables, Schema, Records";
-                DatabaseTile.Body.Text = string.Empty;
-                UtilityTile.Title.Text = "Utilities";
-                UtilityTile.Body.Text = string.Empty;
-                UtilityTile.Banner.Text = "Calculator, Calendar, Web Browser";
-                ReportingTile.Title.Text = "Reporting";
-                ReportingTile.Body.Text = string.Empty;
-                ReportingTile.Banner.Text = "Charts, Spreadsheets, Graphs";
-                ClientTile.Title.Text = "DB Clients";
-                ClientTile.Body.Text = string.Empty;
-                ClientTile.Banner.Text = "SQLite, SQL Server, Access";
-                GuidanceTile.Title.Text = "Guidance";
-                GuidanceTile.Body.Text = string.Empty;
-                GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
-                ToolTile.Title.Text = "Data Tools";
+                DatabaseTile.Title.Text = string.Empty;
+                DatabaseTile.Banner.Text = "Data Management";
+                DatabaseTile.Body.Text = "Tables, Schema, Records";
+                UtilityTile.Title.Text = string.Empty;
+                UtilityTile.Body.Text = "Calculator, Calendar, Web Browser";
+                UtilityTile.Banner.Text =  "Utilities";
+                ReportingTile.Title.Text = string.Empty;
+                ReportingTile.Body.Text = "Charts, Spreadsheets, Graphs";
+                ReportingTile.Banner.Text = "Reporting";
+                ClientTile.Title.Text = string.Empty;
+                ClientTile.Body.Text = "SQLite, SQL Server, Access";
+                ClientTile.Banner.Text = "DB Clients";
+                GuidanceTile.Title.Text = string.Empty;
+                GuidanceTile.Body.Text = "CFR-31, RMDS 2520, OMB A-11";
+                GuidanceTile.Banner.Text = "Guidance";
+                ToolTile.Title.Text = string.Empty;
                 ToolTile.Body.Text = string.Empty;
-                ToolTile.Banner.Text = string.Empty;
+                ToolTile.Banner.Text = "Data Tools";
             }
             catch( Exception ex )
             {
@@ -149,12 +146,13 @@ namespace BudgetExecution
             {
                 var _dialog = new FilterDialog( BindingSource );
                 _dialog.TabControl.SelectedTab = _dialog.TableTab;
-                BindingSource = _dialog.BindingSource;
+                Visible = false;
                 _dialog.ShowDialog(  );
+                BindingSource = _dialog.BindingSource;
                 var _chartForm = new ChartForm( BindingSource );
+                _chartForm.Owner = this;
                 _chartForm.StartPosition = FormStartPosition.CenterParent;
                 _chartForm.ShowDialog( );
-                Visible = false;
             }
             catch( Exception ex )
             {

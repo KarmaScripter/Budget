@@ -13,9 +13,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using CheckState = MetroSet_UI.Enums.CheckState;
-    using DataTable = System.Data.DataTable;
-    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -379,6 +376,7 @@ namespace BudgetExecution
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
                         PopulateFirstComboBoxItems( );
+                        Text = $"Filter: { DataTable.TableName.SplitPascal( ) }";
                         if( FirstTable.Visible == false )
                         {
                             FirstTable.Visible = true;
@@ -845,9 +843,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _message = "NOT YET IMPLEMENTED!";
-                    var _notification = new Notification( _message );
-                    _notification.Show( );
+                    SqlQuery = CreateSqlText( FormFilter );
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    BindingSource.DataSource = DataModel.DataTable;
+                    Close( );
                 }
                 catch( Exception ex )
                 {

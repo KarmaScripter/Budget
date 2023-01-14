@@ -143,6 +143,14 @@ namespace BudgetExecution
         public IEnumerable<string> Fields { get; set; }
 
         /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IEnumerable<string> Numerics { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -260,6 +268,7 @@ namespace BudgetExecution
                     Provider = Provider.Access;
                     DataModel = new DataBuilder( Source, Provider );
                     Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
                     PopulateToolBarDropDownItems( );
                     PopulateFirstComboBoxItems( );
                     SqlQuery = string.Empty;
@@ -306,6 +315,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.BackButton )
                 {
+                    Owner.Visible = true;
                     Close(  );
                 }
             }
