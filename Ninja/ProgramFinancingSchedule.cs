@@ -6,10 +6,12 @@ namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ProgramFinancingSchedule
     {
         /// <summary>
@@ -20,6 +22,158 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the report year.
+        /// </summary>
+        /// <value>
+        /// The report year.
+        /// </value>
+        public string ReportYear { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury agency code.
+        /// </summary>
+        /// <value>
+        /// The treasury agency code.
+        /// </value>
+        public string TreasuryAgencyCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ledger account code.
+        /// </summary>
+        /// <value>
+        /// The ledger account code.
+        /// </value>
+        public string LedgerAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the section number.
+        /// </summary>
+        /// <value>
+        /// The section number.
+        /// </value>
+        public string SectionNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the section.
+        /// </summary>
+        /// <value>
+        /// The name of the section.
+        /// </value>
+        public string SectionName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the line number.
+        /// </summary>
+        /// <value>
+        /// The line number.
+        /// </value>
+        public string LineNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the line description.
+        /// </summary>
+        /// <value>
+        /// The line description.
+        /// </value>
+        public string LineDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the omb agency code.
+        /// </summary>
+        /// <value>
+        /// The omb agency code.
+        /// </value>
+        public string OmbAgencyCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the omb fund code.
+        /// </summary>
+        /// <value>
+        /// The omb fund code.
+        /// </value>
+        public string OmbFundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the omb account title.
+        /// </summary>
+        /// <value>
+        /// The omb account title.
+        /// </value>
+        public string OmbAccountTitle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the agency sequence.
+        /// </summary>
+        /// <value>
+        /// The agency sequence.
+        /// </value>
+        public string AgencySequence { get; set; }
+
+        /// <summary>
+        /// Gets or sets the account sequence.
+        /// </summary>
+        /// <value>
+        /// The account sequence.
+        /// </value>
+        public string AccountSequence { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public string FundName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the original amount.
+        /// </summary>
+        /// <value>
+        /// The original amount.
+        /// </value>
+        public double OriginalAmount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget amount.
+        /// </summary>
+        /// <value>
+        /// The budget amount.
+        /// </value>
+        public double BudgetAmount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the agency amount.
+        /// </summary>
+        /// <value>
+        /// The agency amount.
+        /// </value>
+        public double AgencyAmount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        public double Amount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the agency.
+        /// </summary>
+        /// <value>
+        /// The name of the agency.
+        /// </value>
+        public string AgencyName { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>

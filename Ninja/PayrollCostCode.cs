@@ -24,6 +24,78 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the rpio.
+        /// </summary>
+        /// <value>
+        /// The rpio.
+        /// </value>
+        public string RPIO { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ah code.
+        /// </summary>
+        /// <value>
+        /// The ah code.
+        /// </value>
+        public string AhCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rc code.
+        /// </summary>
+        /// <value>
+        /// The rc code.
+        /// </value>
+        public string RcCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the division.
+        /// </summary>
+        /// <value>
+        /// The name of the division.
+        /// </value>
+        public string DivisionName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the work code.
+        /// </summary>
+        /// <value>
+        /// The work code.
+        /// </value>
+        public string WorkCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the work code.
+        /// </summary>
+        /// <value>
+        /// The name of the work code.
+        /// </value>
+        public string WorkCodeName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hr org code.
+        /// </summary>
+        /// <value>
+        /// The hr org code.
+        /// </value>
+        public string HrOrgCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the hr org.
+        /// </summary>
+        /// <value>
+        /// The name of the hr org.
+        /// </value>
+        public string HrOrgName { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>

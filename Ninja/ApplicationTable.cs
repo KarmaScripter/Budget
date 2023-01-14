@@ -23,6 +23,22 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        public string  TableName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
+        public string  Model { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>

@@ -49,18 +49,31 @@ namespace BudgetExecution
         public override int ID { get; set; }
 
         /// <summary>
-        /// Gets the code.
+        /// Gets the field.
         /// </summary>
         public override string Code { get; set; }
 
         /// <summary>
-        /// Gets or sets the name.
+        /// The name
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
         public override string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the boc code.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
+        public string BocCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the boc.
+        /// </summary>
+        /// <value>
+        /// The name of the boc.
+        /// </value>
+        public string BocName { get; set; }
+        
         /// <summary>
         /// Gets or sets the data.
         /// </summary>

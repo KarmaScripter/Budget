@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -14,6 +15,59 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RegionalOffice : ResourcePlanningOffice
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public override int ID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the resource planning offices identifier.
+        /// </summary>
+        /// <value>
+        /// The resource planning offices identifier.
+        /// </value>
+        public int ResourcePlanningOfficesId { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        public override string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public override Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Record property.
+        /// </summary>
+        /// <value>
+        /// The data row.
+        /// </value>
+        public override DataRow Record { get; set; }
+
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public IDictionary<string, object> Map { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
         /// </summary>

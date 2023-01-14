@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AppropriationLevelAuthority
+    public class AppropriationLevelAuthority : PRC
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,15 +20,119 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public override string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public string EFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public override string FundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public string FundName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
+        public string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
+        public double Budgeted { get; set; }
+
+        /// <summary>
+        /// Gets or sets the carry over.
+        /// </summary>
+        /// <value>
+        /// The carry over.
+        /// </value>
+        public double CarryOver { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total reimbursements.
+        /// </summary>
+        /// <value>
+        /// The total reimbursements.
+        /// </value>
+        public double TotalReimbursements { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total recoveries.
+        /// </summary>
+        /// <value>
+        /// The total recoveries.
+        /// </value>
+        public double TotalRecoveries { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total authority.
+        /// </summary>
+        /// <value>
+        /// The total authority.
+        /// </value>
+        public double TotalAuthority { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -36,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.

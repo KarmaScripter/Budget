@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class PublicLaw
+    public class PublicLaw : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,15 +21,55 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the law number.
+        /// </summary>
+        /// <value>
+        /// The law number.
+        /// </value>
+        public string LawNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bill title.
+        /// </summary>
+        /// <value>
+        /// The bill title.
+        /// </value>
+        public string BillTitle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the enacted date.
+        /// </summary>
+        /// <value>
+        /// The enacted date.
+        /// </value>
+        public string EnactedDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the congress.
+        /// </summary>
+        /// <value>
+        /// The congress.
+        /// </value>
+        public string Congress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -37,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.

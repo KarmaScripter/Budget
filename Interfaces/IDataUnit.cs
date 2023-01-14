@@ -21,12 +21,12 @@ public interface IDataUnit
     /// <summary>
     /// Gets the field.
     /// </summary>
-    string Code { get; set; }
+    public string Code { get; set; }
 
     /// <summary>
     /// The name
     /// </summary>
-    string Name { get; set; }
+    public string Name { get; set; }
 
     /// <summary>
     /// The value

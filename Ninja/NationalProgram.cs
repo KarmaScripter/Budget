@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public override int ID { get; set; }
-
+        
         /// <summary>
         /// Gets the code.
         /// </summary>

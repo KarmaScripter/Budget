@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -22,6 +23,102 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the columbus.
+        /// </summary>
+        /// <value>
+        /// The columbus.
+        /// </value>
+        public DateOnly Columbus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the veterans.
+        /// </summary>
+        /// <value>
+        /// The veterans.
+        /// </value>
+        public DateOnly Veterans { get; set; }
+
+        /// <summary>
+        /// Gets or sets the thanksgiving.
+        /// </summary>
+        /// <value>
+        /// The thanksgiving.
+        /// </value>
+        public DateOnly Thanksgiving { get; set; }
+
+        /// <summary>
+        /// Gets or sets the christmas.
+        /// </summary>
+        /// <value>
+        /// The christmas.
+        /// </value>
+        public DateOnly Christmas { get; set; }
+
+        /// <summary>
+        /// Creates new years.
+        /// </summary>
+        /// <value>
+        /// The new years.
+        /// </value>
+        public DateOnly NewYears { get; set; }
+
+        /// <summary>
+        /// Gets or sets the martin luther king.
+        /// </summary>
+        /// <value>
+        /// The martin luther king.
+        /// </value>
+        public DateOnly MartinLutherKing { get; set; }
+
+        /// <summary>
+        /// Gets or sets the washingtons.
+        /// </summary>
+        /// <value>
+        /// The washingtons.
+        /// </value>
+        public DateOnly Washingtons { get; set; }
+
+        /// <summary>
+        /// Gets or sets the memorial.
+        /// </summary>
+        /// <value>
+        /// The memorial.
+        /// </value>
+        public DateOnly Memorial { get; set; }
+
+        /// <summary>
+        /// Gets or sets the juneteenth.
+        /// </summary>
+        /// <value>
+        /// The juneteenth.
+        /// </value>
+        public DateOnly Juneteenth { get; set; }
+
+        /// <summary>
+        /// Gets or sets the independence.
+        /// </summary>
+        /// <value>
+        /// The independence.
+        /// </value>
+        public DateOnly Independence { get; set; }
+
+        /// <summary>
+        /// Gets or sets the labor.
+        /// </summary>
+        /// <value>
+        /// The labor.
+        /// </value>
+        public DateOnly Labor { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>

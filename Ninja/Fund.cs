@@ -18,21 +18,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Fund : DataUnit, IFund, ISource
+    public class Fund : DataUnit, ISource, IFund
     {
-        /// <summary>
-        /// The source
-        /// </summary>
-        public override Source Source { get; set; } = Source.Funds;
-
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <value>
-        /// The Data.
-        /// </value>
-        public override DataRow Record { get; set; }
-
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
@@ -42,17 +29,252 @@ namespace BudgetExecution
         public override int ID { get; set; }
 
         /// <summary>
-        /// Gets the code.
-        /// </summary>
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the bfy.
         /// </summary>
         /// <value>
-        /// The name.
+        /// The bfy.
         /// </value>
-        public override string Name { get; set; }
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public string EFY { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the short name.
+        /// </summary>
+        /// <value>
+        /// The short name.
+        /// </value>
+        public string ShortName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
+        public DateOnly StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
+        public DateOnly EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sub level prefix.
+        /// </summary>
+        /// <value>
+        /// The sub level prefix.
+        /// </value>
+        public string SubLevelPrefix { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ata.
+        /// </summary>
+        /// <value>
+        /// The ata.
+        /// </value>
+        public string ATA { get; set; }
+
+        /// <summary>
+        /// Gets or sets the aid.
+        /// </summary>
+        /// <value>
+        /// The aid.
+        /// </value>
+        public string AID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the beginning period of availability.
+        /// </summary>
+        /// <value>
+        /// The beginning period of availability.
+        /// </value>
+        public string BeginningPeriodOfAvailability { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ending period of availability.
+        /// </summary>
+        /// <value>
+        /// The ending period of availability.
+        /// </value>
+        public string EndingPeriodOfAvailability { get; set; }
+
+        /// <summary>
+        /// Gets or sets a.
+        /// </summary>
+        /// <value>
+        /// a.
+        /// </value>
+        public string A { get; set; }
+
+        /// <summary>
+        /// Gets or sets the main.
+        /// </summary>
+        /// <value>
+        /// The main.
+        /// </value>
+        public string Main { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sub.
+        /// </summary>
+        /// <value>
+        /// The sub.
+        /// </value>
+        public string Sub { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund category.
+        /// </summary>
+        /// <value>
+        /// The fund category.
+        /// </value>
+        public string FundCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
+        public string AppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sub appropriation code.
+        /// </summary>
+        /// <value>
+        /// The sub appropriation code.
+        /// </value>
+        public string SubAppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund group.
+        /// </summary>
+        /// <value>
+        /// The fund group.
+        /// </value>
+        public string FundGroup { get; set; }
+
+        /// <summary>
+        /// Gets or sets the no year.
+        /// </summary>
+        /// <value>
+        /// The no year.
+        /// </value>
+        public string NoYear { get; set; }
+
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
+        public string Carryover { get; set; }
+
+        /// <summary>
+        /// Gets or sets the canceled year spending account.
+        /// </summary>
+        /// <value>
+        /// The canceled year spending account.
+        /// </value>
+        public string CanceledYearSpendingAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the apply at all levels.
+        /// </summary>
+        /// <value>
+        /// The apply at all levels.
+        /// </value>
+        public string ApplyAtAllLevels { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bats fund.
+        /// </summary>
+        /// <value>
+        /// The bats fund.
+        /// </value>
+        public string BatsFund { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bats end date.
+        /// </summary>
+        /// <value>
+        /// The bats end date.
+        /// </value>
+        public DateOnly BatsEndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bats option identifier.
+        /// </summary>
+        /// <value>
+        /// The bats option identifier.
+        /// </value>
+        public string BatsOptionId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the security org.
+        /// </summary>
+        /// <value>
+        /// The security org.
+        /// </value>
+        public string SecurityOrg { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
+        public string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the apportionment account code.
+        /// </summary>
+        /// <value>
+        /// The apportionment account code.
+        /// </value>
+        public string ApportionmentAccountCode { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -63,20 +285,17 @@ namespace BudgetExecution
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Gets the treasury symbol.
+        /// The source
         /// </summary>
-        /// <value>
-        /// The treasury symbol.
-        /// </value>
-        public string TreasurySymbol { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
-        /// Gets the title.
+        /// Gets the Data.
         /// </summary>
         /// <value>
-        /// The title.
+        /// The Data.
         /// </value>
-        public string Title { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Fund"/> class.
@@ -97,8 +316,6 @@ namespace BudgetExecution
             ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            TreasurySymbol = Record[ $"{ Field.TreasurySymbol }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -114,8 +331,6 @@ namespace BudgetExecution
             ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            TreasurySymbol = Record[ $"{ Field.TreasurySymbol }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -131,8 +346,6 @@ namespace BudgetExecution
             ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            TreasurySymbol = Record[ $"{ Field.TreasurySymbol }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -148,8 +361,6 @@ namespace BudgetExecution
             ID = GetId( Record, PrimaryKey.FundsId );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            TreasurySymbol = Record[ $"{ Field.TreasurySymbol }" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -166,8 +377,6 @@ namespace BudgetExecution
             ID = GetId( dataRow, PrimaryKey.FundsId );
             Name = dataRow[ $"{ Field.Name }" ].ToString( );
             Code = dataRow[ $"{ Field.Code }" ].ToString( );
-            Title = dataRow[ $"{ Field.Title }" ].ToString( );
-            TreasurySymbol = dataRow[ $"{ Field.TreasurySymbol }" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 

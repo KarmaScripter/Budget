@@ -173,7 +173,7 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
                     : -1;
             }
             catch( Exception ex )
@@ -194,7 +194,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) )
+                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) ?? string.Empty )
                     : -1;
             }
             catch( Exception ex )

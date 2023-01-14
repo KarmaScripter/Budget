@@ -23,6 +23,110 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the rate identifier.
+        /// </summary>
+        /// <value>
+        /// The rate identifier.
+        /// </value>
+        public string RateId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget year rate.
+        /// </summary>
+        /// <value>
+        /// The budget year rate.
+        /// </value>
+        public double BudgetYearRate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year1.
+        /// </summary>
+        /// <value>
+        /// The out year1.
+        /// </value>
+        public double OutYear1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year2.
+        /// </summary>
+        /// <value>
+        /// The out year2.
+        /// </value>
+        public double OutYear2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year3.
+        /// </summary>
+        /// <value>
+        /// The out year3.
+        /// </value>
+        public double OutYear3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year4.
+        /// </summary>
+        /// <value>
+        /// The out year4.
+        /// </value>
+        public double OutYear4 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year5.
+        /// </summary>
+        /// <value>
+        /// The out year5.
+        /// </value>
+        public double OutYear5 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year6.
+        /// </summary>
+        /// <value>
+        /// The out year6.
+        /// </value>
+        public double OutYear6 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year7.
+        /// </summary>
+        /// <value>
+        /// The out year7.
+        /// </value>
+        public double OutYear7 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year8.
+        /// </summary>
+        /// <value>
+        /// The out year8.
+        /// </value>
+        public double OutYear8 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the out year9.
+        /// </summary>
+        /// <value>
+        /// The out year9.
+        /// </value>
+        public double OutYear9 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sort.
+        /// </summary>
+        /// <value>
+        /// The sort.
+        /// </value>
+        public string Sort { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>

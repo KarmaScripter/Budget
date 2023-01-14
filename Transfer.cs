@@ -1,9 +1,11 @@
-﻿// <copyright file = "StateGrantObligation.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
+//
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -12,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StateGrantObligation
+    public class Transfer
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,6 +23,38 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
+        public string BudgetLevel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the document prefix.
+        /// </summary>
+        /// <value>
+        /// The document prefix.
+        /// </value>
+        public string DocPrefix { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the document.
+        /// </summary>
+        /// <value>
+        /// The type of the document.
+        /// </value>
+        public string DocType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -55,6 +89,54 @@ namespace BudgetExecution
         public string FundName { get; set; }
 
         /// <summary>
+        /// Gets or sets the reprogramming number.
+        /// </summary>
+        /// <value>
+        /// The reprogramming number.
+        /// </value>
+        public string ReprogrammingNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the control number.
+        /// </summary>
+        /// <value>
+        /// The control number.
+        /// </value>
+        public string ControlNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the processed date.
+        /// </summary>
+        /// <value>
+        /// The processed date.
+        /// </value>
+        public DateOnly ProcessedDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the quarter.
+        /// </summary>
+        /// <value>
+        /// The quarter.
+        /// </value>
+        public string Quarter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the line.
+        /// </summary>
+        /// <value>
+        /// The line.
+        /// </value>
+        public string Line { get; set; }
+
+        /// <summary>
+        /// Gets or sets the subline.
+        /// </summary>
+        /// <value>
+        /// The subline.
+        /// </value>
+        public string Subline { get; set; }
+
+        /// <summary>
         /// Gets or sets the ah code.
         /// </summary>
         /// <value>
@@ -87,46 +169,6 @@ namespace BudgetExecution
         public string OrgName { get; set; }
 
         /// <summary>
-        /// Gets or sets the state code.
-        /// </summary>
-        /// <value>
-        /// The state code.
-        /// </value>
-        public string StateCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the state.
-        /// </summary>
-        /// <value>
-        /// The name of the state.
-        /// </value>
-        public string StateName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public string ProgramProjectName { get; set; }
-
-        /// <summary>
         /// Gets or sets the rc code.
         /// </summary>
         /// <value>
@@ -141,6 +183,54 @@ namespace BudgetExecution
         /// The name of the rc.
         /// </value>
         public string RcName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the account code.
+        /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
+        public string AccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
+        public string ProgramAreaCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
+        public string ProgramAreaName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
+        public string ProgramProjectName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
+        public string ProgramProjectCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets from to.
+        /// </summary>
+        /// <value>
+        /// From to.
+        /// </value>
+        public string FromTo { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -159,13 +249,45 @@ namespace BudgetExecution
         public string BocName { get; set; }
 
         /// <summary>
+        /// Gets or sets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
+        public string NpmCode { get; set; }
+
+        /// <summary>
         /// Gets or sets the amount.
         /// </summary>
         /// <value>
         /// The amount.
         /// </value>
         public double Amount { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the type of the resource.
+        /// </summary>
+        /// <value>
+        /// The type of the resource.
+        /// </value>
+        public string ResourceType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the purpose.
+        /// </summary>
+        /// <value>
+        /// The purpose.
+        /// </value>
+        public string Purpose { get; set; }
+
+        /// <summary>
+        /// Gets or sets the extended purpose.
+        /// </summary>
+        /// <value>
+        /// The extended purpose.
+        /// </value>
+        public string ExtendedPurpose { get; set; }
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -175,53 +297,53 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The record.
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
+        /// Initializes a new instance of the <see cref="Transfer"/> class.
         /// </summary>
-        public StateGrantObligation( )
+        public Transfer( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
+        /// Initializes a new instance of the <see cref="Transfer"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StateGrantObligation( IQuery query )
+        public Transfer( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
+        /// Initializes a new instance of the <see cref="Transfer"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StateGrantObligation( IDataModel builder )
+        public Transfer( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateGrantObligation"/> class.
+        /// Initializes a new instance of the <see cref="Transfer"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StateGrantObligation( DataRow dataRow )
+        public Transfer( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

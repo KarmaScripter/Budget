@@ -24,6 +24,94 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public string EFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public string FundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public string FundName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury symbol.
+        /// </summary>
+        /// <value>
+        /// The treasury symbol.
+        /// </value>
+        public string TreasurySymbol { get; set; }
+
+        /// <summary>
+        /// Gets or sets the account number.
+        /// </summary>
+        /// <value>
+        /// The account number.
+        /// </value>
+        public string AccountNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the account.
+        /// </summary>
+        /// <value>
+        /// The name of the account.
+        /// </value>
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the beginning balance.
+        /// </summary>
+        /// <value>
+        /// The beginning balance.
+        /// </value>
+        public double BeginningBalance { get; set; }
+
+        /// <summary>
+        /// Gets or sets the credit balance.
+        /// </summary>
+        /// <value>
+        /// The credit balance.
+        /// </value>
+        public double CreditBalance { get; set; }
+
+        /// <summary>
+        /// Gets or sets the debit balance.
+        /// </summary>
+        /// <value>
+        /// The debit balance.
+        /// </value>
+        public double DebitBalance { get; set; }
+
+        /// <summary>
+        /// Gets or sets the closing amount.
+        /// </summary>
+        /// <value>
+        /// The closing amount.
+        /// </value>
+        public double ClosingAmount { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>

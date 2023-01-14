@@ -1,18 +1,21 @@
-﻿// <copyright file = "StateOrganization.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
+//
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using BudgetExecution;
 
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StateOrganization
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    public class DataRuleDescription
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -23,45 +26,45 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the schedule.
         /// </summary>
         /// <value>
-        /// The name.
+        /// The schedule.
         /// </value>
-        public string Name { get; set; }
+        public string Schedule { get; set; }
 
         /// <summary>
-        /// Gets or sets the code.
+        /// Gets or sets the line number.
         /// </summary>
         /// <value>
-        /// The code.
+        /// The line number.
         /// </value>
-        public string Code { get; set; }
+        public string LineNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets the org code.
+        /// Gets or sets the rule number.
         /// </summary>
         /// <value>
-        /// The org code.
+        /// The rule number.
         /// </value>
-        public string OrgCode { get; set; }
+        public string RuleNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the rpio.
+        /// Gets or sets the rule description.
         /// </summary>
         /// <value>
-        /// The name of the rpio.
+        /// The rule description.
         /// </value>
-        public string RpioName { get; set; }
+        public string RuleDescription { get; set; }
 
         /// <summary>
-        /// Gets or sets the rpio code.
+        /// Gets or sets the schedule order.
         /// </summary>
         /// <value>
-        /// The rpio code.
+        /// The schedule order.
         /// </value>
-        public string RpioCode { get; set; }
-        
+        public string ScheduleOrder { get; set; }
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -71,56 +74,57 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The record.
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateOrganization"/> class.
+        /// Initializes a new instance of the <see cref="DataRuleDescription"/> class.
         /// </summary>
-        public StateOrganization( )
+        public DataRuleDescription( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateOrganization"/> class.
+        /// Initializes a new instance of the <see cref="DataRuleDescription"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StateOrganization( IQuery query )
+        public DataRuleDescription( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateOrganization"/> class.
+        /// Initializes a new instance of the <see cref="DataRuleDescription"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StateOrganization( IDataModel builder )
+        public DataRuleDescription( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateOrganization"/> class.
+        /// Initializes a new instance of the <see cref="DataRuleDescription"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StateOrganization( DataRow dataRow )
+        public DataRuleDescription( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
         }
     }
 }
+

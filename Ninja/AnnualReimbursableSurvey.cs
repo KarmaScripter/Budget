@@ -23,6 +23,38 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public string FundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public string FundName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        public double Amount { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>

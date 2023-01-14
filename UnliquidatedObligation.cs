@@ -1,9 +1,11 @@
-﻿// <copyright file = "StatusOfJobsActFunding.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
+//
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -12,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StatusOfJobsActFunding
+    public class UnliquidatedObligation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -23,20 +25,12 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
-        /// Gets or sets the status of funds identifier.
+        /// Gets or sets the obligations identifier.
         /// </summary>
         /// <value>
-        /// The status of funds identifier.
+        /// The obligations identifier.
         /// </value>
-        public int StatusOfFundsId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget level.
-        /// </summary>
-        /// <value>
-        /// The budget level.
-        /// </value>
-        public string BudgetLevel { get; set; }
+        public int ObligationsId { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -127,22 +121,6 @@ namespace BudgetExecution
         public string AccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
-        public string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        public string BocName { get; set; }
-
-        /// <summary>
         /// Gets or sets the program project code.
         /// </summary>
         /// <value>
@@ -157,38 +135,6 @@ namespace BudgetExecution
         /// The name of the program project.
         /// </value>
         public string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public string NpmName { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -207,12 +153,124 @@ namespace BudgetExecution
         public string RcName { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the lower.
+        /// Gets or sets the type of the document.
         /// </summary>
         /// <value>
-        /// The name of the lower.
+        /// The type of the document.
         /// </value>
-        public string LowerName { get; set; }
+        public string DocumentType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the document number.
+        /// </summary>
+        /// <value>
+        /// The document number.
+        /// </value>
+        public string DocumentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the document control number.
+        /// </summary>
+        /// <value>
+        /// The document control number.
+        /// </value>
+        public string DocumentControlNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reference document number.
+        /// </summary>
+        /// <value>
+        /// The reference document number.
+        /// </value>
+        public string ReferenceDocumentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the processed date.
+        /// </summary>
+        /// <value>
+        /// The processed date.
+        /// </value>
+        public DateOnly ProcessedDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last activity date.
+        /// </summary>
+        /// <value>
+        /// The last activity date.
+        /// </value>
+        public DateOnly LastActivityDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the age.
+        /// </summary>
+        /// <value>
+        /// The age.
+        /// </value>
+        public int Age { get; set; }
+
+        /// <summary>
+        /// Gets or sets the boc code.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
+        public string BocCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the boc.
+        /// </summary>
+        /// <value>
+        /// The name of the boc.
+        /// </value>
+        public string BocName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the foc code.
+        /// </summary>
+        /// <value>
+        /// The foc code.
+        /// </value>
+        public string FocCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the foc.
+        /// </summary>
+        /// <value>
+        /// The name of the foc.
+        /// </value>
+        public string FocName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
+        public string NpmCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the NPM.
+        /// </summary>
+        /// <value>
+        /// The name of the NPM.
+        /// </value>
+        public string NpmName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the vendor code.
+        /// </summary>
+        /// <value>
+        /// The vendor code.
+        /// </value>
+        public string VendorCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the vendor.
+        /// </summary>
+        /// <value>
+        /// The name of the vendor.
+        /// </value>
+        public string VendorName { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -223,70 +281,6 @@ namespace BudgetExecution
         public double Amount { get; set; }
 
         /// <summary>
-        /// Gets or sets the budgeted.
-        /// </summary>
-        /// <value>
-        /// The budgeted.
-        /// </value>
-        public double Budgeted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the posted.
-        /// </summary>
-        /// <value>
-        /// The posted.
-        /// </value>
-        public double Posted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the open commitments.
-        /// </summary>
-        /// <value>
-        /// The open commitments.
-        /// </value>
-        public double OpenCommitments { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
-        public double ULO { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expenditures.
-        /// </summary>
-        /// <value>
-        /// The expenditures.
-        /// </value>
-        public double Expenditures { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public double Obligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the used.
-        /// </summary>
-        /// <value>
-        /// The used.
-        /// </value>
-        public double Used { get; set; }
-
-        /// <summary>
-        /// Gets or sets the available.
-        /// </summary>
-        /// <value>
-        /// The available.
-        /// </value>
-        public double Available { get; set; }
-        
-        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -295,53 +289,53 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The record.
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="UnliquidatedObligation"/> class.
         /// </summary>
-        public StatusOfJobsActFunding( )
+        public UnliquidatedObligation( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="UnliquidatedObligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StatusOfJobsActFunding( IQuery query )
+        public UnliquidatedObligation( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="UnliquidatedObligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StatusOfJobsActFunding( IDataModel builder )
+        public UnliquidatedObligation( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="UnliquidatedObligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StatusOfJobsActFunding( DataRow dataRow )
+        public UnliquidatedObligation( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

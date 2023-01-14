@@ -35,6 +35,182 @@ namespace BudgetExecution
         public override int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public string EFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
+        public override DateOnly StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
+        public override DateOnly EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the columbus.
+        /// </summary>
+        /// <value>
+        /// The columbus.
+        /// </value>
+        public DateOnly Columbus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the christmas.
+        /// </summary>
+        /// <value>
+        /// The christmas.
+        /// </value>
+        public DateOnly Christmas { get; set; }
+
+        /// <summary>
+        /// Gets or sets the thanksgiving.
+        /// </summary>
+        /// <value>
+        /// The thanksgiving.
+        /// </value>
+        public DateOnly Thanksgiving { get; set; }
+
+        /// <summary>
+        /// Gets or sets the veterans.
+        /// </summary>
+        /// <value>
+        /// The veterans.
+        /// </value>
+        public DateOnly Veterans { get; set; }
+
+        /// <summary>
+        /// Gets or sets the labor.
+        /// </summary>
+        /// <value>
+        /// The labor.
+        /// </value>
+        public DateOnly Labor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the independence.
+        /// </summary>
+        /// <value>
+        /// The independence.
+        /// </value>
+        public DateOnly Independence { get; set; }
+
+        /// <summary>
+        /// Gets or sets the juneteenth.
+        /// </summary>
+        /// <value>
+        /// The juneteenth.
+        /// </value>
+        public DateOnly Juneteenth { get; set; }
+
+        /// <summary>
+        /// Gets or sets the memorial.
+        /// </summary>
+        /// <value>
+        /// The memorial.
+        /// </value>
+        public DateOnly Memorial { get; set; }
+
+        /// <summary>
+        /// Gets or sets the washingtons.
+        /// </summary>
+        /// <value>
+        /// The washingtons.
+        /// </value>
+        public DateOnly Washingtons { get; set; }
+
+        /// <summary>
+        /// Gets or sets the martin luther king.
+        /// </summary>
+        /// <value>
+        /// The martin luther king.
+        /// </value>
+        public DateOnly MartinLutherKing { get; set; }
+
+        /// <summary>
+        /// Creates new years.
+        /// </summary>
+        /// <value>
+        /// The new years.
+        /// </value>
+        public DateOnly NewYears { get; set; }
+
+        /// <summary>
+        /// Gets or sets the expiring year.
+        /// </summary>
+        /// <value>
+        /// The expiring year.
+        /// </value>
+        public override string ExpiringYear { get; set; }
+
+        /// <summary>
+        /// Gets or sets the expiration date.
+        /// </summary>
+        /// <value>
+        /// The expiration date.
+        /// </value>
+        public DateOnly ExpirationDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cancellation date.
+        /// </summary>
+        /// <value>
+        /// The cancellation date.
+        /// </value>
+        public override DateOnly CancellationDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the work days.
+        /// </summary>
+        /// <value>
+        /// The work days.
+        /// </value>
+        public override double WorkDays { get; set; }
+
+        /// <summary>
+        /// Gets or sets the week days.
+        /// </summary>
+        /// <value>
+        /// The week days.
+        /// </value>
+        public override double WeekDays { get; set; }
+
+        /// <summary>
+        /// Gets or sets the week ends.
+        /// </summary>
+        /// <value>
+        /// The week ends.
+        /// </value>
+        public override double WeekEnds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the availability.
+        /// </summary>
+        /// <value>
+        /// The availability.
+        /// </value>
+        public string Availability { get; set; }
+        
+        /// <summary>
         /// Gets or sets the code.
         /// </summary>
         /// <value>
@@ -65,15 +241,7 @@ namespace BudgetExecution
         /// The holidays.
         /// </value>
         public HolidayFactory Holidays { get; set; }
-
-        /// <summary>
-        /// Gets or sets the availability.
-        /// </summary>
-        /// <value>
-        /// The availability.
-        /// </value>
-        public string Availability { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the federal holidays.
         /// </summary>
@@ -125,6 +293,7 @@ namespace BudgetExecution
             WorkDays = double.Parse( Record[ $"{ Field.WorkDays }" ].ToString( ) );
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
+            ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
             StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
             EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
             CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
@@ -188,7 +357,7 @@ namespace BudgetExecution
             WorkDays = double.Parse( Record[ $"{ Field.WorkDays }" ].ToString( ) );
             WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
             WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = dataRow[ $"{ Field.ExpiringYear }" ].ToString( );
+            ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
             StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
             EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
             CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );

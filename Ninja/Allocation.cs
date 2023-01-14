@@ -177,6 +177,14 @@ namespace BudgetExecution
         public string BocName { get; set; }
 
         /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        public double Amount { get; set; }
+        
+        /// <summary>
         /// Gets or sets the ulo.
         /// </summary>
         /// <value>

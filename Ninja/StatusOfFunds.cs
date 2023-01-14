@@ -1,18 +1,18 @@
-﻿// <copyright file = "StatusOfJobsActFunding.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
+//
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StatusOfJobsActFunding
+    public class StatusOfFunds
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,14 +21,6 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the status of funds identifier.
-        /// </summary>
-        /// <value>
-        /// The status of funds identifier.
-        /// </value>
-        public int StatusOfFundsId { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -175,22 +167,6 @@ namespace BudgetExecution
         public string ProgramAreaName { get; set; }
 
         /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public string NpmName { get; set; }
-
-        /// <summary>
         /// Gets or sets the rc code.
         /// </summary>
         /// <value>
@@ -285,7 +261,23 @@ namespace BudgetExecution
         /// The available.
         /// </value>
         public double Available { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
+        public string NpmCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the NPM.
+        /// </summary>
+        /// <value>
+        /// The name of the NPM.
+        /// </value>
+        public string NpmName { get; set; }
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -295,53 +287,53 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The record.
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfFunds"/> class.
         /// </summary>
-        public StatusOfJobsActFunding( )
+        public StatusOfFunds( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfFunds"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StatusOfJobsActFunding( IQuery query )
+        public StatusOfFunds( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfFunds"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StatusOfJobsActFunding( IDataModel builder )
+        public StatusOfFunds( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfFunds"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StatusOfJobsActFunding( DataRow dataRow )
+        public StatusOfFunds( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

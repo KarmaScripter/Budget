@@ -23,6 +23,46 @@ namespace BudgetExecution
         public int ID { get; set; }
 
         /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
+        public string RpioCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the rpio.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
+        public string RpioName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the document.
+        /// </summary>
+        /// <value>
+        /// The type of the document.
+        /// </value>
+        public string DocumentType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the document number.
+        /// </summary>
+        /// <value>
+        /// The document number.
+        /// </value>
+        public string DocumentNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the document prefix.
+        /// </summary>
+        /// <value>
+        /// The document prefix.
+        /// </value>
+        public string DocumentPrefix { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>

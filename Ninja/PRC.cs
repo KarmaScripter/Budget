@@ -126,6 +126,37 @@ namespace BudgetExecution
         /// 
         /// </summary>
         public override DataRow Record { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PRC"/> class.
+        /// </summary>
+        protected PRC( )
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PRC"/> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        protected PRC( IQuery query )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PRC"/> class.
+        /// </summary>
+        /// <param name="dataBuilder">The data builder.</param>
+        protected PRC( IDataModel dataBuilder )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PRC"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        protected PRC( DataRow dataRow )
+        {
+        }
         
         /// <summary>
         /// Sets the field.

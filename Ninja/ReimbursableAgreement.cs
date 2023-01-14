@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -22,6 +23,150 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the rpio.
+        /// </summary>
+        /// <value>
+        /// The rpio.
+        /// </value>
+        public string RPIO { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public string FundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the agreement number.
+        /// </summary>
+        /// <value>
+        /// The agreement number.
+        /// </value>
+        public string AgreementNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
+        public DateOnly StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
+        public DateOnly EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rc code.
+        /// </summary>
+        /// <value>
+        /// The rc code.
+        /// </value>
+        public string RcCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the org code.
+        /// </summary>
+        /// <value>
+        /// The org code.
+        /// </value>
+        public string OrgCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the division.
+        /// </summary>
+        /// <value>
+        /// The name of the division.
+        /// </value>
+        public string DivisionName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the site project code.
+        /// </summary>
+        /// <value>
+        /// The site project code.
+        /// </value>
+        public string SiteProjectCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the account code.
+        /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
+        public string AccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the vendor code.
+        /// </summary>
+        /// <value>
+        /// The vendor code.
+        /// </value>
+        public string VendorCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the vendor.
+        /// </summary>
+        /// <value>
+        /// The name of the vendor.
+        /// </value>
+        public string VendorName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        public double Amount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the open commitments.
+        /// </summary>
+        /// <value>
+        /// The open commitments.
+        /// </value>
+        public double OpenCommitments { get; set; }
+
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
+        public double Obligations { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ulo.
+        /// </summary>
+        /// <value>
+        /// The ulo.
+        /// </value>
+        public double ULO { get; set; }
+
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
+        public double Available { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>

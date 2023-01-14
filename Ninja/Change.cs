@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -22,6 +23,62 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        public string TableName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the field.
+        /// </summary>
+        /// <value>
+        /// The name of the field.
+        /// </value>
+        public string FieldName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the action.
+        /// </summary>
+        /// <value>
+        /// The type of the action.
+        /// </value>
+        public string ActionType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the old value.
+        /// </summary>
+        /// <value>
+        /// The old value.
+        /// </value>
+        public string OldValue { get; set; }
+
+        /// <summary>
+        /// Creates new value.
+        /// </summary>
+        /// <value>
+        /// The new value.
+        /// </value>
+        public string NewValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the change date.
+        /// </summary>
+        /// <value>
+        /// The change date.
+        /// </value>
+        public DateOnly ChangeDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
+        public string Message { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>

@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SiteProjectCode
+    public class SiteProjectCode : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,15 +20,95 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
+        public string RpioCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the rpio.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
+        public string RpioName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the state.
+        /// </summary>
+        /// <value>
+        /// The state.
+        /// </value>
+        public string State { get; set; }
+
+        /// <summary>
+        /// Gets or sets the congressional district.
+        /// </summary>
+        /// <value>
+        /// The congressional district.
+        /// </value>
+        public string CongressionalDistrict { get; set; }
+
+        /// <summary>
+        /// Gets or sets the epa site identifier.
+        /// </summary>
+        /// <value>
+        /// The epa site identifier.
+        /// </value>
+        public string EpaSiteId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
+        public override string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ssid.
+        /// </summary>
+        /// <value>
+        /// The ssid.
+        /// </value>
+        public string SSID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the action code.
+        /// </summary>
+        /// <value>
+        /// The action code.
+        /// </value>
+        public string ActionCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the operable unit.
+        /// </summary>
+        /// <value>
+        /// The operable unit.
+        /// </value>
+        public string OperableUnit { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -36,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.

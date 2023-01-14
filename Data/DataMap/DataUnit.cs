@@ -60,6 +60,30 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>
+        /// <param name="query">The query.</param>
+        protected DataUnit( IQuery query )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="dataBuilder">The data builder.</param>
+        protected DataUnit( IDataModel dataBuilder )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        protected DataUnit( DataRow dataRow )
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataUnit"/> class.
+        /// </summary>
         /// <param name="kvp">The KVP.</param>
         protected DataUnit( KeyValuePair<string, object> kvp )
         {
