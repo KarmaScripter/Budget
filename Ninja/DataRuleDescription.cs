@@ -14,8 +14,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    public class DataRuleDescription
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    public class DataRuleDescription : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the schedule.
@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the record.
@@ -79,7 +79,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Map { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRuleDescription"/> class.
@@ -103,7 +103,7 @@ namespace BudgetExecution
         public DataRuleDescription( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace BudgetExecution
         public DataRuleDescription( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace BudgetExecution
         public DataRuleDescription( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
         }
     }
 }

@@ -9,13 +9,12 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using BudgetExecution.Interfaces;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class DataUnit : IDataUnit, ISource
+    public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
         /// <summary>
         ///  
@@ -42,6 +41,22 @@ namespace BudgetExecution
         /// </summary>
         public virtual Source Source { get; set; }
 
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public virtual Provider Provider { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the map.
+        /// </summary>
+        /// <value>
+        /// The map.
+        /// </value>
+        public virtual IDictionary<string, object> Map { get; set; }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -271,6 +286,26 @@ namespace BudgetExecution
             else
             {
                 return -1;
+            }
+        }
+
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public virtual IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Record.ItemArray.Length > 0
+                    ? Record.ToDictionary(  )
+                    : default( IDictionary<string, object> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, object> );
             }
         }
 

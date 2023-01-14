@@ -4,8 +4,6 @@
 
 namespace BudgetExecution
 {
-    using BudgetExecution.Interfaces;
-
     /// <summary>
     /// 
     /// </summary>
@@ -16,7 +14,6 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        IGoal GetGoal();
+        IGoal GetGoal( );
     }
-
 }

@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Defacto
+    public class Defacto : PRC
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the status of funds identifier.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget level.
         /// </value>
-        public string BudgetLevel { get; set; }
+        public override string BudgetLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public string RpioCode { get; set; }
+        public override string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public string RpioName { get; set; }
+        public override string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The ah code.
         /// </value>
-        public string AhCode { get; set; }
+        public override string AhCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the ah.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public string AhName { get; set; }
+        public override string AhName { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public override string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The org code.
         /// </value>
-        public string OrgCode { get; set; }
+        public override string OrgCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the org.
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public string OrgName { get; set; }
+        public override string OrgName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public string AccountCode { get; set; }
+        public override string AccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// <value>
         /// The rc code.
         /// </value>
-        public string RcCode { get; set; }
+        public override string RcCode { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The boc code.
         /// </value>
-        public string BocCode { get; set; }
+        public override string BocCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the boc.
@@ -148,7 +148,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public string BocName { get; set; }
+        public override string BocName { get; set; }
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -156,7 +156,7 @@ namespace BudgetExecution
         /// <value>
         /// The program project code.
         /// </value>
-        public string ProgramProjectCode { get; set; }
+        public override string ProgramProjectCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program project.
@@ -164,7 +164,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public override string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// <value>
         /// The program area code.
         /// </value>
-        public string ProgramAreaCode { get; set; }
+        public override string ProgramAreaCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program area.
@@ -180,7 +180,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public string ProgramAreaName { get; set; }
+        public override string ProgramAreaName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rc.
@@ -188,7 +188,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rc.
         /// </value>
-        public string RcName { get; set; }
+        public override string RcName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the lower.
@@ -292,15 +292,23 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public override Provider Provider { get; set; }
+        
         /// <summary>
         /// Gets or sets the Record property.
         /// </summary>
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.

@@ -40,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public override string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public string ProgramAreaName { get; set; }
+        public override string ProgramAreaName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the activity.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the activity.
         /// </value>
-        public string ActivityName { get; set; }
+        public override string ActivityName { get; set; }
 
         /// <summary>
         /// Gets or sets the agency activity.
@@ -82,17 +82,17 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the goal code.
         /// </summary>
-        public string GoalCode { get; set; }
+        public override string GoalCode { get; set; }
 
         /// <summary>
         /// Gets the objective code.
         /// </summary>
-        public string ObjectiveCode { get; set; }
+        public override string ObjectiveCode { get; set; }
 
         /// <summary>
         /// Gets the national program code.
         /// </summary>
-        public string NpmCode { get; set; }
+        public override string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the NPM.
@@ -100,11 +100,19 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public string NpmName { get; set; }
+        public override string NpmName { get; set; }
 
         /// <summary>
         /// </summary>
         public override Source Source { get; set; } = Source.Accounts;
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -246,7 +254,7 @@ namespace BudgetExecution
         /// Converts to dictionary.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, object> ToDictionary( )
+        public override IDictionary<string, object> ToDictionary( )
         {
             try
             {

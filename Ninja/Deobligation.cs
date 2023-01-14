@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Deobligation
+    public class Deobligation : Obligation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public string RpioCode { get; set; }
+        public override string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public string RpioName { get; set; }
+        public override string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The ah code.
         /// </value>
-        public string AhCode { get; set; }
+        public override string AhCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the ah.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public string AhName { get; set; }
+        public override string AhName { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public override string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -85,7 +85,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public string AccountCode { get; set; }
+        public override string AccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM code.
@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public string NpmCode { get; set; }
+        public override string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the NPM.
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public string NpmName { get; set; }
+        public override string NpmName { get; set; }
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <value>
         /// The program project code.
         /// </value>
-        public string ProgramProjectCode { get; set; }
+        public override string ProgramProjectCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program project.
@@ -117,7 +117,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public override string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -125,7 +125,7 @@ namespace BudgetExecution
         /// <value>
         /// The org code.
         /// </value>
-        public string OrgCode { get; set; }
+        public override string OrgCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the org.
@@ -133,7 +133,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public string OrgName { get; set; }
+        public override string OrgName { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -141,7 +141,7 @@ namespace BudgetExecution
         /// <value>
         /// The boc code.
         /// </value>
-        public string BocCode { get; set; }
+        public override string BocCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the boc.
@@ -149,7 +149,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public string BocName { get; set; }
+        public override string BocName { get; set; }
 
         /// <summary>
         /// Gets or sets the document number.
@@ -157,7 +157,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public string DocumentNumber { get; set; }
+        public override string DocumentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the foc code.
@@ -165,7 +165,7 @@ namespace BudgetExecution
         /// <value>
         /// The foc code.
         /// </value>
-        public string FocCode { get; set; }
+        public override string FocCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the foc.
@@ -173,7 +173,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the foc.
         /// </value>
-        public string FocName { get; set; }
+        public override string FocName { get; set; }
 
         /// <summary>
         /// Gets or sets the processed date.
@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// <value>
         /// The processed date.
         /// </value>
-        public DateOnly ProcessedDate { get; set; }
+        public override DateOnly ProcessedDate { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -197,7 +197,15 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }  = Source.Deobligations;
+        public override Source Source { get; set; }  = Source.Deobligations;
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -205,7 +213,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -213,7 +221,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Deobligation"/> class.

@@ -14,7 +14,9 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Obligation
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public class Obligation : PRC
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -22,7 +24,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public  override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -30,7 +32,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -38,7 +40,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public virtual string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -46,7 +48,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public string RpioCode { get; set; }
+        public override string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -54,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public string RpioName { get; set; }
+        public virtual string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -62,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The ah code.
         /// </value>
-        public string AhCode { get; set; }
+        public override string AhCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the ah.
@@ -70,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public string AhName { get; set; }
+        public virtual string AhName { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -78,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public override string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -86,7 +88,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public virtual string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -94,7 +96,7 @@ namespace BudgetExecution
         /// <value>
         /// The org code.
         /// </value>
-        public string OrgCode { get; set; }
+        public override string OrgCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the org.
@@ -102,7 +104,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public string OrgName { get; set; }
+        public virtual string OrgName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -110,7 +112,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public string AccountCode { get; set; }
+        public override string AccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -118,7 +120,7 @@ namespace BudgetExecution
         /// <value>
         /// The program project code.
         /// </value>
-        public string ProgramProjectCode { get; set; }
+        public override string ProgramProjectCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program project.
@@ -126,7 +128,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public virtual string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -134,7 +136,7 @@ namespace BudgetExecution
         /// <value>
         /// The rc code.
         /// </value>
-        public string RcCode { get; set; }
+        public override string RcCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rc.
@@ -142,7 +144,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rc.
         /// </value>
-        public string RcName { get; set; }
+        public virtual string RcName { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the document.
@@ -150,7 +152,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public string DocumentType { get; set; }
+        public virtual string DocumentType { get; set; }
 
         /// <summary>
         /// Gets or sets the document number.
@@ -158,7 +160,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public string DocumentNumber { get; set; }
+        public virtual string DocumentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the document control number.
@@ -166,7 +168,7 @@ namespace BudgetExecution
         /// <value>
         /// The document control number.
         /// </value>
-        public string DocumentControlNumber { get; set; }
+        public virtual string DocumentControlNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the reference document number.
@@ -174,7 +176,7 @@ namespace BudgetExecution
         /// <value>
         /// The reference document number.
         /// </value>
-        public string ReferenceDocumentNumber { get; set; }
+        public virtual string ReferenceDocumentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the processed date.
@@ -182,7 +184,7 @@ namespace BudgetExecution
         /// <value>
         /// The processed date.
         /// </value>
-        public DateOnly ProcessedDate { get; set; }
+        public virtual DateOnly ProcessedDate { get; set; }
 
         /// <summary>
         /// Gets or sets the last activity date.
@@ -190,7 +192,7 @@ namespace BudgetExecution
         /// <value>
         /// The last activity date.
         /// </value>
-        public DateOnly LastActivityDate { get; set; }
+        public virtual DateOnly LastActivityDate { get; set; }
 
         /// <summary>
         /// Gets or sets the age.
@@ -198,7 +200,7 @@ namespace BudgetExecution
         /// <value>
         /// The age.
         /// </value>
-        public int Age { get; set; }
+        public virtual int Age { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -206,7 +208,7 @@ namespace BudgetExecution
         /// <value>
         /// The boc code.
         /// </value>
-        public string BocCode { get; set; }
+        public override string BocCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the boc.
@@ -214,7 +216,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public string BocName { get; set; }
+        public virtual string BocName { get; set; }
 
         /// <summary>
         /// Gets or sets the foc code.
@@ -222,7 +224,7 @@ namespace BudgetExecution
         /// <value>
         /// The foc code.
         /// </value>
-        public string FocCode { get; set; }
+        public virtual string FocCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the foc.
@@ -230,7 +232,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the foc.
         /// </value>
-        public string FocName { get; set; }
+        public virtual string FocName { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM code.
@@ -238,7 +240,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public string NpmCode { get; set; }
+        public virtual string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the NPM.
@@ -246,7 +248,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public string NpmName { get; set; }
+        public virtual string NpmName { get; set; }
 
         /// <summary>
         /// Gets or sets the vendor code.
@@ -254,7 +256,7 @@ namespace BudgetExecution
         /// <value>
         /// The vendor code.
         /// </value>
-        public string VendorCode { get; set; }
+        public virtual string VendorCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the vendor.
@@ -262,7 +264,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the vendor.
         /// </value>
-        public string VendorName { get; set; }
+        public virtual string VendorName { get; set; }
 
         /// <summary>
         /// Gets or sets the open commitments.
@@ -270,7 +272,7 @@ namespace BudgetExecution
         /// <value>
         /// The open commitments.
         /// </value>
-        public double OpenCommitments { get; set; }
+        public virtual double OpenCommitments { get; set; }
 
         /// <summary>
         /// Gets or sets the obligations.
@@ -278,7 +280,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligations.
         /// </value>
-        public double Obligations { get; set; }
+        public virtual double Obligations { get; set; }
 
         /// <summary>
         /// Gets or sets the ulo.
@@ -286,7 +288,7 @@ namespace BudgetExecution
         /// <value>
         /// The ulo.
         /// </value>
-        public double ULO { get; set; }
+        public virtual double ULO { get; set; }
 
         /// <summary>
         /// Gets or sets the expenditures.
@@ -294,7 +296,7 @@ namespace BudgetExecution
         /// <value>
         /// The expenditures.
         /// </value>
-        public double Expenditures { get; set; }
+        public virtual double Expenditures { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -302,7 +304,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -310,7 +312,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -318,7 +320,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public virtual IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Obligation"/> class.

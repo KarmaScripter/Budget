@@ -4,11 +4,10 @@
 
 namespace BudgetExecution
 {
-    using BudgetExecution.Interfaces;
-
     /// <summary>
     /// 
     /// </summary>
+    /// <seealso cref="BudgetExecution.IDataUnit" />
     public interface INationalProgram : IDataUnit
     {
         /// <summary>

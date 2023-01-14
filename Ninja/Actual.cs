@@ -11,179 +11,260 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    /// <seealso cref="BudgetExecution.PRC" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Actual: DataUnit
+    public class Actual : PRC
     {
         /// <summary>
-        /// Gets or sets the identifier.
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
         public override int ID { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the bfy.
         /// </summary>
-        public string BFY { get; set; }
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public override string BFY { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the efy.
         /// </summary>
-        public string EFY  { get; set; }
+        /// <value>
+        /// The efy.
+        /// </value>
+        public override string EFY  { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the fund code.
         /// </summary>
-        public string FundCode { get; set; }
-        
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public override string FundCode { get; set; }
+
         /// <summary>
-        /// 
+        /// Gets or sets the name of the fund.
         /// </summary>
-        public string FundName { get; set; }
-        
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public override string FundName { get; set; }
+
         /// <summary>
-        /// 
+        /// Gets or sets the rpio code.
         /// </summary>
-        public string RpioCode { get; set; }
-        
+        /// <value>
+        /// The rpio code.
+        /// </value>
+        public override string RpioCode { get; set; }
+
         /// <summary>
-        /// 
+        /// Gets or sets the name of the rpio.
         /// </summary>
-        public string RpioName { get; set; }
-        
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
+        public override string RpioName { get; set; }
+
         /// <summary>
-        /// 
+        /// Gets or sets the ah code.
         /// </summary>
-        public string AhCode { get; set; }
-        
+        /// <value>
+        /// The ah code.
+        /// </value>
+        public override string AhCode { get; set; }
+
         /// <summary>
-        /// 
+        /// Gets or sets the name of the ah.
         /// </summary>
-        public string AhName { get; set; }
-        
+        /// <value>
+        /// The name of the ah.
+        /// </value>
+        public override string AhName { get; set; }
+
         /// <summary>
-        /// 
+        /// Gets or sets the appropriation code.
         /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public string AppropriationCode { get; set; }
-        
+
         /// <summary>
-        /// 
+        /// Gets or sets the name of the appropriation.
         /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
         public string AppropriationName { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public string OrgCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string OrgName { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string AccountCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ProgramProjectCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ProgramProjectName { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string RpioActivityCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string RpioActivityName { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string BocCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string BocName { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public double ULO { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public double Obligations { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public double Balance { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ProgramAreaCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ProgramAreaName { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string GoalCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string GoalName { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ObjectiveCode { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ObjectiveName  { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the source.
+        /// Gets or sets the org code.
         /// </summary>
         /// <value>
-        /// The source.
+        /// The org code.
         /// </value>
+        public override string OrgCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the org.
+        /// </summary>
+        /// <value>
+        /// The name of the org.
+        /// </value>
+        public override string OrgName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the account code.
+        /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
+        public override string AccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
+        public override string ProgramProjectCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
+        public override string ProgramProjectName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rpio activity code.
+        /// </summary>
+        /// <value>
+        /// The rpio activity code.
+        /// </value>
+        public string RpioActivityCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the rpio activity.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio activity.
+        /// </value>
+        public string RpioActivityName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the boc code.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
+        public override string BocCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the boc.
+        /// </summary>
+        /// <value>
+        /// The name of the boc.
+        /// </value>
+        public override string BocName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ulo.
+        /// </summary>
+        /// <value>
+        /// The ulo.
+        /// </value>
+        public double ULO { get; set; }
+
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
+        public double Obligations { get; set; }
+
+        /// <summary>
+        /// Gets or sets the balance.
+        /// </summary>
+        /// <value>
+        /// The balance.
+        /// </value>
+        public double Balance { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
+        public override string ProgramAreaCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
+        public override string ProgramAreaName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the goal code.
+        /// </summary>
+        /// <value>
+        /// The goal code.
+        /// </value>
+        public override string GoalCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the goal.
+        /// </summary>
+        /// <value>
+        /// The name of the goal.
+        /// </value>
+        public override string GoalName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the objective code.
+        /// </summary>
+        /// <value>
+        /// The objective code.
+        /// </value>
+        public override string ObjectiveCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the objective.
+        /// </summary>
+        /// <value>
+        /// The name of the objective.
+        /// </value>
+        public override string ObjectiveName  { get; set; }
+
+        /// <summary>
+        /// </summary>
         public override Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the provider.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The provider.
         /// </value>
+        public override Provider Provider { get; set; }
+
+        /// <summary>
+        /// </summary>
         public override DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
@@ -209,7 +290,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="builder"></param>
         public Actual( IDataModel builder )
             : this( )
         {

@@ -4,11 +4,10 @@
 
 namespace BudgetExecution
 {
-    using BudgetExecution.Interfaces;
-
     /// <summary>
     /// 
     /// </summary>
+    /// <seealso cref="BudgetExecution.IDataUnit" />
     public interface IInformationTechnology : IDataUnit
     {
         /// <summary>
@@ -16,6 +15,6 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        IInformationTechnology GetItCode();
+        IInformationTechnology GetItCode( );
     }
 }

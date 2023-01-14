@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using BudgetExecution.Interfaces;
 
     /// <summary>
     /// Defines the interface for the budget time objects

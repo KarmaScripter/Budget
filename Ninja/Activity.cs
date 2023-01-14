@@ -35,7 +35,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Activity : DataUnit, IActivity, ISource
+    public class Activity : DataUnit, IActivity
     {
         /// <summary>
         /// Gets the source.
@@ -194,7 +194,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public IDictionary<string, object> ToDictionary( )
+        public override IDictionary<string, object> ToDictionary( )
         {
             try
             {
@@ -209,6 +209,10 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the activity.
+        /// </summary>
+        /// <returns></returns>
         public Activity GetActivity( )
         {
             return MemberwiseClone(  ) as Activity;

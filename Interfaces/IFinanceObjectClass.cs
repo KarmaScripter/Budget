@@ -4,8 +4,6 @@
 
 namespace BudgetExecution
 {
-    using BudgetExecution.Interfaces;
-
     /// <summary>
     /// 
     /// </summary>
