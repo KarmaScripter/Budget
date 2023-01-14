@@ -170,7 +170,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 874, 472 );
+            Size = new Size( 949, 545 );
             
             // Event Wiring
             Load += OnLoad;
@@ -187,6 +187,7 @@ namespace BudgetExecution
             AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
         }
         
         /// <summary>
@@ -208,6 +209,7 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             BindingSource.DataSource = DataTable;
             Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
         }
 
         /// <summary>
@@ -218,6 +220,7 @@ namespace BudgetExecution
             : this( )
         {
             BindingSource = bindingSource;
+            DataTable = (DataTable)BindingSource.DataSource;
         }
 
         /// <summary>
@@ -234,24 +237,29 @@ namespace BudgetExecution
             {
                 SqlQuery = string.Empty;
                 FormFilter = new Dictionary<string, object>( );
-                if( BindingSource.DataSource != null )
+                if( DataTable != null )
                 {
-                    var _text = $"{ DataTable.TableName } Filter";
+                    var _text = $"{ DataTable.TableName }";
                     Text = $"{ _text.SplitPascal( ) } Filter";
-                    SetLabelConfiguration( );
+                    SetLabelText( );
                     FirstButton.Visible = !FirstButton.Visible;
                     SecondButton.Visible = !SecondButton.Visible;
                     TabControl.SelectedTab = FilterTab;
                     Provider = DataModel.Provider;
                     Source = DataModel.Source;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    PopulateFirstComboBoxItems( );
                 }
                 else
                 {
+                    FirstButton.Visible = !FirstButton.Visible;
+                    SecondButton.Visible = !SecondButton.Visible;
                     TabControl.SelectedTab = TableTab;
                     PopulateTableListBoxItems( );
                     Text = "Select Data Source";
                     AccessRadioButton.Checked = true;
-                    Provider = Provider.Access;
+                    Provider = GetProvider(  );
                     Source = Source.ApplicationTables;
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
@@ -265,13 +273,43 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <returns></returns>
+        private Provider GetProvider( )
+        {
+            try
+            {
+                if( SQLiteRadioButton.Checked == true )
+                {
+                    Provider = Provider.SQLite;
+                }
+                else if( SqlServerRadioButton.Checked == true )
+                {
+                    Provider = Provider.SqlServer;
+                }
+                else if( AccessRadioButton.Checked == true )
+                {
+                    Provider = Provider.Access;
+                }
+                else
+                {
+                    Provider = Provider.Access;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return Provider.Access;
+            }
+            
+            return Provider.Access;
+        }
+
+        /// <summary>
         /// Called when [RadioButton checked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _radio 
@@ -280,7 +318,6 @@ namespace BudgetExecution
                 try
                 {
                     var _tag = _radio.Tag.ToString(  );
-
                     if ( !string.IsNullOrEmpty( _tag ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _tag  );
@@ -331,16 +368,29 @@ namespace BudgetExecution
             try
             {
                 TableListBox.Items.Clear( );
+                ReferenceListBox.Items.Clear(  );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList(  );
+                    ?.Select( r => r.Field<string>( "TableName" ) )
+                    ?.ToList(  );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
                     TableListBox.Items.Add( name );
+                }
+
+                var _references = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )
+                    ?.ToList(  );
+
+                for( var _i = 0; _i < _references?.Count - 1; _i++ )
+                {
+                    var name = _references[ _i ];
+                    ReferenceListBox.Items.Add( name );
                 }
             }
             catch( Exception ex )
@@ -453,7 +503,9 @@ namespace BudgetExecution
                             FirstListBox?.Items?.Add( item );
                         }
                         
-                        SetLabelConfiguration(  );
+                        SetLabelText(  );
+                        FirstButton.Visible = !FirstButton.Visible;
+                        SecondButton.Visible = !SecondButton.Visible;
                     }
                 }
                 catch( Exception ex )
@@ -527,7 +579,7 @@ namespace BudgetExecution
                     }
 
                     SecondComboBox.SelectedIndex = -1;
-                    SetLabelConfiguration(  );
+                    SetLabelText(  );
                 }
                 catch( Exception ex )
                 {
@@ -570,7 +622,7 @@ namespace BudgetExecution
                             SecondListBox.Items.Add( item );
                         }
                         
-                        SetLabelConfiguration(  );
+                        SetLabelText(  );
                     }
                 }
                 catch( Exception ex )
@@ -634,7 +686,7 @@ namespace BudgetExecution
                         }
 
                         ThirdComboBox.SelectedIndex = -1;
-                        SetLabelConfiguration(  );
+                        SetLabelText(  );
                     }
                 }
                 catch( Exception ex )
@@ -676,7 +728,7 @@ namespace BudgetExecution
                             ThirdListBox.Items.Add( item );
                         }
                         
-                        SetLabelConfiguration(  );
+                        SetLabelText(  );
                     }
                 }
                 catch( Exception ex )
@@ -725,6 +777,8 @@ namespace BudgetExecution
             try
             {
                 SqlQuery = string.Empty;
+                FirstButton.Visible = !FirstButton.Visible;
+                SecondButton.Visible = !SecondButton.Visible;
                 if( FormFilter.Keys.Count > 0 )
                 {
                     FormFilter.Clear( );
@@ -755,8 +809,6 @@ namespace BudgetExecution
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
                 }
-                
-                PopulateFirstComboBoxItems(  );
             }
             catch( Exception ex )
             {
@@ -802,25 +854,9 @@ namespace BudgetExecution
                 {
                     if( FormFilter?.Any( ) == true )
                     {
-                        FormFilter.Clear(  );
-                        FirstCategory = null;
-                        FirstValue = null;
-                        FirstComboBox.Items.Clear( ); 
-                        FirstListBox.Items.Clear( );
-                        SecondCategory = null;
-                        SecondValue = null;
-                        SecondComboBox.Items.Clear( );
-                        SecondListBox.Items.Clear( );
-                        ThirdCategory = null;
-                        ThirdValue = null;
-                        ThirdComboBox.Items.Clear( );
-                        ThirdListBox.Items.Clear(  );
-                        FirstButton.Visible = !FirstButton.Visible;
-                        SecondButton.Visible = !SecondButton.Visible;
-                        SecondTable.Visible = false;
-                        ThirdTable.Visible = false;
+                        ClearFilterSelections(  );
                         PopulateFirstComboBoxItems(  );
-                        SetLabelConfiguration(  );
+                        SetLabelText(  );
                     }
                 }
                 catch( Exception ex )
@@ -869,28 +905,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Close( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [select button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnSelectButtonClicked( object sender, EventArgs e )
-        {
-            if( sender is Button _button )
-            {
-                try
-                {
+                    ClearFilterSelections(  );
+                    BindingSource.DataSource = null;
+                    DataTable = null;
+                    DataModel = null;
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+                    
                     Close( );
                 }
                 catch( Exception ex )
@@ -903,7 +927,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the label configuration.
         /// </summary>
-        private void SetLabelConfiguration( )
+        private void SetLabelText( )
         {
             try
             {

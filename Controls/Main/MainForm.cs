@@ -39,9 +39,9 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.LightSteelBlue;
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
             
@@ -63,24 +63,24 @@ namespace BudgetExecution
         {
             try
             {
-                DatabaseTile.Title.Text = string.Empty;
-                DatabaseTile.Banner.Text = "Data Management";
+                DatabaseTile.Title.Text = "Data Management";
                 DatabaseTile.Body.Text = "Tables, Schema, Records";
-                UtilityTile.Title.Text = string.Empty;
+                DatabaseTile.Banner.Text = string.Empty;
+                UtilityTile.Title.Text =  "Utilities";
                 UtilityTile.Body.Text = "Calculator, Calendar, Web Browser";
-                UtilityTile.Banner.Text =  "Utilities";
-                ReportingTile.Title.Text = string.Empty;
+                UtilityTile.Banner.Text = string.Empty;
+                ReportingTile.Title.Text = "Reporting";
                 ReportingTile.Body.Text = "Charts, Spreadsheets, Graphs";
-                ReportingTile.Banner.Text = "Reporting";
-                ClientTile.Title.Text = string.Empty;
+                ReportingTile.Banner.Text = string.Empty;
+                ClientTile.Title.Text = "DB Clients";
                 ClientTile.Body.Text = "SQLite, SQL Server, Access";
-                ClientTile.Banner.Text = "DB Clients";
-                GuidanceTile.Title.Text = string.Empty;
+                ClientTile.Banner.Text = string.Empty;
+                GuidanceTile.Title.Text =  "Guidance";
                 GuidanceTile.Body.Text = "CFR-31, RMDS 2520, OMB A-11";
-                GuidanceTile.Banner.Text = "Guidance";
-                ToolTile.Title.Text = string.Empty;
-                ToolTile.Body.Text = string.Empty;
-                ToolTile.Banner.Text = "Data Tools";
+                GuidanceTile.Banner.Text = string.Empty;
+                ToolTile.Title.Text = "Data Tools";
+                ToolTile.Body.Text = "Not Yet Implemented";
+                ToolTile.Banner.Text = string.Empty;
             }
             catch( Exception ex )
             {
@@ -123,6 +123,7 @@ namespace BudgetExecution
             {
                 var _dataGridForm = new DataGridForm( );
                 _dataGridForm.StartPosition = FormStartPosition.CenterParent;
+                _dataGridForm.Owner = this;
                 _dataGridForm.Show(  );
                 Visible = false;
             }
@@ -217,6 +218,7 @@ namespace BudgetExecution
             try
             {
                 var _pdf = new PdfForm( );
+                _pdf.Owner = this;
                 _pdf.StartPosition = FormStartPosition.CenterParent;
                 _pdf.Show( );
                 Visible = false;

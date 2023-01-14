@@ -29,19 +29,19 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
-            Title.TextColor = Color.LightSteelBlue;
-            Body.TextColor = Color.LightSteelBlue;
+            Title.Font = new Font( "Roboto", 11, FontStyle.Bold );
+            Title.TextColor = Color.FromArgb( 0, 120, 212 );
+            Body.TextColor = Color.DarkGray;
             Body.Font = new Font( "Roboto", 10 );
-            Footer.TextColor = Color.LightSteelBlue;
+            Footer.TextColor = Color.DarkGray;
             Footer.Font = new Font( "Roboto", 9 );
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = true;
             BannerColor = Color.Transparent;
             BannerHeight = 30;
             ShowBannerIcon = true;
-            Banner.Font = new Font( "Roboto", 9 );
-            Banner.TextColor = Color.LightSteelBlue;
+            Banner.Font = new Font( "Roboto", 8 );
+            Banner.TextColor = Color.DarkGray;
             HoveredBorderColor = Color.FromArgb( 17, 53, 84 );
             HoverColor = Color.FromArgb( 17, 53, 84 );
             HoverBorderLength = 1;
@@ -105,12 +105,13 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 17, 53, 84 );
-                Title.Font = new Font( "Roboto", 11, FontStyle.Bold );
+                Title.Font = new Font( "Roboto", 12, FontStyle.Bold );
                 Title.TextColor = Color.White;
-                Body.Font = new Font( "Roboto", 10, FontStyle.Bold );
+                Body.Font = new Font( "Roboto", 11, FontStyle.Bold );
                 Body.TextColor = Color.White;
                 Banner.Font = new Font( "Roboto", 9, FontStyle.Bold );
                 Banner.TextColor = Color.White;
+                Refresh( );
             }
             catch( Exception ex )
             {
@@ -128,12 +129,13 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 20, 20, 20 );
-                Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
-                Title.TextColor = Color.LightSteelBlue;
+                Title.Font = new Font( "Roboto", 11, FontStyle.Bold );
+                Title.TextColor = Color.FromArgb( 0, 120, 212 );
                 Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
-                Body.TextColor = Color.LightSteelBlue;
-                Banner.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Banner.TextColor = Color.LightSteelBlue;
+                Body.TextColor =  Color.DarkGray;
+                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Banner.TextColor = Color.DarkGray;
+                Refresh( );
             }
             catch( Exception ex )
             {
