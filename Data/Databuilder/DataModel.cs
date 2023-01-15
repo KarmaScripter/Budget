@@ -19,6 +19,7 @@ namespace BudgetExecution
     /// <seealso cref="ModelBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataModel : ModelBase
     {
         /// <summary>

@@ -122,6 +122,22 @@ namespace BudgetExecution
         public IList<string> SelectedColumns { get; set; }
 
         /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -210,14 +226,14 @@ namespace BudgetExecution
             ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
             
             // RadioButton Properties
-            FilterRadioButton.Checked = true;
-            FoldRadioButton.Checked = false;
+            ResetButton.Visible = false;
+            FilterButton.Visible = false;
+            FoldButton.Visible = false;
             
             // Initialize Default Provider
             Provider = Provider.Access;
 
             // Event Wiring
-            Load += OnLoad;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             ReferenceListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -226,12 +242,13 @@ namespace BudgetExecution
             SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldsListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericsListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             ExitButton.Click += null;
             MenuButton.Click += null;
             ChartButton.Click += null;
             RemoveFiltersButton.Click += null;
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -281,7 +298,14 @@ namespace BudgetExecution
             {
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
-                TabControl.SelectedTab = TableTabPage;
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
+                TableTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                FoldTabPage.TabVisible = false;
+                ResetButton.Visible = false;
+                FilterButton.Visible = false;
+                FoldButton.Visible = false;
                 FirstTable.Visible = false;
                 SecondTable.Visible = false;
                 ThirdTable.Visible = false;
@@ -295,8 +319,9 @@ namespace BudgetExecution
                 TestButton.Click += OnTestButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ChartButton.Click += OnChartButtonClicked;
-                FilterRadioButton.CheckedChanged += OnFilterRadioButtonSelected;
-                FoldRadioButton.CheckedChanged += OnFoldRadioButtonSelected;
+                ResetButton.Click += OnResetButtonClicked;
+                FilterButton.Click += OnFilterButtonClicked;
+                FoldButton.Click += OnFoldButtonClicked;
             }
             catch( Exception ex )
             {
@@ -318,7 +343,7 @@ namespace BudgetExecution
                 {
                     DataModel = new DataBuilder( Source, Provider, where );
                     DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
@@ -334,22 +359,23 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data source.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="sqlText">The SQL text.</param>
-        private void BindDataSource( Source source, Provider provider, string sqlText )
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindDataSource( IEnumerable<string> fields, IEnumerable<string> numerics, 
+            IDictionary<string, object> where )
         {
-            if( Enum.IsDefined( typeof( Source ), source )
-               && Enum.IsDefined( typeof( Provider ), provider )
-               && !string.IsNullOrEmpty( sqlText ) )
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true )
             {
                 try
                 {
-                    Source = source;
-                    Provider = provider;
-                    DataModel = new DataBuilder( source, provider, sqlText );
+                    DataModel = new DataBuilder( Source, Provider, fields,
+                        numerics, where, SQL.SELECT );
                     DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
@@ -537,7 +563,12 @@ namespace BudgetExecution
 
                 ClearHeaderText( );
                 DataGrid.DataSource = null;
-                TabControl.SelectedTab = TableTabPage;
+                TableTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                FoldTabPage.TabVisible = false;
+                ResetButton.Visible = false;
+                FoldButton.Visible = false;
+                FilterButton.Visible = false;
             }
             catch( Exception ex )
             {
@@ -632,7 +663,9 @@ namespace BudgetExecution
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
-                        TabControl.SelectedTab = FilterTabPage;
+                        TableTabPage.TabVisible = !TableTabPage.TabVisible;
+                        FilterTabPage.TabVisible = !FilterTabPage.TabVisible;
+                        ResetButton.Visible = !ResetButton.Visible;
                     }
 
                     UpdateHeaderText( );
@@ -772,6 +805,7 @@ namespace BudgetExecution
                     ClearHeaderText( );
                     UpdateHeaderText( );
                     SqlQuery = CreateSqlText( FormFilter );
+                    FoldButton.Visible = true;
                     Header.Text = SqlQuery;
                 }
                 catch( Exception ex )
@@ -1014,7 +1048,7 @@ namespace BudgetExecution
                 {
                     foreach( var _item in Fields )
                     {
-                        FieldsListBox.Items.Add( _item );
+                        FieldListBox.Items.Add( _item );
                     }
                 }
                 catch( Exception ex )
@@ -1032,7 +1066,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _selectedItem = FieldsListBox.SelectedItem.ToString( );
+                var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns.Add( _selectedItem );
@@ -1059,7 +1093,7 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericsListBox.Items.Add( Numerics[ _i ] );
+                            NumericListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -1078,7 +1112,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _selectedItem = NumericsListBox.SelectedItem.ToString( );
+                var _selectedItem = NumericListBox.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns.Add( _selectedItem );
@@ -1112,14 +1146,25 @@ namespace BudgetExecution
             }
         }
 
-        private void OnFilterRadioButtonSelected( object sender  )
+        /// <summary>
+        /// Called when [reset button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnResetButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                if( sender is RadioButton _filterButton )
+                if( sender is Button _filterButton )
                 {
-                    ClearSelections(  );
-                    TabControl.SelectedTab = FilterTabPage; 
+                    SelectedColumns.Clear( );
+                    FormFilter.Clear( );
+                    ClearSelections( );
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                    FoldButton.Enabled = false;
+                    FilterButton.Enabled = false;
                 }
             }
             catch( Exception ex )
@@ -1128,13 +1173,26 @@ namespace BudgetExecution
             }
         }
 
-        private void OnFoldRadioButtonSelected( object sender  )
-        {
+        /// <summary>
+        /// Called when [filter button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnFilterButtonClicked( object sender, EventArgs e )
+        { 
             try
             {
-                if( sender is RadioButton _filterButton )
+                if( sender is Button  )
                 {
-                    TabControl.SelectedTab = FoldTabPage;
+                    SelectedColumns.Clear( );
+                    FormFilter.Clear( );
+                    ClearSelections( );
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                    FoldButton.Enabled = false;
+                    ResetButton.Enabled = true;
+                    FilterButton.Enabled = false;
                 }
             }
             catch( Exception ex )
@@ -1142,6 +1200,36 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+
+        /// <summary>
+        /// Called when [fold button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnFoldButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is Button  )
+                {
+                    SelectedColumns.Clear( );
+                    FormFilter.Clear( );
+                    PopulateFieldListBox( );
+                    PopulateNumericListBox( );
+                    FoldTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    TableTabPage.TabVisible = false;
+                    FilterButton.Visible = false;
+                    ResetButton.Visible = true;
+                    FoldButton.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [search button clicked].
         /// </summary>

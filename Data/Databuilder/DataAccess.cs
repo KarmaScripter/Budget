@@ -19,6 +19,7 @@ namespace BudgetExecution
     /// <seealso cref="ISource" />
     /// <seealso cref="IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class DataAccess : DataConfig, ISource, IProvider
     {
         /// <summary>
@@ -302,12 +303,13 @@ namespace BudgetExecution
         /// Compresses the specified column names.
         /// </summary>
         /// <param name="columnNames">The column names.</param>
-        /// <param name="having">The where.</param>
+        /// <param name="where">The where.</param>
         /// <returns></returns>
-        public DataTable Compress( IEnumerable<string> columnNames, IDictionary<string, object> having )
+        public DataTable Compress( IEnumerable<string> columnNames, 
+            IDictionary<string, object> where )
         {
             if( columnNames?.Any( ) == true 
-               && having?.Any( ) == true
+               && where?.Any( ) == true
                && DataTable != null )
             {
                 try
@@ -337,8 +339,8 @@ namespace BudgetExecution
                     var _dataSet = new DataSet( $"UI" );
                     var _dataTable = new DataTable( $"{ Source }" );
                     _dataSet.Tables.Add( _dataTable );
-                    var _sqlStatement = new SqlStatement( Source, Provider, _fields,
-                        _numerics, having, SQL.SELECT );
+                    var _sqlStatement = new SqlStatement( Source, Provider, 
+                        _fields, _numerics, where, SQL.SELECT );
                     var _query = new Query( _sqlStatement );
                     var _adapter = _query?.DataAdapter;
                     _adapter?.Fill( _dataSet, _dataTable.TableName );

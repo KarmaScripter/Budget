@@ -163,7 +163,6 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectionsTextBox.Text = string.Empty;
                 SelectionsTextBox.Visible = false;
-                ThirdButton.Click += OnCloseButtonClicked;
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );

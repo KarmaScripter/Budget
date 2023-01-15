@@ -2270,13 +2270,13 @@
             </summary>
             <param name="where">The where.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+        <member name="M:BudgetExecution.DataGridForm.BindDataSource(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Binds the data source.
             </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="sqlText">The SQL text.</param>
+            <param name="fields">The fields.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="where">The where.</param>
         </member>
         <member name="M:BudgetExecution.DataGridForm.CreateSqlText(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
@@ -11896,7 +11896,7 @@
             Compresses the specified column names.
             </summary>
             <param name="columnNames">The column names.</param>
-            <param name="having">The where.</param>
+            <param name="where">The where.</param>
             <returns></returns>
         </member>
         <member name="T:BudgetExecution.DataBuilder">
