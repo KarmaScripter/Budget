@@ -124,8 +124,8 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // ListBox Properties
-            FirstListBox.MultiSelect = true;
-            SecondListBox.MultiSelect = true;
+            FieldsListBox.MultiSelect = true;
+            NumericsListBox.MultiSelect = true;
             
             // TableProperties
             FirstTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
@@ -134,8 +134,8 @@ namespace BudgetExecution
             
             // Event Wiring
             Load += OnLoad;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxSelectedValueChanged;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxSelectedValueChanged;
+            FieldsListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericsListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             FirstButton.Click += OnFirstButtonClicked;
             SecondButton.Click += OnSecondButtonClicked;
             ThirdButton.Click += OnCloseButtonClicked;
@@ -170,9 +170,9 @@ namespace BudgetExecution
                 Text = "Schema: " + DataTable.TableName.SplitPascal(  );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                PopulateFirstListBox( );
-                PopulateSecondListBox( );
-                SetLabelConfiguration( );
+                PopulateFieldListBox( );
+                PopulateNumericListBox( );
+                SetLabelText( );
             }
             catch( Exception ex )
             {
@@ -183,12 +183,12 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the label configuration.
         /// </summary>
-        private void SetLabelConfiguration( )
+        private void SetLabelText( )
         {
             try
             {
-                FirstLabel.Text = "Fields:  " + SecondListBox.Items?.Count;
-                SecondLabel.Text = "Numerics:  " + SecondListBox.Items?.Count;
+                FirstLabel.Text = "Fields:  " + NumericsListBox.Items?.Count;
+                SecondLabel.Text = "Numerics:  " + NumericsListBox.Items?.Count;
             }
             catch( Exception ex )
             {
@@ -199,7 +199,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the column ListBox.
         /// </summary>
-        private void PopulateFirstListBox( )
+        private void PopulateFieldListBox( )
         {
             if( Fields?.Any( ) == true )
             {
@@ -207,7 +207,7 @@ namespace BudgetExecution
                 {
                     foreach( var _item in Fields )
                     {
-                        FirstListBox.Items.Add( _item );
+                        FieldsListBox.Items.Add( _item );
                     }
                 }
                 catch( Exception ex )
@@ -222,11 +222,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFirstListBoxSelectedValueChanged( object sender )
+        private void OnFieldListBoxSelectedValueChanged( object sender )
         {
             try
             {
-                var _selectedItem = FirstListBox.SelectedItem.ToString( );
+                var _selectedItem = FieldsListBox.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns.Add( _selectedItem );
@@ -243,7 +243,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the numeric ListBox.
         /// </summary>
-        private void PopulateSecondListBox( )
+        private void PopulateNumericListBox( )
         {
             if( Numerics?.Any( ) == true )
             {
@@ -253,7 +253,7 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            SecondListBox.Items.Add( Numerics[ _i ] );
+                            NumericsListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -269,11 +269,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnSecondListBoxSelectedValueChanged( object sender )
+        private void OnNumericListBoxSelectedValueChanged( object sender )
         {
             try
             {
-                var _selectedItem = SecondListBox.SelectedItem.ToString( );
+                var _selectedItem = NumericsListBox.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns.Add( _selectedItem );
@@ -296,18 +296,18 @@ namespace BudgetExecution
         {
             try
             {
-                if( FirstListBox.SelectedItems?.Count > 0 )
+                if( FieldsListBox.SelectedItems?.Count > 0 )
                 {
-                    FirstListBox.SelectedItems.Clear(  );
-                    FirstListBox.Items.Clear( );
-                    PopulateFirstListBox(  );
+                    FieldsListBox.SelectedItems.Clear(  );
+                    FieldsListBox.Items.Clear( );
+                    PopulateFieldListBox(  );
                 }
                 
-                if( SecondListBox.SelectedItems?.Count > 0 )
+                if( NumericsListBox.SelectedItems?.Count > 0 )
                 {
-                    SecondListBox.SelectedItems.Clear(  );
-                    SecondListBox.Items.Clear(  );
-                    PopulateSecondListBox(  );
+                    NumericsListBox.SelectedItems.Clear(  );
+                    NumericsListBox.Items.Clear(  );
+                    PopulateNumericListBox(  );
                 }
                 
                 if( SelectedColumns?.Count > 0 )

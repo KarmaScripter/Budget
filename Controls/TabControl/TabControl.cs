@@ -56,7 +56,7 @@ namespace BudgetExecution
             CanApplyTheme = true;
             ActiveTabColor = Color.FromArgb( 20, 20, 20 );
             ActiveTabFont = new Font( "Roboto", 8 );
-            ActiveTabForeColor = Color.FromArgb( 0, 120, 212 );
+            ActiveTabForeColor = Color.DarkGray;
             InActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             InactiveCloseButtonForeColor = Color.FromArgb( 20, 20, 20 );
             InactiveTabColor = Color.FromArgb( 20, 20, 20 );
@@ -66,7 +66,7 @@ namespace BudgetExecution
             ThemeStyle.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.TabStyle.ActiveBackColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.TabStyle.ActiveFont = new Font( "Roboto", 8 );
-            ThemeStyle.TabStyle.ActiveForeColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.TabStyle.ActiveForeColor = Color.DarkGray;
             ThemeStyle.TabStyle.SeparatorColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.TabStyle.ActiveBackColor = Color.FromArgb( 20, 20, 20 );
         }

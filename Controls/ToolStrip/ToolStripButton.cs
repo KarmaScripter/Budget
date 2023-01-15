@@ -317,17 +317,8 @@ namespace BudgetExecution
                         }
                         case ToolType.ChartButton:
                         {
-                            if( BindingSource?.DataSource != null )
-                            {
-                                var _chartDialog = new ChartForm( BindingSource );
-                                _chartDialog?.ShowDialog( );
-                            }
-                            else if( BindingSource == null )
-                            {
-                                using var _form = new ChartForm( );
-                                _form?.ShowDialog( );
-                            }
-
+                            var _form = new ChartForm( );
+                            _form?.ShowDialog( );
                             break;
                         }
                         default:

@@ -119,14 +119,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
+        /// <param name="fields">The columns.</param>
         /// <param name="numerics">The aggregates.</param>
         /// <param name="having">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public SqlStatement( Source source, Provider provider, IEnumerable<string> columns,
+        public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, numerics, having,
+            : base( source, provider, fields, numerics, having,
                 commandType )
         {
         }

@@ -122,7 +122,7 @@ namespace BudgetExecution
             try
             {
                 var _dataGridForm = new DataGridForm( );
-                _dataGridForm.StartPosition = FormStartPosition.CenterParent;
+                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 _dataGridForm.Owner = this;
                 _dataGridForm.Show(  );
                 Visible = false;
@@ -145,15 +145,19 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FilterDialog( BindingSource );
-                _dialog.TabControl.SelectedTab = _dialog.TableTab;
+                var _filterDialog = new FilterDialog( BindingSource );
+                _filterDialog.TabControl.SelectedTab = _filterDialog.TableTab;
                 Visible = false;
-                _dialog.ShowDialog(  );
-                BindingSource = _dialog.BindingSource;
+                _filterDialog.ShowDialog(  );
+                BindingSource = _filterDialog.BindingSource;
                 var _chartForm = new ChartForm( BindingSource );
+                _chartForm.Source = _filterDialog.Source;
+                _chartForm.Provider = _filterDialog.Provider;
+                _chartForm.SqlQuery = _filterDialog.SqlQuery;
                 _chartForm.Owner = this;
-                _chartForm.StartPosition = FormStartPosition.CenterParent;
-                _chartForm.ShowDialog( );
+                _chartForm.StartPosition = FormStartPosition.CenterScreen;
+                _chartForm.Show( );
+                Visible = false;
             }
             catch( Exception ex )
             {

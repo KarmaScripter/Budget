@@ -1113,6 +1113,14 @@
             The fields.
             </value>
         </member>
+        <member name="P:BudgetExecution.ChartForm.SelectedColumns">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
         <member name="P:BudgetExecution.ChartForm.Source">
             <summary>
             Gets or sets the source.
@@ -1159,6 +1167,17 @@
             <summary>
             Populates the tool bar drop down items.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.PopulateTableListBoxItems">
+            <summary>
+            Populates the ListBox items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnTableListBoxItemSelected(System.Object)">
+            <summary>
+            Called when [table ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateFirstComboBoxItems">
             <summary>
@@ -1217,18 +1236,28 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnFieldListBoxItemSelected(System.Object)">
+        <member name="M:BudgetExecution.ChartForm.PopulateFieldListBox">
             <summary>
-            Called when [fourth ComboBox item selected].
+            Populates the column ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnFieldListBoxSelectedValueChanged(System.Object)">
+            <summary>
+            Called when [column ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.PopulateNumericListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnNumericListBoxSelectedValueChanged(System.Object)">
+            <summary>
+            Called when [numeric ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartForm.OnNumericListBoxItemSelected(System.Object)">
-            <summary>
-            Called when [fourth ListBox item selected].
-            </summary>
-            <param name="sender">The sender.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
@@ -1237,6 +1266,14 @@
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="where">The where.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="sqlText">The SQL text.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.ClearFilterSelections">
             <summary>
@@ -2080,22 +2117,6 @@
             The selected table.
             </value>
         </member>
-        <member name="P:BudgetExecution.DataGridForm.SelectedColumn">
-            <summary>
-            Gets or sets the selected column.
-            </summary>
-            <value>
-            The selected column.
-            </value>
-        </member>
-        <member name="P:BudgetExecution.DataGridForm.SelectedValue">
-            <summary>
-            Gets or sets the selected value.
-            </summary>
-            <value>
-            The selected value.
-            </value>
-        </member>
         <member name="P:BudgetExecution.DataGridForm.FirstCategory">
             <summary>
             Gets or sets the first selected item.
@@ -2176,6 +2197,14 @@
             The numerics.
             </value>
         </member>
+        <member name="P:BudgetExecution.DataGridForm.SelectedColumns">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
         <member name="P:BudgetExecution.DataGridForm.Source">
             <summary>
             Gets or sets the source.
@@ -2235,13 +2264,19 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
+        <member name="M:BudgetExecution.DataGridForm.BindDataSource(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Sets the data source.
             </summary>
+            <param name="where">The where.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
+            <summary>
+            Binds the data source.
+            </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
-            <param name="where">The where.</param>
+            <param name="sqlText">The SQL text.</param>
         </member>
         <member name="M:BudgetExecution.DataGridForm.CreateSqlText(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
@@ -2250,12 +2285,20 @@
             <param name="where">The where.</param>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.ClearLabelText">
+        <member name="M:BudgetExecution.DataGridForm.CreateSqlText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates the SQL text.
+            </summary>
+            <param name="columns">The columns.</param>
+            <param name="where">The where.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.ClearHeaderText">
             <summary>
             Clears the label text.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.SetLabelText">
+        <member name="M:BudgetExecution.DataGridForm.UpdateHeaderText">
             <summary>
             Sets the label configuration.
             </summary>
@@ -2345,6 +2388,28 @@
             The sender.
             </param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateFieldListBox">
+            <summary>
+            Populates the column ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnFieldListBoxSelectedValueChanged(System.Object)">
+            <summary>
+            Called when [column ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateNumericListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnNumericListBoxSelectedValueChanged(System.Object)">
+            <summary>
+            Called when [numeric ListBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.OnTestButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [test button clicked].
@@ -2381,6 +2446,13 @@
         <member name="M:BudgetExecution.DataGridForm.OnRemoveFilterButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [remove filter button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnChartButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [chart button clicked].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
@@ -3999,29 +4071,29 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.SchemaDialog.SetLabelConfiguration">
+        <member name="M:BudgetExecution.SchemaDialog.SetLabelText">
             <summary>
             Sets the label configuration.
             </summary>
         </member>
-        <member name="M:BudgetExecution.SchemaDialog.PopulateFirstListBox">
+        <member name="M:BudgetExecution.SchemaDialog.PopulateFieldListBox">
             <summary>
             Populates the column ListBox.
             </summary>
         </member>
-        <member name="M:BudgetExecution.SchemaDialog.OnFirstListBoxSelectedValueChanged(System.Object)">
+        <member name="M:BudgetExecution.SchemaDialog.OnFieldListBoxSelectedValueChanged(System.Object)">
             <summary>
             Called when [column ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.SchemaDialog.PopulateSecondListBox">
+        <member name="M:BudgetExecution.SchemaDialog.PopulateNumericListBox">
             <summary>
             Populates the numeric ListBox.
             </summary>
         </member>
-        <member name="M:BudgetExecution.SchemaDialog.OnSecondListBoxSelectedValueChanged(System.Object)">
+        <member name="M:BudgetExecution.SchemaDialog.OnNumericListBoxSelectedValueChanged(System.Object)">
             <summary>
             Called when [numeric ListBox item selected].
             </summary>
@@ -12131,7 +12203,7 @@
             </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
-            <param name="columns">The columns.</param>
+            <param name="fields">The columns.</param>
             <param name="numerics">The numerics.</param>
             <param name="where">The where.</param>
             <param name="commandType">Type of the command.</param>
@@ -14219,7 +14291,7 @@
             </summary>
             <param name="source"></param>
             <param name="provider"></param>
-            <param name="columns"></param>
+            <param name="fields"></param>
             <param name="numerics"></param>
             <param name="having"></param>
             <param name="commandType"></param>
@@ -14432,7 +14504,7 @@
             </summary>
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
-            <param name="columns">The columns.</param>
+            <param name="fields">The columns.</param>
             <param name="numerics">The aggregates.</param>
             <param name="having">The where.</param>
             <param name="commandType">Type of the command.</param>

@@ -779,6 +779,8 @@ namespace BudgetExecution
                 SqlQuery = string.Empty;
                 FirstButton.Visible = !FirstButton.Visible;
                 SecondButton.Visible = !SecondButton.Visible;
+                SelectedTable = string.Empty;
+                TabControl.SelectedTab = TableTab;
                 if( FormFilter.Keys.Count > 0 )
                 {
                     FormFilter.Clear( );
@@ -790,7 +792,7 @@ namespace BudgetExecution
                     ThirdListBox.Items.Clear( );
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    ThirdTable.Visible = !ThirdTable.Visible;
+                    ThirdTable.Visible = false;
                 }
                 
                 if( !string.IsNullOrEmpty( SecondValue ) )
@@ -799,7 +801,8 @@ namespace BudgetExecution
                     SecondListBox.Items.Clear( );
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
-                    SecondTable.Visible = !SecondTable.Visible;
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
                 }
                 
                 if( !string.IsNullOrEmpty( FirstValue ) )
@@ -808,6 +811,8 @@ namespace BudgetExecution
                     FirstListBox.Items.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
                 }
             }
             catch( Exception ex )

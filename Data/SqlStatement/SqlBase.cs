@@ -220,11 +220,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source"></param>
         /// <param name="provider"></param>
-        /// <param name="columns"></param>
+        /// <param name="fields"></param>
         /// <param name="numerics"></param>
         /// <param name="having"></param>
         /// <param name="commandType"></param>
-        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT ) 
             : this( )
@@ -235,7 +235,7 @@ namespace BudgetExecution
             Provider = provider;
             TableName = source.ToString( );
             Criteria = having;
-            Fields = columns.ToList( );
+            Fields = fields.ToList( );
             Numerics = numerics.ToList( );
             CommandText = GetCommandText(  );
         }

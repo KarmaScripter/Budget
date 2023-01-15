@@ -147,17 +147,17 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        /// <param name="columns">The columns.</param>
+        /// <param name="fields">The columns.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> columns, 
+        public DataModel( Source source, Provider provider, IEnumerable<string> fields, 
             IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
         {
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, columns, numerics, where, 
+            SqlStatement = new SqlStatement( source, provider, fields, numerics, where, 
                 commandType );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
