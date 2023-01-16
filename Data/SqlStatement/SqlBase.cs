@@ -296,22 +296,20 @@ namespace BudgetExecution
             { 
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
-                var _grp = string.Empty;
                 foreach( var name in Fields )
                 {
                     _cols += $"{ name }, ";
                 }
 
-                foreach( var _numeric in Numerics )
+                foreach( var metric in Numerics )
                 {
-                    _grp += $"SUM({ _numeric }), ";
-                    _aggr += $"SUM({ _numeric }) AS { _numeric }, ";
+                    _aggr += $"SUM({ metric }) AS { metric }, ";
                 }
 
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                var _groups = _grp.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT DISTINCT { _columns } FROM { Source } "
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT { _columns } FROM { Source } "
                     + $"WHERE { _criteria } "
                     + $"GROUP BY { _groups };";
             }
@@ -327,10 +325,10 @@ namespace BudgetExecution
                 }
                     
                 var _criteria = Criteria.ToCriteria( );
-                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT DISTINCT { _columns } FROM { Source } "
+                var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT { _columns } FROM { Source } "
                     + $"WHERE { _criteria } "
-                    + $"GROUP BY { _cols };";
+                    + $"GROUP BY { _columns };";
             }
             else if( Fields?.Any( ) == false
                     && Criteria?.Any( ) == true

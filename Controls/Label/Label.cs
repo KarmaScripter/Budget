@@ -64,7 +64,7 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
             Size = new Size( 165, 23 );
             BackColor = Color.Transparent;
-            ForeColor = Color.LightGray;
+            ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 8 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );

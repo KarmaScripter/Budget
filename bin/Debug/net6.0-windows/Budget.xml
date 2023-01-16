@@ -2205,6 +2205,22 @@
             The selected columns.
             </value>
         </member>
+        <member name="P:BudgetExecution.DataGridForm.SelectedFields">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.DataGridForm.SelectedNumerics">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
         <member name="P:BudgetExecution.DataGridForm.Source">
             <summary>
             Gets or sets the source.
@@ -2270,6 +2286,13 @@
             </summary>
             <param name="where">The where.</param>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.BindDataSource(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="cols">The cols.</param>
+            <param name="where">The where.</param>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.BindDataSource(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Binds the data source.
@@ -2285,20 +2308,29 @@
             <param name="where">The where.</param>
             <returns></returns>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.CreateSqlText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates the SQL text.
+            </summary>
+            <param name="fields">The fields.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="where">The where.</param>
+            <returns></returns>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.CreateSqlText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Creates the SQL text.
             </summary>
-            <param name="columns">The columns.</param>
+            <param name="cols">The cols.</param>
             <param name="where">The where.</param>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.ClearHeaderText">
+        <member name="M:BudgetExecution.DataGridForm.ClearLabelText">
             <summary>
             Clears the label text.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.UpdateHeaderText">
+        <member name="M:BudgetExecution.DataGridForm.UpdateLabelText">
             <summary>
             Sets the label configuration.
             </summary>
@@ -2308,14 +2340,31 @@
             Clears the selected filter values.
             </summary>
         </member>
+        <member name="M:BudgetExecution.DataGridForm.ClearCollections">
+            <summary>
+            Clears the collections.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.DataGridForm.PopulateToolStripComboBoxItems">
             <summary>
             Populates the tool bar drop down items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateTableListBoxItems">
+        <member name="M:BudgetExecution.DataGridForm.OnTableComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
-            Populates the ListBox items.
+            Called when [table ComboBox item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateReferenceTables">
+            <summary>
+            Populates the reference tables.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateExecutionTables">
+            <summary>
+            Populates the execution tables.
             </summary>
         </member>
         <member name="M:BudgetExecution.DataGridForm.OnTableListBoxItemSelected(System.Object)">
@@ -2413,6 +2462,20 @@
         <member name="M:BudgetExecution.DataGridForm.OnTestButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [test button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnFoldButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [fold button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.OnRefreshDataButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [refresh data button clicked].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
