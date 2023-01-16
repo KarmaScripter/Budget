@@ -384,7 +384,7 @@
             this.FirstHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FirstHeaderLabel.Name = "FirstHeaderLabel";
             this.FirstHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstHeaderLabel.Size = new System.Drawing.Size(352, 20);
+            this.FirstHeaderLabel.Size = new System.Drawing.Size(297, 20);
             this.FirstHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstHeaderLabel.StyleManager = null;
             this.FirstHeaderLabel.TabIndex = 33;
@@ -415,10 +415,10 @@
             // LabelTable
             // 
             this.LabelTable.ColumnCount = 4;
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.63636F));
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364F));
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.32242F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.67758F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 485F));
             this.LabelTable.Controls.Add(this.SecondHeaderLabel, 1, 0);
             this.LabelTable.Controls.Add(this.FourthHeaderLabel, 3, 0);
             this.LabelTable.Controls.Add(this.FirstHeaderLabel, 0, 0);
@@ -440,11 +440,11 @@
             this.SecondHeaderLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondHeaderLabel.HoverText = null;
             this.SecondHeaderLabel.IsDerivedStyle = true;
-            this.SecondHeaderLabel.Location = new System.Drawing.Point(361, 3);
+            this.SecondHeaderLabel.Location = new System.Drawing.Point(306, 3);
             this.SecondHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.SecondHeaderLabel.Name = "SecondHeaderLabel";
             this.SecondHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondHeaderLabel.Size = new System.Drawing.Size(198, 20);
+            this.SecondHeaderLabel.Size = new System.Drawing.Size(88, 20);
             this.SecondHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondHeaderLabel.StyleManager = null;
             this.SecondHeaderLabel.TabIndex = 44;
@@ -463,11 +463,11 @@
             this.FourthHeaderLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FourthHeaderLabel.HoverText = null;
             this.FourthHeaderLabel.IsDerivedStyle = true;
-            this.FourthHeaderLabel.Location = new System.Drawing.Point(779, 3);
+            this.FourthHeaderLabel.Location = new System.Drawing.Point(490, 3);
             this.FourthHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FourthHeaderLabel.Name = "FourthHeaderLabel";
             this.FourthHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FourthHeaderLabel.Size = new System.Drawing.Size(191, 20);
+            this.FourthHeaderLabel.Size = new System.Drawing.Size(480, 20);
             this.FourthHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FourthHeaderLabel.StyleManager = null;
             this.FourthHeaderLabel.TabIndex = 44;
@@ -486,11 +486,11 @@
             this.ThirdHeaderLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdHeaderLabel.HoverText = null;
             this.ThirdHeaderLabel.IsDerivedStyle = true;
-            this.ThirdHeaderLabel.Location = new System.Drawing.Point(565, 3);
+            this.ThirdHeaderLabel.Location = new System.Drawing.Point(400, 3);
             this.ThirdHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ThirdHeaderLabel.Name = "ThirdHeaderLabel";
             this.ThirdHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdHeaderLabel.Size = new System.Drawing.Size(208, 20);
+            this.ThirdHeaderLabel.Size = new System.Drawing.Size(84, 20);
             this.ThirdHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdHeaderLabel.StyleManager = null;
             this.ThirdHeaderLabel.TabIndex = 43;
@@ -798,7 +798,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(170, 32);
+            this.TextBox.Size = new System.Drawing.Size(176, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1026,7 +1026,7 @@
             this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
             this.RefreshDataButton.HoverText = "Reset Data";
-            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshButton;
+            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshDataButton;
             this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(1);
             this.RefreshDataButton.Name = "RefreshDataButton";

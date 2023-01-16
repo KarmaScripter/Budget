@@ -37,11 +37,17 @@
             this.TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.SchemaPanelLabel = new BudgetExecution.Label();
             this.SchemaPanel = new BudgetExecution.Layout();
+            this.label2 = new BudgetExecution.Label();
+            this.label1 = new BudgetExecution.Label();
             this.SchemaPanelTextBox = new BudgetExecution.TextBox();
             this.ToolTip = new BudgetExecution.SmallTip();
             this.AddColumnButton = new BudgetExecution.Button();
             this.DataTypeComboBox = new BudgetExecution.ComboBox();
             this.TablePanel = new BudgetExecution.Layout();
+            this.label4 = new BudgetExecution.Label();
+            this.button3 = new BudgetExecution.Button();
+            this.button1 = new BudgetExecution.Button();
+            this.label3 = new BudgetExecution.Label();
             this.TableNameComboBox = new BudgetExecution.ComboBox();
             this.TablePanelTextBox = new BudgetExecution.TextBox();
             this.TablePanelLabel = new BudgetExecution.Label();
@@ -66,12 +72,6 @@
             this.groupBox3 = new BudgetExecution.Layout();
             this.groupBox4 = new BudgetExecution.Layout();
             this.groupBox9 = new BudgetExecution.Layout();
-            this.label1 = new BudgetExecution.Label();
-            this.label2 = new BudgetExecution.Label();
-            this.label3 = new BudgetExecution.Label();
-            this.button1 = new BudgetExecution.Button();
-            this.button3 = new BudgetExecution.Button();
-            this.label4 = new BudgetExecution.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
@@ -202,13 +202,59 @@
             this.SchemaPanel.ThemeName = "BudgetExecution";
             this.SchemaPanel.ToolTip = null;
             // 
+            // label2
+            // 
+            this.label2.BindingSource = null;
+            this.label2.DataFilter = null;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.HoverText = null;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label2.IsDerivedStyle = true;
+            this.label2.Location = new System.Drawing.Point(26, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(1);
+            this.label2.Size = new System.Drawing.Size(233, 24);
+            this.label2.Style = MetroSet_UI.Enums.Style.Custom;
+            this.label2.StyleManager = null;
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Select Data Type";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label2.ThemeAuthor = "Terry D. Eppler";
+            this.label2.ThemeName = "Budget Execution";
+            this.label2.ToolTip = null;
+            // 
+            // label1
+            // 
+            this.label1.BindingSource = null;
+            this.label1.DataFilter = null;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.HoverText = null;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label1.IsDerivedStyle = true;
+            this.label1.Location = new System.Drawing.Point(26, 83);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(1);
+            this.label1.Size = new System.Drawing.Size(202, 23);
+            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
+            this.label1.StyleManager = null;
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Enter Column Name";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label1.ThemeAuthor = "Terry D. Eppler";
+            this.label1.ThemeName = "Budget Execution";
+            this.label1.ToolTip = null;
+            // 
             // SchemaPanelTextBox
             // 
             this.SchemaPanelTextBox.AutoCompleteCustomSource = null;
             this.SchemaPanelTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.SchemaPanelTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.SchemaPanelTextBox.BindingSource = null;
-            this.SchemaPanelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.SchemaPanelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.SchemaPanelTextBox.DataFilter = null;
             this.SchemaPanelTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.SchemaPanelTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
@@ -273,7 +319,7 @@
             this.AddColumnButton.HoverText = null;
             this.AddColumnButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.AddColumnButton.IsDerivedStyle = true;
-            this.AddColumnButton.Location = new System.Drawing.Point(317, 39);
+            this.AddColumnButton.Location = new System.Drawing.Point(306, 116);
             this.AddColumnButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddColumnButton.Name = "AddColumnButton";
             this.AddColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -299,7 +345,7 @@
             this.DataTypeComboBox.BackColor = System.Drawing.Color.Transparent;
             this.DataTypeComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.DataTypeComboBox.BindingSource = null;
-            this.DataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.DataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DataTypeComboBox.CausesValidation = false;
             this.DataTypeComboBox.DataFilter = null;
             this.DataTypeComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -360,6 +406,126 @@
             this.TablePanel.ThemeName = "BudgetExecution";
             this.TablePanel.ToolTip = null;
             // 
+            // label4
+            // 
+            this.label4.BindingSource = null;
+            this.label4.DataFilter = null;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.HoverText = null;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label4.IsDerivedStyle = true;
+            this.label4.Location = new System.Drawing.Point(26, 83);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(1);
+            this.label4.Size = new System.Drawing.Size(202, 23);
+            this.label4.Style = MetroSet_UI.Enums.Style.Custom;
+            this.label4.StyleManager = null;
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Enter Table Name";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label4.ThemeAuthor = "Terry D. Eppler";
+            this.label4.ThemeName = "Budget Execution";
+            this.label4.ToolTip = null;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BindingSource = null;
+            this.button3.DataFilter = null;
+            this.button3.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.button3.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.button3.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.button3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button3.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.button3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.button3.HoverText = "Delete Selected Table";
+            this.button3.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.button3.IsDerivedStyle = true;
+            this.button3.Location = new System.Drawing.Point(287, 39);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.button3.NormalColor = System.Drawing.Color.Transparent;
+            this.button3.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button3.Padding = new System.Windows.Forms.Padding(1);
+            this.button3.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button3.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button3.PressTextColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(74, 28);
+            this.button3.Style = MetroSet_UI.Enums.Style.Custom;
+            this.button3.StyleManager = null;
+            this.button3.TabIndex = 17;
+            this.button3.Text = "Delete";
+            this.button3.ThemeAuthor = "Terry D. Eppler";
+            this.button3.ThemeName = "BudgetExecution";
+            this.button3.ToolTip = null;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BindingSource = null;
+            this.button1.DataFilter = null;
+            this.button1.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.button1.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.button1.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.button1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.button1.HoverText = "Add Table to Data Set";
+            this.button1.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.button1.IsDerivedStyle = true;
+            this.button1.Location = new System.Drawing.Point(287, 116);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.button1.NormalColor = System.Drawing.Color.Transparent;
+            this.button1.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button1.Padding = new System.Windows.Forms.Padding(1);
+            this.button1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.button1.PressTextColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(74, 28);
+            this.button1.Style = MetroSet_UI.Enums.Style.Custom;
+            this.button1.StyleManager = null;
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Add";
+            this.button1.ThemeAuthor = "Terry D. Eppler";
+            this.button1.ThemeName = "BudgetExecution";
+            this.button1.ToolTip = null;
+            // 
+            // label3
+            // 
+            this.label3.BindingSource = null;
+            this.label3.DataFilter = null;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.HoverText = null;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label3.IsDerivedStyle = true;
+            this.label3.Location = new System.Drawing.Point(25, 7);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(1);
+            this.label3.Size = new System.Drawing.Size(233, 24);
+            this.label3.Style = MetroSet_UI.Enums.Style.Custom;
+            this.label3.StyleManager = null;
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Select Data Table";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label3.ThemeAuthor = "Terry D. Eppler";
+            this.label3.ThemeName = "Budget Execution";
+            this.label3.ToolTip = null;
+            // 
             // TableNameComboBox
             // 
             this.TableNameComboBox.AllowDrop = true;
@@ -367,7 +533,7 @@
             this.TableNameComboBox.BackColor = System.Drawing.Color.Transparent;
             this.TableNameComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.TableNameComboBox.BindingSource = null;
-            this.TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TableNameComboBox.CausesValidation = false;
             this.TableNameComboBox.DataFilter = null;
             this.TableNameComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -401,7 +567,7 @@
             this.TablePanelTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.TablePanelTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.TablePanelTextBox.BindingSource = null;
-            this.TablePanelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.TablePanelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TablePanelTextBox.DataFilter = null;
             this.TablePanelTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.TablePanelTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
@@ -487,7 +653,7 @@
             // 
             this.SqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
             this.SqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.SqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.SqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqliteRadioButton.Checked = false;
             this.SqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
@@ -513,7 +679,7 @@
             // 
             this.AccessRadioButton.BackColor = System.Drawing.Color.Transparent;
             this.AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.AccessRadioButton.Checked = false;
             this.AccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
@@ -539,7 +705,7 @@
             // 
             this.SqlServerRadioButton.BackColor = System.Drawing.Color.Transparent;
             this.SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqlServerRadioButton.Checked = false;
             this.SqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
@@ -1049,172 +1215,6 @@
             this.groupBox9.ThemeAuthor = "Terry D. Eppler";
             this.groupBox9.ThemeName = "BudgetExecution";
             this.groupBox9.ToolTip = null;
-            // 
-            // label1
-            // 
-            this.label1.BindingSource = null;
-            this.label1.DataFilter = null;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.HoverText = null;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.IsDerivedStyle = true;
-            this.label1.Location = new System.Drawing.Point(26, 83);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(1);
-            this.label1.Size = new System.Drawing.Size(202, 23);
-            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label1.StyleManager = null;
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Enter Column Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.ThemeAuthor = "Terry D. Eppler";
-            this.label1.ThemeName = "Budget Execution";
-            this.label1.ToolTip = null;
-            // 
-            // label2
-            // 
-            this.label2.BindingSource = null;
-            this.label2.DataFilter = null;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.HoverText = null;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.IsDerivedStyle = true;
-            this.label2.Location = new System.Drawing.Point(26, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(3);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(1);
-            this.label2.Size = new System.Drawing.Size(233, 24);
-            this.label2.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label2.StyleManager = null;
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Select Data Type";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.ThemeAuthor = "Terry D. Eppler";
-            this.label2.ThemeName = "Budget Execution";
-            this.label2.ToolTip = null;
-            // 
-            // label3
-            // 
-            this.label3.BindingSource = null;
-            this.label3.DataFilter = null;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.HoverText = null;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label3.IsDerivedStyle = true;
-            this.label3.Location = new System.Drawing.Point(25, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(1);
-            this.label3.Size = new System.Drawing.Size(233, 24);
-            this.label3.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label3.StyleManager = null;
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Select Data Table";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label3.ThemeAuthor = "Terry D. Eppler";
-            this.label3.ThemeName = "Budget Execution";
-            this.label3.ToolTip = null;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BindingSource = null;
-            this.button1.DataFilter = null;
-            this.button1.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.button1.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.button1.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button1.HoverText = null;
-            this.button1.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.IsDerivedStyle = true;
-            this.button1.Location = new System.Drawing.Point(287, 34);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.button1.NormalColor = System.Drawing.Color.Transparent;
-            this.button1.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.Padding = new System.Windows.Forms.Padding(1);
-            this.button1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.PressTextColor = System.Drawing.Color.White;
-            this.button1.Size = new System.Drawing.Size(74, 28);
-            this.button1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.button1.StyleManager = null;
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Add";
-            this.button1.ThemeAuthor = "Terry D. Eppler";
-            this.button1.ThemeName = "BudgetExecution";
-            this.button1.ToolTip = null;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BindingSource = null;
-            this.button3.DataFilter = null;
-            this.button3.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.button3.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.button3.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.button3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button3.HoverText = null;
-            this.button3.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.button3.IsDerivedStyle = true;
-            this.button3.Location = new System.Drawing.Point(287, 103);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.button3.NormalColor = System.Drawing.Color.Transparent;
-            this.button3.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.Padding = new System.Windows.Forms.Padding(1);
-            this.button3.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.PressTextColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(74, 28);
-            this.button3.Style = MetroSet_UI.Enums.Style.Custom;
-            this.button3.StyleManager = null;
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Delete";
-            this.button3.ThemeAuthor = "Terry D. Eppler";
-            this.button3.ThemeName = "BudgetExecution";
-            this.button3.ToolTip = null;
-            // 
-            // label4
-            // 
-            this.label4.BindingSource = null;
-            this.label4.DataFilter = null;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.HoverText = null;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label4.IsDerivedStyle = true;
-            this.label4.Location = new System.Drawing.Point(26, 83);
-            this.label4.Margin = new System.Windows.Forms.Padding(3);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(1);
-            this.label4.Size = new System.Drawing.Size(202, 23);
-            this.label4.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label4.StyleManager = null;
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Enter Table Name";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label4.ThemeAuthor = "Terry D. Eppler";
-            this.label4.ThemeName = "Budget Execution";
-            this.label4.ToolTip = null;
             // 
             // DefinitionDialog
             // 

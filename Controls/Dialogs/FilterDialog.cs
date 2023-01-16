@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The numerics.
         /// </value>
-        public IEnumerable<string> Numerics { get; set; }
+        public IList<string> Numerics { get; set; }
         
         /// <summary>
         /// Gets or sets the fields.
@@ -126,7 +126,31 @@ namespace BudgetExecution
         /// <value>
         /// The fields.
         /// </value>
-        public IEnumerable<string> Fields { get; set; }
+        public IList<string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -155,7 +179,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
@@ -170,7 +194,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 949, 545 );
+            Size = new Size( 1080, 575 );
             
             // Event Wiring
             Load += OnLoad;
@@ -244,7 +268,9 @@ namespace BudgetExecution
                     SetLabelText( );
                     FirstButton.Visible = !FirstButton.Visible;
                     SecondButton.Visible = !SecondButton.Visible;
-                    TabControl.SelectedTab = FilterTab;
+                    TabControl.SelectedTab = FilterTabPage;
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
                     Provider = DataModel.Provider;
                     Source = DataModel.Source;
                     Fields = DataModel.Fields;
@@ -255,7 +281,10 @@ namespace BudgetExecution
                 {
                     FirstButton.Visible = !FirstButton.Visible;
                     SecondButton.Visible = !SecondButton.Visible;
-                    TabControl.SelectedTab = TableTab;
+                    TabControl.SelectedTab = TableTabPage;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
                     PopulateTableListBoxItems( );
                     Text = "Select Data Source";
                     AccessRadioButton.Checked = true;
@@ -291,6 +320,10 @@ namespace BudgetExecution
                 else if( AccessRadioButton.Checked == true )
                 {
                     Provider = Provider.Access;
+                }
+                else if( SqlCeRadioButton.Checked == true )
+                {
+                    Provider = Provider.SqlCe;
                 }
                 else
                 {
@@ -414,7 +447,7 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    TabControl.SelectedTab = FilterTab;
+                    TabControl.SelectedTab = FilterTabPage;
                     SelectedTable = _listBox.SelectedValue?.ToString( );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
@@ -780,7 +813,7 @@ namespace BudgetExecution
                 FirstButton.Visible = !FirstButton.Visible;
                 SecondButton.Visible = !SecondButton.Visible;
                 SelectedTable = string.Empty;
-                TabControl.SelectedTab = TableTab;
+                TabControl.SelectedTab = TableTabPage;
                 if( FormFilter.Keys.Count > 0 )
                 {
                     FormFilter.Clear( );

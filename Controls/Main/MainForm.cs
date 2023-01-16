@@ -146,7 +146,7 @@ namespace BudgetExecution
             try
             {
                 var _filterDialog = new FilterDialog( BindingSource );
-                _filterDialog.TabControl.SelectedTab = _filterDialog.TableTab;
+                _filterDialog.TabControl.SelectedTab = _filterDialog.TableTabPage;
                 Visible = false;
                 _filterDialog.ShowDialog(  );
                 BindingSource = _filterDialog.BindingSource;

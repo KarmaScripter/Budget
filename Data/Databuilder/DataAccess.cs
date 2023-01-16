@@ -242,9 +242,11 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( col.Ordinal > 0
+                           && !col.ColumnName.EndsWith( "Id" ) 
                            && ( col.DataType == typeof( double ) 
                                | col.DataType == typeof( decimal ) 
-                               | col.DataType == typeof( float ) ) )
+                               | col.DataType == typeof( float ) 
+                               | col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }

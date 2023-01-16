@@ -3354,6 +3354,30 @@
             The fields.
             </value>
         </member>
+        <member name="P:BudgetExecution.FilterDialog.SelectedColumns">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.SelectedFields">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.FilterDialog.SelectedNumerics">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
         <member name="P:BudgetExecution.FilterDialog.Source">
             <summary>
             Gets or sets the source.

@@ -91,9 +91,11 @@
             this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             this.ToolTip.ForeColor = System.Drawing.Color.White;
             this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
             this.ToolTip.Name = null;
             this.ToolTip.OwnerDraw = true;
             this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
             this.ToolTip.StyleManager = null;
             this.ToolTip.ThemeAuthor = "Terry D. Eppler";
             this.ToolTip.ThemeName = "Budget Execution";

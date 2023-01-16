@@ -4,15 +4,15 @@
 
 namespace BudgetExecution
 {
-    using System.Diagnostics.CodeAnalysis;
     using System;
-    using Syncfusion.Windows.Forms;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
-    using Binding = Syncfusion.Windows.Forms.Diagram.Binding;
+    using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
@@ -571,12 +571,12 @@ namespace BudgetExecution
                 else
                 {
                     Text = $"{ Provider } Database ";
-                    FirstHeaderLabel.Text = $"Source :  ";
-                    SecondHeaderLabel.Text = $"Records : ";
-                    ThirdHeaderLabel.Text = $"Fields : ";
-                    FourthHeaderLabel.Text = $"Measures : ";
-                    FieldLabel.Text = $"Fields : ";
-                    NumericsLabel.Text = $"Measures : ";
+                    FirstHeaderLabel.Text = "Source :  ";
+                    SecondHeaderLabel.Text = "Records : ";
+                    ThirdHeaderLabel.Text = "Fields : ";
+                    FourthHeaderLabel.Text = "Measures : ";
+                    FieldLabel.Text = "Fields : ";
+                    NumericsLabel.Text = "Measures : ";
                 }
             }
             catch( Exception ex )

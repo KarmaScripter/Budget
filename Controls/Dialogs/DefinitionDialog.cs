@@ -45,9 +45,9 @@ namespace BudgetExecution
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
             TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-            ProviderPanelLabel.ForeColor = Color.LightGray;
-            TablePanelLabel.ForeColor = Color.LightGray;
-            SchemaPanelLabel.ForeColor = Color.LightGray;
+            ProviderPanelLabel.ForeColor = Color.DarkGray;
+            TablePanelLabel.ForeColor = Color.DarkGray;
+            SchemaPanelLabel.ForeColor = Color.DarkGray;
             
             // Populate Controls
             TabPages = GetTabPages( );
