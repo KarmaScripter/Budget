@@ -384,7 +384,7 @@
             this.FirstHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FirstHeaderLabel.Name = "FirstHeaderLabel";
             this.FirstHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstHeaderLabel.Size = new System.Drawing.Size(297, 20);
+            this.FirstHeaderLabel.Size = new System.Drawing.Size(310, 20);
             this.FirstHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstHeaderLabel.StyleManager = null;
             this.FirstHeaderLabel.TabIndex = 33;
@@ -415,10 +415,10 @@
             // LabelTable
             // 
             this.LabelTable.ColumnCount = 4;
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.32242F));
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.67758F));
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 485F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.65533F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.34467F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.LabelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 411F));
             this.LabelTable.Controls.Add(this.SecondHeaderLabel, 1, 0);
             this.LabelTable.Controls.Add(this.FourthHeaderLabel, 3, 0);
             this.LabelTable.Controls.Add(this.FirstHeaderLabel, 0, 0);
@@ -440,11 +440,11 @@
             this.SecondHeaderLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondHeaderLabel.HoverText = null;
             this.SecondHeaderLabel.IsDerivedStyle = true;
-            this.SecondHeaderLabel.Location = new System.Drawing.Point(306, 3);
+            this.SecondHeaderLabel.Location = new System.Drawing.Point(319, 3);
             this.SecondHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.SecondHeaderLabel.Name = "SecondHeaderLabel";
             this.SecondHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondHeaderLabel.Size = new System.Drawing.Size(88, 20);
+            this.SecondHeaderLabel.Size = new System.Drawing.Size(119, 20);
             this.SecondHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondHeaderLabel.StyleManager = null;
             this.SecondHeaderLabel.TabIndex = 44;
@@ -463,11 +463,11 @@
             this.FourthHeaderLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FourthHeaderLabel.HoverText = null;
             this.FourthHeaderLabel.IsDerivedStyle = true;
-            this.FourthHeaderLabel.Location = new System.Drawing.Point(490, 3);
+            this.FourthHeaderLabel.Location = new System.Drawing.Point(564, 3);
             this.FourthHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FourthHeaderLabel.Name = "FourthHeaderLabel";
             this.FourthHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FourthHeaderLabel.Size = new System.Drawing.Size(480, 20);
+            this.FourthHeaderLabel.Size = new System.Drawing.Size(406, 20);
             this.FourthHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FourthHeaderLabel.StyleManager = null;
             this.FourthHeaderLabel.TabIndex = 44;
@@ -486,11 +486,11 @@
             this.ThirdHeaderLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ThirdHeaderLabel.HoverText = null;
             this.ThirdHeaderLabel.IsDerivedStyle = true;
-            this.ThirdHeaderLabel.Location = new System.Drawing.Point(400, 3);
+            this.ThirdHeaderLabel.Location = new System.Drawing.Point(444, 3);
             this.ThirdHeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.ThirdHeaderLabel.Name = "ThirdHeaderLabel";
             this.ThirdHeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdHeaderLabel.Size = new System.Drawing.Size(84, 20);
+            this.ThirdHeaderLabel.Size = new System.Drawing.Size(114, 20);
             this.ThirdHeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdHeaderLabel.StyleManager = null;
             this.ThirdHeaderLabel.TabIndex = 43;
@@ -798,7 +798,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(176, 32);
+            this.TextBox.Size = new System.Drawing.Size(181, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1768,8 +1768,8 @@
             this.SourceTable.Location = new System.Drawing.Point(33, 0);
             this.SourceTable.Name = "SourceTable";
             this.SourceTable.RowCount = 2;
-            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.26087F));
-            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.73913F));
+            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.112054F));
+            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.88795F));
             this.SourceTable.Size = new System.Drawing.Size(295, 589);
             this.SourceTable.TabIndex = 47;
             // 
@@ -1813,7 +1813,7 @@
             this.TableListBox.HoverText = null;
             this.TableListBox.IsDerivedStyle = true;
             this.TableListBox.ItemHeight = 28;
-            this.TableListBox.Location = new System.Drawing.Point(42, 44);
+            this.TableListBox.Location = new System.Drawing.Point(37, 36);
             this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
             this.TableListBox.MultiSelect = false;
             this.TableListBox.Name = "TableListBox";
@@ -1826,7 +1826,7 @@
             this.TableListBox.SelectedValue = null;
             this.TableListBox.ShowBorder = false;
             this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(209, 476);
+            this.TableListBox.Size = new System.Drawing.Size(215, 484);
             this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableListBox.StyleManager = null;
             this.TableListBox.TabIndex = 0;

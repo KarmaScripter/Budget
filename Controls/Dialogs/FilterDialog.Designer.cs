@@ -53,6 +53,8 @@ partial class FilterDialog
             this.TabControl = new BudgetExecution.TabControl();
             this.TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ReferencePanel = new BudgetExecution.Layout();
+            this.ReferenceListBox = new BudgetExecution.ListBox();
             this.label1 = new BudgetExecution.Label();
             this.ProviderTable = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new BudgetExecution.Label();
@@ -92,8 +94,6 @@ partial class FilterDialog
             this.SecondComboBox = new BudgetExecution.ComboBox();
             this.SecondPanel = new BudgetExecution.Layout();
             this.SecondListBox = new BudgetExecution.ListBox();
-            this.ReferencePanel = new BudgetExecution.Layout();
-            this.ReferenceListBox = new BudgetExecution.ListBox();
             this.FirstTable.SuspendLayout();
             this.FirstPanel.SuspendLayout();
             this.ThirdTable.SuspendLayout();
@@ -103,6 +103,7 @@ partial class FilterDialog
             this.TabControl.SuspendLayout();
             this.TableTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.ReferencePanel.SuspendLayout();
             this.ProviderTable.SuspendLayout();
             this.ProviderPanel.SuspendLayout();
             this.SourceTable.SuspendLayout();
@@ -118,7 +119,6 @@ partial class FilterDialog
             this.tableLayoutPanel2.SuspendLayout();
             this.SecondTable.SuspendLayout();
             this.SecondPanel.SuspendLayout();
-            this.ReferencePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FirstTable
@@ -587,6 +587,66 @@ partial class FilterDialog
             this.tableLayoutPanel1.Size = new System.Drawing.Size(278, 357);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
+            // ReferencePanel
+            // 
+            this.ReferencePanel.BackColor = System.Drawing.Color.Transparent;
+            this.ReferencePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ReferencePanel.BindingSource = null;
+            this.ReferencePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ReferencePanel.BorderThickness = 1;
+            this.ReferencePanel.Children = null;
+            this.ReferencePanel.Controls.Add(this.ReferenceListBox);
+            this.ReferencePanel.DataFilter = null;
+            this.ReferencePanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReferencePanel.ForeColor = System.Drawing.Color.Transparent;
+            this.ReferencePanel.HoverText = null;
+            this.ReferencePanel.IsDerivedStyle = true;
+            this.ReferencePanel.Location = new System.Drawing.Point(3, 27);
+            this.ReferencePanel.Name = "ReferencePanel";
+            this.ReferencePanel.Padding = new System.Windows.Forms.Padding(1);
+            this.ReferencePanel.Size = new System.Drawing.Size(272, 327);
+            this.ReferencePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ReferencePanel.StyleManager = null;
+            this.ReferencePanel.TabIndex = 2;
+            this.ReferencePanel.ThemeAuthor = "Terry D. Eppler";
+            this.ReferencePanel.ThemeName = "Budget Execution";
+            this.ReferencePanel.ToolTip = null;
+            // 
+            // ReferenceListBox
+            // 
+            this.ReferenceListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ReferenceListBox.BindingSource = null;
+            this.ReferenceListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.ReferenceListBox.DataFilter = null;
+            this.ReferenceListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ReferenceListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ReferenceListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReferenceListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.ReferenceListBox.HoveredItemColor = System.Drawing.Color.White;
+            this.ReferenceListBox.HoverText = null;
+            this.ReferenceListBox.IsDerivedStyle = true;
+            this.ReferenceListBox.ItemHeight = 28;
+            this.ReferenceListBox.Location = new System.Drawing.Point(32, 38);
+            this.ReferenceListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.ReferenceListBox.MultiSelect = true;
+            this.ReferenceListBox.Name = "ReferenceListBox";
+            this.ReferenceListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.ReferenceListBox.SelectedIndex = -1;
+            this.ReferenceListBox.SelectedItem = null;
+            this.ReferenceListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ReferenceListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.ReferenceListBox.SelectedText = null;
+            this.ReferenceListBox.SelectedValue = null;
+            this.ReferenceListBox.ShowBorder = false;
+            this.ReferenceListBox.ShowScrollBar = false;
+            this.ReferenceListBox.Size = new System.Drawing.Size(210, 252);
+            this.ReferenceListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ReferenceListBox.StyleManager = null;
+            this.ReferenceListBox.TabIndex = 1;
+            this.ReferenceListBox.ThemeAuthor = "Terry D. Eppler";
+            this.ReferenceListBox.ThemeName = "Budget Execution";
+            this.ReferenceListBox.ToolTip = null;
+            // 
             // label1
             // 
             this.label1.BindingSource = null;
@@ -787,7 +847,7 @@ partial class FilterDialog
             this.SourceTable.Controls.Add(this.TablePanel, 0, 1);
             this.SourceTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SourceTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SourceTable.Location = new System.Drawing.Point(385, 5);
+            this.SourceTable.Location = new System.Drawing.Point(389, 5);
             this.SourceTable.Name = "SourceTable";
             this.SourceTable.RowCount = 2;
             this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -1565,66 +1625,6 @@ partial class FilterDialog
             this.SecondListBox.ThemeName = "BudgetExecution";
             this.SecondListBox.ToolTip = null;
             // 
-            // ReferencePanel
-            // 
-            this.ReferencePanel.BackColor = System.Drawing.Color.Transparent;
-            this.ReferencePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ReferencePanel.BindingSource = null;
-            this.ReferencePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ReferencePanel.BorderThickness = 1;
-            this.ReferencePanel.Children = null;
-            this.ReferencePanel.Controls.Add(this.ReferenceListBox);
-            this.ReferencePanel.DataFilter = null;
-            this.ReferencePanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReferencePanel.ForeColor = System.Drawing.Color.Transparent;
-            this.ReferencePanel.HoverText = null;
-            this.ReferencePanel.IsDerivedStyle = true;
-            this.ReferencePanel.Location = new System.Drawing.Point(3, 27);
-            this.ReferencePanel.Name = "ReferencePanel";
-            this.ReferencePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ReferencePanel.Size = new System.Drawing.Size(272, 327);
-            this.ReferencePanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ReferencePanel.StyleManager = null;
-            this.ReferencePanel.TabIndex = 2;
-            this.ReferencePanel.ThemeAuthor = "Terry D. Eppler";
-            this.ReferencePanel.ThemeName = "Budget Execution";
-            this.ReferencePanel.ToolTip = null;
-            // 
-            // ReferenceListBox
-            // 
-            this.ReferenceListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ReferenceListBox.BindingSource = null;
-            this.ReferenceListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ReferenceListBox.DataFilter = null;
-            this.ReferenceListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ReferenceListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ReferenceListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReferenceListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ReferenceListBox.HoveredItemColor = System.Drawing.Color.White;
-            this.ReferenceListBox.HoverText = null;
-            this.ReferenceListBox.IsDerivedStyle = true;
-            this.ReferenceListBox.ItemHeight = 28;
-            this.ReferenceListBox.Location = new System.Drawing.Point(32, 38);
-            this.ReferenceListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ReferenceListBox.MultiSelect = true;
-            this.ReferenceListBox.Name = "ReferenceListBox";
-            this.ReferenceListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ReferenceListBox.SelectedIndex = -1;
-            this.ReferenceListBox.SelectedItem = null;
-            this.ReferenceListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ReferenceListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.ReferenceListBox.SelectedText = null;
-            this.ReferenceListBox.SelectedValue = null;
-            this.ReferenceListBox.ShowBorder = false;
-            this.ReferenceListBox.ShowScrollBar = false;
-            this.ReferenceListBox.Size = new System.Drawing.Size(210, 252);
-            this.ReferenceListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ReferenceListBox.StyleManager = null;
-            this.ReferenceListBox.TabIndex = 1;
-            this.ReferenceListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ReferenceListBox.ThemeName = "Budget Execution";
-            this.ReferenceListBox.ToolTip = null;
-            // 
             // FilterDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1665,6 +1665,7 @@ partial class FilterDialog
             this.TabControl.ResumeLayout(false);
             this.TableTabPage.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.ReferencePanel.ResumeLayout(false);
             this.ProviderTable.ResumeLayout(false);
             this.ProviderPanel.ResumeLayout(false);
             this.SourceTable.ResumeLayout(false);
@@ -1680,7 +1681,6 @@ partial class FilterDialog
             this.tableLayoutPanel2.ResumeLayout(false);
             this.SecondTable.ResumeLayout(false);
             this.SecondPanel.ResumeLayout(false);
-            this.ReferencePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
