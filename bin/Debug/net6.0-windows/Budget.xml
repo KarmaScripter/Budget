@@ -48345,11 +48345,6 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="P:BudgetExecution.Properties.Resources.DatabaseTile">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
         <member name="P:BudgetExecution.Properties.Resources.DataSearchButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -48561,11 +48556,6 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.TableButton">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:BudgetExecution.Properties.Resources.TableTile">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

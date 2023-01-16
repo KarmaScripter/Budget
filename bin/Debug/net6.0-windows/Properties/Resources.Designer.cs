@@ -243,16 +243,6 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DatabaseTile {
-            get {
-                object obj = ResourceManager.GetObject("DatabaseTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap DataSearchButton {
             get {
                 object obj = ResourceManager.GetObject("DataSearchButton", resourceCulture);
@@ -676,16 +666,6 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap TableButton {
             get {
                 object obj = ResourceManager.GetObject("TableButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap TableTile {
-            get {
-                object obj = ResourceManager.GetObject("TableTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

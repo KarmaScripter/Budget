@@ -557,12 +557,16 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     Text = $"{ Provider } Database ";
-                    FirstHeaderLabel.Text = $"Source :  { SelectedTable.SplitPascal( ) }";
-                    SecondHeaderLabel.Text = $"Records : { DataTable.Rows.Count } ";
-                    ThirdHeaderLabel.Text = $"Fields : { Fields.Count } ";
-                    FourthHeaderLabel.Text = $"Measures : { Numerics.Count } ";
-                    FieldLabel.Text = $"Fields : { Fields.Count } ";
-                    NumericsLabel.Text = $"Measures : { Numerics.Count } ";
+                    var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
+                    var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
+                    var _fields = Fields?.Count ?? 0;
+                    var _numerics = Numerics?.Count ?? 0;
+                    FirstHeaderLabel.Text = $"Source :  { _table }";
+                    SecondHeaderLabel.Text = $"Records : { _records } ";
+                    ThirdHeaderLabel.Text = $"Fields : { _fields } ";
+                    FourthHeaderLabel.Text = $"Measures : { _numerics } ";
+                    FieldLabel.Text = $"Fields : { _fields } ";
+                    NumericsLabel.Text = $"Measures : { _numerics } ";
                 }
                 else
                 {
@@ -731,7 +735,7 @@ namespace BudgetExecution
                 var _data = _model.GetData(  );
                 var _names = _data
                     ?.Where( dr => dr.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Select( dr => dr.Field<string>( "Title" ) )
                     ?.ToList(  );
 
                 if( _names?.Any( ) == true )
@@ -760,7 +764,7 @@ namespace BudgetExecution
                 var _data = _model.GetData(  );
                 var _names = _data
                     ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Select( dr => dr.Field<string>( "Title" ) )
                     ?.ToList(  );
 
                 if( _names?.Any( ) == true )
@@ -792,7 +796,8 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    SelectedTable = _listBox.SelectedValue?.ToString( );
+                    var _title = _listBox.SelectedValue?.ToString( );
+                    SelectedTable = _title?.Replace( " ", ""  );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );

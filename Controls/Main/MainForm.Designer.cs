@@ -79,7 +79,7 @@
             textItem1.TextColor = System.Drawing.Color.LightSteelBlue;
             this.GuidanceTile.Banner = textItem1;
             this.GuidanceTile.BannerColor = System.Drawing.Color.Transparent;
-            this.GuidanceTile.BannerHeight = 30;
+            this.GuidanceTile.BannerHeight = 40;
             this.GuidanceTile.BannerIcon = global::BudgetExecution.Properties.Resources.GuidanceTile;
             this.GuidanceTile.BindingSource = this.BindingSource;
             textItem2.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -144,7 +144,7 @@
             textItem5.TextColor = System.Drawing.Color.LightSteelBlue;
             this.DatabaseTile.Banner = textItem5;
             this.DatabaseTile.BannerColor = System.Drawing.Color.Transparent;
-            this.DatabaseTile.BannerHeight = 30;
+            this.DatabaseTile.BannerHeight = 40;
             this.DatabaseTile.BannerIcon = global::BudgetExecution.Properties.Resources.SettingsTile;
             this.DatabaseTile.BindingSource = this.BindingSource;
             textItem6.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -189,7 +189,7 @@
             textItem9.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ToolTile.Banner = textItem9;
             this.ToolTile.BannerColor = System.Drawing.Color.Transparent;
-            this.ToolTile.BannerHeight = 30;
+            this.ToolTile.BannerHeight = 40;
             this.ToolTile.BannerIcon = global::BudgetExecution.Properties.Resources.ToolsTile;
             this.ToolTile.BindingSource = this.BindingSource;
             textItem10.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -234,7 +234,7 @@
             textItem13.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ClientTile.Banner = textItem13;
             this.ClientTile.BannerColor = System.Drawing.Color.Transparent;
-            this.ClientTile.BannerHeight = 30;
+            this.ClientTile.BannerHeight = 40;
             this.ClientTile.BannerIcon = global::BudgetExecution.Properties.Resources.ClientTile;
             this.ClientTile.BindingSource = this.BindingSource;
             textItem14.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -279,7 +279,7 @@
             textItem17.TextColor = System.Drawing.Color.LightSteelBlue;
             this.UtilityTile.Banner = textItem17;
             this.UtilityTile.BannerColor = System.Drawing.Color.Transparent;
-            this.UtilityTile.BannerHeight = 30;
+            this.UtilityTile.BannerHeight = 40;
             this.UtilityTile.BannerIcon = global::BudgetExecution.Properties.Resources.UtilityTile;
             this.UtilityTile.BindingSource = this.BindingSource;
             textItem18.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -324,7 +324,7 @@
             textItem21.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ReportingTile.Banner = textItem21;
             this.ReportingTile.BannerColor = System.Drawing.Color.Transparent;
-            this.ReportingTile.BannerHeight = 30;
+            this.ReportingTile.BannerHeight = 40;
             this.ReportingTile.BannerIcon = global::BudgetExecution.Properties.Resources.ChartTile;
             this.ReportingTile.BindingSource = this.BindingSource;
             textItem22.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
