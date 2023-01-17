@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class DataUnit : IDataUnit, ISource, IProvider
+    public abstract class DataUnit : IDataUnit, ISource
     {
         /// <summary>
         ///  
@@ -42,22 +42,6 @@ namespace BudgetExecution
         public virtual Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public virtual Provider Provider { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the map.
-        /// </summary>
-        /// <value>
-        /// The map.
-        /// </value>
-        public virtual IDictionary<string, object> Map { get; set; }
-        
-        /// <summary>
         /// 
         /// </summary>
         /// <value>
@@ -72,30 +56,6 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="query">The query.</param>
-        protected DataUnit( IQuery query )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
-        protected DataUnit( IDataModel dataBuilder )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        protected DataUnit( DataRow dataRow )
-        {
-        }
-        
         /// <summary>
         /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>
@@ -286,26 +246,6 @@ namespace BudgetExecution
             else
             {
                 return -1;
-            }
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Record.ItemArray.Length > 0
-                    ? Record.ToDictionary(  )
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
             }
         }
 

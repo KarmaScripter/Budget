@@ -4,45 +4,68 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ActivityCode
+    public class ActivityCode : DataUnit, IActivityCode
     {
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public override Source Source { get; set; } = Source.ActivityCodes;
+
+        /// <summary>
+        /// Gets the dataRow.
+        /// </summary>
+        /// <value>
+        /// The dataRow.
+        /// </value>
+        public override DataRow Record { get; set; }
+
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
-        /// Gets or sets the source.
+        /// Gets the code.
+        /// </summary>
+        public override string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
         /// </summary>
         /// <value>
-        /// The source.
+        /// The name.
         /// </value>
-        public Source Source { get; set; }
+        public override string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the description.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The description.
         /// </value>
-        public DataRow Record { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the description.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The description.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
@@ -59,8 +82,11 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public ActivityCode( IQuery query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Record = new DataBuilder( query )?.Record;
+            ID = GetId( Record, PrimaryKey.ActivityCodesId  );
+            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
+            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -69,8 +95,11 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public ActivityCode( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Record = builder?.Record;
+            ID = GetId( Record, PrimaryKey.ActivityCodesId  );
+            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
+            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -80,7 +109,77 @@ namespace BudgetExecution
         public ActivityCode( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            ID = GetId( dataRow, PrimaryKey.ActivityCodesId  );
+            Name = dataRow[ $"{ Field.ActivityName }" ].ToString( );
+            Code = dataRow[ $"{ Field.ActivityCode }" ].ToString( );
+            Data = dataRow?.ToDictionary( );
+        }
+
+        public ActivityCode( string code )
+        {
+            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            ID = GetId( Record, PrimaryKey.ActivityCodesId  );
+            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
+            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+        
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name = "code" >
+        /// The code.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object>
+                    {
+                        [ $"{ Field.ActivityCode }" ] = code
+                    };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
+        }
+
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public virtual IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Data?.Any( ) == true
+                    ? Data
+                    : default( IDictionary<string, object> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, object> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the activity.
+        /// </summary>
+        /// <returns></returns>
+        public ActivityCode GetActivity( )
+        {
+            return MemberwiseClone(  ) as ActivityCode;
         }
     }
 }

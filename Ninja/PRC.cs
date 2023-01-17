@@ -5,8 +5,10 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <summary>
     /// 
@@ -18,6 +20,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class PRC : DataUnit
     {
+        /// <summary>
+        /// Gets or sets the ID.
+        /// </summary>
+        /// <value>
+        /// The ID.
+        /// </value>
+        public virtual int ID { get; set; }
+
         /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
@@ -147,6 +157,14 @@ namespace BudgetExecution
         public virtual string BocName { get; set; }
 
         /// <summary>
+        /// Gets or sets the Amount.
+        /// </summary>
+        /// <value>
+        /// double.
+        /// </value>
+        public virtual double Amount { get; set; }
+
+        /// <summary>
         /// Gets or sets the rc code.
         /// </summary>
         /// <value>
@@ -241,7 +259,31 @@ namespace BudgetExecution
         /// The name of the program area.
         /// </value>
         public virtual string ProgramAreaName { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the Source .
+        /// </summary>
+        /// <value>
+        /// The name of the Source.
+        /// </value>
+        public virtual Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Provider.
+        /// </summary>
+        /// <value>
+        /// The name of the Provider.
+        /// </value>
+        public virtual Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Data.
+        /// </summary>
+        /// <value>
+        /// The Data.
+        /// </value>
+        public virtual IDictionary<string, object> Data { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
@@ -255,6 +297,32 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         protected PRC( IQuery query )
         {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
+            NpmName = Record[ "NpmName" ].ToString(  );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
         /// <summary>
@@ -263,6 +331,32 @@ namespace BudgetExecution
         /// <param name="dataBuilder">The data builder.</param>
         protected PRC( IDataModel dataBuilder )
         {
+            Record = dataBuilder.Record;
+            Data = Record.ToDictionary(  );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
+            NpmName = Record[ "NpmName" ].ToString(  );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
         /// <summary>
@@ -271,13 +365,66 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         protected PRC( DataRow dataRow )
         {
-            NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
-            ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
-            ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            Record = dataRow;
+            Data = Record.ToDictionary(  );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            AhCode = dataRow[ "AhCode" ].ToString( );
+            AhName = dataRow[ "AhName" ].ToString( );
+            OrgCode = dataRow[ "OrgCode" ].ToString( );
+            OrgName = dataRow[ "OrgName" ].ToString( );
+            AccountCode = dataRow[ "AccountCode" ].ToString( );
+            BocCode = dataRow[ "BocCode" ].ToString( );
+            BocName = dataRow[ "BocName" ].ToString( );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            NpmCode = dataRow[ "NpmCode" ].ToString(  );
+            NpmName = dataRow[ "NpmName" ].ToString(  );
+            GoalCode = dataRow[ "GoalCode" ].ToString( );
+            GoalName = dataRow[ "GoalName" ].ToString( );
+            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PRC"/> class.
+        /// </summary>
+        /// <param name="map">The data row.</param>
+        protected PRC( IDictionary<string, object> map )
+        {
+            Record = new DataBuilder( Source, map )?.Record;
+            Data = Record.ToDictionary(  );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
+            NpmName = Record[ "NpmName" ].ToString(  );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
         /// <summary>
@@ -353,6 +500,25 @@ namespace BudgetExecution
             }
 
             return default( double );
+        }
+
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <returns></returns>
+        public virtual IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Record.ItemArray != null
+                    ? Record.ToDictionary(  )
+                    : default( IDictionary<string, object> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, object> );
+            }
         }
     }
 }

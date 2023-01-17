@@ -321,8 +321,8 @@ namespace BudgetExecution
         {
             try
             {
-                return ( Map?.Any( ) == true )
-                    ? new DataBuilder( Source, Map )
+                return ( Data?.Any( ) == true )
+                    ? new DataBuilder( Source, Data )
                     : default( DataBuilder );
             }
             catch( Exception ex )

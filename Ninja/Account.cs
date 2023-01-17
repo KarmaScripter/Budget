@@ -128,7 +128,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Account"/> class.
@@ -153,7 +153,7 @@ namespace BudgetExecution
             GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
             ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            Map = Record?.ToDictionary( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace BudgetExecution
             ProgramAreaCode = Record?[ $"{ Field.ProgramAreaCode }" ].ToString( );
             GoalCode = Record?[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record?[ $"{ Field.ObjectiveCode }" ].ToString( );
-            Map = Record?.ToDictionary( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -181,15 +181,15 @@ namespace BudgetExecution
         public Account( DataRow dataRow )
         {
             Record = dataRow;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
-            Code = Record[ $"{ Field.AccountCode }" ].ToString( );
-            NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
-            ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
-            ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
-            Map = Record?.ToDictionary( );
+            ID = int.Parse( dataRow[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
+            Code = dataRow[ $"{ Field.AccountCode }" ].ToString( );
+            NpmCode = dataRow[ $"{ Field.NpmCode }" ].ToString( );
+            ProgramProjectCode = dataRow[ $"{ Field.ProgramProjectCode }" ].ToString( );
+            ActivityCode = dataRow[ $"{ Field.ActivityCode }" ].ToString( );
+            ProgramAreaCode = dataRow[ $"{ Field.ProgramAreaCode }" ].ToString( );
+            GoalCode = dataRow[ $"{ Field.GoalCode }" ].ToString( );
+            ObjectiveCode = dataRow[ $"{ Field.ObjectiveCode }" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace BudgetExecution
             ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
             GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
             ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
-            Map = Record?.ToDictionary( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -247,25 +247,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( Account );
-            }
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
-        public override IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Map?.Any( ) == true
-                    ? Map
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
             }
         }
     }
