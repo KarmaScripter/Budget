@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget level.
         /// </value>
-        public virtual string BudgetLevel { get; set; }
+        public override string BudgetLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string EFY { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public virtual string RpioCode { get; set; }
+        public override string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public virtual string RpioName { get; set; }
+        public override string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public virtual string FundCode { get; set; }
+        public override string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public virtual string FundName { get; set; }
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The ah code.
         /// </value>
-        public virtual string AhCode { get; set; }
+        public override string AhCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the ah.
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public virtual string AhName { get; set; }
+        public override string AhName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The org code.
         /// </value>
-        public virtual string OrgCode { get; set; }
+        public override string OrgCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the org.
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public virtual string OrgName { get; set; }
+        public override string OrgName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public virtual string AccountCode { get; set; }
+        public override string AccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the activity code.
@@ -142,7 +142,7 @@ namespace BudgetExecution
         /// <value>
         /// The activity code.
         /// </value>
-        public virtual string ActivityCode { get; set; }
+        public override string ActivityCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the activity name.
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <value>
         /// double.
         /// </value>
-        public override double Amount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.

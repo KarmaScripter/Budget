@@ -157,14 +157,6 @@ namespace BudgetExecution
         public virtual string BocName { get; set; }
 
         /// <summary>
-        /// Gets or sets the Amount.
-        /// </summary>
-        /// <value>
-        /// double.
-        /// </value>
-        public virtual double Amount { get; set; }
-
-        /// <summary>
         /// Gets or sets the rc code.
         /// </summary>
         /// <value>
@@ -314,7 +306,6 @@ namespace BudgetExecution
             BocName = Record[ "BocName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             NpmCode = Record[ "NpmCode" ].ToString(  );
@@ -348,7 +339,6 @@ namespace BudgetExecution
             BocName = Record[ "BocName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             NpmCode = Record[ "NpmCode" ].ToString(  );
@@ -382,7 +372,6 @@ namespace BudgetExecution
             BocName = dataRow[ "BocName" ].ToString( );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
             NpmCode = dataRow[ "NpmCode" ].ToString(  );
@@ -416,7 +405,6 @@ namespace BudgetExecution
             BocName = Record[ "BocName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             NpmCode = Record[ "NpmCode" ].ToString(  );

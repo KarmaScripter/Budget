@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public override IDictionary<string, object> Map { get; set; }
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataRuleDescription"/> class.
@@ -103,7 +103,7 @@ namespace BudgetExecution
         public DataRuleDescription( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace BudgetExecution
         public DataRuleDescription( IDataModel builder )
         {
             Record = builder.Record;
-            Map = Record.ToDictionary( );
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace BudgetExecution
         public DataRuleDescription( DataRow dataRow )
         {
             Record = dataRow;
-            Map = dataRow.ToDictionary( );
+            Data = dataRow.ToDictionary( );
         }
     }
 }
