@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <value>
         /// double.
         /// </value>
-        public double Amount { get; set; }
+        public virtual double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.

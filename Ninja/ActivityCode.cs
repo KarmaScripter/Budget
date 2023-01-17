@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The description.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivityCode"/> class.
