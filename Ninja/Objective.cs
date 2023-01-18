@@ -77,8 +77,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = GetId( Record, PrimaryKey.ObjectivesId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -92,8 +92,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = GetId( Record, PrimaryKey.ObjectivesId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -108,8 +108,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = GetId( dataRow, PrimaryKey.ObjectivesId );
-            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
-            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
+            Name = dataRow[ "Name" ].ToString(  );
+            Code = dataRow[ "Code" ].ToString(  );
             Data = dataRow?.ToDictionary( );
         }
 
@@ -123,8 +123,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
             ID = GetId( Record, PrimaryKey.ObjectivesId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Field.Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
