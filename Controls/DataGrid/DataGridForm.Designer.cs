@@ -798,7 +798,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(181, 32);
+            this.TextBox.Size = new System.Drawing.Size(179, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1788,10 +1788,10 @@
             this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
             this.TablePanel.HoverText = null;
             this.TablePanel.IsDerivedStyle = true;
-            this.TablePanel.Location = new System.Drawing.Point(3, 39);
+            this.TablePanel.Location = new System.Drawing.Point(3, 38);
             this.TablePanel.Name = "TablePanel";
             this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.TablePanel.Size = new System.Drawing.Size(289, 547);
+            this.TablePanel.Size = new System.Drawing.Size(289, 548);
             this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TablePanel.StyleManager = null;
             this.TablePanel.TabIndex = 0;

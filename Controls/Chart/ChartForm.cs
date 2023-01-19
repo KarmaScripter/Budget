@@ -141,7 +141,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public SortedDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> FormFilter { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -152,10 +152,10 @@ namespace BudgetExecution
         public IList<string> Fields { get; set; }
 
         /// <summary>
-        /// Gets or sets the fields.
+        /// Gets or sets the numerics.
         /// </summary>
         /// <value>
-        /// The fields.
+        /// The numerics.
         /// </value>
         public IList<string> Numerics { get; set; }
 
@@ -166,6 +166,22 @@ namespace BudgetExecution
         /// The selected columns.
         /// </value>
         public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -274,7 +290,7 @@ namespace BudgetExecution
                 if( BindingSource.DataSource != null 
                    && !string.IsNullOrEmpty( SqlQuery ) )
                 {
-                    TabControl.SelectedTab = FilterTab;
+                    TabControl.SelectedTab = FilterTabPage;
                     DataTable = (DataTable)BindingSource.DataSource;
                     SelectedTable = DataTable.TableName;
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
@@ -294,7 +310,7 @@ namespace BudgetExecution
                     Chart.Title.Text = "Select Data Table";
                     Text = "Visualization";
                     Provider = Provider.Access;
-                    TabControl.SelectedTab = TableTab;
+                    TabControl.SelectedTab = TableTabPage;
                     PopulateTableListBoxItems(  );
                 }
             }
@@ -304,14 +320,14 @@ namespace BudgetExecution
             } 
         }
 
-        private void OnFilterRadioButtonSelected( object sender, EventArgs e )
+        private void OnFoldButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 if( sender is RadioButton _filterButton )
                 {
                     ClearFilterSelections(  );
-                    TabControl.SelectedTab = FilterTab;
+                    TabControl.SelectedTab = FilterTabPage;
                 }
             }
             catch( Exception ex )
@@ -399,7 +415,7 @@ namespace BudgetExecution
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
-                        TabControl.SelectedTab = FilterTab;
+                        TabControl.SelectedTab = FilterTabPage;
                         PopulateFirstComboBoxItems( );
                     }
 
