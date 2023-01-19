@@ -1107,13 +1107,29 @@
         </member>
         <member name="P:BudgetExecution.ChartForm.Numerics">
             <summary>
-            Gets or sets the fields.
+            Gets or sets the numerics.
             </summary>
             <value>
-            The fields.
+            The numerics.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.SelectedColumns">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.SelectedFields">
+            <summary>
+            Gets or sets the selected columns.
+            </summary>
+            <value>
+            The selected columns.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.ChartForm.SelectedNumerics">
             <summary>
             Gets or sets the selected columns.
             </summary>
@@ -1162,6 +1178,13 @@
             <summary>
             Initializes the data.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnFoldButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [fold button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateToolBarDropDownItems">
             <summary>
@@ -1254,10 +1277,9 @@
         </member>
         <member name="M:BudgetExecution.ChartForm.OnNumericListBoxSelectedValueChanged(System.Object)">
             <summary>
-            Called when [numeric ListBox item selected].
+            Called when [numeric ListBox selected value changed].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
@@ -1275,7 +1297,7 @@
             <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.ClearFilterSelections">
+        <member name="M:BudgetExecution.ChartForm.ClearSelections">
             <summary>
             Clears the selected filter values.
             </summary>
@@ -1287,9 +1309,41 @@
             <param name="where">The where.</param>
             <returns></returns>
         </member>
+        <member name="M:BudgetExecution.ChartForm.CreateSqlText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates the SQL text.
+            </summary>
+            <param name="fields">The fields.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="where">The where.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.CreateSqlText(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates the SQL text.
+            </summary>
+            <param name="columns">The columns.</param>
+            <param name="where">The where.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.ClearLabelText">
+            <summary>
+            Clears the label text.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.ChartForm.SetLabelText">
             <summary>
             Sets the label configuration.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.UpdateLabelText">
+            <summary>
+            Sets the label configuration.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.ClearCollections">
+            <summary>
+            Clears the collections.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnBackButtonClicked(System.Object,System.EventArgs)">

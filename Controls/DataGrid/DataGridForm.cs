@@ -496,24 +496,24 @@ namespace BudgetExecution
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> cols, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+               && columns?.Any( ) == true )
             {
                 try
                 {
                     var _cols = string.Empty;
-                    foreach( var name in cols )
+                    foreach( var name in columns )
                     {
                         _cols += $"{ name }, ";
                     }
                     
                     var _criteria = where.ToCriteria( );
-                    var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT { _columns } FROM { Source } "
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT { _names } FROM { Source } "
                         + $"WHERE { _criteria } " 
-                        + $"GROUP BY { _columns };";
+                        + $"GROUP BY { _names };";
                 }
                 catch( Exception ex )
                 {

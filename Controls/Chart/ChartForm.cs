@@ -311,6 +311,7 @@ namespace BudgetExecution
                     Text = "Visualization";
                     Provider = Provider.Access;
                     TabControl.SelectedTab = TableTabPage;
+                    TableTabPage.TabVisible = true;
                     PopulateTableListBoxItems(  );
                 }
             }
@@ -320,13 +321,18 @@ namespace BudgetExecution
             } 
         }
 
+        /// <summary>
+        /// Called when [fold button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnFoldButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 if( sender is RadioButton _filterButton )
                 {
-                    ClearFilterSelections(  );
+                    ClearSelections(  );
                     TabControl.SelectedTab = FilterTabPage;
                 }
             }
@@ -451,6 +457,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    FirstComboBox.Items.Clear(  );
                     foreach( var item in Fields )
                     {
                         FirstComboBox.Items.Add( item );
@@ -482,11 +489,7 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    if( FirstListBox.Items.Count > 0 )
-                    {
-                        FirstListBox.Items.Clear(  );
-                    }
-                    
+                    FirstListBox.Items.Clear(  );
                     var _filter = _comboBox.SelectedItem.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
@@ -551,6 +554,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    SecondComboBox.Items.Clear( );
                     if( !string.IsNullOrEmpty( FirstValue ) )
                     {
                         foreach( var item in Fields )
@@ -593,14 +597,10 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    if( SecondListBox.Items.Count > 0 )
-                    {
-                        SecondListBox.Items.Clear(  );
-                    }
-
                     var _filter = _comboBox.SelectedItem.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
+                        SecondListBox.Items.Clear(  );
                         SecondCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
@@ -698,14 +698,11 @@ namespace BudgetExecution
                     ThirdValue = string.Empty;
                     FourthCategory = string.Empty;
                     FourthValue = string.Empty;
-                    if( ThirdListBox.Items.Count > 0 )
-                    {
-                        ThirdListBox.Items.Clear(  );
-                    }
-                    
+                    ThirdListBox.Items.Clear(  );
                     var _filter = _comboBox?.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
+                        ThirdListBox.Items.Clear( );
                         ThirdCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
@@ -814,20 +811,19 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
-        /// Called when [numeric ListBox item selected].
+        /// Called when [numeric ListBox selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnNumericListBoxSelectedValueChanged( object sender )
         {
             try
             {
-                var _selectedItem = NumericListBox.SelectedItem.ToString( );
+                var _selectedItem = NumericListBox.SelectedItem?.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
-                    SelectedColumns.Add( _selectedItem );
+                    SelectedColumns?.Add( _selectedItem );
                 }
             }
             catch( Exception ex )
@@ -902,7 +898,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the selected filter values.
         /// </summary>
-        private void ClearFilterSelections( )
+        private void ClearSelections( )
         {
             try
             {
@@ -959,6 +955,103 @@ namespace BudgetExecution
             
             return string.Empty;
         }
+        
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    foreach( var name in fields )
+                    {
+                        _cols += $"{ name }, ";
+                    }
+                    
+                    foreach( var metric in numerics )
+                    {
+                        _aggr += $"SUM({ metric }) AS { metric }, ";
+                    }
+
+                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    var _criteria = where.ToCriteria( );
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT { _columns } FROM { Source } "
+                        + $"WHERE { _criteria } " 
+                        + $"GROUP BY { _groups };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    foreach( var name in columns )
+                    {
+                        _cols += $"{ name }, ";
+                    }
+                    
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT { _names } FROM { Source } "
+                        + $"WHERE { _criteria } " 
+                        + $"GROUP BY { _names };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabelText( )
+        {
+            try
+            {
+                Text = string.Empty;
+                FieldLabel.Text = string.Empty;
+                NumericsLabel.Text = string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
         /// Sets the label configuration.
@@ -979,6 +1072,59 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the label configuration.
+        /// </summary>
+        private void UpdateLabelText( )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                }
+                else
+                {
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear(  );
+                }
+
+                if( SelectedColumns?.Any( ) == true )
+                {
+                    SelectedColumns.Clear(  );
+                }
+
+                if( SelectedFields?.Any( ) == true )
+                {
+                    SelectedFields.Clear(  );
+                }
+
+                if( SelectedNumerics?.Any( ) == true )
+                {
+                    SelectedNumerics.Clear( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [back button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -990,7 +1136,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.BackButton )
                 {
-                    ClearFilterSelections(  );
+                    ClearSelections(  );
                     DataTable = null;
                     BindingSource.DataSource = null;
                     Close( );
@@ -1014,8 +1160,26 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.RemoveFiltersButton )
                 {
-                    ClearFilterSelections(  );
-                    PopulateFirstComboBoxItems(  );
+                    ClearSelections( );
+                    ClearCollections( );
+                    ClearLabelText( );
+                    Chart.BindingSource.DataSource = null;
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    Chart.BindingSource  = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    TableTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                    FoldButton.Visible = false;
+                    TabControl.SelectedTab = FilterTabPage;
+                    FilterTabPage.TabVisible = true;
+                    PopulateFirstComboBoxItems( );
+                    FirstTable.Visible = true;
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1036,7 +1200,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ExitButton )
                 {
-                    ClearFilterSelections(  );
+                    ClearSelections(  );
                     DataTable = null;
                     BindingSource.DataSource = null;
                     Close( );

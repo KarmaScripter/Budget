@@ -685,7 +685,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComboBoxItems(  );
-                    if( ThirdTable.Visible != true )
+                    if( ThirdTable.Visible == false )
                     {
                         ThirdTable.Visible = true;
                     }
@@ -709,6 +709,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( FirstValue ) 
                        && !string.IsNullOrEmpty( SecondValue ) )
                     {
+                        ThirdComboBox.Items.Clear(  );
                         foreach( var item in Fields )
                         {
                             if( !item.Equals( FirstCategory ) 
@@ -717,9 +718,6 @@ namespace BudgetExecution
                                 ThirdComboBox.Items.Add( item );
                             }
                         }
-
-                        ThirdComboBox.SelectedIndex = -1;
-                        SetLabelText(  );
                     }
                 }
                 catch( Exception ex )
@@ -746,22 +744,16 @@ namespace BudgetExecution
                     SqlQuery = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    if( ThirdListBox.Items.Count > 0 )
-                    {
-                        ThirdListBox.Items.Clear(  );
-                    }
-
                     var _filter = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
+                        ThirdListBox.Items.Clear(  );
                         ThirdCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
                         {
                             ThirdListBox.Items.Add( item );
                         }
-                        
-                        SetLabelText(  );
                     }
                 }
                 catch( Exception ex )
