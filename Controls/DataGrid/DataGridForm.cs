@@ -251,6 +251,10 @@ namespace BudgetExecution
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            FoldButton.Click += OnFoldButtonClicked;
+            TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
+            SearchButton.Click += OnSearchButtonClicked;
+            TestButton.Click += OnTestButtonClicked;
             ExitButton.Click += null;
             MenuButton.Click += null;
             ChartButton.Click += null;
@@ -304,26 +308,25 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter = new Dictionary<string, object>( );
-                SelectedColumns = new List<string>( );
-                SelectedFields = new List<string>( );
-                SelectedNumerics = new List<string>( );
-                ClearSelections(  );
-                ClearLabelText( );
-                PopulateToolStripComboBoxItems( );
-                ExitButton.Click += OnExitButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                RefreshDataButton.Click += OnRefreshDataButtonClicked;
-                SearchButton.Click += OnSearchButtonClicked;
-                TestButton.Click += OnTestButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                ChartButton.Click += OnChartButtonClicked;
-                FoldButton.Click += OnFoldButtonClicked;
-                TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-                TabControl.SelectedTab = TableTabPage;
-                TableTabPage.TabVisible = true;
-                FilterTabPage.TabVisible = false;
-                FoldTabPage.TabVisible = false;
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    FormFilter = new Dictionary<string, object>( );
+                    SelectedColumns = new List<string>( );
+                    SelectedFields = new List<string>( );
+                    SelectedNumerics = new List<string>( );
+                    TabControl.SelectedTab = TableTabPage;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                    ClearSelections(  );
+                    ClearLabelText( );
+                    PopulateToolStripComboBoxItems( );
+                    ExitButton.Click += OnExitButtonClicked;
+                    MenuButton.Click += OnMainMenuButtonClicked;
+                    ChartButton.Click += OnChartButtonClicked;
+                    RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                    RefreshDataButton.Click += OnRefreshDataButtonClicked;
+                }
             }
             catch( Exception ex )
             {
@@ -493,7 +496,7 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
-        /// <param name="cols">The cols.</param>
+        /// <param name="columns">The cols.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
