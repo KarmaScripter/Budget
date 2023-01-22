@@ -2375,7 +2375,7 @@
             <summary>
             Creates the SQL text.
             </summary>
-            <param name="cols">The cols.</param>
+            <param name="columns">The cols.</param>
             <param name="where">The where.</param>
             <returns></returns>
         </member>
