@@ -798,7 +798,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(175, 32);
+            this.TextBox.Size = new System.Drawing.Size(159, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1196,11 +1196,12 @@
             this.ExcelImportButton.ForeColor = System.Drawing.Color.LightGray;
             this.ExcelImportButton.HoverText = "Excel Import";
             this.ExcelImportButton.Image = global::BudgetExecution.Properties.Resources.ExcelImportButton;
+            this.ExcelImportButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ExcelImportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExcelImportButton.Margin = new System.Windows.Forms.Padding(1);
             this.ExcelImportButton.Name = "ExcelImportButton";
             this.ExcelImportButton.Padding = new System.Windows.Forms.Padding(1);
-            this.ExcelImportButton.Size = new System.Drawing.Size(26, 32);
+            this.ExcelImportButton.Size = new System.Drawing.Size(23, 32);
             this.ExcelImportButton.Text = "toolStripButton1";
             this.ExcelImportButton.ToolTip = this.ToolTip;
             this.ExcelImportButton.ToolType = BudgetExecution.ToolType.ExcelImportButton;
