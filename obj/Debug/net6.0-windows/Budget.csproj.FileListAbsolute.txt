@@ -37,6 +37,7 @@ C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Diagram.W
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.DocIO.Base.dll
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Edit.Windows.dll
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Gauge.Windows.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Grid.Base.dll
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Grid.Grouping.Windows.dll
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Grid.Windows.dll
 C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.GridCommon.WinForms.dll
@@ -169,4 +170,3 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.xml
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.pdb
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.genruntimeconfig.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
-C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Grid.Base.dll
