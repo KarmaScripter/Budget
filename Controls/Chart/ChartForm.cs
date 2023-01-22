@@ -17,7 +17,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
@@ -32,10 +33,10 @@ namespace BudgetExecution
         public string SelectedTable { get; set; }
 
         /// <summary>
-        /// Gets or sets the first selected item.
+        /// Gets or sets the first category.
         /// </summary>
         /// <value>
-        /// The first selected item.
+        /// The first category.
         /// </value>
         public string FirstCategory { get; set; }
 
@@ -48,10 +49,10 @@ namespace BudgetExecution
         public string FirstValue { get; set; }
 
         /// <summary>
-        /// Gets or sets the second selected item.
+        /// Gets or sets the second category.
         /// </summary>
         /// <value>
-        /// The second selected item.
+        /// The second category.
         /// </value>
         public string SecondCategory { get; set; }
 
@@ -62,12 +63,12 @@ namespace BudgetExecution
         /// The second value.
         /// </value>
         public string SecondValue { get; set; }
-        
+
         /// <summary>
-        /// Gets or sets the third selected item.
+        /// Gets or sets the third category.
         /// </summary>
         /// <value>
-        /// The third selected item.
+        /// The third category.
         /// </value>
         public string ThirdCategory { get; set; }
 
@@ -94,7 +95,7 @@ namespace BudgetExecution
         /// The fourth value.
         /// </value>
         public string FourthValue { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the SQL query.
         /// </summary>
@@ -118,7 +119,7 @@ namespace BudgetExecution
         /// The y axis.
         /// </value>
         public string yAxis { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data model.
         /// </summary>
@@ -126,7 +127,7 @@ namespace BudgetExecution
         /// The data model.
         /// </value>
         public DataBuilder DataModel { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -168,18 +169,18 @@ namespace BudgetExecution
         public IList<string> SelectedColumns { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected columns.
+        /// Gets or sets the selected fields.
         /// </summary>
         /// <value>
-        /// The selected columns.
+        /// The selected fields.
         /// </value>
         public IList<string> SelectedFields { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected columns.
+        /// Gets or sets the selected numerics.
         /// </summary>
         /// <value>
-        /// The selected columns.
+        /// The selected numerics.
         /// </value>
         public IList<string> SelectedNumerics { get; set; }
 
@@ -198,7 +199,7 @@ namespace BudgetExecution
         /// The provider.
         /// </value>
         public Provider Provider { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartForm"/> class.
         /// </summary>
@@ -228,6 +229,27 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
+
+            // TabPage Properties
+            TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
+            TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            FoldTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+
+            // ToolStrip Properties
+            ToolStrip.Text = string.Empty;
+            ToolStrip.Office12Mode = true;
+            ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
+            ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+            ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
+
+            // Table Layout Properties
+            FirstTable.Visible = false;
+            SecondTable.Visible = false;
+            ThirdTable.Visible = false;
+
+            // Initialize Default Provider
+            Provider = Provider.Access;
             
             // Event Wiring
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -252,15 +274,12 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
         }
-        
+
         /// <summary>
         /// Called when [load].
         /// </summary>
-        /// <param name="sender">
-        /// The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -320,6 +339,127 @@ namespace BudgetExecution
                 Fail( ex );
             } 
         }
+        
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        private void BindDataSource( IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source ) 
+               && Enum.IsDefined( typeof( Provider ), Provider ) 
+               && where?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    Chart.BindingSource = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                } 
+            } 
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void BindDataSource( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true 
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    Chart.BindingSource = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindDataSource( IEnumerable<string> fields, IEnumerable<string> numerics, 
+            IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    Chart.BindingSource = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        private void BindDataSource( Source source, Provider provider, string sqlText )
+        {
+            if( Enum.IsDefined( typeof( Source ), source )
+               && Enum.IsDefined( typeof( Provider ), provider )
+               && !string.IsNullOrEmpty( sqlText ) )
+            {
+                try
+                {
+                    Source = source;
+                    Provider = provider;
+                    DataModel = new DataBuilder( source, provider, sqlText );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    Chart.BindingSource = BindingSource;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
 
         /// <summary>
         /// Called when [fold button clicked].
@@ -366,7 +506,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the ListBox items.
+        /// Populates the table ListBox items.
         /// </summary>
         public void PopulateTableListBoxItems( )
         {
@@ -469,13 +609,12 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [first ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        /// <returns></returns>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -510,9 +649,9 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
-        /// Called when [first filter selected].
+        /// Called when [first ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnFirstListBoxItemSelected( object sender )
@@ -579,13 +718,12 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        /// <returns></returns>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -617,9 +755,9 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
-        /// Called when [second filter selected].
+        /// Called when [second ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnSecondListBoxItemSelected( object sender )
@@ -651,7 +789,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Populates the third ComboBox items.
         /// </summary>
@@ -680,13 +818,12 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [third ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        /// <returns></returns>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -719,7 +856,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [third filter selected].
+        /// Called when [third ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnThirdListBoxItemSelected( object sender )
@@ -746,9 +883,9 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
-        /// Populates the column ListBox.
+        /// Populates the field ListBox.
         /// </summary>
         private void PopulateFieldListBox( )
         {
@@ -769,7 +906,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [column ListBox item selected].
+        /// Called when [field ListBox selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnFieldListBoxSelectedValueChanged( object sender )
@@ -831,72 +968,9 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// Sets the data source.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The where.</param>
-        private void BindDataSource( Source source, Provider provider,
-            IDictionary<string, object> where )
-        {
-            if( Enum.IsDefined( typeof( Source ), source )
-               && Enum.IsDefined( typeof( Provider ), provider )
-               && where?.Any( ) == true )
-            {
-                try
-                {
-                    Source = source;
-                    Provider = provider;
-                    DataModel = new DataBuilder( source, provider, where );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
-                    Chart.BindingSource = BindingSource;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
 
         /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="sqlText">The SQL text.</param>
-        private void BindDataSource( Source source, Provider provider, string sqlText )
-        {
-            if( Enum.IsDefined( typeof( Source ), source )
-               && Enum.IsDefined( typeof( Provider ), provider )
-               && !string.IsNullOrEmpty( sqlText ) )
-            {
-                try
-                {
-                    Source = source;
-                    Provider = provider;
-                    DataModel = new DataBuilder( source, provider, sqlText );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
-                    Chart.BindingSource = BindingSource;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Clears the selected filter values.
+        /// Clears the selections.
         /// </summary>
         private void ClearSelections( )
         {
@@ -955,7 +1029,7 @@ namespace BudgetExecution
             
             return string.Empty;
         }
-        
+
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
@@ -1054,7 +1128,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the label configuration.
+        /// Sets the label text.
         /// </summary>
         private void SetLabelText( )
         {
@@ -1072,7 +1146,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the label configuration.
+        /// Updates the label text.
         /// </summary>
         private void UpdateLabelText( )
         {
@@ -1090,7 +1164,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Clears the collections.
         /// </summary>
