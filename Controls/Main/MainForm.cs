@@ -122,7 +122,7 @@ namespace BudgetExecution
             try
             {
                 var _dataGridForm = new DataGridForm( );
-                _dataGridForm.StartPosition = FormStartPosition.CenterParent;
+                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 _dataGridForm.Owner = this;
                 _dataGridForm.Show(  );
                 Visible = false;
@@ -147,7 +147,7 @@ namespace BudgetExecution
             {
                 var _chartForm = new ChartForm( BindingSource );
                 _chartForm.Owner = this;
-                _chartForm.StartPosition = FormStartPosition.CenterParent;
+                _chartForm.StartPosition = FormStartPosition.CenterScreen;
                 _chartForm.Show( );
                 Visible = false;
             }
@@ -215,7 +215,7 @@ namespace BudgetExecution
             {
                 var _pdf = new PdfForm( );
                 _pdf.Owner = this;
-                _pdf.StartPosition = FormStartPosition.CenterParent;
+                _pdf.StartPosition = FormStartPosition.CenterScreen;
                 _pdf.Show( );
                 Visible = false;
             }

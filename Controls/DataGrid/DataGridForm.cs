@@ -310,23 +310,31 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    FormFilter = new Dictionary<string, object>( );
-                    SelectedColumns = new List<string>( );
-                    SelectedFields = new List<string>( );
-                    SelectedNumerics = new List<string>( );
+                    TabControl.SelectedTab = FilterTabPage;
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                }
+                else if( string.IsNullOrEmpty( SelectedTable ) )
+                {
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
-                    ClearSelections(  );
-                    ClearLabelText( );
-                    PopulateToolStripComboBoxItems( );
-                    ExitButton.Click += OnExitButtonClicked;
-                    MenuButton.Click += OnMainMenuButtonClicked;
-                    ChartButton.Click += OnChartButtonClicked;
-                    RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                    RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 }
+
+                FormFilter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
+                ClearSelections(  );
+                ClearLabelText( );
+                PopulateToolStripComboBoxItems( );
+                ExitButton.Click += OnExitButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                ChartButton.Click += OnChartButtonClicked;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                RefreshDataButton.Click += OnRefreshDataButtonClicked;
             }
             catch( Exception ex )
             {
@@ -794,11 +802,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Keys.Count > 0 )
-                    {
-                        FormFilter.Clear( );
-                    }
-
+                    FormFilter.Clear( );
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", ""  );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
