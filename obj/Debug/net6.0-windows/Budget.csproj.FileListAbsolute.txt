@@ -169,3 +169,4 @@ C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.xml
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.pdb
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\Budget.genruntimeconfig.cache
 C:\Users\terry\source\repos\Budget\obj\Debug\net6.0-windows\ref\Budget.dll
+C:\Users\terry\source\repos\Budget\bin\Debug\net6.0-windows\Syncfusion.Grid.Base.dll
