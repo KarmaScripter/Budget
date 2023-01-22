@@ -932,7 +932,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Keys.Count > 0 )
+                    if( FormFilter.Count > 0 )
                     {
                         FormFilter.Clear( );
                     }
