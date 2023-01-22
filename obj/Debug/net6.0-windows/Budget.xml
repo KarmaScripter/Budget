@@ -976,6 +976,7 @@
             <summary>
             
             </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
         </member>
         <member name="P:BudgetExecution.ChartForm.SelectedTable">
             <summary>
@@ -987,10 +988,10 @@
         </member>
         <member name="P:BudgetExecution.ChartForm.FirstCategory">
             <summary>
-            Gets or sets the first selected item.
+            Gets or sets the first category.
             </summary>
             <value>
-            The first selected item.
+            The first category.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.FirstValue">
@@ -1003,10 +1004,10 @@
         </member>
         <member name="P:BudgetExecution.ChartForm.SecondCategory">
             <summary>
-            Gets or sets the second selected item.
+            Gets or sets the second category.
             </summary>
             <value>
-            The second selected item.
+            The second category.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.SecondValue">
@@ -1019,10 +1020,10 @@
         </member>
         <member name="P:BudgetExecution.ChartForm.ThirdCategory">
             <summary>
-            Gets or sets the third selected item.
+            Gets or sets the third category.
             </summary>
             <value>
-            The third selected item.
+            The third category.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.ThirdValue">
@@ -1123,18 +1124,18 @@
         </member>
         <member name="P:BudgetExecution.ChartForm.SelectedFields">
             <summary>
-            Gets or sets the selected columns.
+            Gets or sets the selected fields.
             </summary>
             <value>
-            The selected columns.
+            The selected fields.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.SelectedNumerics">
             <summary>
-            Gets or sets the selected columns.
+            Gets or sets the selected numerics.
             </summary>
             <value>
-            The selected columns.
+            The selected numerics.
             </value>
         </member>
         <member name="P:BudgetExecution.ChartForm.Source">
@@ -1168,16 +1169,42 @@
             <summary>
             Called when [load].
             </summary>
-            <param name="sender">
-            The sender.</param>
-            <param name="e">
-            The <see cref="T:System.EventArgs"/>
-            instance containing the event data.</param>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.InitData">
             <summary>
             Initializes the data.
             </summary>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.BindDataSource(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="where">The where.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.BindDataSource(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="cols">The cols.</param>
+            <param name="where">The where.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.BindDataSource(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="fields">The fields.</param>
+            <param name="numerics">The numerics.</param>
+            <param name="where">The where.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.BindDataSource(System.String)">
+            <summary>
+            Binds the data source.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="sqlText">The SQL text.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnFoldButtonClicked(System.Object,System.EventArgs)">
             <summary>
@@ -1193,7 +1220,7 @@
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateTableListBoxItems">
             <summary>
-            Populates the ListBox items.
+            Populates the table ListBox items.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnTableListBoxItemSelected(System.Object)">
@@ -1213,11 +1240,10 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnFirstListBoxItemSelected(System.Object)">
             <summary>
-            Called when [first filter selected].
+            Called when [first ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
         </member>
@@ -1232,11 +1258,10 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnSecondListBoxItemSelected(System.Object)">
             <summary>
-            Called when [second filter selected].
+            Called when [second ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
         </member>
@@ -1251,22 +1276,21 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnThirdListBoxItemSelected(System.Object)">
             <summary>
-            Called when [third filter selected].
+            Called when [third ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.PopulateFieldListBox">
             <summary>
-            Populates the column ListBox.
+            Populates the field ListBox.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnFieldListBoxSelectedValueChanged(System.Object)">
             <summary>
-            Called when [column ListBox item selected].
+            Called when [field ListBox selected value changed].
             </summary>
             <param name="sender">The sender.</param>
         </member>
@@ -1281,25 +1305,9 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Sets the data source.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="where">The where.</param>
-        </member>
-        <member name="M:BudgetExecution.ChartForm.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.String)">
-            <summary>
-            Binds the data source.
-            </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
-            <param name="sqlText">The SQL text.</param>
-        </member>
         <member name="M:BudgetExecution.ChartForm.ClearSelections">
             <summary>
-            Clears the selected filter values.
+            Clears the selections.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.CreateSqlText(System.Collections.Generic.IDictionary{System.String,System.Object})">
@@ -1333,12 +1341,12 @@
         </member>
         <member name="M:BudgetExecution.ChartForm.SetLabelText">
             <summary>
-            Sets the label configuration.
+            Sets the label text.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.UpdateLabelText">
             <summary>
-            Sets the label configuration.
+            Updates the label text.
             </summary>
         </member>
         <member name="M:BudgetExecution.ChartForm.ClearCollections">

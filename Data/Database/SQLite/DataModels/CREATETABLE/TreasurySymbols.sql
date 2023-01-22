@@ -1,6 +1,6 @@
-CREATE TABLE "TreasurySymbols" 
+CREATE TABLE IF NOT EXISTS "TreasurySymbols" 
 (
-	"TreasurySymbolsId"	INTEGER UNIQUE,
+	"TreasurySymbolsId"	INTEGER NOT NULL UNIQUE,
 	"ShortKey"	TEXT(80) NULL DEFAULT 'NS',
 	"AllocationTransferAgency"	TEXT(80) NULL DEFAULT 'NS',
 	"AgencyIdentifier"	TEXT(80) NULL DEFAULT 'NS',

@@ -436,17 +436,16 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        private void BindDataSource( Source source, Provider provider, string sqlText )
+        private void BindDataSource( string sqlText )
         {
-            if( Enum.IsDefined( typeof( Source ), source )
-               && Enum.IsDefined( typeof( Provider ), provider )
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
                && !string.IsNullOrEmpty( sqlText ) )
             {
                 try
                 {
-                    Source = source;
-                    Provider = provider;
-                    DataModel = new DataBuilder( source, provider, sqlText );
+                    SqlQuery = sqlText;
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataModel.DataTable;
                     Chart.BindingSource = BindingSource;
@@ -675,7 +674,7 @@ namespace BudgetExecution
                     }
                     
                     SqlQuery = CreateSqlText( FormFilter );
-                    BindDataSource( Source, Provider, SqlQuery );
+                    BindDataSource( SqlQuery );
                 }
                 catch( Exception ex )
                 {
@@ -781,7 +780,7 @@ namespace BudgetExecution
                     }
 
                     SqlQuery = CreateSqlText( FormFilter );
-                    BindDataSource( Source, Provider, SqlQuery );
+                    BindDataSource( SqlQuery );
                 }
                 catch( Exception ex )
                 {
@@ -875,7 +874,7 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue  );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     SqlQuery = CreateSqlText( FormFilter );
-                    BindDataSource( Source, Provider, SqlQuery );
+                    BindDataSource( SqlQuery );
                 }
                 catch( Exception ex )
                 {
