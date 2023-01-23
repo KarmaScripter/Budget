@@ -332,7 +332,6 @@ namespace BudgetExecution
                 PopulateToolStripComboBoxItems( );
                 ExitButton.Click += OnExitButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
-                ChartButton.Click += OnChartButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
             }

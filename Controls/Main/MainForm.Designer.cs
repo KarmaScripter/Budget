@@ -104,7 +104,7 @@
             this.GuidanceTile.Name = "GuidanceTile";
             this.GuidanceTile.ShowBanner = true;
             this.GuidanceTile.ShowBannerIcon = true;
-            this.GuidanceTile.Size = new System.Drawing.Size(225, 133);
+            this.GuidanceTile.Size = new System.Drawing.Size(225, 102);
             this.GuidanceTile.TabIndex = 0;
             textItem4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textItem4.HubTile = this.GuidanceTile;
@@ -169,7 +169,7 @@
             this.DatabaseTile.Name = "DatabaseTile";
             this.DatabaseTile.ShowBanner = true;
             this.DatabaseTile.ShowBannerIcon = true;
-            this.DatabaseTile.Size = new System.Drawing.Size(225, 133);
+            this.DatabaseTile.Size = new System.Drawing.Size(225, 102);
             this.DatabaseTile.TabIndex = 1;
             textItem8.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textItem8.HubTile = this.DatabaseTile;
@@ -214,7 +214,7 @@
             this.ToolTile.Name = "ToolTile";
             this.ToolTile.ShowBanner = true;
             this.ToolTile.ShowBannerIcon = true;
-            this.ToolTile.Size = new System.Drawing.Size(225, 133);
+            this.ToolTile.Size = new System.Drawing.Size(225, 102);
             this.ToolTile.TabIndex = 2;
             textItem12.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textItem12.HubTile = this.ToolTile;
@@ -259,7 +259,7 @@
             this.ClientTile.Name = "ClientTile";
             this.ClientTile.ShowBanner = true;
             this.ClientTile.ShowBannerIcon = true;
-            this.ClientTile.Size = new System.Drawing.Size(225, 133);
+            this.ClientTile.Size = new System.Drawing.Size(225, 102);
             this.ClientTile.TabIndex = 3;
             textItem16.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textItem16.HubTile = this.ClientTile;
@@ -304,7 +304,7 @@
             this.UtilityTile.Name = "UtilityTile";
             this.UtilityTile.ShowBanner = true;
             this.UtilityTile.ShowBannerIcon = true;
-            this.UtilityTile.Size = new System.Drawing.Size(225, 133);
+            this.UtilityTile.Size = new System.Drawing.Size(225, 102);
             this.UtilityTile.TabIndex = 4;
             textItem20.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textItem20.HubTile = this.UtilityTile;
@@ -349,7 +349,7 @@
             this.ReportingTile.Name = "ReportingTile";
             this.ReportingTile.ShowBanner = true;
             this.ReportingTile.ShowBannerIcon = true;
-            this.ReportingTile.Size = new System.Drawing.Size(225, 133);
+            this.ReportingTile.Size = new System.Drawing.Size(225, 102);
             this.ReportingTile.TabIndex = 5;
             textItem24.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textItem24.HubTile = this.ReportingTile;

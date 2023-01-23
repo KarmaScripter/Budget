@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
@@ -272,7 +272,49 @@ namespace BudgetExecution
         public ChartForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource = bindingSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            BindingSource.DataSource = DataTable;
+            SelectedTable = DataTable.TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            DataModel = new DataBuilder( Source, Provider );
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        public ChartForm( Source source, Provider provider )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        public ChartForm( Source source, Provider provider, IDictionary<string, object> where )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            FormFilter = where;
+            DataModel = new DataBuilder( source, provider, where );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
         }
 
         /// <summary>
@@ -284,7 +326,10 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter = new SortedDictionary<string, object>( );
+                FormFilter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
@@ -292,6 +337,10 @@ namespace BudgetExecution
                 ThirdTable.Visible = !ThirdTable.Visible;
                 PopulateToolBarDropDownItems( );
                 InitData(  );
+                BackButton.Click += OnExitButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                RefreshDataButton.Click += OnRefreshDataButtonClicked;
             }
             catch ( Exception ex )
             {
@@ -433,8 +482,6 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data source.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         private void BindDataSource( string sqlText )
         {
@@ -1220,13 +1267,87 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+        
+        /// <summary>
+        /// Called when [exit button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnExitButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.ExitButton )
+                {
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.MenuButton )
+                {
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [refresh data button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnRefreshDataButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.RefreshDataButton )
+                {
+                    SelectedTable = string.Empty;
+                    Chart.BindingSource.DataSource = null;
+                    ClearSelections( );
+                    ClearCollections( );
+                    ClearLabelText( );
+                    TabControl.SelectedTab = TableTabPage;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                    FoldButton.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [remove filter button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
             {
@@ -1240,7 +1361,7 @@ namespace BudgetExecution
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
-                    Chart.BindingSource  = BindingSource;
+                    Chart.BindingSource.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
@@ -1253,30 +1374,6 @@ namespace BudgetExecution
                     FirstTable.Visible = true;
                     SecondTable.Visible = false;
                     ThirdTable.Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [exit button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnExitButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.ExitButton )
-                {
-                    ClearSelections(  );
-                    DataTable = null;
-                    BindingSource.DataSource = null;
-                    Close( );
                 }
             }
             catch( Exception ex )

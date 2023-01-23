@@ -64,23 +64,23 @@ namespace BudgetExecution
             try
             {
                 DatabaseTile.Title.Text = "Data Management";
-                DatabaseTile.Body.Text = "Tables, Schema, Records";
-                DatabaseTile.Banner.Text = string.Empty;
+                DatabaseTile.Body.Text = string.Empty;
+                DatabaseTile.Banner.Text = "Tables, Schema, Records";
                 UtilityTile.Title.Text =  "Utilities";
-                UtilityTile.Body.Text = "Calculator, Calendar, Web Browser";
-                UtilityTile.Banner.Text = string.Empty;
+                UtilityTile.Body.Text = string.Empty;
+                UtilityTile.Banner.Text = "Calculator, Calendar, Web Browser";
                 ReportingTile.Title.Text = "Reporting";
-                ReportingTile.Body.Text = "Charts, Spreadsheets, Graphs";
-                ReportingTile.Banner.Text = string.Empty;
+                ReportingTile.Body.Text = string.Empty;
+                ReportingTile.Banner.Text = "Charts, Spreadsheets, Graphs";
                 ClientTile.Title.Text = "DB Clients";
-                ClientTile.Body.Text = "SQLite, SQL Server, Access";
-                ClientTile.Banner.Text = string.Empty;
+                ClientTile.Body.Text = string.Empty;
+                ClientTile.Banner.Text = "SQLite, SQL Server, Access";
                 GuidanceTile.Title.Text =  "Guidance";
-                GuidanceTile.Body.Text = "CFR-31, RMDS 2520, OMB A-11";
-                GuidanceTile.Banner.Text = string.Empty;
+                GuidanceTile.Body.Text = string.Empty;
+                GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
                 ToolTile.Title.Text = "Data Tools";
-                ToolTile.Body.Text = "Not Yet Implemented";
-                ToolTile.Banner.Text = string.Empty;
+                ToolTile.Body.Text = string.Empty;
+                ToolTile.Banner.Text = "Not Yet Implemented";
             }
             catch( Exception ex )
             {
