@@ -1165,6 +1165,21 @@
             </summary>
             <param name="bindingSource">The binding source.</param>
         </member>
+        <member name="M:BudgetExecution.ChartForm.#ctor(BudgetExecution.Source,BudgetExecution.Provider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.ChartForm"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.#ctor(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.ChartForm"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="provider">The provider.</param>
+            <param name="where">The where.</param>
+        </member>
         <member name="M:BudgetExecution.ChartForm.OnLoad(System.Object,System.EventArgs)">
             <summary>
             Called when [load].
@@ -1202,8 +1217,6 @@
             <summary>
             Binds the data source.
             </summary>
-            <param name="source">The source.</param>
-            <param name="provider">The provider.</param>
             <param name="sqlText">The SQL text.</param>
         </member>
         <member name="M:BudgetExecution.ChartForm.OnFoldButtonClicked(System.Object,System.EventArgs)">
@@ -1361,16 +1374,32 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnRemoveFilterButtonClicked(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.ChartForm.OnExitButtonClicked(System.Object,System.EventArgs)">
             <summary>
-            Called when [remove filter button clicked].
+            Called when [exit button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnMainMenuButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BudgetExecution.ChartForm.OnRefreshDataButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [refresh data button clicked].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnExitButtonClicked(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.ChartForm.OnRemoveFilterButtonClicked(System.Object,System.EventArgs)">
             <summary>
-            Called when [exit button clicked].
+            Called when [remove filter button clicked].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
