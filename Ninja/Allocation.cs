@@ -250,7 +250,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Allocation"/> class.
