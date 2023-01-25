@@ -293,6 +293,7 @@ namespace BudgetExecution
             Provider = provider;
             DataModel = new DataBuilder( source, provider );
             DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
             Fields = DataModel.Fields;
             Numerics = DataModel.Numerics;
@@ -333,8 +334,8 @@ namespace BudgetExecution
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
-                SecondTable.Visible = !SecondTable.Visible;
-                ThirdTable.Visible = !ThirdTable.Visible;
+                SecondTable.Visible = false;
+                ThirdTable.Visible = false;
                 PopulateToolBarDropDownItems( );
                 InitData(  );
                 BackButton.Click += OnExitButtonClicked;

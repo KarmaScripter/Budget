@@ -275,6 +275,7 @@ namespace BudgetExecution
             Provider = provider;
             DataModel = new DataBuilder( source, provider );
             DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
             Fields = DataModel.Fields;
             Numerics = DataModel.Numerics;
@@ -294,6 +295,7 @@ namespace BudgetExecution
             FormFilter = where;
             DataModel = new DataBuilder( source, provider, where );
             DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
             Fields = DataModel.Fields;
             Numerics = DataModel.Numerics;
@@ -356,6 +358,7 @@ namespace BudgetExecution
                     var _sql = CreateSqlText( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel.DataTable;
+                    SelectedTable = DataTable.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
@@ -386,6 +389,7 @@ namespace BudgetExecution
                     var _sql = CreateSqlText( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel.DataTable;
+                    SelectedTable = DataTable.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
