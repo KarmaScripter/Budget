@@ -327,6 +327,21 @@ namespace BudgetExecution
         {
             try
             {
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    TabControl.SelectedTab = FilterTabPage;
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                }
+                else if( string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    TabControl.SelectedTab = TableTabPage;
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    FoldTabPage.TabVisible = false;
+                }
+
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -365,13 +380,6 @@ namespace BudgetExecution
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     Text = $"{ Source.ToString( ).SplitPascal( ) }";
                     Chart.Title.Text = string.Empty;
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    BindingSource.DataSource = DataModel.DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    ToolStrip.BindingSource = BindingSource;
-                    Chart.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
                     PopulateFirstComboBoxItems(  );
                 }
                 else
