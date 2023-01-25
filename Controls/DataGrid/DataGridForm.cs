@@ -1406,6 +1406,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.ExitButton )
                 {
+                    Owner.Close( );
                     Close( );
                 }
             }
@@ -1427,6 +1428,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.MenuButton )
                 {
+                    Owner.Visible = true;
                     Close( );
                 }
             }
