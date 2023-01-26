@@ -254,7 +254,7 @@ namespace BudgetExecution
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
             BackButton.Click += OnBackButtonClicked;
-            MenuButton.Click += OnExitButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
             Load += OnLoad;
         }
 
@@ -633,6 +633,8 @@ namespace BudgetExecution
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
                         TabControl.SelectedTab = FilterTabPage;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = true;
                         PopulateFirstComboBoxItems( );
                     }
 
@@ -1330,6 +1332,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.MenuButton )
                 {
+                    Owner.Visible = true;
                     Close( );
                 }
             }

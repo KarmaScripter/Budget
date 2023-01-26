@@ -359,7 +359,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(190, 32);
+            this.TextBox.Size = new System.Drawing.Size(184, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -1467,7 +1467,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.BeforeTouchSize = new System.Drawing.Size(350, 598);
+            this.TabControl.BeforeTouchSize = new System.Drawing.Size(350, 625);
             this.TabControl.BindingSource = null;
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.BorderWidth = 1;
@@ -1485,7 +1485,7 @@
             this.TabControl.ItemSize = new System.Drawing.Size(100, 10);
             this.TabControl.Location = new System.Drawing.Point(1016, 72);
             this.TabControl.Name = "TabControl";
-            this.TabControl.Size = new System.Drawing.Size(350, 598);
+            this.TabControl.Size = new System.Drawing.Size(350, 625);
             this.TabControl.TabIndex = 51;
             this.TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
@@ -1509,7 +1509,7 @@
             this.TableTabPage.Location = new System.Drawing.Point(0, 9);
             this.TableTabPage.Name = "TableTabPage";
             this.TableTabPage.ShowCloseButton = true;
-            this.TableTabPage.Size = new System.Drawing.Size(350, 589);
+            this.TableTabPage.Size = new System.Drawing.Size(350, 616);
             this.TableTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TableTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableTabPage.TabForeColor = System.Drawing.Color.DarkGray;
@@ -1636,7 +1636,7 @@
             this.FilterTabPage.Location = new System.Drawing.Point(0, 9);
             this.FilterTabPage.Name = "FilterTabPage";
             this.FilterTabPage.ShowCloseButton = true;
-            this.FilterTabPage.Size = new System.Drawing.Size(350, 589);
+            this.FilterTabPage.Size = new System.Drawing.Size(350, 616);
             this.FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FilterTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FilterTabPage.TabForeColor = System.Drawing.Color.DarkGray;
@@ -1653,13 +1653,13 @@
             this.FilterTable.Controls.Add(this.ThirdTable, 0, 2);
             this.FilterTable.Controls.Add(this.FirstTable, 0, 0);
             this.FilterTable.Controls.Add(this.SecondTable, 0, 1);
-            this.FilterTable.Location = new System.Drawing.Point(33, 0);
+            this.FilterTable.Location = new System.Drawing.Point(29, 0);
             this.FilterTable.Name = "FilterTable";
             this.FilterTable.RowCount = 3;
             this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.40665F));
             this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.59335F));
             this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.FilterTable.Size = new System.Drawing.Size(453, 1078);
+            this.FilterTable.Size = new System.Drawing.Size(295, 616);
             this.FilterTable.TabIndex = 46;
             // 
             // ThirdTable
@@ -1669,12 +1669,12 @@
             this.ThirdTable.Controls.Add(this.ThirdComboBox, 0, 0);
             this.ThirdTable.Controls.Add(this.layout3, 0, 1);
             this.ThirdTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThirdTable.Location = new System.Drawing.Point(3, 892);
+            this.ThirdTable.Location = new System.Drawing.Point(3, 430);
             this.ThirdTable.Name = "ThirdTable";
             this.ThirdTable.RowCount = 2;
             this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.21858F));
             this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.78142F));
-            this.ThirdTable.Size = new System.Drawing.Size(447, 183);
+            this.ThirdTable.Size = new System.Drawing.Size(289, 183);
             this.ThirdTable.TabIndex = 45;
             // 
             // ThirdComboBox
@@ -1703,7 +1703,7 @@
             this.ThirdComboBox.Name = "ThirdComboBox";
             this.ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.ThirdComboBox.Size = new System.Drawing.Size(441, 30);
+            this.ThirdComboBox.Size = new System.Drawing.Size(283, 30);
             this.ThirdComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdComboBox.StyleManager = null;
             this.ThirdComboBox.TabIndex = 5;
@@ -1729,7 +1729,7 @@
             this.layout3.Location = new System.Drawing.Point(3, 40);
             this.layout3.Name = "layout3";
             this.layout3.Padding = new System.Windows.Forms.Padding(1);
-            this.layout3.Size = new System.Drawing.Size(441, 140);
+            this.layout3.Size = new System.Drawing.Size(283, 140);
             this.layout3.Style = MetroSet_UI.Enums.Style.Custom;
             this.layout3.StyleManager = null;
             this.layout3.TabIndex = 28;
@@ -1767,7 +1767,7 @@
             this.ThirdListBox.SelectedValue = null;
             this.ThirdListBox.ShowBorder = false;
             this.ThirdListBox.ShowScrollBar = false;
-            this.ThirdListBox.Size = new System.Drawing.Size(150, 0);
+            this.ThirdListBox.Size = new System.Drawing.Size(227, 102);
             this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdListBox.StyleManager = null;
             this.ThirdListBox.TabIndex = 0;
@@ -1787,7 +1787,7 @@
             this.FirstTable.RowCount = 2;
             this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.27083F));
             this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.72916F));
-            this.FirstTable.Size = new System.Drawing.Size(447, 451);
+            this.FirstTable.Size = new System.Drawing.Size(289, 214);
             this.FirstTable.TabIndex = 43;
             // 
             // layout1
@@ -1805,10 +1805,10 @@
             this.layout1.ForeColor = System.Drawing.Color.Transparent;
             this.layout1.HoverText = null;
             this.layout1.IsDerivedStyle = true;
-            this.layout1.Location = new System.Drawing.Point(3, 89);
+            this.layout1.Location = new System.Drawing.Point(3, 44);
             this.layout1.Name = "layout1";
             this.layout1.Padding = new System.Windows.Forms.Padding(1);
-            this.layout1.Size = new System.Drawing.Size(441, 359);
+            this.layout1.Size = new System.Drawing.Size(283, 167);
             this.layout1.Style = MetroSet_UI.Enums.Style.Custom;
             this.layout1.StyleManager = null;
             this.layout1.TabIndex = 26;
@@ -1846,7 +1846,7 @@
             this.FirstListBox.SelectedValue = null;
             this.FirstListBox.ShowBorder = false;
             this.FirstListBox.ShowScrollBar = true;
-            this.FirstListBox.Size = new System.Drawing.Size(150, 203);
+            this.FirstListBox.Size = new System.Drawing.Size(227, 128);
             this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstListBox.StyleManager = null;
             this.FirstListBox.TabIndex = 0;
@@ -1880,7 +1880,7 @@
             this.FirstComboBox.Name = "FirstComboBox";
             this.FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.FirstComboBox.Size = new System.Drawing.Size(441, 30);
+            this.FirstComboBox.Size = new System.Drawing.Size(283, 30);
             this.FirstComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstComboBox.StyleManager = null;
             this.FirstComboBox.TabIndex = 4;
@@ -1895,12 +1895,12 @@
             this.SecondTable.Controls.Add(this.SecondComboBox, 0, 0);
             this.SecondTable.Controls.Add(this.layout2, 0, 1);
             this.SecondTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondTable.Location = new System.Drawing.Point(3, 460);
+            this.SecondTable.Location = new System.Drawing.Point(3, 223);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
             this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.80925F));
             this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.19075F));
-            this.SecondTable.Size = new System.Drawing.Size(447, 426);
+            this.SecondTable.Size = new System.Drawing.Size(289, 201);
             this.SecondTable.TabIndex = 44;
             // 
             // SecondComboBox
@@ -1929,7 +1929,7 @@
             this.SecondComboBox.Name = "SecondComboBox";
             this.SecondComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.SecondComboBox.Size = new System.Drawing.Size(441, 30);
+            this.SecondComboBox.Size = new System.Drawing.Size(283, 30);
             this.SecondComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondComboBox.StyleManager = null;
             this.SecondComboBox.TabIndex = 5;
@@ -1952,10 +1952,10 @@
             this.layout2.ForeColor = System.Drawing.Color.Transparent;
             this.layout2.HoverText = null;
             this.layout2.IsDerivedStyle = true;
-            this.layout2.Location = new System.Drawing.Point(3, 91);
+            this.layout2.Location = new System.Drawing.Point(3, 44);
             this.layout2.Name = "layout2";
             this.layout2.Padding = new System.Windows.Forms.Padding(1);
-            this.layout2.Size = new System.Drawing.Size(441, 332);
+            this.layout2.Size = new System.Drawing.Size(283, 154);
             this.layout2.Style = MetroSet_UI.Enums.Style.Custom;
             this.layout2.StyleManager = null;
             this.layout2.TabIndex = 27;
@@ -1993,7 +1993,7 @@
             this.SecondListBox.SelectedValue = null;
             this.SecondListBox.ShowBorder = false;
             this.SecondListBox.ShowScrollBar = true;
-            this.SecondListBox.Size = new System.Drawing.Size(150, 189);
+            this.SecondListBox.Size = new System.Drawing.Size(227, 115);
             this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondListBox.StyleManager = null;
             this.SecondListBox.TabIndex = 0;
@@ -2010,7 +2010,7 @@
             this.FoldTabPage.Location = new System.Drawing.Point(0, 9);
             this.FoldTabPage.Name = "FoldTabPage";
             this.FoldTabPage.ShowCloseButton = true;
-            this.FoldTabPage.Size = new System.Drawing.Size(350, 589);
+            this.FoldTabPage.Size = new System.Drawing.Size(350, 616);
             this.FoldTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FoldTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FoldTabPage.TabForeColor = System.Drawing.Color.DarkGray;
@@ -2029,7 +2029,7 @@
             this.NumericTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.NumericTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 191F));
             this.NumericTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.NumericTable.Size = new System.Drawing.Size(295, 245);
+            this.NumericTable.Size = new System.Drawing.Size(295, 283);
             this.NumericTable.TabIndex = 9;
             // 
             // NumericsPanel
@@ -2051,7 +2051,7 @@
             this.NumericsPanel.Location = new System.Drawing.Point(3, 28);
             this.NumericsPanel.Name = "NumericsPanel";
             this.NumericsPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.NumericsPanel.Size = new System.Drawing.Size(289, 214);
+            this.NumericsPanel.Size = new System.Drawing.Size(289, 252);
             this.NumericsPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.NumericsPanel.StyleManager = null;
             this.NumericsPanel.TabIndex = 4;
@@ -2089,7 +2089,7 @@
             this.NumericListBox.SelectedValue = null;
             this.NumericListBox.ShowBorder = false;
             this.NumericListBox.ShowScrollBar = false;
-            this.NumericListBox.Size = new System.Drawing.Size(0, 0);
+            this.NumericListBox.Size = new System.Drawing.Size(233, 223);
             this.NumericListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.NumericListBox.StyleManager = null;
             this.NumericListBox.TabIndex = 1;
@@ -2127,7 +2127,7 @@
             this.listBox9.SelectedValue = null;
             this.listBox9.ShowBorder = false;
             this.listBox9.ShowScrollBar = true;
-            this.listBox9.Size = new System.Drawing.Size(0, 0);
+            this.listBox9.Size = new System.Drawing.Size(0, 38);
             this.listBox9.Style = MetroSet_UI.Enums.Style.Custom;
             this.listBox9.StyleManager = null;
             this.listBox9.TabIndex = 0;
