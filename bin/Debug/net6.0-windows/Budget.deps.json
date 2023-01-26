@@ -762,9 +762,9 @@
           "Syncfusion.Licensing": "20.4.0.38"
         },
         "runtime": {
-          "lib/net6.0-windows7.0/Syncfusion.Scripting.Base.dll": {
-            "assemblyVersion": "20.4600.0.38",
-            "fileVersion": "20.4600.0.38"
+          "lib/net451/Syncfusion.Scripting.Base.dll": {
+            "assemblyVersion": "20.4451.0.38",
+            "fileVersion": "20.4451.0.38"
           }
         }
       },

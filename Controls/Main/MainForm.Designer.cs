@@ -98,7 +98,7 @@
             this.GuidanceTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoverText = null;
-            this.GuidanceTile.Location = new System.Drawing.Point(1000, 112);
+            this.GuidanceTile.Location = new System.Drawing.Point(1054, 112);
             this.GuidanceTile.Margin = new System.Windows.Forms.Padding(1);
             this.GuidanceTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.GuidanceTile.Name = "GuidanceTile";
@@ -163,7 +163,7 @@
             this.DatabaseTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DatabaseTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DatabaseTile.HoverText = null;
-            this.DatabaseTile.Location = new System.Drawing.Point(163, 112);
+            this.DatabaseTile.Location = new System.Drawing.Point(113, 112);
             this.DatabaseTile.Margin = new System.Windows.Forms.Padding(1);
             this.DatabaseTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.DatabaseTile.Name = "DatabaseTile";
@@ -208,7 +208,7 @@
             this.ToolTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ToolTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ToolTile.HoverText = null;
-            this.ToolTile.Location = new System.Drawing.Point(163, 452);
+            this.ToolTile.Location = new System.Drawing.Point(113, 510);
             this.ToolTile.Margin = new System.Windows.Forms.Padding(1);
             this.ToolTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ToolTile.Name = "ToolTile";
@@ -253,7 +253,7 @@
             this.ClientTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoverText = null;
-            this.ClientTile.Location = new System.Drawing.Point(1000, 452);
+            this.ClientTile.Location = new System.Drawing.Point(1054, 510);
             this.ClientTile.Margin = new System.Windows.Forms.Padding(1);
             this.ClientTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ClientTile.Name = "ClientTile";
@@ -298,7 +298,7 @@
             this.UtilityTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoverText = null;
-            this.UtilityTile.Location = new System.Drawing.Point(577, 452);
+            this.UtilityTile.Location = new System.Drawing.Point(577, 510);
             this.UtilityTile.Margin = new System.Windows.Forms.Padding(1);
             this.UtilityTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.UtilityTile.Name = "UtilityTile";

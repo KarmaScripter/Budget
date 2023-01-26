@@ -276,19 +276,20 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _numerics = new List<string>( );
+                    var _dates = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( col.Ordinal > 0
                            && ( col.DataType == typeof( DateTime ) 
-                               || col.DataType == typeof( DateOnly ) ) )
+                               || col.DataType == typeof( DateOnly ) 
+                               || col.ColumnName.EndsWith( "Date" ) ) )
                         {
-                            _numerics.Add( col.ColumnName );
+                            _dates.Add( col.ColumnName );
                         }
                     }
 
-                    return _numerics?.Any( ) == true
-                        ? _numerics
+                    return _dates?.Any( ) == true
+                        ? _dates
                         : default( IList<string> );
                 }
                 catch( Exception ex )

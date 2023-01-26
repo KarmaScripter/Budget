@@ -373,7 +373,7 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         /// <param name="header">if set to <c>true</c> [header].</param>
         /// <returns></returns>
-        public static DataTable CreateTableFromExcel( string filePath, bool header = true )
+        public static DataTable CreateTableFromWorksheet( string filePath, bool header = true )
         {
             if( !string.IsNullOrEmpty( filePath )
                && File.Exists( filePath ) )
