@@ -54,6 +54,8 @@
             this.toolSeparator14 = new BudgetExecution.ToolSeparator();
             this.ExcelButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator11 = new BudgetExecution.ToolSeparator();
+            this.RefreshDataButton = new BudgetExecution.ToolStripButton();
+            this.toolSeparator17 = new BudgetExecution.ToolSeparator();
             this.CalendarButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator12 = new BudgetExecution.ToolSeparator();
             this.CalculatorButton = new BudgetExecution.ToolStripButton();
@@ -61,7 +63,6 @@
             this.BackButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator16 = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator17 = new BudgetExecution.ToolSeparator();
             this.toolSeparator15 = new BudgetExecution.ToolSeparator();
             this.Chart = new BudgetExecution.Chart();
             this.ChartPanel = new BudgetExecution.Layout();
@@ -120,7 +121,6 @@
             this.FieldListBox = new BudgetExecution.ListBox();
             this.label1 = new BudgetExecution.Label();
             this.FoldButton = new BudgetExecution.Button();
-            this.RefreshDataButton = new BudgetExecution.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.ToolStrip.SuspendLayout();
             this.ChartPanel.SuspendLayout();
@@ -359,7 +359,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(192, 32);
+            this.TextBox.Size = new System.Drawing.Size(190, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -604,6 +604,35 @@
             this.toolSeparator11.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator11.Size = new System.Drawing.Size(6, 32);
             // 
+            // RefreshDataButton
+            // 
+            this.RefreshDataButton.AutoToolTip = false;
+            this.RefreshDataButton.BackColor = System.Drawing.Color.Transparent;
+            this.RefreshDataButton.BindingSource = this.BindingSource;
+            this.RefreshDataButton.DataFilter = null;
+            this.RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.RefreshDataButton.Field = BudgetExecution.Field.AccountCode;
+            this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
+            this.RefreshDataButton.HoverText = "Refresh Data Source";
+            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshDataButton;
+            this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(3);
+            this.RefreshDataButton.Name = "RefreshDataButton";
+            this.RefreshDataButton.Padding = new System.Windows.Forms.Padding(1);
+            this.RefreshDataButton.Size = new System.Drawing.Size(26, 28);
+            this.RefreshDataButton.Text = "toolStripButton1";
+            this.RefreshDataButton.ToolTip = null;
+            this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RefreshDataButton;
+            // 
+            // toolSeparator17
+            // 
+            this.toolSeparator17.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator17.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator17.Name = "toolSeparator17";
+            this.toolSeparator17.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator17.Size = new System.Drawing.Size(6, 32);
+            // 
             // CalendarButton
             // 
             this.CalendarButton.AutoToolTip = false;
@@ -711,14 +740,6 @@
             this.MenuButton.Text = "toolStripButton1";
             this.MenuButton.ToolTip = this.ToolTip;
             this.MenuButton.ToolType = BudgetExecution.ToolType.MenuButton;
-            // 
-            // toolSeparator17
-            // 
-            this.toolSeparator17.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator17.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator17.Name = "toolSeparator17";
-            this.toolSeparator17.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator17.Size = new System.Drawing.Size(6, 32);
             // 
             // toolSeparator15
             // 
@@ -2267,27 +2288,6 @@
             this.FoldButton.ThemeAuthor = "Terry D. Eppler";
             this.FoldButton.ThemeName = "Budget Execution";
             this.FoldButton.ToolTip = null;
-            // 
-            // RefreshDataButton
-            // 
-            this.RefreshDataButton.AutoToolTip = false;
-            this.RefreshDataButton.BackColor = System.Drawing.Color.Transparent;
-            this.RefreshDataButton.BindingSource = this.BindingSource;
-            this.RefreshDataButton.DataFilter = null;
-            this.RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RefreshDataButton.Field = BudgetExecution.Field.AccountCode;
-            this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
-            this.RefreshDataButton.HoverText = "Refresh Data Source";
-            this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshDataButton;
-            this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(3);
-            this.RefreshDataButton.Name = "RefreshDataButton";
-            this.RefreshDataButton.Padding = new System.Windows.Forms.Padding(1);
-            this.RefreshDataButton.Size = new System.Drawing.Size(26, 28);
-            this.RefreshDataButton.Text = "toolStripButton1";
-            this.RefreshDataButton.ToolTip = null;
-            this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RefreshDataButton;
             // 
             // ChartForm
             // 

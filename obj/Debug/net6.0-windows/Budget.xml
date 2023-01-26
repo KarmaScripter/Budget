@@ -1187,6 +1187,11 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.ChartForm.SetToolStripProperties">
+            <summary>
+            Sets the tool strip properties.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.ChartForm.InitData">
             <summary>
             Initializes the data.

@@ -145,7 +145,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _chartForm = new ChartForm( BindingSource );
+                var _chartForm = new ChartForm( );
                 _chartForm.Owner = this;
                 _chartForm.StartPosition = FormStartPosition.CenterScreen;
                 _chartForm.Show( );

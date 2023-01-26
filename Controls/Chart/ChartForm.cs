@@ -235,14 +235,7 @@ namespace BudgetExecution
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             FoldTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-
-            // ToolStrip Properties
-            ToolStrip.Text = string.Empty;
-            ToolStrip.Office12Mode = true;
-            ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
-            ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-            ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
-
+            
             // Table Layout Properties
             FirstTable.Visible = false;
             SecondTable.Visible = false;
@@ -327,6 +320,7 @@ namespace BudgetExecution
         {
             try
             {
+                SetToolStripProperties(  );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedTab = FilterTabPage;
@@ -361,6 +355,28 @@ namespace BudgetExecution
             catch ( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void SetToolStripProperties( )
+        {
+            if( ToolStrip.TextBox != null )
+            {
+                try
+                {
+                    ToolStrip.Text = string.Empty;
+                    ToolStrip.Office12Mode = true;
+                    ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
+                    ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+                    ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -1268,6 +1284,7 @@ namespace BudgetExecution
                     ClearSelections(  );
                     DataTable = null;
                     BindingSource.DataSource = null;
+                    Owner.Visible = true;
                     Close( );
                 }
             }
@@ -1291,6 +1308,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.ExitButton )
                 {
+                    Owner.Visible = true;
                     Close( );
                 }
             }
