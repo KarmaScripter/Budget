@@ -163,6 +163,8 @@ namespace BudgetExecution
                         case ToolType.SearchDataButton:
                         case ToolType.ExitButton:
                         case ToolType.BackButton:
+                        case ToolType.MenuButton:
+                        case ToolType.HomeButton:
                         {
                             break;
                         }
@@ -301,13 +303,6 @@ namespace BudgetExecution
                         {
                             var _browser = new FileBrowser( );
                             _browser?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.MenuButton:
-                        case ToolType.HomeButton:
-                        {
-                            var _form = new MainForm( );
-                            _form?.Show( );
                             break;
                         }
                         case ToolType.WebButton:

@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using BudgetExecution;
+    using Microsoft.VisualBasic;
 
     /// <summary>
     /// 
@@ -281,7 +282,8 @@ namespace BudgetExecution
                     {
                         if( col.Ordinal > 0
                            && ( col.DataType == typeof( DateTime ) 
-                               || col.DataType == typeof( DateOnly ) 
+                               || col.DataType == typeof( DateOnly )
+                               || col.DataType == typeof( DateTimeOffset ) 
                                || col.ColumnName.EndsWith( "Date" ) ) )
                         {
                             _dates.Add( col.ColumnName );
@@ -318,6 +320,7 @@ namespace BudgetExecution
                 {
                     var _fields = new List<string>( );
                     var _numerics = new List<string>( );
+                    var _dates = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         foreach( var name in columnNames )
@@ -331,7 +334,9 @@ namespace BudgetExecution
                             else if( col.ColumnName == name 
                                     && col.Ordinal > 0 
                                     && col.DataType != typeof( string ) 
-                                    && col.DataType != typeof( DateTime ) )
+                                    && col.DataType != typeof( DateTime )
+                                    && col.DataType != typeof( DateOnly )
+                                    && col.DataType != typeof( DateTimeOffset ) )
                             {
                                 _numerics.Add( col.ColumnName );
                             }

@@ -122,8 +122,8 @@ namespace BudgetExecution
             try
             {
                 var _dataGridForm = new DataGridForm( );
-                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 _dataGridForm.Owner = this;
+                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 _dataGridForm.Show(  );
                 Visible = false;
             }
