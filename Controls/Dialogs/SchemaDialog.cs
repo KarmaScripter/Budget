@@ -217,29 +217,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [column ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFieldListBoxSelectedValueChanged( object sender )
-        {
-            try
-            {
-                var _selectedItem = FieldsListBox.SelectedItem.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem ) )
-                {
-                    SelectedColumns.Add( _selectedItem );
-                }
-                
-                UpdateHeaderText(  );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Populates the numeric ListBox.
         /// </summary>
         private void PopulateNumericListBox( )
@@ -262,7 +239,60 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Updates the header text.
+        /// </summary>
+        private void UpdateHeaderText( )
+        {
+            try
+            {
+                var _text = string.Empty;
+                var _selections = string.Empty;
+
+                if( SelectedColumns?.Any(  ) == true )
+                {
+                    foreach( var item in SelectedColumns )
+                    {
+                        _selections += $"{ item }, ";
+                    }
+
+                    var _trimmed = _selections?.TrimEnd( ", ".ToCharArray(  ) );
+                    SelectionsTextBox.Text = _text + _trimmed;
+                    SelectionsTextBox.BorderColor = Color.FromArgb( 65, 65, 65 );
+                    SelectionsTextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+                    SelectionsTextBox.Visible = true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [column ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnFieldListBoxSelectedValueChanged( object sender )
+        {
+            try
+            {
+                var _selectedItem = FieldsListBox.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem ) )
+                {
+                    SelectedColumns.Add( _selectedItem );
+                }
+                
+                UpdateHeaderText(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [numeric ListBox item selected].
         /// </summary>
@@ -340,35 +370,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Updates the header text.
-        /// </summary>
-        private void UpdateHeaderText( )
-        {
-            try
-            {
-                var _text = string.Empty;
-                var _selections = string.Empty;
-                if( SelectedColumns?.Any(  ) == true )
-                {
-                    foreach( var item in SelectedColumns )
-                    {
-                        _selections += $"{ item }, ";
-                    }
-
-                    var _trimmed = _selections?.TrimEnd( ", ".ToCharArray(  ) );
-                    SelectionsTextBox.Text = _text + _trimmed;
-                    SelectionsTextBox.BorderColor = Color.FromArgb( 65, 65, 65 );
-                    SelectionsTextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-                    SelectionsTextBox.Visible = true;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>

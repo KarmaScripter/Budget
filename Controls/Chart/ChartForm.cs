@@ -1312,7 +1312,12 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.ExitButton )
                 {
-                    Owner.Visible = true;
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
                     Close( );
                 }
             }
@@ -1334,7 +1339,8 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.MenuButton )
                 {
-                    if( Owner.Visible == false )
+                    if( Owner != null 
+                       && Owner.Visible == false )
                     {
                         Owner.Visible = true;
                     }

@@ -700,33 +700,108 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [table ComboBox item selected].
+        /// Populates the second como box items.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTableComboBoxItemSelected( object sender, EventArgs e )
+        public void PopulateSecondComboBoxItems( )
         {
-            if( sender is ComboBox _tableComboBox )
+            if( Fields?.Any( ) == true )
             {
                 try
                 {
-                    var _type = _tableComboBox.SelectedItem.ToString( );
-                    switch( _type?.ToUpper( ) )
+                    if( SecondComboBox.Items?.Count > 0 )
                     {
-                        case "EXECUTION":
+                        SecondComboBox.Items.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( FirstValue ) )
+                    {
+                        foreach( var item in Fields )
                         {
-                            PopulateExecutionTables( );
-                            break;
+                            if( !item.Equals( FirstCategory ) )
+                            {
+                                SecondComboBox.Items.Add( item );
+                            }
                         }
-                        case "REFERENCE":
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the first como box items.
+        /// </summary>
+        public void PopulateFirstComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FirstComboBox.Items?.Count > 0 )
+                    {
+                        FirstComboBox.Items.Clear( );
+                    }
+
+                    foreach( var item in Fields )
+                    {
+                        FirstComboBox.Items.Add( item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the column ListBox.
+        /// </summary>
+        private void PopulateFieldListBox( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FieldListBox.Items.Count > 0 )
+                    {
+                        FieldListBox.Items.Clear( );
+                    }
+
+                    foreach( var _item in Fields )
+                    {
+                        FieldListBox.Items.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateNumericListBox( )
+        {
+            if( Numerics?.Any( ) == true )
+            {
+                try
+                {
+                    if( NumericListBox.Items.Count > 0 )
+                    {
+                        NumericListBox.Items.Clear( );
+                    }
+
+                    for( var _i = 0; _i < Numerics.Count; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            PopulateReferenceTables( );
-                            break;
-                        }
-                        default:
-                        {
-                            PopulateExecutionTables( );
-                            break;
+                            NumericListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -850,22 +925,35 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the first como box items.
+        /// Called when [table ComboBox item selected].
         /// </summary>
-        public void PopulateFirstComboBoxItems( )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTableComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( Fields?.Any( ) == true )
+            if( sender is ComboBox _tableComboBox )
             {
                 try
                 {
-                    if( FirstComboBox.Items?.Count > 0 )
+                    var _type = _tableComboBox.SelectedItem.ToString( );
+
+                    switch( _type?.ToUpper( ) )
                     {
-                        FirstComboBox.Items.Clear( );
-                    }
-                    
-                    foreach( var item in Fields )
-                    {
-                        FirstComboBox.Items.Add( item );
+                        case "EXECUTION":
+                        {
+                            PopulateExecutionTables( );
+                            break;
+                        }
+                        case "REFERENCE":
+                        {
+                            PopulateReferenceTables( );
+                            break;
+                        }
+                        default:
+                        {
+                            PopulateExecutionTables( );
+                            break;
+                        }
                     }
                 }
                 catch( Exception ex )
@@ -959,38 +1047,6 @@ namespace BudgetExecution
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Populates the second como box items.
-        /// </summary>
-        public void PopulateSecondComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( SecondComboBox.Items?.Count > 0 )
-                    {
-                        SecondComboBox.Items.Clear( );
-                    }
-                    
-                    if( !string.IsNullOrEmpty( FirstValue ) )
-                    {
-                        foreach( var item in Fields )
-                        {
-                            if( !item.Equals( FirstCategory ) )
-                            {
-                                SecondComboBox.Items.Add( item );
-                            }
-                        }
-                    }
                 }
                 catch( Exception ex )
                 {
@@ -1193,32 +1249,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Populates the column ListBox.
-        /// </summary>
-        private void PopulateFieldListBox( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( FieldListBox.Items.Count > 0 )
-                    {
-                        FieldListBox.Items.Clear( );
-                    }
-                    
-                    foreach( var _item in Fields )
-                    {
-                        FieldListBox.Items.Add( _item );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Called when [column ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1242,35 +1272,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
-        private void PopulateNumericListBox( )
-        {
-            if( Numerics?.Any( ) == true )
-            {
-                try
-                {
-                    if( NumericListBox.Items.Count > 0 )
-                    {
-                        NumericListBox.Items.Clear( );
-                    }
-                    
-                    for( var _i = 0; _i < Numerics.Count; _i++ )
-                    {
-                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
-                        {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
         /// <summary>
         /// Called when [numeric ListBox item selected].
         /// </summary>
@@ -1428,7 +1429,12 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.MenuButton )
                 {
-                    Owner.Visible = true;
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
                     Close( );
                 }
             }

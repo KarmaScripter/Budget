@@ -2381,7 +2381,6 @@
         }
 
         #endregion
-        public ToolSeparator Separator16;
         private System.ComponentModel.IContainer components;
         public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
@@ -2416,7 +2415,6 @@
         private ToolSeparator Separator13;
         public ToolStripButton MenuButton;
         private ToolSeparator toolSeparator15;
-        private ToolSeparator Separator16;
         private Layout ChartPanel;
         public ToolStripButton BackButton;
         private ToolSeparator Separator17;

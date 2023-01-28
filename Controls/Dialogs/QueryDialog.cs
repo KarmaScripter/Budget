@@ -209,22 +209,6 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnCloseButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                Close( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
 
         /// <summary>
         /// Populates the table ListBox.
@@ -235,16 +219,75 @@ namespace BudgetExecution
             {
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.ToList(  );
-            
+                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )?.ToList(  );
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
                     FirstListBox.Items.Add( name );
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the column ListBox.
+        /// </summary>
+        private void PopulateSecondListBox( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    Fields = DataModel.Fields;
+
+                    foreach( var col in Fields )
+                    {
+                        SecondListBox.Items.Add( col );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateThirdListBoxItems( )
+        {
+            if( Numerics?.Any( ) == true )
+            {
+                try
+                {
+                    foreach( var col in Numerics )
+                    {
+                        ThirdListBox.Items.Add( col );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
             }
             catch( Exception ex )
             {
@@ -293,28 +336,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the column ListBox.
-        /// </summary>
-        private void PopulateSecondListBox( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    Fields = DataModel.Fields;
-                    foreach( var col in Fields )
-                    {
-                        SecondListBox.Items.Add( col );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Called when [column ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -330,27 +351,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
-        private void PopulateThirdListBoxItems( )
-        {
-            if( Numerics?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var col in Numerics )
-                    {
-                        ThirdListBox.Items.Add( col );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
         /// <summary>
         /// Called when [numeric ListBox item selected].
         /// </summary>

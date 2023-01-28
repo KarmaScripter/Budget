@@ -131,27 +131,6 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// Called when [back button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnBackButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button 
-                   && _button.ToolType == ToolType.BackButton )
-                {
-                    Close(  );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
 
         /// <summary>
         /// Gets the document name list.
@@ -165,11 +144,13 @@ namespace BudgetExecution
                    && Directory.Exists( DirectoryPath ) )
                 {
                     var _names = Directory.GetFiles( DirectoryPath );
+
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
                         var _file = _names[ _i ];
                         var _name = Path.GetFileNameWithoutExtension( _file );
-                        if( !string.IsNullOrEmpty( _name ) 
+
+                        if( !string.IsNullOrEmpty( _name )
                            && _name != "ApplicationLandingDocument" )
                         {
                             ToolStrip.DropDown.Items.Add( _name.SplitPascal(  ) );
@@ -178,6 +159,33 @@ namespace BudgetExecution
                 }
             }
             catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.BackButton )
+                {
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
+                    Close(  );
+                }
+            }
+            catch( Exception ex )
             {
                 Fail( ex );
             }

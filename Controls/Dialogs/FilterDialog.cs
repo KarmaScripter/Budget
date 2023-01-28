@@ -201,13 +201,13 @@ namespace BudgetExecution
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            FirstButton.Click += OnFirstButtonClick;
+            ClearButton.Click += OnFirstButtonClick;
             SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
             SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            SecondButton.Click += OnSecondButtonClick;
+            SelectButton.Click += OnSecondButtonClick;
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            ThirdButton.Click += OnThirdButtonClick;
+            CloseButton.Click += OnThirdButtonClick;
             AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
@@ -266,8 +266,8 @@ namespace BudgetExecution
                     var _text = $"{ DataTable.TableName }";
                     Text = $"{ _text.SplitPascal( ) } Filter";
                     SetLabelText( );
-                    FirstButton.Visible = !FirstButton.Visible;
-                    SecondButton.Visible = !SecondButton.Visible;
+                    ClearButton.Visible = !ClearButton.Visible;
+                    SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
@@ -279,8 +279,8 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    FirstButton.Visible = !FirstButton.Visible;
-                    SecondButton.Visible = !SecondButton.Visible;
+                    ClearButton.Visible = !ClearButton.Visible;
+                    SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
@@ -340,20 +340,157 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [RadioButton checked].
+        /// Sets the label configuration.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnRadioButtonChecked( object sender )
+        private void SetLabelText( )
         {
-            if( sender is RadioButton _radio 
-               && _radio.Tag != null )
+            try
+            {
+                FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
+                SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
+                ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Clears the selected filter values.
+        /// </summary>
+        private void ClearFilterSelections( )
+        {
+            try
+            {
+                SqlQuery = string.Empty;
+                ClearButton.Visible = !ClearButton.Visible;
+                SelectButton.Visible = !SelectButton.Visible;
+                SelectedTable = string.Empty;
+                TabControl.SelectedTab = TableTabPage;
+                if( FormFilter.Keys.Count > 0 )
+                {
+                    FormFilter.Clear( );
+                }
+                
+                if( !string.IsNullOrEmpty( ThirdValue ) )
+                {
+                    ThirdComboBox.Items.Clear( );
+                    ThirdListBox.Items.Clear( );
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    ThirdTable.Visible = false;
+                }
+                
+                if( !string.IsNullOrEmpty( SecondValue ) )
+                {
+                    SecondComboBox.Items.Clear( );
+                    SecondListBox.Items.Clear( );
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
+                }
+                
+                if( !string.IsNullOrEmpty( FirstValue ) )
+                {
+                    FirstComboBox.Items.Clear( );
+                    FirstListBox.Items.Clear( );
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlText( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
             {
                 try
                 {
-                    var _tag = _radio.Tag.ToString(  );
-                    if ( !string.IsNullOrEmpty( _tag ) )
+                    return $"SELECT * FROM { Source } "
+                        + $"WHERE { where.ToCriteria(  ) };";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+            
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Populates the second como box items.
+        /// </summary>
+        public void PopulateSecondComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue ) )
                     {
-                        Provider = (Provider)Enum.Parse( typeof( Provider ), _tag  );
+                        foreach( var item in Fields )
+                        {
+                            if( !item.Equals( FirstCategory ) )
+                            {
+                                SecondComboBox.Items.Add( item );
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach( var item in Fields )
+                        {
+                            SecondComboBox.Items.Add( item );
+                        }
+                    }
+
+                    SecondComboBox.SelectedIndex = -1;
+                    SetLabelText(  );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the third como box items.
+        /// </summary>
+        public void PopulateThirdComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue )
+                       && !string.IsNullOrEmpty( SecondValue ) )
+                    {
+                        ThirdComboBox.Items.Clear(  );
+
+                        foreach( var item in Fields )
+                        {
+                            if( !item.Equals( FirstCategory )
+                               && !item.Equals( SecondCategory ) )
+                            {
+                                ThirdComboBox.Items.Add( item );
+                            }
+                        }
                     }
                 }
                 catch( Exception ex )
@@ -385,6 +522,27 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataModel.DataTable;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the first como box items.
+        /// </summary>
+        public void PopulateFirstComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    foreach( var item in Fields )
+                    {
+                        FirstComboBox.Items.Add( item );
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -484,17 +642,21 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the first como box items.
+        /// Called when [RadioButton checked].
         /// </summary>
-        public void PopulateFirstComboBoxItems( )
+        /// <param name="sender">The sender.</param>
+        private void OnRadioButtonChecked( object sender )
         {
-            if( Fields?.Any( ) == true )
+            if( sender is RadioButton _radio
+               && _radio.Tag != null )
             {
                 try
                 {
-                    foreach( var item in Fields )
+                    var _tag = _radio.Tag.ToString(  );
+
+                    if ( !string.IsNullOrEmpty( _tag ) )
                     {
-                        FirstComboBox.Items.Add( item );
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _tag  );
                     }
                 }
                 catch( Exception ex )
@@ -537,8 +699,8 @@ namespace BudgetExecution
                         }
                         
                         SetLabelText(  );
-                        FirstButton.Visible = !FirstButton.Visible;
-                        SecondButton.Visible = !SecondButton.Visible;
+                        ClearButton.Visible = !ClearButton.Visible;
+                        SelectButton.Visible = !SelectButton.Visible;
                     }
                 }
                 catch( Exception ex )
@@ -576,43 +738,6 @@ namespace BudgetExecution
                     {
                         ThirdTable.Visible = false;
                     }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Populates the second como box items.
-        /// </summary>
-        public void PopulateSecondComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( FirstValue ) )
-                    {
-                        foreach( var item in Fields )
-                        {
-                            if( !item.Equals( FirstCategory ) )
-                            {
-                                SecondComboBox.Items.Add( item );
-                            }
-                        }
-                    }
-                    else
-                    {
-                        foreach( var item in Fields )
-                        {
-                            SecondComboBox.Items.Add( item );
-                        }
-                    }
-
-                    SecondComboBox.SelectedIndex = -1;
-                    SetLabelText(  );
                 }
                 catch( Exception ex )
                 {
@@ -698,36 +823,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Populates the third como box items.
-        /// </summary>
-        public void PopulateThirdComboBoxItems( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( FirstValue ) 
-                       && !string.IsNullOrEmpty( SecondValue ) )
-                    {
-                        ThirdComboBox.Items.Clear(  );
-                        foreach( var item in Fields )
-                        {
-                            if( !item.Equals( FirstCategory ) 
-                               && !item.Equals( SecondCategory ) )
-                            {
-                                ThirdComboBox.Items.Add( item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Called when [third item selected].
         /// </summary>
         /// <param name="sender">The sender.
@@ -794,82 +889,6 @@ namespace BudgetExecution
             }
         }
         
-        /// <summary>
-        /// Clears the selected filter values.
-        /// </summary>
-        private void ClearFilterSelections( )
-        {
-            try
-            {
-                SqlQuery = string.Empty;
-                FirstButton.Visible = !FirstButton.Visible;
-                SecondButton.Visible = !SecondButton.Visible;
-                SelectedTable = string.Empty;
-                TabControl.SelectedTab = TableTabPage;
-                if( FormFilter.Keys.Count > 0 )
-                {
-                    FormFilter.Clear( );
-                }
-                
-                if( !string.IsNullOrEmpty( ThirdValue ) )
-                {
-                    ThirdComboBox.Items.Clear( );
-                    ThirdListBox.Items.Clear( );
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
-                    ThirdTable.Visible = false;
-                }
-                
-                if( !string.IsNullOrEmpty( SecondValue ) )
-                {
-                    SecondComboBox.Items.Clear( );
-                    SecondListBox.Items.Clear( );
-                    SecondCategory = string.Empty;
-                    SecondValue = string.Empty;
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
-                }
-                
-                if( !string.IsNullOrEmpty( FirstValue ) )
-                {
-                    FirstComboBox.Items.Clear( );
-                    FirstListBox.Items.Clear( );
-                    FirstCategory = string.Empty;
-                    FirstValue = string.Empty;
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
-        private string CreateSqlText( IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true )
-            {
-                try
-                {
-                    return $"SELECT * FROM { Source } "
-                        + $"WHERE { where.ToCriteria(  ) };";
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return string.Empty;
-                }
-            }
-            
-            return string.Empty;
-        }
-
         /// <summary>
         /// Called when [close button click].
         /// </summary>
@@ -951,23 +970,6 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Sets the label configuration.
-        /// </summary>
-        private void SetLabelText( )
-        {
-            try
-            {
-                FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
-                SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
-                ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
         

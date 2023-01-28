@@ -52,6 +52,7 @@ partial class ProgramProjectDialog
             this.PreviousButton = new BudgetExecution.Button();
             this.NextButton = new BudgetExecution.Button();
             this.label1 = new BudgetExecution.Label();
+            this.SearchButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.StatutoryAuthorityTable.SuspendLayout();
             this.ProgramAreaNameTable.SuspendLayout();
@@ -284,7 +285,7 @@ partial class ProgramProjectDialog
             this.ProgramListBox.SelectedValue = null;
             this.ProgramListBox.ShowBorder = false;
             this.ProgramListBox.ShowScrollBar = false;
-            this.ProgramListBox.Size = new System.Drawing.Size(338, 195);
+            this.ProgramListBox.Size = new System.Drawing.Size(338, 198);
             this.ProgramListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ProgramListBox.StyleManager = null;
             this.ProgramListBox.TabIndex = 8;
@@ -375,7 +376,7 @@ partial class ProgramProjectDialog
             this.PreviousButton.HoverText = null;
             this.PreviousButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.PreviousButton.IsDerivedStyle = true;
-            this.PreviousButton.Location = new System.Drawing.Point(25, 520);
+            this.PreviousButton.Location = new System.Drawing.Point(277, 520);
             this.PreviousButton.Name = "PreviousButton";
             this.PreviousButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.PreviousButton.NormalColor = System.Drawing.Color.Transparent;
@@ -407,7 +408,7 @@ partial class ProgramProjectDialog
             this.NextButton.HoverText = null;
             this.NextButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.NextButton.IsDerivedStyle = true;
-            this.NextButton.Location = new System.Drawing.Point(422, 520);
+            this.NextButton.Location = new System.Drawing.Point(565, 520);
             this.NextButton.Name = "NextButton";
             this.NextButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.NextButton.NormalColor = System.Drawing.Color.Transparent;
@@ -447,6 +448,38 @@ partial class ProgramProjectDialog
             this.label1.ThemeName = "Budget Execution";
             this.label1.ToolTip = null;
             // 
+            // SearchButton
+            // 
+            this.SearchButton.BindingSource = null;
+            this.SearchButton.DataFilter = null;
+            this.SearchButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.SearchButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SearchButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SearchButton.HoverText = null;
+            this.SearchButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.SearchButton.IsDerivedStyle = true;
+            this.SearchButton.Location = new System.Drawing.Point(28, 520);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.SearchButton.NormalColor = System.Drawing.Color.Transparent;
+            this.SearchButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SearchButton.Padding = new System.Windows.Forms.Padding(1);
+            this.SearchButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SearchButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SearchButton.PressTextColor = System.Drawing.Color.White;
+            this.SearchButton.Size = new System.Drawing.Size(121, 46);
+            this.SearchButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SearchButton.StyleManager = null;
+            this.SearchButton.TabIndex = 13;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.ThemeAuthor = "Terry D. Eppler";
+            this.SearchButton.ThemeName = "Budget Execution";
+            this.SearchButton.ToolTip = null;
+            // 
             // ProgramProjectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -466,6 +499,7 @@ partial class ProgramProjectDialog
             captionImage1.Size = new System.Drawing.Size(42, 16);
             this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(970, 578);
+            this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.ProgramDescriptionTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NextButton);
@@ -509,4 +543,5 @@ partial class ProgramProjectDialog
     private Label ProgramProjectLabel;
     private RichTextBox ProgramProjectNameTextBox;
     private Label label1;
+    public Button SearchButton;
 }

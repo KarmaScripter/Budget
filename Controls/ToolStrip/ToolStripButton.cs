@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// </summary>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class ToolStripButton : ToolButtonBase, IToolStripButton
     {
         /// <summary>
@@ -69,6 +70,61 @@ namespace BudgetExecution
             BindingSource = bindingSource;
         }
 
+        /// <summary>
+        /// Sets the button image.
+        /// </summary>
+        /// <returns></returns>
+        public Image GetImage( ToolType toolType )
+        {
+            if( Enum.IsDefined( typeof( ToolType ), toolType ) )
+            {
+                try
+                {
+                    var _path = AppSettings[ "ToolStrip" ] + $"{ toolType }.png";
+
+                    if( File.Exists( _path ) )
+                    {
+                        using var _stream = File.Open( _path, FileMode.Open );
+                        var _image = Image.FromStream( _stream );
+                        return ( _image != null )
+                            ? _image
+                            : default( Image );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        /// Sets the image.
+        /// </summary>
+        public void SetImage( )
+        {
+            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
+            {
+                try
+                {
+                    var _path = AppSettings[ "ToolStrip" ] + $"{ ToolType }.png";
+                    using var _stream = File.Open( _path, FileMode.Open );
+
+                    if( _stream != null )
+                    {
+                        var _image = Image.FromStream( _stream );
+                        Image = _image;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
@@ -323,60 +379,6 @@ namespace BudgetExecution
                             _notification.Show(  );
                             break;
                         }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the button image.
-        /// </summary>
-        /// <returns></returns>
-        public Image GetImage( ToolType toolType )
-        {
-            if( Enum.IsDefined( typeof( ToolType ), toolType ) )
-            {
-                try
-                {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ toolType }.png";
-                    if( File.Exists( _path ) )
-                    {
-                        using var _stream = File.Open( _path, FileMode.Open );
-                        var _image = Image.FromStream( _stream );
-                        return ( _image != null )
-                            ? _image
-                            : default( Image );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary>
-        /// Sets the image.
-        /// </summary>
-        public void SetImage( )
-        {
-            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
-            {
-                try
-                {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ ToolType }.png";
-                    using var _stream = File.Open( _path, FileMode.Open );
-                    if( _stream != null )
-                    {
-                        var _image = Image.FromStream( _stream );
-                        Image = _image;
                     }
                 }
                 catch( Exception ex )
