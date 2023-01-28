@@ -13,6 +13,8 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Diagram;
+    using FontStyle = System.Drawing.FontStyle;
 
     /// <summary>
     /// 
@@ -230,9 +232,6 @@ namespace BudgetExecution
             ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
             
-            // RadioButton Properties
-            FoldButton.Visible = false;
-            
             // Table Layout Properties
             FirstTable.Visible = false;
             SecondTable.Visible = false;
@@ -251,15 +250,14 @@ namespace BudgetExecution
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FoldButton.Click += OnGroupButtonClicked;
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-            SearchButton.Click += OnSearchButtonClicked;
             TestButton.Click += OnTestButtonClicked;
             ExitButton.Click += null;
             MenuButton.Click += null;
             ChartButton.Click += null;
             RefreshDataButton.Click += null;
             RemoveFiltersButton.Click += null;
+            GroupButton.Click += null;
             Load += OnLoad;
         }
 
@@ -336,6 +334,8 @@ namespace BudgetExecution
                 MenuButton.Click += OnMainMenuButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
+                GroupButton.Click += OnGroupButtonClicked;
+                ToolStrip.Visible = false;
             }
             catch( Exception ex )
             {
@@ -881,6 +881,7 @@ namespace BudgetExecution
                 try
                 {
                     FormFilter.Clear( );
+                    ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", ""  );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
@@ -1027,8 +1028,7 @@ namespace BudgetExecution
                     {
                         FormFilter.Clear( );
                     }
-
-                    FoldButton.Visible = true;
+                    
                     FirstValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems( );
@@ -1185,7 +1185,6 @@ namespace BudgetExecution
                     SqlQuery = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    FoldButton.Visible = true;
                     if( ThirdListBox.Items?.Count > 0 )
                     {
                         ThirdListBox.Items?.Clear( );
@@ -1322,15 +1321,15 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is Button  )
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.GroupButton )
                 {
-                    PopulateFieldListBox( );
-                    PopulateNumericListBox( );
                     TabControl.SelectedTab = FoldTabPage;
                     FoldTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     TableTabPage.TabVisible = false;
-                    FoldButton.Visible = false;
+                    PopulateFieldListBox( );
+                    PopulateNumericListBox( );
                 }
             }
             catch( Exception ex )
@@ -1356,11 +1355,11 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearCollections( );
                     ClearLabelText( );
+                    ToolStrip.Visible = false;
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
-                    FoldButton.Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1468,7 +1467,6 @@ namespace BudgetExecution
                     Numerics = DataModel.Numerics;
                     TableTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
-                    FoldButton.Visible = false;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
                     PopulateFirstComboBoxItems( );

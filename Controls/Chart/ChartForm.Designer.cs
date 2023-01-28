@@ -376,7 +376,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(168, 32);
+            this.TextBox.Size = new System.Drawing.Size(164, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -912,7 +912,7 @@
             this.Chart.ToolBar.ShowGrip = false;
             this.Chart.VisualTheme = "";
             this.Chart.xAxis = null;
-            this.Chart.yValue = null;
+            this.Chart.yValues = null;
             // 
             // ChartPanel
             // 

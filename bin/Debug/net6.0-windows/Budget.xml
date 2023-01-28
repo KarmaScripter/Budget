@@ -839,7 +839,7 @@
             The x label.
             </value>
         </member>
-        <member name="P:BudgetExecution.Chart.yValue">
+        <member name="P:BudgetExecution.Chart.yValues">
             <summary>
             Gets or sets the y value.
             </summary>
@@ -901,7 +901,7 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
-        <member name="M:BudgetExecution.Chart.#ctor(System.Windows.Forms.BindingSource,System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
+        <member name="M:BudgetExecution.Chart.#ctor(System.Windows.Forms.BindingSource,System.String,System.Collections.Generic.IEnumerable{System.String},Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
             </summary>
@@ -919,7 +919,7 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
-        <member name="M:BudgetExecution.Chart.#ctor(System.Data.DataTable,System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
+        <member name="M:BudgetExecution.Chart.#ctor(System.Data.DataTable,System.String,System.Collections.Generic.IEnumerable{System.String},Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
             </summary>
@@ -929,7 +929,7 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
-        <member name="M:BudgetExecution.Chart.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow},System.String,System.String,Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
+        <member name="M:BudgetExecution.Chart.#ctor(System.Collections.Generic.IEnumerable{System.Data.DataRow},System.String,System.Collections.Generic.IEnumerable{System.String},Syncfusion.Windows.Forms.Chart.ChartSeriesType,BudgetExecution.STAT)">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.Chart"/> class.
             </summary>
@@ -939,7 +939,7 @@
             <param name="chartType">Type of the chart.</param>
             <param name="stat">The stat.</param>
         </member>
-        <member name="M:BudgetExecution.Chart.DecorateSeries">
+        <member name="M:BudgetExecution.Chart.InitSeries">
             <summary>
             Creates the series.
             </summary>

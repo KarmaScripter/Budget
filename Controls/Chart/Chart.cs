@@ -90,7 +90,7 @@ namespace BudgetExecution
         /// <value>
         /// The y value.
         /// </value>
-        public string yValue { get; set; }
+        public IEnumerable<string> yValues { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -167,13 +167,13 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="chartType">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, string names, string values, 
+        public Chart( BindingSource bindingSource, string names, IEnumerable<string> values, 
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
         {
             STAT = stat;
             xAxis = names;
-            yValue = values;
+            yValues = values;
             ChartType = chartType;
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
@@ -209,13 +209,13 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="chartType">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( DataTable dataTable, string names, string values, 
+        public Chart( DataTable dataTable, string names, IEnumerable<string> values, 
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
         {
             STAT = stat;
             xAxis = names;
-            yValue = values;
+            yValues = values;
             ChartType = chartType;
             DataTable = dataTable;
             BindingSource.DataSource =  dataTable;
@@ -232,13 +232,13 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="chartType">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( IEnumerable<DataRow> dataRows, string names, string values,   
+        public Chart( IEnumerable<DataRow> dataRows, string names, IEnumerable<string> values,   
             ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
             : this( )
         {
             STAT = stat;
             xAxis = names;
-            yValue = values;
+            yValues = values;
             ChartType = chartType;
             DataTable = dataRows.CopyToDataTable( );
             BindingSource.DataSource = dataRows.CopyToDataTable( );
@@ -251,7 +251,7 @@ namespace BudgetExecution
         /// Creates the series.
         /// </summary>
         /// <returns></returns>
-        public void DecorateSeries( )
+        public void InitSeries( )
         {
             if( Series != null 
                && BindingModel != null )
