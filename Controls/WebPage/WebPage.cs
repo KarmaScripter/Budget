@@ -67,7 +67,7 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // WebControl Properties
-            WebAddress =  new Uri( @"https://www.google.com" );
+            WebAddress =  new Uri( @"C:\Users\terry\source\repos\Budget\Resource\WebPage\index.html" );
             WebControl.LoadHTML( WebAddress );
             
             // Event Wiring
@@ -84,7 +84,7 @@ namespace BudgetExecution
         {
             try
             {
-                Text = @"Web Document";
+                Text = @"Budget Execution";
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ToolStrip.Office12Mode = true;
