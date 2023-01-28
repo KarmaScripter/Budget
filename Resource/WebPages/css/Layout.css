@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+footer {
+    clear: both;
+    width: auto;
+    height: 60px;
+    padding: 10px;
+    border: 3px solid #0078d4;
+    background-color: #0078d4;
+    text-align: center;
+    color: #eee;
+    border-radius: 5px;
+    font-family: 'Roboto';
+}
+
+#Holder {
+    width: 1080px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+#Header {
+    height: 200px;
+    background-image: url(../assets/banner.png);
+    background-repeat: no-repeat;
+    margin-bottom: 11px;
+}
+
+#NavBar {
+    height: 60px;
+    background-color: #0078d4;
+}
+
+#Content {
+    height: 600px;
+    clear: both;
+    overflow: auto;
+}
+
+#PageHeading {
+    height: auto;
+    padding: 11px;
+}
+
+#ContentLeft {
+    width: 280px;
+    float: left;
+    padding-left: 11px;
+    padding-top: 11px;
+}
+
+#ContentRight {
+    width: 680px;
+    float: right;
+}
+
+#plist a {
+    color: #0078d4;
+    text-decoration: none;
+}
+
+#plist a {
+    color: #0078d4;
+    text-decoration: none;
+}
+
+#plist a:hover {
+    color: #0078d4;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Roboto';
+    color: #eee;
+}
+
+h2 {
+    margin: 0;
+    font-family: 'Roboto';
+    color: #eee;
+}
+
+h6 {
+    margin: 0;
+    font-family: 'Roboto';
+    color: #eee;
+    font-size: 14px;
+}
+
+.StyleTextField {
+    outline: none;
+    width: 200px;
+    height: 35px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 3px solid #eee;
+}
+
+.StyleButton {
+    outline: none;
+    width: 175px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 3px solid #0078d4;
+    background-color: #0078d4;
+    color: white;
+    cursor: pointer;
+}
+
+.styleDownloadButton {
+    outline: none;
+    width: 75pxpx;
+    height: 40px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 3px solid #0078d4;
+    background-color: #0078d4;
+    color: white;
+    cursor: pointer;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

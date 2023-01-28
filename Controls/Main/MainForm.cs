@@ -63,7 +63,7 @@ namespace BudgetExecution
             ReportingTile.Click += OnReportingTileClicked;
             ClientTile.Click += OnClientTileClicked;
             GuidanceTile.Click += OnGuidanceTileClicked;
-            ToolTile.Click += OnToolTileClicked;
+            WebTile.Click += OnWebTileClicked;
             ExitButton.Click += OnExitButtonClicked;
             Load += OnLoad;
         }
@@ -144,9 +144,9 @@ namespace BudgetExecution
                 GuidanceTile.Title.Text =  "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
-                ToolTile.Title.Text = "Data Tools";
-                ToolTile.Body.Text = string.Empty;
-                ToolTile.Banner.Text = "Not Yet Implemented";
+                WebTile.Title.Text = "Web Client";
+                WebTile.Body.Text = string.Empty;
+                WebTile.Banner.Text = "Internet Resources";
             }
             catch( Exception ex )
             {
@@ -298,13 +298,15 @@ namespace BudgetExecution
         /// <param name="e">
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnToolTileClicked( object sender, EventArgs e )
+        private void OnWebTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
+                var _web = new WebPage( );
+                _web.Owner = this;
+                _web.StartPosition = FormStartPosition.CenterScreen;
+                _web.Show( );
+                Visible = false;
             }
             catch( Exception ex )
             {

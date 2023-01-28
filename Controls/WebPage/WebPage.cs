@@ -47,7 +47,7 @@ namespace BudgetExecution
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             MinimumSize = new Size( 1400, 750  );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -68,6 +68,7 @@ namespace BudgetExecution
             
             // WebControl Properties
             WebAddress =  new Uri( @"https://www.google.com" );
+            WebControl.LoadHTML( WebAddress );
             
             // Event Wiring
             Load += OnLoad;
@@ -85,10 +86,10 @@ namespace BudgetExecution
             {
                 Text = @"Web Document";
                 BackButton.Click += OnBackButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.ShowCaption = true;
                 ToolStrip.Text = string.Empty;
-                WebControl.LoadHTML( WebAddress );
                 PopulateToolBarDropDownItems( );
             }
             catch( Exception ex )
@@ -131,10 +132,43 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button 
+                if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.BackButton )
                 {
-                    Close(  );
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.MenuButton )
+                {
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
+                    Close( );
                 }
             }
             catch( Exception ex )

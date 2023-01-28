@@ -7141,7 +7141,7 @@
             instance containing the event data.
             </param>
         </member>
-        <member name="M:BudgetExecution.MainForm.OnToolTileClicked(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.MainForm.OnWebTileClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [tool tile clicked].
             </summary>
@@ -10597,6 +10597,13 @@
             <param name="e">The
             <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.WebPage.OnMainMenuButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:BudgetExecution.WebPage.Fail(System.Exception)">
             <summary>
