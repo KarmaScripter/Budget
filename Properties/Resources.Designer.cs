@@ -193,16 +193,6 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ClientTile {
-            get {
-                object obj = ResourceManager.GetObject("ClientTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap CsvExportButton {
             get {
                 object obj = ResourceManager.GetObject("CsvExportButton", resourceCulture);
@@ -246,6 +236,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap DataSearchButton {
             get {
                 object obj = ResourceManager.GetObject("DataSearchButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DataTile {
+            get {
+                object obj = ResourceManager.GetObject("DataTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +403,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ExcelTile {
+            get {
+                object obj = ResourceManager.GetObject("ExcelTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ExportButton {
             get {
                 object obj = ResourceManager.GetObject("ExportButton", resourceCulture);
@@ -476,6 +486,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap HomeButton {
             get {
                 object obj = ResourceManager.GetObject("HomeButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ImportTile {
+            get {
+                object obj = ResourceManager.GetObject("ImportTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -673,6 +693,26 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap SQLiteTile {
+            get {
+                object obj = ResourceManager.GetObject("SQLiteTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SqlServerTile {
+            get {
+                object obj = ResourceManager.GetObject("SqlServerTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap StopButton {
             get {
                 object obj = ResourceManager.GetObject("StopButton", resourceCulture);
@@ -776,6 +816,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap WebButton {
             get {
                 object obj = ResourceManager.GetObject("WebButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WebClientTIle {
+            get {
+                object obj = ResourceManager.GetObject("WebClientTIle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -145,7 +145,7 @@
             this.DatabaseTile.Banner = textItem5;
             this.DatabaseTile.BannerColor = System.Drawing.Color.Transparent;
             this.DatabaseTile.BannerHeight = 40;
-            this.DatabaseTile.BannerIcon = global::BudgetExecution.Properties.Resources.SettingsTile;
+            this.DatabaseTile.BannerIcon = global::BudgetExecution.Properties.Resources.ToolsTile;
             this.DatabaseTile.BindingSource = this.BindingSource;
             textItem6.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem6.HubTile = this.DatabaseTile;
@@ -235,7 +235,7 @@
             this.ClientTile.Banner = textItem13;
             this.ClientTile.BannerColor = System.Drawing.Color.Transparent;
             this.ClientTile.BannerHeight = 40;
-            this.ClientTile.BannerIcon = global::BudgetExecution.Properties.Resources.ClientTile;
+            this.ClientTile.BannerIcon = global::BudgetExecution.Properties.Resources.SqlServerTile;
             this.ClientTile.BindingSource = this.BindingSource;
             textItem14.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem14.HubTile = this.ClientTile;

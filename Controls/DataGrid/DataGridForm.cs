@@ -253,6 +253,7 @@ namespace BudgetExecution
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
             TestButton.Click += OnTestButtonClicked;
             ExitButton.Click += null;
+            BackButton.Click += null;
             MenuButton.Click += null;
             ChartButton.Click += null;
             RefreshDataButton.Click += null;
@@ -335,6 +336,7 @@ namespace BudgetExecution
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
+                BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Visible = false;
             }
             catch( Exception ex )
@@ -1405,7 +1407,34 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.ExitButton )
                 {
-                    Owner.Close( );
+                    Owner?.Close( );
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.BackButton )
+                {
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
                     Close( );
                 }
             }

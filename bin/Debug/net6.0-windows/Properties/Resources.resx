@@ -307,9 +307,6 @@
   <data name="ChartTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\ChartTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ClientTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Tiles\ClientTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="GuidanceTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\GuidanceTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -339,5 +336,23 @@
   </data>
   <data name="ShutdownButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\ToolStrip\png\ShutdownButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\DataTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExcelTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ExcelTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ImportTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SQLiteTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\SQLiteTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SqlServerTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\SqlServerTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WebClientTIle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\WebClientTIle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
