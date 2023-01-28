@@ -251,7 +251,7 @@ namespace BudgetExecution
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FoldButton.Click += OnFoldButtonClicked;
+            FoldButton.Click += OnGroupButtonClicked;
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
             SearchButton.Click += OnSearchButtonClicked;
             TestButton.Click += OnTestButtonClicked;
@@ -1111,8 +1111,7 @@ namespace BudgetExecution
                     {
                         FormFilter.Clear( );
                     }
-
-                    FoldButton.Visible = true;
+                    
                     SecondValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
@@ -1319,7 +1318,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFoldButtonClicked( object sender, EventArgs e )
+        private void OnGroupButtonClicked( object sender, EventArgs e )
         {
             try
             {

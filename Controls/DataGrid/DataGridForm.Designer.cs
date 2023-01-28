@@ -78,7 +78,7 @@
             this.Separator9 = new BudgetExecution.ToolSeparator();
             this.Separator10 = new BudgetExecution.ToolSeparator();
             this.Separator11 = new BudgetExecution.ToolSeparator();
-            this.UndoButton = new BudgetExecution.ToolStripButton();
+            this.BackButton = new BudgetExecution.ToolStripButton();
             this.Separator12 = new BudgetExecution.ToolSeparator();
             this.RefreshDataButton = new BudgetExecution.ToolStripButton();
             this.Separator14 = new BudgetExecution.ToolSeparator();
@@ -560,8 +560,6 @@
             this.Separator10,
             this.DeleteColumnButton,
             this.Separator11,
-            this.UndoButton,
-            this.Separator12,
             this.RefreshDataButton,
             this.Separator14,
             this.SaveButton,
@@ -591,6 +589,8 @@
             this.WebButton,
             this.toolSeparator3,
             this.ComboBox,
+            this.Separator12,
+            this.BackButton,
             this.Separator27,
             this.MenuButton,
             this.Separator28,
@@ -798,7 +798,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(188, 32);
+            this.TextBox.Size = new System.Drawing.Size(196, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -935,7 +935,7 @@
             this.RemoveFiltersButton.Field = BudgetExecution.Field.AccountCode;
             this.RemoveFiltersButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
-            this.RemoveFiltersButton.HoverText = "Remove Filters";
+            this.RemoveFiltersButton.HoverText = "Reset Table Filters";
             this.RemoveFiltersButton.Image = global::BudgetExecution.Properties.Resources.RemoveFiltersButton;
             this.RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RemoveFiltersButton.Margin = new System.Windows.Forms.Padding(3);
@@ -986,26 +986,26 @@
             this.Separator11.Padding = new System.Windows.Forms.Padding(1);
             this.Separator11.Size = new System.Drawing.Size(6, 32);
             // 
-            // UndoButton
+            // BackButton
             // 
-            this.UndoButton.AutoToolTip = false;
-            this.UndoButton.BackColor = System.Drawing.Color.Transparent;
-            this.UndoButton.BindingSource = this.BindingSource;
-            this.UndoButton.DataFilter = null;
-            this.UndoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UndoButton.Field = BudgetExecution.Field.AccountCode;
-            this.UndoButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.UndoButton.ForeColor = System.Drawing.Color.LightGray;
-            this.UndoButton.HoverText = "Undo Changes";
-            this.UndoButton.Image = global::BudgetExecution.Properties.Resources.UndoButton;
-            this.UndoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UndoButton.Margin = new System.Windows.Forms.Padding(1);
-            this.UndoButton.Name = "UndoButton";
-            this.UndoButton.Padding = new System.Windows.Forms.Padding(1);
-            this.UndoButton.Size = new System.Drawing.Size(26, 32);
-            this.UndoButton.Text = "toolStripButton2";
-            this.UndoButton.ToolTip = null;
-            this.UndoButton.ToolType = BudgetExecution.ToolType.UndoButton;
+            this.BackButton.AutoToolTip = false;
+            this.BackButton.BackColor = System.Drawing.Color.Transparent;
+            this.BackButton.BindingSource = this.BindingSource;
+            this.BackButton.DataFilter = null;
+            this.BackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BackButton.Field = BudgetExecution.Field.AccountCode;
+            this.BackButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BackButton.ForeColor = System.Drawing.Color.LightGray;
+            this.BackButton.HoverText = "Go Back";
+            this.BackButton.Image = global::BudgetExecution.Properties.Resources.BackButton;
+            this.BackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BackButton.Margin = new System.Windows.Forms.Padding(1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Padding = new System.Windows.Forms.Padding(1);
+            this.BackButton.Size = new System.Drawing.Size(26, 32);
+            this.BackButton.Text = "toolStripButton2";
+            this.BackButton.ToolTip = this.ToolTip;
+            this.BackButton.ToolType = BudgetExecution.ToolType.BackButton;
             // 
             // Separator12
             // 
@@ -1025,7 +1025,7 @@
             this.RefreshDataButton.Field = BudgetExecution.Field.AccountCode;
             this.RefreshDataButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
-            this.RefreshDataButton.HoverText = "Reset Data";
+            this.RefreshDataButton.HoverText = "Reset Data Source";
             this.RefreshDataButton.Image = global::BudgetExecution.Properties.Resources.RefreshDataButton;
             this.RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshDataButton.Margin = new System.Windows.Forms.Padding(1);
@@ -1120,8 +1120,8 @@
             this.SearchButton.Field = BudgetExecution.Field.AccountCode;
             this.SearchButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SearchButton.ForeColor = System.Drawing.Color.LightGray;
-            this.SearchButton.HoverText = "Database Lookup";
-            this.SearchButton.Image = global::BudgetExecution.Properties.Resources.DataSearchButton;
+            this.SearchButton.HoverText = "Group Columns";
+            this.SearchButton.Image = global::BudgetExecution.Properties.Resources.GroupButton;
             this.SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SearchButton.Margin = new System.Windows.Forms.Padding(1);
             this.SearchButton.Name = "SearchButton";
@@ -1429,7 +1429,7 @@
             this.ExitButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExitButton.ForeColor = System.Drawing.Color.LightGray;
             this.ExitButton.HoverText = "Exit Application";
-            this.ExitButton.Image = global::BudgetExecution.Properties.Resources.LogoutButton;
+            this.ExitButton.Image = global::BudgetExecution.Properties.Resources.ShutdownButton;
             this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitButton.Margin = new System.Windows.Forms.Padding(1);
             this.ExitButton.Name = "ExitButton";
@@ -2632,7 +2632,7 @@
         private ToolSeparator Separator10;
         public ToolStripButton DeleteColumnButton;
         private ToolSeparator Separator11;
-        public ToolStripButton UndoButton;
+        public ToolStripButton BackButton;
         private ToolSeparator Separator12;
         public ToolStripButton RefreshDataButton;
         private ToolSeparator Separator14;

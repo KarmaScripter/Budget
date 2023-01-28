@@ -217,7 +217,9 @@ namespace BudgetExecution
                         case ToolType.RemoveFiltersButton:
                         case ToolType.RefreshDataButton:
                         case ToolType.SearchDataButton:
+                        case ToolType.GroupButton:
                         case ToolType.ExitButton:
+                        case ToolType.ShutdownButton:
                         case ToolType.BackButton:
                         case ToolType.MenuButton:
                         case ToolType.HomeButton:

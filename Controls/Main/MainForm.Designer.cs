@@ -449,7 +449,7 @@
         private Tile UtilityTile;
         private Tile ClientTile;
         private Tile ToolTile;
-        private Tile DatabaseTile;
         public Button ExitButton;
+        public Tile DatabaseTile;
     }
 }

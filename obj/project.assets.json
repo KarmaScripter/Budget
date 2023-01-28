@@ -354,12 +354,12 @@
         "type": "package",
         "compile": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {
-            "related": ".dll.altconfig.xml;.xml"
+            "related": ".dll.altconfig;.xml"
           }
         },
         "runtime": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {
-            "related": ".dll.altconfig.xml;.xml"
+            "related": ".dll.altconfig;.xml"
           }
         },
         "runtimeTargets": {
@@ -995,12 +995,12 @@
           "Syncfusion.Licensing": "20.4.0.38"
         },
         "compile": {
-          "lib/net451/Syncfusion.Scripting.Base.dll": {
+          "lib/net6.0-windows7.0/Syncfusion.Scripting.Base.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net451/Syncfusion.Scripting.Base.dll": {
+          "lib/net6.0-windows7.0/Syncfusion.Scripting.Base.dll": {
             "related": ".xml"
           }
         }
@@ -1700,7 +1700,7 @@
         "tools/EntityFramework6.PS2.psm1",
         "tools/EntityFramework6.psd1",
         "tools/EntityFramework6.psm1",
-        "tools/about_EntityFramework6.help.docx",
+        "tools/about_EntityFramework6.help.txt",
         "tools/init.ps1",
         "tools/install.ps1",
         "tools/net40/any/ef6.exe",
@@ -1739,8 +1739,8 @@
         "lib/netstandard2.1/EPPlus.dll",
         "lib/netstandard2.1/EPPlus.xml",
         "license.md",
-        "readme.docx",
-        "readme.md"
+        "readme.md",
+        "readme.txt"
       ]
     },
     "EPPlus.Interfaces/6.1.1": {
@@ -1805,8 +1805,8 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net45/_._",
@@ -1863,8 +1863,8 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Extensions.Configuration/6.0.0": {
@@ -1875,15 +1875,15 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.Extensions.Configuration.dll",
         "lib/net461/Microsoft.Extensions.Configuration.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
         "microsoft.extensions.configuration.6.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
@@ -1894,15 +1894,15 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/net461/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Configuration.FileExtensions/6.0.0": {
@@ -1913,15 +1913,15 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.Extensions.Configuration.FileExtensions.dll",
         "lib/net461/Microsoft.Extensions.Configuration.FileExtensions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.xml",
         "microsoft.extensions.configuration.fileextensions.6.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.fileextensions.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Configuration.Json/6.0.0": {
@@ -1932,8 +1932,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/Microsoft.Extensions.Configuration.Json.dll",
         "lib/net461/Microsoft.Extensions.Configuration.Json.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll",
@@ -1942,7 +1942,7 @@
         "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.xml",
         "microsoft.extensions.configuration.json.6.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.json.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
@@ -1953,8 +1953,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.FileProviders.Abstractions.targets",
         "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/Microsoft.Extensions.FileProviders.Abstractions.dll",
@@ -1965,7 +1965,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.fileproviders.abstractions.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.FileProviders.Physical/6.0.0": {
@@ -1976,8 +1976,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.FileProviders.Physical.targets",
         "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/Microsoft.Extensions.FileProviders.Physical.dll",
@@ -1988,7 +1988,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.xml",
         "microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
         "microsoft.extensions.fileproviders.physical.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.FileSystemGlobbing/6.0.0": {
@@ -1999,8 +1999,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.FileSystemGlobbing.targets",
         "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/Microsoft.Extensions.FileSystemGlobbing.dll",
@@ -2011,7 +2011,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
         "microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
         "microsoft.extensions.filesystemglobbing.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Primitives/6.0.0": {
@@ -2022,8 +2022,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
         "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/Microsoft.Extensions.Primitives.dll",
@@ -2036,7 +2036,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
         "microsoft.extensions.primitives.6.0.0.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.IO.RecyclableMemoryStream/2.2.1": {
@@ -2068,14 +2068,14 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
         "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Win32.Registry/4.7.0": {
@@ -2085,8 +2085,8 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/Microsoft.Win32.Registry.dll",
         "lib/net461/Microsoft.Win32.Registry.dll",
         "lib/net461/Microsoft.Win32.Registry.xml",
@@ -2121,8 +2121,8 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Win32.SystemEvents/7.0.0": {
@@ -2133,8 +2133,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Win32.SystemEvents.targets",
         "buildTransitive/net462/_._",
         "buildTransitive/net6.0/_._",
@@ -2153,7 +2153,7 @@
         "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.xml",
         "runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll",
         "runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.xml",
-        "useSharedDesignerContext.docx"
+        "useSharedDesignerContext.txt"
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -2163,12 +2163,12 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT.docx",
-        "THIRD-PARTY-NOTICES.TXT.docx",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
         "runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
         "runtime.native.system.data.sqlclient.sni.nuspec",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
@@ -2178,12 +2178,13 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.docx",
-        "dotnet_library_license.docx",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
         "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.nuspec",
         "runtimes/win-arm64/native/sni.dll",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "runtime.win-x64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
@@ -2193,13 +2194,13 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.docx",
-        "dotnet_library_license.docx",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
         "runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
         "runtime.win-x64.runtime.native.system.data.sqlclient.sni.nuspec",
         "runtimes/win-x64/native/sni.dll",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "runtime.win-x86.runtime.native.System.Data.SqlClient.sni/4.4.0": {
@@ -2209,13 +2210,13 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.docx",
-        "dotnet_library_license.docx",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.nuspec",
         "runtimes/win-x86/native/sni.dll",
-        "useSharedDesignerContext.docx",
-        "version.docx"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Stub.System.Data.SQLite.Core.NetStandard/1.0.117": {
@@ -2226,10 +2227,10 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/System.Data.SQLite.dll",
-        "lib/netstandard2.0/System.Data.SQLite.dll.altconfig.xml",
+        "lib/netstandard2.0/System.Data.SQLite.dll.altconfig",
         "lib/netstandard2.0/System.Data.SQLite.xml",
         "lib/netstandard2.1/System.Data.SQLite.dll",
-        "lib/netstandard2.1/System.Data.SQLite.dll.altconfig.xml",
+        "lib/netstandard2.1/System.Data.SQLite.dll.altconfig",
         "lib/netstandard2.1/System.Data.SQLite.xml",
         "runtimes/linux-x64/native/SQLite.Interop.dll",
         "runtimes/osx-x64/native/SQLite.Interop.dll",
@@ -2247,7 +2248,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net35/Syncfusion.BulletGraph.Windows.dll",
         "lib/net35/Syncfusion.BulletGraph.Windows.xml",
@@ -2274,7 +2275,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Calculate.Base.dll",
         "lib/net20/Syncfusion.Calculate.Base.xml",
@@ -2302,7 +2303,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.Chart.Base.dll",
         "lib/net20/Syncfusion.Chart.Base.xml",
         "lib/net35/Syncfusion.Chart.Base.dll",
@@ -2330,7 +2331,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Chart.Windows.dll",
         "lib/net20/Syncfusion.Chart.Windows.xml",
@@ -2359,7 +2360,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.Compression.Base.dll",
         "lib/net20/Syncfusion.Compression.Base.xml",
         "lib/net35/Syncfusion.Compression.Base.dll",
@@ -2387,7 +2388,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net40/Syncfusion.Core.WinForms.dll",
         "lib/net40/Syncfusion.Core.WinForms.xml",
@@ -2412,7 +2413,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net40/Syncfusion.Data.WinForms.dll",
         "lib/net40/Syncfusion.Data.WinForms.xml",
         "lib/net45/Syncfusion.Data.WinForms.dll",
@@ -2435,7 +2436,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net40/Syncfusion.DataSource.WinForms.dll",
         "lib/net40/Syncfusion.DataSource.WinForms.xml",
         "lib/net45/Syncfusion.DataSource.WinForms.dll",
@@ -2459,7 +2460,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.Diagram.Base.dll",
         "lib/net20/Syncfusion.Diagram.Base.xml",
         "lib/net35/Syncfusion.Diagram.Base.dll",
@@ -2488,7 +2489,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Diagram.Windows.dll",
         "lib/net20/Syncfusion.Diagram.Windows.xml",
@@ -2517,7 +2518,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.DocIO.Base.dll",
         "lib/net20/Syncfusion.DocIO.Base.xml",
@@ -2546,7 +2547,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Edit.Windows.dll",
         "lib/net20/Syncfusion.Edit.Windows.xml",
@@ -2576,7 +2577,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net35/Syncfusion.Gauge.Windows.dll",
         "lib/net35/Syncfusion.Gauge.Windows.xml",
@@ -2603,7 +2604,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.Grid.Base.dll",
         "lib/net20/Syncfusion.Grid.Base.xml",
         "lib/net35/Syncfusion.Grid.Base.dll",
@@ -2629,7 +2630,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Grid.Grouping.Windows.dll",
         "lib/net20/Syncfusion.Grid.Grouping.Windows.xml",
@@ -2659,7 +2660,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Grid.Windows.dll",
         "lib/net20/Syncfusion.Grid.Windows.xml",
@@ -2688,7 +2689,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net40/Syncfusion.GridCommon.WinForms.dll",
         "lib/net40/Syncfusion.GridCommon.WinForms.xml",
         "lib/net45/Syncfusion.GridCommon.WinForms.dll",
@@ -2711,7 +2712,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Gridconverter.Windows.dll",
         "lib/net20/Syncfusion.Gridconverter.Windows.xml",
@@ -2739,7 +2740,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.GridHelperClasses.Windows.dll",
         "lib/net20/Syncfusion.GridHelperClasses.Windows.xml",
@@ -2767,7 +2768,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Grouping.Base.dll",
         "lib/net20/Syncfusion.Grouping.Base.xml",
@@ -2795,7 +2796,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.HTMLUI.Base.dll",
         "lib/net20/Syncfusion.HTMLUI.Base.xml",
         "lib/net35/Syncfusion.HTMLUI.Base.dll",
@@ -2823,7 +2824,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.HTMLUI.windows.dll",
         "lib/net20/Syncfusion.HTMLUI.windows.xml",
         "lib/net35/Syncfusion.HTMLUI.windows.dll",
@@ -2851,7 +2852,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/MonoAndroid10.0/Syncfusion.Licensing.dll",
         "lib/MonoAndroid90/Syncfusion.Licensing.dll",
         "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
@@ -2885,7 +2886,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net35/Syncfusion.Linq.Base.dll",
         "lib/net35/Syncfusion.Linq.Base.xml",
         "lib/net40/Syncfusion.Linq.Base.dll",
@@ -2911,7 +2912,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net35/Syncfusion.Maps.Windows.dll",
         "lib/net35/Syncfusion.Maps.Windows.xml",
@@ -2938,7 +2939,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.MIME.Base.dll",
         "lib/net20/Syncfusion.MIME.Base.xml",
         "lib/net35/Syncfusion.MIME.Base.dll",
@@ -2965,7 +2966,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.OfficeChart.Base.dll",
         "lib/net20/Syncfusion.OfficeChart.Base.xml",
         "lib/net35/Syncfusion.OfficeChart.Base.dll",
@@ -2992,7 +2993,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Pdf.Base.dll",
         "lib/net20/Syncfusion.Pdf.Base.xml",
@@ -3021,7 +3022,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.PdfViewer.Windows.dll",
         "lib/net20/Syncfusion.PdfViewer.Windows.xml",
@@ -3050,7 +3051,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net35/Syncfusion.PivotAnalysis.Base.dll",
         "lib/net35/Syncfusion.PivotAnalysis.Base.xml",
         "lib/net40/Syncfusion.PivotAnalysis.Base.dll",
@@ -3076,7 +3077,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net35/Syncfusion.PivotChart.Windows.dll",
         "lib/net35/Syncfusion.PivotChart.Windows.xml",
@@ -3104,7 +3105,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net35/Syncfusion.PivotAnalysis.Windows.dll",
         "lib/net35/Syncfusion.PivotAnalysis.Windows.xml",
@@ -3131,7 +3132,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Presentation.Base.dll",
         "lib/net20/Syncfusion.Presentation.Base.xml",
@@ -3159,7 +3160,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.Schedule.Base.dll",
         "lib/net20/Syncfusion.Schedule.Base.xml",
         "lib/net35/Syncfusion.Schedule.Base.dll",
@@ -3187,7 +3188,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.Schedule.Windows.dll",
         "lib/net20/Syncfusion.Schedule.Windows.xml",
@@ -3216,7 +3217,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "lib/net20/Syncfusion.Scripting.Base.dll",
         "lib/net20/Syncfusion.Scripting.Base.xml",
         "lib/net35/Syncfusion.Scripting.Base.dll",
@@ -3227,6 +3228,10 @@
         "lib/net45/Syncfusion.Scripting.Base.xml",
         "lib/net451/Syncfusion.Scripting.Base.dll",
         "lib/net451/Syncfusion.Scripting.Base.xml",
+        "lib/net46/Syncfusion.Scripting.Base.dll",
+        "lib/net46/Syncfusion.Scripting.Base.xml",
+        "lib/net6.0-windows7.0/Syncfusion.Scripting.Base.dll",
+        "lib/net6.0-windows7.0/Syncfusion.Scripting.Base.xml",
         "syncfusion.scripting.base.20.4.0.38.nupkg.sha512",
         "syncfusion.scripting.base.nuspec",
         "syncfusion_logo.png"
@@ -3239,7 +3244,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net20/Syncfusion.SfBarcode.Windows.dll",
         "lib/net20/Syncfusion.SfBarcode.Windows.xml",
@@ -3268,7 +3273,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net40/Syncfusion.SfDataGrid.WinForms.dll",
         "lib/net40/Syncfusion.SfDataGrid.WinForms.xml",
@@ -3294,7 +3299,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net40/Syncfusion.SfInput.WinForms.dll",
         "lib/net40/Syncfusion.SfInput.WinForms.xml",
@@ -3320,7 +3325,7 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
+        "LICENSE.txt",
         "README.md",
         "lib/net40/Syncfusion.SfListView.WinForms.dll",
         "lib/net40/Syncfusion.SfListView.WinForms.xml",
@@ -3346,7 +3351,6 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.docx",
         "LICENSE.txt",
         "README.md",
         "lib/net40/Syncfusion.SfSmithChart.WinForms.dll",
@@ -4622,16 +4626,6 @@
       "warningLevel": 1,
       "message": "Package 'Syncfusion.Grid.Base 20.4.0.38' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "Syncfusion.Grid.Base",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Syncfusion.Scripting.Base 20.4.0.38' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Syncfusion.Scripting.Base",
       "targetGraphs": [
         "net6.0-windows7.0"
       ]

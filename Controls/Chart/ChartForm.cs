@@ -735,7 +735,7 @@ namespace BudgetExecution
                 var _data = _model.GetData(  );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList(  );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
@@ -947,14 +947,17 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFoldButtonClicked( object sender, EventArgs e )
+        private void OnGroupButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                if( sender is RadioButton _filterButton )
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.GroupButton )
                 {
-                    ClearSelections(  );
-                    TabControl.SelectedTab = FilterTabPage;
+                    TabControl.SelectedTab = FoldTabPage;
+                    FoldTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    FilterTabPage.TabVisible = false;
                 }
             }
             catch( Exception ex )
@@ -1230,7 +1233,8 @@ namespace BudgetExecution
                         FormFilter.Clear( );
                     }
 
-                    SelectedTable = _listBox.SelectedValue?.ToString( );
+                    var _title = _listBox.SelectedValue?.ToString( );
+                    SelectedTable = _title?.Replace( " ", ""  );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
                         TabControl.SelectedTab = FilterTabPage;
@@ -1375,7 +1379,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
-                    FoldButton.Visible = false;
+                    GroupButton.Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1409,7 +1413,7 @@ namespace BudgetExecution
                     Numerics = DataModel.Numerics;
                     TableTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
-                    FoldButton.Visible = false;
+                    GroupButton.Visible = false;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
                     PopulateFirstComboBoxItems( );

@@ -245,6 +245,11 @@ namespace BudgetExecution
         GridButton,
 
         /// <summary>
+        /// The group button
+        /// </summary>
+        GroupButton,
+
+        /// <summary>
         /// The guidance button
         /// </summary>
         GuidanceButton,
@@ -428,6 +433,11 @@ namespace BudgetExecution
         /// The SQL server button
         /// </summary>
         SqlServerButton,
+
+        /// <summary>
+        /// The shutdown button
+        /// </summary>
+        ShutdownButton,
 
         /// <summary>
         /// The table button

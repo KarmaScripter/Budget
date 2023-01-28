@@ -1308,7 +1308,7 @@
             </summary>
             <param name="sqlText">The SQL text.</param>
         </member>
-        <member name="M:BudgetExecution.ChartForm.OnFoldButtonClicked(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.ChartForm.OnGroupButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [fold button clicked].
             </summary>
@@ -2446,12 +2446,25 @@
             Populates the tool bar drop down items.
             </summary>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.OnTableComboBoxItemSelected(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.DataGridForm.PopulateSecondComboBoxItems">
             <summary>
-            Called when [table ComboBox item selected].
+            Populates the second como box items.
             </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateFirstComboBoxItems">
+            <summary>
+            Populates the first como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateFieldListBox">
+            <summary>
+            Populates the column ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.DataGridForm.PopulateNumericListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
         </member>
         <member name="M:BudgetExecution.DataGridForm.PopulateReferenceTables">
             <summary>
@@ -2469,10 +2482,12 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateFirstComboBoxItems">
+        <member name="M:BudgetExecution.DataGridForm.OnTableComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
-            Populates the first como box items.
+            Called when [table ComboBox item selected].
             </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:BudgetExecution.DataGridForm.OnFirstComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -2487,11 +2502,6 @@
             </summary>
             <param name="sender">The sender.
             </param>
-        </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateSecondComboBoxItems">
-            <summary>
-            Populates the second como box items.
-            </summary>
         </member>
         <member name="M:BudgetExecution.DataGridForm.OnSecondComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -2533,21 +2543,11 @@
             The sender.
             </param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateFieldListBox">
-            <summary>
-            Populates the column ListBox.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.DataGridForm.OnFieldListBoxSelectedValueChanged(System.Object)">
             <summary>
             Called when [column ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
-        </member>
-        <member name="M:BudgetExecution.DataGridForm.PopulateNumericListBox">
-            <summary>
-            Populates the numeric ListBox.
-            </summary>
         </member>
         <member name="M:BudgetExecution.DataGridForm.OnNumericListBoxSelectedValueChanged(System.Object)">
             <summary>
@@ -2562,7 +2562,7 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.DataGridForm.OnFoldButtonClicked(System.Object,System.EventArgs)">
+        <member name="M:BudgetExecution.DataGridForm.OnGroupButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [fold button clicked].
             </summary>
@@ -3529,11 +3529,32 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BudgetExecution.FilterDialog.OnRadioButtonChecked(System.Object)">
+        <member name="M:BudgetExecution.FilterDialog.SetLabelText">
             <summary>
-            Called when [RadioButton checked].
+            Sets the label configuration.
             </summary>
-            <param name="sender">The sender.</param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.ClearFilterSelections">
+            <summary>
+            Clears the selected filter values.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.CreateSqlText(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Creates the SQL text.
+            </summary>
+            <param name="where">The where.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateSecondComboBoxItems">
+            <summary>
+            Populates the second como box items.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateThirdComboBoxItems">
+            <summary>
+            Populates the third como box items.
+            </summary>
         </member>
         <member name="M:BudgetExecution.FilterDialog.BindDataSource(BudgetExecution.Source,BudgetExecution.Provider,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
@@ -3542,6 +3563,11 @@
             <param name="source">The source.</param>
             <param name="provider">The provider.</param>
             <param name="where">The where.</param>
+        </member>
+        <member name="M:BudgetExecution.FilterDialog.PopulateFirstComboBoxItems">
+            <summary>
+            Populates the first como box items.
+            </summary>
         </member>
         <member name="M:BudgetExecution.FilterDialog.PopulateTableListBoxItems">
             <summary>
@@ -3554,10 +3580,11 @@
             </summary>
             <param name="sender">The sender.</param>
         </member>
-        <member name="M:BudgetExecution.FilterDialog.PopulateFirstComboBoxItems">
+        <member name="M:BudgetExecution.FilterDialog.OnRadioButtonChecked(System.Object)">
             <summary>
-            Populates the first como box items.
+            Called when [RadioButton checked].
             </summary>
+            <param name="sender">The sender.</param>
         </member>
         <member name="M:BudgetExecution.FilterDialog.OnFirstComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -3572,11 +3599,6 @@
             </summary>
             <param name="sender">The sender.
             </param>
-        </member>
-        <member name="M:BudgetExecution.FilterDialog.PopulateSecondComboBoxItems">
-            <summary>
-            Populates the second como box items.
-            </summary>
         </member>
         <member name="M:BudgetExecution.FilterDialog.OnSecondComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -3595,11 +3617,6 @@
             <param name="sender">The sender.
             </param>
         </member>
-        <member name="M:BudgetExecution.FilterDialog.PopulateThirdComboBoxItems">
-            <summary>
-            Populates the third como box items.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.FilterDialog.OnThirdComboBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
             Called when [third item selected].
@@ -3617,18 +3634,6 @@
             <param name="sender">
             The sender.
             </param>
-        </member>
-        <member name="M:BudgetExecution.FilterDialog.ClearFilterSelections">
-            <summary>
-            Clears the selected filter values.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.FilterDialog.CreateSqlText(System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Creates the SQL text.
-            </summary>
-            <param name="where">The where.</param>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.FilterDialog.OnFirstButtonClick(System.Object,System.EventArgs)">
             <summary>
@@ -3656,11 +3661,6 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.
             </param>
-        </member>
-        <member name="M:BudgetExecution.FilterDialog.SetLabelText">
-            <summary>
-            Sets the label configuration.
-            </summary>
         </member>
         <member name="M:BudgetExecution.FilterDialog.Fail(System.Exception)">
             <summary>
@@ -4092,6 +4092,21 @@
             Sets the label configuration.
             </summary>
         </member>
+        <member name="M:BudgetExecution.QueryDialog.PopulateFirstListBoxItems">
+            <summary>
+            Populates the table ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.PopulateSecondListBox">
+            <summary>
+            Populates the column ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.QueryDialog.PopulateThirdListBoxItems">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.QueryDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [close button clicked].
@@ -4099,21 +4114,11 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateFirstListBoxItems">
-            <summary>
-            Populates the table ListBox.
-            </summary>
-        </member>
         <member name="M:BudgetExecution.QueryDialog.OnFirstListBoxItemSelected(System.Object)">
             <summary>
             Called when [table ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateSecondListBox">
-            <summary>
-            Populates the column ListBox.
-            </summary>
         </member>
         <member name="M:BudgetExecution.QueryDialog.OnSecondListBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -4121,11 +4126,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.QueryDialog.PopulateThirdListBoxItems">
-            <summary>
-            Populates the numeric ListBox.
-            </summary>
         </member>
         <member name="M:BudgetExecution.QueryDialog.OnThirdListBoxItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -4264,17 +4264,22 @@
             Populates the column ListBox.
             </summary>
         </member>
+        <member name="M:BudgetExecution.SchemaDialog.PopulateNumericListBox">
+            <summary>
+            Populates the numeric ListBox.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.SchemaDialog.UpdateHeaderText">
+            <summary>
+            Updates the header text.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.SchemaDialog.OnFieldListBoxSelectedValueChanged(System.Object)">
             <summary>
             Called when [column ListBox item selected].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.SchemaDialog.PopulateNumericListBox">
-            <summary>
-            Populates the numeric ListBox.
-            </summary>
         </member>
         <member name="M:BudgetExecution.SchemaDialog.OnNumericListBoxSelectedValueChanged(System.Object)">
             <summary>
@@ -4296,11 +4301,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.SchemaDialog.UpdateHeaderText">
-            <summary>
-            Updates the header text.
-            </summary>
         </member>
         <member name="M:BudgetExecution.SchemaDialog.OnCloseButtonClicked(System.Object,System.EventArgs)">
             <summary>
@@ -7045,14 +7045,17 @@
             </summary>
             <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
         </member>
+        <member name="P:BudgetExecution.MainForm.Tiles">
+            <summary>
+            Gets or sets the tiles.
+            </summary>
+            <value>
+            The tiles.
+            </value>
+        </member>
         <member name="M:BudgetExecution.MainForm.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:BudgetExecution.MainForm"/> class.
-            </summary>
-        </member>
-        <member name="M:BudgetExecution.MainForm.SetTileTitles">
-            <summary>
-            Sets the tile titles.
             </summary>
         </member>
         <member name="M:BudgetExecution.MainForm.OnLoad(System.Object,System.EventArgs)">
@@ -7064,6 +7067,22 @@
             The <see cref="T:System.EventArgs"/>
             instance containing the event data.
             </param>
+        </member>
+        <member name="M:BudgetExecution.MainForm.GetTiles">
+            <summary>
+            Gets the tiles.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.MainForm.SetTileText">
+            <summary>
+            Sets the tile titles.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.MainForm.SetTileProperties">
+            <summary>
+            Sets the tile properties.
+            </summary>
         </member>
         <member name="M:BudgetExecution.MainForm.OnDatabaseTileClicked(System.Object,System.EventArgs)">
             <summary>
@@ -7558,18 +7577,18 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
+        <member name="M:BudgetExecution.PdfForm.LoadDocuments">
+            <summary>
+            Gets the document name list.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:BudgetExecution.PdfForm.OnBackButtonClicked(System.Object,System.EventArgs)">
             <summary>
             Called when [back button clicked].
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:BudgetExecution.PdfForm.LoadDocuments">
-            <summary>
-            Gets the document name list.
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:BudgetExecution.PdfForm.OnDropDownItemSelected(System.Object,System.EventArgs)">
             <summary>
@@ -9730,6 +9749,17 @@
             <param name="toolType"></param>
             <param name="bindingSource"></param>
         </member>
+        <member name="M:BudgetExecution.ToolStripButton.GetImage(BudgetExecution.ToolType)">
+            <summary>
+            Sets the button image.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetExecution.ToolStripButton.SetImage">
+            <summary>
+            Sets the image.
+            </summary>
+        </member>
         <member name="M:BudgetExecution.ToolStripButton.OnMouseHover(System.Object,System.EventArgs)">
             <summary>
             Called when [mouse over].
@@ -9753,17 +9783,6 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the
                 event data.</param>
-        </member>
-        <member name="M:BudgetExecution.ToolStripButton.GetImage(BudgetExecution.ToolType)">
-            <summary>
-            Sets the button image.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BudgetExecution.ToolStripButton.SetImage">
-            <summary>
-            Sets the image.
-            </summary>
         </member>
         <member name="T:BudgetExecution.ToolStripDropDown">
             <summary>
@@ -21106,6 +21125,11 @@
             The grid button
             </summary>
         </member>
+        <member name="F:BudgetExecution.ToolType.GroupButton">
+            <summary>
+            The group button
+            </summary>
+        </member>
         <member name="F:BudgetExecution.ToolType.GuidanceButton">
             <summary>
             The guidance button
@@ -21289,6 +21313,11 @@
         <member name="F:BudgetExecution.ToolType.SqlServerButton">
             <summary>
             The SQL server button
+            </summary>
+        </member>
+        <member name="F:BudgetExecution.ToolType.ShutdownButton">
+            <summary>
+            The shutdown button
             </summary>
         </member>
         <member name="F:BudgetExecution.ToolType.TableButton">
@@ -48806,6 +48835,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:BudgetExecution.Properties.Resources.GroupButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:BudgetExecution.Properties.Resources.GuidanceButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -48907,6 +48941,11 @@
             </summary>
         </member>
         <member name="P:BudgetExecution.Properties.Resources.SettingsTile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BudgetExecution.Properties.Resources.ShutdownButton">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>

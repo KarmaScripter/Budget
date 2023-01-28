@@ -5,7 +5,10 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -15,6 +18,14 @@ namespace BudgetExecution
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     public partial class MainForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the tiles.
+        /// </summary>
+        /// <value>
+        /// The tiles.
+        /// </value>
+        public IEnumerable<Tile> Tiles { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
@@ -53,13 +64,68 @@ namespace BudgetExecution
             ClientTile.Click += OnClientTileClicked;
             GuidanceTile.Click += OnGuidanceTileClicked;
             ToolTile.Click += OnToolTileClicked;
+            ExitButton.Click += OnExitButtonClicked;
             Load += OnLoad;
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Tiles = GetTiles( );
+                SetTileProperties( );
+                SetTileText(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the tiles.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<Tile> GetTiles( )
+        {
+            try
+            {
+                var _tiles = new List<Tile>( );
+                for( var _index = 0; _index < Controls.Count; _index++ )
+                {
+                    var control = Controls[ _index ];
+                    if( control.GetType( ) == typeof( Tile ) )
+                    {
+                        var _tile = control as Tile;
+                        _tiles.Add( _tile );
+                    }
+                }
+
+                return _tiles?.Any( ) == true
+                    ? _tiles
+                    : Enumerable.Empty<Tile>( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IEnumerable<Tile> );
+            }
+
+            return default( IEnumerable<Tile> );
+        }
+        
+        /// <summary>
         /// Sets the tile titles.
         /// </summary>
-        private void SetTileTitles( )
+        private void SetTileText( )
         {
             try
             {
@@ -89,19 +155,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
+        /// Sets the tile properties.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnLoad( object sender, EventArgs e )
+        private void SetTileProperties( )
         {
             try
             {
-                SetTileTitles(  );
-                ExitButton.Click += OnExitButtonClicked;
+                if( Tiles?.Any( ) == true )
+                {
+                    foreach( var tile in Tiles )
+                    {
+                        tile.Size = new Size( 225, 102 );
+                    }
+                }
             }
             catch( Exception ex )
             {

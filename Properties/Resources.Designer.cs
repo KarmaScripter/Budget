@@ -443,6 +443,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap GroupButton {
+            get {
+                object obj = ResourceManager.GetObject("GroupButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap GuidanceButton {
             get {
                 object obj = ResourceManager.GetObject("GuidanceButton", resourceCulture);
@@ -646,6 +656,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap SettingsTile {
             get {
                 object obj = ResourceManager.GetObject("SettingsTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ShutdownButton {
+            get {
+                object obj = ResourceManager.GetObject("ShutdownButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
