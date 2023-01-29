@@ -18,21 +18,26 @@
     <RepositoryUrl>https://github.com/KarmaScripter/Budget</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <AssemblyName>Budget</AssemblyName>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <BaseOutputPath>bin\</BaseOutputPath>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     <BaseIntermediateOutputPath />
+    <IsPublishable>False</IsPublishable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <WarningLevel>5</WarningLevel>
     <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
+    <Optimize>True</Optimize>
+    <Deterministic>False</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <WarningLevel>5</WarningLevel>
+    <Optimize>False</Optimize>
+    <Deterministic>False</Deterministic>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
