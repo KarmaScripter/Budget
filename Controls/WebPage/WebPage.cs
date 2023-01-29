@@ -8,8 +8,10 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.HTMLUI;
 
     /// <summary>
     /// 
@@ -25,6 +27,22 @@ namespace BudgetExecution
         /// The web address.
         /// </value>
         public Uri WebAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        public string FilePath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the folder path.
+        /// </summary>
+        /// <value>
+        /// The folder path.
+        /// </value>
+        public string FolderPath { get; set; }
         
         /// <summary>
         /// Gets or sets the base address.
@@ -43,7 +61,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             MinimumSize = new Size( 1400, 750  );
@@ -51,7 +69,6 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -67,8 +84,7 @@ namespace BudgetExecution
             MaximizeBox = false;
             
             // WebControl Properties
-            WebAddress =  new Uri( @"C:\Users\terry\source\repos\Budget\Resource\WebPage\index.html" );
-            WebControl.LoadHTML( WebAddress );
+            WebControl = new HTMLUIControl( );
             
             // Event Wiring
             Load += OnLoad;
@@ -91,6 +107,13 @@ namespace BudgetExecution
                 ToolStrip.ShowCaption = true;
                 ToolStrip.Text = string.Empty;
                 PopulateToolBarDropDownItems( );
+                FilePath = @"C:\Users\terry\source\repos\Budget\Resource\WebPages\index.html";
+                FolderPath = @"C:\Users\terry\source\repos\Budget\Resource\WebPages";
+                WebAddress =  new Uri( @"https://www.google.com/" );
+                WebControl.StartupDocument = FilePath;
+                WebControl.StartupFolder = FolderPath;
+                var _stream = File.Open( FilePath, FileMode.Open );
+                WebControl.LoadHTML( WebAddress );
             }
             catch( Exception ex )
             {
@@ -108,10 +131,9 @@ namespace BudgetExecution
                 var _names = Enum.GetNames( typeof( Level ) );
                 for( var _i = 0; _i < _names.Length; _i++ )
                 {
-                    var name = _names[ _i ];
-                    if( name != "NS" )
+                    if( _names[ _i ] != "NS" )
                     {
-                        DropDown.Items.Add( name );
+                        DropDown.Items.Add( _names[ _i ] );
                     }
                 }
             }

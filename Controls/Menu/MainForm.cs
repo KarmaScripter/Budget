@@ -144,9 +144,9 @@ namespace BudgetExecution
                 GuidanceTile.Title.Text =  "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
-                WebTile.Title.Text = "Web Client";
+                WebTile.Title.Text = "Web Resource";
                 WebTile.Body.Text = string.Empty;
-                WebTile.Banner.Text = "Internet Resources";
+                WebTile.Banner.Text = "Web Clients, Data, Browsers";
             }
             catch( Exception ex )
             {
@@ -235,9 +235,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
+                var _minion = new MinionSelector(  );
+                _minion.ShowDialog(  );
             }
             catch( Exception ex )
             {

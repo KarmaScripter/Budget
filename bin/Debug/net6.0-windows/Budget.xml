@@ -10562,6 +10562,22 @@
             The web address.
             </value>
         </member>
+        <member name="P:BudgetExecution.WebPage.FilePath">
+            <summary>
+            Gets or sets the file path.
+            </summary>
+            <value>
+            The file path.
+            </value>
+        </member>
+        <member name="P:BudgetExecution.WebPage.FolderPath">
+            <summary>
+            Gets or sets the folder path.
+            </summary>
+            <value>
+            The folder path.
+            </value>
+        </member>
         <member name="P:BudgetExecution.WebPage.BaseAddress">
             <summary>
             Gets or sets the base address.
@@ -23067,6 +23083,23 @@
             <summary>Fails the specified ex.</summary>
             <param name="ex">The ex.</param>
         </member>
+        <member name="F:BudgetExecution.GuidanceDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.GuidanceDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.GuidanceDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:BudgetExecution.IAccount">
             <summary>
             
@@ -27263,6 +27296,69 @@
             Fails the specified ex.
             </summary>
             <param name="ex">The ex.</param>
+        </member>
+        <member name="T:BudgetExecution.MinionSelector">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="P:BudgetExecution.MinionSelector.ImagePath">
+            <summary>
+            Gets or sets the image path.
+            </summary>
+            <value>
+            The image path.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.MinionSelector"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.OnItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.OnCloseButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Called when [close button clicked].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.MinionSelector.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.MinionSelector.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
         <member name="T:BudgetExecution.Account">
             <summary>
@@ -49268,6 +49364,62 @@
             Get Error Dialog.
             </summary>
             <param name="ex">The ex.</param>
+        </member>
+        <member name="T:BudgetExecution.WebSelector">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
+        </member>
+        <member name="P:BudgetExecution.WebSelector.ImagePath">
+            <summary>
+            Gets or sets the image path.
+            </summary>
+            <value>
+            The image path.
+            </value>
+        </member>
+        <member name="M:BudgetExecution.WebSelector.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BudgetExecution.WebSelector"/> class.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.WebSelector.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Called when [load].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.WebSelector.OnItemSelected(System.Object,System.EventArgs)">
+            <summary>
+            Called when [item selected].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:BudgetExecution.WebSelector.Fail(System.Exception)">
+            <summary>
+            Fails the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+        </member>
+        <member name="F:BudgetExecution.WebSelector.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetExecution.WebSelector.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetExecution.WebSelector.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
     </members>
 </doc>

@@ -373,7 +373,7 @@ namespace BudgetExecution
             this.FirstButton.HoverText = null;
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(76, 400);
+            this.FirstButton.Location = new System.Drawing.Point(134, 438);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.FirstButton.NormalColor = System.Drawing.Color.Transparent;
@@ -405,7 +405,7 @@ namespace BudgetExecution
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(685, 400);
+            this.ThirdButton.Location = new System.Drawing.Point(973, 438);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;
@@ -437,7 +437,7 @@ namespace BudgetExecution
             this.SecondButton.HoverText = null;
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(383, 400);
+            this.SecondButton.Location = new System.Drawing.Point(532, 438);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SecondButton.NormalColor = System.Drawing.Color.Transparent;
@@ -487,7 +487,7 @@ namespace BudgetExecution
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(888, 463);
+            this.ClientSize = new System.Drawing.Size(1188, 563);
             this.Controls.Add(this.FirstButton);
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.SecondButton);
@@ -498,8 +498,10 @@ namespace BudgetExecution
             this.ForeColor = System.Drawing.Color.LightGray;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1200, 600);
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "QueryDialog";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

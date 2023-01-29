@@ -56,7 +56,6 @@
     <PackageReference Include="Syncfusion.Calculate.Base" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.Grouping.Base" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.TreeMap.Windows" Version="20.4.0.38" />
-    <PackageReference Include="Syncfusion.HTMLUI.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.Schedule.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.Edit.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.PivotChart.Windows" Version="20.4.0.38" />
@@ -73,6 +72,7 @@
     <PackageReference Include="Syncfusion.Gauge.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.Maps.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.SfSmithChart.WinForms" Version="20.4.0.38" />
+      <PackageReference Include="Syncfusion.HTMLUI.Windows" Version="20.4.0.38" />
 </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">
@@ -104,6 +104,9 @@
     </Reference>
     <Reference Include="SQLite.Designer">
       <HintPath>Libraries\SQLite.Designer.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing">
+      <HintPath>..\Badjao\Libraries\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity">
       <HintPath>Libraries\System.Data.Entity.dll</HintPath>

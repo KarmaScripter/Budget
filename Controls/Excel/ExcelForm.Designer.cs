@@ -44,7 +44,6 @@
             this.toolSeparator1 = new BudgetExecution.ToolSeparator();
             this.TextBox = new BudgetExecution.ToolStripTextBox();
             this.toolSeparator2 = new BudgetExecution.ToolSeparator();
-            this.LookupButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator11 = new BudgetExecution.ToolSeparator();
             this.FirstButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator14 = new BudgetExecution.ToolSeparator();
@@ -58,7 +57,7 @@
             this.toolSeparator3 = new BudgetExecution.ToolSeparator();
             this.RefreshDataButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator4 = new BudgetExecution.ToolSeparator();
-            this.DatabaseButton = new BudgetExecution.ToolStripButton();
+            this.TableButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator5 = new BudgetExecution.ToolSeparator();
             this.UploadButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator6 = new BudgetExecution.ToolSeparator();
@@ -195,8 +194,6 @@
             this.Label,
             this.toolSeparator1,
             this.TextBox,
-            this.toolSeparator2,
-            this.LookupButton,
             this.toolSeparator11,
             this.FirstButton,
             this.toolSeparator14,
@@ -210,7 +207,7 @@
             this.toolSeparator3,
             this.RefreshDataButton,
             this.toolSeparator4,
-            this.DatabaseButton,
+            this.TableButton,
             this.toolSeparator5,
             this.UploadButton,
             this.toolSeparator6,
@@ -340,7 +337,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(248, 32);
+            this.TextBox.Size = new System.Drawing.Size(246, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -351,27 +348,6 @@
             this.toolSeparator2.Name = "toolSeparator2";
             this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator2.Size = new System.Drawing.Size(6, 32);
-            // 
-            // LookupButton
-            // 
-            this.LookupButton.AutoToolTip = false;
-            this.LookupButton.BackColor = System.Drawing.Color.Transparent;
-            this.LookupButton.BindingSource = this.BindingSource;
-            this.LookupButton.DataFilter = null;
-            this.LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.LookupButton.Field = BudgetExecution.Field.AccountCode;
-            this.LookupButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LookupButton.ForeColor = System.Drawing.Color.LightGray;
-            this.LookupButton.HoverText = "Quick Search";
-            this.LookupButton.Image = global::BudgetExecution.Properties.Resources.LookupButton;
-            this.LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.LookupButton.Margin = new System.Windows.Forms.Padding(1);
-            this.LookupButton.Name = "LookupButton";
-            this.LookupButton.Padding = new System.Windows.Forms.Padding(1);
-            this.LookupButton.Size = new System.Drawing.Size(26, 32);
-            this.LookupButton.Text = "toolStripButton8";
-            this.LookupButton.ToolTip = this.ToolTip;
-            this.LookupButton.ToolType = BudgetExecution.ToolType.SearchDataButton;
             // 
             // toolSeparator11
             // 
@@ -556,26 +532,26 @@
             this.toolSeparator4.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator4.Size = new System.Drawing.Size(6, 32);
             // 
-            // DatabaseButton
+            // TableButton
             // 
-            this.DatabaseButton.AutoToolTip = false;
-            this.DatabaseButton.BackColor = System.Drawing.Color.Transparent;
-            this.DatabaseButton.BindingSource = this.BindingSource;
-            this.DatabaseButton.DataFilter = null;
-            this.DatabaseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DatabaseButton.Field = BudgetExecution.Field.AccountCode;
-            this.DatabaseButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DatabaseButton.ForeColor = System.Drawing.Color.LightGray;
-            this.DatabaseButton.HoverText = "Data Editor";
-            this.DatabaseButton.Image = global::BudgetExecution.Properties.Resources.DatabaseButton;
-            this.DatabaseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.DatabaseButton.Margin = new System.Windows.Forms.Padding(1);
-            this.DatabaseButton.Name = "DatabaseButton";
-            this.DatabaseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.DatabaseButton.Size = new System.Drawing.Size(26, 32);
-            this.DatabaseButton.Text = "toolStripButton11";
-            this.DatabaseButton.ToolTip = this.ToolTip;
-            this.DatabaseButton.ToolType = BudgetExecution.ToolType.DatabaseButton;
+            this.TableButton.AutoToolTip = false;
+            this.TableButton.BackColor = System.Drawing.Color.Transparent;
+            this.TableButton.BindingSource = this.BindingSource;
+            this.TableButton.DataFilter = null;
+            this.TableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TableButton.Field = BudgetExecution.Field.AccountCode;
+            this.TableButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableButton.ForeColor = System.Drawing.Color.LightGray;
+            this.TableButton.HoverText = "Data Editor";
+            this.TableButton.Image = global::BudgetExecution.Properties.Resources.TableButton;
+            this.TableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TableButton.Margin = new System.Windows.Forms.Padding(1);
+            this.TableButton.Name = "TableButton";
+            this.TableButton.Padding = new System.Windows.Forms.Padding(1);
+            this.TableButton.Size = new System.Drawing.Size(26, 32);
+            this.TableButton.Text = "toolStripButton11";
+            this.TableButton.ToolTip = this.ToolTip;
+            this.TableButton.ToolType = BudgetExecution.ToolType.TableButton;
             // 
             // toolSeparator5
             // 
@@ -872,7 +848,7 @@
         public ToolStripButton PreviousButton;
         public ToolStripButton NextButton;
         public ToolSeparator Separator17;
-        public ToolStripButton DatabaseButton;
+        public ToolStripButton TableButton;
         public ToolSeparator Separator18;
         private ToolStrip ToolStrip;
         private SmallTip ToolTip;
@@ -892,7 +868,6 @@
         private ToolSeparator toolSeparator9;
         private ToolSeparator toolSeparator10;
         private ToolSeparator toolSeparator11;
-        public ToolStripButton LookupButton;
         private ToolSeparator toolSeparator12;
         private ToolSeparator toolSeparator13;
         private ToolSeparator toolSeparator14;

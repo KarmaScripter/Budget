@@ -46,7 +46,7 @@
             this.Carousel.ImageshadeColor = System.Drawing.Color.Black;
             this.Carousel.ImageSize = new System.Drawing.Size(250, 250);
             this.Carousel.ImageSlides = true;
-            this.Carousel.Location = new System.Drawing.Point(228, 166);
+            this.Carousel.Location = new System.Drawing.Point(195, 166);
             this.Carousel.Name = "Carousel";
             this.Carousel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.Carousel.PadX = 0;
@@ -55,7 +55,7 @@
             this.Carousel.RotateAlways = false;
             this.Carousel.ShowImagePreview = true;
             this.Carousel.ShowImageShadow = true;
-            this.Carousel.Size = new System.Drawing.Size(957, 387);
+            this.Carousel.Size = new System.Drawing.Size(1029, 429);
             this.Carousel.TabIndex = 0;
             this.Carousel.ThemeName = "Metro";
             this.Carousel.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
