@@ -20,9 +20,10 @@
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
     <AssemblyName>Budget</AssemblyName>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <BaseOutputPath>bin\</BaseOutputPath>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+    <BaseIntermediateOutputPath />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>

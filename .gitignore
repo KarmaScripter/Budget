@@ -50,6 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/bin
+/obj
 /Data/Database/Access/DataModels/Data.accdb
 /Data/Database/SQLite/DataModels/Data.db
 *.mdf
