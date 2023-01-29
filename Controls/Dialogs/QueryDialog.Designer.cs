@@ -69,7 +69,7 @@ namespace BudgetExecution
             this.ThirdTable.Controls.Add(this.ThirdLabel, 0, 0);
             this.ThirdTable.Controls.Add(this.ThirdPanel, 0, 1);
             this.ThirdTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ThirdTable.Location = new System.Drawing.Point(596, 28);
+            this.ThirdTable.Location = new System.Drawing.Point(839, 31);
             this.ThirdTable.Name = "ThirdTable";
             this.ThirdTable.RowCount = 2;
             this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.308511F));
@@ -168,7 +168,7 @@ namespace BudgetExecution
             this.SecondTable.Controls.Add(this.SecondLabel, 0, 0);
             this.SecondTable.Controls.Add(this.SecondPanel, 0, 1);
             this.SecondTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SecondTable.Location = new System.Drawing.Point(306, 28);
+            this.SecondTable.Location = new System.Drawing.Point(461, 28);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
             this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.793815F));
@@ -267,7 +267,7 @@ namespace BudgetExecution
             this.FirstTable.Controls.Add(this.FirstLabel, 0, 0);
             this.FirstTable.Controls.Add(this.FirstPanel, 0, 1);
             this.FirstTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.FirstTable.Location = new System.Drawing.Point(12, 28);
+            this.FirstTable.Location = new System.Drawing.Point(59, 28);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 2;
             this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.574468F));
@@ -373,7 +373,7 @@ namespace BudgetExecution
             this.FirstButton.HoverText = null;
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(134, 438);
+            this.FirstButton.Location = new System.Drawing.Point(134, 425);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.FirstButton.NormalColor = System.Drawing.Color.Transparent;
@@ -405,7 +405,7 @@ namespace BudgetExecution
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(973, 438);
+            this.ThirdButton.Location = new System.Drawing.Point(978, 425);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;
@@ -437,7 +437,7 @@ namespace BudgetExecution
             this.SecondButton.HoverText = null;
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(532, 438);
+            this.SecondButton.Location = new System.Drawing.Point(530, 425);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SecondButton.NormalColor = System.Drawing.Color.Transparent;

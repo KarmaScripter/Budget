@@ -690,7 +690,7 @@ partial class FilterDialog
             this.ProviderTable.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProviderTable.ForeColor = System.Drawing.Color.DarkGray;
             this.ProviderTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ProviderTable.Location = new System.Drawing.Point(12, 13);
+            this.ProviderTable.Location = new System.Drawing.Point(24, 13);
             this.ProviderTable.Name = "ProviderTable";
             this.ProviderTable.RowCount = 2;
             this.ProviderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -858,7 +858,7 @@ partial class FilterDialog
             this.SourceTable.Controls.Add(this.TablePanel, 0, 1);
             this.SourceTable.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SourceTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SourceTable.Location = new System.Drawing.Point(290, 13);
+            this.SourceTable.Location = new System.Drawing.Point(292, 13);
             this.SourceTable.Name = "SourceTable";
             this.SourceTable.RowCount = 2;
             this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -1744,7 +1744,7 @@ partial class FilterDialog
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(898, 16);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(898, 13);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
