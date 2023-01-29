@@ -40,7 +40,7 @@ partial class MinionSelector
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolTip = new BudgetExecution.SmallTip();
             this.ImageList = new BudgetExecution.ImageList();
-            this.Selector = new BudgetExecution.Selector();
+            this.Carousel = new BudgetExecution.Selector();
             this.SelectorTable = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SelectorTable.SuspendLayout();
@@ -50,7 +50,7 @@ partial class MinionSelector
             // 
             this.Header.BindingSource = null;
             this.Header.DataFilter = null;
-            this.Header.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Header.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Header.HoverText = null;
@@ -59,7 +59,7 @@ partial class MinionSelector
             this.Header.Margin = new System.Windows.Forms.Padding(3);
             this.Header.Name = "Header";
             this.Header.Padding = new System.Windows.Forms.Padding(1);
-            this.Header.Size = new System.Drawing.Size(1042, 32);
+            this.Header.Size = new System.Drawing.Size(1015, 25);
             this.Header.Style = MetroSet_UI.Enums.Style.Custom;
             this.Header.StyleManager = null;
             this.Header.TabIndex = 3;
@@ -83,11 +83,11 @@ partial class MinionSelector
             this.CloseButton.HoverText = "Return to Main Menu";
             this.CloseButton.HoverTextColor = System.Drawing.Color.White;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(994, 476);
+            this.CloseButton.Location = new System.Drawing.Point(919, 422);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.CloseButton.NormalTextColor = System.Drawing.Color.Transparent;
             this.CloseButton.Padding = new System.Windows.Forms.Padding(1);
             this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -132,52 +132,52 @@ partial class MinionSelector
             this.ImageList.ImageSource = BudgetExecution.ImageDirectory.NS;
             this.ImageList.ToolTip = null;
             // 
-            // Selector
+            // Carousel
             // 
-            this.Selector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Selector.BindingSource = this.BindingSource;
-            this.Selector.CanOverrideStyle = true;
-            this.Selector.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Selector.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Selector.ForeColor = System.Drawing.Color.White;
-            this.Selector.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.Selector.Images = null;
-            this.Selector.ImageshadeColor = System.Drawing.Color.Black;
-            this.Selector.ImageSize = new System.Drawing.Size(250, 250);
-            this.Selector.ImageSlides = true;
-            this.Selector.Location = new System.Drawing.Point(3, 41);
-            this.Selector.Name = "Selector";
-            this.Selector.PadX = 0;
-            this.Selector.PadY = 0;
-            this.Selector.Perspective = 4F;
-            this.Selector.RotateAlways = false;
-            this.Selector.ShowImagePreview = true;
-            this.Selector.ShowImageShadow = true;
-            this.Selector.Size = new System.Drawing.Size(1042, 328);
-            this.Selector.TabIndex = 8;
-            this.Selector.ThemeName = "Metro";
-            this.Selector.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
-            this.Selector.ThemeStyle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Selector.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.Selector.ThemeStyle.HoverImageBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.Selector.ThemeStyle.HoverImageBorderThickness = 3;
-            this.Selector.ThemeStyle.ImageShadeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.Selector.TouchTransitionSpeed = 1F;
-            this.Selector.UseOriginalImageinPreview = true;
-            this.Selector.VisualStyle = Syncfusion.Windows.Forms.Tools.CarouselVisualStyle.Metro;
+            this.Carousel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Carousel.BindingSource = this.BindingSource;
+            this.Carousel.CanOverrideStyle = true;
+            this.Carousel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Carousel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Carousel.ForeColor = System.Drawing.Color.White;
+            this.Carousel.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.Carousel.Images = null;
+            this.Carousel.ImageshadeColor = System.Drawing.Color.Black;
+            this.Carousel.ImageSize = new System.Drawing.Size(250, 250);
+            this.Carousel.ImageSlides = true;
+            this.Carousel.Location = new System.Drawing.Point(3, 53);
+            this.Carousel.Name = "Carousel";
+            this.Carousel.PadX = 0;
+            this.Carousel.PadY = 0;
+            this.Carousel.Perspective = 4F;
+            this.Carousel.RotateAlways = false;
+            this.Carousel.ShowImagePreview = true;
+            this.Carousel.ShowImageShadow = true;
+            this.Carousel.Size = new System.Drawing.Size(1015, 303);
+            this.Carousel.TabIndex = 8;
+            this.Carousel.ThemeName = "Metro";
+            this.Carousel.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
+            this.Carousel.ThemeStyle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Carousel.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.Carousel.ThemeStyle.HoverImageBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.Carousel.ThemeStyle.HoverImageBorderThickness = 3;
+            this.Carousel.ThemeStyle.ImageShadeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.Carousel.TouchTransitionSpeed = 1F;
+            this.Carousel.UseOriginalImageinPreview = true;
+            this.Carousel.VisualStyle = Syncfusion.Windows.Forms.Tools.CarouselVisualStyle.Metro;
             // 
             // SelectorTable
             // 
             this.SelectorTable.ColumnCount = 1;
             this.SelectorTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SelectorTable.Controls.Add(this.Selector, 0, 1);
+            this.SelectorTable.Controls.Add(this.Carousel, 0, 1);
             this.SelectorTable.Controls.Add(this.Header, 0, 0);
-            this.SelectorTable.Location = new System.Drawing.Point(86, 43);
+            this.SelectorTable.Location = new System.Drawing.Point(99, 57);
             this.SelectorTable.Name = "SelectorTable";
             this.SelectorTable.RowCount = 2;
-            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.24931F));
-            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.75069F));
-            this.SelectorTable.Size = new System.Drawing.Size(1048, 372);
+            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.10256F));
+            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.89744F));
+            this.SelectorTable.Size = new System.Drawing.Size(1021, 359);
             this.SelectorTable.TabIndex = 9;
             // 
             // MinionSelector
@@ -216,6 +216,6 @@ partial class MinionSelector
     public SmallTip ToolTip;
     public ImageList ImageList;
     public System.Windows.Forms.BindingSource BindingSource;
-    private Selector Selector;
+    private Selector Carousel;
     private System.Windows.Forms.TableLayoutPanel SelectorTable;
 }

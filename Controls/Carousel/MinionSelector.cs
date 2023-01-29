@@ -84,15 +84,20 @@ namespace BudgetExecution
                 try
                 {
                     var _files = Directory.GetFiles( ImagePath );
-                    foreach( var _file in _files )
+                    for( var _i = 0; _i < _files.Length; _i++ )
                     {
-                        var _name = Path.GetFileNameWithoutExtension( _file );
-                        var _stream = File.Open( _file, FileMode.Open );
-                        var _image = new Bitmap( _stream );
-                        _image.Tag = _name;
-                        var _carouselImage = new CarouselImage( );
-                        _carouselImage.ItemImage = _image;
-                        Carousel.ImageListCollection.Add( _carouselImage );
+                        var _path = _files[ _i ];
+                        if( !string.IsNullOrEmpty( _files[ _i ] ) 
+                           && File.Exists( _files[ _i ] ))
+                        {
+                            var _name = Path.GetFileNameWithoutExtension( _path );
+                            var _stream = File.Open( _path, FileMode.Open );
+                            var _image = new Bitmap( _stream );
+                            _image.Tag = _name;
+                            var _carouselImage = new CarouselImage( );
+                            _carouselImage.ItemImage = _image;
+                            Carousel.ImageListCollection.Add( _carouselImage );
+                        }
                     }
 
                     Carousel.FilePath = ImagePath;
@@ -115,6 +120,15 @@ namespace BudgetExecution
             {
                 try
                 {
+                    var _tag = _carousel
+                        ?.ActiveImage
+                        ?.Tag
+                        ?.ToString( );
+
+                    if( !string.IsNullOrEmpty( _tag ) )
+                    {
+                        Header.Text = _tag;
+                    }
                 }
                 catch( Exception ex )
                 {

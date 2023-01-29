@@ -133,7 +133,7 @@
   </Dictionary>
   <Dictionary>
     <Key>UpgradeTip</Key>
-    <Value>Upgrades the version of a database. After the upgrade, the database will be encrypted if the source database was encrypted</Value>
+    <Value>Upgrades a database from version 3.1 to 3.5. After the upgrade, the database will be encrypted if the source database was encrypted</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyTip</Key>
@@ -329,7 +329,7 @@
   </Dictionary>
   <Dictionary>
     <Key>RecentFiles</Key>
-    <Value>Recent files</Value>
+    <Value>RecentFiles</Value>
   </Dictionary>
   <Dictionary>
     <Key>Import</Key>
@@ -353,11 +353,11 @@
   </Dictionary>
   <Dictionary>
     <Key>ShowEditor</Key>
-    <Value>Show editor</Value>
+    <Value>ShowEditor</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseTools</Key>
-    <Value>Database tools</Value>
+    <Value>DatabaseTools</Value>
   </Dictionary>
   <Dictionary>
     <Key>Help</Key>

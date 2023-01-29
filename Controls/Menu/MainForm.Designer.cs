@@ -66,7 +66,9 @@
             this.ReportingTile = new BudgetExecution.Tile();
             this.Darkmode = new MetroSet_UI.Components.StyleManager();
             this.ExitButton = new BudgetExecution.Button();
+            this.TileTable = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
+            this.TileTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // GuidanceTile
@@ -98,7 +100,7 @@
             this.GuidanceTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoverText = null;
-            this.GuidanceTile.Location = new System.Drawing.Point(1011, 121);
+            this.GuidanceTile.Location = new System.Drawing.Point(754, 53);
             this.GuidanceTile.Margin = new System.Windows.Forms.Padding(1);
             this.GuidanceTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.GuidanceTile.Name = "GuidanceTile";
@@ -163,7 +165,7 @@
             this.DatabaseTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DatabaseTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DatabaseTile.HoverText = null;
-            this.DatabaseTile.Location = new System.Drawing.Point(167, 121);
+            this.DatabaseTile.Location = new System.Drawing.Point(63, 53);
             this.DatabaseTile.Margin = new System.Windows.Forms.Padding(1);
             this.DatabaseTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.DatabaseTile.Name = "DatabaseTile";
@@ -208,7 +210,7 @@
             this.WebTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.WebTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.WebTile.HoverText = null;
-            this.WebTile.Location = new System.Drawing.Point(167, 487);
+            this.WebTile.Location = new System.Drawing.Point(63, 267);
             this.WebTile.Margin = new System.Windows.Forms.Padding(1);
             this.WebTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.WebTile.Name = "WebTile";
@@ -253,7 +255,7 @@
             this.ClientTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoverText = null;
-            this.ClientTile.Location = new System.Drawing.Point(1011, 487);
+            this.ClientTile.Location = new System.Drawing.Point(754, 267);
             this.ClientTile.Margin = new System.Windows.Forms.Padding(1);
             this.ClientTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ClientTile.Name = "ClientTile";
@@ -298,7 +300,7 @@
             this.UtilityTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoverText = null;
-            this.UtilityTile.Location = new System.Drawing.Point(561, 487);
+            this.UtilityTile.Location = new System.Drawing.Point(415, 267);
             this.UtilityTile.Margin = new System.Windows.Forms.Padding(1);
             this.UtilityTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.UtilityTile.Name = "UtilityTile";
@@ -343,7 +345,7 @@
             this.ReportingTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ReportingTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ReportingTile.HoverText = null;
-            this.ReportingTile.Location = new System.Drawing.Point(561, 121);
+            this.ReportingTile.Location = new System.Drawing.Point(415, 53);
             this.ReportingTile.Margin = new System.Windows.Forms.Padding(1);
             this.ReportingTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ReportingTile.Name = "ReportingTile";
@@ -399,6 +401,26 @@
             this.ExitButton.ThemeName = "BudgetExecution";
             this.ExitButton.ToolTip = null;
             // 
+            // TileTable
+            // 
+            this.TileTable.ColumnCount = 3;
+            this.TileTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TileTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TileTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
+            this.TileTable.Controls.Add(this.GuidanceTile, 2, 0);
+            this.TileTable.Controls.Add(this.ReportingTile, 1, 0);
+            this.TileTable.Controls.Add(this.DatabaseTile, 0, 0);
+            this.TileTable.Controls.Add(this.WebTile, 0, 1);
+            this.TileTable.Controls.Add(this.UtilityTile, 1, 1);
+            this.TileTable.Controls.Add(this.ClientTile, 2, 1);
+            this.TileTable.Location = new System.Drawing.Point(206, 96);
+            this.TileTable.Name = "TileTable";
+            this.TileTable.RowCount = 2;
+            this.TileTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.94614F));
+            this.TileTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.05386F));
+            this.TileTable.Size = new System.Drawing.Size(1029, 427);
+            this.TileTable.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -417,13 +439,8 @@
             captionImage1.Size = new System.Drawing.Size(22, 22);
             this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(1388, 763);
+            this.Controls.Add(this.TileTable);
             this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.ReportingTile);
-            this.Controls.Add(this.UtilityTile);
-            this.Controls.Add(this.ClientTile);
-            this.Controls.Add(this.WebTile);
-            this.Controls.Add(this.DatabaseTile);
-            this.Controls.Add(this.GuidanceTile);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -436,6 +453,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
+            this.TileTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -451,5 +469,6 @@
         private Tile WebTile;
         public Button ExitButton;
         public Tile DatabaseTile;
+        private System.Windows.Forms.TableLayoutPanel TileTable;
     }
 }
