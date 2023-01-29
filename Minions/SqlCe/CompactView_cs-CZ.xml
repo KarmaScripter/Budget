@@ -17,43 +17,43 @@
   </xs:schema>
   <Dictionary>
     <Key>TranslationInfo</Key>
-    <Value>English translation by Iván Costales Suárez (CompactView)</Value>
+    <Value>Český překlad vytvořil Vesi</Value>
   </Dictionary>
   <Dictionary>
     <Key>OpenDatabase</Key>
-    <Value>Open database</Value>
+    <Value>Otevřít databázi</Value>
   </Dictionary>
   <Dictionary>
     <Key>ReadOnly</Key>
-    <Value>Read only</Value>
+    <Value>Pouze pro čtení</Value>
   </Dictionary>
   <Dictionary>
     <Key>AllowEditing</Key>
-    <Value>Allow editing</Value>
+    <Value>Povolit úpravy</Value>
   </Dictionary>
   <Dictionary>
     <Key>Query</Key>
-    <Value>Query</Value>
+    <Value>Dotaz</Value>
   </Dictionary>
   <Dictionary>
     <Key>Execute</Key>
-    <Value>Execute</Value>
+    <Value>Spustit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Clear</Key>
-    <Value>Clear</Value>
+    <Value>Vyčistit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Tools</Key>
-    <Value>Tools</Value>
+    <Value>Nástroje</Value>
   </Dictionary>
   <Dictionary>
     <Key>About</Key>
-    <Value>About</Value>
+    <Value>O aplikaci</Value>
   </Dictionary>
   <Dictionary>
     <Key>Database</Key>
-    <Value>Database</Value>
+    <Value>Databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>Data</Key>
@@ -61,95 +61,95 @@
   </Dictionary>
   <Dictionary>
     <Key>SqlSchema</Key>
-    <Value>SQL Schema</Value>
+    <Value>SQL Schéma</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileName</Key>
-    <Value>File name</Value>
+    <Value>Název souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>Password</Key>
-    <Value>Password</Value>
+    <Value>Heslo</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileNameTip</Key>
-    <Value>Database file name. Press the button to the right to select a file</Value>
+    <Value>Název souboru databáze. Stisknutím tlačítka vpravo vyberte soubor</Value>
   </Dictionary>
   <Dictionary>
     <Key>PasswordTip</Key>
-    <Value>Database password. Leave blank if none</Value>
+    <Value>Heslo do databáze. Ponechte prázdné, pokud heslo nechcete</Value>
   </Dictionary>
   <Dictionary>
     <Key>SelectTip</Key>
-    <Value>Select database file</Value>
+    <Value>Vyberte soubor databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeToVersion</Key>
-    <Value>Upgrade to version</Value>
+    <Value>Aktualizace na verzi</Value>
   </Dictionary>
   <Dictionary>
     <Key>Action</Key>
-    <Value>Action</Value>
+    <Value>Akce</Value>
   </Dictionary>
   <Dictionary>
     <Key>Create</Key>
-    <Value>Create</Value>
+    <Value>Vytvořit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Compact</Key>
-    <Value>Compact</Value>
+    <Value>Vyčistit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Repair</Key>
-    <Value>Repair</Value>
+    <Value>Opravit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Shrink</Key>
-    <Value>Shrink</Value>
+    <Value>Zmenšit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Upgrade</Key>
-    <Value>Upgrade</Value>
+    <Value>Aktualizovat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Verify</Key>
-    <Value>Verify</Value>
+    <Value>Ověřit</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateTip</Key>
-    <Value>Create a new database file</Value>
+    <Value>Vytvoří nový databázový soubor</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactTip</Key>
-    <Value>Reclaims wasted space in the database by creating a new database file from the existing file</Value>
+    <Value>Vyčistí nevyužité místo v databázi a vytvoří novou databázi z existujícího souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairTip</Key>
-    <Value>Repair a corrupted database. First try to recover the corrupted rows, then remove the remaining corrupted rows</Value>
+    <Value>Opraví poškozenou databázi. Nejprve zkusí obnovit poškozené řádky, poté zbývající poškozené řádky odstraní</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkTip</Key>
-    <Value>Reclaims wasted space in the database by moving empty pages to the end of the file, and then truncating the file</Value>
+    <Value>Získá nevyužité místo v databázi přesunutím prázdných stránek na konec souboru, a poté zmenší soubor</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeTip</Key>
-    <Value>Upgrades the version of a database. After the upgrade, the database will be encrypted if the source database was encrypted</Value>
+    <Value>Aktualizuje verzi databáze. Po aktualizaci bude databáze šifrována pokud zdrojová databáze byla zašifrována</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyTip</Key>
-    <Value>Recalculates the checksums for each page in the database and compares the new checksums to the expected values</Value>
+    <Value>Přepočítá kontrolní součty pro každou tabulku v databázi a porovnává nové kontrolní součty s očekávanými hodnotami</Value>
   </Dictionary>
   <Dictionary>
     <Key>ToolsNote</Key>
-    <Value>Before every action a copy of the database file will be created by appending 001, 002, 003 etc to the file name</Value>
+    <Value>Před každou akcí vytvoří kopii souboru databáze. Databáze se vytvoří přidáním 001, 002, 003 atd. k názvu souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>Close</Key>
-    <Value>Close</Value>
+    <Value>Zavřít</Value>
   </Dictionary>
   <Dictionary>
     <Key>Version</Key>
-    <Value>Version</Value>
+    <Value>Verze</Value>
   </Dictionary>
   <Dictionary>
     <Key>AboutDescription</Key>
@@ -157,338 +157,338 @@
   </Dictionary>
   <Dictionary>
     <Key>PasswordNote</Key>
-    <Value>The database is encrypted, please provide the password to continue</Value>
+    <Value>Databáze je šifrovaná, zadejte heslo pro pokračování</Value>
   </Dictionary>
   <Dictionary>
     <Key>Ok</Key>
-    <Value>OK</Value>
+    <Value>Ok</Value>
   </Dictionary>
   <Dictionary>
     <Key>Cancel</Key>
-    <Value>Cancel</Value>
+    <Value>Storno</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileNotFound</Key>
-    <Value>File not found</Value>
+    <Value>Soubor nenalezen</Value>
   </Dictionary>
   <Dictionary>
     <Key>UnableToOpen</Key>
-    <Value>Unable to open the database</Value>
+    <Value>Nelze otevřít databázi</Value>
   </Dictionary>
   <Dictionary>
     <Key>Error</Key>
-    <Value>Error</Value>
+    <Value>Chyba</Value>
   </Dictionary>
   <Dictionary>
     <Key>ChangingDataError</Key>
-    <Value>Error changing the data</Value>
+    <Value>Chyba při změně dat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Rows</Key>
-    <Value>rows</Value>
+    <Value>Řádků</Value>
   </Dictionary>
   <Dictionary>
     <Key>Milliseconds</Key>
-    <Value>milliseconds</Value>
+    <Value>milisekund</Value>
   </Dictionary>
   <Dictionary>
     <Key>QueryNote</Key>
-    <Value>By clicking on any field bracketed in the SQL Schema, it is added to the query</Value>
+    <Value>Kliknutím na libovolné pole ve schématu SQL, bude přidán do dotazu</Value>
   </Dictionary>
   <Dictionary>
     <Key>NoDatabaseSelect</Key>
-    <Value>No database selected!</Value>
+    <Value>Není vybrána žádná databáze!</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseMissing</Key>
-    <Value>Database file is missing!</Value>
+    <Value>Chybí soubor databáze!</Value>
   </Dictionary>
   <Dictionary>
     <Key>BackupError</Key>
-    <Value>Error creating backup</Value>
+    <Value>Chyba vytváření zálohy</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateError</Key>
-    <Value>Error creating database</Value>
+    <Value>Chyba vytváření databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactError</Key>
-    <Value>Error compacting database</Value>
+    <Value>Chyba vyčištění databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairError</Key>
-    <Value>Error repairing database</Value>
+    <Value>Chyba opravy databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkError</Key>
-    <Value>Error shrinking database</Value>
+    <Value>Chyba zmenšení databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeError</Key>
-    <Value>Error upgrading database</Value>
+    <Value>Chyba aktualizace databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyError</Key>
-    <Value>Error verifying database</Value>
+    <Value>Chyba ověření databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>Information</Key>
-    <Value>Information</Value>
+    <Value>Informace</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateDone</Key>
-    <Value>Database created successfully</Value>
+    <Value>Databáze byla úspěšně vytvořena</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactDone</Key>
-    <Value>Database compacted successfully</Value>
+    <Value>Databáze byla úspěšně defragmentována</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairDone</Key>
-    <Value>Repairing completed successfully</Value>
+    <Value>Databáze byla úspěšně opravena</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkDone</Key>
-    <Value>Shrinking completed successfully</Value>
+    <Value>Databáze byla úspěšně zmenšena</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeDone</Key>
-    <Value>Upgrading completed successfully</Value>
+    <Value>Databáze byla úspěšně aktualizována</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyDone</Key>
-    <Value>Verifying completed successfully</Value>
+    <Value>Databáze byla úspěšně ověřena</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyFault</Key>
-    <Value>Database is corrupted. In case of encrypted databases this may also indicate wrong password</Value>
+    <Value>Databáze je poškozena. V případě šifrované databáze to může také znamenat špatné heslo</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseInfoError</Key>
-    <Value>Error getting database information</Value>
+    <Value>Chyba načtení informací z databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>Options</Key>
-    <Value>Options</Value>
+    <Value>Nastavení</Value>
   </Dictionary>
   <Dictionary>
     <Key>Colors</Key>
-    <Value>Colors</Value>
+    <Value>Barvy</Value>
   </Dictionary>
   <Dictionary>
     <Key>FontColor</Key>
-    <Value>Font Color</Value>
+    <Value>Barva fontu</Value>
   </Dictionary>
   <Dictionary>
     <Key>BackgroundColor</Key>
-    <Value>Background Color</Value>
+    <Value>Barva pozadí</Value>
   </Dictionary>
   <Dictionary>
     <Key>Line</Key>
-    <Value>Line</Value>
+    <Value>Linka</Value>
   </Dictionary>
   <Dictionary>
     <Key>ColorSet</Key>
-    <Value>Color Set</Value>
+    <Value>Barevná sada</Value>
   </Dictionary>
   <Dictionary>
     <Key>UserDefined</Key>
-    <Value>User defined</Value>
+    <Value>Uživatelsky definované</Value>
   </Dictionary>
   <Dictionary>
     <Key>Cut</Key>
-    <Value>Cut</Value>
+    <Value>Vyjmout</Value>
   </Dictionary>
   <Dictionary>
     <Key>Copy</Key>
-    <Value>Copy</Value>
+    <Value>Kopírovat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Paste</Key>
-    <Value>Paste</Value>
+    <Value>Vložit</Value>
   </Dictionary>
   <Dictionary>
     <Key>LoadFromFile</Key>
-    <Value>Load from file</Value>
+    <Value>Načíst ze souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveToFile</Key>
-    <Value>Save to file</Value>
+    <Value>Uložit do souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>Querys</Key>
-    <Value>Querys</Value>
+    <Value>Dotazy</Value>
   </Dictionary>
   <Dictionary>
     <Key>Print</Key>
-    <Value>Print</Value>
+    <Value>Tisk</Value>
   </Dictionary>
   <Dictionary>
     <Key>File</Key>
-    <Value>File</Value>
+    <Value>Soubor</Value>
   </Dictionary>
   <Dictionary>
     <Key>RecentFiles</Key>
-    <Value>Recent files</Value>
+    <Value>Naposledy otevřené</Value>
   </Dictionary>
   <Dictionary>
     <Key>Import</Key>
-    <Value>Import</Value>
+    <Value>Importovat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Export</Key>
-    <Value>Export</Value>
+    <Value>Exportovat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Exit</Key>
-    <Value>Exit</Value>
+    <Value>Ukočit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Edit</Key>
-    <Value>Edit</Value>
+    <Value>Upravit</Value>
   </Dictionary>
   <Dictionary>
     <Key>Delete</Key>
-    <Value>Delete</Value>
+    <Value>Smazat</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShowEditor</Key>
-    <Value>Show editor</Value>
+    <Value>Zobrazit editor</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseTools</Key>
-    <Value>Database tools</Value>
+    <Value>Nástroje databáze</Value>
   </Dictionary>
   <Dictionary>
     <Key>Help</Key>
-    <Value>Help</Value>
+    <Value>Nápověda</Value>
   </Dictionary>
   <Dictionary>
     <Key>LoadSqlQuery</Key>
-    <Value>Load SQL query</Value>
+    <Value>Načíst SQL dotaz</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveSqlQuery</Key>
-    <Value>Save SQL query</Value>
+    <Value>Uložit SQL dotaz</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveSqlSchema</Key>
-    <Value>Save SQL schema</Value>
+    <Value>Uložit SQL schéma</Value>
   </Dictionary>
   <Dictionary>
     <Key>CloseDatabase</Key>
-    <Value>Close database</Value>
+    <Value>Zavřít databázi</Value>
   </Dictionary>
   <Dictionary>
     <Key>All</Key>
-    <Value>All</Value>
+    <Value>Vše</Value>
   </Dictionary>
   <Dictionary>
     <Key>OnlySchema</Key>
-    <Value>Only schema</Value>
+    <Value>Pouze schéma</Value>
   </Dictionary>
   <Dictionary>
     <Key>OnlyData</Key>
-    <Value>Only data</Value>
+    <Value>Pouze data</Value>
   </Dictionary>
   <Dictionary>
     <Key>UsedAsAForeignKey</Key>
-    <Value>is used as a foreign key by</Value>
+    <Value>použit jako cizí klíč do</Value>
   </Dictionary>
   <Dictionary>
     <Key>Warning</Key>
-    <Value>Warning</Value>
+    <Value>Varování</Value>
   </Dictionary>
   <Dictionary>
     <Key>Schema</Key>
-    <Value>Schema</Value>
+    <Value>Schéma</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportFormatError</Key>
-    <Value>File format to be imported is not correct</Value>
+    <Value>Formát souboru k importu není správný</Value>
   </Dictionary>
   <Dictionary>
     <Key>ErrorImportingTablesSchema</Key>
-    <Value>Error importing sql schema. Some tables to be imported already exist in the current database</Value>
+    <Value>Chyba při importu sql schéma. Některé tabulky které mají být importovány již existují v aktuální databázi</Value>
   </Dictionary>
   <Dictionary>
     <Key>ErrorImportingTablesData</Key>
-    <Value>Error importing sql data. Missing some table in which data should be imported</Value>
+    <Value>Chyba při importu dat SQL. Chybí některé tabulky, do kterých mají být data importována</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportOk</Key>
-    <Value>Import process completed successfully</Value>
+    <Value>Import proběhl v pořádku</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportError</Key>
-    <Value>Error when running the import process</Value>
+    <Value>Chyba při spuštění procesu importu</Value>
   </Dictionary>
   <Dictionary>
     <Key>Confirm</Key>
-    <Value>Confirm</Value>
+    <Value>Potvrdit</Value>
   </Dictionary>
   <Dictionary>
     <Key>SelectedTextQuery</Key>
-    <Value>Do you want to execute the selected text only?</Value>
+    <Value>Chcete spustit pouze pro vybraný text?</Value>
   </Dictionary>
   <Dictionary>
     <Key>Preview</Key>
-    <Value>Print preview</Value>
+    <Value>Náhled před tiskem</Value>
   </Dictionary>
   <Dictionary>
     <Key>Property</Key>
-    <Value>Property</Value>
+    <Value>Vlastník</Value>
   </Dictionary>
   <Dictionary>
     <Key>Value</Key>
-    <Value>Value</Value>
+    <Value>Hodnota</Value>
   </Dictionary>
   <Dictionary>
     <Key>FilePath</Key>
-    <Value>File Path</Value>
+    <Value>Cesta k souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileSize</Key>
-    <Value>File Size</Value>
+    <Value>Velikost souboru</Value>
   </Dictionary>
   <Dictionary>
     <Key>LocaleIdentifier</Key>
-    <Value>Locale Identifier</Value>
+    <Value>Lokální identifikátor</Value>
   </Dictionary>
   <Dictionary>
     <Key>EncryptionMode</Key>
-    <Value>Encryption Mode</Value>
+    <Value>Režim šifrování</Value>
   </Dictionary>
   <Dictionary>
     <Key>CaseSensitive</Key>
-    <Value>Case Sensitive</Value>
+    <Value>Rozlišovat velká a malá písmena</Value>
   </Dictionary>
   <Dictionary>
     <Key>True</Key>
-    <Value>Yes</Value>
+    <Value>Ano</Value>
   </Dictionary>
   <Dictionary>
     <Key>False</Key>
-    <Value>No</Value>
+    <Value>Ne</Value>
   </Dictionary>
   <Dictionary>
     <Key>Tables</Key>
-    <Value>Tables</Value>
+    <Value>Tabulky</Value>
   </Dictionary>
   <Dictionary>
     <Key>Indexes</Key>
-    <Value>Indexes</Value>
+    <Value>Indexy</Value>
   </Dictionary>
   <Dictionary>
     <Key>Keys</Key>
-    <Value>Keys</Value>
+    <Value>Klíče</Value>
   </Dictionary>
   <Dictionary>
     <Key>TableConstraints</Key>
-    <Value>Table Constraints</Value>
+    <Value>Omezení tabulek</Value>
   </Dictionary>
   <Dictionary>
     <Key>ForeignConstraints</Key>
-    <Value>Foreign Constraints</Value>
+    <Value>Cizí klíče</Value>
   </Dictionary>
 </NewDataSet>

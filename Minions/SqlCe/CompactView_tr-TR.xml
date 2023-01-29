@@ -17,119 +17,119 @@
   </xs:schema>
   <Dictionary>
     <Key>TranslationInfo</Key>
-    <Value>English translation by Iván Costales Suárez (CompactView)</Value>
+    <Value>Türkçe Çeviri Servet YILDIZ Yildiz_servet@yahoo.com .Bu uygulamayı yazan arkadaşa teşekkür ederim.Çok işime yarıyor.Başkasınında işine yarasın istedim:)(CompactView)</Value>
   </Dictionary>
   <Dictionary>
     <Key>OpenDatabase</Key>
-    <Value>Open database</Value>
+    <Value>Veritabanını Dosyası Aç</Value>
   </Dictionary>
   <Dictionary>
     <Key>ReadOnly</Key>
-    <Value>Read only</Value>
+    <Value>Salt Okunur</Value>
   </Dictionary>
   <Dictionary>
     <Key>AllowEditing</Key>
-    <Value>Allow editing</Value>
+    <Value>Düzeltme Açık</Value>
   </Dictionary>
   <Dictionary>
     <Key>Query</Key>
-    <Value>Query</Value>
+    <Value>Sorgu</Value>
   </Dictionary>
   <Dictionary>
     <Key>Execute</Key>
-    <Value>Execute</Value>
+    <Value>Çalıştır</Value>
   </Dictionary>
   <Dictionary>
     <Key>Clear</Key>
-    <Value>Clear</Value>
+    <Value>Temizle</Value>
   </Dictionary>
   <Dictionary>
     <Key>Tools</Key>
-    <Value>Tools</Value>
+    <Value>Araçlar</Value>
   </Dictionary>
   <Dictionary>
     <Key>About</Key>
-    <Value>About</Value>
+    <Value>Hakkında</Value>
   </Dictionary>
   <Dictionary>
     <Key>Database</Key>
-    <Value>Database</Value>
+    <Value>Veritabanı</Value>
   </Dictionary>
   <Dictionary>
     <Key>Data</Key>
-    <Value>Data</Value>
+    <Value>Veri</Value>
   </Dictionary>
   <Dictionary>
     <Key>SqlSchema</Key>
-    <Value>SQL Schema</Value>
+    <Value>SQL Şema</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileName</Key>
-    <Value>File name</Value>
+    <Value>Dosya Adı</Value>
   </Dictionary>
   <Dictionary>
     <Key>Password</Key>
-    <Value>Password</Value>
+    <Value>Şifre</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileNameTip</Key>
-    <Value>Database file name. Press the button to the right to select a file</Value>
+    <Value>Veritabanı ismi. Sağdaki butona tıklayarak dosya seçebilirsiniz</Value>
   </Dictionary>
   <Dictionary>
     <Key>PasswordTip</Key>
-    <Value>Database password. Leave blank if none</Value>
+    <Value>Veritabanı şifresi. Şifre kullanmak istemiyorsanız boş bırakın.</Value>
   </Dictionary>
   <Dictionary>
     <Key>SelectTip</Key>
-    <Value>Select database file</Value>
+    <Value>Veritabanı dosyasını seçin.</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeToVersion</Key>
-    <Value>Upgrade to version</Value>
+    <Value>Version Güncelle</Value>
   </Dictionary>
   <Dictionary>
     <Key>Action</Key>
-    <Value>Action</Value>
+    <Value>İşlemler</Value>
   </Dictionary>
   <Dictionary>
     <Key>Create</Key>
-    <Value>Create</Value>
+    <Value>Oluştur</Value>
   </Dictionary>
   <Dictionary>
     <Key>Compact</Key>
-    <Value>Compact</Value>
+    <Value>Sıkıştır</Value>
   </Dictionary>
   <Dictionary>
     <Key>Repair</Key>
-    <Value>Repair</Value>
+    <Value>Onar</Value>
   </Dictionary>
   <Dictionary>
     <Key>Shrink</Key>
-    <Value>Shrink</Value>
+    <Value>Küçült</Value>
   </Dictionary>
   <Dictionary>
     <Key>Upgrade</Key>
-    <Value>Upgrade</Value>
+    <Value>Versiyon Yükselt</Value>
   </Dictionary>
   <Dictionary>
     <Key>Verify</Key>
-    <Value>Verify</Value>
+    <Value>Doğrula</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateTip</Key>
-    <Value>Create a new database file</Value>
+    <Value>Yeni Veritabanı Dosyası Oluştur.</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactTip</Key>
-    <Value>Reclaims wasted space in the database by creating a new database file from the existing file</Value>
+    <Value>Varolan dosyayı yeni bir veritabanı dosyası oluşturarak veritabanında israf alanı geri kazanır</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairTip</Key>
-    <Value>Repair a corrupted database. First try to recover the corrupted rows, then remove the remaining corrupted rows</Value>
+    <Value>Bozulmuş veritabanı dosyasını onar. İlk olarak bozulan satırları onarı seçin olmaz ise bozulan satırları silerek onarmayı secin.</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkTip</Key>
-    <Value>Reclaims wasted space in the database by moving empty pages to the end of the file, and then truncating the file</Value>
+    <Value>Veritabanı dosyasında kullanılmayan boş sayfaları keserek dosya boyutunu kücültür.</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeTip</Key>
@@ -137,23 +137,23 @@
   </Dictionary>
   <Dictionary>
     <Key>VerifyTip</Key>
-    <Value>Recalculates the checksums for each page in the database and compares the new checksums to the expected values</Value>
+    <Value>Dosya imzasını ve tutarlılığını tekrar hesaplar ve doğrular.</Value>
   </Dictionary>
   <Dictionary>
     <Key>ToolsNote</Key>
-    <Value>Before every action a copy of the database file will be created by appending 001, 002, 003 etc to the file name</Value>
+    <Value>Bu işlemlerde once uygulama   001, 002, 003 benzeri dosya isimleri ile mevcut dosyanın yedegini alır. Fakat mutlaka sizde ayrı bir yedek alın.</Value>
   </Dictionary>
   <Dictionary>
     <Key>Close</Key>
-    <Value>Close</Value>
+    <Value>Kapat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Version</Key>
-    <Value>Version</Value>
+    <Value>Versiyion</Value>
   </Dictionary>
   <Dictionary>
     <Key>AboutDescription</Key>
-    <Value>SQL Server Compact Edition Database viewer and editor</Value>
+    <Value>SQL Server Compact Edition Database viewer and editor.Ceviri Servet YILDIZ yildiz_servet@yahoo.com</Value>
   </Dictionary>
   <Dictionary>
     <Key>PasswordNote</Key>
@@ -161,35 +161,35 @@
   </Dictionary>
   <Dictionary>
     <Key>Ok</Key>
-    <Value>OK</Value>
+    <Value>Tamam</Value>
   </Dictionary>
   <Dictionary>
     <Key>Cancel</Key>
-    <Value>Cancel</Value>
+    <Value>Vazgeç</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileNotFound</Key>
-    <Value>File not found</Value>
+    <Value>Dosya Bulunamadı</Value>
   </Dictionary>
   <Dictionary>
     <Key>UnableToOpen</Key>
-    <Value>Unable to open the database</Value>
+    <Value>Dosya Açılamıyor</Value>
   </Dictionary>
   <Dictionary>
     <Key>Error</Key>
-    <Value>Error</Value>
+    <Value>Hata</Value>
   </Dictionary>
   <Dictionary>
     <Key>ChangingDataError</Key>
-    <Value>Error changing the data</Value>
+    <Value>Veri Değiştirilirken Hata Oluştu</Value>
   </Dictionary>
   <Dictionary>
     <Key>Rows</Key>
-    <Value>rows</Value>
+    <Value>Satırlar</Value>
   </Dictionary>
   <Dictionary>
     <Key>Milliseconds</Key>
-    <Value>milliseconds</Value>
+    <Value>Mili Saniye</Value>
   </Dictionary>
   <Dictionary>
     <Key>QueryNote</Key>
@@ -197,195 +197,195 @@
   </Dictionary>
   <Dictionary>
     <Key>NoDatabaseSelect</Key>
-    <Value>No database selected!</Value>
+    <Value>Veritabanı Dosyası Seçilmemiş!</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseMissing</Key>
-    <Value>Database file is missing!</Value>
+    <Value>Veritabanı Dosya Yapısı Hatalı!</Value>
   </Dictionary>
   <Dictionary>
     <Key>BackupError</Key>
-    <Value>Error creating backup</Value>
+    <Value>Yedekleme Yapılamadı</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateError</Key>
-    <Value>Error creating database</Value>
+    <Value>Veritabanı Dosyası Oluşturulurken Hata Oluştu</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactError</Key>
-    <Value>Error compacting database</Value>
+    <Value>Sıkıştırma İşlemi Sırasında Hata Oluştu</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairError</Key>
-    <Value>Error repairing database</Value>
+    <Value>Onarım Sırasında Hata Oluştu</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkError</Key>
-    <Value>Error shrinking database</Value>
+    <Value>Sıkıştırma İşlemi Sırasında Hata Oluştu</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeError</Key>
-    <Value>Error upgrading database</Value>
+    <Value>Güncelleme Sırasında Hata Oluştu</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyError</Key>
-    <Value>Error verifying database</Value>
+    <Value>Veritabanı Dosyası Doğrulanamadı</Value>
   </Dictionary>
   <Dictionary>
     <Key>Information</Key>
-    <Value>Information</Value>
+    <Value>Bilgilendirme</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateDone</Key>
-    <Value>Database created successfully</Value>
+    <Value>Veritabanı Dosyası Başarıyla Oluşturuldu</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactDone</Key>
-    <Value>Database compacted successfully</Value>
+    <Value>Sıkıştırma Hatası</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairDone</Key>
-    <Value>Repairing completed successfully</Value>
+    <Value>Başarıyla Onarıldı.</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkDone</Key>
-    <Value>Shrinking completed successfully</Value>
+    <Value>Başarıyla Küçültüldü</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeDone</Key>
-    <Value>Upgrading completed successfully</Value>
+    <Value>Yükseltme Başarılı</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyDone</Key>
-    <Value>Verifying completed successfully</Value>
+    <Value>Doğrulama Başarılı</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyFault</Key>
-    <Value>Database is corrupted. In case of encrypted databases this may also indicate wrong password</Value>
+    <Value>Doğrulama yapılamadı.Dosyanış Şifreli veya Yanlış Şifre Girmiş Olabilir Misiniz.</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseInfoError</Key>
-    <Value>Error getting database information</Value>
+    <Value>Veritabanı Bilgileri Okunamadı</Value>
   </Dictionary>
   <Dictionary>
     <Key>Options</Key>
-    <Value>Options</Value>
+    <Value>Seçenekler</Value>
   </Dictionary>
   <Dictionary>
     <Key>Colors</Key>
-    <Value>Colors</Value>
+    <Value>Renkler</Value>
   </Dictionary>
   <Dictionary>
     <Key>FontColor</Key>
-    <Value>Font Color</Value>
+    <Value>Font Rengi</Value>
   </Dictionary>
   <Dictionary>
     <Key>BackgroundColor</Key>
-    <Value>Background Color</Value>
+    <Value>Arka Plan Rengi</Value>
   </Dictionary>
   <Dictionary>
     <Key>Line</Key>
-    <Value>Line</Value>
+    <Value>Satır</Value>
   </Dictionary>
   <Dictionary>
     <Key>ColorSet</Key>
-    <Value>Color Set</Value>
+    <Value>Renk Seti</Value>
   </Dictionary>
   <Dictionary>
     <Key>UserDefined</Key>
-    <Value>User defined</Value>
+    <Value>Kullanıcı Tanımlandı</Value>
   </Dictionary>
   <Dictionary>
     <Key>Cut</Key>
-    <Value>Cut</Value>
+    <Value>Kes</Value>
   </Dictionary>
   <Dictionary>
     <Key>Copy</Key>
-    <Value>Copy</Value>
+    <Value>Kopyala</Value>
   </Dictionary>
   <Dictionary>
     <Key>Paste</Key>
-    <Value>Paste</Value>
+    <Value>Yapıştır</Value>
   </Dictionary>
   <Dictionary>
     <Key>LoadFromFile</Key>
-    <Value>Load from file</Value>
+    <Value>Dosyadan Oku</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveToFile</Key>
-    <Value>Save to file</Value>
+    <Value>Dosyaya Kaydet</Value>
   </Dictionary>
   <Dictionary>
     <Key>Querys</Key>
-    <Value>Querys</Value>
+    <Value>Sorgular</Value>
   </Dictionary>
   <Dictionary>
     <Key>Print</Key>
-    <Value>Print</Value>
+    <Value>Yazdır</Value>
   </Dictionary>
   <Dictionary>
     <Key>File</Key>
-    <Value>File</Value>
+    <Value>Dosya</Value>
   </Dictionary>
   <Dictionary>
     <Key>RecentFiles</Key>
-    <Value>Recent files</Value>
+    <Value>Son Açılanlar</Value>
   </Dictionary>
   <Dictionary>
     <Key>Import</Key>
-    <Value>Import</Value>
+    <Value>İçeri Aktar</Value>
   </Dictionary>
   <Dictionary>
     <Key>Export</Key>
-    <Value>Export</Value>
+    <Value>Dışarı Ver</Value>
   </Dictionary>
   <Dictionary>
     <Key>Exit</Key>
-    <Value>Exit</Value>
+    <Value>Çıkış</Value>
   </Dictionary>
   <Dictionary>
     <Key>Edit</Key>
-    <Value>Edit</Value>
+    <Value>Düzenle</Value>
   </Dictionary>
   <Dictionary>
     <Key>Delete</Key>
-    <Value>Delete</Value>
+    <Value>Sil</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShowEditor</Key>
-    <Value>Show editor</Value>
+    <Value>Editoru Göster</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseTools</Key>
-    <Value>Database tools</Value>
+    <Value>Veritabanı Araçları</Value>
   </Dictionary>
   <Dictionary>
     <Key>Help</Key>
-    <Value>Help</Value>
+    <Value>Yardım</Value>
   </Dictionary>
   <Dictionary>
     <Key>LoadSqlQuery</Key>
-    <Value>Load SQL query</Value>
+    <Value>Sorgu Dosyası Aç</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveSqlQuery</Key>
-    <Value>Save SQL query</Value>
+    <Value>Sorguyu Kaydet</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveSqlSchema</Key>
-    <Value>Save SQL schema</Value>
+    <Value>Şemayı Kaydet</Value>
   </Dictionary>
   <Dictionary>
     <Key>CloseDatabase</Key>
-    <Value>Close database</Value>
+    <Value>Veritabanını Kapat</Value>
   </Dictionary>
   <Dictionary>
     <Key>All</Key>
-    <Value>All</Value>
+    <Value>Hepsi</Value>
   </Dictionary>
   <Dictionary>
     <Key>OnlySchema</Key>
-    <Value>Only schema</Value>
+    <Value>Sadece Şema</Value>
   </Dictionary>
   <Dictionary>
     <Key>OnlyData</Key>
@@ -397,15 +397,15 @@
   </Dictionary>
   <Dictionary>
     <Key>Warning</Key>
-    <Value>Warning</Value>
+    <Value>Dikkat</Value>
   </Dictionary>
   <Dictionary>
     <Key>Schema</Key>
-    <Value>Schema</Value>
+    <Value>Şema</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportFormatError</Key>
-    <Value>File format to be imported is not correct</Value>
+    <Value>Dosya Formatı Hatalı</Value>
   </Dictionary>
   <Dictionary>
     <Key>ErrorImportingTablesSchema</Key>
@@ -425,7 +425,7 @@
   </Dictionary>
   <Dictionary>
     <Key>Confirm</Key>
-    <Value>Confirm</Value>
+    <Value>Onay Ver</Value>
   </Dictionary>
   <Dictionary>
     <Key>SelectedTextQuery</Key>
@@ -433,62 +433,62 @@
   </Dictionary>
   <Dictionary>
     <Key>Preview</Key>
-    <Value>Print preview</Value>
+    <Value>Yazdırma Onizleme</Value>
   </Dictionary>
   <Dictionary>
     <Key>Property</Key>
-    <Value>Property</Value>
+    <Value>Özellikler</Value>
   </Dictionary>
   <Dictionary>
     <Key>Value</Key>
-    <Value>Value</Value>
+    <Value>Değer</Value>
   </Dictionary>
   <Dictionary>
     <Key>FilePath</Key>
-    <Value>File Path</Value>
+    <Value>Dosya Yolu</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileSize</Key>
-    <Value>File Size</Value>
+    <Value>Dosya Boyutu</Value>
   </Dictionary>
   <Dictionary>
     <Key>LocaleIdentifier</Key>
-    <Value>Locale Identifier</Value>
+    <Value>Yerel Tanımlama Bilgisi</Value>
   </Dictionary>
   <Dictionary>
     <Key>EncryptionMode</Key>
-    <Value>Encryption Mode</Value>
+    <Value>Şifreleme Modu</Value>
   </Dictionary>
   <Dictionary>
     <Key>CaseSensitive</Key>
-    <Value>Case Sensitive</Value>
+    <Value>Büyük Küçük Duyarlı</Value>
   </Dictionary>
   <Dictionary>
     <Key>True</Key>
-    <Value>Yes</Value>
+    <Value>Evet</Value>
   </Dictionary>
   <Dictionary>
     <Key>False</Key>
-    <Value>No</Value>
+    <Value>Hayır</Value>
   </Dictionary>
   <Dictionary>
     <Key>Tables</Key>
-    <Value>Tables</Value>
+    <Value>Tablolar</Value>
   </Dictionary>
   <Dictionary>
     <Key>Indexes</Key>
-    <Value>Indexes</Value>
+    <Value>İndexler</Value>
   </Dictionary>
   <Dictionary>
     <Key>Keys</Key>
-    <Value>Keys</Value>
+    <Value>Anahtar Alanlar</Value>
   </Dictionary>
   <Dictionary>
     <Key>TableConstraints</Key>
-    <Value>Table Constraints</Value>
+    <Value>Tablo İçeriği</Value>
   </Dictionary>
   <Dictionary>
     <Key>ForeignConstraints</Key>
-    <Value>Foreign Constraints</Value>
+    <Value>Alt İçerğik</Value>
   </Dictionary>
 </NewDataSet>

@@ -17,478 +17,478 @@
   </xs:schema>
   <Dictionary>
     <Key>TranslationInfo</Key>
-    <Value>English translation by Iván Costales Suárez (CompactView)</Value>
+    <Value>正體中文由 J.C Studio 提供</Value>
   </Dictionary>
   <Dictionary>
     <Key>OpenDatabase</Key>
-    <Value>Open database</Value>
+    <Value>開啟資料庫</Value>
   </Dictionary>
   <Dictionary>
     <Key>ReadOnly</Key>
-    <Value>Read only</Value>
+    <Value>唯讀</Value>
   </Dictionary>
   <Dictionary>
     <Key>AllowEditing</Key>
-    <Value>Allow editing</Value>
+    <Value>可編輯</Value>
   </Dictionary>
   <Dictionary>
     <Key>Query</Key>
-    <Value>Query</Value>
+    <Value>查詢</Value>
   </Dictionary>
   <Dictionary>
     <Key>Execute</Key>
-    <Value>Execute</Value>
+    <Value>執行</Value>
   </Dictionary>
   <Dictionary>
     <Key>Clear</Key>
-    <Value>Clear</Value>
+    <Value>清除</Value>
   </Dictionary>
   <Dictionary>
     <Key>Tools</Key>
-    <Value>Tools</Value>
+    <Value>工具</Value>
   </Dictionary>
   <Dictionary>
     <Key>About</Key>
-    <Value>About</Value>
+    <Value>關於</Value>
   </Dictionary>
   <Dictionary>
     <Key>Database</Key>
-    <Value>Database</Value>
+    <Value>資料庫</Value>
   </Dictionary>
   <Dictionary>
     <Key>Data</Key>
-    <Value>Data</Value>
+    <Value>資料</Value>
   </Dictionary>
   <Dictionary>
     <Key>SqlSchema</Key>
-    <Value>SQL Schema</Value>
+    <Value>SQL架構</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileName</Key>
-    <Value>File name</Value>
+    <Value>檔案名稱</Value>
   </Dictionary>
   <Dictionary>
     <Key>Password</Key>
-    <Value>Password</Value>
+    <Value>密碼</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileNameTip</Key>
-    <Value>Database file name. Press the button to the right to select a file</Value>
+    <Value>資料庫的檔名，請按右邊的鈕以選擇檔案</Value>
   </Dictionary>
   <Dictionary>
     <Key>PasswordTip</Key>
-    <Value>Database password. Leave blank if none</Value>
+    <Value>資料庫的密碼，若無密碼則保持空白</Value>
   </Dictionary>
   <Dictionary>
     <Key>SelectTip</Key>
-    <Value>Select database file</Value>
+    <Value>選擇資料庫檔案</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeToVersion</Key>
-    <Value>Upgrade to version</Value>
+    <Value>更新版本</Value>
   </Dictionary>
   <Dictionary>
-    <Key>Action</Key>
+    <Key>動作</Key>
     <Value>Action</Value>
   </Dictionary>
   <Dictionary>
     <Key>Create</Key>
-    <Value>Create</Value>
+    <Value>建立</Value>
   </Dictionary>
   <Dictionary>
     <Key>Compact</Key>
-    <Value>Compact</Value>
+    <Value>壓縮</Value>
   </Dictionary>
   <Dictionary>
     <Key>Repair</Key>
-    <Value>Repair</Value>
+    <Value>修復</Value>
   </Dictionary>
   <Dictionary>
     <Key>Shrink</Key>
-    <Value>Shrink</Value>
+    <Value>縮減</Value>
   </Dictionary>
   <Dictionary>
     <Key>Upgrade</Key>
-    <Value>Upgrade</Value>
+    <Value>升級</Value>
   </Dictionary>
   <Dictionary>
     <Key>Verify</Key>
-    <Value>Verify</Value>
+    <Value>驗證</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateTip</Key>
-    <Value>Create a new database file</Value>
+    <Value>建立一個新資料庫</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactTip</Key>
-    <Value>Reclaims wasted space in the database by creating a new database file from the existing file</Value>
+    <Value>透過現有的資料庫建立一個新的資料庫，以回收浪費掉的空間</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairTip</Key>
-    <Value>Repair a corrupted database. First try to recover the corrupted rows, then remove the remaining corrupted rows</Value>
+    <Value>修復損壞的資料庫，首先嘗試更正損壞的資料，然後移除無法修復的損壞資料</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkTip</Key>
-    <Value>Reclaims wasted space in the database by moving empty pages to the end of the file, and then truncating the file</Value>
+    <Value>透過將空白頁移動到檔案尾端並裁切掉，以回收浪費掉的空間</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeTip</Key>
-    <Value>Upgrades the version of a database. After the upgrade, the database will be encrypted if the source database was encrypted</Value>
+    <Value>升級資料庫的版本，若升級前的資料庫有加密的話，升級後仍然會加密</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyTip</Key>
-    <Value>Recalculates the checksums for each page in the database and compares the new checksums to the expected values</Value>
+    <Value>重新計算資料庫中每一頁的檢查碼，並比較是否符合期望值</Value>
   </Dictionary>
   <Dictionary>
     <Key>ToolsNote</Key>
-    <Value>Before every action a copy of the database file will be created by appending 001, 002, 003 etc to the file name</Value>
+    <Value>在進行任何動作前，會自動以在檔名中加入0001、0002、0003…的方式建立備份</Value>
   </Dictionary>
   <Dictionary>
     <Key>Close</Key>
-    <Value>Close</Value>
+    <Value>關閉</Value>
   </Dictionary>
   <Dictionary>
     <Key>Version</Key>
-    <Value>Version</Value>
+    <Value>版本</Value>
   </Dictionary>
   <Dictionary>
     <Key>AboutDescription</Key>
-    <Value>SQL Server Compact Edition Database viewer and editor</Value>
+    <Value>SQL Server Compact Edition 資料庫檢視器與編輯器</Value>
   </Dictionary>
   <Dictionary>
     <Key>PasswordNote</Key>
-    <Value>The database is encrypted, please provide the password to continue</Value>
+    <Value>這個資料庫有密碼保護，請輸入密碼才能繼續</Value>
   </Dictionary>
   <Dictionary>
     <Key>Ok</Key>
-    <Value>OK</Value>
+    <Value>確定</Value>
   </Dictionary>
   <Dictionary>
     <Key>Cancel</Key>
-    <Value>Cancel</Value>
+    <Value>取消</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileNotFound</Key>
-    <Value>File not found</Value>
+    <Value>檔案不存在</Value>
   </Dictionary>
   <Dictionary>
     <Key>UnableToOpen</Key>
-    <Value>Unable to open the database</Value>
+    <Value>無法開啟該資料庫</Value>
   </Dictionary>
   <Dictionary>
     <Key>Error</Key>
-    <Value>Error</Value>
+    <Value>錯誤</Value>
   </Dictionary>
   <Dictionary>
     <Key>ChangingDataError</Key>
-    <Value>Error changing the data</Value>
+    <Value>修改資料失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>Rows</Key>
-    <Value>rows</Value>
+    <Value>列</Value>
   </Dictionary>
   <Dictionary>
     <Key>Milliseconds</Key>
-    <Value>milliseconds</Value>
+    <Value>毫秒</Value>
   </Dictionary>
   <Dictionary>
     <Key>QueryNote</Key>
-    <Value>By clicking on any field bracketed in the SQL Schema, it is added to the query</Value>
+    <Value>點擊括號內的任何SQL架構，將會加到查詢中</Value>
   </Dictionary>
   <Dictionary>
     <Key>NoDatabaseSelect</Key>
-    <Value>No database selected!</Value>
+    <Value>尚未選擇資料庫!</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseMissing</Key>
-    <Value>Database file is missing!</Value>
+    <Value>資料庫檔案遺失!</Value>
   </Dictionary>
   <Dictionary>
     <Key>BackupError</Key>
-    <Value>Error creating backup</Value>
+    <Value>建立備份失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateError</Key>
-    <Value>Error creating database</Value>
+    <Value>建立資料庫失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactError</Key>
-    <Value>Error compacting database</Value>
+    <Value>壓縮資料庫失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairError</Key>
-    <Value>Error repairing database</Value>
+    <Value>修復資料庫失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkError</Key>
-    <Value>Error shrinking database</Value>
+    <Value>縮減資料庫失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeError</Key>
-    <Value>Error upgrading database</Value>
+    <Value>升級資料庫失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyError</Key>
-    <Value>Error verifying database</Value>
+    <Value>驗證資料庫失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>Information</Key>
-    <Value>Information</Value>
+    <Value>資訊</Value>
   </Dictionary>
   <Dictionary>
     <Key>CreateDone</Key>
-    <Value>Database created successfully</Value>
+    <Value>建立資料庫成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>CompactDone</Key>
-    <Value>Database compacted successfully</Value>
+    <Value>壓縮資料庫成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>RepairDone</Key>
-    <Value>Repairing completed successfully</Value>
+    <Value>修復資料庫成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShrinkDone</Key>
-    <Value>Shrinking completed successfully</Value>
+    <Value>縮減資料庫成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>UpgradeDone</Key>
-    <Value>Upgrading completed successfully</Value>
+    <Value>升級資料庫成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyDone</Key>
-    <Value>Verifying completed successfully</Value>
+    <Value>驗證資料庫成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>VerifyFault</Key>
-    <Value>Database is corrupted. In case of encrypted databases this may also indicate wrong password</Value>
+    <Value>資料庫已損壞，若這是一個加密過的資料庫，則也有可能是密碼錯誤</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseInfoError</Key>
-    <Value>Error getting database information</Value>
+    <Value>取得資料庫資訊失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>Options</Key>
-    <Value>Options</Value>
+    <Value>選項</Value>
   </Dictionary>
   <Dictionary>
     <Key>Colors</Key>
-    <Value>Colors</Value>
+    <Value>顏色</Value>
   </Dictionary>
   <Dictionary>
     <Key>FontColor</Key>
-    <Value>Font Color</Value>
+    <Value>文字顏色</Value>
   </Dictionary>
   <Dictionary>
     <Key>BackgroundColor</Key>
-    <Value>Background Color</Value>
+    <Value>背景顏色</Value>
   </Dictionary>
   <Dictionary>
     <Key>Line</Key>
-    <Value>Line</Value>
+    <Value>行</Value>
   </Dictionary>
   <Dictionary>
     <Key>ColorSet</Key>
-    <Value>Color Set</Value>
+    <Value>色彩組合</Value>
   </Dictionary>
   <Dictionary>
     <Key>UserDefined</Key>
-    <Value>User defined</Value>
+    <Value>使用者自訂</Value>
   </Dictionary>
   <Dictionary>
     <Key>Cut</Key>
-    <Value>Cut</Value>
+    <Value>剪下</Value>
   </Dictionary>
   <Dictionary>
     <Key>Copy</Key>
-    <Value>Copy</Value>
+    <Value>複製</Value>
   </Dictionary>
   <Dictionary>
     <Key>Paste</Key>
-    <Value>Paste</Value>
+    <Value>貼上</Value>
   </Dictionary>
   <Dictionary>
     <Key>LoadFromFile</Key>
-    <Value>Load from file</Value>
+    <Value>從檔案中載入</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveToFile</Key>
-    <Value>Save to file</Value>
+    <Value>儲存至檔案</Value>
   </Dictionary>
   <Dictionary>
     <Key>Querys</Key>
-    <Value>Querys</Value>
+    <Value>查詢</Value>
   </Dictionary>
   <Dictionary>
     <Key>Print</Key>
-    <Value>Print</Value>
+    <Value>列印</Value>
   </Dictionary>
   <Dictionary>
     <Key>File</Key>
-    <Value>File</Value>
+    <Value>檔案</Value>
   </Dictionary>
   <Dictionary>
     <Key>RecentFiles</Key>
-    <Value>Recent files</Value>
+    <Value>最近使用的檔案</Value>
   </Dictionary>
   <Dictionary>
     <Key>Import</Key>
-    <Value>Import</Value>
+    <Value>匯入</Value>
   </Dictionary>
   <Dictionary>
     <Key>Export</Key>
-    <Value>Export</Value>
+    <Value>匯出</Value>
   </Dictionary>
   <Dictionary>
     <Key>Exit</Key>
-    <Value>Exit</Value>
+    <Value>離開</Value>
   </Dictionary>
   <Dictionary>
     <Key>Edit</Key>
-    <Value>Edit</Value>
+    <Value>編輯</Value>
   </Dictionary>
   <Dictionary>
     <Key>Delete</Key>
-    <Value>Delete</Value>
+    <Value>刪除</Value>
   </Dictionary>
   <Dictionary>
     <Key>ShowEditor</Key>
-    <Value>Show editor</Value>
+    <Value>顯示編輯器</Value>
   </Dictionary>
   <Dictionary>
     <Key>DatabaseTools</Key>
-    <Value>Database tools</Value>
+    <Value>資料庫工具</Value>
   </Dictionary>
   <Dictionary>
     <Key>Help</Key>
-    <Value>Help</Value>
+    <Value>幫助</Value>
   </Dictionary>
   <Dictionary>
     <Key>LoadSqlQuery</Key>
-    <Value>Load SQL query</Value>
+    <Value>載入SQL查詢</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveSqlQuery</Key>
-    <Value>Save SQL query</Value>
+    <Value>儲存SQL查詢</Value>
   </Dictionary>
   <Dictionary>
     <Key>SaveSqlSchema</Key>
-    <Value>Save SQL schema</Value>
+    <Value>儲存SQL架構</Value>
   </Dictionary>
   <Dictionary>
     <Key>CloseDatabase</Key>
-    <Value>Close database</Value>
+    <Value>關閉資料庫</Value>
   </Dictionary>
   <Dictionary>
     <Key>All</Key>
-    <Value>All</Value>
+    <Value>全部</Value>
   </Dictionary>
   <Dictionary>
     <Key>OnlySchema</Key>
-    <Value>Only schema</Value>
+    <Value>只有架構</Value>
   </Dictionary>
   <Dictionary>
     <Key>OnlyData</Key>
-    <Value>Only data</Value>
+    <Value>只有資料</Value>
   </Dictionary>
   <Dictionary>
     <Key>UsedAsAForeignKey</Key>
-    <Value>is used as a foreign key by</Value>
+    <Value>是後者的外鍵(FK) : </Value>
   </Dictionary>
   <Dictionary>
     <Key>Warning</Key>
-    <Value>Warning</Value>
+    <Value>警告</Value>
   </Dictionary>
   <Dictionary>
     <Key>Schema</Key>
-    <Value>Schema</Value>
+    <Value>架構</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportFormatError</Key>
-    <Value>File format to be imported is not correct</Value>
+    <Value>匯入的檔案格式不正確</Value>
   </Dictionary>
   <Dictionary>
     <Key>ErrorImportingTablesSchema</Key>
-    <Value>Error importing sql schema. Some tables to be imported already exist in the current database</Value>
+    <Value>匯入SQL架構失敗，部份欲匯入的資料表已經存在</Value>
   </Dictionary>
   <Dictionary>
     <Key>ErrorImportingTablesData</Key>
-    <Value>Error importing sql data. Missing some table in which data should be imported</Value>
+    <Value>匯入SQL資料失敗，缺少部份必要的資料表</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportOk</Key>
-    <Value>Import process completed successfully</Value>
+    <Value>匯入成功</Value>
   </Dictionary>
   <Dictionary>
     <Key>ImportError</Key>
-    <Value>Error when running the import process</Value>
+    <Value>匯入失敗</Value>
   </Dictionary>
   <Dictionary>
     <Key>Confirm</Key>
-    <Value>Confirm</Value>
+    <Value>確認</Value>
   </Dictionary>
   <Dictionary>
     <Key>SelectedTextQuery</Key>
-    <Value>Do you want to execute the selected text only?</Value>
+    <Value>您只想執行選取的部份文字嗎?</Value>
   </Dictionary>
   <Dictionary>
     <Key>Preview</Key>
-    <Value>Print preview</Value>
+    <Value>列印預覽</Value>
   </Dictionary>
   <Dictionary>
     <Key>Property</Key>
-    <Value>Property</Value>
+    <Value>屬性</Value>
   </Dictionary>
   <Dictionary>
     <Key>Value</Key>
-    <Value>Value</Value>
+    <Value>值</Value>
   </Dictionary>
   <Dictionary>
     <Key>FilePath</Key>
-    <Value>File Path</Value>
+    <Value>檔案路徑</Value>
   </Dictionary>
   <Dictionary>
     <Key>FileSize</Key>
-    <Value>File Size</Value>
+    <Value>檔案大小</Value>
   </Dictionary>
   <Dictionary>
     <Key>LocaleIdentifier</Key>
-    <Value>Locale Identifier</Value>
+    <Value>地區識別碼</Value>
   </Dictionary>
   <Dictionary>
     <Key>EncryptionMode</Key>
-    <Value>Encryption Mode</Value>
+    <Value>加密模式</Value>
   </Dictionary>
   <Dictionary>
     <Key>CaseSensitive</Key>
-    <Value>Case Sensitive</Value>
+    <Value>區分大小寫</Value>
   </Dictionary>
   <Dictionary>
     <Key>True</Key>
-    <Value>Yes</Value>
+    <Value>是</Value>
   </Dictionary>
   <Dictionary>
     <Key>False</Key>
-    <Value>No</Value>
+    <Value>否</Value>
   </Dictionary>
   <Dictionary>
     <Key>Tables</Key>
-    <Value>Tables</Value>
+    <Value>資料表</Value>
   </Dictionary>
   <Dictionary>
     <Key>Indexes</Key>
-    <Value>Indexes</Value>
+    <Value>索引</Value>
   </Dictionary>
   <Dictionary>
     <Key>Keys</Key>
-    <Value>Keys</Value>
+    <Value>鍵</Value>
   </Dictionary>
   <Dictionary>
     <Key>TableConstraints</Key>
-    <Value>Table Constraints</Value>
+    <Value>資料表限制</Value>
   </Dictionary>
   <Dictionary>
     <Key>ForeignConstraints</Key>
-    <Value>Foreign Constraints</Value>
+    <Value>外鍵限制</Value>
   </Dictionary>
 </NewDataSet>
