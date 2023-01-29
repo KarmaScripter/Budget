@@ -241,10 +241,10 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="GuidanceDialog.cs">
+    <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MinionSelector.cs">
+    <Compile Update="Controls\Carousel\MinionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Minions\SqlCe\C# Source code\CompactView\AboutForm.cs">
@@ -268,7 +268,7 @@
     <Compile Update="Minions\SqlCe\C# Source code\CompactView\ToolsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="WebSelector.cs">
+    <Compile Update="Controls\Carousel\WebSelector.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
