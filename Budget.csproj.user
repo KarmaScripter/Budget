@@ -247,27 +247,6 @@
     <Compile Update="Controls\Carousel\MinionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\AboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\ExportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\GetPassForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\ImportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\OptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Minions\SqlCe\C# Source code\CompactView\ToolsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Controls\Carousel\WebSelector.cs">
       <SubType>Form</SubType>
     </Compile>
