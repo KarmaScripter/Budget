@@ -85,7 +85,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-
                 return default;
             }
         }
@@ -103,13 +102,11 @@ namespace BudgetExecution
                 try
                 {
                     using var _command = connection?.CreateCommand( sql );
-
                     return _command?.ExecuteNonQuery( ) ?? 0;
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-
                     return default;
                 }
             }
@@ -128,7 +125,6 @@ namespace BudgetExecution
             try
             {
                 var _stringBuilder = new StringBuilder( );
-
                 if( !string.IsNullOrEmpty( message ) )
                 {
                     _stringBuilder.Append( message );
@@ -195,7 +191,6 @@ namespace BudgetExecution
             catch( Exception _e )
             {
                 Fail( _e );
-
                 return default;
             }
         }
@@ -223,7 +218,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-
                 return default;
             }
         }

@@ -6,12 +6,16 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Drawing.Charts;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -63,8 +67,11 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
 
             // Header Properties
-            Header.Font = new Font( "Roboto", 16, FontStyle.Bold );
+            Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
             Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            
+            // Panel Properties
+            SelectionPanel.BorderColor = Color.Transparent;
 
             // Event Wiring
             Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
@@ -88,10 +95,10 @@ namespace BudgetExecution
                     {
                         var _path = _files[ _i ];
                         if( !string.IsNullOrEmpty( _files[ _i ] ) 
-                           && File.Exists( _files[ _i ] ))
+                           && File.Exists( _files[ _i ] ) )
                         {
                             var _name = Path.GetFileNameWithoutExtension( _path );
-                            var _stream = File.Open( _path, FileMode.Open );
+                            using var _stream = File.Open( _path, FileMode.Open );
                             var _image = new Bitmap( _stream );
                             _image.Tag = _name;
                             var _carouselImage = new CarouselImage( );
@@ -125,9 +132,45 @@ namespace BudgetExecution
                         ?.Tag
                         ?.ToString( );
 
-                    if( !string.IsNullOrEmpty( _tag ) )
+                    var _provider = DataBuilder.GetProvider( _tag );
+                    switch( _provider )
                     {
-                        Header.Text = _tag;
+                        case Provider.SQLite:
+                        {
+                            Minion.OpenSQLite(  );
+                            Close(  );
+                            break;
+                        }
+                        case Provider.SqlCe:
+                        {
+                            Minion.OpenSqlCe(  );
+                            Close(  );
+                            break;
+                        }
+                        case Provider.SqlServer:
+                        {
+                            Minion.OpenSqlCe(  );
+                            Close(  );
+                            break;
+                        }
+                        case Provider.Access:
+                        {
+                            Minion.OpenAccess(  );
+                            Close(  );
+                            break;
+                        }
+                        case Provider.Excel:
+                        {
+                            Minion.OpenExcel(  );
+                            Close(  );
+                            break;
+                        }
+                        default:
+                        {
+                            Minion.OpenSQLite(  );
+                            Close(  );
+                            break;
+                        }
                     }
                 }
                 catch( Exception ex )
@@ -136,7 +179,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>

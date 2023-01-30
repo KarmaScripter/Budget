@@ -42,8 +42,10 @@ partial class MinionSelector
             this.ImageList = new BudgetExecution.ImageList();
             this.Carousel = new BudgetExecution.Selector();
             this.SelectorTable = new System.Windows.Forms.TableLayoutPanel();
+            this.SelectionPanel = new BudgetExecution.Layout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SelectorTable.SuspendLayout();
+            this.SelectionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Header
@@ -59,7 +61,7 @@ partial class MinionSelector
             this.Header.Margin = new System.Windows.Forms.Padding(3);
             this.Header.Name = "Header";
             this.Header.Padding = new System.Windows.Forms.Padding(1);
-            this.Header.Size = new System.Drawing.Size(1015, 25);
+            this.Header.Size = new System.Drawing.Size(886, 25);
             this.Header.Style = MetroSet_UI.Enums.Style.Custom;
             this.Header.StyleManager = null;
             this.Header.TabIndex = 3;
@@ -83,7 +85,7 @@ partial class MinionSelector
             this.CloseButton.HoverText = "Return to Main Menu";
             this.CloseButton.HoverTextColor = System.Drawing.Color.White;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(919, 422);
+            this.CloseButton.Location = new System.Drawing.Point(1020, 494);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
@@ -137,7 +139,6 @@ partial class MinionSelector
             this.Carousel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Carousel.BindingSource = this.BindingSource;
             this.Carousel.CanOverrideStyle = true;
-            this.Carousel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Carousel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Carousel.ForeColor = System.Drawing.Color.White;
             this.Carousel.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -145,7 +146,7 @@ partial class MinionSelector
             this.Carousel.ImageshadeColor = System.Drawing.Color.Black;
             this.Carousel.ImageSize = new System.Drawing.Size(250, 250);
             this.Carousel.ImageSlides = true;
-            this.Carousel.Location = new System.Drawing.Point(3, 53);
+            this.Carousel.Location = new System.Drawing.Point(95, 66);
             this.Carousel.Name = "Carousel";
             this.Carousel.PadX = 0;
             this.Carousel.PadY = 0;
@@ -153,7 +154,7 @@ partial class MinionSelector
             this.Carousel.RotateAlways = false;
             this.Carousel.ShowImagePreview = true;
             this.Carousel.ShowImageShadow = true;
-            this.Carousel.Size = new System.Drawing.Size(1015, 303);
+            this.Carousel.Size = new System.Drawing.Size(736, 258);
             this.Carousel.TabIndex = 8;
             this.Carousel.ThemeName = "Metro";
             this.Carousel.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
@@ -170,15 +171,42 @@ partial class MinionSelector
             // 
             this.SelectorTable.ColumnCount = 1;
             this.SelectorTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SelectorTable.Controls.Add(this.Carousel, 0, 1);
+            this.SelectorTable.Controls.Add(this.SelectionPanel, 0, 1);
             this.SelectorTable.Controls.Add(this.Header, 0, 0);
-            this.SelectorTable.Location = new System.Drawing.Point(99, 57);
+            this.SelectorTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.SelectorTable.Location = new System.Drawing.Point(147, 12);
             this.SelectorTable.Name = "SelectorTable";
             this.SelectorTable.RowCount = 2;
-            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.10256F));
-            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.89744F));
-            this.SelectorTable.Size = new System.Drawing.Size(1021, 359);
+            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.27434F));
+            this.SelectorTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.72566F));
+            this.SelectorTable.Size = new System.Drawing.Size(892, 463);
             this.SelectorTable.TabIndex = 9;
+            // 
+            // SelectionPanel
+            // 
+            this.SelectionPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SelectionPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SelectionPanel.BindingSource = null;
+            this.SelectionPanel.BorderColor = System.Drawing.Color.Transparent;
+            this.SelectionPanel.BorderThickness = 1;
+            this.SelectionPanel.Children = null;
+            this.SelectionPanel.Controls.Add(this.Carousel);
+            this.SelectionPanel.DataFilter = null;
+            this.SelectionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectionPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectionPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SelectionPanel.HoverText = null;
+            this.SelectionPanel.IsDerivedStyle = true;
+            this.SelectionPanel.Location = new System.Drawing.Point(3, 64);
+            this.SelectionPanel.Name = "SelectionPanel";
+            this.SelectionPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SelectionPanel.Size = new System.Drawing.Size(886, 396);
+            this.SelectionPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SelectionPanel.StyleManager = null;
+            this.SelectionPanel.TabIndex = 10;
+            this.SelectionPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SelectionPanel.ThemeName = "Budget Execution";
+            this.SelectionPanel.ToolTip = null;
             // 
             // MinionSelector
             // 
@@ -205,6 +233,7 @@ partial class MinionSelector
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.SelectorTable.ResumeLayout(false);
+            this.SelectionPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -218,4 +247,5 @@ partial class MinionSelector
     public System.Windows.Forms.BindingSource BindingSource;
     private Selector Carousel;
     private System.Windows.Forms.TableLayoutPanel SelectorTable;
+    private Layout SelectionPanel;
 }

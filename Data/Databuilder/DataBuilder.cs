@@ -261,5 +261,53 @@ namespace BudgetExecution
 
             return default( IDictionary<string, IEnumerable<string>> );
         }
+
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
+        public static Provider GetProvider( string provider )
+        {
+            if( !string.IsNullOrEmpty( provider ) 
+               && Enum.IsDefined( typeof( Provider ), provider ) )
+            {
+                try
+                {
+                    return (Provider)Enum.Parse( typeof( Provider ), provider );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( Provider );
+                }
+            }
+
+            return default( Provider );
+        }
+
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
+        public static Source GetSource( string source )
+        {
+            if( !string.IsNullOrEmpty( source )
+               && Enum.IsDefined( typeof( Source ), source ) )
+            {
+                try
+                {
+                    return (Source)Enum.Parse( typeof( Source ), source );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( Source );
+                }
+            }
+
+            return default( Source );
+        }
     }
 }
