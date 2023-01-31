@@ -195,8 +195,8 @@ namespace BudgetExecution
                 try
                 {
                     var _query = dataRows
-                        ?.Where( p => p.Field<string>( name ).Equals( value ) )
-                        ?.Select( p => p );
+                        ?.Where( r => r.Field<string>( name ).Equals( value ) )
+                        ?.Select( r => r );
 
                     return _query?.Any( ) == true
                         ? _query.ToArray( )
@@ -287,18 +287,70 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <param name="ext">The ext.</param>
+        /// <returns></returns>
+        public static Provider GetProvider( EXT ext )
+        {
+            if( Enum.IsDefined( typeof( EXT ), ext ) )
+            {
+                try
+                {
+                    switch( ext )
+                    {
+                        case EXT.MDB:
+                        case EXT.ACCDB:
+                        {
+                            return Provider.Access;
+                        }
+                        case EXT.SDF:
+                        {
+                            return Provider.SqlCe;
+                        }
+                        case EXT.MDF:
+                        {
+                            return Provider.SqlServer;
+                        }
+                        case EXT.DB:
+                        {
+                            return Provider.SQLite;
+                        }
+                        default:
+                        {
+                            return Provider.Access;
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( Provider );
+                }
+            }
+
+            return default( Provider );
+        }
+        
+        /// <summary>
         /// Gets the source.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns></returns>
         public static Source GetSource( string source )
         {
-            if( !string.IsNullOrEmpty( source )
-               && Enum.IsDefined( typeof( Source ), source ) )
+            if( !string.IsNullOrEmpty( source ) )
             {
                 try
                 {
-                    return (Source)Enum.Parse( typeof( Source ), source );
+                    var _names = Enum.GetNames( typeof( Source ) );
+                    foreach( var _name in _names )
+                    {
+                        if( _name.Equals( source ) )
+                        {
+                            return (Source)Enum.Parse( typeof( Source ), source );
+                        }
+                    }
                 }
                 catch( Exception ex )
                 {
