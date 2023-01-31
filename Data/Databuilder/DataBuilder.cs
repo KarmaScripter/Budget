@@ -335,20 +335,20 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the source.
         /// </summary>
-        /// <param name="source">The source.</param>
+        /// <param name="tableName">The source.</param>
         /// <returns></returns>
-        public static Source GetSource( string source )
+        public static Source GetSource( string tableName )
         {
-            if( !string.IsNullOrEmpty( source ) )
+            if( !string.IsNullOrEmpty( tableName ) )
             {
                 try
                 {
                     var _names = Enum.GetNames( typeof( Source ) );
                     foreach( var _name in _names )
                     {
-                        if( _name.Equals( source ) )
+                        if( _name.Equals( tableName ) )
                         {
-                            return (Source)Enum.Parse( typeof( Source ), source );
+                            return (Source)Enum.Parse( typeof( Source ), tableName );
                         }
                     }
                 }

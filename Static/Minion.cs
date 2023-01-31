@@ -6,6 +6,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Configuration;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
 
@@ -19,10 +20,20 @@ namespace BudgetExecution
         {
             try
             {
+                var _app = ConfigurationManager.AppSettings[ "SQLiteMinion" ];
+                var _args = ConfigurationManager.AppSettings[ "SQLiteArgs" ];
                 var _startInfo = new ProcessStartInfo( );
-                _startInfo.FileName = @"C:\Users\terry\source\repos\Budget\Minions\SQLite\DB Browser for SQLite.exe";
-                _startInfo.Arguments = @"C:\Users\terry\source\repos\Budget\Data\Database\SQLite\DataModels\Data.db";
                 _startInfo.UseShellExecute = true;
+                if( !string.IsNullOrEmpty( _app ) )
+                {
+                    _startInfo.FileName = _app;
+                }
+
+                if( !string.IsNullOrEmpty( _args ) )
+                {
+                    _startInfo.Arguments = _args;
+                }
+                
                 Process.Start( _startInfo );
             }
             catch( Exception ex )
@@ -38,10 +49,20 @@ namespace BudgetExecution
         {
             try
             {
+                var _app = ConfigurationManager.AppSettings[ "SqlCeMinion" ];
+                var _args = ConfigurationManager.AppSettings[ "SqlCeArgs" ];
                 var _startInfo = new ProcessStartInfo( );
-                _startInfo.FileName = @"C:\Users\terry\source\repos\Budget\Minions\SqlCe\CompactView.exe";
-                _startInfo.Arguments = @"C:\Users\terry\source\repos\Budget\Data\Database\SqlCe\DataModels\Data.sdf";
                 _startInfo.UseShellExecute = true;
+                if( !string.IsNullOrEmpty( _app ) )
+                {
+                    _startInfo.FileName = _app;
+                }
+
+                if( !string.IsNullOrEmpty( _args ) )
+                {
+                    _startInfo.Arguments = _args;
+                }
+
                 Process.Start( _startInfo );
             }
             catch( Exception ex )
@@ -57,9 +78,14 @@ namespace BudgetExecution
         {
             try
             {
+                var _app = ConfigurationManager.AppSettings[ "AccessMinion" ];
                 var _startInfo = new ProcessStartInfo( );
-                _startInfo.FileName = @"C:\Users\terry\source\repos\Budget\Data\Database\Access\DataModels\Data.accdb";
                 _startInfo.UseShellExecute = true;
+                if( !string.IsNullOrEmpty( _app ) )
+                {
+                    _startInfo.FileName = _app;
+                }
+
                 Process.Start( _startInfo );
             }
             catch( Exception ex )
@@ -75,9 +101,14 @@ namespace BudgetExecution
         {
             try
             {
+                var _app = ConfigurationManager.AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
-                _startInfo.FileName = @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
                 _startInfo.UseShellExecute = true;
+                if( !string.IsNullOrEmpty( _app ) )
+                {
+                    _startInfo.FileName = _app;
+                }
+
                 Process.Start( _startInfo );
             }
             catch( Exception ex )
