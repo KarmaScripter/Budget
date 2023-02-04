@@ -52,7 +52,7 @@ namespace BudgetExecution.Controls.Chart
             ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             ChartArea.BorderWidth = 1;
             ChartArea.BorderColor = Color.Transparent;
-            ChartArea.BorderStyle = BorderStyle.FixedSingle;
+            ChartArea.BorderStyle = BorderStyle.None;
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
 
             //ChartSeries Properties
@@ -63,7 +63,7 @@ namespace BudgetExecution.Controls.Chart
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
             ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
-                Color.Silver );
+                Color.FromArgb( 65, 65, 65 ) );
 
             Depth = 250;
             ElementsSpacing = 10;
@@ -102,7 +102,7 @@ namespace BudgetExecution.Controls.Chart
             Legend.Visible = true;
 
             // Title ("Title") Properties
-            Title.Font = new Font( "Roboto", 11 );
+            Title.Font = new Font( "Roboto", 14 );
             Title.BackColor = Color.FromArgb( 20, 20, 20 );
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
 
@@ -110,7 +110,7 @@ namespace BudgetExecution.Controls.Chart
             ToolBar.Orientation = ChartOrientation.Horizontal;
             ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
             ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.Position = ChartDock.Top;
+            ToolBar.Position = ChartDock.Floating;
             ToolBar.ShowGrip = false;
             ToolBar.ShowBorder = false;
         }

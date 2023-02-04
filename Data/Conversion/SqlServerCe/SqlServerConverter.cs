@@ -25,6 +25,7 @@ namespace BudgetExecution
     /// <remarks>
     /// The class knows how to convert table and index structures only.
     /// </remarks>
+    [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
     public class SqlServerConverter
     {
         /// <summary>
@@ -1134,14 +1135,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="conn">The connection.</param>
         /// <param name="tablename">The tablename.</param>
-        /// <param name="tschma">The tschma.</param>
+        /// <param name="schems">The schema.</param>
         /// <returns></returns>
-        private TableSchema CreateTableSchema( SqlConnection conn, string tablename, string tschma )
+        private TableSchema CreateTableSchema( SqlConnection conn, string tablename, string schems )
         {
             var res = new TableSchema
             {
                 TableName = tablename,
-                TableSchemaName = tschma,
+                TableSchemaName = schems,
                 Columns = new List<ColumnSchema>( )
             };
 
@@ -1286,7 +1287,7 @@ namespace BudgetExecution
             }
 
             using( var cmd4 =
-                  new SqlCommand( @"EXEC sptablecollations '" + tschma + "." + tablename + "'",
+                  new SqlCommand( @"EXEC sptablecollations '" + schems + "." + tablename + "'",
                       conn ) )
             {
                 var reader = cmd4.ExecuteReader( );
@@ -1319,7 +1320,7 @@ namespace BudgetExecution
             try
             {
                 var _command =
-                    new SqlCommand( @"exec sphelpindex '" + tschma + "." + tablename + "'", conn );
+                    new SqlCommand( @"exec sphelpindex '" + schems + "." + tablename + "'", conn );
 
                 var _reader = _command.ExecuteReader( );
                 res.Indexes = new List<IndexSchema>( );

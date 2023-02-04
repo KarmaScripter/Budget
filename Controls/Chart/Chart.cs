@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the chart.
         /// </value>
-        public ChartSeriesType ChartType { get; set; }
+        public ChartSeriesType SeriesType { get; set; }
 
         /// <summary>
         /// Gets or sets the x label.
@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// <value>
         /// The x label.
         /// </value>
-        public string xAxis { get; set; }
+        public IList<string> xAxis { get; set; }
 
         /// <summary>
         /// Gets or sets the y value.
@@ -90,7 +90,7 @@ namespace BudgetExecution
         /// <value>
         /// The y value.
         /// </value>
-        public IEnumerable<string> yValues { get; set; }
+        public IList<string> yValues { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -144,19 +144,19 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
         public Chart( BindingSource bindingSource, 
-            ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total )
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
             STAT = stat;
-            ChartType = chartType;
+            SeriesType = type;
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
+            Data = DataTable.AsEnumerable( );
             BindingModel = new ChartDataBindModel( DataTable );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            Data = DataTable.AsEnumerable(  );
         }
 
         /// <summary>
@@ -165,37 +165,37 @@ namespace BudgetExecution
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="names">The names.</param>
         /// <param name="values">The values.</param>
-        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, string names, IEnumerable<string> values, 
-            ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
+        public Chart( BindingSource bindingSource, IList<string> names, IList<string> values, 
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
             STAT = stat;
-            xAxis = names;
-            yValues = values;
-            ChartType = chartType;
+            SeriesType = type;
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
+            Data = DataTable.AsEnumerable( );
             BindingModel = new ChartDataBindModel( DataTable );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            Data = DataTable.AsEnumerable(  );
+            xAxis = names;
+            yValues = values;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
         public Chart( DataTable dataTable, 
-            ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
             STAT = stat;
-            ChartType = chartType;
+            SeriesType = type;
             DataTable = dataTable;
-            Data = dataTable.AsEnumerable(  );
+            Data = dataTable.AsEnumerable( );
             BindingSource.DataSource = dataTable;
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
@@ -207,21 +207,21 @@ namespace BudgetExecution
         /// <param name="dataTable">The data table.</param>
         /// <param name="names">The names.</param>
         /// <param name="values">The values.</param>
-        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( DataTable dataTable, string names, IEnumerable<string> values, 
-            ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
+        public Chart( DataTable dataTable, IList<string> names, IList<string> values, 
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
             STAT = stat;
-            xAxis = names;
-            yValues = values;
-            ChartType = chartType;
+            SeriesType = type;
             DataTable = dataTable;
-            BindingSource.DataSource =  dataTable;
             Data = dataTable.AsEnumerable( );
+            BindingSource.DataSource =  dataTable;
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
+            xAxis = names;
+            yValues = values;
         }
 
         /// <summary>
@@ -230,70 +230,63 @@ namespace BudgetExecution
         /// <param name="dataRows">The data rows.</param>
         /// <param name="names">The names.</param>
         /// <param name="values">The values.</param>
-        /// <param name="chartType">Type of the chart.</param>
+        /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( IEnumerable<DataRow> dataRows, string names, IEnumerable<string> values,   
-            ChartSeriesType chartType = ChartSeriesType.Column, STAT stat = STAT.Total  )
+        public Chart( IEnumerable<DataRow> dataRows, IList<string> names, IList<string> values,   
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
             STAT = stat;
-            xAxis = names;
-            yValues = values;
-            ChartType = chartType;
+            SeriesType = type;
             DataTable = dataRows.CopyToDataTable( );
+            Data = dataRows;
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             BindingModel = new ChartDataBindModel( DataTable );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            Data = dataRows;
+            xAxis = names;
+            yValues = values;
         }
 
         /// <summary>
         /// Creates the series.
         /// </summary>
         /// <returns></returns>
-        public void InitSeries( )
+        private void InitSeries( ChartSeries series )
         {
-            if( Series != null 
-               && BindingModel != null )
+            if( series != null )
             {
                 try
                 {
-                    foreach( ChartSeries _chartSeries in Series )
-                    {
-                        _chartSeries.SeriesModel = BindingModel;
-                        _chartSeries.SmartLabels = true;
-                        _chartSeries.Visible = true;
-                        _chartSeries.ShowTicks = true;
-                        _chartSeries.Rotate = true;
-                        _chartSeries.EnableAreaToolTip = true;
-                        _chartSeries.EnableStyles = true;
-                        _chartSeries.OptimizePiePointPositions = true;
-                        _chartSeries.LegendItemUseSeriesStyle = true;
-                        _chartSeries.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                        _chartSeries.SmartLabelsBorderWidth = 1;
+                    // Basic Properties
+                    series.SmartLabels = true;
+                    series.Visible = true;
+                    series.ShowTicks = true;
+                    series.Rotate = true;
+                    series.EnableAreaToolTip = true;
+                    series.EnableStyles = true;
+                    series.OptimizePiePointPositions = true;
+                    series.LegendItemUseSeriesStyle = true;
+                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
+                    series.SmartLabelsBorderWidth = 1;
+                    series.SmartLabels = true;
+                    series.Visible = true;
+                    series.ShowTicks = true;
+                    series.Rotate = true;
+                    series.EnableAreaToolTip = true;
+                    series.EnableStyles = true;
+                    series.OptimizePiePointPositions = true;
+                    series.LegendItemUseSeriesStyle = true;
+                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
+                    series.SmartLabelsBorderWidth = 1;
 
-                        // Basic Properties
-                        _chartSeries.SmartLabels = true;
-                        _chartSeries.Visible = true;
-                        _chartSeries.ShowTicks = true;
-                        _chartSeries.Rotate = true;
-                        _chartSeries.EnableAreaToolTip = true;
-                        _chartSeries.EnableStyles = true;
-                        _chartSeries.OptimizePiePointPositions = true;
-                        _chartSeries.LegendItemUseSeriesStyle = true;
-                        _chartSeries.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                        _chartSeries.SmartLabelsBorderWidth = 1;
-
-                        // Call out Properties
-                        _chartSeries.Style.DisplayText = true;
-                        _chartSeries.Style.Callout.Enable = true;
-                        _chartSeries.Style.Callout.Position = LabelPosition.Top;
-                        _chartSeries.Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                        _chartSeries.Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
-                        _chartSeries.Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
-                        _chartSeries.Style.Callout.TextColor = Color.LightSteelBlue;
-                        _chartSeries.Style.DisplayText = true;
-                    }
+                    // Call out Properties
+                    series.Style.DisplayText = true;
+                    series.Style.Callout.Enable = true;
+                    series.Style.Callout.Position = LabelPosition.Top;
+                    series.Style.Callout.DisplayTextAndFormat = "{0} : {2}";
+                    series.Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
+                    series.Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
+                    series.Style.Callout.TextColor = Color.LightSteelBlue;
                 }
                 catch( Exception ex )
                 {
@@ -319,6 +312,34 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the title.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="font">The font.</param>
+        /// <param name="color">The color.</param>
+        public void SetTitle( string text, Font font, Color color )
+        {
+            if( !string.IsNullOrEmpty( text ) 
+               && font != null 
+               && color != Color.Empty )
+            {
+                try
+                {
+                    Title.Text = text;
+                    Title.Font = font;
+                    Title.ShowBorder = false;
+                    Title.BackColor = Color.FromArgb( 20, 20, 20 );
+                    Title.ForeColor = color;
+                    Title.Visible = true;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 

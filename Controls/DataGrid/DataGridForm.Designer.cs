@@ -63,52 +63,52 @@
             this.ExcelButton = new BudgetExecution.ToolStripButton();
             this.Separator3 = new BudgetExecution.ToolSeparator();
             this.TextBox = new BudgetExecution.ToolStripTextBox();
-            this.toolSeparator2 = new BudgetExecution.ToolSeparator();
+            this.TextBoxSeparator = new BudgetExecution.ToolSeparator();
             this.FirstButton = new BudgetExecution.ToolStripButton();
-            this.Separator4 = new BudgetExecution.ToolSeparator();
+            this.FirstSeparator = new BudgetExecution.ToolSeparator();
             this.PreviousButton = new BudgetExecution.ToolStripButton();
-            this.Separator5 = new BudgetExecution.ToolSeparator();
+            this.PreviousSeparator = new BudgetExecution.ToolSeparator();
             this.NextButton = new BudgetExecution.ToolStripButton();
-            this.Separator6 = new BudgetExecution.ToolSeparator();
+            this.NextSeparator = new BudgetExecution.ToolSeparator();
             this.LastButton = new BudgetExecution.ToolStripButton();
-            this.Separator7 = new BudgetExecution.ToolSeparator();
+            this.LastSeparator = new BudgetExecution.ToolSeparator();
             this.RemoveFiltersButton = new BudgetExecution.ToolStripButton();
-            this.Separator35 = new BudgetExecution.ToolSeparator();
-            this.Separator8 = new BudgetExecution.ToolSeparator();
-            this.Separator9 = new BudgetExecution.ToolSeparator();
-            this.Separator10 = new BudgetExecution.ToolSeparator();
-            this.Separator11 = new BudgetExecution.ToolSeparator();
+            this.RemoveFiltersSeparator = new BudgetExecution.ToolSeparator();
+            this.EditRecordSeparator = new BudgetExecution.ToolSeparator();
+            this.EditColumnSeparator = new BudgetExecution.ToolSeparator();
+            this.DeleteRecordSeparator = new BudgetExecution.ToolSeparator();
+            this.DeleteColumnSeparator = new BudgetExecution.ToolSeparator();
             this.RefreshDataButton = new BudgetExecution.ToolStripButton();
-            this.Separator14 = new BudgetExecution.ToolSeparator();
+            this.RefreshDataSeparator = new BudgetExecution.ToolSeparator();
             this.SaveButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator13 = new BudgetExecution.ToolSeparator();
-            this.Separator38 = new BudgetExecution.ToolSeparator();
+            this.SaveSeparator = new BudgetExecution.ToolSeparator();
+            this.DeleteTableSeparator = new BudgetExecution.ToolSeparator();
             this.AddTableButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator16 = new BudgetExecution.ToolSeparator();
+            this.AddTableSeparator = new BudgetExecution.ToolSeparator();
             this.GroupButton = new BudgetExecution.ToolStripButton();
-            this.Separator18 = new BudgetExecution.ToolSeparator();
-            this.toolSeparator17 = new BudgetExecution.ToolSeparator();
-            this.Separator19 = new BudgetExecution.ToolSeparator();
+            this.GroupSeparator = new BudgetExecution.ToolSeparator();
+            this.ExcelSeparator = new BudgetExecution.ToolSeparator();
+            this.EditSqlSeparator = new BudgetExecution.ToolSeparator();
             this.ChartButton = new BudgetExecution.ToolStripButton();
-            this.Separator20 = new BudgetExecution.ToolSeparator();
+            this.ChartSeparator = new BudgetExecution.ToolSeparator();
             this.ExcelImportButton = new BudgetExecution.ToolStripButton();
-            this.Separator29 = new BudgetExecution.ToolSeparator();
+            this.ExcelImportSeparator = new BudgetExecution.ToolSeparator();
             this.CalendarButton = new BudgetExecution.ToolStripButton();
-            this.Separator21 = new BudgetExecution.ToolSeparator();
+            this.CalendarSeparator = new BudgetExecution.ToolSeparator();
             this.CalculatorButton = new BudgetExecution.ToolStripButton();
-            this.Separator24 = new BudgetExecution.ToolSeparator();
+            this.CalculatorSeparator = new BudgetExecution.ToolSeparator();
             this.GuidanceButton = new BudgetExecution.ToolStripButton();
-            this.Separator26 = new BudgetExecution.ToolSeparator();
+            this.GuidanceSeparator = new BudgetExecution.ToolSeparator();
             this.BrowseButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator1 = new BudgetExecution.ToolSeparator();
+            this.BrowseSeparator = new BudgetExecution.ToolSeparator();
             this.WebButton = new BudgetExecution.ToolStripButton();
-            this.toolSeparator3 = new BudgetExecution.ToolSeparator();
+            this.WebSeparator = new BudgetExecution.ToolSeparator();
             this.ComboBox = new BudgetExecution.ToolStripDropDown();
-            this.Separator12 = new BudgetExecution.ToolSeparator();
+            this.ComboBoxSeparator = new BudgetExecution.ToolSeparator();
             this.BackButton = new BudgetExecution.ToolStripButton();
-            this.Separator27 = new BudgetExecution.ToolSeparator();
+            this.BackSeparator = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
-            this.Separator28 = new BudgetExecution.ToolSeparator();
+            this.MenuSeparator = new BudgetExecution.ToolSeparator();
             this.ExitButton = new BudgetExecution.ToolStripButton();
             this.Separator2 = new BudgetExecution.ToolSeparator();
             this.Separator22 = new BudgetExecution.ToolSeparator();
@@ -133,18 +133,18 @@
             this.FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.FilterTable = new System.Windows.Forms.TableLayoutPanel();
             this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ThirdComboBox = new BudgetExecution.ComboBox();
-            this.layout3 = new BudgetExecution.Layout();
+            this.ThirdListBoxPanel = new BudgetExecution.Layout();
             this.ThirdListBox = new BudgetExecution.ListBox();
+            this.ThirdComboBox = new BudgetExecution.ComboBox();
             this.FirstTable = new System.Windows.Forms.TableLayoutPanel();
-            this.layout5 = new BudgetExecution.Layout();
+            this.FIrstListBoxPanel = new BudgetExecution.Layout();
             this.FirstListBox = new BudgetExecution.ListBox();
             this.FirstComboBox = new BudgetExecution.ComboBox();
             this.SecondTable = new System.Windows.Forms.TableLayoutPanel();
             this.SecondComboBox = new BudgetExecution.ComboBox();
-            this.layout4 = new BudgetExecution.Layout();
+            this.SecondListBoxPanel = new BudgetExecution.Layout();
             this.SecondListBox = new BudgetExecution.ListBox();
-            this.FoldTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.GroupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.NumericTable = new System.Windows.Forms.TableLayoutPanel();
             this.NumericsPanel = new BudgetExecution.Layout();
             this.NumericListBox = new BudgetExecution.ListBox();
@@ -171,12 +171,12 @@
             this.FilterTabPage.SuspendLayout();
             this.FilterTable.SuspendLayout();
             this.ThirdTable.SuspendLayout();
-            this.layout3.SuspendLayout();
+            this.ThirdListBoxPanel.SuspendLayout();
             this.FirstTable.SuspendLayout();
-            this.layout5.SuspendLayout();
+            this.FIrstListBoxPanel.SuspendLayout();
             this.SecondTable.SuspendLayout();
-            this.layout4.SuspendLayout();
-            this.FoldTabPage.SuspendLayout();
+            this.SecondListBoxPanel.SuspendLayout();
+            this.GroupTabPage.SuspendLayout();
             this.NumericTable.SuspendLayout();
             this.NumericsPanel.SuspendLayout();
             this.FieldTable.SuspendLayout();
@@ -540,59 +540,59 @@
             this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Separator3,
             this.TextBox,
-            this.toolSeparator2,
+            this.TextBoxSeparator,
             this.FirstButton,
-            this.Separator4,
+            this.FirstSeparator,
             this.PreviousButton,
-            this.Separator5,
+            this.PreviousSeparator,
             this.NextButton,
-            this.Separator6,
+            this.NextSeparator,
             this.LastButton,
-            this.Separator7,
+            this.LastSeparator,
             this.RemoveFiltersButton,
-            this.Separator35,
+            this.RemoveFiltersSeparator,
             this.EditRecordButton,
-            this.Separator8,
+            this.EditRecordSeparator,
             this.EditColumnButton,
-            this.Separator9,
+            this.EditColumnSeparator,
             this.DeleteRecordButton,
-            this.Separator10,
+            this.DeleteRecordSeparator,
             this.DeleteColumnButton,
-            this.Separator11,
+            this.DeleteColumnSeparator,
             this.RefreshDataButton,
-            this.Separator14,
+            this.RefreshDataSeparator,
             this.SaveButton,
-            this.toolSeparator13,
+            this.SaveSeparator,
             this.DeleteTableButton,
-            this.Separator38,
+            this.DeleteTableSeparator,
             this.AddTableButton,
-            this.toolSeparator16,
+            this.AddTableSeparator,
             this.GroupButton,
-            this.Separator18,
+            this.GroupSeparator,
             this.ExcelButton,
-            this.toolSeparator17,
+            this.ExcelSeparator,
             this.EditSqlButton,
-            this.Separator19,
+            this.EditSqlSeparator,
             this.ChartButton,
-            this.Separator20,
+            this.ChartSeparator,
             this.ExcelImportButton,
-            this.Separator29,
+            this.ExcelImportSeparator,
             this.CalendarButton,
-            this.Separator21,
+            this.CalendarSeparator,
             this.CalculatorButton,
-            this.Separator24,
+            this.CalculatorSeparator,
             this.GuidanceButton,
-            this.Separator26,
+            this.GuidanceSeparator,
             this.BrowseButton,
-            this.toolSeparator1,
+            this.BrowseSeparator,
             this.WebButton,
-            this.toolSeparator3,
+            this.WebSeparator,
             this.ComboBox,
-            this.Separator12,
+            this.ComboBoxSeparator,
             this.BackButton,
-            this.Separator27,
+            this.BackSeparator,
             this.MenuButton,
-            this.Separator28,
+            this.MenuSeparator,
             this.ExitButton});
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = this.LastButton;
@@ -797,17 +797,17 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(94, 32);
+            this.TextBox.Size = new System.Drawing.Size(176, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
-            // toolSeparator2
+            // TextBoxSeparator
             // 
-            this.toolSeparator2.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator2.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Name = "toolSeparator2";
-            this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Size = new System.Drawing.Size(6, 32);
+            this.TextBoxSeparator.ForeColor = System.Drawing.Color.Black;
+            this.TextBoxSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.TextBoxSeparator.Name = "TextBoxSeparator";
+            this.TextBoxSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // FirstButton
             // 
@@ -829,13 +829,13 @@
             this.FirstButton.ToolTip = this.ToolTip;
             this.FirstButton.ToolType = BudgetExecution.ToolType.FirstButton;
             // 
-            // Separator4
+            // FirstSeparator
             // 
-            this.Separator4.ForeColor = System.Drawing.Color.Black;
-            this.Separator4.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator4.Name = "Separator4";
-            this.Separator4.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator4.Size = new System.Drawing.Size(6, 32);
+            this.FirstSeparator.ForeColor = System.Drawing.Color.Black;
+            this.FirstSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.FirstSeparator.Name = "FirstSeparator";
+            this.FirstSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // PreviousButton
             // 
@@ -858,13 +858,13 @@
             this.PreviousButton.ToolTip = this.ToolTip;
             this.PreviousButton.ToolType = BudgetExecution.ToolType.NS;
             // 
-            // Separator5
+            // PreviousSeparator
             // 
-            this.Separator5.ForeColor = System.Drawing.Color.Black;
-            this.Separator5.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator5.Name = "Separator5";
-            this.Separator5.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator5.Size = new System.Drawing.Size(6, 32);
+            this.PreviousSeparator.ForeColor = System.Drawing.Color.Black;
+            this.PreviousSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.PreviousSeparator.Name = "PreviousSeparator";
+            this.PreviousSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.PreviousSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // NextButton
             // 
@@ -887,13 +887,13 @@
             this.NextButton.ToolTip = this.ToolTip;
             this.NextButton.ToolType = BudgetExecution.ToolType.NextButton;
             // 
-            // Separator6
+            // NextSeparator
             // 
-            this.Separator6.ForeColor = System.Drawing.Color.Black;
-            this.Separator6.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator6.Name = "Separator6";
-            this.Separator6.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator6.Size = new System.Drawing.Size(6, 32);
+            this.NextSeparator.ForeColor = System.Drawing.Color.Black;
+            this.NextSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.NextSeparator.Name = "NextSeparator";
+            this.NextSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.NextSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // LastButton
             // 
@@ -916,13 +916,13 @@
             this.LastButton.ToolTip = this.ToolTip;
             this.LastButton.ToolType = BudgetExecution.ToolType.LastButton;
             // 
-            // Separator7
+            // LastSeparator
             // 
-            this.Separator7.ForeColor = System.Drawing.Color.Black;
-            this.Separator7.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator7.Name = "Separator7";
-            this.Separator7.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator7.Size = new System.Drawing.Size(6, 32);
+            this.LastSeparator.ForeColor = System.Drawing.Color.Black;
+            this.LastSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.LastSeparator.Name = "LastSeparator";
+            this.LastSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.LastSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // RemoveFiltersButton
             // 
@@ -945,45 +945,45 @@
             this.RemoveFiltersButton.ToolTip = this.ToolTip;
             this.RemoveFiltersButton.ToolType = BudgetExecution.ToolType.RemoveFiltersButton;
             // 
-            // Separator35
+            // RemoveFiltersSeparator
             // 
-            this.Separator35.ForeColor = System.Drawing.Color.Black;
-            this.Separator35.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator35.Name = "Separator35";
-            this.Separator35.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator35.Size = new System.Drawing.Size(6, 32);
+            this.RemoveFiltersSeparator.ForeColor = System.Drawing.Color.Black;
+            this.RemoveFiltersSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.RemoveFiltersSeparator.Name = "RemoveFiltersSeparator";
+            this.RemoveFiltersSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.RemoveFiltersSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // Separator8
+            // EditRecordSeparator
             // 
-            this.Separator8.ForeColor = System.Drawing.Color.Black;
-            this.Separator8.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator8.Name = "Separator8";
-            this.Separator8.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator8.Size = new System.Drawing.Size(6, 32);
+            this.EditRecordSeparator.ForeColor = System.Drawing.Color.Black;
+            this.EditRecordSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.EditRecordSeparator.Name = "EditRecordSeparator";
+            this.EditRecordSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.EditRecordSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // Separator9
+            // EditColumnSeparator
             // 
-            this.Separator9.ForeColor = System.Drawing.Color.Black;
-            this.Separator9.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator9.Name = "Separator9";
-            this.Separator9.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator9.Size = new System.Drawing.Size(6, 32);
+            this.EditColumnSeparator.ForeColor = System.Drawing.Color.Black;
+            this.EditColumnSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.EditColumnSeparator.Name = "EditColumnSeparator";
+            this.EditColumnSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.EditColumnSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // Separator10
+            // DeleteRecordSeparator
             // 
-            this.Separator10.ForeColor = System.Drawing.Color.Black;
-            this.Separator10.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator10.Name = "Separator10";
-            this.Separator10.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator10.Size = new System.Drawing.Size(6, 32);
+            this.DeleteRecordSeparator.ForeColor = System.Drawing.Color.Black;
+            this.DeleteRecordSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.DeleteRecordSeparator.Name = "DeleteRecordSeparator";
+            this.DeleteRecordSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteRecordSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // Separator11
+            // DeleteColumnSeparator
             // 
-            this.Separator11.ForeColor = System.Drawing.Color.Black;
-            this.Separator11.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator11.Name = "Separator11";
-            this.Separator11.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator11.Size = new System.Drawing.Size(6, 32);
+            this.DeleteColumnSeparator.ForeColor = System.Drawing.Color.Black;
+            this.DeleteColumnSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.DeleteColumnSeparator.Name = "DeleteColumnSeparator";
+            this.DeleteColumnSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteColumnSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // RefreshDataButton
             // 
@@ -1006,13 +1006,13 @@
             this.RefreshDataButton.ToolTip = this.ToolTip;
             this.RefreshDataButton.ToolType = BudgetExecution.ToolType.RefreshDataButton;
             // 
-            // Separator14
+            // RefreshDataSeparator
             // 
-            this.Separator14.ForeColor = System.Drawing.Color.Black;
-            this.Separator14.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator14.Name = "Separator14";
-            this.Separator14.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator14.Size = new System.Drawing.Size(6, 32);
+            this.RefreshDataSeparator.ForeColor = System.Drawing.Color.Black;
+            this.RefreshDataSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.RefreshDataSeparator.Name = "RefreshDataSeparator";
+            this.RefreshDataSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.RefreshDataSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // SaveButton
             // 
@@ -1035,21 +1035,21 @@
             this.SaveButton.ToolTip = this.ToolTip;
             this.SaveButton.ToolType = BudgetExecution.ToolType.SaveButton;
             // 
-            // toolSeparator13
+            // SaveSeparator
             // 
-            this.toolSeparator13.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator13.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator13.Name = "toolSeparator13";
-            this.toolSeparator13.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator13.Size = new System.Drawing.Size(6, 32);
+            this.SaveSeparator.ForeColor = System.Drawing.Color.Black;
+            this.SaveSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.SaveSeparator.Name = "SaveSeparator";
+            this.SaveSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.SaveSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // Separator38
+            // DeleteTableSeparator
             // 
-            this.Separator38.ForeColor = System.Drawing.Color.Black;
-            this.Separator38.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator38.Name = "Separator38";
-            this.Separator38.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator38.Size = new System.Drawing.Size(6, 32);
+            this.DeleteTableSeparator.ForeColor = System.Drawing.Color.Black;
+            this.DeleteTableSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.DeleteTableSeparator.Name = "DeleteTableSeparator";
+            this.DeleteTableSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteTableSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // AddTableButton
             // 
@@ -1072,13 +1072,13 @@
             this.AddTableButton.ToolTip = this.ToolTip;
             this.AddTableButton.ToolType = BudgetExecution.ToolType.AddTableButton;
             // 
-            // toolSeparator16
+            // AddTableSeparator
             // 
-            this.toolSeparator16.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator16.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator16.Name = "toolSeparator16";
-            this.toolSeparator16.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator16.Size = new System.Drawing.Size(6, 32);
+            this.AddTableSeparator.ForeColor = System.Drawing.Color.Black;
+            this.AddTableSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.AddTableSeparator.Name = "AddTableSeparator";
+            this.AddTableSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.AddTableSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // GroupButton
             // 
@@ -1101,29 +1101,29 @@
             this.GroupButton.ToolTip = this.ToolTip;
             this.GroupButton.ToolType = BudgetExecution.ToolType.GroupButton;
             // 
-            // Separator18
+            // GroupSeparator
             // 
-            this.Separator18.ForeColor = System.Drawing.Color.Black;
-            this.Separator18.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator18.Name = "Separator18";
-            this.Separator18.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator18.Size = new System.Drawing.Size(6, 32);
+            this.GroupSeparator.ForeColor = System.Drawing.Color.Black;
+            this.GroupSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.GroupSeparator.Name = "GroupSeparator";
+            this.GroupSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.GroupSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // toolSeparator17
+            // ExcelSeparator
             // 
-            this.toolSeparator17.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator17.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator17.Name = "toolSeparator17";
-            this.toolSeparator17.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator17.Size = new System.Drawing.Size(6, 32);
+            this.ExcelSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ExcelSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ExcelSeparator.Name = "ExcelSeparator";
+            this.ExcelSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ExcelSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // Separator19
+            // EditSqlSeparator
             // 
-            this.Separator19.ForeColor = System.Drawing.Color.Black;
-            this.Separator19.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator19.Name = "Separator19";
-            this.Separator19.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator19.Size = new System.Drawing.Size(6, 32);
+            this.EditSqlSeparator.ForeColor = System.Drawing.Color.Black;
+            this.EditSqlSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.EditSqlSeparator.Name = "EditSqlSeparator";
+            this.EditSqlSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.EditSqlSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // ChartButton
             // 
@@ -1146,13 +1146,13 @@
             this.ChartButton.ToolTip = this.ToolTip;
             this.ChartButton.ToolType = BudgetExecution.ToolType.ChartButton;
             // 
-            // Separator20
+            // ChartSeparator
             // 
-            this.Separator20.ForeColor = System.Drawing.Color.Black;
-            this.Separator20.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator20.Name = "Separator20";
-            this.Separator20.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator20.Size = new System.Drawing.Size(6, 32);
+            this.ChartSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ChartSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ChartSeparator.Name = "ChartSeparator";
+            this.ChartSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ChartSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // ExcelImportButton
             // 
@@ -1176,13 +1176,13 @@
             this.ExcelImportButton.ToolTip = this.ToolTip;
             this.ExcelImportButton.ToolType = BudgetExecution.ToolType.ExcelImportButton;
             // 
-            // Separator29
+            // ExcelImportSeparator
             // 
-            this.Separator29.ForeColor = System.Drawing.Color.Black;
-            this.Separator29.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator29.Name = "Separator29";
-            this.Separator29.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator29.Size = new System.Drawing.Size(6, 32);
+            this.ExcelImportSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ExcelImportSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ExcelImportSeparator.Name = "ExcelImportSeparator";
+            this.ExcelImportSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ExcelImportSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // CalendarButton
             // 
@@ -1205,13 +1205,13 @@
             this.CalendarButton.ToolTip = this.ToolTip;
             this.CalendarButton.ToolType = BudgetExecution.ToolType.CalendarButton;
             // 
-            // Separator21
+            // CalendarSeparator
             // 
-            this.Separator21.ForeColor = System.Drawing.Color.Black;
-            this.Separator21.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator21.Name = "Separator21";
-            this.Separator21.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator21.Size = new System.Drawing.Size(6, 32);
+            this.CalendarSeparator.ForeColor = System.Drawing.Color.Black;
+            this.CalendarSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.CalendarSeparator.Name = "CalendarSeparator";
+            this.CalendarSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.CalendarSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // CalculatorButton
             // 
@@ -1234,13 +1234,13 @@
             this.CalculatorButton.ToolTip = this.ToolTip;
             this.CalculatorButton.ToolType = BudgetExecution.ToolType.CalculatorButton;
             // 
-            // Separator24
+            // CalculatorSeparator
             // 
-            this.Separator24.ForeColor = System.Drawing.Color.Black;
-            this.Separator24.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator24.Name = "Separator24";
-            this.Separator24.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator24.Size = new System.Drawing.Size(6, 32);
+            this.CalculatorSeparator.ForeColor = System.Drawing.Color.Black;
+            this.CalculatorSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.CalculatorSeparator.Name = "CalculatorSeparator";
+            this.CalculatorSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.CalculatorSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // GuidanceButton
             // 
@@ -1263,13 +1263,13 @@
             this.GuidanceButton.ToolTip = this.ToolTip;
             this.GuidanceButton.ToolType = BudgetExecution.ToolType.GuidanceButton;
             // 
-            // Separator26
+            // GuidanceSeparator
             // 
-            this.Separator26.ForeColor = System.Drawing.Color.Black;
-            this.Separator26.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator26.Name = "Separator26";
-            this.Separator26.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator26.Size = new System.Drawing.Size(6, 32);
+            this.GuidanceSeparator.ForeColor = System.Drawing.Color.Black;
+            this.GuidanceSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.GuidanceSeparator.Name = "GuidanceSeparator";
+            this.GuidanceSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.GuidanceSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // BrowseButton
             // 
@@ -1292,13 +1292,13 @@
             this.BrowseButton.ToolTip = this.ToolTip;
             this.BrowseButton.ToolType = BudgetExecution.ToolType.BrowseButton;
             // 
-            // toolSeparator1
+            // BrowseSeparator
             // 
-            this.toolSeparator1.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator1.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator1.Name = "toolSeparator1";
-            this.toolSeparator1.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.BrowseSeparator.ForeColor = System.Drawing.Color.Black;
+            this.BrowseSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.BrowseSeparator.Name = "BrowseSeparator";
+            this.BrowseSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.BrowseSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // WebButton
             // 
@@ -1321,13 +1321,13 @@
             this.WebButton.ToolTip = this.ToolTip;
             this.WebButton.ToolType = BudgetExecution.ToolType.WebButton;
             // 
-            // toolSeparator3
+            // WebSeparator
             // 
-            this.toolSeparator3.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator3.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator3.Name = "toolSeparator3";
-            this.toolSeparator3.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator3.Size = new System.Drawing.Size(6, 32);
+            this.WebSeparator.ForeColor = System.Drawing.Color.Black;
+            this.WebSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.WebSeparator.Name = "WebSeparator";
+            this.WebSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.WebSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // ComboBox
             // 
@@ -1351,13 +1351,13 @@
             this.ComboBox.ToolTip = this.ToolTip;
             this.ComboBox.ToolTipText = "Make Selection";
             // 
-            // Separator12
+            // ComboBoxSeparator
             // 
-            this.Separator12.ForeColor = System.Drawing.Color.Black;
-            this.Separator12.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator12.Name = "Separator12";
-            this.Separator12.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator12.Size = new System.Drawing.Size(6, 32);
+            this.ComboBoxSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ComboBoxSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ComboBoxSeparator.Name = "ComboBoxSeparator";
+            this.ComboBoxSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ComboBoxSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // BackButton
             // 
@@ -1380,13 +1380,13 @@
             this.BackButton.ToolTip = this.ToolTip;
             this.BackButton.ToolType = BudgetExecution.ToolType.BackButton;
             // 
-            // Separator27
+            // BackSeparator
             // 
-            this.Separator27.ForeColor = System.Drawing.Color.Black;
-            this.Separator27.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator27.Name = "Separator27";
-            this.Separator27.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator27.Size = new System.Drawing.Size(6, 32);
+            this.BackSeparator.ForeColor = System.Drawing.Color.Black;
+            this.BackSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.BackSeparator.Name = "BackSeparator";
+            this.BackSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.BackSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // MenuButton
             // 
@@ -1409,13 +1409,13 @@
             this.MenuButton.ToolTip = this.ToolTip;
             this.MenuButton.ToolType = BudgetExecution.ToolType.MenuButton;
             // 
-            // Separator28
+            // MenuSeparator
             // 
-            this.Separator28.ForeColor = System.Drawing.Color.Black;
-            this.Separator28.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator28.Name = "Separator28";
-            this.Separator28.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator28.Size = new System.Drawing.Size(6, 32);
+            this.MenuSeparator.ForeColor = System.Drawing.Color.Black;
+            this.MenuSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.MenuSeparator.Name = "MenuSeparator";
+            this.MenuSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.MenuSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // ExitButton
             // 
@@ -1710,7 +1710,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.BeforeTouchSize = new System.Drawing.Size(350, 598);
+            this.TabControl.BeforeTouchSize = new System.Drawing.Size(350, 610);
             this.TabControl.BindingSource = null;
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.BorderWidth = 1;
@@ -1718,7 +1718,7 @@
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.Controls.Add(this.TableTabPage);
             this.TabControl.Controls.Add(this.FilterTabPage);
-            this.TabControl.Controls.Add(this.FoldTabPage);
+            this.TabControl.Controls.Add(this.GroupTabPage);
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
             this.TabControl.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1726,9 +1726,9 @@
             this.TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ItemSize = new System.Drawing.Size(100, 10);
-            this.TabControl.Location = new System.Drawing.Point(1026, 73);
+            this.TabControl.Location = new System.Drawing.Point(1026, 61);
             this.TabControl.Name = "TabControl";
-            this.TabControl.Size = new System.Drawing.Size(350, 598);
+            this.TabControl.Size = new System.Drawing.Size(350, 610);
             this.TabControl.TabIndex = 44;
             this.TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
@@ -1752,7 +1752,7 @@
             this.TableTabPage.Location = new System.Drawing.Point(0, 9);
             this.TableTabPage.Name = "TableTabPage";
             this.TableTabPage.ShowCloseButton = true;
-            this.TableTabPage.Size = new System.Drawing.Size(350, 589);
+            this.TableTabPage.Size = new System.Drawing.Size(350, 601);
             this.TableTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TableTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableTabPage.TabForeColor = System.Drawing.Color.DarkGray;
@@ -1858,7 +1858,8 @@
             this.TableComboBox.ItemHeight = 24;
             this.TableComboBox.Items.AddRange(new object[] {
             "Execution",
-            "Reference"});
+            "Reference",
+            "Maintenance"});
             this.TableComboBox.Location = new System.Drawing.Point(3, 3);
             this.TableComboBox.Name = "TableComboBox";
             this.TableComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -1879,7 +1880,7 @@
             this.FilterTabPage.Location = new System.Drawing.Point(0, 9);
             this.FilterTabPage.Name = "FilterTabPage";
             this.FilterTabPage.ShowCloseButton = true;
-            this.FilterTabPage.Size = new System.Drawing.Size(350, 589);
+            this.FilterTabPage.Size = new System.Drawing.Size(350, 601);
             this.FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FilterTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FilterTabPage.TabForeColor = System.Drawing.Color.DarkGray;
@@ -1892,93 +1893,62 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FilterTable.ColumnCount = 1;
-            this.FilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.FilterTable.Controls.Add(this.ThirdTable, 0, 2);
             this.FilterTable.Controls.Add(this.FirstTable, 0, 0);
             this.FilterTable.Controls.Add(this.SecondTable, 0, 1);
-            this.FilterTable.Location = new System.Drawing.Point(33, 0);
+            this.FilterTable.Location = new System.Drawing.Point(27, 0);
             this.FilterTable.Name = "FilterTable";
             this.FilterTable.RowCount = 3;
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.40665F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.59335F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 188F));
-            this.FilterTable.Size = new System.Drawing.Size(303, 589);
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.77704F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11148F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11148F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FilterTable.Size = new System.Drawing.Size(304, 601);
             this.FilterTable.TabIndex = 46;
             // 
             // ThirdTable
             // 
             this.ThirdTable.ColumnCount = 1;
-            this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ThirdTable.Controls.Add(this.ThirdListBoxPanel, 0, 1);
             this.ThirdTable.Controls.Add(this.ThirdComboBox, 0, 0);
-            this.ThirdTable.Controls.Add(this.layout3, 0, 1);
             this.ThirdTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThirdTable.Location = new System.Drawing.Point(3, 403);
+            this.ThirdTable.Location = new System.Drawing.Point(3, 405);
             this.ThirdTable.Name = "ThirdTable";
             this.ThirdTable.RowCount = 2;
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.21858F));
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.78142F));
-            this.ThirdTable.Size = new System.Drawing.Size(297, 183);
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.13471F));
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.86529F));
+            this.ThirdTable.Size = new System.Drawing.Size(298, 193);
             this.ThirdTable.TabIndex = 45;
             // 
-            // ThirdComboBox
+            // ThirdListBoxPanel
             // 
-            this.ThirdComboBox.AllowDrop = true;
-            this.ThirdComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ThirdComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ThirdComboBox.BindingSource = null;
-            this.ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ThirdComboBox.CausesValidation = false;
-            this.ThirdComboBox.DataFilter = null;
-            this.ThirdComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThirdComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ThirdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ThirdComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ThirdComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdComboBox.FormattingEnabled = true;
-            this.ThirdComboBox.HoverText = null;
-            this.ThirdComboBox.IsDerivedStyle = true;
-            this.ThirdComboBox.ItemHeight = 24;
-            this.ThirdComboBox.Location = new System.Drawing.Point(3, 3);
-            this.ThirdComboBox.Name = "ThirdComboBox";
-            this.ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ThirdComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.ThirdComboBox.Size = new System.Drawing.Size(291, 30);
-            this.ThirdComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdComboBox.StyleManager = null;
-            this.ThirdComboBox.TabIndex = 5;
-            this.ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdComboBox.ThemeName = "Budget Execution";
-            this.ThirdComboBox.ToolTip = null;
-            // 
-            // layout3
-            // 
-            this.layout3.BackColor = System.Drawing.Color.Transparent;
-            this.layout3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.layout3.BindingSource = null;
-            this.layout3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.layout3.BorderThickness = 1;
-            this.layout3.Children = null;
-            this.layout3.Controls.Add(this.ThirdListBox);
-            this.layout3.DataFilter = null;
-            this.layout3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layout3.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.layout3.ForeColor = System.Drawing.Color.Transparent;
-            this.layout3.HoverText = null;
-            this.layout3.IsDerivedStyle = true;
-            this.layout3.Location = new System.Drawing.Point(3, 40);
-            this.layout3.Name = "layout3";
-            this.layout3.Padding = new System.Windows.Forms.Padding(1);
-            this.layout3.Size = new System.Drawing.Size(291, 140);
-            this.layout3.Style = MetroSet_UI.Enums.Style.Custom;
-            this.layout3.StyleManager = null;
-            this.layout3.TabIndex = 28;
-            this.layout3.ThemeAuthor = "Terry D. Eppler";
-            this.layout3.ThemeName = "BudgetExecution";
-            this.layout3.ToolTip = null;
+            this.ThirdListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ThirdListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ThirdListBoxPanel.BindingSource = null;
+            this.ThirdListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ThirdListBoxPanel.BorderThickness = 1;
+            this.ThirdListBoxPanel.Children = null;
+            this.ThirdListBoxPanel.Controls.Add(this.ThirdListBox);
+            this.ThirdListBoxPanel.DataFilter = null;
+            this.ThirdListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThirdListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.ThirdListBoxPanel.HoverText = null;
+            this.ThirdListBoxPanel.IsDerivedStyle = true;
+            this.ThirdListBoxPanel.Location = new System.Drawing.Point(3, 37);
+            this.ThirdListBoxPanel.Name = "ThirdListBoxPanel";
+            this.ThirdListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.ThirdListBoxPanel.Size = new System.Drawing.Size(292, 153);
+            this.ThirdListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ThirdListBoxPanel.StyleManager = null;
+            this.ThirdListBoxPanel.TabIndex = 28;
+            this.ThirdListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            this.ThirdListBoxPanel.ThemeName = "BudgetExecution";
+            this.ThirdListBoxPanel.ToolTip = null;
             // 
             // ThirdListBox
             // 
@@ -2010,7 +1980,7 @@
             this.ThirdListBox.SelectedValue = null;
             this.ThirdListBox.ShowBorder = false;
             this.ThirdListBox.ShowScrollBar = false;
-            this.ThirdListBox.Size = new System.Drawing.Size(235, 90);
+            this.ThirdListBox.Size = new System.Drawing.Size(220, 103);
             this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdListBox.StyleManager = null;
             this.ThirdListBox.TabIndex = 0;
@@ -2018,46 +1988,80 @@
             this.ThirdListBox.ThemeName = "BudgetExecution";
             this.ThirdListBox.ToolTip = null;
             // 
+            // ThirdComboBox
+            // 
+            this.ThirdComboBox.AllowDrop = true;
+            this.ThirdComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ThirdComboBox.BindingSource = null;
+            this.ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ThirdComboBox.CausesValidation = false;
+            this.ThirdComboBox.DataFilter = null;
+            this.ThirdComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ThirdComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ThirdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ThirdComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThirdComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdComboBox.FormattingEnabled = true;
+            this.ThirdComboBox.HoverText = null;
+            this.ThirdComboBox.IsDerivedStyle = true;
+            this.ThirdComboBox.ItemHeight = 24;
+            this.ThirdComboBox.Location = new System.Drawing.Point(3, 3);
+            this.ThirdComboBox.Name = "ThirdComboBox";
+            this.ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.ThirdComboBox.Size = new System.Drawing.Size(292, 30);
+            this.ThirdComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ThirdComboBox.StyleManager = null;
+            this.ThirdComboBox.TabIndex = 5;
+            this.ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.ThirdComboBox.ThemeName = "Budget Execution";
+            this.ThirdComboBox.ToolTip = null;
+            // 
             // FirstTable
             // 
             this.FirstTable.ColumnCount = 1;
-            this.FirstTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.FirstTable.Controls.Add(this.layout5, 0, 1);
+            this.FirstTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.FirstTable.Controls.Add(this.FIrstListBoxPanel, 0, 1);
             this.FirstTable.Controls.Add(this.FirstComboBox, 0, 0);
             this.FirstTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstTable.Location = new System.Drawing.Point(3, 3);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 2;
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.27083F));
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.72916F));
-            this.FirstTable.Size = new System.Drawing.Size(297, 200);
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.09045F));
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.90955F));
+            this.FirstTable.Size = new System.Drawing.Size(298, 197);
             this.FirstTable.TabIndex = 43;
             // 
-            // layout5
+            // FIrstListBoxPanel
             // 
-            this.layout5.BackColor = System.Drawing.Color.Transparent;
-            this.layout5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.layout5.BindingSource = null;
-            this.layout5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.layout5.BorderThickness = 1;
-            this.layout5.Children = null;
-            this.layout5.Controls.Add(this.FirstListBox);
-            this.layout5.DataFilter = null;
-            this.layout5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layout5.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.layout5.ForeColor = System.Drawing.Color.Transparent;
-            this.layout5.HoverText = null;
-            this.layout5.IsDerivedStyle = true;
-            this.layout5.Location = new System.Drawing.Point(3, 41);
-            this.layout5.Name = "layout5";
-            this.layout5.Padding = new System.Windows.Forms.Padding(1);
-            this.layout5.Size = new System.Drawing.Size(291, 156);
-            this.layout5.Style = MetroSet_UI.Enums.Style.Custom;
-            this.layout5.StyleManager = null;
-            this.layout5.TabIndex = 26;
-            this.layout5.ThemeAuthor = "Terry D. Eppler";
-            this.layout5.ThemeName = "BudgetExecution";
-            this.layout5.ToolTip = null;
+            this.FIrstListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            this.FIrstListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FIrstListBoxPanel.BindingSource = null;
+            this.FIrstListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FIrstListBoxPanel.BorderThickness = 1;
+            this.FIrstListBoxPanel.Children = null;
+            this.FIrstListBoxPanel.Controls.Add(this.FirstListBox);
+            this.FIrstListBoxPanel.DataFilter = null;
+            this.FIrstListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FIrstListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FIrstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.FIrstListBoxPanel.HoverText = null;
+            this.FIrstListBoxPanel.IsDerivedStyle = true;
+            this.FIrstListBoxPanel.Location = new System.Drawing.Point(3, 38);
+            this.FIrstListBoxPanel.Name = "FIrstListBoxPanel";
+            this.FIrstListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.FIrstListBoxPanel.Size = new System.Drawing.Size(292, 156);
+            this.FIrstListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FIrstListBoxPanel.StyleManager = null;
+            this.FIrstListBoxPanel.TabIndex = 26;
+            this.FIrstListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            this.FIrstListBoxPanel.ThemeName = "BudgetExecution";
+            this.FIrstListBoxPanel.ToolTip = null;
             // 
             // FirstListBox
             // 
@@ -2088,8 +2092,8 @@
             this.FirstListBox.SelectedText = null;
             this.FirstListBox.SelectedValue = null;
             this.FirstListBox.ShowBorder = false;
-            this.FirstListBox.ShowScrollBar = true;
-            this.FirstListBox.Size = new System.Drawing.Size(235, 116);
+            this.FirstListBox.ShowScrollBar = false;
+            this.FirstListBox.Size = new System.Drawing.Size(223, 112);
             this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstListBox.StyleManager = null;
             this.FirstListBox.TabIndex = 0;
@@ -2110,7 +2114,7 @@
             this.FirstComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.FirstComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.FirstComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.FirstComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FirstComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FirstComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.FirstComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FirstComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2123,7 +2127,7 @@
             this.FirstComboBox.Name = "FirstComboBox";
             this.FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.FirstComboBox.Size = new System.Drawing.Size(291, 30);
+            this.FirstComboBox.Size = new System.Drawing.Size(292, 30);
             this.FirstComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstComboBox.StyleManager = null;
             this.FirstComboBox.TabIndex = 4;
@@ -2134,16 +2138,16 @@
             // SecondTable
             // 
             this.SecondTable.ColumnCount = 1;
-            this.SecondTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SecondTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.SecondTable.Controls.Add(this.SecondComboBox, 0, 0);
-            this.SecondTable.Controls.Add(this.layout4, 0, 1);
+            this.SecondTable.Controls.Add(this.SecondListBoxPanel, 0, 1);
             this.SecondTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondTable.Location = new System.Drawing.Point(3, 209);
+            this.SecondTable.Location = new System.Drawing.Point(3, 206);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.80925F));
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.19075F));
-            this.SecondTable.Size = new System.Drawing.Size(297, 188);
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.91489F));
+            this.SecondTable.Size = new System.Drawing.Size(298, 193);
             this.SecondTable.TabIndex = 44;
             // 
             // SecondComboBox
@@ -2159,7 +2163,7 @@
             this.SecondComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
             this.SecondComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             this.SecondComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SecondComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SecondComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.SecondComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SecondComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2172,7 +2176,7 @@
             this.SecondComboBox.Name = "SecondComboBox";
             this.SecondComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.SecondComboBox.Size = new System.Drawing.Size(291, 30);
+            this.SecondComboBox.Size = new System.Drawing.Size(292, 30);
             this.SecondComboBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondComboBox.StyleManager = null;
             this.SecondComboBox.TabIndex = 5;
@@ -2180,31 +2184,31 @@
             this.SecondComboBox.ThemeName = "Budget Execution";
             this.SecondComboBox.ToolTip = null;
             // 
-            // layout4
+            // SecondListBoxPanel
             // 
-            this.layout4.BackColor = System.Drawing.Color.Transparent;
-            this.layout4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.layout4.BindingSource = null;
-            this.layout4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.layout4.BorderThickness = 1;
-            this.layout4.Children = null;
-            this.layout4.Controls.Add(this.SecondListBox);
-            this.layout4.DataFilter = null;
-            this.layout4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layout4.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.layout4.ForeColor = System.Drawing.Color.Transparent;
-            this.layout4.HoverText = null;
-            this.layout4.IsDerivedStyle = true;
-            this.layout4.Location = new System.Drawing.Point(3, 42);
-            this.layout4.Name = "layout4";
-            this.layout4.Padding = new System.Windows.Forms.Padding(1);
-            this.layout4.Size = new System.Drawing.Size(291, 143);
-            this.layout4.Style = MetroSet_UI.Enums.Style.Custom;
-            this.layout4.StyleManager = null;
-            this.layout4.TabIndex = 27;
-            this.layout4.ThemeAuthor = "Terry D. Eppler";
-            this.layout4.ThemeName = "BudgetExecution";
-            this.layout4.ToolTip = null;
+            this.SecondListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SecondListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondListBoxPanel.BindingSource = null;
+            this.SecondListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondListBoxPanel.BorderThickness = 1;
+            this.SecondListBoxPanel.Children = null;
+            this.SecondListBoxPanel.Controls.Add(this.SecondListBox);
+            this.SecondListBoxPanel.DataFilter = null;
+            this.SecondListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SecondListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SecondListBoxPanel.HoverText = null;
+            this.SecondListBoxPanel.IsDerivedStyle = true;
+            this.SecondListBoxPanel.Location = new System.Drawing.Point(3, 37);
+            this.SecondListBoxPanel.Name = "SecondListBoxPanel";
+            this.SecondListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondListBoxPanel.Size = new System.Drawing.Size(292, 153);
+            this.SecondListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondListBoxPanel.StyleManager = null;
+            this.SecondListBoxPanel.TabIndex = 27;
+            this.SecondListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondListBoxPanel.ThemeName = "BudgetExecution";
+            this.SecondListBoxPanel.ToolTip = null;
             // 
             // SecondListBox
             // 
@@ -2235,8 +2239,8 @@
             this.SecondListBox.SelectedText = null;
             this.SecondListBox.SelectedValue = null;
             this.SecondListBox.ShowBorder = false;
-            this.SecondListBox.ShowScrollBar = true;
-            this.SecondListBox.Size = new System.Drawing.Size(235, 99);
+            this.SecondListBox.ShowScrollBar = false;
+            this.SecondListBox.Size = new System.Drawing.Size(223, 102);
             this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondListBox.StyleManager = null;
             this.SecondListBox.TabIndex = 0;
@@ -2244,21 +2248,21 @@
             this.SecondListBox.ThemeName = "BudgetExecution";
             this.SecondListBox.ToolTip = null;
             // 
-            // FoldTabPage
+            // GroupTabPage
             // 
-            this.FoldTabPage.Controls.Add(this.NumericTable);
-            this.FoldTabPage.Controls.Add(this.FieldTable);
-            this.FoldTabPage.Image = null;
-            this.FoldTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.FoldTabPage.Location = new System.Drawing.Point(0, 9);
-            this.FoldTabPage.Name = "FoldTabPage";
-            this.FoldTabPage.ShowCloseButton = true;
-            this.FoldTabPage.Size = new System.Drawing.Size(350, 589);
-            this.FoldTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FoldTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FoldTabPage.TabForeColor = System.Drawing.Color.DarkGray;
-            this.FoldTabPage.TabIndex = 2;
-            this.FoldTabPage.ThemesEnabled = false;
+            this.GroupTabPage.Controls.Add(this.NumericTable);
+            this.GroupTabPage.Controls.Add(this.FieldTable);
+            this.GroupTabPage.Image = null;
+            this.GroupTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.GroupTabPage.Location = new System.Drawing.Point(0, 9);
+            this.GroupTabPage.Name = "GroupTabPage";
+            this.GroupTabPage.ShowCloseButton = true;
+            this.GroupTabPage.Size = new System.Drawing.Size(350, 601);
+            this.GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.GroupTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GroupTabPage.TabForeColor = System.Drawing.Color.DarkGray;
+            this.GroupTabPage.TabIndex = 2;
+            this.GroupTabPage.ThemesEnabled = false;
             // 
             // NumericTable
             // 
@@ -2551,12 +2555,12 @@
             this.FilterTabPage.ResumeLayout(false);
             this.FilterTable.ResumeLayout(false);
             this.ThirdTable.ResumeLayout(false);
-            this.layout3.ResumeLayout(false);
+            this.ThirdListBoxPanel.ResumeLayout(false);
             this.FirstTable.ResumeLayout(false);
-            this.layout5.ResumeLayout(false);
+            this.FIrstListBoxPanel.ResumeLayout(false);
             this.SecondTable.ResumeLayout(false);
-            this.layout4.ResumeLayout(false);
-            this.FoldTabPage.ResumeLayout(false);
+            this.SecondListBoxPanel.ResumeLayout(false);
+            this.GroupTabPage.ResumeLayout(false);
             this.NumericTable.ResumeLayout(false);
             this.NumericsPanel.ResumeLayout(false);
             this.FieldTable.ResumeLayout(false);
@@ -2583,48 +2587,34 @@
         private ToolSeparator Separator3;
         public ToolStripTextBox TextBox;
         private ToolSeparator Separator2;
-        private ToolSeparator Separator4;
         public ToolStripButton PreviousButton;
-        private ToolSeparator Separator5;
+        private ToolSeparator PreviousSeparator;
         public ToolStripButton NextButton;
-        private ToolSeparator Separator6;
+        private ToolSeparator NextSeparator;
         public ToolStripButton LastButton;
-        private ToolSeparator Separator7;
+        private ToolSeparator LastSeparator;
         public ToolStripButton EditRecordButton;
-        private ToolSeparator Separator8;
+        private ToolSeparator EditRecordSeparator;
         public ToolStripButton EditColumnButton;
-        private ToolSeparator Separator9;
+        private ToolSeparator EditColumnSeparator;
         public ToolStripButton DeleteRecordButton;
-        private ToolSeparator Separator10;
         public ToolStripButton DeleteColumnButton;
-        private ToolSeparator Separator11;
         public ToolStripButton BackButton;
-        private ToolSeparator Separator12;
         public ToolStripButton RefreshDataButton;
-        private ToolSeparator Separator14;
         public ToolStripButton SaveButton;
-        private ToolSeparator toolSeparator13;
         public ToolStripButton DeleteTableButton;
-        private ToolSeparator Separator38;
         public ToolStripButton AddTableButton;
-        private ToolSeparator toolSeparator16;
-        private ToolSeparator toolSeparator17;
         public ToolStripButton EditSqlButton;
-        private ToolSeparator Separator18;
         public ToolStripButton ExcelButton;
-        private ToolSeparator Separator19;
         public ToolStripButton ChartButton;
-        private ToolSeparator Separator20;
         public ToolStripButton CalendarButton;
-        private ToolSeparator Separator21;
         public ToolStripButton CalculatorButton;
         private ToolSeparator Separator22;
-        public ToolSeparator Separator24;
+        public ToolSeparator CalculatorSeparator;
         public ToolStripButton BrowseButton;
         private ToolSeparator Separator23;
         public ToolStripButton MenuButton;
         private ToolSeparator Separator25;
-        private ToolSeparator Separator26;
         private ToolSeparator toolSeparator24;
         public ToolStripDropDown DropDown;
         public ToolStrip ToolStrip;
@@ -2632,18 +2622,14 @@
         public ToolStripButton ExitButton;
         public ToolStripButton GuidanceButton;
         public ToolStripButton ExcelImportButton;
-        public ToolSeparator Separator27;
-        public ToolSeparator Separator28;
-        public ToolSeparator Separator29;
+        public ToolSeparator BackSeparator;
+        public ToolSeparator MenuSeparator;
+        public ToolSeparator ExcelImportSeparator;
         public ToolStripButton WebButton;
-        private ToolSeparator toolSeparator1;
         public ToolStripButton GroupButton;
-        private ToolSeparator toolSeparator2;
-        private ToolSeparator toolSeparator3;
         public ToolStripDropDown ComboBox;
         private Button TestButton;
         public ToolStripButton RemoveFiltersButton;
-        private ToolSeparator Separator35;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public Layout layout1;
         public ListBox listBox1;
@@ -2658,19 +2644,15 @@
         public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
         public Layout TablePanel;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTabPage;
-        public System.Windows.Forms.TableLayoutPanel ThirdTable;
-        private ComboBox ThirdComboBox;
-        public Layout layout3;
-        public ListBox ThirdListBox;
         public System.Windows.Forms.TableLayoutPanel SecondTable;
         private ComboBox SecondComboBox;
-        public Layout layout4;
+        public Layout SecondListBoxPanel;
         public ListBox SecondListBox;
         public System.Windows.Forms.TableLayoutPanel FirstTable;
-        public Layout layout5;
+        public Layout FIrstListBoxPanel;
         public ListBox FirstListBox;
         private ComboBox FirstComboBox;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv FoldTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
         private System.Windows.Forms.TableLayoutPanel NumericTable;
         public Layout NumericsPanel;
         public ListBox listBox9;
@@ -2684,5 +2666,27 @@
         public System.Windows.Forms.TableLayoutPanel SourceTable;
         private System.Windows.Forms.TableLayoutPanel FilterTable;
         private ComboBox TableComboBox;
+        public System.Windows.Forms.TableLayoutPanel ThirdTable;
+        public Layout ThirdListBoxPanel;
+        public ListBox ThirdListBox;
+        private ComboBox ThirdComboBox;
+        public ToolSeparator DeleteRecordSeparator;
+        public ToolSeparator DeleteColumnSeparator;
+        public ToolSeparator RefreshDataSeparator;
+        public ToolSeparator SaveSeparator;
+        public ToolSeparator DeleteTableSeparator;
+        public ToolSeparator AddTableSeparator;
+        public ToolSeparator GroupSeparator;
+        public ToolSeparator ExcelSeparator;
+        public ToolSeparator EditSqlSeparator;
+        public ToolSeparator ChartSeparator;
+        public ToolSeparator CalendarSeparator;
+        public ToolSeparator GuidanceSeparator;
+        public ToolSeparator BrowseSeparator;
+        public ToolSeparator WebSeparator;
+        public ToolSeparator ComboBoxSeparator;
+        public ToolSeparator RemoveFiltersSeparator;
+        public ToolSeparator FirstSeparator;
+        public ToolSeparator TextBoxSeparator;
     }
 }

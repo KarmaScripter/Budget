@@ -22,8 +22,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dict">The data.</param>
         /// <param name="type">The type.</param>
-        /// <param name="stat">The stat.</param>
+        /// <param name="sum">The stat.</param>
         void SetPoints( IDictionary<string, double> dict,
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.Total );
+            ChartSeriesType type = ChartSeriesType.Column, STAT sum = STAT.SUM );
     }
 }

@@ -70,6 +70,11 @@ namespace BudgetExecution
         M,
 
         /// <summary>
+        /// The w
+        /// </summary>
+        W, 
+        
+        /// <summary>
         /// Defines the Y
         /// </summary>
         Y

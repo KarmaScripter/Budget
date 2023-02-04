@@ -15,12 +15,14 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Xml.Linq;
     using OfficeOpenXml;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public static class DataTableExtensions
     {
         /// <summary>
@@ -180,11 +182,11 @@ namespace BudgetExecution
                 if( dataTable?.Rows?.Count > 0
                    && dataTable.Columns?.Count > 0 )
                 {
+                    var _names = Enum.GetNames( typeof( Numeric ) );
                     foreach( DataColumn _column in dataTable.Columns )
                     {
                         if( !string.IsNullOrEmpty( _column.ColumnName )
-                           && Enum.GetNames( typeof( Numeric ) )?.Contains( _column?.ColumnName )
-                           == true )
+                           && _names?.Contains( _column?.ColumnName ) == true )
                         {
                             return true;
                         }
@@ -214,10 +216,10 @@ namespace BudgetExecution
                 if( dataTable?.Rows?.Count > 0
                    && dataTable.Columns?.Count > 0 )
                 {
+                    var _names = Enum.GetNames( typeof( PrimaryKey ) );
                     foreach( DataColumn _column in dataTable.Columns )
                     {
-                        if( Enum.GetNames( typeof( PrimaryKey ) )?.Contains( _column?.ColumnName )
-                           == true )
+                        if( _names?.Contains( _column?.ColumnName ) == true )
                         {
                             return true;
                         }
@@ -300,7 +302,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _list?.Any( ) == true
+                    return ( _list?.Any( ) == true )
                         ? _list
                         : default;
                 }
@@ -322,19 +324,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public static string[ ] GetUniqueFieldValues( this DataTable dataTable, string columnName )
         {
-            if( dataTable.Rows.Count > 0
-               && !string.IsNullOrEmpty( columnName )
-               && dataTable.Columns.Contains( columnName ) )
+            if( !string.IsNullOrEmpty( columnName )
+               && dataTable?.Columns?.Contains( columnName ) == true )
             {
                 try
                 {
                     var _enumerable = dataTable?.AsEnumerable( )
                         ?.Select( p => p.Field<string>( columnName ) )
                         ?.Distinct( );
-
-                    var _array = _enumerable as string[ ] ?? _enumerable?.ToArray( );
-                    return _array?.Any( ) == true
-                        ? _array
+                    
+                    return ( _enumerable?.Any( ) == true )
+                        ? _enumerable?.ToArray( )
                         : default;
                 }
                 catch( Exception ex )
@@ -356,13 +356,16 @@ namespace BudgetExecution
         public static IEnumerable<DataRow> Filter( this DataTable dataTable,
             IDictionary<string, object> dict )
         {
-            if( dataTable?.Columns.Count > 0
+            if( dataTable?.Columns?.Count > 0
                && dict?.Any( ) == true )
             {
                 try
                 {
-                    var _query = dataTable.Select( dict.ToCriteria( ) )?.ToList( );
-                    return _query?.Any( ) == true
+                    var _query = dataTable
+                        ?.Select( dict.ToCriteria( ) )
+                        ?.ToList( );
+                    
+                    return ( _query?.Any( ) == true )
                         ? _query
                         : default( IEnumerable<DataRow> );
                 }
@@ -391,11 +394,12 @@ namespace BudgetExecution
                     _fields[ i ] = dataTable.Columns[ i ].ColumnName;
                 }
 
-                var _names = _fields?.OrderBy( f => f.IndexOf( f ) )
+                var _names = _fields
+                    ?.OrderBy( f => f.IndexOf( f ) )
                     ?.Select( f => f )
                     ?.ToArray( );
                 
-                return _names?.Any( ) == true
+                return ( _names?.Any( ) == true )
                     ? _names
                     : default;
             }
@@ -416,12 +420,12 @@ namespace BudgetExecution
             try
             {
                 var _index = new Dictionary<string, int>( );
-                for( var i = 0; i < dataTable.Columns.Count; i++ )
+                for( var i = 0; i < dataTable?.Columns?.Count; i++ )
                 {
                     _index.Add( dataTable.Columns[ i ].ColumnName, i );
                 }
 
-                return _index.Count > 0
+                return ( _index.Count > 0 )
                     ? _index
                     : default( IDictionary<string, int> );
             }
@@ -439,7 +443,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static BindingList<DataRow> ToBindingList( this DataTable dataTable )
         {
-            if( dataTable?.Columns.Count > 0 )
+            if( dataTable?.Columns?.Count > 0 )
             {
                 try
                 {
@@ -449,7 +453,7 @@ namespace BudgetExecution
                         _bindingList.Add( row );
                     }
 
-                    return _bindingList?.Any( ) == true
+                    return ( _bindingList?.Any( ) == true )
                         ? _bindingList
                         : default;
                 }

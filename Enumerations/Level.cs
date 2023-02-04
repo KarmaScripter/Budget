@@ -25,25 +25,25 @@ namespace BudgetExecution
         Appropriation = 1,
 
         /// <summary>
+        /// The apportionment
+        /// </summary>
+        Apportionment = 2,
+        
+        /// <summary>
         /// The rpio
         /// </summary>
-        RPIO = 2,
+        RPIO = 3,
 
         /// <summary>
         /// The allowance holder
         /// </summary>
-        AllowanceHolder = 3,
+        AllowanceHolder = 4,
 
         /// <summary>
         /// The program area
         /// </summary>
-        ProgramArea = 4,
-
-        /// <summary>
-        /// The program project
-        /// </summary>
-        ProgramProject = 5,
-
+        ProgramArea = 5,
+        
         /// <summary>
         /// The program results code
         /// </summary>

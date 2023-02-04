@@ -327,6 +327,12 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
+                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    Text = $"{ SelectedTable.SplitPascal( ) }";
+                    Chart.Title.Text = string.Empty;
+                    Chart.ToolBar.Visible = false;
+                    LabelTable.Visible = true;
+                    PopulateFirstComboBoxItems(  );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -334,6 +340,11 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     FoldTabPage.TabVisible = false;
+                    LabelTable.Visible = false;
+                    PopulateTableListBoxItems( );
+                    Text = "Visualization";
+                    Chart.Title.Text = "Select Data Table";
+                    Chart.ToolBar.Visible = false;
                 }
 
                 FormFilter = new Dictionary<string, object>( );
@@ -346,18 +357,19 @@ namespace BudgetExecution
                 SecondTable.Visible = false;
                 ThirdTable.Visible = false;
                 PopulateToolBarDropDownItems( );
-                InitData(  );
                 BackButton.Click += OnExitButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
+                GroupButton.Click += OnGroupButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
+                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
             }
             catch ( Exception ex )
             {
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
@@ -371,7 +383,7 @@ namespace BudgetExecution
                     ToolStrip.Office12Mode = true;
                     ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
                     ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                    ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
+                    ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString( );
                 }
                 catch( Exception ex )
                 {
@@ -380,40 +392,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes the data.
-        /// </summary>
-        private void InitData( )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null 
-                   && !string.IsNullOrEmpty( SqlQuery ) )
-                {
-                    TabControl.SelectedTab = FilterTabPage;
-                    DataTable = (DataTable)BindingSource.DataSource;
-                    SelectedTable = DataTable.TableName;
-                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                    Text = $"{ Source.ToString( ).SplitPascal( ) }";
-                    Chart.Title.Text = string.Empty;
-                    PopulateFirstComboBoxItems(  );
-                }
-                else
-                {
-                    Chart.Title.Text = "Select Data Table";
-                    Text = "Visualization";
-                    Provider = Provider.Access;
-                    TabControl.SelectedTab = TableTabPage;
-                    TableTabPage.TabVisible = true;
-                    PopulateTableListBoxItems(  );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            } 
-        }
-        
         /// <summary>
         /// Binds the data source.
         /// </summary>
@@ -653,7 +631,10 @@ namespace BudgetExecution
             try
             {
                 Text = string.Empty;
-                FieldLabel.Text = string.Empty;
+                FirstHeaderLabel.Text = string.Empty;
+                SecondHeaderLabel.Text = string.Empty;
+                ThirdHeaderLabel.Text = string.Empty;
+                FourthHeaderLabel.Text = string.Empty;
                 NumericsLabel.Text = string.Empty;
             }
             catch( Exception ex )
@@ -669,10 +650,10 @@ namespace BudgetExecution
         {
             try
             {
-                DataSourceLabel.Text = string.Empty;
-                RecordLabel.Text = string.Empty;
-                FieldLabel.Text = string.Empty;
-                NumericLabel.Text = string.Empty;
+                FirstHeaderLabel.Text = string.Empty;
+                SecondHeaderLabel.Text = string.Empty;
+                ThirdHeaderLabel.Text = string.Empty;
+                FourthHeaderLabel.Text = string.Empty;
             }
             catch( Exception ex )
             {
@@ -689,9 +670,27 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
+                    Text = $"{ Provider } Database ";
+                    var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
+                    var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
+                    var _fields = Fields?.Count ?? 0;
+                    var _numerics = Numerics?.Count ?? 0;
+                    FirstHeaderLabel.Text = $"Source :  { _table }";
+                    SecondHeaderLabel.Text = $"Records : { _records } ";
+                    ThirdHeaderLabel.Text = $"Fields : { _fields } ";
+                    FourthHeaderLabel.Text = $"Measures : { _numerics } ";
+                    ThirdHeaderLabel.Text = $"Fields : { _fields } ";
+                    NumericsLabel.Text = $"Measures : { _numerics } ";
                 }
                 else
                 {
+                    Text = $"{ Provider } Database ";
+                    FirstHeaderLabel.Text = "Source :  ";
+                    SecondHeaderLabel.Text = "Records : ";
+                    ThirdHeaderLabel.Text = "Fields : ";
+                    FourthHeaderLabel.Text = "Measures : ";
+                    ThirdHeaderLabel.Text = "Fields : ";
+                    NumericsLabel.Text = "Measures : ";
                 }
             }
             catch( Exception ex )
@@ -958,6 +957,8 @@ namespace BudgetExecution
                     FoldTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     FilterTabPage.TabVisible = false;
+                    PopulateFieldListBox( );
+                    PopulateNumericListBox( );
                 }
             }
             catch( Exception ex )
@@ -1029,6 +1030,7 @@ namespace BudgetExecution
 
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
+                    UpdateLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -1094,6 +1096,7 @@ namespace BudgetExecution
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
+                    UpdateLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -1111,7 +1114,6 @@ namespace BudgetExecution
             try
             {
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
-
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns.Add( _selectedItem );
@@ -1132,7 +1134,6 @@ namespace BudgetExecution
             try
             {
                 var _selectedItem = NumericListBox.SelectedItem?.ToString( );
-
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns?.Add( _selectedItem );
@@ -1210,6 +1211,7 @@ namespace BudgetExecution
                     
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
+                    UpdateLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -1238,8 +1240,8 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
                         TabControl.SelectedTab = FilterTabPage;
-                        TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
@@ -1252,9 +1254,10 @@ namespace BudgetExecution
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
                         PopulateFirstComboBoxItems( );
+                        UpdateLabelText( );
+                        LabelTable.Visible = true;
                     }
-
-                    SetLabelText( );
+                    
                     if( FirstTable.Visible == false )
                     {
                         FirstTable.Visible = true;

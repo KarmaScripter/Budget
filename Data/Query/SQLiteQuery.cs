@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref = "Query"/>
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : Query
     {
         /// <summary>
@@ -63,11 +64,9 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source Data.</param>
-        /// <param name="provider">The provider used.</param>
         /// <param name="dict">The dictionary of parameters.</param>
         /// <param name="commandType">The type of sql command.</param>
-        public SQLiteQuery( Source source, IDictionary<string, object> dict,
-            SQL commandType )
+        public SQLiteQuery( Source source, IDictionary<string, object> dict, SQL commandType )
             : base( source, Provider.SQLite, dict, commandType )
         {
         }
@@ -76,7 +75,6 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
         /// <param name="updates"></param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
@@ -90,7 +88,6 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
         /// <param name="columns">The columns.</param>
         /// <param name="criteria">The criteria.</param>
         /// <param name="commandType">Type of the command.</param>
@@ -115,7 +112,6 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SQLiteQuery"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         public SQLiteQuery( Source source, string sqlText )
             : base( source, Provider.SQLite, sqlText )
@@ -301,7 +297,7 @@ namespace BudgetExecution
                     var _connection = _excelQuery.DataConnection as OleDbConnection;
                     _connection?.Open( );
                     var _table = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-                    if( _table?.Rows.Count > 0
+                    if( _table?.Rows.Count > 0 
                        && CheckIfSheetNameExists( sheetName, _table ) )
                     {
                         var _message = new Message( _msg );
@@ -445,18 +441,16 @@ namespace BudgetExecution
                                       [Value] VARCHAR(2048)  NULL )";
             
             using var _connection = new SQLiteConnection( "Data source=databaseFile.db" );
-            var _command = new SQLiteCommand( _connection );
+            var _cmd = new SQLiteCommand( _connection );
             _connection.Open( );
-            _command.CommandText = _commandText;
-            _command.ExecuteNonQuery( );
-            _command.CommandText = "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key one','value one' )";
-            _command.ExecuteNonQuery( );
-            _command.CommandText =
-                "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key two','value value' )";
-
-            _command.ExecuteNonQuery( );
-            _command.CommandText = "SELECT * FROM MyTable";
-            var _reader = _command.ExecuteReader( );
+            _cmd.CommandText = _commandText;
+            _cmd.ExecuteNonQuery( );
+            _cmd.CommandText = "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key one','value one' )";
+            _cmd.ExecuteNonQuery( );
+            _cmd.CommandText = "INSERT INTO MyTable ( Key,Value ) VALUES ( 'key two','value value' )";
+            _cmd.ExecuteNonQuery( );
+            _cmd.CommandText = "SELECT * FROM MyTable";
+            _cmd.ExecuteReader( );
             _connection.Close( );
         }
 

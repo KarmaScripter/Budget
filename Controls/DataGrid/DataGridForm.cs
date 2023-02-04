@@ -13,7 +13,7 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Diagram;
+    using Syncfusion.Windows.Forms.Tools;
     using FontStyle = System.Drawing.FontStyle;
 
     /// <summary>
@@ -223,7 +223,7 @@ namespace BudgetExecution
             TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            FoldTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             
             // ToolStrip Properties
             ToolStrip.Text = string.Empty;
@@ -251,6 +251,7 @@ namespace BudgetExecution
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
+            TabControl.TabIndexChanged += OnActiveTabChanged;
             TestButton.Click += OnTestButtonClicked;
             ExitButton.Click += null;
             BackButton.Click += null;
@@ -311,17 +312,19 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedTab = FilterTabPage;
+                    TabControl.SelectedIndex = 1;
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedTab = TableTabPage;
+                    TabControl.SelectedIndex = 0;
+                    TableComboBox.SelectedIndex = 0;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    PopulateExecutionTables( );
                 }
 
                 FormFilter = new Dictionary<string, object>( );
@@ -844,6 +847,35 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the maintenance tables.
+        /// </summary>
+        private void PopulateMaintenanceTables( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData(  );
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( dr => dr.Field<string>( "Title" ) )
+                    ?.ToList(  );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var name in _names )
+                    {
+                        TableListBox.Items?.Add( name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
         /// Populates the execution tables.
         /// </summary>
         private void PopulateExecutionTables( )
@@ -896,10 +928,10 @@ namespace BudgetExecution
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
-                        TabControl.SelectedTab = FilterTabPage;
+                        TabControl.SelectedIndex = 1;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
-                        FoldTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
                     }
 
                     ClearLabelText( );
@@ -939,7 +971,6 @@ namespace BudgetExecution
                 try
                 {
                     var _type = _tableComboBox.SelectedItem.ToString( );
-
                     switch( _type?.ToUpper( ) )
                     {
                         case "EXECUTION":
@@ -950,6 +981,11 @@ namespace BudgetExecution
                         case "REFERENCE":
                         {
                             PopulateReferenceTables( );
+                            break;
+                        }
+                        case "MAINTENANCE":
+                        {
+                            PopulateMaintenanceTables( );
                             break;
                         }
                         default:
@@ -1313,6 +1349,111 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is TabControl tabControl )
+                {
+                    switch( tabControl.SelectedIndex )
+                    {
+                        case 0:
+                        {
+                            // TabPage Visibility
+                            TableTabPage.TabVisible = true;
+                            FilterTabPage.TabVisible = false;
+                            GroupTabPage.TabVisible = false;
+                            
+                            // ToolStrip Button Visibility
+                            EditRecordButton.Visible = false;
+                            EditRecordSeparator.Visible = false;
+                            EditColumnButton.Visible = false;
+                            EditColumnSeparator.Visible = false;
+                            DeleteRecordButton.Visible = false;
+                            DeleteRecordSeparator.Visible = false;
+                            DeleteColumnButton.Visible = false;
+                            DeleteColumnSeparator.Visible = false;
+                            SaveButton.Visible = false;
+                            SaveSeparator.Visible = false;
+                            break;
+                        }
+                        case 1:
+                        {
+                            // TabPage Visibility
+                            FilterTabPage.TabVisible = true;
+                            TableTabPage.TabVisible = false;
+                            GroupTabPage.TabVisible = false;
+
+                            // ToolStrip Button Visibility
+                            EditRecordButton.Visible = true;
+                            EditRecordSeparator.Visible = true;
+                            EditColumnButton.Visible = true;
+                            EditColumnSeparator.Visible = true;
+                            DeleteRecordButton.Visible = true;
+                            DeleteRecordSeparator.Visible = true;
+                            DeleteColumnButton.Visible = true;
+                            DeleteColumnSeparator.Visible = true;
+                            SaveButton.Visible = true;
+                            SaveSeparator.Visible = true;
+                            break;
+                        }
+                        case 2:
+                        {
+                            // TabPage Visibility
+                            GroupTabPage.TabVisible = true;
+                            TableTabPage.TabVisible = false;
+                            FilterTabPage.TabVisible = false;
+
+                            // ToolStrip Button Visibility
+                            EditRecordButton.Visible = false;
+                            EditRecordSeparator.Visible = false;
+                            EditColumnButton.Visible = false;
+                            EditColumnSeparator.Visible = false;
+                            DeleteRecordButton.Visible = false;
+                            DeleteRecordSeparator.Visible = false;
+                            DeleteColumnButton.Visible = false;
+                            DeleteColumnSeparator.Visible = false;
+                            SaveButton.Visible = false;
+                            SaveSeparator.Visible = false;
+                            break;
+                        }
+                        default:
+                        {
+                            // TabPage Visibility
+                            TableTabPage.TabVisible = true;
+                            FilterTabPage.TabVisible = false;
+                            GroupTabPage.TabVisible = false;
+
+                            // ToolStrip Button Visibility
+                            EditRecordButton.Visible = true;
+                            EditRecordSeparator.Visible = true;
+                            EditColumnButton.Visible = true;
+                            EditColumnSeparator.Visible = true;
+                            DeleteRecordButton.Visible = true;
+                            DeleteRecordSeparator.Visible = true;
+                            DeleteColumnButton.Visible = true;
+                            DeleteColumnSeparator.Visible = true;
+                            SaveButton.Visible = true;
+                            SaveSeparator.Visible = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
         
         /// <summary>
         /// Called when [fold button clicked].
@@ -1326,8 +1467,8 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.GroupButton )
                 {
-                    TabControl.SelectedTab = FoldTabPage;
-                    FoldTabPage.TabVisible = true;
+                    TabControl.SelectedTab = GroupTabPage;
+                    GroupTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     TableTabPage.TabVisible = false;
                     PopulateFieldListBox( );
@@ -1361,7 +1502,7 @@ namespace BudgetExecution
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                 }
             }
             catch( Exception ex )
@@ -1495,7 +1636,7 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     TableTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
                     PopulateFirstComboBoxItems( );

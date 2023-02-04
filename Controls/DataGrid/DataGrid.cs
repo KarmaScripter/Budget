@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Diagnostics.Eventing.Reader;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
@@ -167,8 +166,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRows">The data.</param>
         /// <param name="dict">The dictionary.</param>
-        public void SetBindingSource( IEnumerable<DataRow> dataRows,
-            IDictionary<string, object> dict )
+        public void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict )
         {
             if( dataRows?.Any( ) == true
                && dict?.Any( ) == true )
@@ -195,25 +193,22 @@ namespace BudgetExecution
         /// <summary>
         /// Pascalizes the headers.
         /// </summary>
-        /// <param name="dataRows">The data.</param>
         public void PascalizeHeaders( )
         {
             try
             {
-                var _dataTable = (DataTable)BindingSource.DataSource;
-                if( _dataTable?.Columns?.Count > 0 )
+                if( BindingSource.DataSource != null )
                 {
-                    var _count = _dataTable.Columns.Count;
-                    var _columns = _dataTable.Columns;
-                    for( var i = 0; i < _count; i++ )
+                    var _dataTable = (DataTable)BindingSource.DataSource;
+                    if( _dataTable?.Columns?.Count > 0 )
                     {
-                        if( !string.IsNullOrEmpty( _columns[ i ].Caption ) ) 
+                        var _count = _dataTable.Columns.Count;
+                        var _cols = _dataTable.Columns;
+                        for( var i = 0; i < _count; i++ )
                         {
-                            Columns[ i ].HeaderText = _columns[ i ].Caption;
-                        }
-                        else
-                        {
-                            Columns[ i ].HeaderText = _columns[ i ]?.ColumnName?.SplitPascal( );
+                            Columns[ i ].HeaderText = !string.IsNullOrEmpty( _cols[ i ].Caption )
+                                ? _cols[ i ].Caption
+                                : _cols[ i ]?.ColumnName?.SplitPascal( );
                         }
                     }
                 }
@@ -239,7 +234,7 @@ namespace BudgetExecution
                         var _vals = string.Empty;
                         foreach( var _kvp in dict )
                         {
-                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
+                            _vals += $"{ _kvp.Key } = '{ _kvp.Value }' AND ";
                         }
 
                         return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
@@ -294,8 +289,9 @@ namespace BudgetExecution
                     var _columnConfiguration = new ColumnConfiguration( this );
                     _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
                     _columnConfiguration.ColumnListBox?.Items?.Clear( );
-                    foreach( DataGridViewColumn c in Columns )
+                    for( var _i = 0; _i < Columns.Count; _i++ )
                     {
+                        var c = Columns[ _i ];
                         _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
                     }
 

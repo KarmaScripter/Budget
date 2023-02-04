@@ -17,31 +17,31 @@ namespace BudgetExecution
         /// <summary>
         /// Defines the Total
         /// </summary>
-        Total = 1,
+        SUM = 1,
 
         /// <summary>
         /// Defines the Count
         /// </summary>
-        Count = 2,
+        NUM = 2,
 
         /// <summary>
         /// Defines the Average
         /// </summary>
-        Average = 3,
+        AVE = 3,
 
         /// <summary>
         /// Defines the Percentage
         /// </summary>
-        Percentage = 4,
+        PCT = 4,
 
         /// <summary>
         /// The standard deviation
         /// </summary>
-        StandardDeviation = 5,
+        DEV = 5,
 
         /// <summary>
         /// The variance
         /// </summary>
-        Variance = 6
+        VAR = 6
     }
 }
