@@ -15,11 +15,11 @@ CREATE TABLE IF NOT EXISTS "GrossUtilization"
 	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS', 
 	"BocCode"	TEXT(80) NULL DEFAULT 'NS', 
 	"BocName"	TEXT(80) NULL DEFAULT 'NS', 
-	"Committed"	REAL NULL DEFAULT 0.0,
-	"Obligated"	REAL NULL DEFAULT 0.0,
-	"Unliquidated"	REAL NULL DEFAULT 0.0,
-	"Utilization" REAL NULL DEFAULT 0.0,
-	"Availability"	REAL NULL DEFAULT 0.0,
-	"Outlaid" REAL NULL DEFAULT 0.0,
+	"Committed"	DOUBLE NULL DEFAULT 0.0,
+	"Obligated"	DOUBLE NULL DEFAULT 0.0,
+	"Unliquidated"	DOUBLE NULL DEFAULT 0.0,
+	"Utilization" DOUBLE NULL DEFAULT 0.0,
+	"Availability"	DOUBLE NULL DEFAULT 0.0,
+	"Outlaid" DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY("GrossUtilizationId" AUTOINCREMENT)
 );

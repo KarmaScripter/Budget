@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS "UnobligatedAuthority"
 	"OmbAccountTitle"	TEXT(80) NULL DEFAULT 'NS',
 	"LineName"	TEXT(80) NULL DEFAULT 'NS',
 	"LineNumber"	TEXT(80) NULL DEFAULT 'NS',
-	"PriorYearAmount"	DECIMAL NULL DEFAULT 0,
-	"CurrentYearAmount"	DECIMAL NULL DEFAULT 0,
-	"BudgetYearAmount"	DECIMAL NULL DEFAULT 0,
+	"PriorYearAmount"	DOUBLE NULL DEFAULT 0.0,
+	"CurrentYearAmount"	DOUBLE NULL DEFAULT 0.0,
+	"BudgetYearAmount"	DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY("UnobligatedAuthorityId" AUTOINCREMENT)
 );

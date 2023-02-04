@@ -30,9 +30,19 @@ namespace BudgetExecution
         B3,
 
         /// <summary>
+        /// The b4
+        /// </summary>
+        B4,
+
+        /// <summary>
         /// The b5
         /// </summary>
         B5,
+
+        /// <summary>
+        /// The b8
+        /// </summary>
+        B8,
 
         /// <summary>
         /// The b9
@@ -70,9 +80,29 @@ namespace BudgetExecution
         BR7,
 
         /// <summary>
+        /// The b r8
+        /// </summary>
+        BR8,
+
+        /// <summary>
+        /// The BRS
+        /// </summary>
+        BRS,
+
+        /// <summary>
         /// The BRX
         /// </summary>
         BRX,
+
+        /// <summary>
+        /// The bs
+        /// </summary>
+        BS,
+
+        /// <summary>
+        /// The b s1
+        /// </summary>
+        BS1,
 
         /// <summary>
         /// The b s2
@@ -125,9 +155,34 @@ namespace BudgetExecution
         BSDE4,
 
         /// <summary>
+        /// The BSD r3
+        /// </summary>
+        BSDR3,
+
+        /// <summary>
         /// The BSDW
         /// </summary>
         BSDW,
+
+        /// <summary>
+        /// The bs f5
+        /// </summary>
+        BSF5,
+
+        /// <summary>
+        /// The bs f5 a
+        /// </summary>
+        BSF5A,
+
+        /// <summary>
+        /// The BSFX
+        /// </summary>
+        BSFX,
+
+        /// <summary>
+        /// The bsfxa
+        /// </summary>
+        BSFXA,
 
         /// <summary>
         /// The bt
@@ -175,6 +230,11 @@ namespace BudgetExecution
         C4,
 
         /// <summary>
+        /// The c5
+        /// </summary>
+        C5,
+
+        /// <summary>
         /// The c9
         /// </summary>
         C9,
@@ -193,6 +253,16 @@ namespace BudgetExecution
         /// The c r3
         /// </summary>
         CR3,
+
+        /// <summary>
+        /// The CRR
+        /// </summary>
+        CRR,
+
+        /// <summary>
+        /// The CRS
+        /// </summary>
+        CRS,
 
         /// <summary>
         /// The CRX
@@ -233,6 +303,11 @@ namespace BudgetExecution
         /// The CSD e4
         /// </summary>
         CSDE4,
+
+        /// <summary>
+        /// The CSFX
+        /// </summary>
+        CSFX,
 
         /// <summary>
         /// The d
@@ -300,6 +375,46 @@ namespace BudgetExecution
         E1SDA,
 
         /// <summary>
+        /// The e1 s f3
+        /// </summary>
+        E1SF3,
+
+        /// <summary>
+        /// The e1 s f5
+        /// </summary>
+        E1SF5,
+
+        /// <summary>
+        /// The e1 s f5 a
+        /// </summary>
+        E1SF5A,
+
+        /// <summary>
+        /// The e1 s f7
+        /// </summary>
+        E1SF7,
+
+        /// <summary>
+        /// The e1 SFX
+        /// </summary>
+        E1SFX,
+
+        /// <summary>
+        /// The e1 sfxa
+        /// </summary>
+        E1SFXA,
+
+        /// <summary>
+        /// The e1 s j9
+        /// </summary>
+        E1SJ9,
+
+        /// <summary>
+        /// The e1 s j9 a
+        /// </summary>
+        E1SJ9A,
+
+        /// <summary>
         /// The e2
         /// </summary>
         E2,
@@ -313,6 +428,11 @@ namespace BudgetExecution
         /// The e2 d
         /// </summary>
         E2D,
+
+        /// <summary>
+        /// The e2 s
+        /// </summary>
+        E2S,
 
         /// <summary>
         /// The e2 s2
@@ -335,6 +455,16 @@ namespace BudgetExecution
         E2SDA,
 
         /// <summary>
+        /// The e2 s h9
+        /// </summary>
+        E2SH9,
+
+        /// <summary>
+        /// The e2 s h9 a
+        /// </summary>
+        E2SH9A,
+
+        /// <summary>
         /// The e3
         /// </summary>
         E3,
@@ -348,6 +478,11 @@ namespace BudgetExecution
         /// The e3 d
         /// </summary>
         E3D,
+
+        /// <summary>
+        /// The e3 s
+        /// </summary>
+        E3S,
 
         /// <summary>
         /// The e3 s2
@@ -370,9 +505,34 @@ namespace BudgetExecution
         E3SDA,
 
         /// <summary>
+        /// The e3 s h9
+        /// </summary>
+        E3SH9,
+
+        /// <summary>
+        /// The e3 s h9 a
+        /// </summary>
+        E3SH9A,
+
+        /// <summary>
+        /// The e3 s j9
+        /// </summary>
+        E3SJ9,
+
+        /// <summary>
+        /// The e3 s j9 a
+        /// </summary>
+        E3SJ9A,
+
+        /// <summary>
         /// The e4
         /// </summary>
         E4,
+
+        /// <summary>
+        /// The e4 a
+        /// </summary>
+        E4A,
 
         /// <summary>
         /// The e4 c
@@ -383,6 +543,11 @@ namespace BudgetExecution
         /// The e4 d
         /// </summary>
         E4D,
+
+        /// <summary>
+        /// The e4 s
+        /// </summary>
+        E4S,
 
         /// <summary>
         /// The e4 s5
@@ -405,9 +570,49 @@ namespace BudgetExecution
         E4SDA,
 
         /// <summary>
+        /// The e4 s f5
+        /// </summary>
+        E4SF5,
+
+        /// <summary>
+        /// The e4 s f5 a
+        /// </summary>
+        E4SF5A,
+
+        /// <summary>
+        /// The e4 s f6
+        /// </summary>
+        E4SF6,
+
+        /// <summary>
+        /// The e4 s f6 a
+        /// </summary>
+        E4SF6A,
+
+        /// <summary>
+        /// The e4 SFX
+        /// </summary>
+        E4SFX,
+
+        /// <summary>
+        /// The e4 sfxa
+        /// </summary>
+        E4SFXA,
+
+        /// <summary>
+        /// The e5
+        /// </summary>
+        E5,
+
+        /// <summary>
         /// The e5 c
         /// </summary>
         E5C,
+
+        /// <summary>
+        /// The e71
+        /// </summary>
+        E71,
 
         /// <summary>
         /// The e7 x
@@ -464,10 +669,21 @@ namespace BudgetExecution
         /// </summary>
         FD,
 
+
         /// <summary>
         /// The f r3
         /// </summary>
         FR3,
+
+        /// <summary>
+        /// The fs
+        /// </summary>
+        FS,
+
+        /// <summary>
+        /// The f s1
+        /// </summary>
+        FS1,
 
         /// <summary>
         /// The f s2
@@ -483,6 +699,71 @@ namespace BudgetExecution
         /// The f s4
         /// </summary>
         FS4,
+
+        /// <summary>
+        /// The fs h9
+        /// </summary>
+        FSH9,
+
+        /// <summary>
+        /// The g7 a
+        /// </summary>
+        G7A,
+
+        /// <summary>
+        /// The g7 b
+        /// </summary>
+        G7B,
+
+        /// <summary>
+        /// The g7 d
+        /// </summary>
+        G7D,
+
+        /// <summary>
+        /// The g b1
+        /// </summary>
+        GB1,
+
+        /// <summary>
+        /// The g h1
+        /// </summary>
+        GH1,
+
+        /// <summary>
+        /// The GHS
+        /// </summary>
+        GHS,
+
+        /// <summary>
+        /// The g m1
+        /// </summary>
+        GM1,
+
+        /// <summary>
+        /// The g t1
+        /// </summary>
+        GT1,
+
+        /// <summary>
+        /// The gva
+        /// </summary>
+        GVA,
+
+        /// <summary>
+        /// The GWR
+        /// </summary>
+        GWR,
+
+        /// <summary>
+        /// The gxa
+        /// </summary>
+        GXA,
+
+        /// <summary>
+        /// The gza
+        /// </summary>
+        GZA,
 
         /// <summary>
         /// The GZZ
@@ -510,14 +791,29 @@ namespace BudgetExecution
         HR,
 
         /// <summary>
+        /// The HSCR
+        /// </summary>
+        HSCR,
+
+        /// <summary>
         /// The HSC R68
         /// </summary>
         HSCR68,
 
         /// <summary>
+        /// The hseq
+        /// </summary>
+        HSEQ,
+
+        /// <summary>
         /// The hse Q68
         /// </summary>
         HSEQ68,
+
+        /// <summary>
+        /// The HSFP
+        /// </summary>
+        HSFP,
 
         /// <summary>
         /// The HSF P68
@@ -540,6 +836,11 @@ namespace BudgetExecution
         HSSAB,
 
         /// <summary>
+        /// The hsxi
+        /// </summary>
+        HSXI,
+
+        /// <summary>
         /// The HSX i68
         /// </summary>
         HSXI68,
@@ -550,9 +851,24 @@ namespace BudgetExecution
         IMPFUN,
 
         /// <summary>
+        /// The lr
+        /// </summary>
+        LR,
+
+        /// <summary>
         /// The lt
         /// </summary>
         LT,
+
+        /// <summary>
+        /// The lustcr
+        /// </summary>
+        LUSTCR,
+
+        /// <summary>
+        /// The lustfp
+        /// </summary>
+        LUSTFP,
 
         /// <summary>
         /// The m
@@ -595,6 +911,16 @@ namespace BudgetExecution
         NR,
 
         /// <summary>
+        /// The n r1
+        /// </summary>
+        NR1,
+
+        /// <summary>
+        /// The ns
+        /// </summary>
+        NS,
+
+        /// <summary>
         /// The NSDB
         /// </summary>
         NSDB,
@@ -630,6 +956,11 @@ namespace BudgetExecution
         NSDT,
 
         /// <summary>
+        /// The otaf
+        /// </summary>
+        OTAF,
+
+        /// <summary>
         /// The p
         /// </summary>
         P,
@@ -638,6 +969,11 @@ namespace BudgetExecution
         /// The p1
         /// </summary>
         P1,
+
+        /// <summary>
+        /// The pc
+        /// </summary>
+        PC,
 
         /// <summary>
         /// The S589
@@ -665,6 +1001,11 @@ namespace BudgetExecution
         T4,
 
         /// <summary>
+        /// The t4 d
+        /// </summary>
+        T4D,
+
+        /// <summary>
         /// The t9
         /// </summary>
         T9,
@@ -673,6 +1014,11 @@ namespace BudgetExecution
         /// The tc
         /// </summary>
         TC,
+
+        /// <summary>
+        /// The TCD
+        /// </summary>
+        TCD,
 
         /// <summary>
         /// The td
@@ -705,9 +1051,24 @@ namespace BudgetExecution
         TR2B,
 
         /// <summary>
+        /// The t r2 d
+        /// </summary>
+        TR2D,
+
+        /// <summary>
         /// The t r3
         /// </summary>
         TR3,
+
+        /// <summary>
+        /// The TRS
+        /// </summary>
+        TRS,
+
+        /// <summary>
+        /// The ts
+        /// </summary>
+        TS,
 
         /// <summary>
         /// The t s2
@@ -728,6 +1089,11 @@ namespace BudgetExecution
         /// The TSD
         /// </summary>
         TSD,
+
+        /// <summary>
+        /// The tt
+        /// </summary>
+        TT,
 
         /// <summary>
         /// The wf
@@ -775,6 +1141,11 @@ namespace BudgetExecution
         WFL,
 
         /// <summary>
+        /// The WFM
+        /// </summary>
+        WFM,
+
+        /// <summary>
         /// The wr
         /// </summary>
         WR,
@@ -783,6 +1154,11 @@ namespace BudgetExecution
         /// The w r1
         /// </summary>
         WR1,
+
+        /// <summary>
+        /// The X0104
+        /// </summary>
+        X0104,
 
         /// <summary>
         /// The y
@@ -825,6 +1201,11 @@ namespace BudgetExecution
         ZF,
 
         /// <summary>
+        /// The ZFS
+        /// </summary>
+        ZFS,
+
+        /// <summary>
         /// The zg
         /// </summary>
         ZG,
@@ -832,6 +1213,16 @@ namespace BudgetExecution
         /// <summary>
         /// The zl
         /// </summary>
-        ZL
+        ZL,
+
+        /// <summary>
+        /// The ZTS
+        /// </summary>
+        ZTS,
+
+        /// <summary>
+        /// The zya
+        /// </summary>
+        ZYA
     }
 }

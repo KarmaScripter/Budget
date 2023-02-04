@@ -21,6 +21,6 @@ CREATE TABLE IF NOT EXISTS "Apportionments"
 	"LineNumber"	TEXT(80) NULL DEFAULT 'NS'
 	"LineSort"	TEXT(80) NULL DEFAULT 'NS'
 	"LineDescription"	TEXT(80) NULL DEFAULT 'NS'
-	"Amount"	DECIMAL NULL DEFAULT 0,
+	"Amount"	DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY("ApportionmentsId" AUTOINCREMENT)
 );

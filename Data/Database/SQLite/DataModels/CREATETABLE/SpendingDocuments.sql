@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS "SpendingDocuments"
 	"BocName"	TEXT(80) NULL DEFAULT 'NS',
 	"OriginalActionDate"	TEXT(80) NULL DEFAULT 'NS',
 	"LastActionDate"	TEXT(80) NULL DEFAULT 'NS',
-	"Commitments"	REAL NULL DEFAULT 0.0,
-	"Obligations"	REAL NULL DEFAULT 0.0,
-	"Deobligations"	REAL NULL DEFAULT 0.0,
-	"UnliqudatedObligations"	REAL NULL DEFAULT 0.0,
+	"Commitments"	DOUBLE NULL DEFAULT 0.0,
+	"Obligations"	DOUBLE NULL DEFAULT 0.0,
+	"Deobligations"	DOUBLE NULL DEFAULT 0.0,
+	"UnliqudatedObligations"	DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY("SpendingDocumentsId" AUTOINCREMENT)
 );

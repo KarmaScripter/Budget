@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS "BudgetDocuments"
 	"ExpenseControls"	TEXT(80) NULL DEFAULT 'NS'
 	"AccrualControls"	TEXT(80) NULL DEFAULT 'NS'
 	"ReimbursementControls"	TEXT(80) NULL DEFAULT 'NS'
-	"Budgeted"	DECIMAL NULL DEFAULT 0,
-	"Posted"	DECIMAL NULL DEFAULT 0,
-	"CarryOut"	DECIMAL NULL DEFAULT 0,
-	"CarryIn"	DECIMAL NULL DEFAULT 0,
-	"EstimatedRecoveries"	DECIMAL NULL DEFAULT 0,
-	"EstimatedReimbursements"	DECIMAL NULL DEFAULT 0,
+	"Budgeted"	DOUBLE NULL DEFAULT 0.0,
+	"Posted"	DOUBLE NULL DEFAULT 0.0,
+	"CarryOut"	DOUBLE NULL DEFAULT 0.0,
+	"CarryIn"	DOUBLE NULL DEFAULT 0.0,
+	"EstimatedRecoveries"	DOUBLE NULL DEFAULT 0.0,
+	"EstimatedReimbursements"	DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY("BudgetDocumentsId" AUTOINCREMENT)
 );
