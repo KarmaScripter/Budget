@@ -24,6 +24,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
     {
         /// <summary>
@@ -40,7 +41,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -320,28 +321,7 @@ namespace BudgetExecution
             CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
-        /// </summary>
-        /// <param name="fy">The fy.</param>
-        public BudgetFiscalYear( BFY fy )
-        {
-            Record = new DataBuilder( Source, Provider.SQLite, SetArgs( fy ) )?.Record;
-            ID = GetId( Record, PrimaryKey.FiscalYearsId );
-            FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
-            LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
-            Availability = Record[ $"{ Field.Availability }" ].ToString( );
-            WorkDays = double.Parse( Record[ $"{ Field.WorkDays }" ].ToString( ) );
-            WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
-            WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
-            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
-            Holidays = new HolidayFactory( Record );
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
         /// </summary>
@@ -384,7 +364,7 @@ namespace BudgetExecution
                 _holidays.Add( Holiday.Columbus, _day.ColumbusDay );
                 _holidays.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
                 _holidays.Add( Holiday.Christmas, _day.ChristmasDay );
-                return ( _holidays.Any( ) == true )
+                return ( _holidays?.Any( ) == true )
                     ? _holidays
                     : default( IDictionary<Holiday, DateOnly> );
             }

@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The ID.
         /// </value>
-        public virtual int ID { get; set; }
+        public  override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -258,7 +258,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the Source.
         /// </value>
-        public virtual Source Source { get; set; }
+        public  override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Provider.
@@ -274,7 +274,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public virtual IDictionary<string, object> Data { get; set; }
+        public  override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PRC"/> class.

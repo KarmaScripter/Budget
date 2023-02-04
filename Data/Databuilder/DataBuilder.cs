@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
 
     /// <summary> </summary>
@@ -269,12 +270,43 @@ namespace BudgetExecution
         /// <returns></returns>
         public static Provider GetProvider( string provider )
         {
-            if( !string.IsNullOrEmpty( provider ) 
-               && Enum.IsDefined( typeof( Provider ), provider ) )
+            if( !string.IsNullOrEmpty( provider ) )
             {
                 try
                 {
-                    return (Provider)Enum.Parse( typeof( Provider ), provider );
+                    if( Enum.IsDefined( typeof( Provider ), provider ) )
+                    {
+                        return (Provider)Enum.Parse( typeof( Provider ), provider );
+                    }
+                    else if( Path.HasExtension( provider ) )
+                    {
+                        var _path = Path.GetExtension( provider );
+                        var _ext = (EXT)Enum.Parse( typeof( EXT ), _path );
+                        switch( _ext )
+                        {
+                            case EXT.MDB:
+                            case EXT.ACCDB:
+                            {
+                                return Provider.Access;
+                            }
+                            case EXT.SDF:
+                            {
+                                return Provider.SqlCe;
+                            }
+                            case EXT.MDF:
+                            {
+                                return Provider.SqlServer;
+                            }
+                            case EXT.DB:
+                            {
+                                return Provider.SQLite;
+                            }
+                            default:
+                            {
+                                return Provider.Access;
+                            }
+                        }
+                    }
                 }
                 catch( Exception ex )
                 {

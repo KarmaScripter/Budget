@@ -276,7 +276,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public string NpmCode { get; set; }
+        public override string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the NPM.
@@ -284,7 +284,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public string NpmName { get; set; }
+        public override string NpmName { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -316,7 +316,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Defacto"/> class.

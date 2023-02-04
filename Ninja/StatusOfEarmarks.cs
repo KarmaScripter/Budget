@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -276,7 +276,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public string NpmName { get; set; }
+        public override string NpmName { get; set; }
 
         /// <summary>
         /// Gets or sets the source.

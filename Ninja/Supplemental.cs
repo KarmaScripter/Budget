@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public string RpioName { get; set; }
+        public override string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public string AhName { get; set; }
+        public override string AhName { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public string OrgName { get; set; }
+        public override string OrgName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public string BocName { get; set; }
+        public override string BocName { get; set; }
 
         /// <summary>
         /// Gets or sets the activity code.
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public override string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -190,7 +190,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public string ProgramAreaName { get; set; }
+        public override string ProgramAreaName { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -206,7 +206,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rc.
         /// </value>
-        public string RcName { get; set; }
+        public override string RcName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the lower.
@@ -286,7 +286,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public string NpmCode { get; set; }
+        public override string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the NPM.
@@ -294,7 +294,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public string NpmName { get; set; }
+        public override string NpmName { get; set; }
         
         /// <summary>
         /// Gets or sets the type.

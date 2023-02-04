@@ -117,6 +117,27 @@ namespace BudgetExecution
             }
         }
 
+        public static void OpenPdfDocument( )
+        {
+            try
+            {
+                var _app = ConfigurationManager.AppSettings[ "Reports" ];
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+
+                if( !string.IsNullOrEmpty( _app ) )
+                {
+                    _startInfo.FileName = _app;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
@@ -118,8 +117,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IEnumerable<Tile> );
             }
-
-            return default( IEnumerable<Tile> );
         }
         
         /// <summary>

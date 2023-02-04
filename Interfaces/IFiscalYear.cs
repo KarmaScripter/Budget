@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        BFY BFY { get; set; }
+        string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal year identifier.
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if this instance is current; otherwise, <c>false</c>.
         /// </returns>
-        bool IsCurrent();
+        bool IsCurrent( );
 
         /// <summary>
         /// Determines whether this instance is carryover.
@@ -106,6 +106,6 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if this instance is carryover; otherwise, <c>false</c>.
         /// </returns>
-        bool IsCarryover();
+        bool IsCarryover( );
     }
 }

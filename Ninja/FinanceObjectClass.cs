@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Gets or sets the category.

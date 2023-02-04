@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public string NpmCode { get; set; }
+        public override string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -311,7 +311,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Transfer"/> class.

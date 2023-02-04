@@ -15,13 +15,18 @@ namespace BudgetExecution
         NS = 0,
 
         /// <summary>
-        /// Defines the Current
+        /// Defines the current year
         /// </summary>
         Current = 1,
 
         /// <summary>
-        /// Defines the CarryOver
+        /// Defines the prior year
         /// </summary>
-        CarryOver = 2
+        Prior = 2,
+
+        /// <summary>
+        /// The budget year
+        /// </summary>
+        Budget = 3
     }
 }

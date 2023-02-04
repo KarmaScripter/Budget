@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The ID.
         /// </value>
-        public virtual int ID { get; set; }
+        public  override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.

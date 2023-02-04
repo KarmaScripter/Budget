@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual BFY BFY { get; set; }
+        public virtual string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal year identifier.
@@ -118,7 +118,7 @@ namespace BudgetExecution
         {
             try
             {
-                return BFY != 0 && BFY == BFY.Current;
+                return BFY == CurrentYear.ToString( );
             }
             catch( Exception ex )
             {
@@ -144,8 +144,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var bfy = new Dictionary<string, object> { [ $"{Field.BBFY}" ] = year };
-                    return bfy.Any( )
+                    var bfy = new Dictionary<string, object> { [ $"{ Field.BBFY }" ] = year };
+                    return bfy?.Any( ) == true
                         ? bfy
                         : default( Dictionary<string, object> );
                 }
@@ -158,53 +158,7 @@ namespace BudgetExecution
 
             return default( IDictionary<string, object> );
         }
-
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name = "bfy" >
-        /// The bfy.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private protected IDictionary<string, object> SetArgs( BFY bfy )
-        {
-            if( Enum.IsDefined( typeof( BFY ), bfy ) )
-            {
-                try
-                {
-                    var _year = new Dictionary<string, object>( );
-
-                    switch( bfy )
-                    {
-                        case BFY.Current:
-                        {
-                            _year?.Add( $"{Field.BBFY}", CurrentYear.ToString( ) );
-                            _year?.Add( $"{Field.EBFY}", ( CurrentYear + 1 ).ToString( ) );
-                            return _year.Any( )
-                                ? _year
-                                : default( Dictionary<string, object> );
-                        }
-                        case BFY.CarryOver:
-                        {
-                            _year?.Add( $"{Field.BBFY}", ( CurrentYear - 1 ).ToString( ) );
-                            _year?.Add( $"{Field.EBFY}", CurrentYear.ToString( ) );
-                            return _year?.Any( ) == true
-                                ? _year
-                                : default( Dictionary<string, object> );
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
-        }
-
+        
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
@@ -214,7 +168,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Record != null
+                return Record?.ItemArray?.Length > 0 
                     ? Record.ToDictionary( )
                     : default( IDictionary<string, object> );
             }

@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rc.
         /// </value>
-        public string RcName { get; set; }
+        public override string RcName { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -156,7 +156,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReimbursableFund"/> class.

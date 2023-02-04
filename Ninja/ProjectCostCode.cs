@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public string RpioName { get; set; }
+        public override string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public string AhName { get; set; }
+        public override string AhName { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public override string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public string BocName { get; set; }
+        public override string BocName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -125,7 +125,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public string OrgName { get; set; }
+        public override string OrgName { get; set; }
 
         /// <summary>
         /// Gets or sets the vendor code.
@@ -165,7 +165,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectCostCode"/> class.

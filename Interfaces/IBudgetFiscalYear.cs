@@ -19,7 +19,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        BFY BFY { get; set; }
+        string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal year identifier.
@@ -114,13 +114,13 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </returns>
-        bool IsCurrent();
+        bool IsCurrent( );
 
         /// <summary>
         /// Gets the federal holidays.
         /// </summary>
         /// <returns>
         /// </returns>
-        IDictionary<Holiday, DateOnly> GetFederalHolidays();
+        IDictionary<Holiday, DateOnly> GetFederalHolidays( );
     }
 }
