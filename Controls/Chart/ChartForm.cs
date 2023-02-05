@@ -337,6 +337,7 @@ namespace BudgetExecution
                     Chart.Title.Text = string.Empty;
                     Chart.ToolBar.Visible = false;
                     LabelTable.Visible = true;
+                    TableButton.Visible = true;
                     PopulateFirstComboBoxItems(  );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
@@ -346,6 +347,7 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = false;
+                    TableButton.Visible = false;
                     PopulateTableListBoxItems( );
                     Text = "Visualization";
                     Chart.Title.Text = "Select Data Table";
