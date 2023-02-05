@@ -234,7 +234,7 @@ namespace BudgetExecution
             TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            FoldTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             
             // Table Layout Properties
             FirstTable.Visible = false;
@@ -252,9 +252,14 @@ namespace BudgetExecution
             SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            ExitButton.Click += null;
+            BackButton.Click += null;
+            MenuButton.Click += null;
+            RemoveFiltersButton.Click += null;
+            TableButton.Click += null;
+            RefreshDataButton.Click += null;
+            GroupButton.Click += null;
             Load += OnLoad;
         }
 
@@ -326,7 +331,7 @@ namespace BudgetExecution
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     Text = $"{ SelectedTable.SplitPascal( ) }";
                     Chart.Title.Text = string.Empty;
@@ -339,7 +344,7 @@ namespace BudgetExecution
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                     LabelTable.Visible = false;
                     PopulateTableListBoxItems( );
                     Text = "Visualization";
@@ -357,11 +362,13 @@ namespace BudgetExecution
                 SecondTable.Visible = false;
                 ThirdTable.Visible = false;
                 PopulateToolBarDropDownItems( );
-                BackButton.Click += OnExitButtonClicked;
+                ExitButton.Click += OnExitButtonClicked;
+                BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
+                GroupButton.Click += OnGroupButtonClicked;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
             }
             catch ( Exception ex )
@@ -942,32 +949,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Called when [fold button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnGroupButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button 
-                   && _button.ToolType == ToolType.GroupButton )
-                {
-                    TabControl.SelectedTab = FoldTabPage;
-                    FoldTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    FilterTabPage.TabVisible = false;
-                    PopulateFieldListBox( );
-                    PopulateNumericListBox( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1381,8 +1362,81 @@ namespace BudgetExecution
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                     GroupButton.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                switch( TabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        // TabPage Visibility
+                        TableTabPage.TabVisible = true;
+                        FilterTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        break;
+                    }
+                    case 1:
+                    {
+                        // TabPage Visibility
+                        FilterTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        break;
+                    }
+                    case 2:
+                    {
+                        // TabPage Visibility
+                        GroupTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
+                        break;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Called when [fold button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnGroupButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button 
+                   && _button.ToolType == ToolType.GroupButton )
+                {
+                    TabControl.SelectedIndex = 2;
+                    TabControl.SelectedTab = GroupTabPage;
+                    GroupTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    FilterTabPage.TabVisible = false;
+                    PopulateFieldListBox( );
+                    PopulateNumericListBox( );
                 }
             }
             catch( Exception ex )
@@ -1415,7 +1469,7 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     TableTabPage.TabVisible = false;
-                    FoldTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
                     GroupButton.Visible = false;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;

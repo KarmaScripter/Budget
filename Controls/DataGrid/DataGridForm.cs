@@ -251,7 +251,7 @@ namespace BudgetExecution
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-            TabControl.TabIndexChanged += OnActiveTabChanged;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
             TestButton.Click += OnTestButtonClicked;
             ExitButton.Click += null;
             BackButton.Click += null;
@@ -320,11 +320,11 @@ namespace BudgetExecution
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 0;
-                    TableComboBox.SelectedIndex = 0;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     PopulateExecutionTables( );
+                    TableComboBox.SelectedIndex = 0;
                 }
 
                 FormFilter = new Dictionary<string, object>( );
@@ -335,11 +335,11 @@ namespace BudgetExecution
                 ClearLabelText( );
                 PopulateToolStripComboBoxItems( );
                 ExitButton.Click += OnExitButtonClicked;
+                BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
-                BackButton.Click += OnBackButtonClicked;
                 ToolStrip.Visible = false;
             }
             catch( Exception ex )
@@ -1362,90 +1362,67 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is TabControl tabControl )
+                switch( TabControl.SelectedIndex )
                 {
-                    switch( tabControl.SelectedIndex )
+                    case 0:
                     {
-                        case 0:
-                        {
-                            // TabPage Visibility
-                            TableTabPage.TabVisible = true;
-                            FilterTabPage.TabVisible = false;
-                            GroupTabPage.TabVisible = false;
-                            
-                            // ToolStrip Button Visibility
-                            EditRecordButton.Visible = false;
-                            EditRecordSeparator.Visible = false;
-                            EditColumnButton.Visible = false;
-                            EditColumnSeparator.Visible = false;
-                            DeleteRecordButton.Visible = false;
-                            DeleteRecordSeparator.Visible = false;
-                            DeleteColumnButton.Visible = false;
-                            DeleteColumnSeparator.Visible = false;
-                            SaveButton.Visible = false;
-                            SaveSeparator.Visible = false;
-                            break;
-                        }
-                        case 1:
-                        {
-                            // TabPage Visibility
-                            FilterTabPage.TabVisible = true;
-                            TableTabPage.TabVisible = false;
-                            GroupTabPage.TabVisible = false;
+                        // TabPage Visibility
+                        TableTabPage.TabVisible = true;
+                        FilterTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
 
-                            // ToolStrip Button Visibility
-                            EditRecordButton.Visible = true;
-                            EditRecordSeparator.Visible = true;
-                            EditColumnButton.Visible = true;
-                            EditColumnSeparator.Visible = true;
-                            DeleteRecordButton.Visible = true;
-                            DeleteRecordSeparator.Visible = true;
-                            DeleteColumnButton.Visible = true;
-                            DeleteColumnSeparator.Visible = true;
-                            SaveButton.Visible = true;
-                            SaveSeparator.Visible = true;
-                            break;
-                        }
-                        case 2:
-                        {
-                            // TabPage Visibility
-                            GroupTabPage.TabVisible = true;
-                            TableTabPage.TabVisible = false;
-                            FilterTabPage.TabVisible = false;
+                        // ToolStrip Button Visibility
+                        EditRecordButton.Visible = false;
+                        EditRecordSeparator.Visible = false;
+                        EditColumnButton.Visible = false;
+                        EditColumnSeparator.Visible = false;
+                        DeleteRecordButton.Visible = false;
+                        DeleteRecordSeparator.Visible = false;
+                        DeleteColumnButton.Visible = false;
+                        DeleteColumnSeparator.Visible = false;
+                        SaveButton.Visible = false;
+                        SaveSeparator.Visible = false;
+                        break;
+                    }
+                    case 1:
+                    {
+                        // TabPage Visibility
+                        FilterTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
 
-                            // ToolStrip Button Visibility
-                            EditRecordButton.Visible = false;
-                            EditRecordSeparator.Visible = false;
-                            EditColumnButton.Visible = false;
-                            EditColumnSeparator.Visible = false;
-                            DeleteRecordButton.Visible = false;
-                            DeleteRecordSeparator.Visible = false;
-                            DeleteColumnButton.Visible = false;
-                            DeleteColumnSeparator.Visible = false;
-                            SaveButton.Visible = false;
-                            SaveSeparator.Visible = false;
-                            break;
-                        }
-                        default:
-                        {
-                            // TabPage Visibility
-                            TableTabPage.TabVisible = true;
-                            FilterTabPage.TabVisible = false;
-                            GroupTabPage.TabVisible = false;
+                        // ToolStrip Button Visibility
+                        EditRecordButton.Visible = true;
+                        EditRecordSeparator.Visible = true;
+                        EditColumnButton.Visible = true;
+                        EditColumnSeparator.Visible = true;
+                        DeleteRecordButton.Visible = true;
+                        DeleteRecordSeparator.Visible = true;
+                        DeleteColumnButton.Visible = true;
+                        DeleteColumnSeparator.Visible = true;
+                        SaveButton.Visible = true;
+                        SaveSeparator.Visible = true;
+                        break;
+                    }
+                    case 2:
+                    {
+                        // TabPage Visibility
+                        GroupTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
 
-                            // ToolStrip Button Visibility
-                            EditRecordButton.Visible = true;
-                            EditRecordSeparator.Visible = true;
-                            EditColumnButton.Visible = true;
-                            EditColumnSeparator.Visible = true;
-                            DeleteRecordButton.Visible = true;
-                            DeleteRecordSeparator.Visible = true;
-                            DeleteColumnButton.Visible = true;
-                            DeleteColumnSeparator.Visible = true;
-                            SaveButton.Visible = true;
-                            SaveSeparator.Visible = true;
-                            break;
-                        }
+                        // ToolStrip Button Visibility
+                        EditRecordButton.Visible = false;
+                        EditRecordSeparator.Visible = false;
+                        EditColumnButton.Visible = false;
+                        EditColumnSeparator.Visible = false;
+                        DeleteRecordButton.Visible = false;
+                        DeleteRecordSeparator.Visible = false;
+                        DeleteColumnButton.Visible = false;
+                        DeleteColumnSeparator.Visible = false;
+                        SaveButton.Visible = false;
+                        SaveSeparator.Visible = false;
+                        break;
                     }
                 }
             }
@@ -1467,10 +1444,11 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.GroupButton )
                 {
+                    TabControl.SelectedIndex = 2;
                     TabControl.SelectedTab = GroupTabPage;
                     GroupTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
                     TableTabPage.TabVisible = false;
+                    FilterTabPage.TabVisible = false;
                     PopulateFieldListBox( );
                     PopulateNumericListBox( );
                 }

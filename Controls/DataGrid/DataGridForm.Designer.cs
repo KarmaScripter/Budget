@@ -61,7 +61,7 @@
             this.EditColumnButton = new BudgetExecution.ToolStripButton();
             this.EditRecordButton = new BudgetExecution.ToolStripButton();
             this.ExcelButton = new BudgetExecution.ToolStripButton();
-            this.Separator3 = new BudgetExecution.ToolSeparator();
+            this.ToolStripSeparator = new BudgetExecution.ToolSeparator();
             this.TextBox = new BudgetExecution.ToolStripTextBox();
             this.TextBoxSeparator = new BudgetExecution.ToolSeparator();
             this.FirstButton = new BudgetExecution.ToolStripButton();
@@ -503,24 +503,24 @@
             // 
             this.ToolStrip.AddButton = null;
             this.ToolStrip.AddColumnButton = null;
-            this.ToolStrip.AddTableButton = null;
+            this.ToolStrip.AddTableButton = this.AddTableButton;
             this.ToolStrip.BackColor = System.Drawing.Color.Transparent;
-            this.ToolStrip.BindingSource = null;
+            this.ToolStrip.BindingSource = this.BindingSource;
             this.ToolStrip.BorderStyle = Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge;
-            this.ToolStrip.CalculatorButton = null;
+            this.ToolStrip.CalculatorButton = this.CalculatorButton;
             this.ToolStrip.CanOverrideStyle = true;
             this.ToolStrip.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Near;
             this.ToolStrip.CaptionFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
             this.ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
-            this.ToolStrip.ChartButton = null;
+            this.ToolStrip.ChartButton = this.ChartButton;
             this.ToolStrip.DataFilter = null;
             this.ToolStrip.DeleteButton = null;
             this.ToolStrip.DeleteColumnButton = this.DeleteColumnButton;
             this.ToolStrip.DeleteRecordButton = this.DeleteRecordButton;
             this.ToolStrip.DeleteTableButton = this.DeleteTableButton;
             this.ToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ToolStrip.DropDown = null;
+            this.ToolStrip.DropDown = this.DropDown;
             this.ToolStrip.EditButton = this.EditSqlButton;
             this.ToolStrip.EditColumnButton = this.EditColumnButton;
             this.ToolStrip.EditRecordButton = this.EditRecordButton;
@@ -528,7 +528,7 @@
             this.ToolStrip.ExcelButton = this.ExcelButton;
             this.ToolStrip.Field = BudgetExecution.Field.AccountCode;
             this.ToolStrip.FilterDataButton = null;
-            this.ToolStrip.FirstButton = null;
+            this.ToolStrip.FirstButton = this.FirstButton;
             this.ToolStrip.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -538,7 +538,7 @@
             this.ToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ToolStrip.ImageSize = new System.Drawing.Size(0, 0);
             this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Separator3,
+            this.ToolStripSeparator,
             this.TextBox,
             this.TextBoxSeparator,
             this.FirstButton,
@@ -608,7 +608,7 @@
             this.ToolStrip.PreviousButton = this.PreviousButton;
             this.ToolStrip.ProgressBar = null;
             this.ToolStrip.RefreshButton = this.RefreshDataButton;
-            this.ToolStrip.SaveButton = null;
+            this.ToolStrip.SaveButton = this.SaveButton;
             this.ToolStrip.SearchCriteriaLabel = null;
             this.ToolStrip.SearchEngineLabel = null;
             this.ToolStrip.Separators = null;
@@ -778,13 +778,13 @@
             this.ExcelButton.ToolTip = this.ToolTip;
             this.ExcelButton.ToolType = BudgetExecution.ToolType.ExcelExportButton;
             // 
-            // Separator3
+            // ToolStripSeparator
             // 
-            this.Separator3.ForeColor = System.Drawing.Color.Black;
-            this.Separator3.Margin = new System.Windows.Forms.Padding(1);
-            this.Separator3.Name = "Separator3";
-            this.Separator3.Padding = new System.Windows.Forms.Padding(1);
-            this.Separator3.Size = new System.Drawing.Size(6, 32);
+            this.ToolStripSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ToolStripSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ToolStripSeparator.Name = "ToolStripSeparator";
+            this.ToolStripSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ToolStripSeparator.Size = new System.Drawing.Size(6, 32);
             // 
             // TextBox
             // 
@@ -797,7 +797,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(176, 32);
+            this.TextBox.Size = new System.Drawing.Size(170, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1770,7 +1770,7 @@
             this.SourceTable.RowCount = 2;
             this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.112054F));
             this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.88795F));
-            this.SourceTable.Size = new System.Drawing.Size(295, 589);
+            this.SourceTable.Size = new System.Drawing.Size(295, 601);
             this.SourceTable.TabIndex = 47;
             // 
             // TablePanel
@@ -1788,10 +1788,10 @@
             this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
             this.TablePanel.HoverText = null;
             this.TablePanel.IsDerivedStyle = true;
-            this.TablePanel.Location = new System.Drawing.Point(3, 38);
+            this.TablePanel.Location = new System.Drawing.Point(3, 39);
             this.TablePanel.Name = "TablePanel";
             this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.TablePanel.Size = new System.Drawing.Size(289, 548);
+            this.TablePanel.Size = new System.Drawing.Size(289, 559);
             this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TablePanel.StyleManager = null;
             this.TablePanel.TabIndex = 0;
@@ -1826,7 +1826,7 @@
             this.TableListBox.SelectedValue = null;
             this.TableListBox.ShowBorder = false;
             this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(215, 484);
+            this.TableListBox.Size = new System.Drawing.Size(215, 496);
             this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.TableListBox.StyleManager = null;
             this.TableListBox.TabIndex = 0;
@@ -2584,7 +2584,6 @@
         private Label FirstHeaderLabel;
         private System.Windows.Forms.TableLayoutPanel GridTable;
         private ToolSeparator Separator1;
-        private ToolSeparator Separator3;
         public ToolStripTextBox TextBox;
         private ToolSeparator Separator2;
         public ToolStripButton PreviousButton;
@@ -2688,5 +2687,6 @@
         public ToolSeparator RemoveFiltersSeparator;
         public ToolSeparator FirstSeparator;
         public ToolSeparator TextBoxSeparator;
+        public ToolSeparator ToolStripSeparator;
     }
 }

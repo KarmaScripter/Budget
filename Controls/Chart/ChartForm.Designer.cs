@@ -75,8 +75,8 @@
             this.BackButton = new BudgetExecution.ToolStripButton();
             this.Separator18 = new BudgetExecution.ToolSeparator();
             this.MenuButton = new BudgetExecution.ToolStripButton();
-            this.ShutdownSeparator = new BudgetExecution.ToolSeparator();
-            this.ShutdownButton = new BudgetExecution.ToolStripButton();
+            this.ExitSeparator = new BudgetExecution.ToolSeparator();
+            this.ExitButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator15 = new BudgetExecution.ToolSeparator();
             this.Chart = new BudgetExecution.Chart();
             this.ChartPanel = new BudgetExecution.Layout();
@@ -123,7 +123,7 @@
             this.SecondComboBox = new BudgetExecution.ComboBox();
             this.SecondListBoxPanel = new BudgetExecution.Layout();
             this.SecondListBox = new BudgetExecution.ListBox();
-            this.FoldTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.GroupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.NumericTable = new System.Windows.Forms.TableLayoutPanel();
             this.NumericsPanel = new BudgetExecution.Layout();
             this.NumericListBox = new BudgetExecution.ListBox();
@@ -163,7 +163,7 @@
             this.FirstListBoxPanel.SuspendLayout();
             this.SecondTable.SuspendLayout();
             this.SecondListBoxPanel.SuspendLayout();
-            this.FoldTabPage.SuspendLayout();
+            this.GroupTabPage.SuspendLayout();
             this.NumericTable.SuspendLayout();
             this.NumericsPanel.SuspendLayout();
             this.FieldTable.SuspendLayout();
@@ -263,8 +263,8 @@
             this.BackButton,
             this.Separator18,
             this.MenuButton,
-            this.ShutdownSeparator,
-            this.ShutdownButton});
+            this.ExitSeparator,
+            this.ExitButton});
             this.ToolStrip.Label = null;
             this.ToolStrip.LastButton = null;
             this.ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -375,7 +375,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(152, 32);
+            this.TextBox.Size = new System.Drawing.Size(146, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -786,34 +786,34 @@
             this.MenuButton.ToolTip = this.ToolTip;
             this.MenuButton.ToolType = BudgetExecution.ToolType.MenuButton;
             // 
-            // ShutdownSeparator
+            // ExitSeparator
             // 
-            this.ShutdownSeparator.ForeColor = System.Drawing.Color.Black;
-            this.ShutdownSeparator.Margin = new System.Windows.Forms.Padding(1);
-            this.ShutdownSeparator.Name = "ShutdownSeparator";
-            this.ShutdownSeparator.Padding = new System.Windows.Forms.Padding(1);
-            this.ShutdownSeparator.Size = new System.Drawing.Size(6, 32);
+            this.ExitSeparator.ForeColor = System.Drawing.Color.Black;
+            this.ExitSeparator.Margin = new System.Windows.Forms.Padding(1);
+            this.ExitSeparator.Name = "ExitSeparator";
+            this.ExitSeparator.Padding = new System.Windows.Forms.Padding(1);
+            this.ExitSeparator.Size = new System.Drawing.Size(6, 32);
             // 
-            // ShutdownButton
+            // ExitButton
             // 
-            this.ShutdownButton.AutoToolTip = false;
-            this.ShutdownButton.BackColor = System.Drawing.Color.Transparent;
-            this.ShutdownButton.BindingSource = this.BindingSource;
-            this.ShutdownButton.DataFilter = null;
-            this.ShutdownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ShutdownButton.Field = BudgetExecution.Field.AccountCode;
-            this.ShutdownButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ShutdownButton.ForeColor = System.Drawing.Color.LightGray;
-            this.ShutdownButton.HoverText = "Shutdown Application";
-            this.ShutdownButton.Image = global::BudgetExecution.Properties.Resources.ShutdownButton;
-            this.ShutdownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ShutdownButton.Margin = new System.Windows.Forms.Padding(3);
-            this.ShutdownButton.Name = "ShutdownButton";
-            this.ShutdownButton.Padding = new System.Windows.Forms.Padding(1);
-            this.ShutdownButton.Size = new System.Drawing.Size(26, 28);
-            this.ShutdownButton.Text = "toolStripButton1";
-            this.ShutdownButton.ToolTip = null;
-            this.ShutdownButton.ToolType = BudgetExecution.ToolType.ExitButton;
+            this.ExitButton.AutoToolTip = false;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.BindingSource = this.BindingSource;
+            this.ExitButton.DataFilter = null;
+            this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExitButton.Field = BudgetExecution.Field.AccountCode;
+            this.ExitButton.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExitButton.ForeColor = System.Drawing.Color.LightGray;
+            this.ExitButton.HoverText = "Exit Application";
+            this.ExitButton.Image = global::BudgetExecution.Properties.Resources.ShutdownButton;
+            this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(3);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Padding = new System.Windows.Forms.Padding(1);
+            this.ExitButton.Size = new System.Drawing.Size(26, 28);
+            this.ExitButton.Text = "toolStripButton1";
+            this.ExitButton.ToolTip = this.ToolTip;
+            this.ExitButton.ToolType = BudgetExecution.ToolType.ExitButton;
             // 
             // toolSeparator15
             // 
@@ -1560,7 +1560,7 @@
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.Controls.Add(this.TableTabPage);
             this.TabControl.Controls.Add(this.FilterTabPage);
-            this.TabControl.Controls.Add(this.FoldTabPage);
+            this.TabControl.Controls.Add(this.GroupTabPage);
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
             this.TabControl.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1852,10 +1852,10 @@
             this.FirstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             this.FirstListBoxPanel.HoverText = null;
             this.FirstListBoxPanel.IsDerivedStyle = true;
-            this.FirstListBoxPanel.Location = new System.Drawing.Point(3, 37);
+            this.FirstListBoxPanel.Location = new System.Drawing.Point(3, 36);
             this.FirstListBoxPanel.Name = "FirstListBoxPanel";
             this.FirstListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstListBoxPanel.Size = new System.Drawing.Size(284, 169);
+            this.FirstListBoxPanel.Size = new System.Drawing.Size(284, 170);
             this.FirstListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstListBoxPanel.StyleManager = null;
             this.FirstListBoxPanel.TabIndex = 26;
@@ -1893,7 +1893,7 @@
             this.FirstListBox.SelectedValue = null;
             this.FirstListBox.ShowBorder = false;
             this.FirstListBox.ShowScrollBar = false;
-            this.FirstListBox.Size = new System.Drawing.Size(258, 146);
+            this.FirstListBox.Size = new System.Drawing.Size(258, 147);
             this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstListBox.StyleManager = null;
             this.FirstListBox.TabIndex = 0;
@@ -2048,21 +2048,21 @@
             this.SecondListBox.ThemeName = "BudgetExecution";
             this.SecondListBox.ToolTip = null;
             // 
-            // FoldTabPage
+            // GroupTabPage
             // 
-            this.FoldTabPage.Controls.Add(this.NumericTable);
-            this.FoldTabPage.Controls.Add(this.FieldTable);
-            this.FoldTabPage.Image = null;
-            this.FoldTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.FoldTabPage.Location = new System.Drawing.Point(0, 9);
-            this.FoldTabPage.Name = "FoldTabPage";
-            this.FoldTabPage.ShowCloseButton = true;
-            this.FoldTabPage.Size = new System.Drawing.Size(350, 629);
-            this.FoldTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FoldTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FoldTabPage.TabForeColor = System.Drawing.Color.DarkGray;
-            this.FoldTabPage.TabIndex = 2;
-            this.FoldTabPage.ThemesEnabled = false;
+            this.GroupTabPage.Controls.Add(this.NumericTable);
+            this.GroupTabPage.Controls.Add(this.FieldTable);
+            this.GroupTabPage.Image = null;
+            this.GroupTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.GroupTabPage.Location = new System.Drawing.Point(0, 9);
+            this.GroupTabPage.Name = "GroupTabPage";
+            this.GroupTabPage.ShowCloseButton = true;
+            this.GroupTabPage.Size = new System.Drawing.Size(350, 629);
+            this.GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.GroupTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GroupTabPage.TabForeColor = System.Drawing.Color.DarkGray;
+            this.GroupTabPage.TabIndex = 2;
+            this.GroupTabPage.ThemesEnabled = false;
             // 
             // NumericTable
             // 
@@ -2365,7 +2365,7 @@
             this.FirstListBoxPanel.ResumeLayout(false);
             this.SecondTable.ResumeLayout(false);
             this.SecondListBoxPanel.ResumeLayout(false);
-            this.FoldTabPage.ResumeLayout(false);
+            this.GroupTabPage.ResumeLayout(false);
             this.NumericTable.ResumeLayout(false);
             this.NumericsPanel.ResumeLayout(false);
             this.FieldTable.ResumeLayout(false);
@@ -2456,7 +2456,7 @@
         private ComboBox SecondComboBox;
         public Layout SecondListBoxPanel;
         public ListBox SecondListBox;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv FoldTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
         private System.Windows.Forms.TableLayoutPanel NumericTable;
         public Layout NumericsPanel;
         public ListBox NumericListBox;
@@ -2470,7 +2470,7 @@
         private ToolSeparator Separator18;
         public ToolStripButton GroupButton;
         private ToolSeparator GroupButtonSeparator;
-        private ToolSeparator ShutdownSeparator;
-        public ToolStripButton ShutdownButton;
+        private ToolSeparator ExitSeparator;
+        public ToolStripButton ExitButton;
     }
 }

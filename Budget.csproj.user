@@ -25,8 +25,14 @@
     <Compile Update="Controls\Carousel\CarouselForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Carousel\MinionSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Carousel\Selector.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\WebSelector.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Chart\Chart.cs">
       <SubType>Component</SubType>
@@ -80,6 +86,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\FilterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\LookupDialog.cs">
@@ -240,15 +249,6 @@
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Carousel\MinionSelector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Carousel\WebSelector.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
