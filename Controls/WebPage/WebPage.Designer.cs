@@ -97,7 +97,6 @@ partial class WebPage
             this.ToolStrip.EditRecordButton = null;
             this.ToolStrip.EditSqlButton = null;
             this.ToolStrip.ExcelButton = null;
-            this.ToolStrip.Field = BudgetExecution.Field.AccountCode;
             this.ToolStrip.FilterDataButton = null;
             this.ToolStrip.FirstButton = null;
             this.ToolStrip.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -141,7 +140,6 @@ partial class WebPage
             this.ToolStrip.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStrip.Name = "ToolStrip";
             this.ToolStrip.NextButton = null;
-            this.ToolStrip.Numeric = BudgetExecution.Numeric.Accepted;
             this.ToolStrip.Office12Mode = false;
             this.ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             this.ToolStrip.Padding = new System.Windows.Forms.Padding(1);

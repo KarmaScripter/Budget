@@ -35,7 +35,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             AutoToolTip = false;
             Text = string.Empty;
-            Size = new Size( 40, 22 );
+            Size = new Size( 24, 20 );
 
             // Event Wiring
             MouseHover += OnMouseHover;

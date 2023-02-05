@@ -13,7 +13,6 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
     using FontStyle = System.Drawing.FontStyle;
 
     /// <summary>
@@ -260,6 +259,7 @@ namespace BudgetExecution
             RefreshDataButton.Click += null;
             RemoveFiltersButton.Click += null;
             GroupButton.Click += null;
+            CalendarButton.Click += null;
             Load += OnLoad;
         }
 
@@ -316,6 +316,7 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -323,6 +324,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
                     PopulateExecutionTables( );
                     TableComboBox.SelectedIndex = 0;
                 }
@@ -340,6 +342,7 @@ namespace BudgetExecution
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
+                CalendarButton.Click += OnCalendarButtonClicked;
                 ToolStrip.Visible = false;
             }
             catch( Exception ex )
@@ -1370,6 +1373,7 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
 
                         // ToolStrip Button Visibility
                         EditRecordButton.Visible = false;
@@ -1390,6 +1394,7 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
 
                         // ToolStrip Button Visibility
                         EditRecordButton.Visible = true;
@@ -1408,6 +1413,28 @@ namespace BudgetExecution
                     {
                         // TabPage Visibility
                         GroupTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
+
+                        // ToolStrip Button Visibility
+                        EditRecordButton.Visible = false;
+                        EditRecordSeparator.Visible = false;
+                        EditColumnButton.Visible = false;
+                        EditColumnSeparator.Visible = false;
+                        DeleteRecordButton.Visible = false;
+                        DeleteRecordSeparator.Visible = false;
+                        DeleteColumnButton.Visible = false;
+                        DeleteColumnSeparator.Visible = false;
+                        SaveButton.Visible = false;
+                        SaveSeparator.Visible = false;
+                        break;
+                    }
+                    case 3:
+                    {
+                        // TabPage Visibility
+                        CalendarTabPage.TabVisible = true;
+                        GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
 
@@ -1459,6 +1486,32 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [calendar button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCalendarButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.CalendarButton )
+                {
+                    TabControl.SelectedIndex = 3;
+                    TabControl.SelectedTab = CalendarTabPage;
+                    CalendarTabPage.TabVisible = true;
+                    GroupTabPage.TabVisible = false;
+                    TableTabPage.TabVisible = false;
+                    FilterTabPage.TabVisible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [refresh data button clicked].
         /// </summary>

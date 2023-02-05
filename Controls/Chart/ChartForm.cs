@@ -260,6 +260,7 @@ namespace BudgetExecution
             TableButton.Click += null;
             RefreshDataButton.Click += null;
             GroupButton.Click += null;
+            CalendarButton.Click += null;
             Load += OnLoad;
         }
 
@@ -332,6 +333,7 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     Text = $"{ SelectedTable.SplitPascal( ) }";
                     Chart.Title.Text = string.Empty;
@@ -346,6 +348,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    CalendarTabPage.TabVisible = false;
                     LabelTable.Visible = false;
                     TableButton.Visible = false;
                     PopulateTableListBoxItems( );
@@ -372,6 +375,7 @@ namespace BudgetExecution
                 GroupButton.Click += OnGroupButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
+                CalendarButton.Click += OnCalendarButtonClicked;
             }
             catch ( Exception ex )
             {
@@ -1394,6 +1398,7 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
                         break;
                     }
                     case 1:
@@ -1402,12 +1407,23 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
                         break;
                     }
                     case 2:
                     {
                         // TabPage Visibility
                         GroupTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
+                        break;
+                    }
+                    case 3:
+                    {
+                        // TabPage Visibility
+                        CalendarTabPage.TabVisible = true;
+                        GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         break;
@@ -1446,7 +1462,33 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [calendar button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCalendarButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.CalendarButton )
+                {
+                    TabControl.SelectedIndex = 3;
+                    TabControl.SelectedTab = CalendarTabPage;
+                    CalendarTabPage.TabVisible = true;
+                    GroupTabPage.TabVisible = false;
+                    TableTabPage.TabVisible = false;
+                    FilterTabPage.TabVisible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [remove filter button clicked].
         /// </summary>

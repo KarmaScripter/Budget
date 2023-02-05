@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using BudgetExecution.Controls.Chart;
+    using Syncfusion.Styles;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
@@ -294,46 +295,72 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Sets the primary axis titleInfo.
         /// </summary>
-        /// <param name="text">The titleInfo.</param>
         /// <param name="font"></param>
         /// <param name="color">The color.</param>
-        public void SetPrimaryAxisTitle( string text, Font font, Color color )
+        /// <param name = "type" > </param>
+        /// <param name = "orientation" > </param>
+        public void SetPrimaryAxisProperties( Font font, Color color, ChartValueType type = ChartValueType.Category, 
+            ChartOrientation orientation = ChartOrientation.Horizontal )
         {
-            try
+            if( font != null 
+               && color != Color.Empty )
             {
-                PrimaryXAxis.Title = text;
-                PrimaryXAxis.TitleColor = color;
-                PrimaryXAxis.TitleFont = font;
+                try
+                {
+                    PrimaryXAxis.TitleColor = color;
+                    PrimaryXAxis.TitleFont = font;
+                    PrimaryXAxis.ValueType = type;
+                    PrimaryXAxis.IsVisible = true;
+                    PrimaryXAxis.Orientation = orientation;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
-            catch( Exception ex )
+        }
+
+        /// <summary>
+        /// Sets the primary axis title.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        public void SetPrimaryAxisTitle( string text ) 
+        {
+            if( !string.IsNullOrEmpty( text ) )
             {
-                Fail( ex );
+                try
+                {
+                    PrimaryXAxis.Title = text;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
         /// <summary>
         /// Sets the title.
         /// </summary>
-        /// <param name="text">The text.</param>
         /// <param name="font">The font.</param>
-        /// <param name="color">The color.</param>
-        public void SetTitle( string text, Font font, Color color )
+        /// <param name="foreColor">The color.</param>
+        /// <param name = "backColor" > </param>
+        public void SetTitleProperties( Font font, Color foreColor, Color backColor )
         {
-            if( !string.IsNullOrEmpty( text ) 
-               && font != null 
-               && color != Color.Empty )
+            if( foreColor != Color.Empty
+               && backColor != Color.Empty
+               && font != null  )
             {
                 try
                 {
-                    Title.Text = text;
                     Title.Font = font;
                     Title.ShowBorder = false;
-                    Title.BackColor = Color.FromArgb( 20, 20, 20 );
-                    Title.ForeColor = color;
+                    Title.BackColor = backColor;
+                    Title.ForeColor = foreColor;
                     Title.Visible = true;
                 }
                 catch( Exception ex )
@@ -343,6 +370,25 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the title text.
+        /// </summary>
+        /// <param name="titleText">The title text.</param>
+        public void SetTitleText( string titleText )
+        {
+            if( !string.IsNullOrEmpty( titleText ) )
+            {
+                try
+                {
+                    Title.Text = titleText;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

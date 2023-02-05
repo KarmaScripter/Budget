@@ -21,14 +21,6 @@ namespace BudgetExecution
     public class ToolStrip : ToolStripBase, IToolStrip
     {
         /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public Field Field { get; set; }
-
-        /// <summary>
         /// Gets or sets the filter.
         /// </summary>
         /// <value>
@@ -53,14 +45,6 @@ namespace BudgetExecution
         public Size ImageSize { get; set; }
 
         /// <summary>
-        /// Gets or sets the numeric.
-        /// </summary>
-        /// <value>
-        /// The numeric.
-        /// </value>
-        public Numeric Numeric { get; set; }
-
-        /// <summary>
         /// The image path
         /// </summary>
         public virtual string ImageDirectory { get; set; }
@@ -75,6 +59,7 @@ namespace BudgetExecution
             BackColor = Color.Transparent;
             ForeColor = Color.Black;
             Font = new Font( "Roboto", 9 );
+            Height = 20;
             ShowCaption = true;
             CaptionFont = new Font( "Roboto", 9 );
             CaptionStyle = CaptionStyle.Top;
@@ -86,7 +71,7 @@ namespace BudgetExecution
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            ImageScalingSize = new Size( 20, 20 );
+            ImageScalingSize = new Size( 18, 18 );
             Office12Mode = true;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;
@@ -147,20 +132,6 @@ namespace BudgetExecution
                 {
                     button.BindingSource = BindingSource;
                 }
-            }
-        }
-
-        /// <summary>
-        /// Populates the buttons on the toolstrip
-        /// </summary>
-        public virtual void CreateButtons( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
     }
