@@ -694,6 +694,8 @@ namespace BudgetExecution
                     FourthHeaderLabel.Text = $"Measures : { _numerics } ";
                     ThirdHeaderLabel.Text = $"Fields : { _fields } ";
                     NumericsLabel.Text = $"Measures : { _numerics } ";
+                    FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
+                    SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
                 }
                 else
                 {
@@ -1478,6 +1480,8 @@ namespace BudgetExecution
                     TabControl.SelectedIndex = 3;
                     TabControl.SelectedTab = CalendarTabPage;
                     CalendarTabPage.TabVisible = true;
+                    FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
+                    SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
                     GroupTabPage.TabVisible = false;
                     TableTabPage.TabVisible = false;
                     FilterTabPage.TabVisible = false;

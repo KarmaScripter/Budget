@@ -223,6 +223,7 @@ namespace BudgetExecution
                         case ToolType.BackButton:
                         case ToolType.MenuButton:
                         case ToolType.HomeButton:
+                        case ToolType.CalendarButton:
                         {
                             break;
                         }
@@ -349,12 +350,6 @@ namespace BudgetExecution
                         {
                             using var _calculator = new CalculationForm( );
                             _calculator?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.CalendarButton:
-                        {
-                            using var _form = new CalendarForm( );
-                            _form?.ShowDialog( );
                             break;
                         }
                         case ToolType.BrowseButton:

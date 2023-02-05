@@ -125,6 +125,26 @@
             this.listBox2 = new BudgetExecution.ListBox();
             this.SqlHeader = new BudgetExecution.Label();
             this.TabControl = new BudgetExecution.TabControl();
+            this.CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.CalendarTable = new System.Windows.Forms.TableLayoutPanel();
+            this.SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar();
+            this.FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar();
+            this.FirstCalendarLabel = new BudgetExecution.Label();
+            this.SecondCalendarLabel = new BudgetExecution.Label();
+            this.FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.FilterTable = new System.Windows.Forms.TableLayoutPanel();
+            this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
+            this.ThirdListBoxPanel = new BudgetExecution.Layout();
+            this.ThirdListBox = new BudgetExecution.ListBox();
+            this.ThirdComboBox = new BudgetExecution.ComboBox();
+            this.FirstTable = new System.Windows.Forms.TableLayoutPanel();
+            this.FIrstListBoxPanel = new BudgetExecution.Layout();
+            this.FirstListBox = new BudgetExecution.ListBox();
+            this.FirstComboBox = new BudgetExecution.ComboBox();
+            this.SecondTable = new System.Windows.Forms.TableLayoutPanel();
+            this.SecondComboBox = new BudgetExecution.ComboBox();
+            this.SecondListBoxPanel = new BudgetExecution.Layout();
+            this.SecondListBox = new BudgetExecution.ListBox();
             this.GroupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.NumericTable = new System.Windows.Forms.TableLayoutPanel();
             this.NumericsPanel = new BudgetExecution.Layout();
@@ -140,26 +160,8 @@
             this.TablePanel = new BudgetExecution.Layout();
             this.TableListBox = new BudgetExecution.ListBox();
             this.TableComboBox = new BudgetExecution.ComboBox();
-            this.FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.FilterTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ThirdListBoxPanel = new BudgetExecution.Layout();
-            this.ThirdListBox = new BudgetExecution.ListBox();
-            this.ThirdComboBox = new BudgetExecution.ComboBox();
-            this.FirstTable = new System.Windows.Forms.TableLayoutPanel();
-            this.FIrstListBoxPanel = new BudgetExecution.Layout();
-            this.FirstListBox = new BudgetExecution.ListBox();
-            this.FirstComboBox = new BudgetExecution.ComboBox();
-            this.SecondTable = new System.Windows.Forms.TableLayoutPanel();
-            this.SecondComboBox = new BudgetExecution.ComboBox();
-            this.SecondListBoxPanel = new BudgetExecution.Layout();
-            this.SecondListBox = new BudgetExecution.ListBox();
-            this.CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.CalendarTable = new System.Windows.Forms.TableLayoutPanel();
-            this.FirstCalendarLabel = new BudgetExecution.Label();
-            this.SecondCalendarLabel = new BudgetExecution.Label();
-            this.FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar();
-            this.SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar();
+            this.FirstCalendarPanel = new BudgetExecution.Layout();
+            this.SecondCalendarPanel = new BudgetExecution.Layout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -171,14 +173,8 @@
             this.layout2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.GroupTabPage.SuspendLayout();
-            this.NumericTable.SuspendLayout();
-            this.NumericsPanel.SuspendLayout();
-            this.FieldTable.SuspendLayout();
-            this.FieldPanel.SuspendLayout();
-            this.TableTabPage.SuspendLayout();
-            this.SourceTable.SuspendLayout();
-            this.TablePanel.SuspendLayout();
+            this.CalendarTabPage.SuspendLayout();
+            this.CalendarTable.SuspendLayout();
             this.FilterTabPage.SuspendLayout();
             this.FilterTable.SuspendLayout();
             this.ThirdTable.SuspendLayout();
@@ -187,8 +183,16 @@
             this.FIrstListBoxPanel.SuspendLayout();
             this.SecondTable.SuspendLayout();
             this.SecondListBoxPanel.SuspendLayout();
-            this.CalendarTabPage.SuspendLayout();
-            this.CalendarTable.SuspendLayout();
+            this.GroupTabPage.SuspendLayout();
+            this.NumericTable.SuspendLayout();
+            this.NumericsPanel.SuspendLayout();
+            this.FieldTable.SuspendLayout();
+            this.FieldPanel.SuspendLayout();
+            this.TableTabPage.SuspendLayout();
+            this.SourceTable.SuspendLayout();
+            this.TablePanel.SuspendLayout();
+            this.FirstCalendarPanel.SuspendLayout();
+            this.SecondCalendarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ToolTip
@@ -908,7 +912,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(166, 32);
+            this.TextBox.Size = new System.Drawing.Size(160, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1722,10 +1726,10 @@
             this.TabControl.BorderWidth = 1;
             this.TabControl.CanOverrideStyle = true;
             this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.CalendarTabPage);
+            this.TabControl.Controls.Add(this.TableTabPage);
             this.TabControl.Controls.Add(this.FilterTabPage);
             this.TabControl.Controls.Add(this.GroupTabPage);
-            this.TabControl.Controls.Add(this.TableTabPage);
+            this.TabControl.Controls.Add(this.CalendarTabPage);
             this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.FocusOnTabClick = false;
             this.TabControl.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1750,6 +1754,557 @@
             this.TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ToolTip = this.ToolTip;
+            // 
+            // CalendarTabPage
+            // 
+            this.CalendarTabPage.Controls.Add(this.CalendarTable);
+            this.CalendarTabPage.Image = null;
+            this.CalendarTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.CalendarTabPage.Location = new System.Drawing.Point(0, 9);
+            this.CalendarTabPage.Name = "CalendarTabPage";
+            this.CalendarTabPage.ShowCloseButton = true;
+            this.CalendarTabPage.Size = new System.Drawing.Size(350, 601);
+            this.CalendarTabPage.TabIndex = 4;
+            this.CalendarTabPage.ThemesEnabled = false;
+            // 
+            // CalendarTable
+            // 
+            this.CalendarTable.ColumnCount = 1;
+            this.CalendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CalendarTable.Controls.Add(this.SecondCalendarPanel, 0, 3);
+            this.CalendarTable.Controls.Add(this.FirstCalendarPanel, 0, 1);
+            this.CalendarTable.Controls.Add(this.FirstCalendarLabel, 0, 0);
+            this.CalendarTable.Controls.Add(this.SecondCalendarLabel, 0, 2);
+            this.CalendarTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.CalendarTable.Location = new System.Drawing.Point(27, 0);
+            this.CalendarTable.Name = "CalendarTable";
+            this.CalendarTable.RowCount = 4;
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.96013F));
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.03986F));
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
+            this.CalendarTable.Size = new System.Drawing.Size(304, 601);
+            this.CalendarTable.TabIndex = 0;
+            // 
+            // SecondCalendar
+            // 
+            this.SecondCalendar.CanOverrideStyle = true;
+            this.SecondCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.SecondCalendar.Location = new System.Drawing.Point(24, 23);
+            this.SecondCalendar.MinimumSize = new System.Drawing.Size(196, 196);
+            this.SecondCalendar.Name = "SecondCalendar";
+            this.SecondCalendar.ShowToolTip = true;
+            this.SecondCalendar.Size = new System.Drawing.Size(252, 209);
+            this.SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
+            this.SecondCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
+            this.SecondCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
+            this.SecondCalendar.TabIndex = 3;
+            // 
+            // FirstCalendar
+            // 
+            this.FirstCalendar.CanOverrideStyle = true;
+            this.FirstCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.FirstCalendar.Location = new System.Drawing.Point(24, 28);
+            this.FirstCalendar.MinimumSize = new System.Drawing.Size(196, 196);
+            this.FirstCalendar.Name = "FirstCalendar";
+            this.FirstCalendar.ShowToolTip = true;
+            this.FirstCalendar.Size = new System.Drawing.Size(252, 209);
+            this.FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
+            this.FirstCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
+            this.FirstCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
+            this.FirstCalendar.TabIndex = 2;
+            // 
+            // FirstCalendarLabel
+            // 
+            this.FirstCalendarLabel.BindingSource = null;
+            this.FirstCalendarLabel.DataFilter = null;
+            this.FirstCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FirstCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FirstCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendarLabel.HoverText = null;
+            this.FirstCalendarLabel.IsDerivedStyle = true;
+            this.FirstCalendarLabel.Location = new System.Drawing.Point(3, 3);
+            this.FirstCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.FirstCalendarLabel.Name = "FirstCalendarLabel";
+            this.FirstCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstCalendarLabel.Size = new System.Drawing.Size(298, 30);
+            this.FirstCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstCalendarLabel.StyleManager = null;
+            this.FirstCalendarLabel.TabIndex = 0;
+            this.FirstCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.FirstCalendarLabel.ThemeAuthor = "Terry D. Eppler";
+            this.FirstCalendarLabel.ThemeName = "Budget Execution";
+            this.FirstCalendarLabel.ToolTip = null;
+            // 
+            // SecondCalendarLabel
+            // 
+            this.SecondCalendarLabel.BindingSource = null;
+            this.SecondCalendarLabel.DataFilter = null;
+            this.SecondCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SecondCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendarLabel.HoverText = null;
+            this.SecondCalendarLabel.IsDerivedStyle = true;
+            this.SecondCalendarLabel.Location = new System.Drawing.Point(3, 306);
+            this.SecondCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.SecondCalendarLabel.Name = "SecondCalendarLabel";
+            this.SecondCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondCalendarLabel.Size = new System.Drawing.Size(298, 36);
+            this.SecondCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondCalendarLabel.StyleManager = null;
+            this.SecondCalendarLabel.TabIndex = 1;
+            this.SecondCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.SecondCalendarLabel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondCalendarLabel.ThemeName = "Budget Execution";
+            this.SecondCalendarLabel.ToolTip = null;
+            // 
+            // FilterTabPage
+            // 
+            this.FilterTabPage.Controls.Add(this.FilterTable);
+            this.FilterTabPage.Image = null;
+            this.FilterTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.FilterTabPage.Location = new System.Drawing.Point(0, 9);
+            this.FilterTabPage.Name = "FilterTabPage";
+            this.FilterTabPage.ShowCloseButton = true;
+            this.FilterTabPage.Size = new System.Drawing.Size(350, 601);
+            this.FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FilterTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FilterTabPage.TabForeColor = System.Drawing.Color.DarkGray;
+            this.FilterTabPage.TabIndex = 1;
+            this.FilterTabPage.ThemesEnabled = false;
+            // 
+            // FilterTable
+            // 
+            this.FilterTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterTable.ColumnCount = 1;
+            this.FilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.FilterTable.Controls.Add(this.ThirdTable, 0, 2);
+            this.FilterTable.Controls.Add(this.FirstTable, 0, 0);
+            this.FilterTable.Controls.Add(this.SecondTable, 0, 1);
+            this.FilterTable.Location = new System.Drawing.Point(27, 0);
+            this.FilterTable.Name = "FilterTable";
+            this.FilterTable.RowCount = 3;
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.77704F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11148F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11148F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FilterTable.Size = new System.Drawing.Size(304, 601);
+            this.FilterTable.TabIndex = 46;
+            // 
+            // ThirdTable
+            // 
+            this.ThirdTable.ColumnCount = 1;
+            this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ThirdTable.Controls.Add(this.ThirdListBoxPanel, 0, 1);
+            this.ThirdTable.Controls.Add(this.ThirdComboBox, 0, 0);
+            this.ThirdTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThirdTable.Location = new System.Drawing.Point(3, 405);
+            this.ThirdTable.Name = "ThirdTable";
+            this.ThirdTable.RowCount = 2;
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.13471F));
+            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.86529F));
+            this.ThirdTable.Size = new System.Drawing.Size(298, 193);
+            this.ThirdTable.TabIndex = 45;
+            // 
+            // ThirdListBoxPanel
+            // 
+            this.ThirdListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ThirdListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ThirdListBoxPanel.BindingSource = null;
+            this.ThirdListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ThirdListBoxPanel.BorderThickness = 1;
+            this.ThirdListBoxPanel.Children = null;
+            this.ThirdListBoxPanel.Controls.Add(this.ThirdListBox);
+            this.ThirdListBoxPanel.DataFilter = null;
+            this.ThirdListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThirdListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.ThirdListBoxPanel.HoverText = null;
+            this.ThirdListBoxPanel.IsDerivedStyle = true;
+            this.ThirdListBoxPanel.Location = new System.Drawing.Point(3, 37);
+            this.ThirdListBoxPanel.Name = "ThirdListBoxPanel";
+            this.ThirdListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.ThirdListBoxPanel.Size = new System.Drawing.Size(292, 153);
+            this.ThirdListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ThirdListBoxPanel.StyleManager = null;
+            this.ThirdListBoxPanel.TabIndex = 28;
+            this.ThirdListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            this.ThirdListBoxPanel.ThemeName = "BudgetExecution";
+            this.ThirdListBoxPanel.ToolTip = null;
+            // 
+            // ThirdListBox
+            // 
+            this.ThirdListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ThirdListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ThirdListBox.BindingSource = null;
+            this.ThirdListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.ThirdListBox.DataFilter = null;
+            this.ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ThirdListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.ThirdListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.ThirdListBox.HoverText = null;
+            this.ThirdListBox.IsDerivedStyle = true;
+            this.ThirdListBox.ItemHeight = 28;
+            this.ThirdListBox.Location = new System.Drawing.Point(32, 23);
+            this.ThirdListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.ThirdListBox.MultiSelect = false;
+            this.ThirdListBox.Name = "ThirdListBox";
+            this.ThirdListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.ThirdListBox.SelectedIndex = -1;
+            this.ThirdListBox.SelectedItem = null;
+            this.ThirdListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.ThirdListBox.SelectedText = null;
+            this.ThirdListBox.SelectedValue = null;
+            this.ThirdListBox.ShowBorder = false;
+            this.ThirdListBox.ShowScrollBar = false;
+            this.ThirdListBox.Size = new System.Drawing.Size(220, 103);
+            this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ThirdListBox.StyleManager = null;
+            this.ThirdListBox.TabIndex = 0;
+            this.ThirdListBox.ThemeAuthor = "Terry D. Eppler";
+            this.ThirdListBox.ThemeName = "BudgetExecution";
+            this.ThirdListBox.ToolTip = null;
+            // 
+            // ThirdComboBox
+            // 
+            this.ThirdComboBox.AllowDrop = true;
+            this.ThirdComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ThirdComboBox.BindingSource = null;
+            this.ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ThirdComboBox.CausesValidation = false;
+            this.ThirdComboBox.DataFilter = null;
+            this.ThirdComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.ThirdComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ThirdComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ThirdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ThirdComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThirdComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ThirdComboBox.FormattingEnabled = true;
+            this.ThirdComboBox.HoverText = null;
+            this.ThirdComboBox.IsDerivedStyle = true;
+            this.ThirdComboBox.ItemHeight = 24;
+            this.ThirdComboBox.Location = new System.Drawing.Point(3, 3);
+            this.ThirdComboBox.Name = "ThirdComboBox";
+            this.ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ThirdComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.ThirdComboBox.Size = new System.Drawing.Size(292, 30);
+            this.ThirdComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ThirdComboBox.StyleManager = null;
+            this.ThirdComboBox.TabIndex = 5;
+            this.ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.ThirdComboBox.ThemeName = "Budget Execution";
+            this.ThirdComboBox.ToolTip = null;
+            // 
+            // FirstTable
+            // 
+            this.FirstTable.ColumnCount = 1;
+            this.FirstTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.FirstTable.Controls.Add(this.FIrstListBoxPanel, 0, 1);
+            this.FirstTable.Controls.Add(this.FirstComboBox, 0, 0);
+            this.FirstTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FirstTable.Location = new System.Drawing.Point(3, 3);
+            this.FirstTable.Name = "FirstTable";
+            this.FirstTable.RowCount = 2;
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.09045F));
+            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.90955F));
+            this.FirstTable.Size = new System.Drawing.Size(298, 197);
+            this.FirstTable.TabIndex = 43;
+            // 
+            // FIrstListBoxPanel
+            // 
+            this.FIrstListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            this.FIrstListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FIrstListBoxPanel.BindingSource = null;
+            this.FIrstListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FIrstListBoxPanel.BorderThickness = 1;
+            this.FIrstListBoxPanel.Children = null;
+            this.FIrstListBoxPanel.Controls.Add(this.FirstListBox);
+            this.FIrstListBoxPanel.DataFilter = null;
+            this.FIrstListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FIrstListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FIrstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.FIrstListBoxPanel.HoverText = null;
+            this.FIrstListBoxPanel.IsDerivedStyle = true;
+            this.FIrstListBoxPanel.Location = new System.Drawing.Point(3, 38);
+            this.FIrstListBoxPanel.Name = "FIrstListBoxPanel";
+            this.FIrstListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.FIrstListBoxPanel.Size = new System.Drawing.Size(292, 156);
+            this.FIrstListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FIrstListBoxPanel.StyleManager = null;
+            this.FIrstListBoxPanel.TabIndex = 26;
+            this.FIrstListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            this.FIrstListBoxPanel.ThemeName = "BudgetExecution";
+            this.FIrstListBoxPanel.ToolTip = null;
+            // 
+            // FirstListBox
+            // 
+            this.FirstListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FirstListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.FirstListBox.BindingSource = null;
+            this.FirstListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.FirstListBox.DataFilter = null;
+            this.FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.FirstListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.FirstListBox.HoverText = null;
+            this.FirstListBox.IsDerivedStyle = true;
+            this.FirstListBox.ItemHeight = 28;
+            this.FirstListBox.Location = new System.Drawing.Point(32, 21);
+            this.FirstListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.FirstListBox.MultiSelect = false;
+            this.FirstListBox.Name = "FirstListBox";
+            this.FirstListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstListBox.SelectedIndex = -1;
+            this.FirstListBox.SelectedItem = null;
+            this.FirstListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.FirstListBox.SelectedText = null;
+            this.FirstListBox.SelectedValue = null;
+            this.FirstListBox.ShowBorder = false;
+            this.FirstListBox.ShowScrollBar = false;
+            this.FirstListBox.Size = new System.Drawing.Size(223, 112);
+            this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstListBox.StyleManager = null;
+            this.FirstListBox.TabIndex = 0;
+            this.FirstListBox.ThemeAuthor = "Terry D. Eppler";
+            this.FirstListBox.ThemeName = "BudgetExecution";
+            this.FirstListBox.ToolTip = null;
+            // 
+            // FirstComboBox
+            // 
+            this.FirstComboBox.AllowDrop = true;
+            this.FirstComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.FirstComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.FirstComboBox.BindingSource = null;
+            this.FirstComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FirstComboBox.CausesValidation = false;
+            this.FirstComboBox.DataFilter = null;
+            this.FirstComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.FirstComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.FirstComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.FirstComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FirstComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.FirstComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FirstComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FirstComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstComboBox.FormattingEnabled = true;
+            this.FirstComboBox.HoverText = null;
+            this.FirstComboBox.IsDerivedStyle = true;
+            this.FirstComboBox.ItemHeight = 24;
+            this.FirstComboBox.Location = new System.Drawing.Point(3, 3);
+            this.FirstComboBox.Name = "FirstComboBox";
+            this.FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.FirstComboBox.Size = new System.Drawing.Size(292, 30);
+            this.FirstComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstComboBox.StyleManager = null;
+            this.FirstComboBox.TabIndex = 4;
+            this.FirstComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.FirstComboBox.ThemeName = "Budget Execution";
+            this.FirstComboBox.ToolTip = null;
+            // 
+            // SecondTable
+            // 
+            this.SecondTable.ColumnCount = 1;
+            this.SecondTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SecondTable.Controls.Add(this.SecondComboBox, 0, 0);
+            this.SecondTable.Controls.Add(this.SecondListBoxPanel, 0, 1);
+            this.SecondTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondTable.Location = new System.Drawing.Point(3, 206);
+            this.SecondTable.Name = "SecondTable";
+            this.SecondTable.RowCount = 2;
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
+            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.91489F));
+            this.SecondTable.Size = new System.Drawing.Size(298, 193);
+            this.SecondTable.TabIndex = 44;
+            // 
+            // SecondComboBox
+            // 
+            this.SecondComboBox.AllowDrop = true;
+            this.SecondComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.SecondComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.SecondComboBox.BindingSource = null;
+            this.SecondComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondComboBox.CausesValidation = false;
+            this.SecondComboBox.DataFilter = null;
+            this.SecondComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.SecondComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.SecondComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.SecondComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SecondComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.SecondComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SecondComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SecondComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondComboBox.FormattingEnabled = true;
+            this.SecondComboBox.HoverText = null;
+            this.SecondComboBox.IsDerivedStyle = true;
+            this.SecondComboBox.ItemHeight = 24;
+            this.SecondComboBox.Location = new System.Drawing.Point(3, 3);
+            this.SecondComboBox.Name = "SecondComboBox";
+            this.SecondComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.SecondComboBox.Size = new System.Drawing.Size(292, 30);
+            this.SecondComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondComboBox.StyleManager = null;
+            this.SecondComboBox.TabIndex = 5;
+            this.SecondComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.SecondComboBox.ThemeName = "Budget Execution";
+            this.SecondComboBox.ToolTip = null;
+            // 
+            // SecondListBoxPanel
+            // 
+            this.SecondListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SecondListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondListBoxPanel.BindingSource = null;
+            this.SecondListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondListBoxPanel.BorderThickness = 1;
+            this.SecondListBoxPanel.Children = null;
+            this.SecondListBoxPanel.Controls.Add(this.SecondListBox);
+            this.SecondListBoxPanel.DataFilter = null;
+            this.SecondListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SecondListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SecondListBoxPanel.HoverText = null;
+            this.SecondListBoxPanel.IsDerivedStyle = true;
+            this.SecondListBoxPanel.Location = new System.Drawing.Point(3, 37);
+            this.SecondListBoxPanel.Name = "SecondListBoxPanel";
+            this.SecondListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondListBoxPanel.Size = new System.Drawing.Size(292, 153);
+            this.SecondListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondListBoxPanel.StyleManager = null;
+            this.SecondListBoxPanel.TabIndex = 27;
+            this.SecondListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondListBoxPanel.ThemeName = "BudgetExecution";
+            this.SecondListBoxPanel.ToolTip = null;
+            // 
+            // SecondListBox
+            // 
+            this.SecondListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SecondListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SecondListBox.BindingSource = null;
+            this.SecondListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.SecondListBox.DataFilter = null;
+            this.SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.SecondListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            this.SecondListBox.HoverText = null;
+            this.SecondListBox.IsDerivedStyle = true;
+            this.SecondListBox.ItemHeight = 28;
+            this.SecondListBox.Location = new System.Drawing.Point(32, 23);
+            this.SecondListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.SecondListBox.MultiSelect = false;
+            this.SecondListBox.Name = "SecondListBox";
+            this.SecondListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondListBox.SelectedIndex = -1;
+            this.SecondListBox.SelectedItem = null;
+            this.SecondListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.SecondListBox.SelectedText = null;
+            this.SecondListBox.SelectedValue = null;
+            this.SecondListBox.ShowBorder = false;
+            this.SecondListBox.ShowScrollBar = false;
+            this.SecondListBox.Size = new System.Drawing.Size(223, 102);
+            this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondListBox.StyleManager = null;
+            this.SecondListBox.TabIndex = 0;
+            this.SecondListBox.ThemeAuthor = "Terry D. Eppler";
+            this.SecondListBox.ThemeName = "BudgetExecution";
+            this.SecondListBox.ToolTip = null;
             // 
             // GroupTabPage
             // 
@@ -2135,558 +2690,57 @@
             this.TableComboBox.ThemeName = "Budget Execution";
             this.TableComboBox.ToolTip = this.ToolTip;
             // 
-            // FilterTabPage
+            // FirstCalendarPanel
             // 
-            this.FilterTabPage.Controls.Add(this.FilterTable);
-            this.FilterTabPage.Image = null;
-            this.FilterTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.FilterTabPage.Location = new System.Drawing.Point(0, 9);
-            this.FilterTabPage.Name = "FilterTabPage";
-            this.FilterTabPage.ShowCloseButton = true;
-            this.FilterTabPage.Size = new System.Drawing.Size(350, 601);
-            this.FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FilterTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FilterTabPage.TabForeColor = System.Drawing.Color.DarkGray;
-            this.FilterTabPage.TabIndex = 1;
-            this.FilterTabPage.ThemesEnabled = false;
+            this.FirstCalendarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.FirstCalendarPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendarPanel.BindingSource = null;
+            this.FirstCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FirstCalendarPanel.BorderThickness = 1;
+            this.FirstCalendarPanel.Children = null;
+            this.FirstCalendarPanel.Controls.Add(this.FirstCalendar);
+            this.FirstCalendarPanel.DataFilter = null;
+            this.FirstCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FirstCalendarPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.FirstCalendarPanel.HoverText = null;
+            this.FirstCalendarPanel.IsDerivedStyle = true;
+            this.FirstCalendarPanel.Location = new System.Drawing.Point(3, 39);
+            this.FirstCalendarPanel.Name = "FirstCalendarPanel";
+            this.FirstCalendarPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstCalendarPanel.Size = new System.Drawing.Size(298, 261);
+            this.FirstCalendarPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstCalendarPanel.StyleManager = null;
+            this.FirstCalendarPanel.TabIndex = 45;
+            this.FirstCalendarPanel.ThemeAuthor = "Terry D. Eppler";
+            this.FirstCalendarPanel.ThemeName = "Budget Execution";
+            this.FirstCalendarPanel.ToolTip = null;
             // 
-            // FilterTable
+            // SecondCalendarPanel
             // 
-            this.FilterTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FilterTable.ColumnCount = 1;
-            this.FilterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.FilterTable.Controls.Add(this.ThirdTable, 0, 2);
-            this.FilterTable.Controls.Add(this.FirstTable, 0, 0);
-            this.FilterTable.Controls.Add(this.SecondTable, 0, 1);
-            this.FilterTable.Location = new System.Drawing.Point(27, 0);
-            this.FilterTable.Name = "FilterTable";
-            this.FilterTable.RowCount = 3;
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.77704F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11148F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11148F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.FilterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.FilterTable.Size = new System.Drawing.Size(304, 601);
-            this.FilterTable.TabIndex = 46;
-            // 
-            // ThirdTable
-            // 
-            this.ThirdTable.ColumnCount = 1;
-            this.ThirdTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ThirdTable.Controls.Add(this.ThirdListBoxPanel, 0, 1);
-            this.ThirdTable.Controls.Add(this.ThirdComboBox, 0, 0);
-            this.ThirdTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThirdTable.Location = new System.Drawing.Point(3, 405);
-            this.ThirdTable.Name = "ThirdTable";
-            this.ThirdTable.RowCount = 2;
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.13471F));
-            this.ThirdTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.86529F));
-            this.ThirdTable.Size = new System.Drawing.Size(298, 193);
-            this.ThirdTable.TabIndex = 45;
-            // 
-            // ThirdListBoxPanel
-            // 
-            this.ThirdListBoxPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ThirdListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdListBoxPanel.BindingSource = null;
-            this.ThirdListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ThirdListBoxPanel.BorderThickness = 1;
-            this.ThirdListBoxPanel.Children = null;
-            this.ThirdListBoxPanel.Controls.Add(this.ThirdListBox);
-            this.ThirdListBoxPanel.DataFilter = null;
-            this.ThirdListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ThirdListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.ThirdListBoxPanel.HoverText = null;
-            this.ThirdListBoxPanel.IsDerivedStyle = true;
-            this.ThirdListBoxPanel.Location = new System.Drawing.Point(3, 37);
-            this.ThirdListBoxPanel.Name = "ThirdListBoxPanel";
-            this.ThirdListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdListBoxPanel.Size = new System.Drawing.Size(292, 153);
-            this.ThirdListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdListBoxPanel.StyleManager = null;
-            this.ThirdListBoxPanel.TabIndex = 28;
-            this.ThirdListBoxPanel.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdListBoxPanel.ThemeName = "BudgetExecution";
-            this.ThirdListBoxPanel.ToolTip = null;
-            // 
-            // ThirdListBox
-            // 
-            this.ThirdListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ThirdListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ThirdListBox.BindingSource = null;
-            this.ThirdListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ThirdListBox.DataFilter = null;
-            this.ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ThirdListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ThirdListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.ThirdListBox.HoverText = null;
-            this.ThirdListBox.IsDerivedStyle = true;
-            this.ThirdListBox.ItemHeight = 28;
-            this.ThirdListBox.Location = new System.Drawing.Point(32, 23);
-            this.ThirdListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ThirdListBox.MultiSelect = false;
-            this.ThirdListBox.Name = "ThirdListBox";
-            this.ThirdListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ThirdListBox.SelectedIndex = -1;
-            this.ThirdListBox.SelectedItem = null;
-            this.ThirdListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ThirdListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.ThirdListBox.SelectedText = null;
-            this.ThirdListBox.SelectedValue = null;
-            this.ThirdListBox.ShowBorder = false;
-            this.ThirdListBox.ShowScrollBar = false;
-            this.ThirdListBox.Size = new System.Drawing.Size(220, 103);
-            this.ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdListBox.StyleManager = null;
-            this.ThirdListBox.TabIndex = 0;
-            this.ThirdListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdListBox.ThemeName = "BudgetExecution";
-            this.ThirdListBox.ToolTip = null;
-            // 
-            // ThirdComboBox
-            // 
-            this.ThirdComboBox.AllowDrop = true;
-            this.ThirdComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ThirdComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ThirdComboBox.BindingSource = null;
-            this.ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ThirdComboBox.CausesValidation = false;
-            this.ThirdComboBox.DataFilter = null;
-            this.ThirdComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.ThirdComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ThirdComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ThirdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ThirdComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ThirdComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ThirdComboBox.FormattingEnabled = true;
-            this.ThirdComboBox.HoverText = null;
-            this.ThirdComboBox.IsDerivedStyle = true;
-            this.ThirdComboBox.ItemHeight = 24;
-            this.ThirdComboBox.Location = new System.Drawing.Point(3, 3);
-            this.ThirdComboBox.Name = "ThirdComboBox";
-            this.ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ThirdComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.ThirdComboBox.Size = new System.Drawing.Size(292, 30);
-            this.ThirdComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ThirdComboBox.StyleManager = null;
-            this.ThirdComboBox.TabIndex = 5;
-            this.ThirdComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.ThirdComboBox.ThemeName = "Budget Execution";
-            this.ThirdComboBox.ToolTip = null;
-            // 
-            // FirstTable
-            // 
-            this.FirstTable.ColumnCount = 1;
-            this.FirstTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.FirstTable.Controls.Add(this.FIrstListBoxPanel, 0, 1);
-            this.FirstTable.Controls.Add(this.FirstComboBox, 0, 0);
-            this.FirstTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FirstTable.Location = new System.Drawing.Point(3, 3);
-            this.FirstTable.Name = "FirstTable";
-            this.FirstTable.RowCount = 2;
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.09045F));
-            this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.90955F));
-            this.FirstTable.Size = new System.Drawing.Size(298, 197);
-            this.FirstTable.TabIndex = 43;
-            // 
-            // FIrstListBoxPanel
-            // 
-            this.FIrstListBoxPanel.BackColor = System.Drawing.Color.Transparent;
-            this.FIrstListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FIrstListBoxPanel.BindingSource = null;
-            this.FIrstListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.FIrstListBoxPanel.BorderThickness = 1;
-            this.FIrstListBoxPanel.Children = null;
-            this.FIrstListBoxPanel.Controls.Add(this.FirstListBox);
-            this.FIrstListBoxPanel.DataFilter = null;
-            this.FIrstListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.FIrstListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FIrstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.FIrstListBoxPanel.HoverText = null;
-            this.FIrstListBoxPanel.IsDerivedStyle = true;
-            this.FIrstListBoxPanel.Location = new System.Drawing.Point(3, 38);
-            this.FIrstListBoxPanel.Name = "FIrstListBoxPanel";
-            this.FIrstListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.FIrstListBoxPanel.Size = new System.Drawing.Size(292, 156);
-            this.FIrstListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FIrstListBoxPanel.StyleManager = null;
-            this.FIrstListBoxPanel.TabIndex = 26;
-            this.FIrstListBoxPanel.ThemeAuthor = "Terry D. Eppler";
-            this.FIrstListBoxPanel.ThemeName = "BudgetExecution";
-            this.FIrstListBoxPanel.ToolTip = null;
-            // 
-            // FirstListBox
-            // 
-            this.FirstListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FirstListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FirstListBox.BindingSource = null;
-            this.FirstListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.FirstListBox.DataFilter = null;
-            this.FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.FirstListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.FirstListBox.HoverText = null;
-            this.FirstListBox.IsDerivedStyle = true;
-            this.FirstListBox.ItemHeight = 28;
-            this.FirstListBox.Location = new System.Drawing.Point(32, 21);
-            this.FirstListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.FirstListBox.MultiSelect = false;
-            this.FirstListBox.Name = "FirstListBox";
-            this.FirstListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstListBox.SelectedIndex = -1;
-            this.FirstListBox.SelectedItem = null;
-            this.FirstListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.FirstListBox.SelectedText = null;
-            this.FirstListBox.SelectedValue = null;
-            this.FirstListBox.ShowBorder = false;
-            this.FirstListBox.ShowScrollBar = false;
-            this.FirstListBox.Size = new System.Drawing.Size(223, 112);
-            this.FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FirstListBox.StyleManager = null;
-            this.FirstListBox.TabIndex = 0;
-            this.FirstListBox.ThemeAuthor = "Terry D. Eppler";
-            this.FirstListBox.ThemeName = "BudgetExecution";
-            this.FirstListBox.ToolTip = null;
-            // 
-            // FirstComboBox
-            // 
-            this.FirstComboBox.AllowDrop = true;
-            this.FirstComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.FirstComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.FirstComboBox.BindingSource = null;
-            this.FirstComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.FirstComboBox.CausesValidation = false;
-            this.FirstComboBox.DataFilter = null;
-            this.FirstComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.FirstComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.FirstComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.FirstComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FirstComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.FirstComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FirstComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FirstComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstComboBox.FormattingEnabled = true;
-            this.FirstComboBox.HoverText = null;
-            this.FirstComboBox.IsDerivedStyle = true;
-            this.FirstComboBox.ItemHeight = 24;
-            this.FirstComboBox.Location = new System.Drawing.Point(3, 3);
-            this.FirstComboBox.Name = "FirstComboBox";
-            this.FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.FirstComboBox.Size = new System.Drawing.Size(292, 30);
-            this.FirstComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FirstComboBox.StyleManager = null;
-            this.FirstComboBox.TabIndex = 4;
-            this.FirstComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.FirstComboBox.ThemeName = "Budget Execution";
-            this.FirstComboBox.ToolTip = null;
-            // 
-            // SecondTable
-            // 
-            this.SecondTable.ColumnCount = 1;
-            this.SecondTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SecondTable.Controls.Add(this.SecondComboBox, 0, 0);
-            this.SecondTable.Controls.Add(this.SecondListBoxPanel, 0, 1);
-            this.SecondTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondTable.Location = new System.Drawing.Point(3, 206);
-            this.SecondTable.Name = "SecondTable";
-            this.SecondTable.RowCount = 2;
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.08511F));
-            this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.91489F));
-            this.SecondTable.Size = new System.Drawing.Size(298, 193);
-            this.SecondTable.TabIndex = 44;
-            // 
-            // SecondComboBox
-            // 
-            this.SecondComboBox.AllowDrop = true;
-            this.SecondComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.SecondComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.SecondComboBox.BindingSource = null;
-            this.SecondComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.SecondComboBox.CausesValidation = false;
-            this.SecondComboBox.DataFilter = null;
-            this.SecondComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.SecondComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.SecondComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SecondComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SecondComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.SecondComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SecondComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SecondComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondComboBox.FormattingEnabled = true;
-            this.SecondComboBox.HoverText = null;
-            this.SecondComboBox.IsDerivedStyle = true;
-            this.SecondComboBox.ItemHeight = 24;
-            this.SecondComboBox.Location = new System.Drawing.Point(3, 3);
-            this.SecondComboBox.Name = "SecondComboBox";
-            this.SecondComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.SecondComboBox.Size = new System.Drawing.Size(292, 30);
-            this.SecondComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondComboBox.StyleManager = null;
-            this.SecondComboBox.TabIndex = 5;
-            this.SecondComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.SecondComboBox.ThemeName = "Budget Execution";
-            this.SecondComboBox.ToolTip = null;
-            // 
-            // SecondListBoxPanel
-            // 
-            this.SecondListBoxPanel.BackColor = System.Drawing.Color.Transparent;
-            this.SecondListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondListBoxPanel.BindingSource = null;
-            this.SecondListBoxPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.SecondListBoxPanel.BorderThickness = 1;
-            this.SecondListBoxPanel.Children = null;
-            this.SecondListBoxPanel.Controls.Add(this.SecondListBox);
-            this.SecondListBoxPanel.DataFilter = null;
-            this.SecondListBoxPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SecondListBoxPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.SecondListBoxPanel.HoverText = null;
-            this.SecondListBoxPanel.IsDerivedStyle = true;
-            this.SecondListBoxPanel.Location = new System.Drawing.Point(3, 37);
-            this.SecondListBoxPanel.Name = "SecondListBoxPanel";
-            this.SecondListBoxPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondListBoxPanel.Size = new System.Drawing.Size(292, 153);
-            this.SecondListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondListBoxPanel.StyleManager = null;
-            this.SecondListBoxPanel.TabIndex = 27;
-            this.SecondListBoxPanel.ThemeAuthor = "Terry D. Eppler";
-            this.SecondListBoxPanel.ThemeName = "BudgetExecution";
-            this.SecondListBoxPanel.ToolTip = null;
-            // 
-            // SecondListBox
-            // 
-            this.SecondListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SecondListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SecondListBox.BindingSource = null;
-            this.SecondListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.SecondListBox.DataFilter = null;
-            this.SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondListBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SecondListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            this.SecondListBox.HoverText = null;
-            this.SecondListBox.IsDerivedStyle = true;
-            this.SecondListBox.ItemHeight = 28;
-            this.SecondListBox.Location = new System.Drawing.Point(32, 23);
-            this.SecondListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.SecondListBox.MultiSelect = false;
-            this.SecondListBox.Name = "SecondListBox";
-            this.SecondListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondListBox.SelectedIndex = -1;
-            this.SecondListBox.SelectedItem = null;
-            this.SecondListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.SecondListBox.SelectedText = null;
-            this.SecondListBox.SelectedValue = null;
-            this.SecondListBox.ShowBorder = false;
-            this.SecondListBox.ShowScrollBar = false;
-            this.SecondListBox.Size = new System.Drawing.Size(223, 102);
-            this.SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondListBox.StyleManager = null;
-            this.SecondListBox.TabIndex = 0;
-            this.SecondListBox.ThemeAuthor = "Terry D. Eppler";
-            this.SecondListBox.ThemeName = "BudgetExecution";
-            this.SecondListBox.ToolTip = null;
-            // 
-            // CalendarTabPage
-            // 
-            this.CalendarTabPage.Controls.Add(this.CalendarTable);
-            this.CalendarTabPage.Image = null;
-            this.CalendarTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.CalendarTabPage.Location = new System.Drawing.Point(0, 9);
-            this.CalendarTabPage.Name = "CalendarTabPage";
-            this.CalendarTabPage.ShowCloseButton = true;
-            this.CalendarTabPage.Size = new System.Drawing.Size(350, 601);
-            this.CalendarTabPage.TabIndex = 4;
-            this.CalendarTabPage.ThemesEnabled = false;
-            // 
-            // CalendarTable
-            // 
-            this.CalendarTable.ColumnCount = 1;
-            this.CalendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CalendarTable.Controls.Add(this.SecondCalendar, 0, 3);
-            this.CalendarTable.Controls.Add(this.FirstCalendar, 0, 1);
-            this.CalendarTable.Controls.Add(this.FirstCalendarLabel, 0, 0);
-            this.CalendarTable.Controls.Add(this.SecondCalendarLabel, 0, 2);
-            this.CalendarTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.CalendarTable.Location = new System.Drawing.Point(27, 0);
-            this.CalendarTable.Name = "CalendarTable";
-            this.CalendarTable.RowCount = 4;
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.96013F));
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.03986F));
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
-            this.CalendarTable.Size = new System.Drawing.Size(304, 601);
-            this.CalendarTable.TabIndex = 0;
-            // 
-            // FirstCalendarLabel
-            // 
-            this.FirstCalendarLabel.BindingSource = null;
-            this.FirstCalendarLabel.DataFilter = null;
-            this.FirstCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FirstCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FirstCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendarLabel.HoverText = null;
-            this.FirstCalendarLabel.IsDerivedStyle = true;
-            this.FirstCalendarLabel.Location = new System.Drawing.Point(3, 3);
-            this.FirstCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.FirstCalendarLabel.Name = "FirstCalendarLabel";
-            this.FirstCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstCalendarLabel.Size = new System.Drawing.Size(298, 30);
-            this.FirstCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FirstCalendarLabel.StyleManager = null;
-            this.FirstCalendarLabel.TabIndex = 0;
-            this.FirstCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.FirstCalendarLabel.ThemeAuthor = "Terry D. Eppler";
-            this.FirstCalendarLabel.ThemeName = "Budget Execution";
-            this.FirstCalendarLabel.ToolTip = null;
-            // 
-            // SecondCalendarLabel
-            // 
-            this.SecondCalendarLabel.BindingSource = null;
-            this.SecondCalendarLabel.DataFilter = null;
-            this.SecondCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SecondCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendarLabel.HoverText = null;
-            this.SecondCalendarLabel.IsDerivedStyle = true;
-            this.SecondCalendarLabel.Location = new System.Drawing.Point(3, 306);
-            this.SecondCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.SecondCalendarLabel.Name = "SecondCalendarLabel";
-            this.SecondCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondCalendarLabel.Size = new System.Drawing.Size(298, 36);
-            this.SecondCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondCalendarLabel.StyleManager = null;
-            this.SecondCalendarLabel.TabIndex = 1;
-            this.SecondCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.SecondCalendarLabel.ThemeAuthor = "Terry D. Eppler";
-            this.SecondCalendarLabel.ThemeName = "Budget Execution";
-            this.SecondCalendarLabel.ToolTip = null;
-            // 
-            // FirstCalendar
-            // 
-            this.FirstCalendar.CanOverrideStyle = true;
-            this.FirstCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FirstCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.FirstCalendar.Location = new System.Drawing.Point(3, 39);
-            this.FirstCalendar.MinimumSize = new System.Drawing.Size(196, 196);
-            this.FirstCalendar.Name = "FirstCalendar";
-            this.FirstCalendar.ShowToolTip = true;
-            this.FirstCalendar.Size = new System.Drawing.Size(294, 261);
-            this.FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
-            this.FirstCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
-            this.FirstCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
-            this.FirstCalendar.TabIndex = 2;
-            // 
-            // SecondCalendar
-            // 
-            this.SecondCalendar.CanOverrideStyle = true;
-            this.SecondCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.SecondCalendar.Location = new System.Drawing.Point(3, 348);
-            this.SecondCalendar.MinimumSize = new System.Drawing.Size(196, 196);
-            this.SecondCalendar.Name = "SecondCalendar";
-            this.SecondCalendar.ShowToolTip = true;
-            this.SecondCalendar.Size = new System.Drawing.Size(294, 250);
-            this.SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
-            this.SecondCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
-            this.SecondCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
-            this.SecondCalendar.TabIndex = 3;
+            this.SecondCalendarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SecondCalendarPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendarPanel.BindingSource = null;
+            this.SecondCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondCalendarPanel.BorderThickness = 1;
+            this.SecondCalendarPanel.Children = null;
+            this.SecondCalendarPanel.Controls.Add(this.SecondCalendar);
+            this.SecondCalendarPanel.DataFilter = null;
+            this.SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondCalendarPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SecondCalendarPanel.HoverText = null;
+            this.SecondCalendarPanel.IsDerivedStyle = true;
+            this.SecondCalendarPanel.Location = new System.Drawing.Point(3, 348);
+            this.SecondCalendarPanel.Name = "SecondCalendarPanel";
+            this.SecondCalendarPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondCalendarPanel.Size = new System.Drawing.Size(298, 250);
+            this.SecondCalendarPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondCalendarPanel.StyleManager = null;
+            this.SecondCalendarPanel.TabIndex = 46;
+            this.SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondCalendarPanel.ThemeName = "Budget Execution";
+            this.SecondCalendarPanel.ToolTip = null;
             // 
             // DataGridForm
             // 
@@ -2733,14 +2787,8 @@
             this.layout2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.GroupTabPage.ResumeLayout(false);
-            this.NumericTable.ResumeLayout(false);
-            this.NumericsPanel.ResumeLayout(false);
-            this.FieldTable.ResumeLayout(false);
-            this.FieldPanel.ResumeLayout(false);
-            this.TableTabPage.ResumeLayout(false);
-            this.SourceTable.ResumeLayout(false);
-            this.TablePanel.ResumeLayout(false);
+            this.CalendarTabPage.ResumeLayout(false);
+            this.CalendarTable.ResumeLayout(false);
             this.FilterTabPage.ResumeLayout(false);
             this.FilterTable.ResumeLayout(false);
             this.ThirdTable.ResumeLayout(false);
@@ -2749,8 +2797,16 @@
             this.FIrstListBoxPanel.ResumeLayout(false);
             this.SecondTable.ResumeLayout(false);
             this.SecondListBoxPanel.ResumeLayout(false);
-            this.CalendarTabPage.ResumeLayout(false);
-            this.CalendarTable.ResumeLayout(false);
+            this.GroupTabPage.ResumeLayout(false);
+            this.NumericTable.ResumeLayout(false);
+            this.NumericsPanel.ResumeLayout(false);
+            this.FieldTable.ResumeLayout(false);
+            this.FieldPanel.ResumeLayout(false);
+            this.TableTabPage.ResumeLayout(false);
+            this.SourceTable.ResumeLayout(false);
+            this.TablePanel.ResumeLayout(false);
+            this.FirstCalendarPanel.ResumeLayout(false);
+            this.SecondCalendarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2880,5 +2936,7 @@
         public Syncfusion.WinForms.Input.SfCalendar FirstCalendar;
         public Label FirstCalendarLabel;
         public Label SecondCalendarLabel;
+        public Layout SecondCalendarPanel;
+        public Layout FirstCalendarPanel;
     }
 }

@@ -135,7 +135,9 @@
             this.FieldsLabel = new BudgetExecution.Label();
             this.CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.CalendarTable = new System.Windows.Forms.TableLayoutPanel();
+            this.SecondCalendarPanel = new BudgetExecution.Layout();
             this.SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar();
+            this.FirstCalendarPanel = new BudgetExecution.Layout();
             this.FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar();
             this.FirstCalendarLabel = new BudgetExecution.Label();
             this.SecondCalendarLabel = new BudgetExecution.Label();
@@ -176,6 +178,8 @@
             this.FieldPanel.SuspendLayout();
             this.CalendarTabPage.SuspendLayout();
             this.CalendarTable.SuspendLayout();
+            this.SecondCalendarPanel.SuspendLayout();
+            this.FirstCalendarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ToolTip
@@ -381,7 +385,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(144, 32);
+            this.TextBox.Size = new System.Drawing.Size(142, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = this.ToolTip;
             // 
@@ -2328,31 +2332,56 @@
             // 
             this.CalendarTable.ColumnCount = 1;
             this.CalendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CalendarTable.Controls.Add(this.SecondCalendar, 0, 3);
-            this.CalendarTable.Controls.Add(this.FirstCalendar, 0, 1);
+            this.CalendarTable.Controls.Add(this.SecondCalendarPanel, 0, 3);
+            this.CalendarTable.Controls.Add(this.FirstCalendarPanel, 0, 1);
             this.CalendarTable.Controls.Add(this.FirstCalendarLabel, 0, 0);
             this.CalendarTable.Controls.Add(this.SecondCalendarLabel, 0, 2);
             this.CalendarTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.CalendarTable.Location = new System.Drawing.Point(25, 4);
+            this.CalendarTable.Location = new System.Drawing.Point(22, 17);
             this.CalendarTable.Name = "CalendarTable";
             this.CalendarTable.RowCount = 4;
             this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.96013F));
             this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.03986F));
             this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
-            this.CalendarTable.Size = new System.Drawing.Size(304, 625);
+            this.CalendarTable.Size = new System.Drawing.Size(304, 615);
             this.CalendarTable.TabIndex = 1;
+            // 
+            // SecondCalendarPanel
+            // 
+            this.SecondCalendarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SecondCalendarPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendarPanel.BindingSource = null;
+            this.SecondCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondCalendarPanel.BorderThickness = 1;
+            this.SecondCalendarPanel.Children = null;
+            this.SecondCalendarPanel.Controls.Add(this.SecondCalendar);
+            this.SecondCalendarPanel.DataFilter = null;
+            this.SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondCalendarPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SecondCalendarPanel.HoverText = null;
+            this.SecondCalendarPanel.IsDerivedStyle = true;
+            this.SecondCalendarPanel.Location = new System.Drawing.Point(3, 362);
+            this.SecondCalendarPanel.Name = "SecondCalendarPanel";
+            this.SecondCalendarPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondCalendarPanel.Size = new System.Drawing.Size(298, 250);
+            this.SecondCalendarPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondCalendarPanel.StyleManager = null;
+            this.SecondCalendarPanel.TabIndex = 46;
+            this.SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondCalendarPanel.ThemeName = "Budget Execution";
+            this.SecondCalendarPanel.ToolTip = null;
             // 
             // SecondCalendar
             // 
             this.SecondCalendar.CanOverrideStyle = true;
-            this.SecondCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.SecondCalendar.Location = new System.Drawing.Point(3, 372);
+            this.SecondCalendar.Location = new System.Drawing.Point(24, 23);
             this.SecondCalendar.MinimumSize = new System.Drawing.Size(196, 196);
             this.SecondCalendar.Name = "SecondCalendar";
             this.SecondCalendar.ShowToolTip = true;
-            this.SecondCalendar.Size = new System.Drawing.Size(294, 250);
+            this.SecondCalendar.Size = new System.Drawing.Size(252, 209);
             this.SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -2394,16 +2423,41 @@
             this.SecondCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
             this.SecondCalendar.TabIndex = 3;
             // 
+            // FirstCalendarPanel
+            // 
+            this.FirstCalendarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.FirstCalendarPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendarPanel.BindingSource = null;
+            this.FirstCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.FirstCalendarPanel.BorderThickness = 1;
+            this.FirstCalendarPanel.Children = null;
+            this.FirstCalendarPanel.Controls.Add(this.FirstCalendar);
+            this.FirstCalendarPanel.DataFilter = null;
+            this.FirstCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FirstCalendarPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.FirstCalendarPanel.HoverText = null;
+            this.FirstCalendarPanel.IsDerivedStyle = true;
+            this.FirstCalendarPanel.Location = new System.Drawing.Point(3, 41);
+            this.FirstCalendarPanel.Name = "FirstCalendarPanel";
+            this.FirstCalendarPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstCalendarPanel.Size = new System.Drawing.Size(298, 273);
+            this.FirstCalendarPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstCalendarPanel.StyleManager = null;
+            this.FirstCalendarPanel.TabIndex = 45;
+            this.FirstCalendarPanel.ThemeAuthor = "Terry D. Eppler";
+            this.FirstCalendarPanel.ThemeName = "Budget Execution";
+            this.FirstCalendarPanel.ToolTip = null;
+            // 
             // FirstCalendar
             // 
             this.FirstCalendar.CanOverrideStyle = true;
-            this.FirstCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.FirstCalendar.Location = new System.Drawing.Point(3, 42);
+            this.FirstCalendar.Location = new System.Drawing.Point(24, 28);
             this.FirstCalendar.MinimumSize = new System.Drawing.Size(196, 196);
             this.FirstCalendar.Name = "FirstCalendar";
             this.FirstCalendar.ShowToolTip = true;
-            this.FirstCalendar.Size = new System.Drawing.Size(294, 282);
+            this.FirstCalendar.Size = new System.Drawing.Size(252, 209);
             this.FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -2458,7 +2512,7 @@
             this.FirstCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
             this.FirstCalendarLabel.Name = "FirstCalendarLabel";
             this.FirstCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstCalendarLabel.Size = new System.Drawing.Size(298, 33);
+            this.FirstCalendarLabel.Size = new System.Drawing.Size(298, 32);
             this.FirstCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstCalendarLabel.StyleManager = null;
             this.FirstCalendarLabel.TabIndex = 0;
@@ -2476,7 +2530,7 @@
             this.SecondCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SecondCalendarLabel.HoverText = null;
             this.SecondCalendarLabel.IsDerivedStyle = true;
-            this.SecondCalendarLabel.Location = new System.Drawing.Point(3, 330);
+            this.SecondCalendarLabel.Location = new System.Drawing.Point(3, 320);
             this.SecondCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
             this.SecondCalendarLabel.Name = "SecondCalendarLabel";
             this.SecondCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
@@ -2557,6 +2611,8 @@
             this.FieldPanel.ResumeLayout(false);
             this.CalendarTabPage.ResumeLayout(false);
             this.CalendarTable.ResumeLayout(false);
+            this.SecondCalendarPanel.ResumeLayout(false);
+            this.FirstCalendarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2661,7 +2717,9 @@
         public ToolStripButton ExitButton;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTabPage;
         private System.Windows.Forms.TableLayoutPanel CalendarTable;
+        public Layout SecondCalendarPanel;
         public Syncfusion.WinForms.Input.SfCalendar SecondCalendar;
+        public Layout FirstCalendarPanel;
         public Syncfusion.WinForms.Input.SfCalendar FirstCalendar;
         public Label FirstCalendarLabel;
         public Label SecondCalendarLabel;
