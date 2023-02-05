@@ -343,6 +343,8 @@ namespace BudgetExecution
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
                 CalendarButton.Click += OnCalendarButtonClicked;
+                FirstCalendar.SelectionChanged += OnStartDateSelected;
+                SecondCalendar.SelectionChanged += OnEndDateSelected;
                 ToolStrip.Visible = false;
             }
             catch( Exception ex )
@@ -1515,7 +1517,41 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [start date selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnStartDateSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [end date selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnEndDateSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [refresh data button clicked].
         /// </summary>
