@@ -271,13 +271,14 @@ namespace BudgetExecution
         public ChartForm( BindingSource bindingSource )
             : this( )
         {
+            BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
             BindingSource.DataSource = DataTable;
             SelectedTable = DataTable.TableName;
             Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
             DataModel = new DataBuilder( Source, Provider );
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
         
         /// <summary>
@@ -291,11 +292,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
+            DataTable = DataModel?.DataTable;
+            SelectedTable = DataTable?.TableName;
             BindingSource.DataSource = DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -311,10 +312,10 @@ namespace BudgetExecution
             Provider = provider;
             FormFilter = where;
             DataModel = new DataBuilder( source, provider, where );
-            DataTable = DataModel.DataTable;
+            DataTable = DataModel?.DataTable;
             BindingSource.DataSource = DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -421,12 +422,12 @@ namespace BudgetExecution
                 {
                     var _sql = CreateSqlText( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
+                    DataTable = DataModel?.DataTable;
                     BindingSource.DataSource = DataTable;
                     Chart.BindingSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -451,12 +452,12 @@ namespace BudgetExecution
                 {
                     var _sql = CreateSqlText( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
+                    DataTable = DataModel?.DataTable;
                     BindingSource.DataSource = DataTable;
                     Chart.BindingSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -483,12 +484,12 @@ namespace BudgetExecution
                 {
                     var _sql = CreateSqlText( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
+                    DataTable = DataModel?.DataTable;
                     BindingSource.DataSource = DataTable;
                     Chart.BindingSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -612,7 +613,8 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
-               && columns?.Any( ) == true )
+               && columns?.Any( ) == true 
+               && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
                 {
@@ -624,7 +626,7 @@ namespace BudgetExecution
                     
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT { _names } FROM { Source } "
+                    return $"SELECT { _names } FROM { SelectedTable } "
                         + $"WHERE { _criteria } " 
                         + $"GROUP BY { _names };";
                 }
@@ -944,12 +946,12 @@ namespace BudgetExecution
                 {
                     SqlQuery = sqlText;
                     DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
+                    DataTable = DataModel?.DataTable;
+                    BindingSource.DataSource = DataModel?.DataTable;
                     Chart.BindingSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -1235,15 +1237,15 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
-                        DataTable = DataModel.DataTable;
-                        SelectedTable = DataTable.TableName;
+                        DataTable = DataModel?.DataTable;
+                        SelectedTable = DataTable?.TableName;
                         Text = SelectedTable.SplitPascal(  );
                         Chart.Title.Text = string.Empty;
-                        BindingSource.DataSource = DataModel.DataTable;
+                        BindingSource.DataSource = DataModel?.DataTable;
                         Chart.BindingSource = BindingSource;
                         ToolStrip.BindingSource = BindingSource;
-                        Fields = DataModel.Fields;
-                        Numerics = DataModel.Numerics;
+                        Fields = DataModel?.Fields;
+                        Numerics = DataModel?.Numerics;
                         PopulateFirstComboBoxItems( );
                         UpdateLabelText( );
                         LabelTable.Visible = true;
@@ -1369,11 +1371,7 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearCollections( );
                     ClearLabelText( );
-                    TabControl.SelectedTab = TableTabPage;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    GroupButton.Visible = false;
+                    TabControl.SelectedIndex = 0;
                 }
             }
             catch( Exception ex )
@@ -1399,6 +1397,7 @@ namespace BudgetExecution
                     case 0:
                     {
                         // TabPage Visibility
+                        TabControl.SelectedTab = TableTabPage;
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1408,6 +1407,7 @@ namespace BudgetExecution
                     case 1:
                     {
                         // TabPage Visibility
+                        TabControl.SelectedTab = FilterTabPage;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1417,6 +1417,7 @@ namespace BudgetExecution
                     case 2:
                     {
                         // TabPage Visibility
+                        TabControl.SelectedTab = GroupTabPage;
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
@@ -1426,6 +1427,7 @@ namespace BudgetExecution
                     case 3:
                     {
                         // TabPage Visibility
+                        TabControl.SelectedTab = CalendarTabPage;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
@@ -1453,10 +1455,6 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.GroupButton )
                 {
                     TabControl.SelectedIndex = 2;
-                    TabControl.SelectedTab = GroupTabPage;
-                    GroupTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    FilterTabPage.TabVisible = false;
                     PopulateFieldListBox( );
                     PopulateNumericListBox( );
                 }
@@ -1480,13 +1478,8 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.CalendarButton )
                 {
                     TabControl.SelectedIndex = 3;
-                    TabControl.SelectedTab = CalendarTabPage;
-                    CalendarTabPage.TabVisible = true;
                     FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
                     SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
-                    GroupTabPage.TabVisible = false;
-                    TableTabPage.TabVisible = false;
-                    FilterTabPage.TabVisible = false;
                 }
             }
             catch( Exception ex )
@@ -1552,11 +1545,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    TableTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    GroupButton.Visible = false;
-                    TabControl.SelectedTab = FilterTabPage;
-                    FilterTabPage.TabVisible = true;
+                    TabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
                     FirstTable.Visible = true;
                     SecondTable.Visible = false;

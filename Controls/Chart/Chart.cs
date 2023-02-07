@@ -11,7 +11,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using BudgetExecution.Controls.Chart;
-    using Syncfusion.Styles;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
@@ -83,7 +82,7 @@ namespace BudgetExecution
         /// <value>
         /// The x label.
         /// </value>
-        public IList<string> xAxis { get; set; }
+        public string xAxis { get; set; }
 
         /// <summary>
         /// Gets or sets the y value.
@@ -164,11 +163,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        /// <param name="names">The names.</param>
+        /// <param name="category">The names.</param>
         /// <param name="values">The values.</param>
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, IList<string> names, IList<string> values, 
+        public Chart( BindingSource bindingSource, string category, IList<string> values, 
             ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
@@ -179,7 +178,7 @@ namespace BudgetExecution
             Data = DataTable.AsEnumerable( );
             BindingModel = new ChartDataBindModel( DataTable );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            xAxis = names;
+            xAxis = category;
             yValues = values;
         }
 
@@ -206,11 +205,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        /// <param name="names">The names.</param>
+        /// <param name="category">The names.</param>
         /// <param name="values">The values.</param>
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( DataTable dataTable, IList<string> names, IList<string> values, 
+        public Chart( DataTable dataTable, string category, IList<string> values, 
             ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
@@ -221,7 +220,7 @@ namespace BudgetExecution
             BindingSource.DataSource =  dataTable;
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
-            xAxis = names;
+            xAxis = category;
             yValues = values;
         }
 
@@ -229,11 +228,11 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
         /// <param name="dataRows">The data rows.</param>
-        /// <param name="names">The names.</param>
+        /// <param name="category">The names.</param>
         /// <param name="values">The values.</param>
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( IEnumerable<DataRow> dataRows, IList<string> names, IList<string> values,   
+        public Chart( IEnumerable<DataRow> dataRows, string category, IList<string> values,   
             ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
             : this( )
         {
@@ -244,7 +243,7 @@ namespace BudgetExecution
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             BindingModel = new ChartDataBindModel( DataTable );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            xAxis = names;
+            xAxis = category;
             yValues = values;
         }
 
@@ -327,14 +326,14 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the primary axis title.
         /// </summary>
-        /// <param name="text">The text.</param>
-        public void SetPrimaryAxisTitle( string text ) 
+        /// <param name="title">The text.</param>
+        public void SetPrimaryAxisText( string title ) 
         {
-            if( !string.IsNullOrEmpty( text ) )
+            if( !string.IsNullOrEmpty( title ) )
             {
                 try
                 {
-                    PrimaryXAxis.Title = text;
+                    PrimaryXAxis.Title = title;
                 }
                 catch( Exception ex )
                 {

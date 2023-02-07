@@ -274,11 +274,11 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
+            DataTable = DataModel?.DataTable;
+            SelectedTable = DataTable?.TableName;
             BindingSource.DataSource = DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -294,11 +294,11 @@ namespace BudgetExecution
             Provider = provider;
             FormFilter = where;
             DataModel = new DataBuilder( source, provider, where );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
+            DataTable = DataModel?.DataTable;
+            SelectedTable = DataTable?.TableName;
             BindingSource.DataSource = DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -431,12 +431,12 @@ namespace BudgetExecution
                 {
                     var _sql = CreateSqlText( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
+                    DataTable = DataModel?.DataTable;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -457,7 +457,7 @@ namespace BudgetExecution
                 try
                 {
                     return $"SELECT * FROM { Source } " 
-                        + $"WHERE { where.ToCriteria(  ) };";
+                        + $"WHERE { where.ToCriteria( ) };";
                 }
                 catch( Exception ex )
                 {
@@ -523,7 +523,8 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
-               && columns?.Any( ) == true )
+               && columns?.Any( ) == true
+               && !string.IsNullOrEmpty( SelectedTable )  )
             {
                 try
                 {
@@ -535,7 +536,7 @@ namespace BudgetExecution
                     
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT { _names } FROM { Source } "
+                    return $"SELECT { _names } FROM { SelectedTable } "
                         + $"WHERE { _criteria } " 
                         + $"GROUP BY { _names };";
                 }
@@ -1357,6 +1358,33 @@ namespace BudgetExecution
             }
         }
 
+        private void SetToolButtonVisibility( bool visible )
+        {
+            try
+            {
+                EditRecordButton.Visible = visible;
+                EditRecordSeparator.Visible = visible;
+                EditColumnButton.Visible = visible;
+                EditColumnSeparator.Visible = visible;
+                DeleteRecordButton.Visible = visible;
+                DeleteRecordSeparator.Visible = visible;
+                DeleteColumnButton.Visible = visible;
+                DeleteColumnSeparator.Visible = visible;
+                SaveButton.Visible = visible;
+                SaveSeparator.Visible = visible;
+                GroupButton.Visible = visible;
+                GroupSeparator.Visible = visible;
+                DeleteTableButton.Visible = visible;
+                DeleteTableSeparator.Visible = visible;
+                AddTableButton.Visible = visible;
+                AddTableSeparator.Visible = visible;
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [active tab changed].
         /// </summary>
@@ -1378,18 +1406,7 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-
-                        // ToolStrip Button Visibility
-                        EditRecordButton.Visible = false;
-                        EditRecordSeparator.Visible = false;
-                        EditColumnButton.Visible = false;
-                        EditColumnSeparator.Visible = false;
-                        DeleteRecordButton.Visible = false;
-                        DeleteRecordSeparator.Visible = false;
-                        DeleteColumnButton.Visible = false;
-                        DeleteColumnSeparator.Visible = false;
-                        SaveButton.Visible = false;
-                        SaveSeparator.Visible = false;
+                        SetToolButtonVisibility( false );
                         break;
                     }
                     case 1:
@@ -1399,18 +1416,7 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-
-                        // ToolStrip Button Visibility
-                        EditRecordButton.Visible = true;
-                        EditRecordSeparator.Visible = true;
-                        EditColumnButton.Visible = true;
-                        EditColumnSeparator.Visible = true;
-                        DeleteRecordButton.Visible = true;
-                        DeleteRecordSeparator.Visible = true;
-                        DeleteColumnButton.Visible = true;
-                        DeleteColumnSeparator.Visible = true;
-                        SaveButton.Visible = true;
-                        SaveSeparator.Visible = true;
+                        SetToolButtonVisibility( true );
                         break;
                     }
                     case 2:
@@ -1420,18 +1426,7 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-
-                        // ToolStrip Button Visibility
-                        EditRecordButton.Visible = false;
-                        EditRecordSeparator.Visible = false;
-                        EditColumnButton.Visible = false;
-                        EditColumnSeparator.Visible = false;
-                        DeleteRecordButton.Visible = false;
-                        DeleteRecordSeparator.Visible = false;
-                        DeleteColumnButton.Visible = false;
-                        DeleteColumnSeparator.Visible = false;
-                        SaveButton.Visible = false;
-                        SaveSeparator.Visible = false;
+                        SetToolButtonVisibility( false );
                         break;
                     }
                     case 3:
@@ -1441,18 +1436,7 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
-
-                        // ToolStrip Button Visibility
-                        EditRecordButton.Visible = false;
-                        EditRecordSeparator.Visible = false;
-                        EditColumnButton.Visible = false;
-                        EditColumnSeparator.Visible = false;
-                        DeleteRecordButton.Visible = false;
-                        DeleteRecordSeparator.Visible = false;
-                        DeleteColumnButton.Visible = false;
-                        DeleteColumnSeparator.Visible = false;
-                        SaveButton.Visible = false;
-                        SaveSeparator.Visible = false;
+                        SetToolButtonVisibility( false );
                         break;
                     }
                 }
@@ -1476,10 +1460,6 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.GroupButton )
                 {
                     TabControl.SelectedIndex = 2;
-                    TabControl.SelectedTab = GroupTabPage;
-                    GroupTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    FilterTabPage.TabVisible = false;
                     PopulateFieldListBox( );
                     PopulateNumericListBox( );
                 }
@@ -1503,13 +1483,8 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.CalendarButton )
                 {
                     TabControl.SelectedIndex = 3;
-                    TabControl.SelectedTab = CalendarTabPage;
-                    CalendarTabPage.TabVisible = true;
                     FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
                     SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
-                    GroupTabPage.TabVisible = false;
-                    TableTabPage.TabVisible = false;
-                    FilterTabPage.TabVisible = false;
                 }
             }
             catch( Exception ex )
@@ -1570,10 +1545,7 @@ namespace BudgetExecution
                     ClearCollections( );
                     ClearLabelText( );
                     ToolStrip.Visible = false;
-                    TabControl.SelectedTab = TableTabPage;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
+                    TabControl.SelectedIndex = 0;
                 }
             }
             catch( Exception ex )
@@ -1706,14 +1678,8 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    TableTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    TabControl.SelectedTab = FilterTabPage;
-                    FilterTabPage.TabVisible = true;
+                    TabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
-                    FirstTable.Visible = true;
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
                 }
             }
             catch( Exception ex )
