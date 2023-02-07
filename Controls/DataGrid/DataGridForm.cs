@@ -266,6 +266,16 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="DataGridForm"/> class.
         /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        public DataGridForm( BindingSource bindingSource )
+            : this( )
+        {
+            BindingSource = bindingSource;
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataGridForm"/> class.
+        /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         public DataGridForm( Source source, Provider provider ) 

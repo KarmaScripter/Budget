@@ -327,14 +327,11 @@ namespace BudgetExecution
         {
             try
             {
+                Chart.BindingSource = BindingSource;
                 SetToolStripProperties(  );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedTab = FilterTabPage;
-                    FilterTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    CalendarTabPage.TabVisible = false;
+                    TabControl.SelectedIndex = 1;
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     Text = $"{ SelectedTable.SplitPascal( ) }";
                     Chart.Title.Text = string.Empty;
@@ -345,11 +342,7 @@ namespace BudgetExecution
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedTab = TableTabPage;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    CalendarTabPage.TabVisible = false;
+                    TabControl.SelectedIndex = 0;
                     LabelTable.Visible = false;
                     TableButton.Visible = false;
                     PopulateTableListBoxItems( );
@@ -362,8 +355,6 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                ToolStrip.Office12Mode = true;
-                ToolStrip.Text = string.Empty;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
                 SecondTable.Visible = false;
                 ThirdTable.Visible = false;
@@ -379,6 +370,7 @@ namespace BudgetExecution
                 CalendarButton.Click += OnCalendarButtonClicked;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
+                TableButton.Click += OnTableButtonClick;
             }
             catch ( Exception ex )
             {
@@ -395,6 +387,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    ToolStrip.Visible = true;
                     ToolStrip.Text = string.Empty;
                     ToolStrip.Office12Mode = true;
                     ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
@@ -1232,6 +1225,7 @@ namespace BudgetExecution
                     SelectedTable = _title?.Replace( " ", ""  );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
+                        TableButton.Visible = true;
                         TabControl.SelectedTab = FilterTabPage;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
@@ -1558,6 +1552,39 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [table button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTableButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    var _dataForm = new DataGridForm( BindingSource );
+                    _dataForm.SelectedTable = SelectedTable;
+                    _dataForm.DataModel = DataModel;
+                    _dataForm.DataTable = DataTable;
+                    _dataForm.Fields = Fields;
+                    _dataForm.Numerics = Numerics;
+                    _dataForm.Show( );
+                    Hide( );
+                }
+                else
+                {
+                    var _dataForm = new DataGridForm( );
+                    _dataForm.Show( );
+                    Hide( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
