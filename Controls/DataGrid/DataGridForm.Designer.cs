@@ -125,12 +125,11 @@
             this.listBox2 = new BudgetExecution.ListBox();
             this.SqlHeader = new BudgetExecution.Label();
             this.TabControl = new BudgetExecution.TabControl();
-            this.CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.CalendarTable = new System.Windows.Forms.TableLayoutPanel();
-            this.SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar();
-            this.FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar();
-            this.FirstCalendarLabel = new BudgetExecution.Label();
-            this.SecondCalendarLabel = new BudgetExecution.Label();
+            this.TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.SourceTable = new System.Windows.Forms.TableLayoutPanel();
+            this.TablePanel = new BudgetExecution.Layout();
+            this.TableListBox = new BudgetExecution.ListBox();
+            this.TableComboBox = new BudgetExecution.ComboBox();
             this.FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.FilterTable = new System.Windows.Forms.TableLayoutPanel();
             this.ThirdTable = new System.Windows.Forms.TableLayoutPanel();
@@ -155,13 +154,14 @@
             this.FieldPanel = new BudgetExecution.Layout();
             this.FieldListBox = new BudgetExecution.ListBox();
             this.FieldLabel = new BudgetExecution.Label();
-            this.TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.SourceTable = new System.Windows.Forms.TableLayoutPanel();
-            this.TablePanel = new BudgetExecution.Layout();
-            this.TableListBox = new BudgetExecution.ListBox();
-            this.TableComboBox = new BudgetExecution.ComboBox();
-            this.FirstCalendarPanel = new BudgetExecution.Layout();
+            this.CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.CalendarTable = new System.Windows.Forms.TableLayoutPanel();
             this.SecondCalendarPanel = new BudgetExecution.Layout();
+            this.SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar();
+            this.FirstCalendarPanel = new BudgetExecution.Layout();
+            this.FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar();
+            this.FirstCalendarLabel = new BudgetExecution.Label();
+            this.SecondCalendarLabel = new BudgetExecution.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.DataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
@@ -173,8 +173,9 @@
             this.layout2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
-            this.CalendarTabPage.SuspendLayout();
-            this.CalendarTable.SuspendLayout();
+            this.TableTabPage.SuspendLayout();
+            this.SourceTable.SuspendLayout();
+            this.TablePanel.SuspendLayout();
             this.FilterTabPage.SuspendLayout();
             this.FilterTable.SuspendLayout();
             this.ThirdTable.SuspendLayout();
@@ -188,11 +189,10 @@
             this.NumericsPanel.SuspendLayout();
             this.FieldTable.SuspendLayout();
             this.FieldPanel.SuspendLayout();
-            this.TableTabPage.SuspendLayout();
-            this.SourceTable.SuspendLayout();
-            this.TablePanel.SuspendLayout();
-            this.FirstCalendarPanel.SuspendLayout();
+            this.CalendarTabPage.SuspendLayout();
+            this.CalendarTable.SuspendLayout();
             this.SecondCalendarPanel.SuspendLayout();
+            this.FirstCalendarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ToolTip
@@ -357,7 +357,7 @@
             this.DataGrid.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(139)))), ((int)(((byte)(138)))));
             this.DataGrid.HoverText = null;
-            this.DataGrid.Location = new System.Drawing.Point(13, 12);
+            this.DataGrid.Location = new System.Drawing.Point(24, 33);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
@@ -378,7 +378,7 @@
             this.DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGrid.RowTemplate.Height = 25;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(940, 553);
+            this.DataGrid.Size = new System.Drawing.Size(918, 532);
             this.DataGrid.TabIndex = 0;
             this.DataGrid.ToolTip = null;
             // 
@@ -912,7 +912,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(160, 32);
+            this.TextBox.Size = new System.Drawing.Size(158, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -1755,180 +1755,133 @@
             this.TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ToolTip = this.ToolTip;
             // 
-            // CalendarTabPage
+            // TableTabPage
             // 
-            this.CalendarTabPage.Controls.Add(this.CalendarTable);
-            this.CalendarTabPage.Image = null;
-            this.CalendarTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.CalendarTabPage.Location = new System.Drawing.Point(0, 9);
-            this.CalendarTabPage.Name = "CalendarTabPage";
-            this.CalendarTabPage.ShowCloseButton = true;
-            this.CalendarTabPage.Size = new System.Drawing.Size(350, 601);
-            this.CalendarTabPage.TabIndex = 4;
-            this.CalendarTabPage.ThemesEnabled = false;
+            this.TableTabPage.Controls.Add(this.SourceTable);
+            this.TableTabPage.Image = null;
+            this.TableTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.TableTabPage.Location = new System.Drawing.Point(0, 9);
+            this.TableTabPage.Name = "TableTabPage";
+            this.TableTabPage.ShowCloseButton = true;
+            this.TableTabPage.Size = new System.Drawing.Size(350, 601);
+            this.TableTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TableTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableTabPage.TabForeColor = System.Drawing.Color.DarkGray;
+            this.TableTabPage.TabIndex = 3;
+            this.TableTabPage.ThemesEnabled = false;
             // 
-            // CalendarTable
+            // SourceTable
             // 
-            this.CalendarTable.ColumnCount = 1;
-            this.CalendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CalendarTable.Controls.Add(this.SecondCalendarPanel, 0, 3);
-            this.CalendarTable.Controls.Add(this.FirstCalendarPanel, 0, 1);
-            this.CalendarTable.Controls.Add(this.FirstCalendarLabel, 0, 0);
-            this.CalendarTable.Controls.Add(this.SecondCalendarLabel, 0, 2);
-            this.CalendarTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.CalendarTable.Location = new System.Drawing.Point(27, 0);
-            this.CalendarTable.Name = "CalendarTable";
-            this.CalendarTable.RowCount = 4;
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.96013F));
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.03986F));
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
-            this.CalendarTable.Size = new System.Drawing.Size(304, 601);
-            this.CalendarTable.TabIndex = 0;
+            this.SourceTable.ColumnCount = 1;
+            this.SourceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SourceTable.Controls.Add(this.TablePanel, 0, 1);
+            this.SourceTable.Controls.Add(this.TableComboBox, 0, 0);
+            this.SourceTable.Location = new System.Drawing.Point(33, 0);
+            this.SourceTable.Name = "SourceTable";
+            this.SourceTable.RowCount = 2;
+            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.112054F));
+            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.88795F));
+            this.SourceTable.Size = new System.Drawing.Size(295, 601);
+            this.SourceTable.TabIndex = 47;
             // 
-            // SecondCalendar
+            // TablePanel
             // 
-            this.SecondCalendar.CanOverrideStyle = true;
-            this.SecondCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.SecondCalendar.Location = new System.Drawing.Point(24, 23);
-            this.SecondCalendar.MinimumSize = new System.Drawing.Size(196, 196);
-            this.SecondCalendar.Name = "SecondCalendar";
-            this.SecondCalendar.ShowToolTip = true;
-            this.SecondCalendar.Size = new System.Drawing.Size(252, 209);
-            this.SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SecondCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
-            this.SecondCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
-            this.SecondCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
-            this.SecondCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
-            this.SecondCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
-            this.SecondCalendar.TabIndex = 3;
+            this.TablePanel.BackColor = System.Drawing.Color.Transparent;
+            this.TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TablePanel.BindingSource = null;
+            this.TablePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.TablePanel.BorderThickness = 1;
+            this.TablePanel.Children = null;
+            this.TablePanel.Controls.Add(this.TableListBox);
+            this.TablePanel.DataFilter = null;
+            this.TablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TablePanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
+            this.TablePanel.HoverText = null;
+            this.TablePanel.IsDerivedStyle = true;
+            this.TablePanel.Location = new System.Drawing.Point(3, 39);
+            this.TablePanel.Name = "TablePanel";
+            this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
+            this.TablePanel.Size = new System.Drawing.Size(289, 559);
+            this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TablePanel.StyleManager = null;
+            this.TablePanel.TabIndex = 0;
+            this.TablePanel.ThemeAuthor = "Terry D. Eppler";
+            this.TablePanel.ThemeName = "Budget Execution";
+            this.TablePanel.ToolTip = null;
             // 
-            // FirstCalendar
+            // TableListBox
             // 
-            this.FirstCalendar.CanOverrideStyle = true;
-            this.FirstCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.FirstCalendar.Location = new System.Drawing.Point(24, 28);
-            this.FirstCalendar.MinimumSize = new System.Drawing.Size(196, 196);
-            this.FirstCalendar.Name = "FirstCalendar";
-            this.FirstCalendar.ShowToolTip = true;
-            this.FirstCalendar.Size = new System.Drawing.Size(252, 209);
-            this.FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.FirstCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
-            this.FirstCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
-            this.FirstCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
-            this.FirstCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
-            this.FirstCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
-            this.FirstCalendar.TabIndex = 2;
+            this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TableListBox.BindingSource = null;
+            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.TableListBox.DataFilter = null;
+            this.TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TableListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.TableListBox.HoveredItemColor = System.Drawing.Color.White;
+            this.TableListBox.HoverText = null;
+            this.TableListBox.IsDerivedStyle = true;
+            this.TableListBox.ItemHeight = 28;
+            this.TableListBox.Location = new System.Drawing.Point(37, 36);
+            this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.TableListBox.MultiSelect = false;
+            this.TableListBox.Name = "TableListBox";
+            this.TableListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.TableListBox.SelectedIndex = -1;
+            this.TableListBox.SelectedItem = null;
+            this.TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.TableListBox.SelectedText = null;
+            this.TableListBox.SelectedValue = null;
+            this.TableListBox.ShowBorder = false;
+            this.TableListBox.ShowScrollBar = false;
+            this.TableListBox.Size = new System.Drawing.Size(215, 496);
+            this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TableListBox.StyleManager = null;
+            this.TableListBox.TabIndex = 0;
+            this.TableListBox.ThemeAuthor = "Terry D. Eppler";
+            this.TableListBox.ThemeName = "Budget Execution";
+            this.TableListBox.ToolTip = null;
             // 
-            // FirstCalendarLabel
+            // TableComboBox
             // 
-            this.FirstCalendarLabel.BindingSource = null;
-            this.FirstCalendarLabel.DataFilter = null;
-            this.FirstCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FirstCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FirstCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstCalendarLabel.HoverText = null;
-            this.FirstCalendarLabel.IsDerivedStyle = true;
-            this.FirstCalendarLabel.Location = new System.Drawing.Point(3, 3);
-            this.FirstCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.FirstCalendarLabel.Name = "FirstCalendarLabel";
-            this.FirstCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.FirstCalendarLabel.Size = new System.Drawing.Size(298, 30);
-            this.FirstCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.FirstCalendarLabel.StyleManager = null;
-            this.FirstCalendarLabel.TabIndex = 0;
-            this.FirstCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.FirstCalendarLabel.ThemeAuthor = "Terry D. Eppler";
-            this.FirstCalendarLabel.ThemeName = "Budget Execution";
-            this.FirstCalendarLabel.ToolTip = null;
-            // 
-            // SecondCalendarLabel
-            // 
-            this.SecondCalendarLabel.BindingSource = null;
-            this.SecondCalendarLabel.DataFilter = null;
-            this.SecondCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SecondCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendarLabel.HoverText = null;
-            this.SecondCalendarLabel.IsDerivedStyle = true;
-            this.SecondCalendarLabel.Location = new System.Drawing.Point(3, 306);
-            this.SecondCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.SecondCalendarLabel.Name = "SecondCalendarLabel";
-            this.SecondCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondCalendarLabel.Size = new System.Drawing.Size(298, 36);
-            this.SecondCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondCalendarLabel.StyleManager = null;
-            this.SecondCalendarLabel.TabIndex = 1;
-            this.SecondCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.SecondCalendarLabel.ThemeAuthor = "Terry D. Eppler";
-            this.SecondCalendarLabel.ThemeName = "Budget Execution";
-            this.SecondCalendarLabel.ToolTip = null;
+            this.TableComboBox.AllowDrop = true;
+            this.TableComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.TableComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TableComboBox.BindingSource = null;
+            this.TableComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.TableComboBox.CausesValidation = false;
+            this.TableComboBox.DataFilter = null;
+            this.TableComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TableComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TableComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TableComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TableComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TableComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TableComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TableComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TableComboBox.FormattingEnabled = true;
+            this.TableComboBox.HoverText = null;
+            this.TableComboBox.IsDerivedStyle = true;
+            this.TableComboBox.ItemHeight = 24;
+            this.TableComboBox.Items.AddRange(new object[] {
+            "Execution",
+            "Reference",
+            "Maintenance"});
+            this.TableComboBox.Location = new System.Drawing.Point(3, 3);
+            this.TableComboBox.Name = "TableComboBox";
+            this.TableComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TableComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.TableComboBox.Size = new System.Drawing.Size(289, 30);
+            this.TableComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TableComboBox.StyleManager = null;
+            this.TableComboBox.TabIndex = 1;
+            this.TableComboBox.ThemeAuthor = "Terry D. Eppler";
+            this.TableComboBox.ThemeName = "Budget Execution";
+            this.TableComboBox.ToolTip = this.ToolTip;
             // 
             // FilterTabPage
             // 
@@ -2562,133 +2515,112 @@
             this.FieldLabel.ThemeName = "Budget Execution";
             this.FieldLabel.ToolTip = null;
             // 
-            // TableTabPage
+            // CalendarTabPage
             // 
-            this.TableTabPage.Controls.Add(this.SourceTable);
-            this.TableTabPage.Image = null;
-            this.TableTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.TableTabPage.Location = new System.Drawing.Point(0, 9);
-            this.TableTabPage.Name = "TableTabPage";
-            this.TableTabPage.ShowCloseButton = true;
-            this.TableTabPage.Size = new System.Drawing.Size(350, 601);
-            this.TableTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TableTabPage.TabForeColor = System.Drawing.Color.DarkGray;
-            this.TableTabPage.TabIndex = 3;
-            this.TableTabPage.ThemesEnabled = false;
+            this.CalendarTabPage.Controls.Add(this.CalendarTable);
+            this.CalendarTabPage.Image = null;
+            this.CalendarTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.CalendarTabPage.Location = new System.Drawing.Point(0, 9);
+            this.CalendarTabPage.Name = "CalendarTabPage";
+            this.CalendarTabPage.ShowCloseButton = true;
+            this.CalendarTabPage.Size = new System.Drawing.Size(350, 601);
+            this.CalendarTabPage.TabIndex = 4;
+            this.CalendarTabPage.ThemesEnabled = false;
             // 
-            // SourceTable
+            // CalendarTable
             // 
-            this.SourceTable.ColumnCount = 1;
-            this.SourceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SourceTable.Controls.Add(this.TablePanel, 0, 1);
-            this.SourceTable.Controls.Add(this.TableComboBox, 0, 0);
-            this.SourceTable.Location = new System.Drawing.Point(33, 0);
-            this.SourceTable.Name = "SourceTable";
-            this.SourceTable.RowCount = 2;
-            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.112054F));
-            this.SourceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.88795F));
-            this.SourceTable.Size = new System.Drawing.Size(295, 601);
-            this.SourceTable.TabIndex = 47;
+            this.CalendarTable.ColumnCount = 1;
+            this.CalendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CalendarTable.Controls.Add(this.SecondCalendarPanel, 0, 3);
+            this.CalendarTable.Controls.Add(this.FirstCalendarPanel, 0, 1);
+            this.CalendarTable.Controls.Add(this.FirstCalendarLabel, 0, 0);
+            this.CalendarTable.Controls.Add(this.SecondCalendarLabel, 0, 2);
+            this.CalendarTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.CalendarTable.Location = new System.Drawing.Point(27, 0);
+            this.CalendarTable.Name = "CalendarTable";
+            this.CalendarTable.RowCount = 4;
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.96013F));
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.03986F));
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.CalendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 255F));
+            this.CalendarTable.Size = new System.Drawing.Size(304, 601);
+            this.CalendarTable.TabIndex = 0;
             // 
-            // TablePanel
+            // SecondCalendarPanel
             // 
-            this.TablePanel.BackColor = System.Drawing.Color.Transparent;
-            this.TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TablePanel.BindingSource = null;
-            this.TablePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.TablePanel.BorderThickness = 1;
-            this.TablePanel.Children = null;
-            this.TablePanel.Controls.Add(this.TableListBox);
-            this.TablePanel.DataFilter = null;
-            this.TablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TablePanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TablePanel.ForeColor = System.Drawing.Color.Transparent;
-            this.TablePanel.HoverText = null;
-            this.TablePanel.IsDerivedStyle = true;
-            this.TablePanel.Location = new System.Drawing.Point(3, 39);
-            this.TablePanel.Name = "TablePanel";
-            this.TablePanel.Padding = new System.Windows.Forms.Padding(1);
-            this.TablePanel.Size = new System.Drawing.Size(289, 559);
-            this.TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TablePanel.StyleManager = null;
-            this.TablePanel.TabIndex = 0;
-            this.TablePanel.ThemeAuthor = "Terry D. Eppler";
-            this.TablePanel.ThemeName = "Budget Execution";
-            this.TablePanel.ToolTip = null;
+            this.SecondCalendarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SecondCalendarPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendarPanel.BindingSource = null;
+            this.SecondCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.SecondCalendarPanel.BorderThickness = 1;
+            this.SecondCalendarPanel.Children = null;
+            this.SecondCalendarPanel.Controls.Add(this.SecondCalendar);
+            this.SecondCalendarPanel.DataFilter = null;
+            this.SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondCalendarPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.SecondCalendarPanel.HoverText = null;
+            this.SecondCalendarPanel.IsDerivedStyle = true;
+            this.SecondCalendarPanel.Location = new System.Drawing.Point(3, 348);
+            this.SecondCalendarPanel.Name = "SecondCalendarPanel";
+            this.SecondCalendarPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondCalendarPanel.Size = new System.Drawing.Size(298, 250);
+            this.SecondCalendarPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondCalendarPanel.StyleManager = null;
+            this.SecondCalendarPanel.TabIndex = 46;
+            this.SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondCalendarPanel.ThemeName = "Budget Execution";
+            this.SecondCalendarPanel.ToolTip = null;
             // 
-            // TableListBox
+            // SecondCalendar
             // 
-            this.TableListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.TableListBox.BindingSource = null;
-            this.TableListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.TableListBox.DataFilter = null;
-            this.TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TableListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.TableListBox.HoveredItemColor = System.Drawing.Color.White;
-            this.TableListBox.HoverText = null;
-            this.TableListBox.IsDerivedStyle = true;
-            this.TableListBox.ItemHeight = 28;
-            this.TableListBox.Location = new System.Drawing.Point(37, 36);
-            this.TableListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.TableListBox.MultiSelect = false;
-            this.TableListBox.Name = "TableListBox";
-            this.TableListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TableListBox.SelectedIndex = -1;
-            this.TableListBox.SelectedItem = null;
-            this.TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TableListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.TableListBox.SelectedText = null;
-            this.TableListBox.SelectedValue = null;
-            this.TableListBox.ShowBorder = false;
-            this.TableListBox.ShowScrollBar = false;
-            this.TableListBox.Size = new System.Drawing.Size(215, 496);
-            this.TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TableListBox.StyleManager = null;
-            this.TableListBox.TabIndex = 0;
-            this.TableListBox.ThemeAuthor = "Terry D. Eppler";
-            this.TableListBox.ThemeName = "Budget Execution";
-            this.TableListBox.ToolTip = null;
-            // 
-            // TableComboBox
-            // 
-            this.TableComboBox.AllowDrop = true;
-            this.TableComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TableComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.TableComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.TableComboBox.BindingSource = null;
-            this.TableComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.TableComboBox.CausesValidation = false;
-            this.TableComboBox.DataFilter = null;
-            this.TableComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.TableComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.TableComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.TableComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TableComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.TableComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TableComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TableComboBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TableComboBox.FormattingEnabled = true;
-            this.TableComboBox.HoverText = null;
-            this.TableComboBox.IsDerivedStyle = true;
-            this.TableComboBox.ItemHeight = 24;
-            this.TableComboBox.Items.AddRange(new object[] {
-            "Execution",
-            "Reference",
-            "Maintenance"});
-            this.TableComboBox.Location = new System.Drawing.Point(3, 3);
-            this.TableComboBox.Name = "TableComboBox";
-            this.TableComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TableComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.TableComboBox.Size = new System.Drawing.Size(289, 30);
-            this.TableComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TableComboBox.StyleManager = null;
-            this.TableComboBox.TabIndex = 1;
-            this.TableComboBox.ThemeAuthor = "Terry D. Eppler";
-            this.TableComboBox.ThemeName = "Budget Execution";
-            this.TableComboBox.ToolTip = this.ToolTip;
+            this.SecondCalendar.CanOverrideStyle = true;
+            this.SecondCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.SecondCalendar.Location = new System.Drawing.Point(24, 23);
+            this.SecondCalendar.MinimumSize = new System.Drawing.Size(196, 196);
+            this.SecondCalendar.Name = "SecondCalendar";
+            this.SecondCalendar.ShowToolTip = true;
+            this.SecondCalendar.Size = new System.Drawing.Size(252, 209);
+            this.SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SecondCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
+            this.SecondCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
+            this.SecondCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
+            this.SecondCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
+            this.SecondCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
+            this.SecondCalendar.TabIndex = 3;
             // 
             // FirstCalendarPanel
             // 
@@ -2716,31 +2648,99 @@
             this.FirstCalendarPanel.ThemeName = "Budget Execution";
             this.FirstCalendarPanel.ToolTip = null;
             // 
-            // SecondCalendarPanel
+            // FirstCalendar
             // 
-            this.SecondCalendarPanel.BackColor = System.Drawing.Color.Transparent;
-            this.SecondCalendarPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.SecondCalendarPanel.BindingSource = null;
-            this.SecondCalendarPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.SecondCalendarPanel.BorderThickness = 1;
-            this.SecondCalendarPanel.Children = null;
-            this.SecondCalendarPanel.Controls.Add(this.SecondCalendar);
-            this.SecondCalendarPanel.DataFilter = null;
-            this.SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondCalendarPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.SecondCalendarPanel.HoverText = null;
-            this.SecondCalendarPanel.IsDerivedStyle = true;
-            this.SecondCalendarPanel.Location = new System.Drawing.Point(3, 348);
-            this.SecondCalendarPanel.Name = "SecondCalendarPanel";
-            this.SecondCalendarPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondCalendarPanel.Size = new System.Drawing.Size(298, 250);
-            this.SecondCalendarPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SecondCalendarPanel.StyleManager = null;
-            this.SecondCalendarPanel.TabIndex = 46;
-            this.SecondCalendarPanel.ThemeAuthor = "Terry D. Eppler";
-            this.SecondCalendarPanel.ThemeName = "Budget Execution";
-            this.SecondCalendarPanel.ToolTip = null;
+            this.FirstCalendar.CanOverrideStyle = true;
+            this.FirstCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.FirstCalendar.Location = new System.Drawing.Point(24, 28);
+            this.FirstCalendar.MinimumSize = new System.Drawing.Size(196, 196);
+            this.FirstCalendar.Name = "FirstCalendar";
+            this.FirstCalendar.ShowToolTip = true;
+            this.FirstCalendar.Size = new System.Drawing.Size(252, 209);
+            this.FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Footer.HoverBackColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Header.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.FirstCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
+            this.FirstCalendar.Style.Header.NavigationButtonForeColor = System.Drawing.Color.SteelBlue;
+            this.FirstCalendar.Style.Header.NavigationButtonHoverForeColor = System.Drawing.Color.White;
+            this.FirstCalendar.Style.HorizontalSplitterColor = System.Drawing.Color.DimGray;
+            this.FirstCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
+            this.FirstCalendar.TabIndex = 2;
+            // 
+            // FirstCalendarLabel
+            // 
+            this.FirstCalendarLabel.BindingSource = null;
+            this.FirstCalendarLabel.DataFilter = null;
+            this.FirstCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FirstCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FirstCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstCalendarLabel.HoverText = null;
+            this.FirstCalendarLabel.IsDerivedStyle = true;
+            this.FirstCalendarLabel.Location = new System.Drawing.Point(3, 3);
+            this.FirstCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.FirstCalendarLabel.Name = "FirstCalendarLabel";
+            this.FirstCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.FirstCalendarLabel.Size = new System.Drawing.Size(298, 30);
+            this.FirstCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.FirstCalendarLabel.StyleManager = null;
+            this.FirstCalendarLabel.TabIndex = 0;
+            this.FirstCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.FirstCalendarLabel.ThemeAuthor = "Terry D. Eppler";
+            this.FirstCalendarLabel.ThemeName = "Budget Execution";
+            this.FirstCalendarLabel.ToolTip = null;
+            // 
+            // SecondCalendarLabel
+            // 
+            this.SecondCalendarLabel.BindingSource = null;
+            this.SecondCalendarLabel.DataFilter = null;
+            this.SecondCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SecondCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SecondCalendarLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SecondCalendarLabel.HoverText = null;
+            this.SecondCalendarLabel.IsDerivedStyle = true;
+            this.SecondCalendarLabel.Location = new System.Drawing.Point(3, 306);
+            this.SecondCalendarLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.SecondCalendarLabel.Name = "SecondCalendarLabel";
+            this.SecondCalendarLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.SecondCalendarLabel.Size = new System.Drawing.Size(298, 36);
+            this.SecondCalendarLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SecondCalendarLabel.StyleManager = null;
+            this.SecondCalendarLabel.TabIndex = 1;
+            this.SecondCalendarLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.SecondCalendarLabel.ThemeAuthor = "Terry D. Eppler";
+            this.SecondCalendarLabel.ThemeName = "Budget Execution";
+            this.SecondCalendarLabel.ToolTip = null;
             // 
             // DataGridForm
             // 
@@ -2787,8 +2787,9 @@
             this.layout2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
-            this.CalendarTabPage.ResumeLayout(false);
-            this.CalendarTable.ResumeLayout(false);
+            this.TableTabPage.ResumeLayout(false);
+            this.SourceTable.ResumeLayout(false);
+            this.TablePanel.ResumeLayout(false);
             this.FilterTabPage.ResumeLayout(false);
             this.FilterTable.ResumeLayout(false);
             this.ThirdTable.ResumeLayout(false);
@@ -2802,11 +2803,10 @@
             this.NumericsPanel.ResumeLayout(false);
             this.FieldTable.ResumeLayout(false);
             this.FieldPanel.ResumeLayout(false);
-            this.TableTabPage.ResumeLayout(false);
-            this.SourceTable.ResumeLayout(false);
-            this.TablePanel.ResumeLayout(false);
-            this.FirstCalendarPanel.ResumeLayout(false);
+            this.CalendarTabPage.ResumeLayout(false);
+            this.CalendarTable.ResumeLayout(false);
             this.SecondCalendarPanel.ResumeLayout(false);
+            this.FirstCalendarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

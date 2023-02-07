@@ -17,6 +17,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     public abstract class DataViewBase : GridDataBoundGrid
     {
         /// <summary>
@@ -44,14 +46,6 @@ namespace BudgetExecution
         public virtual Field Field { get; set; }
 
         /// <summary>
-        /// Gets or sets the numeric.
-        /// </summary>
-        /// <value>
-        /// The numeric.
-        /// </value>
-        public virtual Numeric Numeric { get; set; }
-
-        /// <summary>
         /// Gets or sets the filter.
         /// </summary>
         /// <value>
@@ -63,7 +57,8 @@ namespace BudgetExecution
         /// Sets the binding source.
         /// </summary>
         /// <param name="bindingSource">The bindingSource.</param>
-        public virtual void SetDataSource<T1>( T1 bindingSource ) where T1 : IBindingList
+        public virtual void SetDataSource<T1>( T1 bindingSource ) 
+            where T1 : IBindingList
         {
             try
             {
@@ -94,7 +89,8 @@ namespace BudgetExecution
         /// <param name="bindingList">The bindingSource.</param>
         /// <param name="dict">The dictionary.</param>
         public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList where T2 : IDictionary<string, object>
+            where T1 : IBindingList 
+            where T2 : IDictionary<string, object>
         {
             try
             {
@@ -105,7 +101,6 @@ namespace BudgetExecution
                     {
                         var _list = bindingList as BindingSource;
                         var _filter = string.Empty;
-
                         foreach( var _kvp in dict )
                         {
                             if( !string.IsNullOrEmpty( _kvp.Key )
@@ -161,14 +156,14 @@ namespace BudgetExecution
         /// <param name="data">The data.</param>
         /// <param name="dict">The dictionary.</param>
         public virtual void SetDataSource<T1>( IEnumerable<T1> data,
-            IDictionary<string, object> dict ) where T1 : IEnumerable<DataRow>
+            IDictionary<string, object> dict ) 
+            where T1 : IEnumerable<DataRow>
         {
             if( data?.Any( ) == true )
             {
                 try
                 {
                     var filter = string.Empty;
-
                     foreach( var kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( kvp.Key )
@@ -198,7 +193,8 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The dictionary.</param>
         public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<DataRow> where T2 : struct
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             if( data?.Any( ) == true
                && Enum.IsDefined( typeof( Field ), field ) )
@@ -261,7 +257,8 @@ namespace BudgetExecution
         /// <param>The numeric.</param>
         /// <param name = "dict" > </param>
         public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<DataRow> where T2 : IDictionary<string, object>
+            where T1 : IEnumerable<DataRow> 
+            where T2 : IDictionary<string, object>
         {
             if( data?.Any( ) == true
                && dict?.Any( ) == true )
@@ -269,7 +266,6 @@ namespace BudgetExecution
                 try
                 {
                     var _filter = string.Empty;
-
                     foreach( var _kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( _kvp.Key )
@@ -296,7 +292,9 @@ namespace BudgetExecution
         /// <param name="field">The field.</param>
         /// <param name="filter">The filter.</param>
         public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field,
-            object filter = null ) where T1 : IEnumerable<DataRow> where T2 : struct
+            object filter = null ) 
+            where T1 : IEnumerable<DataRow> 
+            where T2 : struct
         {
             if( data?.Any( ) == true
                && Enum.IsDefined( typeof( Field ), field ) )
@@ -326,7 +324,7 @@ namespace BudgetExecution
         /// Get Error Dialog.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
+        private protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
             _error?.SetText( );

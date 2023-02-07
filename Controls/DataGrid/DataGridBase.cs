@@ -28,7 +28,7 @@ namespace BudgetExecution
         {
             // Basic Properties
             ForeColor = Color.LightGray;
-            BackColor = Color.FromArgb( 20, 20, 20 );
+            BackColor = Color.FromArgb( 45, 45, 45 );
             Font = new Font( "Roboto", 8 );
             Margin = new Padding( 0 );
             Padding = new Padding( 0 );
@@ -42,7 +42,7 @@ namespace BudgetExecution
             Model.Rows.DefaultSize = 22;
             Model.ActiveGridView.PdfExport = true;
             Model.Properties.ThemedHeader = false;
-            Model.Properties.GridLineColor = Color.FromArgb( 64, 64, 64 );
+            Model.Properties.GridLineColor = Color.FromArgb( 141, 139, 138 );
 
             // Style Properties
             ThemesEnabled = true;
@@ -54,7 +54,7 @@ namespace BudgetExecution
             ExcelLikeSelectionFrame = true;
             ExcelLikeAlignment = true;
             AlphaBlendSelectionColor = Color.FromArgb( 0, 120, 212 );
-            Properties.BackgroundColor = Color.FromArgb( 40, 40, 40 );
+            Properties.BackgroundColor = Color.FromArgb( 45, 45, 45 );
             Properties.CenterHorizontal = true;
             Properties.CenterVertical = true;
             Properties.ColHeaders = true;

@@ -371,6 +371,7 @@ namespace BudgetExecution
                     SelectedTable = DataTable.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders(  );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
@@ -402,6 +403,7 @@ namespace BudgetExecution
                     SelectedTable = DataTable.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders(  );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
@@ -434,6 +436,7 @@ namespace BudgetExecution
                     DataTable = DataModel?.DataTable;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders(  );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
@@ -933,13 +936,11 @@ namespace BudgetExecution
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
                         DataGrid.DataSource = BindingSource;
+                        DataGrid.PascalizeHeaders(  );
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
                         TabControl.SelectedIndex = 1;
-                        FilterTabPage.TabVisible = true;
-                        TableTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
                     }
 
                     ClearLabelText( );
@@ -1239,10 +1240,13 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel.DataElements[ ThirdCategory ];
-                        foreach( var item in _data )
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
+                        if ( _data?.Any( ) == true )
                         {
-                            ThirdListBox.Items?.Add( item );
+                            foreach( var item in _data )
+                            {
+                                ThirdListBox.Items?.Add( item );
+                            }
                         }
                     }
                 }
@@ -1502,7 +1506,7 @@ namespace BudgetExecution
         {
             try
             {
-                FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
+                FirstCalendarLabel.Text = $"Start Date: { FirstCalendar?.SelectedDate }";
             }
             catch( Exception ex )
             {
@@ -1519,7 +1523,7 @@ namespace BudgetExecution
         {
             try
             {
-                SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
+                SecondCalendarLabel.Text = $"End Date: { SecondCalendar?.SelectedDate }";
             }
             catch( Exception ex )
             {
@@ -1569,7 +1573,7 @@ namespace BudgetExecution
                 var _source = DataModel.Source;
                 var _provider = DataModel.Provider;
                 var _dialog = new FilterDialog( _source, _provider );
-                _dialog.ShowDialog( );
+                _dialog?.ShowDialog( );
             }
             catch( Exception ex )
             {
@@ -1675,6 +1679,7 @@ namespace BudgetExecution
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;

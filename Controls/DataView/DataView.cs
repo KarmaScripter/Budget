@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
@@ -13,6 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="DataViewBase" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class DataView : DataViewBase
     {
         /// <summary>Gets or sets the data table.</summary>

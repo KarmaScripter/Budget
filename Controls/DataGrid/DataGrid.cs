@@ -67,10 +67,10 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Size = new Size( 906, 527 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            BackColor = Color.FromArgb( 40, 40, 40 );
+            BackColor = Color.FromArgb( 45, 45, 45 );
             BorderStyle = BorderStyle.None;
             CellBorderStyle = DataGridViewCellBorderStyle.None;
-            BackgroundColor = Color.FromArgb( 40, 40, 40 );
+            BackgroundColor = Color.FromArgb( 45, 45, 45 );
             GridColor = Color.FromArgb( 141, 139, 138 );
             SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
@@ -79,7 +79,7 @@ namespace BudgetExecution
             AllowUserToResizeRows = true;
 
             // Default Cell Style
-            DefaultCellStyle.BackColor = Color.FromArgb( 40, 40, 40 );
+            DefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             DefaultCellStyle.ForeColor = Color.LightSteelBlue;
             DefaultCellStyle.SelectionBackColor = Color.FromArgb( 50, 93, 129 );
             DefaultCellStyle.SelectionForeColor = Color.White;
@@ -160,65 +160,7 @@ namespace BudgetExecution
         {
             Parent = parent;
         }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="dataRows">The data.</param>
-        /// <param name="dict">The dictionary.</param>
-        public void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict )
-        {
-            if( dataRows?.Any( ) == true
-               && dict?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( BindingSource.Filter ) )
-                    {
-                        BindingSource.RemoveFilter( );
-                    }
-
-                    BindingSource.DataSource = dataRows.CopyToDataTable( );
-                    BindingSource.Filter = GetFilterValues( dict );
-                    DataSource = BindingSource;
-                    PascalizeHeaders( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Pascalizes the headers.
-        /// </summary>
-        public void PascalizeHeaders( )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    var _dataTable = (DataTable)BindingSource.DataSource;
-                    if( _dataTable?.Columns?.Count > 0 )
-                    {
-                        var _count = _dataTable.Columns.Count;
-                        var _cols = _dataTable.Columns;
-                        for( var i = 0; i < _count; i++ )
-                        {
-                            Columns[ i ].HeaderText = !string.IsNullOrEmpty( _cols[ i ].Caption )
-                                ? _cols[ i ].Caption
-                                : _cols[ i ]?.ColumnName?.SplitPascal( );
-                        }
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the filter values.
         /// </summary>

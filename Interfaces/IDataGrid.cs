@@ -14,19 +14,6 @@ namespace BudgetExecution
     public interface IDataGrid
     {
         /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="dataRows">The data.</param>
-        /// <param name="dict">The dictionary.</param>
-        void SetBindingSource( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict );
-
-        /// <summary>
-        /// Pascalizes the headers.
-        /// </summary>
-        /// <param name="dataRows">The data.</param>
-        void PascalizeHeaders( );
-
-        /// <summary>
         /// Gets the filter values.
         /// </summary>
         /// <param name="dict">The dictionary.</param>
