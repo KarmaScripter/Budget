@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The y axis.
         /// </value>
-        public string yAxis { get; set; }
+        public IEnumerable<string> yAxis { get; set; }
 
         /// <summary>
         /// Gets or sets the data model.

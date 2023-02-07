@@ -16,7 +16,7 @@ namespace BudgetExecution.Controls.Chart
     /// </summary>
     /// <seealso
     /// cref="ChartControl" />
-    [SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" )]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class ChartBase : ChartControl
     {
         /// <summary>
