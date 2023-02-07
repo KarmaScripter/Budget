@@ -371,7 +371,8 @@ namespace BudgetExecution
                     SelectedTable = DataTable.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders(  );
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatDataColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
@@ -403,7 +404,8 @@ namespace BudgetExecution
                     SelectedTable = DataTable.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders(  );
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatDataColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
@@ -436,7 +438,8 @@ namespace BudgetExecution
                     DataTable = DataModel?.DataTable;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders(  );
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatDataColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
@@ -936,7 +939,8 @@ namespace BudgetExecution
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
                         DataGrid.DataSource = BindingSource;
-                        DataGrid.PascalizeHeaders(  );
+                        DataGrid.PascalizeHeaders( );
+                        DataGrid.FormatDataColumns( );
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
@@ -1680,6 +1684,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatDataColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;

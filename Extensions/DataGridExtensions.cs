@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Diagnostics.Eventing.Reader;
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
@@ -53,27 +54,32 @@ namespace BudgetExecution
         {
             try
             {
-                var _table = new DataTable( );
-                foreach( DataGridViewColumn _column in dataGridView.Columns )
+                var _dataTable = new DataTable( );
+                for( var i = 0; i < dataGridView.Columns.Count; i++ )
                 {
-                    var column = new DataColumn( );
-                    column.ColumnName = _column.Name;
-                    column.DataType = _column.ValueType;
-                    _table.Columns.Add( column );
+                    var _gridColumn = dataGridView.Columns[ i ];
+                    var _dataColumn = new DataColumn( );
+                    _dataColumn.ColumnName = _gridColumn.Name;
+                    _dataColumn.DataType = _gridColumn.ValueType;
+                    _dataTable.Columns.Add( _dataColumn );
                 }
 
-                foreach( DataGridViewRow row in dataGridView.Rows )
+                for( var j = 0; j < dataGridView.Rows.Count; j++ )
                 {
-                    var _values = new object[ row.Cells.Count ];
-                    for( var i = 0; i < _values.Length; i++ )
+                    var _gridRow = dataGridView.Rows[ j ];
+                    var _values = new object[ _gridRow.Cells.Count ];
+                    for( var k = 0; k < _values.Length; k++ )
                     {
-                        _values[ i ] = row.Cells[ i ].Value;
+                        _values[ k ] = _gridRow.Cells[ k ].Value;
                     }
 
-                    _table.Rows.Add( _values );
+                    _dataTable.Rows.Add( _values );
                 }
 
-                return _table;
+                return _dataTable?.Columns?.Count > 0 
+                    && _dataTable?.Rows?.Count > 0
+                        ? _dataTable
+                        : default( DataTable );
             }
             catch( Exception ex )
             {
@@ -328,8 +334,8 @@ namespace BudgetExecution
                 {
                     for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
                     {
-                        var _column = dataTable.Columns[ _i ];
-                        var _caption = _column.ColumnName.SplitPascal( );
+                        var _column = dataTable?.Columns[ _i ];
+                        var _caption = _column?.ColumnName?.SplitPascal( );
                         if( !string.IsNullOrEmpty( _caption ) )
                         {
                             dataGridView.Columns[ _i ].HeaderText = _caption;
@@ -360,10 +366,45 @@ namespace BudgetExecution
                         for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
                         {
                             var _column = _table.Columns[ _i ];
-                            var _caption = _column.ColumnName.SplitPascal( );
+                            var _caption = _column.ColumnName?.SplitPascal( );
                             if( !string.IsNullOrEmpty( _caption ) )
                             {
                                 dataGridView.Columns[ _i ].HeaderText = _caption;
+                            }
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the numeric column format.
+        /// </summary>
+        /// <param name="dataGridView">The data grid view.</param>
+        public static void FormatDataColumns( this DataGridView dataGridView )
+        {
+            if( dataGridView?.DataSource != null )
+            {
+                try
+                {
+                    var _table = dataGridView.GetDataTable( );
+                    if( _table?.Columns?.Count > 0 )
+                    {
+                        for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
+                        {
+                            var _column = _table.Columns[ _i ];
+                            if( _column.DataType == typeof( double )  
+                               || _column.DataType == typeof( float ) )
+                            {
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N";
+                            }
+                            else if( _column.DataType == typeof( decimal ) )
+                            {
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "C";
                             }
                         }
                     }
