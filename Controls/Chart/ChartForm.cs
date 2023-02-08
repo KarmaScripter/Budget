@@ -339,6 +339,7 @@ namespace BudgetExecution
                     LabelTable.Visible = true;
                     TableButton.Visible = true;
                     PopulateFirstComboBoxItems(  );
+                    UpdateLabelText( );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -1226,9 +1227,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
                         TableButton.Visible = true;
-                        TabControl.SelectedTab = FilterTabPage;
-                        FilterTabPage.TabVisible = true;
-                        TableTabPage.TabVisible = false;
+                        TabControl.SelectedIndex = 1;
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel?.DataTable;
@@ -1564,20 +1563,15 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     var _dataForm = new DataGridForm( BindingSource );
-                    _dataForm.SelectedTable = SelectedTable;
-                    _dataForm.DataModel = DataModel;
-                    _dataForm.DataTable = DataTable;
-                    _dataForm.Fields = Fields;
-                    _dataForm.Numerics = Numerics;
                     _dataForm.Show( );
-                    Hide( );
                 }
                 else
                 {
                     var _dataForm = new DataGridForm( );
                     _dataForm.Show( );
-                    Hide( );
                 }
+                
+                Close(  );
             }
             catch( Exception ex )
             {

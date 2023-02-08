@@ -225,6 +225,7 @@ namespace BudgetExecution
             GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             
             // ToolStrip Properties
+            ToolStrip.Visible = false;
             ToolStrip.Text = string.Empty;
             ToolStrip.Office12Mode = true;
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
@@ -270,7 +271,14 @@ namespace BudgetExecution
         public DataGridForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource = bindingSource;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            Source = DataBuilder.GetSource( SelectedTable );
+            DataModel = new DataBuilder( Source, Provider );
+            BindingSource.DataSource = DataModel.DataTable;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+            DataGrid.DataSource = BindingSource.DataSource;
+            ToolStrip.BindingSource = BindingSource;
         }
         
         /// <summary>
@@ -289,6 +297,8 @@ namespace BudgetExecution
             BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
+            DataGrid.DataSource = BindingSource.DataSource;
+            ToolStrip.BindingSource = BindingSource;
         }
 
         /// <summary>
@@ -309,6 +319,8 @@ namespace BudgetExecution
             BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
+            DataGrid.DataSource = BindingSource.DataSource;
+            ToolStrip.BindingSource = BindingSource;
         }
 
         /// <summary>
@@ -320,6 +332,9 @@ namespace BudgetExecution
         {
             try
             {
+                PopulateToolStripComboBoxItems( );
+                ClearSelections(  );
+                ClearLabelText( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;
@@ -327,6 +342,24 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     CalendarTabPage.TabVisible = false;
+                    UpdateLabelText( );
+                    PopulateFirstComboBoxItems( );
+                    LabelTable.Visible = true;
+
+                    if( FirstTable.Visible == false )
+                    {
+                        FirstTable.Visible = true;
+                    }
+
+                    if( SecondTable.Visible == true )
+                    {
+                        SecondTable.Visible = false;
+                    }
+
+                    if( ThirdTable.Visible == true )
+                    {
+                        ThirdTable.Visible = false;
+                    }
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -343,9 +376,6 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                ClearSelections(  );
-                ClearLabelText( );
-                PopulateToolStripComboBoxItems( );
                 ExitButton.Click += OnExitButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
@@ -355,7 +385,6 @@ namespace BudgetExecution
                 CalendarButton.Click += OnCalendarButtonClicked;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
-                ToolStrip.Visible = false;
             }
             catch( Exception ex )
             {
@@ -1419,7 +1448,6 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        // TabPage Visibility
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1429,7 +1457,7 @@ namespace BudgetExecution
                     }
                     case 1:
                     {
-                        // TabPage Visibility
+                        ToolStrip.Visible = true;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1439,7 +1467,7 @@ namespace BudgetExecution
                     }
                     case 2:
                     {
-                        // TabPage Visibility
+                        ToolStrip.Visible = true;
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
@@ -1449,7 +1477,7 @@ namespace BudgetExecution
                     }
                     case 3:
                     {
-                        // TabPage Visibility
+                        ToolStrip.Visible = true;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
