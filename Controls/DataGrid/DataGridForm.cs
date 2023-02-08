@@ -274,6 +274,7 @@ namespace BudgetExecution
             SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
             Source = DataBuilder.GetSource( SelectedTable );
             DataModel = new DataBuilder( Source, Provider );
+            DataTable = DataModel.DataTable;
             BindingSource.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -342,9 +343,9 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     CalendarTabPage.TabVisible = false;
+                    LabelTable.Visible = true;
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
-                    LabelTable.Visible = true;
 
                     if( FirstTable.Visible == false )
                     {
@@ -1638,7 +1639,6 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ExitButton )
                 {
                     Owner?.Close( );
-                    Close( );
                 }
             }
             catch( Exception ex )
@@ -1665,7 +1665,7 @@ namespace BudgetExecution
                         Owner.Visible = true;
                     }
 
-                    Close( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1691,8 +1691,8 @@ namespace BudgetExecution
                     {
                         Owner.Visible = true;
                     }
-
-                    Close( );
+                    
+                    Visible = false;
                 }
             }
             catch( Exception ex )

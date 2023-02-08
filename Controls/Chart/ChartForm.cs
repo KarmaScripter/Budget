@@ -243,6 +243,9 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
+
+            // ToolStrip Properties
+            ToolStrip.Office12Mode = true;
             
             // Event Wiring
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -1278,11 +1281,14 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.BackButton )
                 {
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
                     ClearSelections(  );
-                    DataTable = null;
-                    BindingSource.DataSource = null;
-                    Owner.Visible = true;
-                    Close( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1311,7 +1317,7 @@ namespace BudgetExecution
                         Owner.Visible = true;
                     }
 
-                    Close( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1563,15 +1569,17 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     var _dataForm = new DataGridForm( BindingSource );
+                    _dataForm.Owner = this;
                     _dataForm.Show( );
                 }
                 else
                 {
                     var _dataForm = new DataGridForm( );
+                    _dataForm.Owner = this;
                     _dataForm.Show( );
                 }
-                
-                Close(  );
+
+                Visible = false;
             }
             catch( Exception ex )
             {
