@@ -254,7 +254,7 @@ namespace BudgetExecution
             try
             {
                 ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle( );
-                ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );
+                ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                 ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
