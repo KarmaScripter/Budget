@@ -1,6 +1,6 @@
 CREATE TABLE  PayrollAuthority  
 (
-	 PayrollAuthorityId INTEGER NOT NULL UNIQUE,
+	 PayrollAuthorityId AUTOINCREMENT NOT NULL UNIQUE,
 	 AllocationsId INTEGER NOT NULL,
 	 StatusOfFundsId INTEGER NOT NULL,
 	 BFY TEXT(80) NULL DEFAULT NS,

@@ -346,21 +346,7 @@ namespace BudgetExecution
                     LabelTable.Visible = true;
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
-
-                    if( FirstTable.Visible == false )
-                    {
-                        FirstTable.Visible = true;
-                    }
-
-                    if( SecondTable.Visible == true )
-                    {
-                        SecondTable.Visible = false;
-                    }
-
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                    }
+                    ResetComboBoxVisibility( );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -515,6 +501,34 @@ namespace BudgetExecution
             return string.Empty;
         }
 
+        /// <summary>
+        /// Resets the ComboBox visibility.
+        /// </summary>
+        private void ResetComboBoxVisibility( )
+        {
+            try
+            {
+                if( FirstTable?.Visible == false )
+                {
+                    FirstTable.Visible = true;
+                }
+
+                if( SecondTable?.Visible == true )
+                {
+                    SecondTable.Visible = false;
+                }
+
+                if( ThirdTable?.Visible == true )
+                {
+                    ThirdTable.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
@@ -990,20 +1004,7 @@ namespace BudgetExecution
                     ClearLabelText( );
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
-                    if( FirstTable.Visible == false )
-                    {
-                        FirstTable.Visible = true;
-                    }
-
-                    if( SecondTable.Visible == true )
-                    {
-                        SecondTable.Visible = false;
-                    }
-
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                    }
+                    ResetComboBoxVisibility( );
                 }
                 catch( Exception ex )
                 {
@@ -1072,11 +1073,7 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    if( FirstListBox.Items?.Count > 0 )
-                    {
-                        FirstListBox.Items?.Clear( );
-                    }
-
+                    FirstListBox.Items.Clear( );
                     FirstCategory = _comboBox.SelectedItem?.ToString(  );
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
@@ -1087,15 +1084,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    if( SecondTable.Visible == true )
-                    {
-                        SecondTable.Visible = false;
-                    }
-
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                    }
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -1464,6 +1454,7 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
                         SetToolButtonVisibility( true );
+                        ResetComboBoxVisibility( );
                         break;
                     }
                     case 2:
@@ -1691,8 +1682,8 @@ namespace BudgetExecution
                     {
                         Owner.Visible = true;
                     }
-                    
-                    Visible = false;
+
+                    Close( );
                 }
             }
             catch( Exception ex )

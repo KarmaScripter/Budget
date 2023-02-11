@@ -9,7 +9,7 @@ CREATE TABLE BudgetControlValues
     EstReimTransType TEXT(80) NULL DEFAULT NS,
     SpngAdjTransType TEXT(80) NULL DEFAULT NS,
     EstRecTransType TEXT(80) NULL DEFAULT NS,
-    ActlRecTransType INTEGER,
+    ActlRecTransType TEXT(80) NULL DEFAULT NS,
     StatRsrvTransType TEXT(80) NULL DEFAULT NS,
     ProfLossTransType TEXT(80) NULL DEFAULT NS,
     EstReimSpngOpt TEXT(80) NULL DEFAULT NS,

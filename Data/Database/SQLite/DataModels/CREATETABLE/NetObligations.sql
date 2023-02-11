@@ -18,6 +18,6 @@ CREATE TABLE IF NOT EXISTS "NetObligations"
 	"DocumentNumber"	TEXT(50) DEFAULT 'NS',
 	"ProcessedDate"	TEXT(50) DEFAULT 'NS',
 	"Net"	TEXT(50) DEFAULT 'NS',
-	"Amount"	NUMERIC DEFAULT 0.0,
+	"Amount"	DOUBLE DEFAULT 0.0,
 	PRIMARY KEY("NetObligationsId" AUTOINCREMENT)
 );

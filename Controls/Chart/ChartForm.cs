@@ -494,6 +494,34 @@ namespace BudgetExecution
                 }
             }
         }
+        
+        /// <summary>
+        /// Resets the ComboBox visibility.
+        /// </summary>
+        private void ResetComboBoxVisibility( )
+        {
+            try
+            {
+                if( FirstTable?.Visible == false )
+                {
+                    FirstTable.Visible = true;
+                }
+
+                if( SecondTable?.Visible == true )
+                {
+                    SecondTable.Visible = false;
+                }
+
+                if( ThirdTable?.Visible == true )
+                {
+                    ThirdTable.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
         /// Clears the selections.
@@ -1103,7 +1131,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _selectedItem = FieldListBox.SelectedItem.ToString( );
+                var _selectedItem = FieldListBox.SelectedItem?.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns.Add( _selectedItem );
@@ -1247,20 +1275,7 @@ namespace BudgetExecution
                         LabelTable.Visible = true;
                     }
                     
-                    if( FirstTable.Visible == false )
-                    {
-                        FirstTable.Visible = true;
-                    }
-
-                    if( SecondTable.Visible == true )
-                    {
-                        SecondTable.Visible = false;
-                    }
-
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                    }
+                    ResetComboBoxVisibility( );
                 }
                 catch( Exception ex )
                 {
@@ -1311,13 +1326,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button 
                    && _button.ToolType == ToolType.ExitButton )
                 {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
-                    Visible = false;
+                    Close( );
                 }
             }
             catch( Exception ex )
@@ -1343,8 +1352,8 @@ namespace BudgetExecution
                     {
                         Owner.Visible = true;
                     }
-
-                    Close( );
+                    
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1411,6 +1420,7 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        ResetComboBoxVisibility( );
                         break;
                     }
                     case 2:
@@ -1546,9 +1556,7 @@ namespace BudgetExecution
                     Numerics = DataModel.Numerics;
                     TabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
-                    FirstTable.Visible = true;
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
+                    ResetComboBoxVisibility( );
                 }
             }
             catch( Exception ex )
