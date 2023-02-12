@@ -1123,6 +1123,12 @@ namespace BudgetExecution
                         ThirdTable.Visible = false;
                     }
 
+                    if( GroupButton.Visible == false )
+                    {
+                        GroupButton.Visible = true;
+                        GroupSeparator.Visible = true;
+                    }
+                    
                     ClearLabelText( );
                     BindDataSource( FormFilter );
                     UpdateLabelText( );
@@ -1410,8 +1416,8 @@ namespace BudgetExecution
                 DeleteColumnSeparator.Visible = visible;
                 SaveButton.Visible = visible;
                 SaveSeparator.Visible = visible;
-                GroupButton.Visible = visible;
-                GroupSeparator.Visible = visible;
+                GroupButton.Visible = !visible;
+                GroupSeparator.Visible = !visible;
                 DeleteTableButton.Visible = visible;
                 DeleteTableSeparator.Visible = visible;
                 AddTableButton.Visible = visible;

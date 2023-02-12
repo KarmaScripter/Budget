@@ -1235,7 +1235,7 @@
             this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressTextColor = System.Drawing.Color.White;
-            this.SelectButton.Size = new System.Drawing.Size(140, 80);
+            this.SelectButton.Size = new System.Drawing.Size(140, 40);
             this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SelectButton.StyleManager = null;
             this.SelectButton.TabIndex = 7;
@@ -1272,7 +1272,7 @@
             this.RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.RefreshButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.RefreshButton.PressTextColor = System.Drawing.Color.White;
-            this.RefreshButton.Size = new System.Drawing.Size(140, 80);
+            this.RefreshButton.Size = new System.Drawing.Size(140, 40);
             this.RefreshButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.RefreshButton.StyleManager = null;
             this.RefreshButton.TabIndex = 5;
@@ -1309,7 +1309,7 @@
             this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(140, 80);
+            this.CloseButton.Size = new System.Drawing.Size(140, 40);
             this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.CloseButton.StyleManager = null;
             this.CloseButton.TabIndex = 6;

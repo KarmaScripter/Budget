@@ -162,7 +162,7 @@ namespace BudgetExecution
                 {
                     foreach( var tile in Tiles )
                     {
-                        tile.Size = new Size( 225, 102 );
+                        tile.Size = new Size( 255, 131 );
                     }
                 }
             }

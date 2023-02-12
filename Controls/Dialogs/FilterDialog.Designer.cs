@@ -52,6 +52,10 @@ partial class FilterDialog
             this.ToolTip = new BudgetExecution.SmallTip();
             this.TabControl = new BudgetExecution.TabControl();
             this.TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.layout1 = new BudgetExecution.Layout();
+            this.listBox2 = new BudgetExecution.ListBox();
+            this.label1 = new BudgetExecution.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ReferencePanel = new BudgetExecution.Layout();
             this.ReferenceListBox = new BudgetExecution.ListBox();
@@ -97,10 +101,6 @@ partial class FilterDialog
             this.FirstCalendarTable = new System.Windows.Forms.TableLayoutPanel();
             this.FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar();
             this.FirstCalendarLabel = new BudgetExecution.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.layout1 = new BudgetExecution.Layout();
-            this.listBox2 = new BudgetExecution.ListBox();
-            this.label1 = new BudgetExecution.Label();
             this.FirstTable.SuspendLayout();
             this.FirstPanel.SuspendLayout();
             this.ThirdTable.SuspendLayout();
@@ -109,6 +109,8 @@ partial class FilterDialog
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
             this.TableTabPage.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.layout1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ReferencePanel.SuspendLayout();
             this.ProviderTable.SuspendLayout();
@@ -127,8 +129,6 @@ partial class FilterDialog
             this.SecondCalendarTable.SuspendLayout();
             this.DateSelectionPanel.SuspendLayout();
             this.FirstCalendarTable.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.layout1.SuspendLayout();
             this.SuspendLayout();
             // 
             // FirstTable
@@ -432,7 +432,7 @@ partial class FilterDialog
             this.ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClearButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClearButton.PressTextColor = System.Drawing.Color.White;
-            this.ClearButton.Size = new System.Drawing.Size(235, 53);
+            this.ClearButton.Size = new System.Drawing.Size(140, 40);
             this.ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.ClearButton.StyleManager = null;
             this.ClearButton.TabIndex = 9;
@@ -455,7 +455,7 @@ partial class FilterDialog
             this.SelectButton.HoverText = null;
             this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(495, 464);
+            this.SelectButton.Location = new System.Drawing.Point(544, 464);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SelectButton.NormalColor = System.Drawing.Color.Transparent;
@@ -464,7 +464,7 @@ partial class FilterDialog
             this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressTextColor = System.Drawing.Color.White;
-            this.SelectButton.Size = new System.Drawing.Size(235, 53);
+            this.SelectButton.Size = new System.Drawing.Size(140, 40);
             this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SelectButton.StyleManager = null;
             this.SelectButton.TabIndex = 10;
@@ -487,7 +487,7 @@ partial class FilterDialog
             this.CloseButton.HoverText = null;
             this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(891, 464);
+            this.CloseButton.Location = new System.Drawing.Point(975, 464);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
@@ -496,7 +496,7 @@ partial class FilterDialog
             this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(252, 53);
+            this.CloseButton.Size = new System.Drawing.Size(140, 40);
             this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.CloseButton.StyleManager = null;
             this.CloseButton.TabIndex = 11;
@@ -580,6 +580,106 @@ partial class FilterDialog
             this.TableTabPage.TabFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TableTabPage.TabIndex = 2;
             this.TableTabPage.ThemesEnabled = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.layout1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(898, 13);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(278, 357);
+            this.tableLayoutPanel2.TabIndex = 10;
+            // 
+            // layout1
+            // 
+            this.layout1.BackColor = System.Drawing.Color.Transparent;
+            this.layout1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.layout1.BindingSource = null;
+            this.layout1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.layout1.BorderThickness = 1;
+            this.layout1.Children = null;
+            this.layout1.Controls.Add(this.listBox2);
+            this.layout1.DataFilter = null;
+            this.layout1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.layout1.ForeColor = System.Drawing.Color.Transparent;
+            this.layout1.HoverText = null;
+            this.layout1.IsDerivedStyle = true;
+            this.layout1.Location = new System.Drawing.Point(3, 27);
+            this.layout1.Name = "layout1";
+            this.layout1.Padding = new System.Windows.Forms.Padding(1);
+            this.layout1.Size = new System.Drawing.Size(272, 327);
+            this.layout1.Style = MetroSet_UI.Enums.Style.Custom;
+            this.layout1.StyleManager = null;
+            this.layout1.TabIndex = 2;
+            this.layout1.ThemeAuthor = "Terry D. Eppler";
+            this.layout1.ThemeName = "Budget Execution";
+            this.layout1.ToolTip = null;
+            // 
+            // listBox2
+            // 
+            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.listBox2.BindingSource = null;
+            this.listBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.listBox2.DataFilter = null;
+            this.listBox2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.listBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.listBox2.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBox2.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.listBox2.HoveredItemColor = System.Drawing.Color.White;
+            this.listBox2.HoverText = null;
+            this.listBox2.IsDerivedStyle = true;
+            this.listBox2.ItemHeight = 28;
+            this.listBox2.Location = new System.Drawing.Point(32, 38);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(1);
+            this.listBox2.MultiSelect = true;
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Padding = new System.Windows.Forms.Padding(1);
+            this.listBox2.SelectedIndex = -1;
+            this.listBox2.SelectedItem = null;
+            this.listBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.listBox2.SelectedItemColor = System.Drawing.Color.White;
+            this.listBox2.SelectedText = null;
+            this.listBox2.SelectedValue = null;
+            this.listBox2.ShowBorder = false;
+            this.listBox2.ShowScrollBar = false;
+            this.listBox2.Size = new System.Drawing.Size(210, 252);
+            this.listBox2.Style = MetroSet_UI.Enums.Style.Custom;
+            this.listBox2.StyleManager = null;
+            this.listBox2.TabIndex = 1;
+            this.listBox2.ThemeAuthor = "Terry D. Eppler";
+            this.listBox2.ThemeName = "Budget Execution";
+            this.listBox2.ToolTip = null;
+            // 
+            // label1
+            // 
+            this.label1.BindingSource = null;
+            this.label1.DataFilter = null;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.HoverText = null;
+            this.label1.IsDerivedStyle = true;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(1);
+            this.label1.Size = new System.Drawing.Size(272, 18);
+            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
+            this.label1.StyleManager = null;
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Maintenance Tables";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label1.ThemeAuthor = "Terry D. Eppler";
+            this.label1.ThemeName = "BudgetExecution";
+            this.label1.ToolTip = null;
             // 
             // tableLayoutPanel1
             // 
@@ -1736,106 +1836,6 @@ partial class FilterDialog
             this.FirstCalendarLabel.ThemeName = "Budget Execution";
             this.FirstCalendarLabel.ToolTip = null;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.layout1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(898, 13);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 293F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(278, 357);
-            this.tableLayoutPanel2.TabIndex = 10;
-            // 
-            // layout1
-            // 
-            this.layout1.BackColor = System.Drawing.Color.Transparent;
-            this.layout1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.layout1.BindingSource = null;
-            this.layout1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.layout1.BorderThickness = 1;
-            this.layout1.Children = null;
-            this.layout1.Controls.Add(this.listBox2);
-            this.layout1.DataFilter = null;
-            this.layout1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.layout1.ForeColor = System.Drawing.Color.Transparent;
-            this.layout1.HoverText = null;
-            this.layout1.IsDerivedStyle = true;
-            this.layout1.Location = new System.Drawing.Point(3, 27);
-            this.layout1.Name = "layout1";
-            this.layout1.Padding = new System.Windows.Forms.Padding(1);
-            this.layout1.Size = new System.Drawing.Size(272, 327);
-            this.layout1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.layout1.StyleManager = null;
-            this.layout1.TabIndex = 2;
-            this.layout1.ThemeAuthor = "Terry D. Eppler";
-            this.layout1.ThemeName = "Budget Execution";
-            this.layout1.ToolTip = null;
-            // 
-            // listBox2
-            // 
-            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.listBox2.BindingSource = null;
-            this.listBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.listBox2.DataFilter = null;
-            this.listBox2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox2.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox2.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.listBox2.HoveredItemColor = System.Drawing.Color.White;
-            this.listBox2.HoverText = null;
-            this.listBox2.IsDerivedStyle = true;
-            this.listBox2.ItemHeight = 28;
-            this.listBox2.Location = new System.Drawing.Point(32, 38);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(1);
-            this.listBox2.MultiSelect = true;
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Padding = new System.Windows.Forms.Padding(1);
-            this.listBox2.SelectedIndex = -1;
-            this.listBox2.SelectedItem = null;
-            this.listBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.listBox2.SelectedItemColor = System.Drawing.Color.White;
-            this.listBox2.SelectedText = null;
-            this.listBox2.SelectedValue = null;
-            this.listBox2.ShowBorder = false;
-            this.listBox2.ShowScrollBar = false;
-            this.listBox2.Size = new System.Drawing.Size(210, 252);
-            this.listBox2.Style = MetroSet_UI.Enums.Style.Custom;
-            this.listBox2.StyleManager = null;
-            this.listBox2.TabIndex = 1;
-            this.listBox2.ThemeAuthor = "Terry D. Eppler";
-            this.listBox2.ThemeName = "Budget Execution";
-            this.listBox2.ToolTip = null;
-            // 
-            // label1
-            // 
-            this.label1.BindingSource = null;
-            this.label1.DataFilter = null;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.HoverText = null;
-            this.label1.IsDerivedStyle = true;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(1);
-            this.label1.Size = new System.Drawing.Size(272, 18);
-            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label1.StyleManager = null;
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Maintenance Tables";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.ThemeAuthor = "Terry D. Eppler";
-            this.label1.ThemeName = "BudgetExecution";
-            this.label1.ToolTip = null;
-            // 
             // FilterDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1877,6 +1877,8 @@ partial class FilterDialog
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
             this.TableTabPage.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.layout1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ReferencePanel.ResumeLayout(false);
             this.ProviderTable.ResumeLayout(false);
@@ -1895,8 +1897,6 @@ partial class FilterDialog
             this.SecondCalendarTable.ResumeLayout(false);
             this.DateSelectionPanel.ResumeLayout(false);
             this.FirstCalendarTable.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.layout1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }

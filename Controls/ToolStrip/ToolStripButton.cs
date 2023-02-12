@@ -224,6 +224,7 @@ namespace BudgetExecution
                         case ToolType.MenuButton:
                         case ToolType.HomeButton:
                         case ToolType.CalendarButton:
+                        case ToolType.TableButton:
                         {
                             break;
                         }
@@ -321,7 +322,6 @@ namespace BudgetExecution
                         case ToolType.WebNextButton:
                         case ToolType.WebBackButton:
                         case ToolType.ExportButton:
-                        case ToolType.TableButton:
                         case ToolType.RewindButton:
                         case ToolType.SettingsButton:
                         case ToolType.TableSettingsButton:

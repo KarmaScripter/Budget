@@ -149,7 +149,7 @@
             this.ValuePanelLabel.BindingSource = null;
             this.ValuePanelLabel.DataFilter = null;
             this.ValuePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ValuePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ValuePanelLabel.HoverText = null;
             this.ValuePanelLabel.IsDerivedStyle = true;
             this.ValuePanelLabel.Location = new System.Drawing.Point(712, 275);
@@ -174,7 +174,7 @@
             this.ColumnPanelLabel.BindingSource = null;
             this.ColumnPanelLabel.DataFilter = null;
             this.ColumnPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ColumnPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ColumnPanelLabel.HoverText = null;
             this.ColumnPanelLabel.IsDerivedStyle = true;
             this.ColumnPanelLabel.Location = new System.Drawing.Point(177, 275);
@@ -199,7 +199,7 @@
             this.TablePanelLabel.BindingSource = null;
             this.TablePanelLabel.DataFilter = null;
             this.TablePanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TablePanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TablePanelLabel.HoverText = null;
             this.TablePanelLabel.IsDerivedStyle = true;
             this.TablePanelLabel.Location = new System.Drawing.Point(712, 40);
@@ -445,7 +445,7 @@
             this.ProviderPanelLabel.BindingSource = null;
             this.ProviderPanelLabel.DataFilter = null;
             this.ProviderPanelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProviderPanelLabel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProviderPanelLabel.HoverText = null;
             this.ProviderPanelLabel.IsDerivedStyle = true;
             this.ProviderPanelLabel.Location = new System.Drawing.Point(176, 39);
@@ -849,7 +849,7 @@
             this.SelectButton.HoverText = "Not Yet Implemented!";
             this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(109, 528);
+            this.SelectButton.Location = new System.Drawing.Point(109, 538);
             this.SelectButton.Margin = new System.Windows.Forms.Padding(0);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -859,7 +859,7 @@
             this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressTextColor = System.Drawing.Color.White;
-            this.SelectButton.Size = new System.Drawing.Size(140, 80);
+            this.SelectButton.Size = new System.Drawing.Size(140, 40);
             this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SelectButton.StyleManager = null;
             this.SelectButton.TabIndex = 7;
@@ -885,7 +885,7 @@
             this.RefreshButton.HoverText = "Not Yet Implemented!";
             this.RefreshButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.RefreshButton.IsDerivedStyle = true;
-            this.RefreshButton.Location = new System.Drawing.Point(605, 528);
+            this.RefreshButton.Location = new System.Drawing.Point(603, 528);
             this.RefreshButton.Margin = new System.Windows.Forms.Padding(0);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -895,7 +895,7 @@
             this.RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.RefreshButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.RefreshButton.PressTextColor = System.Drawing.Color.White;
-            this.RefreshButton.Size = new System.Drawing.Size(140, 80);
+            this.RefreshButton.Size = new System.Drawing.Size(140, 40);
             this.RefreshButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.RefreshButton.StyleManager = null;
             this.RefreshButton.TabIndex = 5;
@@ -922,7 +922,7 @@
             this.CloseButton.HoverText = "Close Window";
             this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(1030, 528);
+            this.CloseButton.Location = new System.Drawing.Point(1030, 538);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -932,7 +932,7 @@
             this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(140, 80);
+            this.CloseButton.Size = new System.Drawing.Size(140, 40);
             this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.CloseButton.StyleManager = null;
             this.CloseButton.TabIndex = 6;
