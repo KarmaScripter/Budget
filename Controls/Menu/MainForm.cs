@@ -134,7 +134,7 @@ namespace BudgetExecution
                 UtilityTile.Banner.Text = "Calculator, Calendar, Web Browser";
                 ReportingTile.Title.Text = "Reporting";
                 ReportingTile.Body.Text = string.Empty;
-                ReportingTile.Banner.Text = "Charts, Spreadsheets, Graphs";
+                ReportingTile.Banner.Text = "Charts, Graphs";
                 ClientTile.Title.Text = "DB Clients";
                 ClientTile.Body.Text = string.Empty;
                 ClientTile.Banner.Text = "SQLite, SQL Server, Access";
@@ -162,7 +162,12 @@ namespace BudgetExecution
                 {
                     foreach( var tile in Tiles )
                     {
-                        tile.Size = new Size( 255, 131 );
+                        tile.Size = new Size( 292, 140 );
+                        tile.Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                        tile.Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                        tile.Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                        tile.TurnLiveTileOn = true;
                     }
                 }
             }

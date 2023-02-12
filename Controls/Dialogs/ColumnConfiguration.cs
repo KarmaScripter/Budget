@@ -77,8 +77,28 @@ namespace BudgetExecution
             PopUp = new System.Windows.Forms.ToolStripDropDown( );
             ColumnListBox.CheckOnClick = true;
             ColumnListBox.ItemCheck += OnListItemChecked;
+            CloseButton.Click += OnCloseButtonClick;
+            HeaderLabel.Font = new Font( "Roboto", 10 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Load += OnLoad;
         }
 
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex)
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [data grid right click].
         /// </summary>
@@ -167,6 +187,26 @@ namespace BudgetExecution
                 try
                 {
                     Grid.Columns[ e.Index ].Visible = e.NewValue == CheckState.Checked;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button )
+            {
+                try
+                {
+                    Close( );
                 }
                 catch( Exception ex )
                 {

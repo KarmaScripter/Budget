@@ -37,16 +37,18 @@
             this.TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.SchemaPanelLabel = new BudgetExecution.Label();
             this.SchemaPanel = new BudgetExecution.Layout();
-            this.label2 = new BudgetExecution.Label();
-            this.label1 = new BudgetExecution.Label();
+            this.DeleteColumnButton = new BudgetExecution.Button();
+            this.AddColumnButton = new BudgetExecution.Button();
+            this.SelectDataTypeLable = new BudgetExecution.Label();
+            this.AddColumnLabel = new BudgetExecution.Label();
             this.AddColumnTextBox = new BudgetExecution.TextBox();
             this.ToolTip = new BudgetExecution.SmallTip();
             this.DataTypeComboBox = new BudgetExecution.ComboBox();
             this.TablePanel = new BudgetExecution.Layout();
-            this.label4 = new BudgetExecution.Label();
-            this.button3 = new BudgetExecution.Button();
-            this.button1 = new BudgetExecution.Button();
-            this.label3 = new BudgetExecution.Label();
+            this.AddTableLabel = new BudgetExecution.Label();
+            this.DeleteTableButton = new BudgetExecution.Button();
+            this.AddTableButton = new BudgetExecution.Button();
+            this.SelectTableLabel = new BudgetExecution.Label();
             this.TableNameComboBox = new BudgetExecution.ComboBox();
             this.AddTableTextBox = new BudgetExecution.TextBox();
             this.TablePanelLabel = new BudgetExecution.Label();
@@ -71,8 +73,6 @@
             this.groupBox3 = new BudgetExecution.Layout();
             this.groupBox4 = new BudgetExecution.Layout();
             this.groupBox9 = new BudgetExecution.Layout();
-            this.DeleteColumnButton = new BudgetExecution.Button();
-            this.AddColumnButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
@@ -184,8 +184,8 @@
             this.SchemaPanel.Children = null;
             this.SchemaPanel.Controls.Add(this.DeleteColumnButton);
             this.SchemaPanel.Controls.Add(this.AddColumnButton);
-            this.SchemaPanel.Controls.Add(this.label2);
-            this.SchemaPanel.Controls.Add(this.label1);
+            this.SchemaPanel.Controls.Add(this.SelectDataTypeLable);
+            this.SchemaPanel.Controls.Add(this.AddColumnLabel);
             this.SchemaPanel.Controls.Add(this.AddColumnTextBox);
             this.SchemaPanel.Controls.Add(this.DataTypeComboBox);
             this.SchemaPanel.DataFilter = null;
@@ -204,51 +204,125 @@
             this.SchemaPanel.ThemeName = "BudgetExecution";
             this.SchemaPanel.ToolTip = null;
             // 
-            // label2
+            // DeleteColumnButton
             // 
-            this.label2.BindingSource = null;
-            this.label2.DataFilter = null;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.HoverText = null;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.IsDerivedStyle = true;
-            this.label2.Location = new System.Drawing.Point(26, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(3);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(1);
-            this.label2.Size = new System.Drawing.Size(233, 24);
-            this.label2.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label2.StyleManager = null;
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Select Data Type";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.ThemeAuthor = "Terry D. Eppler";
-            this.label2.ThemeName = "Budget Execution";
-            this.label2.ToolTip = null;
+            this.DeleteColumnButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteColumnButton.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.BindingSource = null;
+            this.DeleteColumnButton.DataFilter = null;
+            this.DeleteColumnButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteColumnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.DeleteColumnButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.DeleteColumnButton.HoverText = "Delete DataColumn";
+            this.DeleteColumnButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.DeleteColumnButton.IsDerivedStyle = true;
+            this.DeleteColumnButton.Location = new System.Drawing.Point(294, 39);
+            this.DeleteColumnButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DeleteColumnButton.Name = "DeleteColumnButton";
+            this.DeleteColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.NormalColor = System.Drawing.Color.Transparent;
+            this.DeleteColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteColumnButton.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteColumnButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteColumnButton.PressTextColor = System.Drawing.Color.White;
+            this.DeleteColumnButton.Size = new System.Drawing.Size(74, 28);
+            this.DeleteColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DeleteColumnButton.StyleManager = null;
+            this.DeleteColumnButton.TabIndex = 19;
+            this.DeleteColumnButton.Text = "Delete";
+            this.DeleteColumnButton.ThemeAuthor = "Terry D. Eppler";
+            this.DeleteColumnButton.ThemeName = "BudgetExecution";
+            this.DeleteColumnButton.ToolTip = null;
             // 
-            // label1
+            // AddColumnButton
             // 
-            this.label1.BindingSource = null;
-            this.label1.DataFilter = null;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.HoverText = null;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.IsDerivedStyle = true;
-            this.label1.Location = new System.Drawing.Point(26, 83);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(1);
-            this.label1.Size = new System.Drawing.Size(202, 23);
-            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label1.StyleManager = null;
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Enter Column Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.ThemeAuthor = "Terry D. Eppler";
-            this.label1.ThemeName = "Budget Execution";
-            this.label1.ToolTip = null;
+            this.AddColumnButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddColumnButton.BackColor = System.Drawing.Color.Transparent;
+            this.AddColumnButton.BindingSource = null;
+            this.AddColumnButton.DataFilter = null;
+            this.AddColumnButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.AddColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.AddColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.AddColumnButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddColumnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.AddColumnButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.AddColumnButton.HoverText = "Add to Data Table";
+            this.AddColumnButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.AddColumnButton.IsDerivedStyle = true;
+            this.AddColumnButton.Location = new System.Drawing.Point(294, 114);
+            this.AddColumnButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AddColumnButton.Name = "AddColumnButton";
+            this.AddColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.AddColumnButton.NormalColor = System.Drawing.Color.Transparent;
+            this.AddColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddColumnButton.Padding = new System.Windows.Forms.Padding(1);
+            this.AddColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddColumnButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddColumnButton.PressTextColor = System.Drawing.Color.White;
+            this.AddColumnButton.Size = new System.Drawing.Size(74, 28);
+            this.AddColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.AddColumnButton.StyleManager = null;
+            this.AddColumnButton.TabIndex = 18;
+            this.AddColumnButton.Text = "Add";
+            this.AddColumnButton.ThemeAuthor = "Terry D. Eppler";
+            this.AddColumnButton.ThemeName = "BudgetExecution";
+            this.AddColumnButton.ToolTip = null;
+            // 
+            // SelectDataTypeLable
+            // 
+            this.SelectDataTypeLable.BindingSource = null;
+            this.SelectDataTypeLable.DataFilter = null;
+            this.SelectDataTypeLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SelectDataTypeLable.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectDataTypeLable.HoverText = null;
+            this.SelectDataTypeLable.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.SelectDataTypeLable.IsDerivedStyle = true;
+            this.SelectDataTypeLable.Location = new System.Drawing.Point(26, 7);
+            this.SelectDataTypeLable.Margin = new System.Windows.Forms.Padding(3);
+            this.SelectDataTypeLable.Name = "SelectDataTypeLable";
+            this.SelectDataTypeLable.Padding = new System.Windows.Forms.Padding(1);
+            this.SelectDataTypeLable.Size = new System.Drawing.Size(233, 24);
+            this.SelectDataTypeLable.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SelectDataTypeLable.StyleManager = null;
+            this.SelectDataTypeLable.TabIndex = 13;
+            this.SelectDataTypeLable.Text = "Select Data Type";
+            this.SelectDataTypeLable.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.SelectDataTypeLable.ThemeAuthor = "Terry D. Eppler";
+            this.SelectDataTypeLable.ThemeName = "Budget Execution";
+            this.SelectDataTypeLable.ToolTip = null;
+            // 
+            // AddColumnLabel
+            // 
+            this.AddColumnLabel.BindingSource = null;
+            this.AddColumnLabel.DataFilter = null;
+            this.AddColumnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddColumnLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddColumnLabel.HoverText = null;
+            this.AddColumnLabel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.AddColumnLabel.IsDerivedStyle = true;
+            this.AddColumnLabel.Location = new System.Drawing.Point(26, 83);
+            this.AddColumnLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.AddColumnLabel.Name = "AddColumnLabel";
+            this.AddColumnLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.AddColumnLabel.Size = new System.Drawing.Size(202, 23);
+            this.AddColumnLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.AddColumnLabel.StyleManager = null;
+            this.AddColumnLabel.TabIndex = 12;
+            this.AddColumnLabel.Text = "Enter New Column Name";
+            this.AddColumnLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.AddColumnLabel.ThemeAuthor = "Terry D. Eppler";
+            this.AddColumnLabel.ThemeName = "Budget Execution";
+            this.AddColumnLabel.ToolTip = null;
             // 
             // AddColumnTextBox
             // 
@@ -349,10 +423,10 @@
             this.TablePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TablePanel.BorderThickness = 1;
             this.TablePanel.Children = null;
-            this.TablePanel.Controls.Add(this.label4);
-            this.TablePanel.Controls.Add(this.button3);
-            this.TablePanel.Controls.Add(this.button1);
-            this.TablePanel.Controls.Add(this.label3);
+            this.TablePanel.Controls.Add(this.AddTableLabel);
+            this.TablePanel.Controls.Add(this.DeleteTableButton);
+            this.TablePanel.Controls.Add(this.AddTableButton);
+            this.TablePanel.Controls.Add(this.SelectTableLabel);
             this.TablePanel.Controls.Add(this.TableNameComboBox);
             this.TablePanel.Controls.Add(this.AddTableTextBox);
             this.TablePanel.DataFilter = null;
@@ -371,125 +445,125 @@
             this.TablePanel.ThemeName = "BudgetExecution";
             this.TablePanel.ToolTip = null;
             // 
-            // label4
+            // AddTableLabel
             // 
-            this.label4.BindingSource = null;
-            this.label4.DataFilter = null;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.HoverText = null;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label4.IsDerivedStyle = true;
-            this.label4.Location = new System.Drawing.Point(26, 83);
-            this.label4.Margin = new System.Windows.Forms.Padding(3);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(1);
-            this.label4.Size = new System.Drawing.Size(202, 23);
-            this.label4.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label4.StyleManager = null;
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Enter Table Name";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label4.ThemeAuthor = "Terry D. Eppler";
-            this.label4.ThemeName = "Budget Execution";
-            this.label4.ToolTip = null;
+            this.AddTableLabel.BindingSource = null;
+            this.AddTableLabel.DataFilter = null;
+            this.AddTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTableLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddTableLabel.HoverText = null;
+            this.AddTableLabel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.AddTableLabel.IsDerivedStyle = true;
+            this.AddTableLabel.Location = new System.Drawing.Point(26, 83);
+            this.AddTableLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.AddTableLabel.Name = "AddTableLabel";
+            this.AddTableLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.AddTableLabel.Size = new System.Drawing.Size(202, 23);
+            this.AddTableLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.AddTableLabel.StyleManager = null;
+            this.AddTableLabel.TabIndex = 18;
+            this.AddTableLabel.Text = "Enter New Table Name";
+            this.AddTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.AddTableLabel.ThemeAuthor = "Terry D. Eppler";
+            this.AddTableLabel.ThemeName = "Budget Execution";
+            this.AddTableLabel.ToolTip = null;
             // 
-            // button3
+            // DeleteTableButton
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DeleteTableButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BindingSource = null;
-            this.button3.DataFilter = null;
-            this.button3.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.button3.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.button3.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.button3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button3.HoverText = "Delete Selected Table";
-            this.button3.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.button3.IsDerivedStyle = true;
-            this.button3.Location = new System.Drawing.Point(287, 39);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.button3.NormalColor = System.Drawing.Color.Transparent;
-            this.button3.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.Padding = new System.Windows.Forms.Padding(1);
-            this.button3.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button3.PressTextColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(74, 28);
-            this.button3.Style = MetroSet_UI.Enums.Style.Custom;
-            this.button3.StyleManager = null;
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Delete";
-            this.button3.ThemeAuthor = "Terry D. Eppler";
-            this.button3.ThemeName = "BudgetExecution";
-            this.button3.ToolTip = null;
+            this.DeleteTableButton.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteTableButton.BindingSource = null;
+            this.DeleteTableButton.DataFilter = null;
+            this.DeleteTableButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.DeleteTableButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.DeleteTableButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.DeleteTableButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteTableButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteTableButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.DeleteTableButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.DeleteTableButton.HoverText = "Delete Data Table";
+            this.DeleteTableButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.DeleteTableButton.IsDerivedStyle = true;
+            this.DeleteTableButton.Location = new System.Drawing.Point(287, 39);
+            this.DeleteTableButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DeleteTableButton.Name = "DeleteTableButton";
+            this.DeleteTableButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.DeleteTableButton.NormalColor = System.Drawing.Color.Transparent;
+            this.DeleteTableButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteTableButton.Padding = new System.Windows.Forms.Padding(1);
+            this.DeleteTableButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteTableButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.DeleteTableButton.PressTextColor = System.Drawing.Color.White;
+            this.DeleteTableButton.Size = new System.Drawing.Size(74, 28);
+            this.DeleteTableButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DeleteTableButton.StyleManager = null;
+            this.DeleteTableButton.TabIndex = 17;
+            this.DeleteTableButton.Text = "Delete";
+            this.DeleteTableButton.ThemeAuthor = "Terry D. Eppler";
+            this.DeleteTableButton.ThemeName = "BudgetExecution";
+            this.DeleteTableButton.ToolTip = null;
             // 
-            // button1
+            // AddTableButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.AddTableButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BindingSource = null;
-            this.button1.DataFilter = null;
-            this.button1.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.button1.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.button1.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.button1.HoverText = "Add Table to Data Set";
-            this.button1.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.IsDerivedStyle = true;
-            this.button1.Location = new System.Drawing.Point(287, 116);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.button1.NormalColor = System.Drawing.Color.Transparent;
-            this.button1.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.Padding = new System.Windows.Forms.Padding(1);
-            this.button1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.button1.PressTextColor = System.Drawing.Color.White;
-            this.button1.Size = new System.Drawing.Size(74, 28);
-            this.button1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.button1.StyleManager = null;
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Add";
-            this.button1.ThemeAuthor = "Terry D. Eppler";
-            this.button1.ThemeName = "BudgetExecution";
-            this.button1.ToolTip = null;
+            this.AddTableButton.BackColor = System.Drawing.Color.Transparent;
+            this.AddTableButton.BindingSource = null;
+            this.AddTableButton.DataFilter = null;
+            this.AddTableButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.AddTableButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.AddTableButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.AddTableButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddTableButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddTableButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.AddTableButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.AddTableButton.HoverText = "Add to Dataset";
+            this.AddTableButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.AddTableButton.IsDerivedStyle = true;
+            this.AddTableButton.Location = new System.Drawing.Point(287, 116);
+            this.AddTableButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AddTableButton.Name = "AddTableButton";
+            this.AddTableButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.AddTableButton.NormalColor = System.Drawing.Color.Transparent;
+            this.AddTableButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddTableButton.Padding = new System.Windows.Forms.Padding(1);
+            this.AddTableButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddTableButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.AddTableButton.PressTextColor = System.Drawing.Color.White;
+            this.AddTableButton.Size = new System.Drawing.Size(74, 28);
+            this.AddTableButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.AddTableButton.StyleManager = null;
+            this.AddTableButton.TabIndex = 15;
+            this.AddTableButton.Text = "Add";
+            this.AddTableButton.ThemeAuthor = "Terry D. Eppler";
+            this.AddTableButton.ThemeName = "BudgetExecution";
+            this.AddTableButton.ToolTip = null;
             // 
-            // label3
+            // SelectTableLabel
             // 
-            this.label3.BindingSource = null;
-            this.label3.DataFilter = null;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.HoverText = null;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label3.IsDerivedStyle = true;
-            this.label3.Location = new System.Drawing.Point(25, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(1);
-            this.label3.Size = new System.Drawing.Size(233, 24);
-            this.label3.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label3.StyleManager = null;
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Select Data Table";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label3.ThemeAuthor = "Terry D. Eppler";
-            this.label3.ThemeName = "Budget Execution";
-            this.label3.ToolTip = null;
+            this.SelectTableLabel.BindingSource = null;
+            this.SelectTableLabel.DataFilter = null;
+            this.SelectTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SelectTableLabel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectTableLabel.HoverText = null;
+            this.SelectTableLabel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.SelectTableLabel.IsDerivedStyle = true;
+            this.SelectTableLabel.Location = new System.Drawing.Point(25, 7);
+            this.SelectTableLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.SelectTableLabel.Name = "SelectTableLabel";
+            this.SelectTableLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.SelectTableLabel.Size = new System.Drawing.Size(233, 24);
+            this.SelectTableLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SelectTableLabel.StyleManager = null;
+            this.SelectTableLabel.TabIndex = 14;
+            this.SelectTableLabel.Text = "Select Data Table";
+            this.SelectTableLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.SelectTableLabel.ThemeAuthor = "Terry D. Eppler";
+            this.SelectTableLabel.ThemeName = "Budget Execution";
+            this.SelectTableLabel.ToolTip = null;
             // 
             // TableNameComboBox
             // 
@@ -1181,80 +1255,6 @@
             this.groupBox9.ThemeName = "BudgetExecution";
             this.groupBox9.ToolTip = null;
             // 
-            // DeleteColumnButton
-            // 
-            this.DeleteColumnButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteColumnButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnButton.BindingSource = null;
-            this.DeleteColumnButton.DataFilter = null;
-            this.DeleteColumnButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteColumnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteColumnButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.DeleteColumnButton.HoverText = "Delete Selected Table";
-            this.DeleteColumnButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.DeleteColumnButton.IsDerivedStyle = true;
-            this.DeleteColumnButton.Location = new System.Drawing.Point(294, 39);
-            this.DeleteColumnButton.Margin = new System.Windows.Forms.Padding(0);
-            this.DeleteColumnButton.Name = "DeleteColumnButton";
-            this.DeleteColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnButton.NormalColor = System.Drawing.Color.Transparent;
-            this.DeleteColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnButton.Padding = new System.Windows.Forms.Padding(1);
-            this.DeleteColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.DeleteColumnButton.PressTextColor = System.Drawing.Color.White;
-            this.DeleteColumnButton.Size = new System.Drawing.Size(74, 28);
-            this.DeleteColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DeleteColumnButton.StyleManager = null;
-            this.DeleteColumnButton.TabIndex = 19;
-            this.DeleteColumnButton.Text = "Delete";
-            this.DeleteColumnButton.ThemeAuthor = "Terry D. Eppler";
-            this.DeleteColumnButton.ThemeName = "BudgetExecution";
-            this.DeleteColumnButton.ToolTip = null;
-            // 
-            // AddColumnButton
-            // 
-            this.AddColumnButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddColumnButton.BackColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.BindingSource = null;
-            this.AddColumnButton.DataFilter = null;
-            this.AddColumnButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddColumnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.AddColumnButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.AddColumnButton.HoverText = "Add Table to Data Set";
-            this.AddColumnButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.AddColumnButton.IsDerivedStyle = true;
-            this.AddColumnButton.Location = new System.Drawing.Point(294, 114);
-            this.AddColumnButton.Margin = new System.Windows.Forms.Padding(0);
-            this.AddColumnButton.Name = "AddColumnButton";
-            this.AddColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.NormalColor = System.Drawing.Color.Transparent;
-            this.AddColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.AddColumnButton.Padding = new System.Windows.Forms.Padding(1);
-            this.AddColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.AddColumnButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.AddColumnButton.PressTextColor = System.Drawing.Color.White;
-            this.AddColumnButton.Size = new System.Drawing.Size(74, 28);
-            this.AddColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.AddColumnButton.StyleManager = null;
-            this.AddColumnButton.TabIndex = 18;
-            this.AddColumnButton.Text = "Add";
-            this.AddColumnButton.ThemeAuthor = "Terry D. Eppler";
-            this.AddColumnButton.ThemeName = "BudgetExecution";
-            this.AddColumnButton.ToolTip = null;
-            // 
             // DefinitionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1321,12 +1321,12 @@
         private Label TablePanelLabel;
         private Label SchemaPanelLabel;
         public ComboBox TableNameComboBox;
-        private Label label2;
-        private Label label1;
-        public Button button3;
-        public Button button1;
-        private Label label3;
-        private Label label4;
+        private Label SelectDataTypeLable;
+        private Label AddColumnLabel;
+        public Button DeleteTableButton;
+        public Button AddTableButton;
+        private Label SelectTableLabel;
+        private Label AddTableLabel;
         public Button DeleteColumnButton;
         public Button AddColumnButton;
     }

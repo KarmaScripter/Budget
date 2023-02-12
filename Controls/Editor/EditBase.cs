@@ -19,35 +19,12 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class EditBase : MetroForm
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EditBase"/> class.
-        /// </summary>
-        public EditBase( )
-        {
-            InitializeComponent( );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 26;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
-            ShowIcon = false;
-            ShowMouseOver = false;
-            ShowInTaskbar = true;
-            StartPosition = FormStartPosition.CenterScreen;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Size = new Size( 1380, 675 );
-            Text = string.Empty;
-        }
-
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -112,6 +89,22 @@ namespace BudgetExecution
         /// </value>
         public virtual IEnumerable<string> Columns { get; set; }
 
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public virtual IList<string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public virtual IList<string> Numerics { get; set; }
+        
         /// <summary>
         /// Gets or sets the selected column.
         /// </summary>
@@ -201,6 +194,33 @@ namespace BudgetExecution
         public virtual IEnumerable<string> DataTypes { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="EditBase"/> class.
+        /// </summary>
+        public EditBase( )
+        {
+            InitializeComponent( );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.Red;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 26;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            ShowIcon = false;
+            ShowMouseOver = false;
+            ShowInTaskbar = true;
+            StartPosition = FormStartPosition.CenterScreen;
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Size = new Size( 1380, 675 );
+            Text = string.Empty;
+        }
+
+        /// <summary>
         /// Gets the data types.
         /// </summary>
         /// <param name="provider">The provider.</param>
@@ -246,7 +266,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Populates the table ListBox items.
         /// </summary>
@@ -256,7 +276,6 @@ namespace BudgetExecution
             try
             {
                 var _names = Enum.GetNames( typeof( Source ) );
-
                 if( listBox?.Items.Count > 0 )
                 {
                     listBox.Items.Clear( );

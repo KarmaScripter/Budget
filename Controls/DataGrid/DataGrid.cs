@@ -73,10 +73,12 @@ namespace BudgetExecution
             BackgroundColor = Color.FromArgb( 45, 45, 45 );
             GridColor = Color.FromArgb( 141, 139, 138 );
             SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             AllowUserToOrderColumns = true;
             AllowUserToResizeColumns = true;
             AllowUserToResizeRows = true;
+            MultiSelect = false;
 
             // Default Cell Style
             DefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
@@ -87,7 +89,7 @@ namespace BudgetExecution
 
             // Column SeriesConfiguration
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            ColumnHeadersHeight = 26;
+            ColumnHeadersHeight = 30;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -98,6 +100,7 @@ namespace BudgetExecution
 
             // Row SeriesConfiguration
             RowHeadersWidth = 20;
+            RowTemplate.Height = 28;
             RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             RowHeadersDefaultCellStyle.BackColor = Color.FromArgb( 50, 50, 50 );
             RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -105,7 +108,6 @@ namespace BudgetExecution
             RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
             RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
             CellBorderStyle = DataGridViewCellBorderStyle.None;
-            AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             RowsDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             RowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             RowsDefaultCellStyle.ForeColor = Color.LightSteelBlue;

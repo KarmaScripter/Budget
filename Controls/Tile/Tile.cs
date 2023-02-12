@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -13,6 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.TileBase" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Tile : TileBase
     {
         /// <summary>
@@ -29,7 +31,7 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
+            Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
             Title.TextColor = Color.FromArgb( 0, 120, 212 );
             Body.TextColor = Color.DarkGray;
             Body.Font = new Font( "Roboto", 10 );
@@ -105,10 +107,12 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 17, 53, 84 );
-                Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
+                Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
                 Title.TextColor = Color.White;
                 Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
                 Body.TextColor = Color.White;
+                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Footer.TextColor = Color.White;
                 Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
                 Banner.TextColor = Color.White;
                 Refresh( );
@@ -129,10 +133,12 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 20, 20, 20 );
-                Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
+                Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
                 Title.TextColor = Color.FromArgb( 0, 120, 212 );
                 Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
                 Body.TextColor =  Color.DarkGray;
+                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Footer.TextColor = Color.DarkGray;
                 Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
                 Banner.TextColor = Color.DarkGray;
                 Refresh( );

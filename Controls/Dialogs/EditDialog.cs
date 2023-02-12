@@ -12,6 +12,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
 
     /// <summary>
     /// 
@@ -73,6 +75,8 @@ namespace BudgetExecution
             DataModel = new DataBuilder( Source, Provider.Access );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -92,6 +96,8 @@ namespace BudgetExecution
             DataTable = dataModel.DataTable;
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -111,6 +117,8 @@ namespace BudgetExecution
             BindingSource.DataSource = DataModel.DataTable;
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>
@@ -118,7 +126,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             try
             {
@@ -138,7 +146,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the activet tab.
         /// </summary>
-        public void SetActiveTab( )
+        private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
             {
@@ -216,7 +224,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the frame dock style.
         /// </summary>
-        public void SetFrameDockStyle( )
+        private void SetFrameDockStyle( )
         {
             if( Frames?.Any( ) == true )
             {
@@ -237,14 +245,16 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the frame colors.
         /// </summary>
-        public void SetFrameColors( )
+        private void SetFrameColors( )
         {
             if( Frames?.Any( ) == true )
             {
                 foreach( var frame in Frames )
                 {
                     frame.Label.ForeColor = Color.LightSteelBlue;
-                    frame.TextBox.ForeColor = Color.White;
+                    frame.TextBox.ForeColor = Color.DarkGray;
+                    frame.TextBox.BorderColor = Color.FromArgb( 70, 70, 70 );
+                    frame.TextBox.HoverColor = Color.FromArgb( 70, 70, 70 );
                 }
             }
         }
@@ -252,7 +262,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the row location.
         /// </summary>
-        public void SetTableLocation( )
+        private void SetTableLocation( )
         {
             if( FrameTable != null
                && Columns?.Any( ) == true )
@@ -285,7 +295,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the record data.
         /// </summary>
-        public void BindRecordData( )
+        private void BindRecordData( )
         {
             if( Current != null
                && Frames?.Any( ) == true
@@ -299,7 +309,19 @@ namespace BudgetExecution
                     for( var i = 0; i < _cols.Length; i++ )
                     {
                         _frames[ i ].Label.Text = _cols[ i ].SplitPascal( );
-                        _frames[ i ].TextBox.Text = _items[ i ]?.ToString( );
+                        var _text = _items[ i ]?.ToString( ) ;
+                        if( Numerics?.Contains( _cols[ i ] ) == true 
+                           && !string.IsNullOrEmpty( _text ) )
+                        {
+                            var _value = double.Parse( _text );
+                            _frames[ i ].TextBox.Text =  _value.ToString( "N2" );
+                            _frames[ i ].TextBox.TextAlign = HorizontalAlignment.Right;
+                        }
+                        else
+                        {
+                            _frames[ i ].TextBox.Text = _items[ i ]?.ToString( );
+                            _frames[ i ].TextBox.TextAlign = HorizontalAlignment.Left;
+                        }
                     }
                 }
                 catch( Exception ex )

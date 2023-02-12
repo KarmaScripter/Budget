@@ -41,6 +41,9 @@ namespace BudgetExecution
             Table.RowCount = 2;
             Table.Font = new Font( "Roboto", 8 );
             Table.ForeColor = Color.LightGray;
+            TextBox.BorderColor = Color.FromArgb( 70, 70, 70 );
+            TextBox.HoverColor = Color.FromArgb( 70, 70, 70 );
+            TextBox.BackColor = Color.FromArgb( 30, 30, 30 );
         }
     }
 }
