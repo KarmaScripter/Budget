@@ -34,21 +34,16 @@ namespace BudgetExecution
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculationForm));
             this.TopPanel = new BudgetExecution.Layout();
+            this.Image = new BudgetExecution.Picture();
+            this.ValueLabel = new BudgetExecution.Label();
             this.CalculatorPanel = new BudgetExecution.Layout();
+            this.Calculator = new Syncfusion.Windows.Forms.Tools.CalculatorControl();
             this.ButtonPanel = new BudgetExecution.Layout();
             this.CloseButton = new BudgetExecution.Button();
-            this.Calculator = new Syncfusion.Windows.Forms.Tools.CalculatorControl();
-            this.TopSplitter = new System.Windows.Forms.SplitContainer();
-            this.ValueLabel = new BudgetExecution.Label();
-            this.Image = new BudgetExecution.Picture();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Image)).BeginInit();
             this.CalculatorPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TopSplitter)).BeginInit();
-            this.TopSplitter.Panel1.SuspendLayout();
-            this.TopSplitter.Panel2.SuspendLayout();
-            this.TopSplitter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Image)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -56,10 +51,11 @@ namespace BudgetExecution
             this.TopPanel.BackColor = System.Drawing.Color.Transparent;
             this.TopPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TopPanel.BindingSource = null;
-            this.TopPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.TopPanel.BorderColor = System.Drawing.Color.Transparent;
             this.TopPanel.BorderThickness = 1;
             this.TopPanel.Children = null;
-            this.TopPanel.Controls.Add(this.TopSplitter);
+            this.TopPanel.Controls.Add(this.Image);
+            this.TopPanel.Controls.Add(this.ValueLabel);
             this.TopPanel.DataFilter = null;
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -69,13 +65,53 @@ namespace BudgetExecution
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.TopPanel.Size = new System.Drawing.Size(408, 36);
+            this.TopPanel.Size = new System.Drawing.Size(361, 36);
             this.TopPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.TopPanel.StyleManager = null;
             this.TopPanel.TabIndex = 0;
             this.TopPanel.ThemeAuthor = "Terry D. Eppler";
             this.TopPanel.ThemeName = "Budget Execution";
             this.TopPanel.ToolTip = null;
+            // 
+            // Image
+            // 
+            this.Image.BackColor = System.Drawing.Color.Transparent;
+            this.Image.BindingSource = null;
+            this.Image.DataFilter = null;
+            this.Image.Field = BudgetExecution.Field.AccountCode;
+            this.Image.HoverText = null;
+            this.Image.Image = global::BudgetExecution.Properties.Resources.UtilityTile;
+            this.Image.ImageList = null;
+            this.Image.Location = new System.Drawing.Point(4, 4);
+            this.Image.Name = "Image";
+            this.Image.Padding = new System.Windows.Forms.Padding(1);
+            this.Image.Size = new System.Drawing.Size(24, 26);
+            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Image.TabIndex = 0;
+            this.Image.TabStop = false;
+            this.Image.ToolTip = null;
+            // 
+            // ValueLabel
+            // 
+            this.ValueLabel.BindingSource = null;
+            this.ValueLabel.DataFilter = null;
+            this.ValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ValueLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ValueLabel.HoverText = null;
+            this.ValueLabel.IsDerivedStyle = true;
+            this.ValueLabel.Location = new System.Drawing.Point(34, 4);
+            this.ValueLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.ValueLabel.Name = "ValueLabel";
+            this.ValueLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.ValueLabel.Size = new System.Drawing.Size(315, 28);
+            this.ValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ValueLabel.StyleManager = null;
+            this.ValueLabel.TabIndex = 0;
+            this.ValueLabel.Text = "0.0";
+            this.ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ValueLabel.ThemeAuthor = "Terry D. Eppler";
+            this.ValueLabel.ThemeName = "Budget Execution";
+            this.ValueLabel.ToolTip = null;
             // 
             // CalculatorPanel
             // 
@@ -95,7 +131,7 @@ namespace BudgetExecution
             this.CalculatorPanel.Location = new System.Drawing.Point(0, 36);
             this.CalculatorPanel.Name = "CalculatorPanel";
             this.CalculatorPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.CalculatorPanel.Size = new System.Drawing.Size(408, 362);
+            this.CalculatorPanel.Size = new System.Drawing.Size(361, 362);
             this.CalculatorPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.CalculatorPanel.StyleManager = null;
             this.CalculatorPanel.TabIndex = 1;
@@ -103,12 +139,37 @@ namespace BudgetExecution
             this.CalculatorPanel.ThemeName = "Budget Execution";
             this.CalculatorPanel.ToolTip = null;
             // 
+            // Calculator
+            // 
+            this.Calculator.AccessibleDescription = "Calculator control";
+            this.Calculator.AccessibleName = "Calculator Control";
+            this.Calculator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Calculator.BeforeTouchSize = new System.Drawing.Size(359, 360);
+            this.Calculator.BorderStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.Calculator.ButtonStyle = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
+            this.Calculator.Culture = new System.Globalization.CultureInfo("en-US");
+            this.Calculator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Calculator.DoubleValue = 0D;
+            this.Calculator.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Calculator.ForeColor = System.Drawing.Color.White;
+            this.Calculator.LayoutType = Syncfusion.Windows.Forms.Tools.CalculatorLayoutTypes.Financial;
+            this.Calculator.Location = new System.Drawing.Point(1, 1);
+            this.Calculator.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Calculator.Name = "Calculator";
+            this.Calculator.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Calculator.ShowDisplayArea = false;
+            this.Calculator.Size = new System.Drawing.Size(359, 360);
+            this.Calculator.TabIndex = 0;
+            this.Calculator.ThemeName = "Metro";
+            this.Calculator.UseVerticalAndHorizontalSpacing = true;
+            this.Calculator.UseVisualStyle = true;
+            // 
             // ButtonPanel
             // 
             this.ButtonPanel.BackColor = System.Drawing.Color.Transparent;
             this.ButtonPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ButtonPanel.BindingSource = null;
-            this.ButtonPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ButtonPanel.BorderColor = System.Drawing.Color.Transparent;
             this.ButtonPanel.BorderThickness = 1;
             this.ButtonPanel.Children = null;
             this.ButtonPanel.Controls.Add(this.CloseButton);
@@ -121,7 +182,7 @@ namespace BudgetExecution
             this.ButtonPanel.Location = new System.Drawing.Point(0, 398);
             this.ButtonPanel.Name = "ButtonPanel";
             this.ButtonPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ButtonPanel.Size = new System.Drawing.Size(408, 44);
+            this.ButtonPanel.Size = new System.Drawing.Size(361, 44);
             this.ButtonPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.ButtonPanel.StyleManager = null;
             this.ButtonPanel.TabIndex = 2;
@@ -143,7 +204,7 @@ namespace BudgetExecution
             this.CloseButton.HoverText = null;
             this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(311, 6);
+            this.CloseButton.Location = new System.Drawing.Point(231, 6);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
@@ -152,7 +213,7 @@ namespace BudgetExecution
             this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(85, 34);
+            this.CloseButton.Size = new System.Drawing.Size(126, 34);
             this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.CloseButton.StyleManager = null;
             this.CloseButton.TabIndex = 0;
@@ -160,88 +221,6 @@ namespace BudgetExecution
             this.CloseButton.ThemeAuthor = "Terry D. Eppler";
             this.CloseButton.ThemeName = "Budget Execution";
             this.CloseButton.ToolTip = null;
-            // 
-            // Calculator
-            // 
-            this.Calculator.AccessibleDescription = "Calculator control";
-            this.Calculator.AccessibleName = "Calculator Control";
-            this.Calculator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Calculator.BeforeTouchSize = new System.Drawing.Size(406, 360);
-            this.Calculator.BorderStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.Calculator.ButtonStyle = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
-            this.Calculator.Culture = new System.Globalization.CultureInfo("en-US");
-            this.Calculator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Calculator.DoubleValue = 0D;
-            this.Calculator.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Calculator.ForeColor = System.Drawing.Color.White;
-            this.Calculator.LayoutType = Syncfusion.Windows.Forms.Tools.CalculatorLayoutTypes.Financial;
-            this.Calculator.Location = new System.Drawing.Point(1, 1);
-            this.Calculator.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Calculator.Name = "Calculator";
-            this.Calculator.ShowDisplayArea = false;
-            this.Calculator.Size = new System.Drawing.Size(406, 360);
-            this.Calculator.TabIndex = 0;
-            this.Calculator.ThemeName = "Metro";
-            this.Calculator.UseVerticalAndHorizontalSpacing = true;
-            this.Calculator.UseVisualStyle = true;
-            // 
-            // TopSplitter
-            // 
-            this.TopSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TopSplitter.Location = new System.Drawing.Point(1, 1);
-            this.TopSplitter.Name = "TopSplitter";
-            // 
-            // TopSplitter.Panel1
-            // 
-            this.TopSplitter.Panel1.Controls.Add(this.Image);
-            // 
-            // TopSplitter.Panel2
-            // 
-            this.TopSplitter.Panel2.Controls.Add(this.ValueLabel);
-            this.TopSplitter.Size = new System.Drawing.Size(406, 34);
-            this.TopSplitter.SplitterDistance = 35;
-            this.TopSplitter.TabIndex = 0;
-            // 
-            // ValueLabel
-            // 
-            this.ValueLabel.BindingSource = null;
-            this.ValueLabel.DataFilter = null;
-            this.ValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValueLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ValueLabel.HoverText = null;
-            this.ValueLabel.IsDerivedStyle = true;
-            this.ValueLabel.Location = new System.Drawing.Point(0, 0);
-            this.ValueLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.ValueLabel.Name = "ValueLabel";
-            this.ValueLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ValueLabel.Size = new System.Drawing.Size(367, 34);
-            this.ValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ValueLabel.StyleManager = null;
-            this.ValueLabel.TabIndex = 0;
-            this.ValueLabel.Text = "0.0";
-            this.ValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ValueLabel.ThemeAuthor = "Terry D. Eppler";
-            this.ValueLabel.ThemeName = "Budget Execution";
-            this.ValueLabel.ToolTip = null;
-            // 
-            // Image
-            // 
-            this.Image.BackColor = System.Drawing.Color.Transparent;
-            this.Image.BindingSource = null;
-            this.Image.DataFilter = null;
-            this.Image.Field = BudgetExecution.Field.AccountCode;
-            this.Image.HoverText = null;
-            this.Image.Image = global::BudgetExecution.Properties.Resources.UtilityTile;
-            this.Image.ImageList = null;
-            this.Image.Location = new System.Drawing.Point(3, 3);
-            this.Image.Name = "Image";
-            this.Image.Padding = new System.Windows.Forms.Padding(1);
-            this.Image.Size = new System.Drawing.Size(24, 22);
-            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Image.TabIndex = 0;
-            this.Image.TabStop = false;
-            this.Image.ToolTip = null;
             // 
             // CalculationForm
             // 
@@ -255,7 +234,7 @@ namespace BudgetExecution
             this.CaptionButtonHoverColor = System.Drawing.Color.Red;
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(408, 442);
+            this.ClientSize = new System.Drawing.Size(361, 442);
             this.Controls.Add(this.CalculatorPanel);
             this.Controls.Add(this.ButtonPanel);
             this.Controls.Add(this.TopPanel);
@@ -266,14 +245,11 @@ namespace BudgetExecution
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Name = "CalculationForm";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TopPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Image)).EndInit();
             this.CalculatorPanel.ResumeLayout(false);
             this.ButtonPanel.ResumeLayout(false);
-            this.TopSplitter.Panel1.ResumeLayout(false);
-            this.TopSplitter.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TopSplitter)).EndInit();
-            this.TopSplitter.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,7 +257,6 @@ namespace BudgetExecution
         #endregion
 
         private Layout TopPanel;
-        private System.Windows.Forms.SplitContainer TopSplitter;
         private Picture Image;
         private Label ValueLabel;
         private Layout CalculatorPanel;

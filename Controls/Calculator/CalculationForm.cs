@@ -31,7 +31,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
-            Size = new Size( 420, 480 );
+            Size = new Size( 373, 451 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -51,6 +51,7 @@ namespace BudgetExecution
             Calculator.VerticalSpacing = 10;
             Calculator.UseVerticalAndHorizontalSpacing = true;
             Calculator.ShowDisplayArea = false;
+            Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
             Calculator.ValueCalculated += OnCalculationValueChanged;
 
             // Label Configuration
@@ -62,6 +63,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <summary>
@@ -91,11 +93,29 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             Calculator.BorderStyle = Border3DStyle.Adjust;
+            Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
         }
 
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
