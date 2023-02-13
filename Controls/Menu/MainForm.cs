@@ -280,10 +280,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _pdf = new PdfForm( );
-                _pdf.Owner = this;
-                _pdf.StartPosition = FormStartPosition.CenterScreen;
-                _pdf.Show( );
+                var _form = new BudgetGuidance( );
+                _form.Owner = this;
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.Show( );
                 Visible = false;
             }
             catch( Exception ex )

@@ -2,7 +2,7 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution.Controls.Chart
+namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;

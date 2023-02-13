@@ -334,7 +334,7 @@ namespace BudgetExecution
             try
             {
                 PopulateToolStripComboBoxItems( );
-                ClearSelections(  );
+                ClearSelections( );
                 ClearLabelText( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {

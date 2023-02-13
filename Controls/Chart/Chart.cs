@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using BudgetExecution.Controls.Chart;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>

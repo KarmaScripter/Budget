@@ -355,4 +355,64 @@
   <data name="WebClientTIle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\WebClientTIle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\CFR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Congress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\Congress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FEMA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\FEMA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GAO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\GAO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GPO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\GPO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OMB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\OMB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Senate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\Senate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Treasury" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\Treasury.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Superfund" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\Superfund.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="USEPA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Agency\USEPA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppropriationTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\AppropriationTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CapitalTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\CapitalTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ControlTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ControlTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LegalTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\LegalTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RegulationTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\RegulationTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DownloadTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\DownloadTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LookupTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\LookupTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReadingTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\ReadingTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RegulationTile1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\RegulationTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SignpostTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Tiles\SignpostTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
