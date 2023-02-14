@@ -15,7 +15,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.SuperfundGuidanceForm" />
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class SuperfundGuidance : MetroForm
     {
@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// The tiles.
         /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SuperfundGuidance"/> class.
         /// </summary>
@@ -59,12 +59,16 @@ namespace BudgetExecution
             
             // Event Wiring
             CloseButton.Click += null;
-            GeneralInformationTile.Click += OnDatabaseTileClicked;
-            SuperfundPayrollTile.Click += OnUtilityTileClicked;
-            IntroductionTile.Click += OnReportingTileClicked;
-            DirectChargingTile.Click += OnClientTileClicked;
-            CostAccountingTile.Click += OnGuidanceTileClicked;
-            SuperfundBudgetingTile.Click += OnWebTileClicked;
+            GeneralInformationTile.Click += OnGeneralInformationTileClicked;
+            SuperfundPayrollTile.Click += OnSuperfundPayrollTileClicked;
+            IntroductionTile.Click += OnIntroductionTileClicked;
+            DirectChargingTile.Click += OnDirectChargingTileClicked;
+            CostAccountingTile.Click += OnCostAccountingTileClicked;
+            SuperfundBudgetingTile.Click += OnSuperfundBudgetingTileClicked;
+            CostRecoveryTile.Click += OnCostRecoveryTileClicked;
+            SpecialAccountsTile.Click += OnSpecialAccountsTileClicked;
+            InteragencyAgreementTile.Click += OnInteragencyAgreementsTileClicked;
+            BudgetGuidanceTile.Click += OnBudgetGuidanceTileClicked;
             CloseButton.Click += OnCloseButtonClicked;
             Load += OnLoad;
         }
@@ -73,10 +77,7 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -120,32 +121,44 @@ namespace BudgetExecution
                 return default( IEnumerable<Tile> );
             }
         }
-        
+
         /// <summary>
-        /// Sets the tile titles.
+        /// Sets the tile text.
         /// </summary>
         private void SetTileText( )
         {
             try
             {
-                GeneralInformationTile.Title.Text = "Data Management";
-                GeneralInformationTile.Body.Text = string.Empty;
-                GeneralInformationTile.Banner.Text = "Tables, Schema, Records";
+                GeneralInformationTile.Title.Text = "General Information";
+                GeneralInformationTile.Body.Text = "Superfund Program";
+                GeneralInformationTile.Banner.Text = "US EPA";
                 SuperfundPayrollTile.Title.Text =  "Utilities";
-                SuperfundPayrollTile.Body.Text = string.Empty;
-                SuperfundPayrollTile.Banner.Text = "Calculator, Calendar, Web Browser";
-                IntroductionTile.Title.Text = "Reporting";
-                IntroductionTile.Body.Text = string.Empty;
-                IntroductionTile.Banner.Text = "Charts, Graphs";
-                DirectChargingTile.Title.Text = "DB Clients";
-                DirectChargingTile.Body.Text = string.Empty;
-                DirectChargingTile.Banner.Text = "SQLite, SQL Server, Access";
-                CostAccountingTile.Title.Text =  "Guidance";
-                CostAccountingTile.Body.Text = string.Empty;
-                CostAccountingTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
-                SuperfundBudgetingTile.Title.Text = "Web Resource";
-                SuperfundBudgetingTile.Body.Text = string.Empty;
-                SuperfundBudgetingTile.Banner.Text = "Web Clients, Data, Browsers";
+                SuperfundPayrollTile.Body.Text = "Superfund Program";
+                SuperfundPayrollTile.Banner.Text = "US EPA";
+                IntroductionTile.Title.Text = "Program Introduction";
+                IntroductionTile.Body.Text = "Superfund Program";
+                IntroductionTile.Banner.Text = "US EPA";
+                DirectChargingTile.Title.Text = "Direct Charging";
+                DirectChargingTile.Body.Text = "Superfund Program";
+                DirectChargingTile.Banner.Text = "US EPA";
+                CostAccountingTile.Title.Text =  "Cost Accounting";
+                CostAccountingTile.Body.Text = "Superfund Program";
+                CostAccountingTile.Banner.Text = "US EPA";
+                SuperfundBudgetingTile.Title.Text = "Superfund Budgeting";
+                SuperfundBudgetingTile.Body.Text = "Superfund Program";
+                SuperfundBudgetingTile.Banner.Text = "US EPA";
+                CostRecoveryTile.Title.Text = "Cost Recovery";
+                CostRecoveryTile.Body.Text = "Superfund Program";
+                CostRecoveryTile.Banner.Text = "US EPA";
+                SpecialAccountsTile.Title.Text = "Special Accounts";
+                SpecialAccountsTile.Body.Text = "Superfund Program";
+                SpecialAccountsTile.Banner.Text = "US EPA";
+                InteragencyAgreementTile.Title.Text = "Inter Agency Agreement";
+                InteragencyAgreementTile.Body.Text = "Superfund Program";
+                InteragencyAgreementTile.Banner.Text = "US EPA";
+                BudgetGuidanceTile.Title.Text = "Budget Guidance";
+                BudgetGuidanceTile.Body.Text = "Office Of Budget";
+                BudgetGuidanceTile.Banner.Text = "US EPA";
             }
             catch( Exception ex )
             {
@@ -178,85 +191,13 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// Called when [database tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnDatabaseTileClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _dataGridForm = new DataGridForm( );
-                _dataGridForm.Owner = this;
-                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
-                _dataGridForm.Show(  );
-                Visible = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
 
         /// <summary>
-        /// Called when [reporting tile clicked].
+        /// Called when [general information tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnReportingTileClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _chartForm = new ChartForm( );
-                _chartForm.Owner = this;
-                _chartForm.StartPosition = FormStartPosition.CenterScreen;
-                _chartForm.Show( );
-                Visible = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [client tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnClientTileClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _minion = new MinionSelector(  );
-                _minion.ShowDialog(  );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [utility tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnUtilityTileClicked( object sender, EventArgs e )
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnGeneralInformationTileClicked( object sender, EventArgs e )
         {
             try
             {
@@ -271,21 +212,123 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [guidance tile clicked].
+        /// Called when [introduction tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnGuidanceTileClicked( object sender, EventArgs e )
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnIntroductionTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _pdf = new PdfForm( );
-                _pdf.Owner = this;
-                _pdf.StartPosition = FormStartPosition.CenterScreen;
-                _pdf.Show( );
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [interagency agreements tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnInteragencyAgreementsTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [direct charging tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnDirectChargingTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [superfund payroll tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnSuperfundPayrollTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [budget guidance tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnBudgetGuidanceTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false )
+                {
+                    Owner.Visible = true;
+                    Close( );
+                }
+                else
+                {
+                    var _budget = new BudgetGuidance(  );
+                    _budget.Owner = this;
+                    _budget.Show( );
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [cost accounting tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCostAccountingTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _guidance = new BudgetGuidance( );
+                _guidance.Owner = this;
+                _guidance.StartPosition = FormStartPosition.CenterScreen;
+                _guidance.Show( );
                 Visible = false;
             }
             catch( Exception ex )
@@ -295,21 +338,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [tool tile clicked].
+        /// Called when [superfund budgeting tile clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnWebTileClicked( object sender, EventArgs e )
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnSuperfundBudgetingTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _web = new WebPage( );
-                _web.Owner = this;
-                _web.StartPosition = FormStartPosition.CenterScreen;
-                _web.Show( );
-                Visible = false;
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
             }
             catch( Exception ex )
             {
@@ -318,7 +357,45 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [exit button clicked].
+        /// Called when [cost recovery tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCostRecoveryTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [special accounts tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnSpecialAccountsTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -333,9 +410,9 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )

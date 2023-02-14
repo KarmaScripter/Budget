@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.BudgetGuidance" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class BudgetGuidance : MetroForm
     {
         /// <summary>
@@ -57,12 +59,15 @@ namespace BudgetExecution
             
             // Event Wiring
             CloseButton.Click += null;
-            FundsControlManualTile.Click += OnDatabaseTileClicked;
-            AntiDeficiencyActTile.Click += OnUtilityTileClicked;
-            OmbCircularTile.Click += OnReportingTileClicked;
-            MoneyAndFinanceTile.Click += OnClientTileClicked;
-            AppropriationsLawVolumeOneTile.Click += OnGuidanceTileClicked;
-            AppropriationsLawVolumeTwoTile.Click += OnWebTileClicked;
+            FundsControlManualTile.Click += OnFundsControlManualTileClicked;
+            AntiDeficiencyActTile.Click += OnAntiDeficiencyActTileClicked;
+            OmbCircularTile.Click += OnOmbCircularTileClicked;
+            MoneyAndFinanceTile.Click += OnMoneyAndFinanceTileClicked;
+            AppropriationsLawVolumeOneTile.Click += OnVolumeOneTileClicked;
+            AppropriationsLawVolumeTwoTile.Click += OnVolumeTwoTileClicked;
+            ObjectClassManualTile.Click += OnObjectClassManualClicked;
+            AdviceOfAllowanceTile.Click += OnAdviceOfAllowanceTileClicked;
+            SuperfundGuidanceTile.Click += OnSuperfundGuidanceTileClicked;
             CloseButton.Click += OnCloseButtonClicked;
             Load += OnLoad;
         }
@@ -197,15 +202,13 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnDatabaseTileClicked( object sender, EventArgs e )
+        private void OnFundsControlManualTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _dataGridForm = new DataGridForm( );
-                _dataGridForm.Owner = this;
-                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
-                _dataGridForm.Show(  );
-                Visible = false;
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
             }
             catch( Exception ex )
             {
@@ -221,15 +224,13 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnReportingTileClicked( object sender, EventArgs e )
+        private void OnOmbCircularTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _chartForm = new ChartForm( );
-                _chartForm.Owner = this;
-                _chartForm.StartPosition = FormStartPosition.CenterScreen;
-                _chartForm.Show( );
-                Visible = false;
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
             }
             catch( Exception ex )
             {
@@ -245,12 +246,13 @@ namespace BudgetExecution
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnClientTileClicked( object sender, EventArgs e )
+        private void OnMoneyAndFinanceTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _minion = new MinionSelector(  );
-                _minion.ShowDialog(  );
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
             }
             catch( Exception ex )
             {
@@ -266,7 +268,7 @@ namespace BudgetExecution
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnUtilityTileClicked( object sender, EventArgs e )
+        private void OnAntiDeficiencyActTileClicked( object sender, EventArgs e )
         {
             try
             {
@@ -288,15 +290,13 @@ namespace BudgetExecution
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnGuidanceTileClicked( object sender, EventArgs e )
+        private void OnVolumeOneTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _pdf = new PdfForm( );
-                _pdf.Owner = this;
-                _pdf.StartPosition = FormStartPosition.CenterScreen;
-                _pdf.Show( );
-                Visible = false;
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
             }
             catch( Exception ex )
             {
@@ -311,14 +311,89 @@ namespace BudgetExecution
         /// <param name="e">
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnWebTileClicked( object sender, EventArgs e )
+        private void OnVolumeTwoTileClicked( object sender, EventArgs e )
         {
             try
             {
-                var _web = new WebPage( );
-                _web.Owner = this;
-                _web.StartPosition = FormStartPosition.CenterScreen;
-                _web.Show( );
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [object class manual clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnObjectClassManualClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [official travel tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnOfficialTravelTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [advice of allowance tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnAdviceOfAllowanceTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [superfund guidance tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnSuperfundGuidanceTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _guidance = new SuperfundGuidance( );
+                _guidance.Owner = this;
+                _guidance.Show( );
                 Visible = false;
             }
             catch( Exception ex )
@@ -336,11 +411,6 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null 
-                   && Owner.Visible == false )
-                {
-                    Owner.Visible = true;
-                }
                 Close( );
             }
             catch( Exception ex )
