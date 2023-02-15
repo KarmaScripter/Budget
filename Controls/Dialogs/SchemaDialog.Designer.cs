@@ -80,7 +80,7 @@ partial class SchemaDialog
             this.SecondButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SecondButton.PressTextColor = System.Drawing.Color.White;
-            this.SecondButton.Size = new System.Drawing.Size(140, 53);
+            this.SecondButton.Size = new System.Drawing.Size(140, 40);
             this.SecondButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondButton.StyleManager = null;
             this.SecondButton.TabIndex = 0;
@@ -112,7 +112,7 @@ partial class SchemaDialog
             this.ThirdButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ThirdButton.PressTextColor = System.Drawing.Color.White;
-            this.ThirdButton.Size = new System.Drawing.Size(140, 53);
+            this.ThirdButton.Size = new System.Drawing.Size(140, 40);
             this.ThirdButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.ThirdButton.StyleManager = null;
             this.ThirdButton.TabIndex = 1;
@@ -205,7 +205,7 @@ partial class SchemaDialog
             this.FirstButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.FirstButton.PressTextColor = System.Drawing.Color.White;
-            this.FirstButton.Size = new System.Drawing.Size(140, 55);
+            this.FirstButton.Size = new System.Drawing.Size(140, 40);
             this.FirstButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.FirstButton.StyleManager = null;
             this.FirstButton.TabIndex = 4;
