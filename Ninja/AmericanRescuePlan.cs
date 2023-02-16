@@ -227,6 +227,7 @@ namespace BudgetExecution
         /// </summary>
         public AmericanRescuePlan( )
         {
+            Source = Source.AmericanRescuePlan;
         }
 
         /// <summary>
