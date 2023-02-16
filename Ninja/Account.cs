@@ -104,7 +104,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// </summary>
-        public override Source Source { get; set; } = Source.Accounts;
+        public override Source Source { get; set; } 
 
         /// <summary>
         /// Gets or sets the provider.
@@ -135,6 +135,7 @@ namespace BudgetExecution
         /// </summary>
         public Account( )
         {
+            Source = Source.Accounts;
         }
 
         /// <summary>
@@ -164,7 +165,7 @@ namespace BudgetExecution
             : base( dataBuilder )
         {
             Record = dataBuilder?.Record;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
+            ID = int.Parse( Record?[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
             NpmCode = Record?[ $"{ Field.NpmCode }" ].ToString( );
             ProgramProjectCode = Record?[ $"{ Field.ProgramProjectCode }" ].ToString( );
             ActivityCode = Record?[ $"{ Field.ActivityCode }" ].ToString( );
