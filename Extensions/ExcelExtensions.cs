@@ -18,6 +18,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class ExcelExtensions
     {
         /// <summary>
@@ -52,11 +53,19 @@ namespace BudgetExecution
         /// <returns></returns>
         public static DataSet ToDataSet( this ExcelPackage excelPackage, bool header = false )
         {
-            var _row = header
-                ? 1
-                : 0;
+            try
+            {
+                var _row = header
+                    ? 1
+                    : 0;
 
-            return excelPackage.ToDataSet( _row );
+                return excelPackage.ToDataSet( _row );
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+                return default( DataSet );
+            }
         }
 
         /// <summary>Converts to data set.</summary>
@@ -66,56 +75,62 @@ namespace BudgetExecution
         /// <exception cref="ArgumentOutOfRangeException">header - Must be 0 or greater.</exception>
         public static DataSet ToDataSet( this ExcelPackage excelPackage, int header = 0 )
         {
-            if( header < 0 )
+            try
             {
-                throw new ArgumentOutOfRangeException( nameof( header ), header,
-                    "Must be 0 or greater." );
-            }
-
-            var _result = new DataSet( );
-
-            foreach( var _worksheet in excelPackage.Workbook.Worksheets )
-            {
-                var _table = new DataTable( ) ;
-
-                if ( _worksheet?.Name != null )
+                if( header < 0 )
                 {
-                    _table.TableName = _worksheet?.Name;
+                    throw new ArgumentOutOfRangeException( nameof( header ), header,
+                        "Must be 0 or greater." );
                 }
 
-                var _start = 1;
-                if( header > 0 )
+                var _result = new DataSet( );
+                foreach( var _worksheet in excelPackage.Workbook.Worksheets )
                 {
-                    _start = header;
-                }
-
-                var _columns =
-                    from _cell in _worksheet?.Cells[ _start, 1, _start,
-                        _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
-                        ? _cell?.Value?.ToString( )
-                        : $"Column {_cell?.Start?.Column}" );
-
-                _table.Columns.AddRange( _columns?.ToArray( ) );
-                var i = header > 0
-                    ? _start + 1
-                    : _start;
-                
-                for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
-                {
-                    var _range =
-                        _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
-
-                    var _row = _table.Rows.Add( );
-                    foreach( var cell in _range )
+                    var _table = new DataTable( ) ;
+                    if ( _worksheet?.Name != null )
                     {
-                        _row[ cell.Start.Column - 1 ] = cell.Value;
+                        _table.TableName = _worksheet?.Name;
                     }
+
+                    var _start = 1;
+                    if( header > 0 )
+                    {
+                        _start = header;
+                    }
+
+                    var _columns =
+                        from _cell in _worksheet?.Cells[ _start, 1, _start,
+                            _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
+                            ? _cell?.Value?.ToString( )
+                            : $"Column {_cell?.Start?.Column}" );
+
+                    _table.Columns.AddRange( _columns?.ToArray( ) );
+                    var i = header > 0
+                        ? _start + 1
+                        : _start;
+                
+                    for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
+                    {
+                        var _range =
+                            _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
+
+                        var _row = _table.Rows?.Add( );
+                        foreach( var cell in _range )
+                        {
+                            _row[ cell.Start.Column - 1 ] = cell.Value;
+                        }
+                    }
+
+                    _result.Tables?.Add( _table );
                 }
 
-                _result.Tables.Add( _table );
+                return _result;
             }
-
-            return _result;
+            catch ( Exception ex )
+            {
+                Fail( ex );
+                return default( DataSet );
+            }
         }
 
         /// <summary>Trims the last empty rows.</summary>
@@ -237,8 +252,15 @@ namespace BudgetExecution
         public static void BackgroundColor( this ExcelRange range, Color color,
             ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
-            range.Style.Fill.PatternType = fillStyle;
-            range.Style.Fill.BackgroundColor.SetColor( color );
+            try
+            {
+                range.Style.Fill.PatternType = fillStyle;
+                range.Style.Fill.BackgroundColor.SetColor( color );
+            }
+            catch ( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>Fails the specified ex.</summary>

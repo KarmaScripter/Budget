@@ -35,7 +35,7 @@ namespace BudgetExecution
                     {
                         return "Text";
                     }
-                    case "IsDateTime":
+                    case "DateTime":
                     {
                         return "Date";
                     }
@@ -188,9 +188,9 @@ namespace BudgetExecution
 
                 return _stringBuilder.ToString( );
             }
-            catch( Exception _e )
+            catch( Exception _ex )
             {
-                Fail( _e );
+                Fail( _ex );
                 return default;
             }
         }
