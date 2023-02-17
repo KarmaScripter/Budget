@@ -39,7 +39,7 @@ namespace BudgetExecution
             HotTracking = true;
 
             // Item SeriesConfiguration
-            ItemHeight = 30;
+            ItemHeight = 24;
         }
 
         /// <summary>

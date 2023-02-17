@@ -123,15 +123,8 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             
-            // ListBox Properties
-            FirstTabListBox.MultiSelect = true;
-            
             // Event Wiring
             Load += OnLoad;
-            FirstTabListBox.SelectedValueChanged += OnFirstTabListBoxSelectedValueChanged;
-            ClearButton.Click += OnClearButtonClicked;
-            SelectButton.Click += OnSelectButtonClicked;
-            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
@@ -234,7 +227,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFirstTabListBoxSelectedValueChanged( object sender )
+        private void OnListViewSelectedValueChanged( object sender )
         {
             try
             {
@@ -244,23 +237,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Called when [numeric ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnSecondTabListBoxSelectedValueChanged( object sender )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [first button clicked].
         /// </summary>
