@@ -25,9 +25,9 @@ namespace BudgetExecution
         public ChartConfig( )
         {
             DisplayText = true;
-            TextColor = ColorConfig.ForeGray;
+            TextColor = ColorConfig.GrayForeground;
             Interior = new BrushInfo( Color.FromArgb( 5, 5, 5 ) );
-            Border = SetBorderStyle( ColorConfig.BackColorDark, BorderConfig.Thin );
+            Border = SetBorderStyle( ColorConfig.DarkBarkGround, BorderConfig.Thin );
         }
 
         /// <summary>

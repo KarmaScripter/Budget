@@ -17,47 +17,47 @@ namespace BudgetExecution
         /// <summary>
         /// The border dark
         /// </summary>
-        public static readonly Color BorderDark = Color.FromArgb( 65, 65, 65 );
+        public static readonly Color DarkBorder = Color.FromArgb( 65, 65, 65 );
 
         /// <summary>
         /// The border blue
         /// </summary>
-        public static readonly Color BorderBlue = Color.FromArgb( 0, 120, 212 );
+        public static readonly Color BlueBorder = Color.FromArgb( 0, 120, 212 );
 
         /// <summary>
         /// The border red
         /// </summary>
-        public static readonly Color BorderRed = Color.FromArgb( 192, 0, 0 );
+        public static readonly Color RedBorder = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
         /// The form dark back color
         /// </summary>
-        public static readonly Color BackColorDark = Color.FromArgb( 20, 20, 20 );
+        public static readonly Color DarkBarkGround = Color.FromArgb( 20, 20, 20 );
 
         /// <summary>
         /// The fore red
         /// </summary>
-        public static readonly Color ForeRed = Color.FromArgb( 192, 0, 0 );
+        public static readonly Color RedForeground = Color.FromArgb( 192, 0, 0 );
 
         /// <summary>
         /// The fore gray
         /// </summary>
-        public static readonly Color ForeGray = Color.FromArgb( 141, 139, 138 );
+        public static readonly Color GrayForeground = Color.FromArgb( 141, 139, 138 );
 
         /// <summary>
         /// The fore white
         /// </summary>
-        public static readonly Color ForeWhite = Color.White;
+        public static readonly Color WhiteForeground = Color.White;
 
         /// <summary>
         /// The fore black
         /// </summary>
-        public static readonly Color ForeBlack = Color.Black;
+        public static readonly Color BlackForeground = Color.Black;
 
         /// <summary>
         /// The control interior color
         /// </summary>
-        public static readonly Color ControlInteriorColor = Color.FromArgb( 40, 40, 40 );
+        public static readonly Color DarkInterior = Color.FromArgb( 40, 40, 40 );
 
         /// <summary>
         /// The transparent

@@ -201,7 +201,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
+        /// Initializes a new instance of the <see cref="Chart" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <param name="category">The names.</param>
@@ -249,7 +249,8 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the series.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private void InitSeries( ChartSeries series )
         {
             if( series != null )
@@ -293,7 +294,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Sets the primary axis titleInfo.
         /// </summary>

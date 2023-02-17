@@ -74,7 +74,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return 1;
             }
         }
@@ -95,7 +94,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return BorderStyle.None;
             }
         }
@@ -116,7 +114,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return Color.Empty;
             }
         }
@@ -137,7 +134,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return ExcelBorderStyle.None;
             }
         }
@@ -158,7 +154,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return eUnderLineType.None;
             }
         }
@@ -179,7 +174,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return ExcelBorderWeight.None;
             }
         }
@@ -200,7 +194,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return ExcelLineStyle.None;
             }
         }
