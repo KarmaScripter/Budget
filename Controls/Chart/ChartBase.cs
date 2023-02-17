@@ -35,7 +35,7 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Margin = new Padding( 3 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
-            AllowGapForEmptyPoints = true;
+            AllowGapForEmptyPoints = false;
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
@@ -78,7 +78,7 @@ namespace BudgetExecution
             Spacing = 5;
             AutoHighlight = true;
             SpacingBetweenPoints = 5;
-            SpacingBetweenSeries = 10;
+            SpacingBetweenSeries = 5;
             Style3D = true;
             TextAlignment = StringAlignment.Center;
             TextPosition = ChartTextPosition.Top;

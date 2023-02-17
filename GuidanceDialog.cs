@@ -95,6 +95,30 @@ namespace BudgetExecution
         public Provider Provider { get; set; }
 
         /// <summary>
+        /// Gets or sets the extenstion.
+        /// </summary>
+        /// <value>
+        /// The extenstion.
+        /// </value>
+        public EXT Extenstion { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the selected path.
+        /// </summary>
+        /// <value>
+        /// The selected path.
+        /// </value>
+        public string SelectedPath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected item.
+        /// </summary>
+        /// <value>
+        /// The selected item.
+        /// </value>
+        public string SelectedItem { get; set; }
+        
+        /// <summary>
         /// Initializes a new
         /// instance of the <see cref="SchemaDialog"/> class.
         /// </summary>
@@ -123,6 +147,26 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             
+            // Label Properties
+            HeaderLabel.Font = new Font( "Roboto", 10 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            HeaderLabel.FlatStyle = FlatStyle.Flat;
+
+            // Picture Properties
+            Picture.Size = new Size( 22, 24  );
+            Picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            // File Dialog Properties
+            OpenFileDialog.Title = "Search for Document";
+            OpenFileDialog.CheckPathExists = true;
+            OpenFileDialog.CheckFileExists = true;
+            
+            // Data Properties
+            Source = Source.Resources;
+            Provider = Provider.Access;
+            Extenstion = EXT.PDF;
+            
             // Event Wiring
             Load += OnLoad;
         }
@@ -150,7 +194,6 @@ namespace BudgetExecution
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );
-                Text = "Schema: " + DataTable.TableName.SplitPascal(  );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
                 PopulateFirstTabListBox( );

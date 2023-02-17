@@ -38,50 +38,53 @@ namespace BudgetExecution
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuidanceDialog));
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.listBox1 = new BudgetExecution.ListBox();
+            this.ListBox = new BudgetExecution.ListBox();
             this.ClearButton = new BudgetExecution.Button();
             this.SelectButton = new BudgetExecution.Button();
             this.CloseButto = new BudgetExecution.Button();
             this.Picture = new BudgetExecution.Picture();
             this.HeaderLabel = new BudgetExecution.Label();
+            this.BrowseButton = new BudgetExecution.Button();
+            this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.ToolTip = new BudgetExecution.SmallTip();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // ListBox
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.listBox1.BindingSource = null;
-            this.listBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.listBox1.DataFilter = null;
-            this.listBox1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.listBox1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox1.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.listBox1.HoveredItemColor = System.Drawing.Color.White;
-            this.listBox1.HoverText = null;
-            this.listBox1.IsDerivedStyle = true;
-            this.listBox1.ItemHeight = 28;
-            this.listBox1.Location = new System.Drawing.Point(26, 61);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.listBox1.MultiSelect = true;
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.listBox1.SelectedIndex = -1;
-            this.listBox1.SelectedItem = null;
-            this.listBox1.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.listBox1.SelectedItemColor = System.Drawing.Color.White;
-            this.listBox1.SelectedText = null;
-            this.listBox1.SelectedValue = null;
-            this.listBox1.ShowBorder = false;
-            this.listBox1.ShowScrollBar = false;
-            this.listBox1.Size = new System.Drawing.Size(473, 300);
-            this.listBox1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.listBox1.StyleManager = null;
-            this.listBox1.TabIndex = 0;
-            this.listBox1.ThemeAuthor = "Terry D. Eppler";
-            this.listBox1.ThemeName = "Budget Execution";
-            this.listBox1.ToolTip = null;
+            this.ListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ListBox.BindingSource = this.BindingSource;
+            this.ListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.ListBox.DataFilter = null;
+            this.ListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.ListBox.HoveredItemColor = System.Drawing.Color.White;
+            this.ListBox.HoverText = null;
+            this.ListBox.IsDerivedStyle = true;
+            this.ListBox.ItemHeight = 28;
+            this.ListBox.Location = new System.Drawing.Point(26, 61);
+            this.ListBox.Margin = new System.Windows.Forms.Padding(1);
+            this.ListBox.MultiSelect = true;
+            this.ListBox.Name = "ListBox";
+            this.ListBox.Padding = new System.Windows.Forms.Padding(1);
+            this.ListBox.SelectedIndex = -1;
+            this.ListBox.SelectedItem = null;
+            this.ListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.ListBox.SelectedText = null;
+            this.ListBox.SelectedValue = null;
+            this.ListBox.ShowBorder = false;
+            this.ListBox.ShowScrollBar = false;
+            this.ListBox.Size = new System.Drawing.Size(473, 300);
+            this.ListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ListBox.StyleManager = null;
+            this.ListBox.TabIndex = 0;
+            this.ListBox.ThemeAuthor = "Terry D. Eppler";
+            this.ListBox.ThemeName = "Budget Execution";
+            this.ListBox.ToolTip = null;
             // 
             // ClearButton
             // 
@@ -97,7 +100,7 @@ namespace BudgetExecution
             this.ClearButton.HoverText = null;
             this.ClearButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ClearButton.IsDerivedStyle = true;
-            this.ClearButton.Location = new System.Drawing.Point(1, 438);
+            this.ClearButton.Location = new System.Drawing.Point(158, 438);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ClearButton.NormalColor = System.Drawing.Color.Transparent;
@@ -129,7 +132,7 @@ namespace BudgetExecution
             this.SelectButton.HoverText = null;
             this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(212, 438);
+            this.SelectButton.Location = new System.Drawing.Point(285, 438);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SelectButton.NormalColor = System.Drawing.Color.Transparent;
@@ -191,7 +194,7 @@ namespace BudgetExecution
             this.Picture.Location = new System.Drawing.Point(1, 3);
             this.Picture.Name = "Picture";
             this.Picture.Padding = new System.Windows.Forms.Padding(1);
-            this.Picture.Size = new System.Drawing.Size(24, 22);
+            this.Picture.Size = new System.Drawing.Size(22, 22);
             this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Picture.TabIndex = 4;
             this.Picture.TabStop = false;
@@ -219,6 +222,62 @@ namespace BudgetExecution
             this.HeaderLabel.ThemeName = "Budget Execution";
             this.HeaderLabel.ToolTip = null;
             // 
+            // BrowseButton
+            // 
+            this.BrowseButton.BindingSource = null;
+            this.BrowseButton.DataFilter = null;
+            this.BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.BrowseButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BrowseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.BrowseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.BrowseButton.HoverText = null;
+            this.BrowseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            this.BrowseButton.IsDerivedStyle = true;
+            this.BrowseButton.Location = new System.Drawing.Point(12, 438);
+            this.BrowseButton.Name = "BrowseButton";
+            this.BrowseButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.BrowseButton.NormalColor = System.Drawing.Color.Transparent;
+            this.BrowseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.BrowseButton.Padding = new System.Windows.Forms.Padding(1);
+            this.BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.BrowseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.BrowseButton.PressTextColor = System.Drawing.Color.White;
+            this.BrowseButton.Size = new System.Drawing.Size(97, 31);
+            this.BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.BrowseButton.StyleManager = null;
+            this.BrowseButton.TabIndex = 6;
+            this.BrowseButton.Text = "Browse";
+            this.BrowseButton.ThemeAuthor = "Terry D. Eppler";
+            this.BrowseButton.ThemeName = "Budget Execution";
+            this.BrowseButton.ToolTip = null;
+            // 
+            // OpenFileDialog
+            // 
+            this.OpenFileDialog.Title = "Search for Document";
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.ToolTip.BindingSource = null;
+            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.InitialDelay = 500;
+            this.ToolTip.IsDerivedStyle = true;
+            this.ToolTip.Name = null;
+            this.ToolTip.OwnerDraw = true;
+            this.ToolTip.ReshowDelay = 100;
+            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            this.ToolTip.StyleManager = null;
+            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
+            this.ToolTip.ThemeName = "Budget Execution";
+            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ToolTip.TipText = null;
+            this.ToolTip.TipTitle = null;
+            // 
             // GuidanceDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -233,12 +292,13 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(523, 471);
+            this.Controls.Add(this.BrowseButton);
             this.Controls.Add(this.HeaderLabel);
             this.Controls.Add(this.Picture);
             this.Controls.Add(this.CloseButto);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.ClearButton);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.ListBox);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -261,10 +321,12 @@ namespace BudgetExecution
         public SmallTip ToolTip;
 
         private Label HeaderLabel;
-        private ListBox listBox1;
+        private ListBox ListBox;
         private Button ClearButton;
         public Button SelectButton;
         private Button CloseButto;
-        private Picture Picture;
+        private Button BrowseButton;
+        public System.Windows.Forms.OpenFileDialog OpenFileDialog;
+        public Picture Picture;
     }
 }
