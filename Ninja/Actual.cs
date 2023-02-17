@@ -285,7 +285,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ActualsId" ].ToString( ) );
+            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );

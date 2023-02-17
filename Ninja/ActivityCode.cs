@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public override Source Source { get; set; } = Source.ActivityCodes;
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets the dataRow.
@@ -74,6 +74,7 @@ namespace BudgetExecution
         /// </summary>
         public ActivityCode( )
         {
+            Source = Source.ActivityCodes;
         }
 
         /// <summary>

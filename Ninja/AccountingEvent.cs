@@ -73,7 +73,7 @@ namespace BudgetExecution
         public AccountingEvent( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) );
+            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) ?? "0" );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Data = Record.ToDictionary( );
