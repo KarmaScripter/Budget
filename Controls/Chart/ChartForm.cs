@@ -1287,8 +1287,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [back button clicked].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnBackButtonClicked( object sender, EventArgs e )
         {
             try

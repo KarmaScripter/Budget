@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary>
@@ -135,8 +136,97 @@ namespace BudgetExecution
         /// Initializes a new instance
         /// of the <see cref="Chart"/> class.
         /// </summary>
-        public Chart( )
+        public Chart( ) 
+            : base( )
         {
+            //Basic Control Properties
+            Size = new Size( 600, 400 );
+            ShowToolbar = true;
+            ShowToolTips = true;
+            ShowScrollBars = false;
+            Font = new Font( "Roboto", 8 );
+            EnableMouseRotation = true;
+            Padding = new Padding( 1 );
+            Margin = new Padding( 3 );
+            Anchor = AnchorStyles.Top & AnchorStyles.Left;
+            AllowGapForEmptyPoints = false;
+            AllowGradientPalette = true;
+            AllowUserEditStyles = true;
+            PrintColorMode = ChartPrintColorMode.CheckPrinter;
+            BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
+                Color.FromArgb( 20, 20, 20 ) );
+
+            CalcRegions = true;
+
+            //ChartArea Properties
+            ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+            ChartArea.AutoScale = true;
+            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+            ChartArea.BorderWidth = 1;
+            ChartArea.BorderColor = Color.Transparent;
+            ChartArea.BorderStyle = BorderStyle.None;
+            ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
+
+            //ChartSeries Properties
+            DropSeriesPoints = false;
+            AddRandomSeries = true;
+            Series3D = true;
+            SeriesHighlight = true;
+            SeriesHighlightIndex = -1;
+            ShadowWidth = 5;
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
+                Color.FromArgb( 65, 65, 65 ) );
+
+            Depth = 250;
+            ElementsSpacing = 10;
+            ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
+            ColumnFixedWidth = 20;
+
+            //Chart Appearance Setting
+            Palette = ChartColorPalette.Metro;
+            Skins = Skins.None;
+            RealMode3D = true;
+            Rotation = 0.1f;
+            Spacing = 5;
+            AutoHighlight = true;
+            SpacingBetweenPoints = 5;
+            SpacingBetweenSeries = 5;
+            Style3D = true;
+            TextAlignment = StringAlignment.Center;
+            TextPosition = ChartTextPosition.Top;
+            Tilt = 5;
+            ScrollPrecision = 100;
+            RadarStyle = ChartRadarAxisStyle.Polygon;
+
+            //Chart Legend Setting;
+            ShowLegend = true;
+            Legend.Font = new Font( "Roboto", 8 );
+            Legend.ItemsSize = new Size( 10, 10 );
+            Legend.VisibleCheckBox = true;
+            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+            Legend.ItemsAlignment = StringAlignment.Center;
+            Legend.ItemsTextAligment = VerticalAlignment.Center;
+            Legend.Orientation = ChartOrientation.Vertical;
+            Legend.FloatingAutoSize = true;
+            Legend.ShowSymbol = true;
+            Legend.ShowItemsShadow = true;
+            Legend.ShowBorder = false;
+            Legend.Visible = true;
+
+            // Title ("Title") Properties
+            Title.Font = new Font( "Roboto", 14 );
+            Title.BackColor = Color.FromArgb( 20, 20, 20 );
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+
+            // Toolbar Properties
+            ToolBar.Orientation = ChartOrientation.Horizontal;
+            ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.Position = ChartDock.Floating;
+            ToolBar.ShowGrip = false;
+            ToolBar.ShowBorder = false;
         }
 
         /// <summary>
@@ -244,159 +334,6 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             xAxis = category;
             yValues = values;
-        }
-
-        /// <summary>
-        /// Creates the series.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private void InitSeries( ChartSeries series )
-        {
-            if( series != null )
-            {
-                try
-                {
-                    // Basic Properties
-                    series.SmartLabels = true;
-                    series.Visible = true;
-                    series.ShowTicks = true;
-                    series.Rotate = true;
-                    series.EnableAreaToolTip = true;
-                    series.EnableStyles = true;
-                    series.OptimizePiePointPositions = true;
-                    series.LegendItemUseSeriesStyle = true;
-                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                    series.SmartLabelsBorderWidth = 1;
-                    series.SmartLabels = true;
-                    series.Visible = true;
-                    series.ShowTicks = true;
-                    series.Rotate = true;
-                    series.EnableAreaToolTip = true;
-                    series.EnableStyles = true;
-                    series.OptimizePiePointPositions = true;
-                    series.LegendItemUseSeriesStyle = true;
-                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                    series.SmartLabelsBorderWidth = 1;
-
-                    // Call out Properties
-                    series.Style.DisplayText = true;
-                    series.Style.Callout.Enable = true;
-                    series.Style.Callout.Position = LabelPosition.Top;
-                    series.Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                    series.Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
-                    series.Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
-                    series.Style.Callout.TextColor = Color.LightSteelBlue;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Sets the primary axis titleInfo.
-        /// </summary>
-        /// <param name="font"></param>
-        /// <param name="color">The color.</param>
-        /// <param name = "type" > </param>
-        /// <param name = "orientation" > </param>
-        public void SetPrimaryAxisProperties( Font font, Color color, ChartValueType type = ChartValueType.Category, 
-            ChartOrientation orientation = ChartOrientation.Horizontal )
-        {
-            if( font != null 
-               && color != Color.Empty )
-            {
-                try
-                {
-                    PrimaryXAxis.TitleColor = color;
-                    PrimaryXAxis.TitleFont = font;
-                    PrimaryXAxis.ValueType = type;
-                    PrimaryXAxis.IsVisible = true;
-                    PrimaryXAxis.Orientation = orientation;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the primary axis title.
-        /// </summary>
-        /// <param name="title">The text.</param>
-        public void SetPrimaryAxisText( string title ) 
-        {
-            if( !string.IsNullOrEmpty( title ) )
-            {
-                try
-                {
-                    PrimaryXAxis.Title = title;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the title.
-        /// </summary>
-        /// <param name="font">The font.</param>
-        /// <param name="foreColor">The color.</param>
-        /// <param name = "backColor" > </param>
-        public void SetTitleProperties( Font font, Color foreColor, Color backColor )
-        {
-            if( foreColor != Color.Empty
-               && backColor != Color.Empty
-               && font != null  )
-            {
-                try
-                {
-                    Title.Font = font;
-                    Title.ShowBorder = false;
-                    Title.BackColor = backColor;
-                    Title.ForeColor = foreColor;
-                    Title.Visible = true;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the title text.
-        /// </summary>
-        /// <param name="titleText">The title text.</param>
-        public void SetTitleText( string titleText )
-        {
-            if( !string.IsNullOrEmpty( titleText ) )
-            {
-                try
-                {
-                    Title.Text = titleText;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -193,12 +193,14 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarHeight = 1;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Hide;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
@@ -218,6 +220,12 @@ namespace BudgetExecution
             FieldLabel.ForeColor = Color.DarkGray;
             NumericsLabel.ForeColor = Color.DarkGray;
             
+            // Header Properties
+            PictureBox.Size = new Size( 22, 20 );
+            HeaderLabel.Font = new Font( "Roboto", 12 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            
             // TabPage Properties
             TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
@@ -225,7 +233,7 @@ namespace BudgetExecution
             GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             
             // ToolStrip Properties
-            ToolStrip.Visible = false;
+            ToolStrip.Visible = true;
             ToolStrip.Text = string.Empty;
             ToolStrip.Office12Mode = true;
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
@@ -618,6 +626,7 @@ namespace BudgetExecution
             try
             {
                 Text = string.Empty;
+                HeaderLabel.Text = string.Empty;
                 FirstHeaderLabel.Text = string.Empty;
                 SecondHeaderLabel.Text = string.Empty;
                 ThirdHeaderLabel.Text = string.Empty;
@@ -641,12 +650,12 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    Text = $"{ Provider } Database ";
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
-                    FirstHeaderLabel.Text = $"Source :  { _table }";
+                    HeaderLabel.Text = $"{ _table } ";
+                    FirstHeaderLabel.Text = $"Provider :  { Provider }";
                     SecondHeaderLabel.Text = $"Records : { _records } ";
                     ThirdHeaderLabel.Text = $"Fields : { _fields } ";
                     FourthHeaderLabel.Text = $"Measures : { _numerics } ";
@@ -657,8 +666,8 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    Text = $"{ Provider } Database ";
-                    FirstHeaderLabel.Text = "Source :  ";
+                    HeaderLabel.Text = $"{ Provider } Database ";
+                    FirstHeaderLabel.Text = $"Provider :  { Provider }";
                     SecondHeaderLabel.Text = "Records : ";
                     ThirdHeaderLabel.Text = "Fields : ";
                     FourthHeaderLabel.Text = "Measures : ";
@@ -1454,7 +1463,6 @@ namespace BudgetExecution
                     }
                     case 1:
                     {
-                        ToolStrip.Visible = true;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1465,7 +1473,6 @@ namespace BudgetExecution
                     }
                     case 2:
                     {
-                        ToolStrip.Visible = true;
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
@@ -1475,7 +1482,6 @@ namespace BudgetExecution
                     }
                     case 3:
                     {
-                        ToolStrip.Visible = true;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
