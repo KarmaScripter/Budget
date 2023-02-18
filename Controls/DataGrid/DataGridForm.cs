@@ -249,6 +249,7 @@ namespace BudgetExecution
             Provider = Provider.Access;
 
             // Event Wiring
+            MouseClick += OnRightClick;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -1543,6 +1544,14 @@ namespace BudgetExecution
             }
         }
 
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                ContextMenu.Show( this, e.Location );
+            }
+        }
+        
         /// <summary>
         /// Called when [start date selected].
         /// </summary>

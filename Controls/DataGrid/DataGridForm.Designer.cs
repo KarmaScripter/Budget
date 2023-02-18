@@ -48,6 +48,8 @@
             this.DataGrid = new BudgetExecution.DataGrid();
             this.FirstHeaderLabel = new BudgetExecution.Label();
             this.GridTable = new System.Windows.Forms.TableLayoutPanel();
+            this.DataGridPanel = new BudgetExecution.Layout();
+            this.SqlHeader = new BudgetExecution.Label();
             this.LabelTable = new System.Windows.Forms.TableLayoutPanel();
             this.SecondHeaderLabel = new BudgetExecution.Label();
             this.FourthHeaderLabel = new BudgetExecution.Label();
@@ -156,11 +158,16 @@
             this.MenuSeparator = new BudgetExecution.ToolSeparator();
             this.ExitButton = new BudgetExecution.ToolStripButton();
             this.ToolStrip = new BudgetExecution.ToolStrip();
-            this.DataGridPanel = new BudgetExecution.Layout();
-            this.SqlHeader = new BudgetExecution.Label();
+            this.MenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenu = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            this.Item1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Item2 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.GridTable.SuspendLayout();
+            this.DataGridPanel.SuspendLayout();
             this.LabelTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
@@ -186,7 +193,7 @@
             this.FirstCalendarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.ToolStrip.SuspendLayout();
-            this.DataGridPanel.SuspendLayout();
+            this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // ToolTip
@@ -393,6 +400,57 @@
             this.GridTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.GridTable.Size = new System.Drawing.Size(979, 636);
             this.GridTable.TabIndex = 37;
+            // 
+            // DataGridPanel
+            // 
+            this.DataGridPanel.BackColor = System.Drawing.Color.Transparent;
+            this.DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DataGridPanel.BindingSource = null;
+            this.DataGridPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.DataGridPanel.BorderThickness = 1;
+            this.DataGridPanel.Children = null;
+            this.DataGridPanel.Controls.Add(this.SqlHeader);
+            this.DataGridPanel.Controls.Add(this.DataGrid);
+            this.DataGridPanel.DataFilter = null;
+            this.DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.DataGridPanel.HoverText = null;
+            this.DataGridPanel.IsDerivedStyle = true;
+            this.DataGridPanel.Location = new System.Drawing.Point(3, 35);
+            this.DataGridPanel.Name = "DataGridPanel";
+            this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.DataGridPanel.Size = new System.Drawing.Size(973, 598);
+            this.DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            this.DataGridPanel.StyleManager = null;
+            this.DataGridPanel.TabIndex = 47;
+            this.DataGridPanel.ThemeAuthor = "Terry D. Eppler";
+            this.DataGridPanel.ThemeName = "Budget Execution";
+            this.DataGridPanel.ToolTip = null;
+            // 
+            // SqlHeader
+            // 
+            this.SqlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SqlHeader.BindingSource = null;
+            this.SqlHeader.DataFilter = null;
+            this.SqlHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SqlHeader.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SqlHeader.HoverText = null;
+            this.SqlHeader.IsDerivedStyle = true;
+            this.SqlHeader.Location = new System.Drawing.Point(43, 4);
+            this.SqlHeader.Margin = new System.Windows.Forms.Padding(3);
+            this.SqlHeader.Name = "SqlHeader";
+            this.SqlHeader.Padding = new System.Windows.Forms.Padding(1);
+            this.SqlHeader.Size = new System.Drawing.Size(910, 31);
+            this.SqlHeader.Style = MetroSet_UI.Enums.Style.Light;
+            this.SqlHeader.StyleManager = null;
+            this.SqlHeader.TabIndex = 47;
+            this.SqlHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SqlHeader.ThemeAuthor = null;
+            this.SqlHeader.ThemeName = null;
+            this.SqlHeader.ToolTip = null;
             // 
             // LabelTable
             // 
@@ -1633,7 +1691,7 @@
             this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.HeaderLabel.Size = new System.Drawing.Size(989, 23);
+            this.HeaderLabel.Size = new System.Drawing.Size(1348, 23);
             this.HeaderLabel.Style = MetroSet_UI.Enums.Style.Light;
             this.HeaderLabel.StyleManager = null;
             this.HeaderLabel.TabIndex = 46;
@@ -1661,7 +1719,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(118, 32);
+            this.TextBox.Size = new System.Drawing.Size(116, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -2579,56 +2637,64 @@
             this.ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             this.ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
-            // DataGridPanel
+            // MenuItem1
             // 
-            this.DataGridPanel.BackColor = System.Drawing.Color.Transparent;
-            this.DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DataGridPanel.BindingSource = null;
-            this.DataGridPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.DataGridPanel.BorderThickness = 1;
-            this.DataGridPanel.Children = null;
-            this.DataGridPanel.Controls.Add(this.SqlHeader);
-            this.DataGridPanel.Controls.Add(this.DataGrid);
-            this.DataGridPanel.DataFilter = null;
-            this.DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.DataGridPanel.HoverText = null;
-            this.DataGridPanel.IsDerivedStyle = true;
-            this.DataGridPanel.Location = new System.Drawing.Point(3, 35);
-            this.DataGridPanel.Name = "DataGridPanel";
-            this.DataGridPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.DataGridPanel.Size = new System.Drawing.Size(973, 598);
-            this.DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.DataGridPanel.StyleManager = null;
-            this.DataGridPanel.TabIndex = 47;
-            this.DataGridPanel.ThemeAuthor = "Terry D. Eppler";
-            this.DataGridPanel.ThemeName = "Budget Execution";
-            this.DataGridPanel.ToolTip = null;
+            this.MenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.MenuItem1.ForeColor = System.Drawing.Color.DarkGray;
+            this.MenuItem1.Name = "MenuItem1";
+            this.MenuItem1.Size = new System.Drawing.Size(159, 22);
+            this.MenuItem1.Text = "First Item";
             // 
-            // SqlHeader
+            // MenuItem2
             // 
-            this.SqlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SqlHeader.BindingSource = null;
-            this.SqlHeader.DataFilter = null;
-            this.SqlHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SqlHeader.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SqlHeader.HoverText = null;
-            this.SqlHeader.IsDerivedStyle = true;
-            this.SqlHeader.Location = new System.Drawing.Point(43, 4);
-            this.SqlHeader.Margin = new System.Windows.Forms.Padding(3);
-            this.SqlHeader.Name = "SqlHeader";
-            this.SqlHeader.Padding = new System.Windows.Forms.Padding(1);
-            this.SqlHeader.Size = new System.Drawing.Size(910, 31);
-            this.SqlHeader.Style = MetroSet_UI.Enums.Style.Light;
-            this.SqlHeader.StyleManager = null;
-            this.SqlHeader.TabIndex = 47;
-            this.SqlHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.SqlHeader.ThemeAuthor = null;
-            this.SqlHeader.ThemeName = null;
-            this.SqlHeader.ToolTip = null;
+            this.MenuItem2.ForeColor = System.Drawing.Color.DarkGray;
+            this.MenuItem2.Name = "MenuItem2";
+            this.MenuItem2.Size = new System.Drawing.Size(159, 22);
+            this.MenuItem2.Text = "Second Item";
+            // 
+            // MenuItem3
+            // 
+            this.MenuItem3.ForeColor = System.Drawing.Color.DarkGray;
+            this.MenuItem3.Name = "MenuItem3";
+            this.MenuItem3.Size = new System.Drawing.Size(159, 22);
+            this.MenuItem3.Text = "Third Item";
+            // 
+            // ContextMenu
+            // 
+            this.ContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ContextMenu.DropShadowEnabled = false;
+            this.ContextMenu.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Item1,
+            this.Item2});
+            this.ContextMenu.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(236)))), ((int)(((byte)(249)))));
+            this.ContextMenu.Name = "ContextMenu";
+            this.ContextMenu.Size = new System.Drawing.Size(104, 48);
+            this.ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Metro;
+            this.ContextMenu.ThemeName = "Metro";
+            this.ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ContextMenu.ThemeStyle.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.DarkGray;
+            this.ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
+            this.ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.LightGray;
+            this.ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.White;
+            // 
+            // Item1
+            // 
+            this.Item1.ForeColor = System.Drawing.Color.DarkGray;
+            this.Item1.Name = "Item1";
+            this.Item1.Size = new System.Drawing.Size(103, 22);
+            this.Item1.Text = "Item1";
+            // 
+            // Item2
+            // 
+            this.Item2.ForeColor = System.Drawing.Color.DarkGray;
+            this.Item2.Name = "Item2";
+            this.Item2.Size = new System.Drawing.Size(103, 22);
+            this.Item2.Text = "Item2";
             // 
             // DataGridForm
             // 
@@ -2667,6 +2733,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.GridTable.ResumeLayout(false);
+            this.DataGridPanel.ResumeLayout(false);
             this.LabelTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
             this.TabControl.ResumeLayout(false);
@@ -2693,7 +2760,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
-            this.DataGridPanel.ResumeLayout(false);
+            this.ContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2821,5 +2888,11 @@
         public ToolStrip ToolStrip;
         public Layout DataGridPanel;
         public Label SqlHeader;
+        public System.Windows.Forms.ToolStripMenuItem MenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem2;
+        public System.Windows.Forms.ToolStripMenuItem MenuItem3;
+        public Syncfusion.Windows.Forms.Tools.ContextMenuStripEx ContextMenu;
+        public System.Windows.Forms.ToolStripMenuItem Item1;
+        public System.Windows.Forms.ToolStripMenuItem Item2;
     }
 }
