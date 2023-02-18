@@ -905,8 +905,8 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
                 var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( dr => dr.Field<string>( "Title" ) )
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList(  );
 
                 if( _names?.Any( ) == true )
@@ -934,8 +934,8 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
                 var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.Select( dr => dr.Field<string>( "Title" ) )
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList(  );
 
                 if( _names?.Any( ) == true )
@@ -963,8 +963,8 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData(  );
                 var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "Title" ) )
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList(  );
 
                 if( _names?.Any( ) == true )

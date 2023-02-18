@@ -93,8 +93,8 @@
     <Reference Include="DataGridMetro">
       <HintPath>Libraries\DataGridMetro.dll</HintPath>
     </Reference>
-    <Reference Include="DataGridViewExtension">
-      <HintPath>Libraries\DataGridViewExtension.dll</HintPath>
+    <Reference Include="DataGridViewExtensions">
+      <HintPath>Libraries\DataGridViewExtensions.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml">
       <HintPath>Libraries\DocumentFormat.OpenXml.dll</HintPath>
@@ -143,6 +143,12 @@
     </Reference>
     <Reference Include="System.Runtime.Remoting">
       <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="VisualPlus">
+      <HintPath>Libraries\VisualPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="WinForms.TimeControls">
+      <HintPath>Libraries\WinForms.TimeControls.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
