@@ -412,4 +412,34 @@
   <data name="SignpostTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Tiles\SignpostTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AccessData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\AccessData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddColumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\AddColumn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddRow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\AddRow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopyTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\CopyTable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reversal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\Reversal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SqlCeData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\SqlCeData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SQLiteData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\SQLiteData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TableSetting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\TableSetting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TransferData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Forms\TransferData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

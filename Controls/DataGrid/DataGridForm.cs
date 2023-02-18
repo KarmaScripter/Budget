@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
@@ -238,7 +239,7 @@ namespace BudgetExecution
             ToolStrip.Office12Mode = true;
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
             ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-            ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString(  );
+            ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString( );
             
             // Table Layout Properties
             FirstTable.Visible = false;
@@ -345,6 +346,7 @@ namespace BudgetExecution
                 PopulateToolStripComboBoxItems( );
                 ClearSelections( );
                 ClearLabelText( );
+                SetProviderImage( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;
@@ -639,6 +641,81 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        private void SetProviderImage( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), Provider ) )
+            {
+                try
+                {
+                    var _folder = @"C:\Users\terry\source\repos\Budget\Resource\Images\Forms\";
+                    switch( Provider )
+                    {
+                        case Provider.Access:
+                        {
+                            var _name = "AccessData.png";
+                            var _path = _folder + _name;
+                            if( File.Exists( _path ) )
+                            {
+                                PictureBox.Image = Image.FromFile( _path );
+                            }
+
+                            break;
+                        }
+                        case Provider.SQLite:
+                        {
+                            var _name = "SQLiteData.png";
+                            var _path = _folder + _name;
+                            if( File.Exists( _path ) )
+                            {
+                                PictureBox.Image = Image.FromFile( _path );
+                            }
+
+                            break;
+                        }
+                        case Provider.SqlCe:
+                        {
+                            var _name = "SqlCeData.png";
+                            var _path = _folder + _name;
+                            if( File.Exists( _path ) )
+                            {
+                                PictureBox.Image = Image.FromFile( _path );
+                            }
+
+                            break;
+                        }
+                        case Provider.SqlServer:
+                        {
+                            var _tile =
+                                @"C:\Users\terry\source\repos\Budget\Resource\Images\Tiles\";
+                            var _name = "SqlServerTile.png";
+                            var _path = _tile + _name;
+                            if( File.Exists( _path ) )
+                            {
+                                PictureBox.Image = Image.FromFile( _path );
+                            }
+
+                            break;
+                        }
+                        default:
+                        {
+                            var _name = "AccessData.png";
+                            var _path = _folder + _name;
+                            if( File.Exists( _path ) )
+                            {
+                                PictureBox.Image = Image.FromFile( _path );
+                            }
+
+                            break;
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -1143,7 +1220,7 @@ namespace BudgetExecution
                     BindDataSource( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    //SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -1222,7 +1299,7 @@ namespace BudgetExecution
                     BindDataSource( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    //SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -1337,7 +1414,7 @@ namespace BudgetExecution
                     BindDataSource( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    //SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -1548,7 +1625,7 @@ namespace BudgetExecution
         {
             if( e.Button == MouseButtons.Right )
             {
-                ContextMenu.Show( this, e.Location );
+                //ContextMenu.Show( this, e.Location );
             }
         }
         

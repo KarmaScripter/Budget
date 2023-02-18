@@ -141,9 +141,6 @@
     <Reference Include="System.Runtime.Remoting">
       <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
     </Reference>
-    <Reference Include="VisualPlus">
-      <HintPath>Libraries\VisualPlus.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\Menu\SuperfundGuidance.cs">

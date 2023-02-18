@@ -63,6 +63,26 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AccessData {
+            get {
+                object obj = ResourceManager.GetObject("AccessData", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap AddColumn {
+            get {
+                object obj = ResourceManager.GetObject("AddColumn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap AddColumnButton {
             get {
                 object obj = ResourceManager.GetObject("AddColumnButton", resourceCulture);
@@ -86,6 +106,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap AddRecordButton {
             get {
                 object obj = ResourceManager.GetObject("AddRecordButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap AddRow {
+            get {
+                object obj = ResourceManager.GetObject("AddRow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +266,16 @@ namespace BudgetExecution.Properties {
         public static System.Drawing.Bitmap ControlTile {
             get {
                 object obj = ResourceManager.GetObject("ControlTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap CopyTable {
+            get {
+                object obj = ResourceManager.GetObject("CopyTable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,6 +683,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Main {
+            get {
+                object obj = ResourceManager.GetObject("Main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap MenuButton {
             get {
                 object obj = ResourceManager.GetObject("MenuButton", resourceCulture);
@@ -803,6 +853,16 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Reversal {
+            get {
+                object obj = ResourceManager.GetObject("Reversal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap SaveAsButton {
             get {
                 object obj = ResourceManager.GetObject("SaveAsButton", resourceCulture);
@@ -863,6 +923,26 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap SqlCeData {
+            get {
+                object obj = ResourceManager.GetObject("SqlCeData", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SQLiteData {
+            get {
+                object obj = ResourceManager.GetObject("SQLiteData", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap SQLiteTile {
             get {
                 object obj = ResourceManager.GetObject("SQLiteTile", resourceCulture);
@@ -913,9 +993,29 @@ namespace BudgetExecution.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap TableSetting {
+            get {
+                object obj = ResourceManager.GetObject("TableSetting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ToolsTile {
             get {
                 object obj = ResourceManager.GetObject("ToolsTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap TransferData {
+            get {
+                object obj = ResourceManager.GetObject("TransferData", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
