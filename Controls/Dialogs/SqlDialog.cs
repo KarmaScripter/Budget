@@ -155,6 +155,27 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                Editor.Text = string.Empty;
+                Commands?.Clear( );
+                Statements?.Clear( );
+                Provider = Provider.Access;
+                AccessRadioButton.CheckState = CheckState.Checked;
+                Commands = CreateCommandList( Provider );
+                PopulateSqlComboBox( Commands );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
         
         /// <summary>
         /// Sets the provider.
@@ -468,6 +489,23 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
     }

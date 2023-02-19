@@ -548,7 +548,6 @@ partial class SqlDialog
             this.Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.Editor.DefaultNewLineStyle = Syncfusion.IO.NewLineStyle.Windows;
             this.Editor.EndOfLineBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.Editor.EndOfLineForeColor = System.Drawing.Color.DimGray;
             this.Editor.Font = new System.Drawing.Font("Source Code Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
