@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <summary>
         /// The form dark back color
         /// </summary>
-        public static readonly Color DarkBarkGround = Color.FromArgb( 20, 20, 20 );
+        public static readonly Color DarkBarkground = Color.FromArgb( 20, 20, 20 );
 
         /// <summary>
         /// The fore red
@@ -96,8 +96,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var message = new Message( "NOT YET IMPLEMENTED" );
-                    message?.ShowDialog( );
+                    var _msg = "NOT YET IMPLEMENTED!!";
+                    var _notification = new Notification( _msg );
+                    _notification.Show( );
                 }
                 catch( Exception ex )
                 {

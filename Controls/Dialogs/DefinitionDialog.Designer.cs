@@ -73,6 +73,7 @@
             this.groupBox3 = new BudgetExecution.Layout();
             this.groupBox4 = new BudgetExecution.Layout();
             this.groupBox9 = new BudgetExecution.Layout();
+            this.SqlCeRadioButton = new BudgetExecution.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
             this.TabControl.SuspendLayout();
@@ -669,6 +670,7 @@
             this.ProviderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ProviderPanel.BorderThickness = 1;
             this.ProviderPanel.Children = null;
+            this.ProviderPanel.Controls.Add(this.SqlCeRadioButton);
             this.ProviderPanel.Controls.Add(this.SqliteRadioButton);
             this.ProviderPanel.Controls.Add(this.AccessRadioButton);
             this.ProviderPanel.Controls.Add(this.SqlServerRadioButton);
@@ -701,15 +703,15 @@
             this.SqliteRadioButton.Group = 0;
             this.SqliteRadioButton.HoverText = null;
             this.SqliteRadioButton.IsDerivedStyle = true;
-            this.SqliteRadioButton.Location = new System.Drawing.Point(112, 34);
+            this.SqliteRadioButton.Location = new System.Drawing.Point(112, 14);
             this.SqliteRadioButton.Name = "SqliteRadioButton";
             this.SqliteRadioButton.Result = null;
-            this.SqliteRadioButton.Size = new System.Drawing.Size(95, 17);
+            this.SqliteRadioButton.Size = new System.Drawing.Size(186, 17);
             this.SqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqliteRadioButton.StyleManager = null;
             this.SqliteRadioButton.TabIndex = 1;
             this.SqliteRadioButton.Tag = "";
-            this.SqliteRadioButton.Text = "    SQLite";
+            this.SqliteRadioButton.Text = "    SQLite  (*.db)";
             this.SqliteRadioButton.ThemeAuthor = "Narwin";
             this.SqliteRadioButton.ThemeName = "MetroDark";
             this.SqliteRadioButton.ToolTip = this.ToolTip;
@@ -727,17 +729,17 @@
             this.AccessRadioButton.Group = 0;
             this.AccessRadioButton.HoverText = null;
             this.AccessRadioButton.IsDerivedStyle = true;
-            this.AccessRadioButton.Location = new System.Drawing.Point(112, 122);
+            this.AccessRadioButton.Location = new System.Drawing.Point(112, 83);
             this.AccessRadioButton.Name = "AccessRadioButton";
             this.AccessRadioButton.Result = null;
-            this.AccessRadioButton.Size = new System.Drawing.Size(95, 17);
+            this.AccessRadioButton.Size = new System.Drawing.Size(186, 17);
             this.AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.AccessRadioButton.StyleManager = null;
             this.AccessRadioButton.TabIndex = 3;
             this.AccessRadioButton.Tag = "";
-            this.AccessRadioButton.Text = "    MS Access";
-            this.AccessRadioButton.ThemeAuthor = "Narwin";
-            this.AccessRadioButton.ThemeName = "MetroDark";
+            this.AccessRadioButton.Text = "    MS Access  (*.accdb)";
+            this.AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
+            this.AccessRadioButton.ThemeName = "Budget Execution";
             this.AccessRadioButton.ToolTip = this.ToolTip;
             // 
             // SqlServerRadioButton
@@ -753,17 +755,17 @@
             this.SqlServerRadioButton.Group = 0;
             this.SqlServerRadioButton.HoverText = null;
             this.SqlServerRadioButton.IsDerivedStyle = true;
-            this.SqlServerRadioButton.Location = new System.Drawing.Point(112, 74);
+            this.SqlServerRadioButton.Location = new System.Drawing.Point(112, 50);
             this.SqlServerRadioButton.Name = "SqlServerRadioButton";
             this.SqlServerRadioButton.Result = null;
-            this.SqlServerRadioButton.Size = new System.Drawing.Size(95, 17);
+            this.SqlServerRadioButton.Size = new System.Drawing.Size(186, 17);
             this.SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SqlServerRadioButton.StyleManager = null;
             this.SqlServerRadioButton.TabIndex = 2;
             this.SqlServerRadioButton.Tag = "";
-            this.SqlServerRadioButton.Text = "    SQL Server";
-            this.SqlServerRadioButton.ThemeAuthor = "Narwin";
-            this.SqlServerRadioButton.ThemeName = "MetroDark";
+            this.SqlServerRadioButton.Text = "    SQL Server  (*.mdf)";
+            this.SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
+            this.SqlServerRadioButton.ThemeName = "Budget Execution";
             this.SqlServerRadioButton.ToolTip = this.ToolTip;
             // 
             // ProviderPanelLabel
@@ -1255,6 +1257,32 @@
             this.groupBox9.ThemeName = "BudgetExecution";
             this.groupBox9.ToolTip = null;
             // 
+            // SqlCeRadioButton
+            // 
+            this.SqlCeRadioButton.BackColor = System.Drawing.Color.Transparent;
+            this.SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlCeRadioButton.Checked = false;
+            this.SqlCeRadioButton.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            this.SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.SqlCeRadioButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SqlCeRadioButton.Group = 0;
+            this.SqlCeRadioButton.HoverText = null;
+            this.SqlCeRadioButton.IsDerivedStyle = true;
+            this.SqlCeRadioButton.Location = new System.Drawing.Point(112, 120);
+            this.SqlCeRadioButton.Name = "SqlCeRadioButton";
+            this.SqlCeRadioButton.Result = null;
+            this.SqlCeRadioButton.Size = new System.Drawing.Size(186, 17);
+            this.SqlCeRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.SqlCeRadioButton.StyleManager = null;
+            this.SqlCeRadioButton.TabIndex = 4;
+            this.SqlCeRadioButton.Tag = "";
+            this.SqlCeRadioButton.Text = "    SQL Compact  (*.sdf)";
+            this.SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
+            this.SqlCeRadioButton.ThemeName = "Budget Execution";
+            this.SqlCeRadioButton.ToolTip = this.ToolTip;
+            // 
             // DefinitionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1329,5 +1357,6 @@
         private Label AddTableLabel;
         public Button DeleteColumnButton;
         public Button AddColumnButton;
+        public RadioButton SqlCeRadioButton;
     }
 }

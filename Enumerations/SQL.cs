@@ -15,7 +15,7 @@ namespace BudgetExecution
         SELECT,
 
         /// <summary>
-        /// The selectall
+        /// The select all
         /// </summary>
         SELECTALL,
 
@@ -40,12 +40,12 @@ namespace BudgetExecution
         CREATEDATABASE,
 
         /// <summary>
-        /// The createtable
+        /// The create table
         /// </summary>
         CREATETABLE,
 
         /// <summary>
-        /// The createview
+        /// The create view
         /// </summary>
         CREATEVIEW,
 
