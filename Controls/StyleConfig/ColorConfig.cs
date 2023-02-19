@@ -6,8 +6,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
-    using OfficeOpenXml.Style;
-    using Syncfusion.XlsIO;
 
     /// <summary>
     /// 

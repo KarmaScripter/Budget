@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
@@ -225,7 +224,7 @@ namespace BudgetExecution
             PictureBox.Size = new Size( 22, 20 );
             HeaderLabel.Font = new Font( "Roboto", 12 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
             
             // TabPage Properties
             TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
@@ -267,11 +266,17 @@ namespace BudgetExecution
             BackButton.Click += null;
             MenuButton.Click += null;
             ChartButton.Click += null;
+            EditSqlButton.Click += null;
             RefreshDataButton.Click += null;
             RemoveFiltersButton.Click += null;
             GroupButton.Click += null;
             CalendarButton.Click += null;
             Load += OnLoad;
+        }
+
+        private void EditSqlButton_Click( object sender, EventArgs e )
+        {
+            throw new NotImplementedException( );
         }
 
         /// <summary>
@@ -346,7 +351,6 @@ namespace BudgetExecution
                 PopulateToolStripComboBoxItems( );
                 ClearSelections( );
                 ClearLabelText( );
-                SetProviderImage( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;
@@ -383,6 +387,7 @@ namespace BudgetExecution
                 CalendarButton.Click += OnCalendarButtonClicked;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
+                EditSqlButton.Click += OnSqlButtonClick;
             }
             catch( Exception ex )
             {
@@ -643,82 +648,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        private void SetProviderImage( )
-        {
-            if( Enum.IsDefined( typeof( Provider ), Provider ) )
-            {
-                try
-                {
-                    var _folder = @"C:\Users\terry\source\repos\Budget\Resource\Images\Forms\";
-                    switch( Provider )
-                    {
-                        case Provider.Access:
-                        {
-                            var _name = "AccessData.png";
-                            var _path = _folder + _name;
-                            if( File.Exists( _path ) )
-                            {
-                                PictureBox.Image = Image.FromFile( _path );
-                            }
-
-                            break;
-                        }
-                        case Provider.SQLite:
-                        {
-                            var _name = "SQLiteData.png";
-                            var _path = _folder + _name;
-                            if( File.Exists( _path ) )
-                            {
-                                PictureBox.Image = Image.FromFile( _path );
-                            }
-
-                            break;
-                        }
-                        case Provider.SqlCe:
-                        {
-                            var _name = "SqlCeData.png";
-                            var _path = _folder + _name;
-                            if( File.Exists( _path ) )
-                            {
-                                PictureBox.Image = Image.FromFile( _path );
-                            }
-
-                            break;
-                        }
-                        case Provider.SqlServer:
-                        {
-                            var _tile =
-                                @"C:\Users\terry\source\repos\Budget\Resource\Images\Tiles\";
-                            var _name = "SqlServerTile.png";
-                            var _path = _tile + _name;
-                            if( File.Exists( _path ) )
-                            {
-                                PictureBox.Image = Image.FromFile( _path );
-                            }
-
-                            break;
-                        }
-                        default:
-                        {
-                            var _name = "AccessData.png";
-                            var _path = _folder + _name;
-                            if( File.Exists( _path ) )
-                            {
-                                PictureBox.Image = Image.FromFile( _path );
-                            }
-
-                            break;
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Sets the label configuration.
         /// </summary>
@@ -1621,14 +1551,48 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
             {
-                //ContextMenu.Show( this, e.Location );
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
-        
+
+        /// <summary>
+        /// Called when [SQL button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnSqlButtonClick( object sender, EventArgs e )
+        {
+            if( !string.IsNullOrEmpty( SqlQuery ) )
+            {
+                try
+                {
+                    var _sql = new SqlDialog( BindingSource );
+                    _sql.Editor.Text = SqlQuery;
+                    _sql.ShowDialog( this );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Called when [start date selected].
         /// </summary>

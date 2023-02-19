@@ -54,6 +54,22 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        public SqlDialog( BindingSource bindingSource )
+            : this( )
+        {
+            ToolType = ToolType.EditSqlButton;
+            BindingSource = bindingSource;
+            DataTable = BindingSource.GetDataTable(  );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider.Access );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// </summary>
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
         public SqlDialog( ToolType toolType, BindingSource bindingSource ) 

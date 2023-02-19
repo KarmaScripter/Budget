@@ -225,6 +225,7 @@ namespace BudgetExecution
                         case ToolType.HomeButton:
                         case ToolType.CalendarButton:
                         case ToolType.TableButton:
+                        case ToolType.EditSqlButton:
                         {
                             break;
                         }
@@ -287,7 +288,6 @@ namespace BudgetExecution
                         }
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
-                        case ToolType.EditSqlButton:
                         {
                             var _dialog = new SqlDialog( _button.ToolType, BindingSource  );
                             _dialog?.ShowDialog( );
