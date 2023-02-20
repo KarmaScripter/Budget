@@ -181,10 +181,10 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
             MinimumSize = new Size( 1200, 600  );
+            StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;

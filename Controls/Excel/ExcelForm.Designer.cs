@@ -43,7 +43,6 @@
             this.Label = new BudgetExecution.ToolStripLabel();
             this.toolSeparator1 = new BudgetExecution.ToolSeparator();
             this.TextBox = new BudgetExecution.ToolStripTextBox();
-            this.toolSeparator2 = new BudgetExecution.ToolSeparator();
             this.toolSeparator11 = new BudgetExecution.ToolSeparator();
             this.FirstButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator14 = new BudgetExecution.ToolSeparator();
@@ -73,6 +72,7 @@
             this.toolSeparator12 = new BudgetExecution.ToolSeparator();
             this.BackButton = new BudgetExecution.ToolStripButton();
             this.toolSeparator13 = new BudgetExecution.ToolSeparator();
+            this.toolSeparator2 = new BudgetExecution.ToolSeparator();
             this.toolSeparator19 = new BudgetExecution.ToolSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
@@ -335,17 +335,9 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(246, 32);
+            this.TextBox.Size = new System.Drawing.Size(244, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
-            // 
-            // toolSeparator2
-            // 
-            this.toolSeparator2.ForeColor = System.Drawing.Color.Black;
-            this.toolSeparator2.Margin = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Name = "toolSeparator2";
-            this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
-            this.toolSeparator2.Size = new System.Drawing.Size(6, 32);
             // 
             // toolSeparator11
             // 
@@ -761,6 +753,14 @@
             this.toolSeparator13.Name = "toolSeparator13";
             this.toolSeparator13.Padding = new System.Windows.Forms.Padding(1);
             this.toolSeparator13.Size = new System.Drawing.Size(6, 32);
+            // 
+            // toolSeparator2
+            // 
+            this.toolSeparator2.ForeColor = System.Drawing.Color.Black;
+            this.toolSeparator2.Margin = new System.Windows.Forms.Padding(1);
+            this.toolSeparator2.Name = "toolSeparator2";
+            this.toolSeparator2.Padding = new System.Windows.Forms.Padding(1);
+            this.toolSeparator2.Size = new System.Drawing.Size(6, 32);
             // 
             // toolSeparator19
             // 

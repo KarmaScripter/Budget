@@ -36,9 +36,10 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1400, 800 ); 
-            MaximumSize = new Size( 1400, 800 ); 
-            MinimumSize = new Size( 1400, 800 ); 
+            Size = new Size( 1400, 800 );
+            MaximumSize = new Size( 1400, 800 );
+            MinimumSize = new Size( 1200, 600  );
+            StartPosition = FormStartPosition.CenterScreen;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );

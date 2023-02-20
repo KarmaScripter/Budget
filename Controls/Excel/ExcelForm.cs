@@ -109,15 +109,14 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1400, 750  );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            MinimumSize = new Size( 1200, 600  );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
