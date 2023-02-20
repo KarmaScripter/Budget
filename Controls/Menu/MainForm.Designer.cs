@@ -66,14 +66,14 @@
             this.ReportingTile = new BudgetExecution.Tile();
             this.Darkmode = new MetroSet_UI.Components.StyleManager();
             this.ExitButton = new BudgetExecution.Button();
-            this.TileTable = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
-            this.TileTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // GuidanceTile
             // 
-            this.GuidanceTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.GuidanceTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GuidanceTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             textItem1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem1.HubTile = this.GuidanceTile;
@@ -100,7 +100,7 @@
             this.GuidanceTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.GuidanceTile.HoverText = null;
-            this.GuidanceTile.Location = new System.Drawing.Point(976, 62);
+            this.GuidanceTile.Location = new System.Drawing.Point(1001, 114);
             this.GuidanceTile.Margin = new System.Windows.Forms.Padding(1);
             this.GuidanceTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.GuidanceTile.Name = "GuidanceTile";
@@ -138,7 +138,9 @@
             // 
             // DatabaseTile
             // 
-            this.DatabaseTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DatabaseTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DatabaseTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             textItem5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem5.HubTile = this.DatabaseTile;
@@ -165,7 +167,7 @@
             this.DatabaseTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DatabaseTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DatabaseTile.HoverText = null;
-            this.DatabaseTile.Location = new System.Drawing.Point(97, 62);
+            this.DatabaseTile.Location = new System.Drawing.Point(150, 114);
             this.DatabaseTile.Margin = new System.Windows.Forms.Padding(1);
             this.DatabaseTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.DatabaseTile.Name = "DatabaseTile";
@@ -183,7 +185,9 @@
             // 
             // WebTile
             // 
-            this.WebTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.WebTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WebTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             textItem9.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem9.HubTile = this.WebTile;
@@ -210,7 +214,7 @@
             this.WebTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.WebTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.WebTile.HoverText = null;
-            this.WebTile.Location = new System.Drawing.Point(97, 330);
+            this.WebTile.Location = new System.Drawing.Point(150, 398);
             this.WebTile.Margin = new System.Windows.Forms.Padding(1);
             this.WebTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.WebTile.Name = "WebTile";
@@ -228,7 +232,9 @@
             // 
             // ClientTile
             // 
-            this.ClientTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ClientTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             textItem13.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem13.HubTile = this.ClientTile;
@@ -251,11 +257,11 @@
             textItem15.HubTile = this.ClientTile;
             textItem15.TextColor = System.Drawing.Color.LightSteelBlue;
             this.ClientTile.Footer = textItem15;
-            this.ClientTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientTile.ForeColor = System.Drawing.Color.DarkGray;
             this.ClientTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientTile.HoverText = null;
-            this.ClientTile.Location = new System.Drawing.Point(976, 330);
+            this.ClientTile.Location = new System.Drawing.Point(1001, 398);
             this.ClientTile.Margin = new System.Windows.Forms.Padding(1);
             this.ClientTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ClientTile.Name = "ClientTile";
@@ -273,7 +279,9 @@
             // 
             // UtilityTile
             // 
-            this.UtilityTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UtilityTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UtilityTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             textItem17.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem17.HubTile = this.UtilityTile;
@@ -300,7 +308,7 @@
             this.UtilityTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.UtilityTile.HoverText = null;
-            this.UtilityTile.Location = new System.Drawing.Point(569, 330);
+            this.UtilityTile.Location = new System.Drawing.Point(547, 398);
             this.UtilityTile.Margin = new System.Windows.Forms.Padding(1);
             this.UtilityTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.UtilityTile.Name = "UtilityTile";
@@ -318,7 +326,9 @@
             // 
             // ReportingTile
             // 
-            this.ReportingTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ReportingTile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ReportingTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             textItem21.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textItem21.HubTile = this.ReportingTile;
@@ -345,7 +355,7 @@
             this.ReportingTile.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ReportingTile.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ReportingTile.HoverText = null;
-            this.ReportingTile.Location = new System.Drawing.Point(569, 62);
+            this.ReportingTile.Location = new System.Drawing.Point(558, 114);
             this.ReportingTile.Margin = new System.Windows.Forms.Padding(1);
             this.ReportingTile.MinimumSize = new System.Drawing.Size(100, 100);
             this.ReportingTile.Name = "ReportingTile";
@@ -371,6 +381,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ExitButton.BindingSource = null;
             this.ExitButton.DataFilter = null;
             this.ExitButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -383,7 +394,7 @@
             this.ExitButton.HoverText = "Exit Application";
             this.ExitButton.HoverTextColor = System.Drawing.Color.White;
             this.ExitButton.IsDerivedStyle = true;
-            this.ExitButton.Location = new System.Drawing.Point(1236, 711);
+            this.ExitButton.Location = new System.Drawing.Point(1219, 711);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ExitButton.NormalColor = System.Drawing.Color.Transparent;
@@ -400,27 +411,6 @@
             this.ExitButton.ThemeAuthor = "Terry D. Eppler";
             this.ExitButton.ThemeName = "BudgetExecution";
             this.ExitButton.ToolTip = null;
-            // 
-            // TileTable
-            // 
-            this.TileTable.ColumnCount = 3;
-            this.TileTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.38191F));
-            this.TileTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.61809F));
-            this.TileTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 354F));
-            this.TileTable.Controls.Add(this.GuidanceTile, 2, 0);
-            this.TileTable.Controls.Add(this.ReportingTile, 1, 0);
-            this.TileTable.Controls.Add(this.WebTile, 0, 1);
-            this.TileTable.Controls.Add(this.UtilityTile, 1, 1);
-            this.TileTable.Controls.Add(this.DatabaseTile, 0, 0);
-            this.TileTable.Controls.Add(this.ClientTile, 2, 1);
-            this.TileTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.TileTable.Location = new System.Drawing.Point(46, 75);
-            this.TileTable.Name = "TileTable";
-            this.TileTable.RowCount = 2;
-            this.TileTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.21569F));
-            this.TileTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.78431F));
-            this.TileTable.Size = new System.Drawing.Size(1300, 537);
-            this.TileTable.TabIndex = 7;
             // 
             // MainForm
             // 
@@ -440,8 +430,13 @@
             captionImage1.Size = new System.Drawing.Size(22, 22);
             this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(1388, 763);
-            this.Controls.Add(this.TileTable);
+            this.Controls.Add(this.ClientTile);
+            this.Controls.Add(this.UtilityTile);
+            this.Controls.Add(this.WebTile);
+            this.Controls.Add(this.GuidanceTile);
+            this.Controls.Add(this.ReportingTile);
             this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.DatabaseTile);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -454,7 +449,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
-            this.TileTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -470,6 +464,5 @@
         private Tile WebTile;
         public Button ExitButton;
         public Tile DatabaseTile;
-        private System.Windows.Forms.TableLayoutPanel TileTable;
     }
 }

@@ -84,7 +84,7 @@ namespace BudgetExecution
             ItemHeight = 28;
             MultiSelect = true;
             HoveredItemColor = Color.White;
-            HoveredItemBackColor = Color.FromArgb( 50, 93, 129 );
+            HoveredItemBackColor = Color.FromArgb( 17, 53, 84 );
             SelectedItemColor = Color.White;
             SelectedItemBackColor = Color.FromArgb( 0, 120, 212 );
         }

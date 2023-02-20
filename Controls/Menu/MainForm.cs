@@ -36,14 +36,14 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1400, 800 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1200, 600  );
+            Size = new Size( 1500, 750 );
+            MaximumSize = new Size( 1600, 800 );
+            MinimumSize = new Size( 1400, 700  );
             StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.Sizable;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -58,19 +58,6 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
-
-            // Table Layout Properties
-            TileTable.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-            TileTable.Anchor = AnchorStyles.Top 
-                | AnchorStyles.Bottom 
-                | AnchorStyles.Left
-                | AnchorStyles.Right;
-            
-            // Exit Button Properties
-            ExitButton.Anchor = AnchorStyles.Top 
-                | AnchorStyles.Bottom 
-                | AnchorStyles.Left
-                | AnchorStyles.Right;
             
             // Event Wiring
             ExitButton.Click += null;

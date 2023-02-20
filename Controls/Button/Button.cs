@@ -80,8 +80,8 @@ namespace BudgetExecution
             NormalTextColor = Color.FromArgb( 0, 120, 212 );
 
             // Hover Color Configuration
-            HoverBorderColor = Color.FromArgb( 50, 93, 129 );
-            HoverColor = Color.FromArgb( 50, 93, 129 );
+            HoverBorderColor = Color.FromArgb( 17, 53, 84 );
+            HoverColor = Color.FromArgb( 17, 53, 84 );
             HoverTextColor = Color.LightSteelBlue;
 
             // Disabled Color Configuration

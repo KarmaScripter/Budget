@@ -207,16 +207,16 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.Red;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 26;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ShowIcon = false;
             ShowMouseOver = false;
-            ShowInTaskbar = true;
-            StartPosition = FormStartPosition.CenterScreen;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            Size = new Size( 1380, 675 );
+            Size = new Size( 1451, 648 );
             Text = string.Empty;
         }
 

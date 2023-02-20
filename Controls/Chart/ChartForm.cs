@@ -208,14 +208,14 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1400, 800 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1200, 600  );
+            Size = new Size( 1500, 750 );
+            MaximumSize = new Size( 1600, 800 );
+            MinimumSize = new Size( 1400, 700  );
             StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -236,11 +236,6 @@ namespace BudgetExecution
             FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             
-            // Table Layout Properties
-            FirstTable.Visible = false;
-            SecondTable.Visible = false;
-            ThirdTable.Visible = false;
-
             // Initialize Default Provider
             Provider = Provider.Access;
 
@@ -360,8 +355,12 @@ namespace BudgetExecution
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
-                SecondTable.Visible = false;
-                ThirdTable.Visible = false;
+                SecondComboBox.Visible = false;
+                SecondListBox.Visible = false;
+                SecondListBoxPanel.Visible = false;
+                ThirdComboBox.Visible = false;
+                ThirdListBox.Visible = false;
+                ThirdListBoxPanel.Visible = false;
                 PopulateToolBarDropDownItems( );
                 ExitButton.Click += OnExitButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
@@ -502,19 +501,25 @@ namespace BudgetExecution
         {
             try
             {
-                if( FirstTable?.Visible == false )
+                if( FirstComboBox?.Visible == false )
                 {
-                    FirstTable.Visible = true;
+                    FirstComboBox.Visible = true;
+                    FirstListBox.Visible = true;
+                    FirstListBoxPanel.Visible = true;
                 }
 
-                if( SecondTable?.Visible == true )
+                if( SecondComboBox.Visible == true )
                 {
-                    SecondTable.Visible = false;
+                    SecondComboBox.Visible = false;
+                    SecondListBox.Visible = false;
+                    SecondListBoxPanel.Visible = false;
                 }
 
-                if( ThirdTable?.Visible == true )
+                if( ThirdComboBox?.Visible == true )
                 {
-                    ThirdTable.Visible = false;
+                    ThirdComboBox.Visible = false;
+                    ThirdListBox.Visible = false;
+                    ThirdListBoxPanel.Visible = false;
                 }
             }
             catch( Exception ex )
@@ -542,17 +547,15 @@ namespace BudgetExecution
                 ThirdListBox.Items.Clear( );
                 ThirdCategory = string.Empty;
                 ThirdValue = string.Empty;
-                ThirdTable.Visible = false;
                 SecondComboBox.Items.Clear( );
                 SecondListBox.Items.Clear( );
                 SecondCategory = string.Empty;
                 SecondValue = string.Empty;
-                SecondTable.Visible = false;
                 FirstComboBox.Items.Clear( );
                 FirstListBox.Items.Clear( );
                 FirstCategory = string.Empty;
                 FirstValue = string.Empty;
-                FirstTable.Visible = true;
+                ResetComboBoxVisibility( );
             }
             catch( Exception ex )
             {
@@ -1012,8 +1015,10 @@ namespace BudgetExecution
                             SecondListBox.Items.Add( item );
                         }
                     }
-                    
-                    ThirdTable.Visible = false;
+
+                    ThirdComboBox.Visible = false;
+                    ThirdListBox.Visible = false;
+                    ThirdListBoxPanel.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -1041,9 +1046,11 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue  );
                     PopulateThirdComboBoxItems(  );
-                    if( ThirdTable.Visible == false )
+                    if( ThirdComboBox.Visible == false )
                     {
-                        ThirdTable.Visible = true;
+                        ThirdComboBox.Visible = true;
+                        ThirdListBox.Visible = true;
+                        ThirdListBoxPanel.Visible = true;
                     }
 
                     SqlQuery = CreateSqlText( FormFilter );
@@ -1193,8 +1200,12 @@ namespace BudgetExecution
                         }
                     }
 
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
+                    SecondComboBox.Visible = false;
+                    SecondListBox.Visible = false;
+                    SecondListBoxPanel.Visible = false;
+                    ThirdComboBox.Visible = false;
+                    ThirdListBox.Visible = false;
+                    ThirdListBoxPanel.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -1221,10 +1232,14 @@ namespace BudgetExecution
                     FirstValue = _listBox?.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems(  );
-                    SecondTable.Visible = true;
-                    if( ThirdTable.Visible == true )
+                    SecondComboBox.Visible = true;
+                    SecondListBox.Visible = true;
+                    SecondListBoxPanel.Visible = true;
+                    if( ThirdComboBox.Visible == true )
                     {
-                        ThirdTable.Visible = false;
+                        ThirdComboBox.Visible = false;
+                        ThirdListBox.Visible = false;
+                        ThirdListBoxPanel.Visible = false;
                     }
                     
                     SqlQuery = CreateSqlText( FormFilter );

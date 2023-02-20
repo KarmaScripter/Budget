@@ -31,7 +31,7 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+            Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
             Title.TextColor = Color.FromArgb( 0, 120, 212 );
             Body.TextColor = Color.DarkGray;
             Body.Font = new Font( "Roboto", 10 );

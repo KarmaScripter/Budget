@@ -4,15 +4,34 @@
 
 namespace BudgetExecution
 {
+    using System.Collections.Generic;
     using System.Drawing;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.PivotAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.PivotGridBase" />
-    public class PivotGrid : PivotGridBase
+    public class PivotGrid : PivotGridControl
     {
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual SmallTip ToolTip { get; set; }
+        
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="PivotGrid"/> class.
@@ -21,58 +40,58 @@ namespace BudgetExecution
         {
             GridVisualStyles = GridVisualStyles.Office2016Black;
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.White;
-            Size = new Size( 400, 300 );
+            ForeColor = Color.DarkGray;
+            Size = new Size( 900, 500 );
             ShowCalculationsAsColumns = true;
             ShowSubTotals = true;
 
             // Dialog Style Properties
-            ThemeStyle.ComputationInfoDialogStyle.BackColor = Color.FromArgb( 20, 20, 20 );
-            ThemeStyle.ComputationInfoDialogStyle.ForeColor = Color.White;
-            ThemeStyle.ComputationInfoDialogStyle.BorderColor = Color.SteelBlue;
+            ThemeStyle.ComputationInfoDialogStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.ComputationInfoDialogStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.ComputationInfoDialogStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Edit Menu Style Properties
-            ThemeStyle.EditMenuStyle.BackColor = Color.FromArgb( 20, 20, 20 );
-            ThemeStyle.EditMenuStyle.ForeColor = Color.White;
-            ThemeStyle.EditMenuStyle.BorderColor = Color.SteelBlue;
+            ThemeStyle.EditMenuStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.EditMenuStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.EditMenuStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Header Cell Style Properties
             ThemeStyle.HeaderCellStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.HeaderCellStyle.HoverTextColor = Color.LightSteelBlue;
-            ThemeStyle.HeaderCellStyle.PressedBackColor = Color.SteelBlue;
-            ThemeStyle.HeaderCellStyle.PressedTextColor = Color.White;
+            ThemeStyle.HeaderCellStyle.HoverTextColor = Color.White;
+            ThemeStyle.HeaderCellStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.HeaderCellStyle.PressedTextColor = Color.DarkGray;
 
             // Value Cell Style Properties
             ThemeStyle.ValueCellStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.ValueCellStyle.BackColor = Color.FromArgb( 20, 20, 20 );
-            ThemeStyle.ValueCellStyle.TextColor = Color.LightSteelBlue;
+            ThemeStyle.ValueCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.ValueCellStyle.TextColor = Color.DarkGray;
 
             // Summary Cell Style Properties
-            ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );
-            ThemeStyle.SummaryCellStyle.BackColor = Color.FromArgb( 20, 20, 20 );
-            ThemeStyle.SummaryCellStyle.TextColor = Color.White;
+            ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9, FontStyle.Regular);
+            ThemeStyle.SummaryCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.SummaryCellStyle.TextColor = Color.DarkGray;
 
             // Expander Style Properties
 
             // Filter DropDown Style Properties
-            ThemeStyle.FilterDropDownStyle.ForeColor = Color.White;
-            ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 20, 20, 20 );
-            ThemeStyle.FilterDropDownStyle.BorderColor = Color.SteelBlue;
+            ThemeStyle.FilterDropDownStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.FilterDropDownStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // GroupBar Item Style Properties
-            ThemeStyle.GroupBarItemStyle.ForeColor = Color.White;
-            ThemeStyle.GroupBarItemStyle.BackColor = Color.FromArgb( 20, 20, 20 );
+            ThemeStyle.GroupBarItemStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.GroupBarItemStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.GroupBarItemStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.GroupBarItemStyle.SortIconColor = Color.SteelBlue;
+            ThemeStyle.GroupBarItemStyle.SortIconColor = Color.FromArgb( 0, 120, 212 );
 
             // GroupBar Style Properties
             ThemeStyle.GroupBarStyle.FilterAreaBackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 20, 20, 20 );
+            ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 45, 45, 45 );
 
             // PivotValueChooser Style Properties
-            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.White;
-            ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 20, 20, 20 );
-            ThemeStyle.PivotValueChooserStyle.BorderColor = Color.SteelBlue;
+            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.PivotValueChooserStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
         }
     }
 }
