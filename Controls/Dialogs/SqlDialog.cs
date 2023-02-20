@@ -66,7 +66,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1380, 675 );
+            Size = new Size( 1310, 648 );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";

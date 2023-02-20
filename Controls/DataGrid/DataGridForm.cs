@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
     using FontStyle = System.Drawing.FontStyle;
 
     /// <summary>
@@ -181,10 +182,10 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1500, 750 );
-            MaximumSize = new Size( 1600, 800 );
-            MinimumSize = new Size( 1400, 700  );
-            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1400, 800 );
+            MinimumSize = new Size( 1300, 700  );
+            StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
@@ -235,7 +236,8 @@ namespace BudgetExecution
             // ToolStrip Properties
             ToolStrip.Visible = true;
             ToolStrip.Text = string.Empty;
-            ToolStrip.Office12Mode = true;
+            ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+            ToolStrip.Office12Mode = false;
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
             ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString( );
@@ -247,7 +249,7 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
-
+            
             // Event Wiring
             MouseClick += OnRightClick;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -261,7 +263,6 @@ namespace BudgetExecution
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            TestButton.Click += OnTestButtonClicked;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;

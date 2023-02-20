@@ -36,7 +36,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1451, 648 );
+            Size = new Size( 1310, 648 );
             SqliteRadioButton.Tag = "SQLite";
             SqlServerRadioButton.Tag = "SqlServer";
             AccessRadioButton.Tag = "Access";

@@ -71,7 +71,7 @@ partial class SchemaDialog
             this.SecondButton.HoverText = null;
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(277, 437);
+            this.SecondButton.Location = new System.Drawing.Point(280, 482);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SecondButton.NormalColor = System.Drawing.Color.Transparent;
@@ -103,7 +103,7 @@ partial class SchemaDialog
             this.ThirdButton.HoverText = null;
             this.ThirdButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(484, 437);
+            this.ThirdButton.Location = new System.Drawing.Point(484, 482);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ThirdButton.NormalColor = System.Drawing.Color.Transparent;
@@ -196,7 +196,7 @@ partial class SchemaDialog
             this.FirstButton.HoverText = null;
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(65, 437);
+            this.FirstButton.Location = new System.Drawing.Point(68, 482);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.FirstButton.NormalColor = System.Drawing.Color.Transparent;
@@ -348,7 +348,7 @@ partial class SchemaDialog
             this.FirstTable.Controls.Add(this.FirstLabel, 0, 0);
             this.FirstTable.Controls.Add(this.FirstPanel, 0, 1);
             this.FirstTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.FirstTable.Location = new System.Drawing.Point(65, 36);
+            this.FirstTable.Location = new System.Drawing.Point(65, 58);
             this.FirstTable.Name = "FirstTable";
             this.FirstTable.RowCount = 2;
             this.FirstTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.59603F));
@@ -363,7 +363,7 @@ partial class SchemaDialog
             this.SecondTable.Controls.Add(this.SecondLabel, 0, 0);
             this.SecondTable.Controls.Add(this.SecondPanel, 0, 1);
             this.SecondTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.SecondTable.Location = new System.Drawing.Point(379, 36);
+            this.SecondTable.Location = new System.Drawing.Point(379, 58);
             this.SecondTable.Name = "SecondTable";
             this.SecondTable.RowCount = 2;
             this.SecondTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.03344F));
@@ -388,7 +388,7 @@ partial class SchemaDialog
             this.SelectionsTextBox.Image = null;
             this.SelectionsTextBox.IsDerivedStyle = true;
             this.SelectionsTextBox.Lines = null;
-            this.SelectionsTextBox.Location = new System.Drawing.Point(138, 354);
+            this.SelectionsTextBox.Location = new System.Drawing.Point(138, 383);
             this.SelectionsTextBox.MaxLength = 32767;
             this.SelectionsTextBox.Multiline = true;
             this.SelectionsTextBox.Name = "SelectionsTextBox";
@@ -412,7 +412,7 @@ partial class SchemaDialog
             this.label1.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.HoverText = null;
             this.label1.IsDerivedStyle = true;
-            this.label1.Location = new System.Drawing.Point(65, 354);
+            this.label1.Location = new System.Drawing.Point(65, 383);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(1);
@@ -434,11 +434,12 @@ partial class SchemaDialog
             this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.CaptionBarHeight = 1;
             this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(692, 504);
+            this.ClientSize = new System.Drawing.Size(692, 534);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SelectionsTextBox);
             this.Controls.Add(this.SecondTable);
@@ -447,7 +448,7 @@ partial class SchemaDialog
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.SecondButton);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.LightGray;
+            this.ForeColor = System.Drawing.Color.Gray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

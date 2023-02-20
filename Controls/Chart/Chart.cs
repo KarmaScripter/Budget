@@ -216,7 +216,7 @@ namespace BudgetExecution
             Legend.Visible = true;
 
             // Title ("Title") Properties
-            Title.Font = new Font( "Roboto", 14 );
+            Title.Font = new Font( "Roboto", 12 );
             Title.BackColor = Color.FromArgb( 20, 20, 20 );
             Title.ForeColor = Color.FromArgb( 0, 120, 212 );
 

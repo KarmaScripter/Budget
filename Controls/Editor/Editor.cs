@@ -25,9 +25,7 @@ namespace BudgetExecution
         {
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
-                | AnchorStyles.Right;
-            
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             AlwaysShowScrollers = true;
             BackColor = SystemColors.ControlLight;
             ForeColor = Color.Black;
@@ -50,7 +48,7 @@ namespace BudgetExecution
             IndentLineColor = Color.FromArgb( 50, 93, 129 );
             IndicatorMarginBackColor = SystemColors.ActiveCaption;
             CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-            Font = new Font( "Roboto", 12  );
+            Font = new Font( "Roboto", 10  );
             LineNumbersColor = Color.Black;
             LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
             ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;

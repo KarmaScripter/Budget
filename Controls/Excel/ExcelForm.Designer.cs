@@ -106,7 +106,7 @@
             this.Ribbon.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2010;
             this.Ribbon.ShowQuickItemsDropDownButton = false;
             this.Ribbon.ShowRibbonDisplayOptionButton = false;
-            this.Ribbon.Size = new System.Drawing.Size(1388, 155);
+            this.Ribbon.Size = new System.Drawing.Size(1338, 155);
             this.Ribbon.Spreadsheet = this.Spreadsheet;
             this.Ribbon.SystemText.QuickAccessDialogDropDownName = "Start menu";
             this.Ribbon.SystemText.RenameDisplayLabelText = "&Display Name:";
@@ -146,7 +146,7 @@
             this.Spreadsheet.SelectedTabIndex = 0;
             this.Spreadsheet.SelectedTabItem = null;
             this.Spreadsheet.ShowBusyIndicator = true;
-            this.Spreadsheet.Size = new System.Drawing.Size(1388, 508);
+            this.Spreadsheet.Size = new System.Drawing.Size(1338, 508);
             this.Spreadsheet.TabIndex = 1;
             this.Spreadsheet.TabItemContextMenu = null;
             this.Spreadsheet.Text = "Spreadsheet";
@@ -242,7 +242,7 @@
             this.ToolStrip.Separators = null;
             this.ToolStrip.ShowCaption = true;
             this.ToolStrip.ShowLauncher = true;
-            this.ToolStrip.Size = new System.Drawing.Size(1388, 50);
+            this.ToolStrip.Size = new System.Drawing.Size(1338, 50);
             this.ToolStrip.TabIndex = 2;
             this.ToolStrip.TextBox = null;
             this.ToolStrip.ThemeName = "Office2016DarkGray";
@@ -335,7 +335,7 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(1);
             this.TextBox.Name = "TextBox";
             this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.Size = new System.Drawing.Size(244, 32);
+            this.TextBox.Size = new System.Drawing.Size(240, 32);
             this.TextBox.Tag = "";
             this.TextBox.ToolTip = null;
             // 
@@ -782,7 +782,7 @@
             this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(1388, 713);
+            this.ClientSize = new System.Drawing.Size(1338, 713);
             this.Controls.Add(this.Spreadsheet);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.Ribbon);

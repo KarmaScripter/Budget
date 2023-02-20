@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
+    using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
 
     /// <summary>
@@ -109,10 +110,10 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1500, 750 );
-            MaximumSize = new Size( 1600, 800 );
-            MinimumSize = new Size( 1400, 700  );
-            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1400, 800 );
+            MinimumSize = new Size( 1300, 700  );
+            StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
@@ -134,6 +135,8 @@ namespace BudgetExecution
             MaximizeBox = false;
             ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
             ToolStrip.Text = string.Empty;
+            ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+            ToolStrip.Office12Mode = false;
             TextBox.Font = new Font( "Roboto", 8 );
             TextBox.ForeColor = Color.White;
             

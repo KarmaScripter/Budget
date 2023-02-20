@@ -71,8 +71,8 @@ namespace BudgetExecution
             BorderStyle = ToolStripBorderStyle.StaticEdge;
             CanApplyTheme = true;
             CanOverrideStyle = true;
-            ImageScalingSize = new Size( 18, 18 );
-            Office12Mode = true;
+            ImageScalingSize = new Size( 16, 16 );
+            Office12Mode = false;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;

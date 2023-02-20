@@ -199,6 +199,7 @@ namespace BudgetExecution
         public EditBase( )
         {
             InitializeComponent( );
+            Size = new Size( 1310, 648 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             MetroColor = Color.FromArgb( 20, 20, 20 );
             BorderColor = Color.FromArgb( 20, 20, 20 );
@@ -208,6 +209,7 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionBarHeight = 26;
             CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ShowIcon = false;
@@ -216,7 +218,6 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            Size = new Size( 1451, 648 );
             Text = string.Empty;
         }
 

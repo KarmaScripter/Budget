@@ -49,7 +49,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1380, 675 );
+            Size = new Size( 1310, 648 );
             Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );

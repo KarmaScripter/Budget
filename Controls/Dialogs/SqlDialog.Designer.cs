@@ -75,7 +75,7 @@ partial class SqlDialog
             this.TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.ActiveTabFont = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.BeforeTouchSize = new System.Drawing.Size(1380, 556);
+            this.TabControl.BeforeTouchSize = new System.Drawing.Size(1310, 556);
             this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TabControl.BorderWidth = 1;
             this.TabControl.CanOverrideStyle = true;
@@ -90,7 +90,7 @@ partial class SqlDialog
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Margin = new System.Windows.Forms.Padding(1);
             this.TabControl.Name = "TabControl";
-            this.TabControl.Size = new System.Drawing.Size(1380, 556);
+            this.TabControl.Size = new System.Drawing.Size(1310, 556);
             this.TabControl.TabIndex = 9;
             this.TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
@@ -121,7 +121,7 @@ partial class SqlDialog
             this.TabPage.Name = "TabPage";
             this.TabPage.Padding = new System.Windows.Forms.Padding(1);
             this.TabPage.ShowCloseButton = true;
-            this.TabPage.Size = new System.Drawing.Size(1380, 534);
+            this.TabPage.Size = new System.Drawing.Size(1310, 534);
             this.TabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.TabPage.TabForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.TabPage.TabIndex = 8;
@@ -129,23 +129,20 @@ partial class SqlDialog
             // 
             // SqlCommandTable
             // 
-            this.SqlCommandTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.SqlCommandTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SqlCommandTable.ColumnCount = 1;
             this.SqlCommandTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.SqlCommandTable.Controls.Add(this.SecondPanel, 0, 0);
             this.SqlCommandTable.Controls.Add(this.ThirdPanel, 0, 1);
             this.SqlCommandTable.Controls.Add(this.FifithPanel, 0, 2);
-            this.SqlCommandTable.Location = new System.Drawing.Point(1007, 21);
+            this.SqlCommandTable.Location = new System.Drawing.Point(923, 21);
             this.SqlCommandTable.Name = "SqlCommandTable";
             this.SqlCommandTable.RowCount = 3;
             this.SqlCommandTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.SqlCommandTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.SqlCommandTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 301F));
             this.SqlCommandTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SqlCommandTable.Size = new System.Drawing.Size(352, 508);
+            this.SqlCommandTable.Size = new System.Drawing.Size(352, 509);
             this.SqlCommandTable.TabIndex = 4;
             // 
             // SecondPanel
@@ -170,7 +167,7 @@ partial class SqlDialog
             this.SecondPanel.Location = new System.Drawing.Point(3, 3);
             this.SecondPanel.Name = "SecondPanel";
             this.SecondPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SecondPanel.Size = new System.Drawing.Size(346, 99);
+            this.SecondPanel.Size = new System.Drawing.Size(346, 100);
             this.SecondPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.SecondPanel.StyleManager = null;
             this.SecondPanel.TabIndex = 3;
@@ -341,7 +338,7 @@ partial class SqlDialog
             this.ThirdPanel.ForeColor = System.Drawing.Color.Transparent;
             this.ThirdPanel.HoverText = null;
             this.ThirdPanel.IsDerivedStyle = true;
-            this.ThirdPanel.Location = new System.Drawing.Point(3, 108);
+            this.ThirdPanel.Location = new System.Drawing.Point(3, 109);
             this.ThirdPanel.Name = "ThirdPanel";
             this.ThirdPanel.Padding = new System.Windows.Forms.Padding(1);
             this.ThirdPanel.Size = new System.Drawing.Size(346, 96);
@@ -428,7 +425,7 @@ partial class SqlDialog
             this.FifithPanel.ForeColor = System.Drawing.Color.Transparent;
             this.FifithPanel.HoverText = null;
             this.FifithPanel.IsDerivedStyle = true;
-            this.FifithPanel.Location = new System.Drawing.Point(3, 210);
+            this.FifithPanel.Location = new System.Drawing.Point(3, 211);
             this.FifithPanel.Name = "FifithPanel";
             this.FifithPanel.Padding = new System.Windows.Forms.Padding(1);
             this.FifithPanel.Size = new System.Drawing.Size(346, 295);
@@ -520,7 +517,7 @@ partial class SqlDialog
             this.EditorPanel.Location = new System.Drawing.Point(30, 21);
             this.EditorPanel.Name = "EditorPanel";
             this.EditorPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.EditorPanel.Size = new System.Drawing.Size(971, 509);
+            this.EditorPanel.Size = new System.Drawing.Size(887, 509);
             this.EditorPanel.Style = MetroSet_UI.Enums.Style.Custom;
             this.EditorPanel.StyleManager = null;
             this.EditorPanel.TabIndex = 0;
@@ -532,9 +529,6 @@ partial class SqlDialog
             // 
             this.SqlEditor.AllowZoom = false;
             this.SqlEditor.AlwaysShowScrollers = true;
-            this.SqlEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.SqlEditor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SqlEditor.BackColor = System.Drawing.SystemColors.ControlLight;
             this.SqlEditor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -551,7 +545,7 @@ partial class SqlDialog
             this.SqlEditor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SqlEditor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
             this.SqlEditor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
-            this.SqlEditor.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SqlEditor.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SqlEditor.ForeColor = System.Drawing.Color.Black;
             this.SqlEditor.HighlightCurrentLine = true;
             this.SqlEditor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
@@ -560,7 +554,7 @@ partial class SqlDialog
             this.SqlEditor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
             this.SqlEditor.LineNumbersColor = System.Drawing.Color.Black;
             this.SqlEditor.LineNumbersFont = new System.Drawing.Font("Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SqlEditor.Location = new System.Drawing.Point(34, 25);
+            this.SqlEditor.Location = new System.Drawing.Point(20, 19);
             this.SqlEditor.Name = "SqlEditor";
             this.SqlEditor.RenderRightToLeft = false;
             this.SqlEditor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
@@ -569,7 +563,7 @@ partial class SqlDialog
             this.SqlEditor.SelectionMarginBackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.SqlEditor.SelectionTextColor = System.Drawing.Color.White;
             this.SqlEditor.ShowEndOfLine = false;
-            this.SqlEditor.Size = new System.Drawing.Size(907, 462);
+            this.SqlEditor.Size = new System.Drawing.Size(851, 469);
             this.SqlEditor.StatusBarSettings.CoordsPanel.Width = 150;
             this.SqlEditor.StatusBarSettings.EncodingPanel.Width = 100;
             this.SqlEditor.StatusBarSettings.FileNamePanel.Width = 100;
@@ -596,9 +590,6 @@ partial class SqlDialog
             // 
             // FirstButton
             // 
-            this.FirstButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstButton.BackColor = System.Drawing.Color.Transparent;
             this.FirstButton.BindingSource = null;
             this.FirstButton.DataFilter = null;
@@ -612,7 +603,7 @@ partial class SqlDialog
             this.FirstButton.HoverText = "Not Yet Implemented!";
             this.FirstButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.FirstButton.IsDerivedStyle = true;
-            this.FirstButton.Location = new System.Drawing.Point(30, 598);
+            this.FirstButton.Location = new System.Drawing.Point(30, 588);
             this.FirstButton.Margin = new System.Windows.Forms.Padding(0);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -633,9 +624,6 @@ partial class SqlDialog
             // 
             // SecondButton
             // 
-            this.SecondButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.SecondButton.BackColor = System.Drawing.Color.Transparent;
             this.SecondButton.BindingSource = null;
             this.SecondButton.DataFilter = null;
@@ -649,7 +637,7 @@ partial class SqlDialog
             this.SecondButton.HoverText = "Not Yet Implemented!";
             this.SecondButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SecondButton.IsDerivedStyle = true;
-            this.SecondButton.Location = new System.Drawing.Point(623, 598);
+            this.SecondButton.Location = new System.Drawing.Point(587, 588);
             this.SecondButton.Margin = new System.Windows.Forms.Padding(0);
             this.SecondButton.Name = "SecondButton";
             this.SecondButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -684,7 +672,7 @@ partial class SqlDialog
             this.ThirdButton.HoverText = "Close Window";
             this.ThirdButton.HoverTextColor = System.Drawing.Color.White;
             this.ThirdButton.IsDerivedStyle = true;
-            this.ThirdButton.Location = new System.Drawing.Point(1200, 598);
+            this.ThirdButton.Location = new System.Drawing.Point(1057, 588);
             this.ThirdButton.Margin = new System.Windows.Forms.Padding(0);
             this.ThirdButton.Name = "ThirdButton";
             this.ThirdButton.NormalBorderColor = System.Drawing.Color.Transparent;
@@ -710,13 +698,15 @@ partial class SqlDialog
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ClientSize = new System.Drawing.Size(1380, 675);
+            this.ClientSize = new System.Drawing.Size(1310, 648);
             this.Controls.Add(this.FirstButton);
             this.Controls.Add(this.SecondButton);
             this.Controls.Add(this.ThirdButton);
             this.Controls.Add(this.TabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1310, 648);
+            this.MinimumSize = new System.Drawing.Size(1310, 648);
             this.Name = "SqlDialog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
