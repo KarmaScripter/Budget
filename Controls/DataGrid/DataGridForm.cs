@@ -12,9 +12,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Edit;
     using FontStyle = System.Drawing.FontStyle;
 
     /// <summary>
