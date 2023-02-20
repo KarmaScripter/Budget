@@ -14,6 +14,11 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using CheckState = MetroSet_UI.Enums.CheckState;
+    using Syncfusion.Windows.Forms.Edit;
+    using Syncfusion.Windows.Forms;
+    using DocumentFormat.OpenXml.Wordprocessing;
+    using Syncfusion.Drawing;
+    using Color = System.Drawing.Color;
 
     /// <summary>
     /// 
@@ -149,6 +154,8 @@ namespace BudgetExecution
                 SqlServerRadioButton.Click += OnRadioButtonChecked;
                 SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
                 SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
+                SecondButton.Click += OnClearButtonClick;
+                SetEditorConfiguration( );
             }
             catch( Exception ex )
             {
@@ -163,11 +170,11 @@ namespace BudgetExecution
         {
             try
             {
-                Editor.Text = string.Empty;
+                SqlEditor.Text = string.Empty;
                 Commands?.Clear( );
                 Statements?.Clear( );
                 Provider = Provider.Access;
-                AccessRadioButton.CheckState = CheckState.Checked;
+                AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Checked;
                 Commands = CreateCommandList( Provider );
                 PopulateSqlComboBox( Commands );
             }
@@ -228,7 +235,7 @@ namespace BudgetExecution
                             default:
                             {
                                 Provider = Provider.Access;
-                                AccessRadioButton.CheckState = CheckState.Checked;
+                                SetProvider( Provider.ToString( ) );
                                 Commands = CreateCommandList( Provider );
                                 PopulateSqlComboBox( Commands );
                                 break;
@@ -408,6 +415,57 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the editor configuration.
+        /// </summary>
+        private void SetEditorConfiguration( )
+        {
+            try
+            {
+                SqlEditor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                SqlEditor.AlwaysShowScrollers = true;
+                SqlEditor.BackColor = SystemColors.ControlLight;
+                SqlEditor.ForeColor = Color.Black;
+                SqlEditor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                SqlEditor.BorderStyle = BorderStyle.FixedSingle;
+                SqlEditor.CanOverrideStyle = true;
+                SqlEditor.CanApplyTheme = true;
+                SqlEditor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8 );
+                SqlEditor.ContextChoiceFont = new System.Drawing.Font( "Roboto", 8 );
+                SqlEditor.ContextChoiceForeColor = Color.Black;
+                SqlEditor.ContextChoiceBackColor =  SystemColors.ControlLight;
+                SqlEditor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                SqlEditor.ContextPromptBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                SqlEditor.ContextTooltipBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 )  );
+                SqlEditor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                SqlEditor.EndOfLineBackColor = SystemColors.ControlLight;
+                SqlEditor.EndOfLineForeColor = SystemColors.ControlLight;
+                SqlEditor.HighlightCurrentLine = true;
+                SqlEditor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                SqlEditor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                SqlEditor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                SqlEditor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                SqlEditor.Font = new System.Drawing.Font( "Roboto", 12  );
+                SqlEditor.LineNumbersColor = Color.Black;
+                SqlEditor.LineNumbersFont = new System.Drawing.Font( "Roboto", 8, FontStyle.Bold );
+                SqlEditor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                SqlEditor.ScrollColorScheme = Office2007ColorScheme.Black;
+                SqlEditor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                SqlEditor.ShowEndOfLine = false;
+                SqlEditor.Style = EditControlStyle.Office2016Black;
+                SqlEditor.TabSize = 4;
+                SqlEditor.TextAreaWidth = 400;
+                SqlEditor.WordWrap = true;
+                SqlEditor.WordWrapColumn = 100;
+                SqlEditor.Dock = DockStyle.None;
+                SqlEditor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
+                    | AnchorStyles.Right;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        /// <summary>
         /// Called when [ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -418,12 +476,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SelectedCommand = _comboBox.SelectedItem?.ToString( );
+                    SelectedCommand = string.Empty;
+                    var _selection = _comboBox.SelectedItem?.ToString( );
                     SqlListBox.Items.Clear(  );
-                    if( SelectedCommand?.Contains( " " ) == true )
+                    if( _selection?.Contains( " " ) == true )
                     {
-                        var _folder = SelectedCommand.Replace( " ", "" );
-                        var _path = DatabaseDirectory + @$"\{ Provider }\DataModels\{ _folder }";
+                        SelectedCommand = _selection.Replace( " ", "" );
+                        var _path = DatabaseDirectory + @$"\{ Provider }\DataModels\{ SelectedCommand }";
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
@@ -434,6 +493,7 @@ namespace BudgetExecution
                     }
                     else
                     {
+                        SelectedCommand = _comboBox.SelectedItem?.ToString( );
                         var _path = DatabaseDirectory + @$"\{ Provider }\DataModels\{ SelectedCommand }";
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
@@ -461,7 +521,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Editor.Text = string.Empty;
+                    SqlEditor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
                     if( SelectedQuery?.Contains( " " ) == true 
                        || SelectedCommand?.Contains( " " ) == true )
@@ -473,7 +533,7 @@ namespace BudgetExecution
                         var _stream = File.OpenRead( _filePath );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
-                        Editor.Text = _text;
+                        SqlEditor.Text = _text;
                     }
                     else
                     {
@@ -482,7 +542,7 @@ namespace BudgetExecution
                         var _stream = File.OpenRead( _path );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
-                        Editor.Text = _text;
+                        SqlEditor.Text = _text;
                     }
                 }
                 catch( Exception ex )

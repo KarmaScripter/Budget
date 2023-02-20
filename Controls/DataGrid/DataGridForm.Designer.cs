@@ -1748,7 +1748,7 @@
             this.ToolStripTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.ToolStripTextBox.Name = "ToolStripTextBox";
             this.ToolStripTextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ToolStripTextBox.Size = new System.Drawing.Size(166, 32);
+            this.ToolStripTextBox.Size = new System.Drawing.Size(164, 32);
             this.ToolStripTextBox.Tag = "";
             this.ToolStripTextBox.ToolTip = null;
             // 
@@ -2768,8 +2768,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1400, 800);
             this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "DataGridForm";
             this.ShowIcon = false;
             this.ShowMaximizeBox = false;

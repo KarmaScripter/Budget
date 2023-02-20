@@ -12,7 +12,9 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Edit;
     using FontStyle = System.Drawing.FontStyle;
 
     /// <summary>
@@ -184,7 +186,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1400, 750  );
+            MinimumSize = new Size( 1200, 600  );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
@@ -1029,7 +1031,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [table ComboBox item selected].
         /// </summary>
@@ -1582,9 +1584,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = new SqlDialog( BindingSource );
-                    _sql.Editor.Text = SqlQuery;
-                    _sql.ShowDialog( this );
+                    var _dialog = new SqlDialog( BindingSource );
+                    _dialog.SqlEditor.Text = SqlQuery;
+                    _dialog.ShowDialog( this );
                 }
                 catch( Exception ex )
                 {

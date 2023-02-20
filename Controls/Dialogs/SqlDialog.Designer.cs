@@ -53,7 +53,7 @@ partial class SqlDialog
             this.ThirdLabel = new BudgetExecution.Label();
             this.SqlListBox = new BudgetExecution.ListBox();
             this.EditorPanel = new BudgetExecution.Layout();
-            this.Editor = new BudgetExecution.Editor();
+            this.SqlEditor = new BudgetExecution.Editor();
             this.FirstButton = new BudgetExecution.Button();
             this.SecondButton = new BudgetExecution.Button();
             this.ThirdButton = new BudgetExecution.Button();
@@ -66,7 +66,7 @@ partial class SqlDialog
             this.ThirdPanel.SuspendLayout();
             this.FifithPanel.SuspendLayout();
             this.EditorPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Editor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SqlEditor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -511,7 +511,7 @@ partial class SqlDialog
             this.EditorPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.EditorPanel.BorderThickness = 1;
             this.EditorPanel.Children = null;
-            this.EditorPanel.Controls.Add(this.Editor);
+            this.EditorPanel.Controls.Add(this.SqlEditor);
             this.EditorPanel.DataFilter = null;
             this.EditorPanel.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.EditorPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -528,67 +528,71 @@ partial class SqlDialog
             this.EditorPanel.ThemeName = "BudgetExecution";
             this.EditorPanel.ToolTip = null;
             // 
-            // Editor
+            // SqlEditor
             // 
-            this.Editor.AllowZoom = false;
-            this.Editor.AlwaysShowScrollers = true;
-            this.Editor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SqlEditor.AllowZoom = false;
+            this.SqlEditor.AlwaysShowScrollers = true;
+            this.SqlEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Editor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.Editor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Editor.CanOverrideStyle = true;
-            this.Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
-            this.Editor.CodeSnipptSize = new System.Drawing.Size(100, 100);
-            this.Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Editor.Configurator = config1;
-            this.Editor.ContextChoiceBackColor = System.Drawing.Color.LightGray;
-            this.Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
-            this.Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.Editor.EndOfLineBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.Editor.EndOfLineForeColor = System.Drawing.Color.DimGray;
-            this.Editor.Font = new System.Drawing.Font("Source Code Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Editor.ForeColor = System.Drawing.Color.LightGray;
-            this.Editor.HighlightCurrentLine = true;
-            this.Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.Editor.IndentLineColor = System.Drawing.Color.LightGray;
-            this.Editor.IndicatorMarginBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Editor.LineNumbersColor = System.Drawing.Color.DarkGray;
-            this.Editor.LineNumbersFont = new System.Drawing.Font("Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Editor.Location = new System.Drawing.Point(18, 18);
-            this.Editor.Name = "Editor";
-            this.Editor.RenderRightToLeft = false;
-            this.Editor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
-            this.Editor.ScrollPosition = new System.Drawing.Point(0, 0);
-            this.Editor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
-            this.Editor.SelectionTextColor = System.Drawing.Color.White;
-            this.Editor.ShowEndOfLine = true;
-            this.Editor.Size = new System.Drawing.Size(931, 469);
-            this.Editor.StatusBarSettings.CoordsPanel.Width = 150;
-            this.Editor.StatusBarSettings.EncodingPanel.Width = 100;
-            this.Editor.StatusBarSettings.FileNamePanel.Width = 100;
-            this.Editor.StatusBarSettings.InsertPanel.Width = 33;
-            this.Editor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
-            this.Editor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
-            this.Editor.StatusBarSettings.StatusPanel.Width = 70;
-            this.Editor.StatusBarSettings.TextPanel.Width = 214;
-            this.Editor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
-            this.Editor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
-            this.Editor.TabIndex = 0;
-            this.Editor.TabSize = 4;
-            this.Editor.Text = "";
-            this.Editor.TextAreaWidth = 400;
-            this.Editor.ThemeName = "Office2016Black";
-            this.Editor.UseXPStyle = false;
-            this.Editor.UseXPStyleBorder = true;
-            this.Editor.VisualColumn = 1;
-            this.Editor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
-            this.Editor.WordWrap = true;
-            this.Editor.WordWrapColumn = 80;
-            this.Editor.ZoomFactor = 1F;
+            this.SqlEditor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SqlEditor.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SqlEditor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SqlEditor.CanOverrideStyle = true;
+            this.SqlEditor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(98)))));
+            this.SqlEditor.CodeSnipptSize = new System.Drawing.Size(100, 100);
+            this.SqlEditor.ColumnGuidesMeasuringFont = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SqlEditor.Configurator = config1;
+            this.SqlEditor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
+            this.SqlEditor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(166)))), ((int)(((byte)(50)))));
+            this.SqlEditor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlEditor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlEditor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlEditor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
+            this.SqlEditor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
+            this.SqlEditor.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SqlEditor.ForeColor = System.Drawing.Color.Black;
+            this.SqlEditor.HighlightCurrentLine = true;
+            this.SqlEditor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlEditor.IndentBlockHighlightingColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SqlEditor.IndentLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.SqlEditor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
+            this.SqlEditor.LineNumbersColor = System.Drawing.Color.Black;
+            this.SqlEditor.LineNumbersFont = new System.Drawing.Font("Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SqlEditor.Location = new System.Drawing.Point(34, 25);
+            this.SqlEditor.Name = "SqlEditor";
+            this.SqlEditor.RenderRightToLeft = false;
+            this.SqlEditor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
+            this.SqlEditor.ScrollPosition = new System.Drawing.Point(0, 0);
+            this.SqlEditor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
+            this.SqlEditor.SelectionMarginBackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SqlEditor.SelectionTextColor = System.Drawing.Color.White;
+            this.SqlEditor.ShowEndOfLine = false;
+            this.SqlEditor.Size = new System.Drawing.Size(907, 462);
+            this.SqlEditor.StatusBarSettings.CoordsPanel.Width = 150;
+            this.SqlEditor.StatusBarSettings.EncodingPanel.Width = 100;
+            this.SqlEditor.StatusBarSettings.FileNamePanel.Width = 100;
+            this.SqlEditor.StatusBarSettings.InsertPanel.Width = 33;
+            this.SqlEditor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
+            this.SqlEditor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
+            this.SqlEditor.StatusBarSettings.StatusPanel.Width = 70;
+            this.SqlEditor.StatusBarSettings.TextPanel.Width = 214;
+            this.SqlEditor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
+            this.SqlEditor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
+            this.SqlEditor.TabIndex = 0;
+            this.SqlEditor.TabSize = 4;
+            this.SqlEditor.Text = "";
+            this.SqlEditor.TextAreaWidth = 400;
+            this.SqlEditor.ThemeName = "Office2016Black";
+            this.SqlEditor.UserMarginTextColor = System.Drawing.Color.DimGray;
+            this.SqlEditor.UseXPStyle = false;
+            this.SqlEditor.UseXPStyleBorder = true;
+            this.SqlEditor.VisualColumn = 1;
+            this.SqlEditor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
+            this.SqlEditor.WordWrap = true;
+            this.SqlEditor.WordWrapColumn = 80;
+            this.SqlEditor.ZoomFactor = 1F;
             // 
             // FirstButton
             // 
@@ -723,7 +727,7 @@ partial class SqlDialog
             this.ThirdPanel.ResumeLayout(false);
             this.FifithPanel.ResumeLayout(false);
             this.EditorPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Editor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SqlEditor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -752,5 +756,5 @@ partial class SqlDialog
     private Label ThirdLabel;
     public RadioButton AccessRadioButton;
     public Label FirstLabel;
-    public Editor Editor;
+    public Editor SqlEditor;
 }
