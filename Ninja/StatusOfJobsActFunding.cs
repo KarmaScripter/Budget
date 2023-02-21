@@ -12,7 +12,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class StatusOfJobsActFunding : PRC
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    public class StatusOfJobsActFunding : StatusOfFunds
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -196,7 +197,7 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public override double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the budgeted.
@@ -204,7 +205,7 @@ namespace BudgetExecution
         /// <value>
         /// The budgeted.
         /// </value>
-        public double Budgeted { get; set; }
+        public override double Budgeted { get; set; }
 
         /// <summary>
         /// Gets or sets the posted.
@@ -212,7 +213,7 @@ namespace BudgetExecution
         /// <value>
         /// The posted.
         /// </value>
-        public double Posted { get; set; }
+        public override double Posted { get; set; }
 
         /// <summary>
         /// Gets or sets the open commitments.
@@ -220,7 +221,7 @@ namespace BudgetExecution
         /// <value>
         /// The open commitments.
         /// </value>
-        public double OpenCommitments { get; set; }
+        public override double OpenCommitments { get; set; }
 
         /// <summary>
         /// Gets or sets the ulo.
@@ -228,7 +229,7 @@ namespace BudgetExecution
         /// <value>
         /// The ulo.
         /// </value>
-        public double ULO { get; set; }
+        public override double ULO { get; set; }
 
         /// <summary>
         /// Gets or sets the expenditures.
@@ -236,7 +237,7 @@ namespace BudgetExecution
         /// <value>
         /// The expenditures.
         /// </value>
-        public double Expenditures { get; set; }
+        public override double Expenditures { get; set; }
 
         /// <summary>
         /// Gets or sets the obligations.
@@ -244,7 +245,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligations.
         /// </value>
-        public double Obligations { get; set; }
+        public override double Obligations { get; set; }
 
         /// <summary>
         /// Gets or sets the used.
@@ -252,7 +253,7 @@ namespace BudgetExecution
         /// <value>
         /// The used.
         /// </value>
-        public double Used { get; set; }
+        public override double Used { get; set; }
 
         /// <summary>
         /// Gets or sets the available.
@@ -260,7 +261,7 @@ namespace BudgetExecution
         /// <value>
         /// The available.
         /// </value>
-        public double Available { get; set; }
+        public override double Available { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM code.
@@ -302,12 +303,12 @@ namespace BudgetExecution
         /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
         /// </summary>
         public StatusOfJobsActFunding( )
         {
+            Source = Source.StatusOfJobsActFunding;
         }
 
         /// <summary>

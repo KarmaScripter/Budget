@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ActivityCode : DataUnit, IActivityCode
     {
         /// <summary>
@@ -84,7 +85,7 @@ namespace BudgetExecution
         public ActivityCode( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ActivityCodesId  );
+            ID = int.Parse( Record[ "ActivityCodesId" ].ToString(  ) ?? "0" );
             Name = Record[ $"{ Field.ActivityName }" ].ToString( );
             Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -97,9 +98,9 @@ namespace BudgetExecution
         public ActivityCode( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.ActivityCodesId  );
-            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
-            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            ID = int.Parse( Record?[ "ActivityCodesId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "ActivityName" ].ToString( );
+            Code = Record?[ "ActivityCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -110,18 +111,18 @@ namespace BudgetExecution
         public ActivityCode( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( dataRow, PrimaryKey.ActivityCodesId  );
-            Name = dataRow[ $"{ Field.ActivityName }" ].ToString( );
-            Code = dataRow[ $"{ Field.ActivityCode }" ].ToString( );
+            ID = int.Parse( Record[ "ActivityCodesId" ].ToString(  ) ?? "0" );
+            Name = dataRow[ "ActivityName" ].ToString( );
+            Code = dataRow[ "ActivityCode" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 
         public ActivityCode( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ActivityCodesId  );
-            Name = Record[ $"{ Field.ActivityName }" ].ToString( );
-            Code = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            ID = int.Parse( Record[ "ActivityCodesId" ].ToString(  ) ?? "0" );
+            Name = Record[ "ActivityName" ].ToString( );
+            Code = Record[ "ActivityCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
         
@@ -141,7 +142,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ $"{ Field.ActivityCode }" ] = code
+                        [ "ActivityCode" ] = code
                     };
                 }
                 catch( Exception ex )

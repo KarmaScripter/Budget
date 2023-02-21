@@ -67,6 +67,7 @@ namespace BudgetExecution
         /// </summary>
         public Appropriation( )
         {
+            Source = Source.Appropriations;
         }
 
         /// <summary>
@@ -77,6 +78,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AppropriationsId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -87,6 +92,10 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AppropriationsId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -97,6 +106,10 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "AppropriationsId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
     }
 }

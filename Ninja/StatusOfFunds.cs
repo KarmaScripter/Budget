@@ -14,6 +14,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class StatusOfFunds : PRC
     {
         /// <summary>
@@ -183,22 +185,14 @@ namespace BudgetExecution
         /// The name of the rc.
         /// </value>
         public override string RcName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the lower.
-        /// </summary>
-        /// <value>
-        /// The name of the lower.
-        /// </value>
-        public virtual string LowerName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the amount.
         /// </summary>
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public virtual double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the budgeted.
@@ -206,7 +200,7 @@ namespace BudgetExecution
         /// <value>
         /// The budgeted.
         /// </value>
-        public double Budgeted { get; set; }
+        public virtual double Budgeted { get; set; }
 
         /// <summary>
         /// Gets or sets the posted.
@@ -214,7 +208,7 @@ namespace BudgetExecution
         /// <value>
         /// The posted.
         /// </value>
-        public double Posted { get; set; }
+        public virtual double Posted { get; set; }
 
         /// <summary>
         /// Gets or sets the open commitments.
@@ -222,7 +216,7 @@ namespace BudgetExecution
         /// <value>
         /// The open commitments.
         /// </value>
-        public double OpenCommitments { get; set; }
+        public virtual double OpenCommitments { get; set; }
 
         /// <summary>
         /// Gets or sets the ulo.
@@ -230,7 +224,7 @@ namespace BudgetExecution
         /// <value>
         /// The ulo.
         /// </value>
-        public double ULO { get; set; }
+        public virtual double ULO { get; set; }
 
         /// <summary>
         /// Gets or sets the expenditures.
@@ -238,7 +232,7 @@ namespace BudgetExecution
         /// <value>
         /// The expenditures.
         /// </value>
-        public double Expenditures { get; set; }
+        public virtual double Expenditures { get; set; }
 
         /// <summary>
         /// Gets or sets the obligations.
@@ -246,7 +240,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligations.
         /// </value>
-        public double Obligations { get; set; }
+        public virtual double Obligations { get; set; }
 
         /// <summary>
         /// Gets or sets the used.
@@ -254,7 +248,7 @@ namespace BudgetExecution
         /// <value>
         /// The used.
         /// </value>
-        public double Used { get; set; }
+        public virtual double Used { get; set; }
 
         /// <summary>
         /// Gets or sets the available.
@@ -262,7 +256,7 @@ namespace BudgetExecution
         /// <value>
         /// The available.
         /// </value>
-        public double Available { get; set; }
+        public virtual double Available { get; set; }
 
         /// <summary>
         /// Gets or sets the NPM code.
@@ -278,7 +272,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the NPM.
         /// </value>
-        public override string NpmName { get; set; }
+        public  override string NpmName { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -309,6 +303,7 @@ namespace BudgetExecution
         /// </summary>
         public StatusOfFunds( )
         {
+            Source = Source.StatusOfFunds;
         }
 
         /// <summary>
@@ -318,8 +313,10 @@ namespace BudgetExecution
         public StatusOfFunds( IQuery query ) 
             : base( query )
         {
+            Source = query.Source;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -357,12 +354,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="StatusOfFunds"/> class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="dataBuilder">The builder.</param>
         public StatusOfFunds( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
+            Source = dataBuilder.Source;
             Record = dataBuilder.Record;
             Data = Record.ToDictionary(  );
+            ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -404,8 +403,10 @@ namespace BudgetExecution
         public StatusOfFunds( DataRow dataRow ) 
             : base( dataRow )
         {
+            Source = Source.StatusOfFunds;
             Record = dataRow;
             Data = dataRow.ToDictionary(  );
+            ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -445,6 +446,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, map )?.Record;
             Data = Record.ToDictionary(  );
+            ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );

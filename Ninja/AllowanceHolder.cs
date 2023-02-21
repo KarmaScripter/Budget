@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public override Source Source { get; set; } =  Source.AllowanceHolders;
+        public override Source Source { get; set; } 
 
         /// <summary>
         /// Gets or sets the dict.
@@ -98,6 +98,7 @@ namespace BudgetExecution
         /// </summary>
         public AllowanceHolder( )
         {
+            Source = Source.AllowanceHolders;
         }
 
         /// <summary>
@@ -107,12 +108,13 @@ namespace BudgetExecution
         /// <param name = "dataBuilder" >
         /// The dataBuilder.
         /// </param>
-        public AllowanceHolder( DataBuilder dataBuilder )
+        public AllowanceHolder( DataBuilder dataBuilder ) 
+            : this( )
         {
-            Record = dataBuilder?.Record;
-            ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record?[ $"{ Field.AhName }" ].ToString( );
-            Code = Record?[ $"{ Field.AhCode }" ].ToString( );
+            Record = dataBuilder.Record;
+            ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -124,11 +126,12 @@ namespace BudgetExecution
         /// The query.
         /// </param>
         public AllowanceHolder( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record[ $"{ Field.AhName }" ].ToString( );
-            Code = Record[ $"{ Field.AhCode }" ].ToString( );
+            ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -143,9 +146,9 @@ namespace BudgetExecution
             : this( )
         {
             Record = data;
-            ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record[ $"{ Field.AhName }" ].ToString( );
-            Code = Record[ $"{ Field.AhCode }" ].ToString( );
+            ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -157,11 +160,12 @@ namespace BudgetExecution
         /// The ahcode.
         /// </param>
         public AllowanceHolder( string ahCode )
+            : this( )
         {
             Record = new DataBuilder( Source, SetArgs( ahCode ) )?.Record;
-            ID = GetId( Record, PrimaryKey.AllowanceHoldersId );
-            Name = Record[ $"{ Field.AhName }" ].ToString( );
-            Code = Record[ $"{ Field.AhCode }" ].ToString( );
+            ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "AhName" ].ToString( );
+            Code = Record?[ "AhCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 

@@ -7,7 +7,10 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class AdministrativeRequest
     {
         public int ID { get; set; }
@@ -68,20 +71,82 @@ namespace BudgetExecution
 
         public AdministrativeRequest( )
         {
+            Source = Source.AdministrativeRequests;
         }
 
-        public AdministrativeRequest( IQuery query )
+        public AdministrativeRequest( IQuery query ) 
+            : this( )
         {
+            Record = new DataBuilder( query )?.Record;
+            Data = Record.ToDictionary(  );
+            ID = int.Parse( Record[ "AdministrativeRequestsId" ].ToString(  ) ?? "0" );
+            Analyst = Record[ "Analyst" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0"  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            BFY = Record[ "BFY" ].ToString(  );
+            Status = Record[ "Status" ].ToString( );
+            Duration = double.Parse( Record[ "Duration" ].ToString(  ) ?? "0" );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
+            Comments = Record[ "Comments" ].ToString(  );
+            RequestType = Record[ "RequestType" ].ToString(  );
+            TypeCode = Record[ "TypeCode" ].ToString(  );
+            Decision = Record[ "Decision" ].ToString(  );
+            OriginalActionDate 
+                = DateOnly.Parse( Record[ "OriginalActionDate" ].ToString(  ) ?? string.Empty );
+            LastActionDate 
+                = DateOnly.Parse( Record[ "LastActionDate" ].ToString(  ) ?? string.Empty );
         }
 
-        public AdministrativeRequest( IDataModel builder )
+        public AdministrativeRequest( IDataModel builder ) 
+            : this( )
         {
+            Record = builder.Record;
+            Data = Record.ToDictionary(  );
+            ID = int.Parse( Record[ "AdministrativeRequestsId" ].ToString(  ) ?? "0" );
+            Analyst = Record[ "Analyst" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0"  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            BFY = Record[ "BFY" ].ToString(  );
+            Status = Record[ "Status" ].ToString( );
+            Duration = double.Parse( Record[ "Duration" ].ToString(  ) ?? "0" );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
+            Comments = Record[ "Comments" ].ToString(  );
+            RequestType = Record[ "RequestType" ].ToString(  );
+            TypeCode = Record[ "TypeCode" ].ToString(  );
+            Decision = Record[ "Decision" ].ToString(  );
+            OriginalActionDate 
+                = DateOnly.Parse( Record[ "OriginalActionDate" ].ToString(  ) ?? string.Empty );
+            LastActionDate 
+                = DateOnly.Parse( Record[ "LastActionDate" ].ToString(  ) ?? string.Empty );
         }
 
-        public AdministrativeRequest( DataRow dataRow )
+        public AdministrativeRequest( DataRow dataRow ) 
+            : this( )
         {
-            
+            Record = dataRow;
+            Data = Record.ToDictionary(  );
+            ID = int.Parse( Record[ "AdministrativeRequestsId" ].ToString(  ) ?? "0" );
+            Analyst = Record[ "Analyst" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0"  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            BFY = Record[ "BFY" ].ToString(  );
+            Status = Record[ "Status" ].ToString( );
+            Duration = double.Parse( Record[ "Duration" ].ToString(  ) ?? "0" );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
+            Comments = Record[ "Comments" ].ToString(  );
+            RequestType = Record[ "RequestType" ].ToString(  );
+            TypeCode = Record[ "TypeCode" ].ToString(  );
+            Decision = Record[ "Decision" ].ToString(  );
+            OriginalActionDate 
+                = DateOnly.Parse( Record[ "OriginalActionDate" ].ToString(  ) ?? string.Empty );
+            LastActionDate 
+                = DateOnly.Parse( Record[ "LastActionDate" ].ToString(  ) ?? string.Empty );
         }
-        
     }
 }

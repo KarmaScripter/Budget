@@ -305,9 +305,9 @@ namespace BudgetExecution
             RpioActivityName = Record[ "RpioActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0"  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0"  );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0"  );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
@@ -325,7 +325,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ActualsId" ].ToString( ) );;
+            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0"  );;
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -345,9 +345,9 @@ namespace BudgetExecution
             RpioActivityName = Record[ "RpioActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0"  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0"  );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0"  );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
@@ -356,7 +356,6 @@ namespace BudgetExecution
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
         
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
@@ -366,7 +365,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "ActualsId" ].ToString( ) );
+            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0"  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -386,9 +385,9 @@ namespace BudgetExecution
             RpioActivityName = Record[ "RpioActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0"  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0"  );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0"  );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
