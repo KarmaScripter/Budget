@@ -137,9 +137,16 @@ namespace BudgetExecution
         /// <param name="worksheet">The worksheet.</param>
         public static void TrimLastEmptyRows( this ExcelWorksheet worksheet )
         {
-            while( worksheet.IsLastRowEmpty( ) )
+            try
             {
-                worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
+                while( worksheet.IsLastRowEmpty( ) )
+                {
+                    worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -197,9 +204,17 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int[ ] ExpandColumn( this int[ ] index, int offset )
         {
-            var _column = index;
-            _column[ 3 ] += offset;
-            return _column;
+            try
+            {
+                var _column = index;
+                _column[ 3 ] += offset;
+                return _column;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return default( int[ ] );
+            }
         }
 
         /// <summary>Expands the row.</summary>
