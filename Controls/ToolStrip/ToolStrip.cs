@@ -72,7 +72,7 @@ namespace BudgetExecution
             CanApplyTheme = true;
             CanOverrideStyle = true;
             ImageScalingSize = new Size( 16, 16 );
-            Office12Mode = false;
+            Office12Mode = true;
             LauncherStyle = LauncherStyle.Office12;
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;

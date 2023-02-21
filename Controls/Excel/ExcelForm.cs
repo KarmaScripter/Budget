@@ -125,7 +125,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -136,7 +136,7 @@ namespace BudgetExecution
             ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            ToolStrip.Office12Mode = false;
+            ToolStrip.Office12Mode = true;
             TextBox.Font = new Font( "Roboto", 8 );
             TextBox.ForeColor = Color.White;
             

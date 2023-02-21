@@ -237,7 +237,8 @@ namespace BudgetExecution
             ToolStrip.Visible = true;
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            ToolStrip.Office12Mode = false;
+            ToolStrip.Office12Mode = true;
+            ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
             ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString( );
