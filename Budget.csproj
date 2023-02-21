@@ -79,6 +79,7 @@
     <PackageReference Include="Syncfusion.Maps.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.SfSmithChart.WinForms" Version="20.4.0.38" />
       <PackageReference Include="Syncfusion.HTMLUI.Windows" Version="20.4.0.38" />
+      <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
 </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">

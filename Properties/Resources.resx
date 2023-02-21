@@ -442,4 +442,13 @@
   <data name="TransferData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Forms\TransferData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Loader\Loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Processing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Loader\Processing.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Waiting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Loader\Waiting.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

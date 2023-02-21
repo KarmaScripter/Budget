@@ -11,7 +11,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
@@ -68,6 +67,7 @@ namespace BudgetExecution
             GuidanceTile.Click += OnGuidanceTileClicked;
             WebTile.Click += OnWebTileClicked;
             ExitButton.Click += OnExitButtonClicked;
+            TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
         }
 
@@ -329,6 +329,19 @@ namespace BudgetExecution
             try
             {
                 Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnTestButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _loader = new LoadingForm(  );
+                _loader.ShowDialog(  );
             }
             catch( Exception ex )
             {

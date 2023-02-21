@@ -66,6 +66,7 @@
             this.ReportingTile = new BudgetExecution.Tile();
             this.Darkmode = new MetroSet_UI.Components.StyleManager();
             this.ExitButton = new BudgetExecution.Button();
+            this.TestButton = new BudgetExecution.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -412,6 +413,38 @@
             this.ExitButton.ThemeName = "BudgetExecution";
             this.ExitButton.ToolTip = null;
             // 
+            // TestButton
+            // 
+            this.TestButton.BindingSource = null;
+            this.TestButton.DataFilter = null;
+            this.TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.TestButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            this.TestButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            this.TestButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(84)))));
+            this.TestButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(84)))));
+            this.TestButton.HoverText = null;
+            this.TestButton.HoverTextColor = System.Drawing.Color.White;
+            this.TestButton.IsDerivedStyle = true;
+            this.TestButton.Location = new System.Drawing.Point(582, 0);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            this.TestButton.NormalColor = System.Drawing.Color.Transparent;
+            this.TestButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TestButton.Padding = new System.Windows.Forms.Padding(1);
+            this.TestButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.TestButton.PressTextColor = System.Drawing.Color.White;
+            this.TestButton.Size = new System.Drawing.Size(140, 40);
+            this.TestButton.Style = MetroSet_UI.Enums.Style.Custom;
+            this.TestButton.StyleManager = this.Darkmode;
+            this.TestButton.TabIndex = 7;
+            this.TestButton.Text = "Test";
+            this.TestButton.ThemeAuthor = "Terry D. Eppler";
+            this.TestButton.ThemeName = "BudgetExecution";
+            this.TestButton.ToolTip = null;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -430,6 +463,7 @@
             captionImage1.Size = new System.Drawing.Size(22, 22);
             this.CaptionImages.Add(captionImage1);
             this.ClientSize = new System.Drawing.Size(1338, 713);
+            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.ClientTile);
             this.Controls.Add(this.UtilityTile);
             this.Controls.Add(this.WebTile);
@@ -464,5 +498,6 @@
         private Tile WebTile;
         public Button ExitButton;
         public Tile DatabaseTile;
+        public Button TestButton;
     }
 }
