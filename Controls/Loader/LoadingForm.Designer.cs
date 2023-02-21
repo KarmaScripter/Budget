@@ -40,7 +40,7 @@
             // PictureBox
             // 
             this.PictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox.Location = new System.Drawing.Point(278, 46);
+            this.PictureBox.Location = new System.Drawing.Point(260, 82);
             this.PictureBox.Name = "PictureBox";
             this.PictureBox.Size = new System.Drawing.Size(800, 600);
             this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -67,8 +67,8 @@
             this.CaptionButtonColor = System.Drawing.Color.Black;
             this.CaptionButtonHoverColor = System.Drawing.Color.Black;
             this.CaptionFont = new System.Drawing.Font("Roboto Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CaptionForeColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1350, 700);
+            this.CaptionForeColor = System.Drawing.Color.Azure;
+            this.ClientSize = new System.Drawing.Size(1350, 750);
             this.Controls.Add(this.PictureBox);
             this.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Black;

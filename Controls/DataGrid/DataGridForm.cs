@@ -238,6 +238,7 @@ namespace BudgetExecution
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
+            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
             ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;

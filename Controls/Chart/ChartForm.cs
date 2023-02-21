@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
@@ -240,7 +241,10 @@ namespace BudgetExecution
             Provider = Provider.Access;
 
             // ToolStrip Properties
+            ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
+            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
+            ToolStrip.LauncherStyle = LauncherStyle.Office12;
             
             // Event Wiring
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;

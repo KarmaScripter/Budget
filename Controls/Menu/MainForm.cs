@@ -167,7 +167,7 @@ namespace BudgetExecution
                     foreach( var tile in Tiles )
                     {
                         tile.Size = new Size( 292, 140 );
-                        tile.Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                        tile.Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
                         tile.Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
                         tile.Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
