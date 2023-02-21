@@ -56,6 +56,7 @@ namespace BudgetExecution
         /// 
         /// </value>
         public virtual IDictionary<string, object> Data { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="DataUnit"/> class.
         /// </summary>

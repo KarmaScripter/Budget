@@ -157,6 +157,17 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -167,6 +178,18 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -177,6 +200,18 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            Data = dataRow.ToDictionary( );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) ?? "0" );
+            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString(  ) ?? "0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString(  ) ?? "0" );
         }
     }
 }
