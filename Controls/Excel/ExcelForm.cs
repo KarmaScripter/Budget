@@ -133,17 +133,25 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
-            ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
+            ToolStripTextBox.Font = new Font( "Roboto", 8 );
+            ToolStripTextBox.ForeColor = Color.White;
+            
+            // Ribbon Properties
+            Ribbon.Spreadsheet = Spreadsheet;
+
+            // ToolStrip Properties
+            ToolStrip.Visible = true;
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
             ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
-            TextBox.Font = new Font( "Roboto", 8 );
-            TextBox.ForeColor = Color.White;
-            
-            // Ribbon Properties
-            Ribbon.Spreadsheet = Spreadsheet;
+            ToolStrip.ImageSize = new Size( 16, 16 );
+            ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            ToolStripTextBox.Size = new Size( 190, 28 );
+            ToolStripTextBox.ForeColor = Color.LightSteelBlue;
+            ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+            ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
             
             // Spreadsheet Properties
             Spreadsheet.AllowCellContextMenu = true;
@@ -282,7 +290,7 @@ namespace BudgetExecution
                     Spreadsheet?.SetGridLinesVisibility( false );
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
-                    TextBox.Text = $"  Rows: { RowCount }  Columns: { ColCount }";
+                    ToolStripTextBox.Text = $"  Rows: { RowCount }  Columns: { ColCount }";
                     var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
                     var _name = table.TableName ?? "DataTable";
                     var _usedRange = _activeSheet?.UsedRange;

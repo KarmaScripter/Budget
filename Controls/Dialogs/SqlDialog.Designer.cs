@@ -706,7 +706,7 @@ partial class SqlDialog
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1310, 648);
-            this.MinimumSize = new System.Drawing.Size(1310, 648);
+            this.MinimumSize = new System.Drawing.Size(1310, 646);
             this.Name = "SqlDialog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();

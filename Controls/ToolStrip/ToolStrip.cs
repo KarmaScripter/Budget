@@ -61,7 +61,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Height = 20;
             ShowCaption = true;
-            CaptionFont = new Font( "Roboto", 9 );
+            CaptionFont = new Font( "Roboto", 8 );
             CaptionStyle = CaptionStyle.Top;
             CaptionAlignment = CaptionAlignment.Near;
             CaptionTextStyle = CaptionTextStyle.Plain;
@@ -77,7 +77,7 @@ namespace BudgetExecution
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;
             VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            OfficeColorScheme = ColorScheme.Black;
+            OfficeColorScheme = ColorScheme.Blue;
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.ArrowColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.BottomToolStripBackColor =  Color.Transparent;

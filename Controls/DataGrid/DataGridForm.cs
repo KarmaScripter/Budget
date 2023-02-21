@@ -240,9 +240,12 @@ namespace BudgetExecution
             ToolStrip.Office12Mode = true;
             ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
-            ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
-            ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-            ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString( );
+            ToolStrip.ImageSize = new Size( 16, 16 );
+            ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            ToolStripTextBox.Size = new Size( 190, 28 );
+            ToolStripTextBox.ForeColor = Color.LightSteelBlue;
+            ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+            ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
             
             // Table Layout Properties
             FirstTable.Visible = false;

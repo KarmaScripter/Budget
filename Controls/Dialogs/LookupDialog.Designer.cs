@@ -1044,7 +1044,7 @@
             this.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1310, 648);
-            this.MinimumSize = new System.Drawing.Size(1310, 648);
+            this.MinimumSize = new System.Drawing.Size(1310, 646);
             this.Name = "LookupDialog";
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();

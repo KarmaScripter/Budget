@@ -241,10 +241,18 @@ namespace BudgetExecution
             Provider = Provider.Access;
 
             // ToolStrip Properties
+            ToolStrip.Visible = true;
+            ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
             ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
+            ToolStrip.ImageSize = new Size( 16, 16 );
+            ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            ToolStripTextBox.Size = new Size( 190, 28 );
+            ToolStripTextBox.ForeColor = Color.LightSteelBlue;
+            ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+            ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
             
             // Event Wiring
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;

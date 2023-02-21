@@ -47,8 +47,8 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1310, 648 );
-            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Bold );
+            Size = new Size( 1310, 646 );
+            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             SelectButton.Text = "Save";
             CloseButton.Text = "Exit";

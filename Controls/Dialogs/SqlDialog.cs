@@ -49,13 +49,37 @@ namespace BudgetExecution
         /// The database folder.
         /// </value>
         public string DatabaseDirectory { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the selected command.
+        /// </summary>
+        /// <value>
+        /// The selected command.
+        /// </value>
         public string SelectedCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets the selected query.
+        /// </summary>
+        /// <value>
+        /// The selected query.
+        /// </value>
         public string SelectedQuery { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public IList<string> Commands { get; set; }
 
+        /// <summary>
+        /// Gets or sets the statements.
+        /// </summary>
+        /// <value>
+        /// The statements.
+        /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
         /// <summary>
@@ -66,7 +90,7 @@ namespace BudgetExecution
             InitializeComponent( );
             
             // Basic Properties
-            Size = new Size( 1310, 648 );
+            Size = new Size( 1310, 646 );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";
