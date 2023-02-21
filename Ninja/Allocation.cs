@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class Allocation : PRC
     {
         /// <summary>

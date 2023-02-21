@@ -145,15 +145,16 @@ namespace BudgetExecution
         public Account( IQuery query ) 
             : base( query )
         {
+            Source = Source.Accounts;
             Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
-            NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
-            ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
-            ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
+            ID = int.Parse( Record[ "AccountsId" ]?.ToString(  ) );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -164,14 +165,16 @@ namespace BudgetExecution
         public Account( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
+            Source = Source.Accounts;
             Record = dataBuilder?.Record;
-            ID = int.Parse( Record?[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
-            NpmCode = Record?[ $"{ Field.NpmCode }" ].ToString( );
-            ProgramProjectCode = Record?[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = Record?[ $"{ Field.ActivityCode }" ].ToString( );
-            ProgramAreaCode = Record?[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            GoalCode = Record?[ $"{ Field.GoalCode }" ].ToString( );
-            ObjectiveCode = Record?[ $"{ Field.ObjectiveCode }" ].ToString( );
+            ID = int.Parse( Record?[ "AccountsId" ]?.ToString(  ) );
+            NpmCode = Record?[ "NpmCode" ].ToString( );
+            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
+            ActivityCode = Record?[ "ActivityCode" ].ToString( );
+            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
+            GoalCode = Record?[ "GoalCode" ].ToString( );
+            ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
+            ActivityCode = Record?[ "ActivityCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -181,15 +184,16 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public Account( DataRow dataRow )
         {
+            Source = Source.Accounts;
             Record = dataRow;
-            ID = int.Parse( dataRow[ $"{ PrimaryKey.AccountsId }" ]?.ToString(  ) );
-            Code = dataRow[ $"{ Field.AccountCode }" ].ToString( );
-            NpmCode = dataRow[ $"{ Field.NpmCode }" ].ToString( );
-            ProgramProjectCode = dataRow[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = dataRow[ $"{ Field.ActivityCode }" ].ToString( );
-            ProgramAreaCode = dataRow[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            GoalCode = dataRow[ $"{ Field.GoalCode }" ].ToString( );
-            ObjectiveCode = dataRow[ $"{ Field.ObjectiveCode }" ].ToString( );
+            ID = int.Parse( Record[ "AccountsId" ]?.ToString(  ) );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -200,14 +204,14 @@ namespace BudgetExecution
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountsId }" ].ToString(  ) );
-            Code = Record[ $"{ Field.AccountCode }" ].ToString( );
-            NpmCode = Record[ $"{ Field.NpmCode }" ].ToString( );
-            ProgramProjectCode = Record[ $"{ Field.ProgramProjectCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            GoalCode = Record[ $"{ Field.GoalCode }" ].ToString( );
-            ObjectiveCode = Record[ $"{ Field.ObjectiveCode }" ].ToString( );
+            ID = int.Parse( Record[ "AccountsId" ]?.ToString(  ) );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 

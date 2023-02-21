@@ -518,7 +518,12 @@ namespace BudgetExecution
         /// The special accounts identifier
         /// </summary>
         SpecialAccountsId,
-
+        
+        /// <summary>
+        /// The spending documents primary key
+        /// </summary>
+        SpendingDocumentsId,
+        
         /// <summary>
         /// The state grant obligations identifier
         /// </summary>

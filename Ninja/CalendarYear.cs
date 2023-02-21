@@ -15,6 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class CalendarYear : ICalendarYear
     {
         /// <summary>
@@ -55,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The current date.
         /// </value>
-        public DateTime CurrentDate = DateTime.Today;
+        public virtual DateTime CurrentDate { get; set; }
 
         /// <summary>
         /// Gets the current month.
@@ -63,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The current month.
         /// </value>
-        public readonly int CurrentMonth = DateTime.Now.Month;
+        public virtual int CurrentMonth { get; set; }
 
         /// <summary>
         /// Gets the current day.
@@ -71,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The current day.
         /// </value>
-        public readonly int CurrentDay = DateTime.Now.Day;
+        public virtual int CurrentDay { get; set; }
 
         /// <summary>
         /// Gets the current year.
@@ -79,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The current year.
         /// </value>
-        public readonly int CurrentYear = DateTime.Now.Year;
+        public virtual int CurrentYear { get; set; }
 
         /// <summary>
         /// Get Error Dialog.

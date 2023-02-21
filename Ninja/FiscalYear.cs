@@ -19,6 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class FiscalYear : CalendarYear
     {
         /// <summary>
@@ -144,10 +145,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var bfy = new Dictionary<string, object> { [ $"{ Field.BBFY }" ] = year };
-                    return bfy?.Any( ) == true
-                        ? bfy
-                        : default( Dictionary<string, object> );
+                    return new Dictionary<string, object> { [ $"{ Field.BBFY }" ] = year };
                 }
                 catch( Exception ex )
                 {

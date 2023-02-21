@@ -73,9 +73,9 @@ namespace BudgetExecution
         public AccountingEvent( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) ?? "0" );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
+            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record.ToDictionary( );
         }
 
@@ -86,9 +86,9 @@ namespace BudgetExecution
         public AccountingEvent( IDataModel builder )
         {
             Record = builder.Record;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
+            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record.ToDictionary( );
         }
 
@@ -99,12 +99,10 @@ namespace BudgetExecution
         public AccountingEvent( DataRow dataRow )
         {
             Record = dataRow;
-            ID = int.Parse( Record[ $"{ PrimaryKey.AccountingEventsId }" ].ToString( ) );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
+            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = dataRow.ToDictionary( );
         }
-        
-        
     }
 }

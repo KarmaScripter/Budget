@@ -525,6 +525,11 @@ namespace BudgetExecution
         EBFY,
 
         /// <summary>
+        /// The Ending Fiscal Year
+        /// </summary>
+        EFY,
+
+        /// <summary>
         /// The email
         /// </summary>
         Email,
