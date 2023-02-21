@@ -159,15 +159,22 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsLastRowEmpty( this ExcelWorksheet worksheet )
         {
-            var _empties = new List<bool>( );
-
-            for( var index = 1; index <= worksheet.Dimension.End.Column; index++ )
+            try
             {
-                var _value = worksheet.Cells[ worksheet.Dimension.End.Row, index ].Value;
-                _empties.Add( string.IsNullOrEmpty( _value?.ToString( ) ) );
-            }
+                var _empties = new List<bool>( );
+                for( var index = 1; index <= worksheet.Dimension.End.Column; index++ )
+                {
+                    var _value = worksheet.Cells[ worksheet.Dimension.End.Row, index ].Value;
+                    _empties.Add( string.IsNullOrEmpty( _value?.ToString( ) ) );
+                }
 
-            return _empties.All( e => e );
+                return _empties.All( e => e );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return false;
+            }
         }
 
         /// <summary>Sets the width.</summary>
@@ -175,19 +182,29 @@ namespace BudgetExecution
         /// <param name="width">The width.</param>
         public static void SetWidth( this ExcelColumn column, double width )
         {
-            var _first = width >= 1.0
-                ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
-                : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) )
-                    / 12.0, 2 );
+            if( width > 0 )
+            {
+                try
+                {
+                    var _first = width >= 1.0
+                        ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
+                        : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) )
+                            / 12.0, 2 );
 
-            var _second = width - _first;
-            var _third = width >= 1.0
-                ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
-                : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
+                    var _second = width - _first;
+                    var _third = width >= 1.0
+                        ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
+                        : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
 
-            column.Width = _first > 0.0
-                ? width + _third
-                : 0.0;
+                    column.Width = _first > 0.0
+                        ? width + _third
+                        : 0.0;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
         /// <summary>Sets the height.</summary>
@@ -195,7 +212,17 @@ namespace BudgetExecution
         /// <param name="height">The height.</param>
         public static void SetHeight( this ExcelRow row, double height )
         {
-            row.Height = height;
+            if( height > 0 )
+            {
+                try
+                {
+                    row.Height = height;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
         /// <summary>Expands the column.</summary>
@@ -204,17 +231,22 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int[ ] ExpandColumn( this int[ ] index, int offset )
         {
-            try
+            if( offset > 0 )
             {
-                var _column = index;
-                _column[ 3 ] += offset;
-                return _column;
+                try
+                {
+                    var _column = index;
+                    _column[ 3 ] += offset;
+                    return _column;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex  );
+                    return default( int[ ] );
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex  );
-                return default( int[ ] );
-            }
+            
+            return default( int[ ] );
         }
 
         /// <summary>Expands the row.</summary>
@@ -223,9 +255,22 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int[ ] ExpandRow( this int[ ] index, int offset )
         {
-            var row = index;
-            row[ 2 ] += offset;
-            return row;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var row = index;
+                    row[ 2 ] += offset;
+                    return row;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( int[ ] );
+                }
+            }
+            
+            return default( int[ ] );
         }
 
         /// <summary>Moves the column.</summary>
@@ -234,10 +279,23 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int[ ] MoveColumn( this int[ ] index, int offset )
         {
-            var _column = index;
-            _column[ 1 ] += offset;
-            _column[ 3 ] += offset;
-            return _column;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var _column = index;
+                    _column[ 1 ] += offset;
+                    _column[ 3 ] += offset;
+                    return _column;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( int[ ] );
+                }
+            }
+            
+            return default( int[ ] );
         }
 
         /// <summary>Moves the row.</summary>
@@ -246,18 +304,39 @@ namespace BudgetExecution
         /// <returns></returns>
         public static int[ ] MoveRow( this int[ ] index, int offset )
         {
-            var _row = index;
-            _row[ 0 ] += offset;
-            _row[ 2 ] += offset;
-            return _row;
+            if( offset > 0 )
+            {
+                try
+                {
+                    var _row = index;
+                    _row[ 0 ] += offset;
+                    _row[ 2 ] += offset;
+                    return _row;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( int[ ] );
+                }
+            }
+            
+            return default( int[ ] );
         }
 
         /// <summary> All the borders.</summary>
         /// <param name="range">The range.</param>
         /// <param name = "borderStyle" > </param>
-        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderStyle )
+        public static void AllBorder( this ExcelRange range, 
+            ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
-            range.ForEach( r => r.Style.Border.BorderAround( borderStyle ) );
+            try
+            {
+                range.ForEach( r => r.Style.Border.BorderAround( borderStyle ) );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>Backgrounds the color.</summary>
@@ -267,14 +346,17 @@ namespace BudgetExecution
         public static void BackgroundColor( this ExcelRange range, Color color,
             ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
-            try
+            if( color != Color.Empty )
             {
-                range.Style.Fill.PatternType = fillStyle;
-                range.Style.Fill.BackgroundColor.SetColor( color );
-            }
-            catch ( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    range.Style.Fill.PatternType = fillStyle;
+                    range.Style.Fill.BackgroundColor.SetColor( color );
+                }
+                catch ( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
