@@ -10,6 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class FileBase : PathBase
     {
         /// <summary>

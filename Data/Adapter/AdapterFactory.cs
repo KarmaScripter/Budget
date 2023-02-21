@@ -47,7 +47,7 @@ namespace BudgetExecution
         public DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
-               && Connection != null
+               && DataConnection != null
                && !string.IsNullOrEmpty( CommandText ) )
             {
                 try

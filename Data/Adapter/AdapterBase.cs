@@ -19,6 +19,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class AdapterBase : DbDataAdapter, ISource, IProvider
     {
         /// <summary>
@@ -27,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public virtual Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -35,22 +36,22 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
+        public virtual Provider Provider { get; set; }
 
         /// <summary>
         /// The connection
         /// </summary>
-        public DbConnection Connection { get; set; }
+        public virtual DbConnection DataConnection { get; set; }
 
         /// <summary>
         /// The SQL statement
         /// </summary>
-        public ISqlStatement SqlStatement { get; set; }
+        public virtual ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
         /// The connection builder
         /// </summary>
-        public IConnectionFactory ConnectionFactory { get; set; }
+        public virtual IConnectionFactory ConnectionFactory { get; set; }
 
         /// <summary>
         /// Gets the command builder.
@@ -58,7 +59,7 @@ namespace BudgetExecution
         /// <value>
         /// The command builder.
         /// </value>
-        public IDictionary<string, DbCommand> Commands { get; set; }
+        public virtual IDictionary<string, DbCommand> Commands { get; set; }
 
         /// <summary>
         /// Gets the command factory.
@@ -66,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The command factory.
         /// </value>
-        public ICommandFactory CommandFactory { get; set; }
+        public virtual ICommandFactory CommandFactory { get; set; }
 
         /// <summary>
         /// Gets or sets the command text.
@@ -74,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The command text.
         /// </value>
-        public string CommandText { get; set; }
+        public virtual string CommandText { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AdapterBase"/> class.
@@ -100,7 +101,7 @@ namespace BudgetExecution
             Provider = commandFactory.Provider;
             CommandFactory = commandFactory;
             ConnectionFactory = new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
-            Connection = ConnectionFactory.GetConnection(  );
+            DataConnection = ConnectionFactory.GetConnection(  );
             CommandText = CommandFactory.GetCommand(  ).CommandText;
         }
 
@@ -115,7 +116,7 @@ namespace BudgetExecution
             Provider = sqlStatement.Provider;
             SqlStatement = sqlStatement;
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            Connection = ConnectionFactory.GetConnection(  );
+            DataConnection = ConnectionFactory.GetConnection(  );
             CommandText = sqlStatement.CommandText;
         }
 
@@ -125,12 +126,12 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
-            if( Connection != null
+            if( DataConnection != null
                && !string.IsNullOrEmpty( CommandText )  )
             {
                 try
                 {
-                    var _connection = Connection as SQLiteConnection;
+                    var _connection = DataConnection as SQLiteConnection;
                     var _adapter = new SQLiteDataAdapter( CommandText, _connection );
                     _adapter.ContinueUpdateOnError = true;
                     _adapter.AcceptChangesDuringFill = true;
@@ -166,12 +167,12 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected SqlDataAdapter GetSqlAdapter( )
         {
-            if( Connection != null 
+            if( DataConnection != null 
                && !string.IsNullOrEmpty( CommandText )  )
             {
                 try
                 {
-                    var _connection = Connection as SqlConnection;
+                    var _connection = DataConnection as SqlConnection;
                     var _adapter = new SqlDataAdapter( CommandText, _connection );
                     _adapter.ContinueUpdateOnError = true;
                     _adapter.AcceptChangesDuringFill = true;
@@ -207,12 +208,12 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected OleDbDataAdapter GetOleDbAdapter( )
         {
-            if( Connection != null
+            if( DataConnection != null
                && !string.IsNullOrEmpty( CommandText )  )
             {
                 try
                 {
-                    var _connection = Connection as OleDbConnection;
+                    var _connection = DataConnection as OleDbConnection;
                     var _adapter = new OleDbDataAdapter( CommandText, _connection );
                     _adapter.ContinueUpdateOnError = true;
                     _adapter.AcceptChangesDuringFill = true;
@@ -248,12 +249,12 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DbDataAdapter GetSqlCeAdapter( )
         {
-            if( Connection != null
+            if( DataConnection != null
                && !string.IsNullOrEmpty( CommandText )  )
             {
                 try
                 {
-                    var _connection = Connection as SqlCeConnection;
+                    var _connection = DataConnection as SqlCeConnection;
                     var _adapter = new SqlCeDataAdapter( CommandText, _connection );
                     _adapter.ContinueUpdateOnError = true;
                     _adapter.AcceptChangesDuringFill = true;

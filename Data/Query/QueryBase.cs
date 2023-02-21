@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Criteria { get; set; }
+        public virtual IDictionary<string, object> Criteria { get; set; }
         
         /// <summary>
         /// Gets the SQL statement.
@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <value>
         /// The SQL statement.
         /// </value>
-        public ISqlStatement SqlStatement { get; set; }
+        public virtual ISqlStatement SqlStatement { get; set; }
 
         /// <summary>
         /// Gets the connector.
@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The connector.
         /// </value>
-        public IConnectionFactory ConnectionFactory { get; set; }
+        public virtual IConnectionFactory ConnectionFactory { get; set; }
         
         /// <summary>
         /// Gets or sets the connection.
@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection.
         /// </value>
-        public DbConnection DataConnection { get; set; }
+        public virtual DbConnection DataConnection { get; set; }
         
         /// <summary>
         /// Gets the adapter.
@@ -79,7 +79,7 @@ namespace BudgetExecution
         /// <value>
         /// The adapter.
         /// </value>
-        public DbDataAdapter DataAdapter { get; set; }
+        public virtual DbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </value>
-        public bool IsDisposed { get; set; }
+        public virtual bool IsDisposed { get; set; }
 
         /// <summary>
         /// Gets or sets the Data reader.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data reader.
         /// </value>
-        public DbDataReader DataReader { get; set; }
+        public virtual DbDataReader DataReader { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the 
@@ -297,7 +297,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public DbDataAdapter GetAdapter( )
+        public virtual DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
                && SqlStatement != null )
@@ -311,8 +311,8 @@ namespace BudgetExecution
                         case Provider.OleDb:
                         case Provider.Access:
                         {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as OleDbDataAdapter;
+                            var _adapter = new AdapterFactory( SqlStatement );
+                            return _adapter?.GetAdapter( ) as OleDbDataAdapter;
                         }
                         case Provider.SQLite:
                         {

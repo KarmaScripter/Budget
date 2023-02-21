@@ -14,6 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
     public abstract class PathBase
     {
         /// <summary>
@@ -204,7 +205,7 @@ namespace BudgetExecution
             try
             {
                 if( !string.IsNullOrEmpty( filePath )
-                   && !File.Exists( filePath ) )
+                   && File.Exists( filePath ) )
                 {
                     FileInfo.CopyTo( filePath );
                 }
@@ -223,7 +224,6 @@ namespace BudgetExecution
             try
             {
                 var _file = Path.GetFullPath( Buffer );
-
                 if( !string.IsNullOrEmpty( _file )
                    && File.Exists( _file ) )
                 {
@@ -249,7 +249,6 @@ namespace BudgetExecution
             catch( IOException ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -263,7 +262,6 @@ namespace BudgetExecution
             try
             {
                 var _path = Path.GetFullPath( Buffer );
-
                 return !string.IsNullOrEmpty( _path ) && File.Exists( _path )
                     ? new FileInfo( _path )?.Create( )
                     : default;
@@ -271,7 +269,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -293,7 +290,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return string.Empty;
             }
         }
@@ -314,7 +310,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return false;
             }
         }
