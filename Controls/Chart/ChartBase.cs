@@ -16,6 +16,7 @@ namespace BudgetExecution
     /// cref="ChartControl" />
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : ChartControl
     {
         /// <summary>
@@ -109,7 +110,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Sets the title.
         /// </summary>
@@ -142,7 +143,7 @@ namespace BudgetExecution
         /// Get Error Dialog.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        protected void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             using var _error = new Error( ex );
             _error?.SetText( );

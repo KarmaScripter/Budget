@@ -47,8 +47,10 @@ namespace BudgetExecution
             this.BrowseButton = new BudgetExecution.Button();
             this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.ToolTip = new BudgetExecution.SmallTip();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ListBox
@@ -65,7 +67,7 @@ namespace BudgetExecution
             this.ListBox.HoverText = null;
             this.ListBox.IsDerivedStyle = true;
             this.ListBox.ItemHeight = 28;
-            this.ListBox.Location = new System.Drawing.Point(26, 61);
+            this.ListBox.Location = new System.Drawing.Point(40, 76);
             this.ListBox.Margin = new System.Windows.Forms.Padding(1);
             this.ListBox.MultiSelect = true;
             this.ListBox.Name = "ListBox";
@@ -78,7 +80,7 @@ namespace BudgetExecution
             this.ListBox.SelectedValue = null;
             this.ListBox.ShowBorder = false;
             this.ListBox.ShowScrollBar = false;
-            this.ListBox.Size = new System.Drawing.Size(473, 300);
+            this.ListBox.Size = new System.Drawing.Size(441, 285);
             this.ListBox.Style = MetroSet_UI.Enums.Style.Custom;
             this.ListBox.StyleManager = null;
             this.ListBox.TabIndex = 0;
@@ -100,7 +102,7 @@ namespace BudgetExecution
             this.ClearButton.HoverText = null;
             this.ClearButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.ClearButton.IsDerivedStyle = true;
-            this.ClearButton.Location = new System.Drawing.Point(158, 438);
+            this.ClearButton.Location = new System.Drawing.Point(123, 3);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.ClearButton.NormalColor = System.Drawing.Color.Transparent;
@@ -109,7 +111,7 @@ namespace BudgetExecution
             this.ClearButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClearButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClearButton.PressTextColor = System.Drawing.Color.White;
-            this.ClearButton.Size = new System.Drawing.Size(97, 31);
+            this.ClearButton.Size = new System.Drawing.Size(114, 31);
             this.ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.ClearButton.StyleManager = null;
             this.ClearButton.TabIndex = 1;
@@ -132,7 +134,7 @@ namespace BudgetExecution
             this.SelectButton.HoverText = null;
             this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(285, 438);
+            this.SelectButton.Location = new System.Drawing.Point(243, 3);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.SelectButton.NormalColor = System.Drawing.Color.Transparent;
@@ -141,7 +143,7 @@ namespace BudgetExecution
             this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.SelectButton.PressTextColor = System.Drawing.Color.White;
-            this.SelectButton.Size = new System.Drawing.Size(97, 31);
+            this.SelectButton.Size = new System.Drawing.Size(114, 31);
             this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.SelectButton.StyleManager = null;
             this.SelectButton.TabIndex = 2;
@@ -164,7 +166,7 @@ namespace BudgetExecution
             this.CloseButto.HoverText = null;
             this.CloseButto.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.CloseButto.IsDerivedStyle = true;
-            this.CloseButto.Location = new System.Drawing.Point(424, 438);
+            this.CloseButto.Location = new System.Drawing.Point(363, 3);
             this.CloseButto.Name = "CloseButto";
             this.CloseButto.NormalBorderColor = System.Drawing.Color.Transparent;
             this.CloseButto.NormalColor = System.Drawing.Color.Transparent;
@@ -173,7 +175,7 @@ namespace BudgetExecution
             this.CloseButto.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButto.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.CloseButto.PressTextColor = System.Drawing.Color.White;
-            this.CloseButto.Size = new System.Drawing.Size(97, 31);
+            this.CloseButto.Size = new System.Drawing.Size(114, 31);
             this.CloseButto.Style = MetroSet_UI.Enums.Style.Custom;
             this.CloseButto.StyleManager = null;
             this.CloseButto.TabIndex = 3;
@@ -236,7 +238,7 @@ namespace BudgetExecution
             this.BrowseButton.HoverText = null;
             this.BrowseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             this.BrowseButton.IsDerivedStyle = true;
-            this.BrowseButton.Location = new System.Drawing.Point(12, 438);
+            this.BrowseButton.Location = new System.Drawing.Point(3, 3);
             this.BrowseButton.Name = "BrowseButton";
             this.BrowseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             this.BrowseButton.NormalColor = System.Drawing.Color.Transparent;
@@ -245,7 +247,7 @@ namespace BudgetExecution
             this.BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.BrowseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.BrowseButton.PressTextColor = System.Drawing.Color.White;
-            this.BrowseButton.Size = new System.Drawing.Size(97, 31);
+            this.BrowseButton.Size = new System.Drawing.Size(114, 31);
             this.BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
             this.BrowseButton.StyleManager = null;
             this.BrowseButton.TabIndex = 6;
@@ -278,6 +280,17 @@ namespace BudgetExecution
             this.ToolTip.TipText = null;
             this.ToolTip.TipTitle = null;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.BrowseButton);
+            this.flowLayoutPanel1.Controls.Add(this.ClearButton);
+            this.flowLayoutPanel1.Controls.Add(this.SelectButton);
+            this.flowLayoutPanel1.Controls.Add(this.CloseButto);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 423);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(487, 36);
+            this.flowLayoutPanel1.TabIndex = 7;
+            // 
             // GuidanceDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -292,12 +305,9 @@ namespace BudgetExecution
             this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(523, 471);
-            this.Controls.Add(this.BrowseButton);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.HeaderLabel);
             this.Controls.Add(this.Picture);
-            this.Controls.Add(this.CloseButto);
-            this.Controls.Add(this.SelectButton);
-            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.ListBox);
             this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.LightGray;
@@ -310,6 +320,7 @@ namespace BudgetExecution
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -328,5 +339,6 @@ namespace BudgetExecution
         private Button BrowseButton;
         public System.Windows.Forms.OpenFileDialog OpenFileDialog;
         public Picture Picture;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

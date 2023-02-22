@@ -374,7 +374,7 @@
             // 
             // Darkmode
             // 
-            this.Darkmode.CustomTheme = "C:\\Users\\teppler\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            this.Darkmode.CustomTheme = "C:\\Users\\terry\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
             this.Darkmode.MetroForm = this;
             this.Darkmode.Style = MetroSet_UI.Enums.Style.Custom;
             this.Darkmode.ThemeAuthor = "Terry D. Eppler";

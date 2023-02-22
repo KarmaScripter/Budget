@@ -154,7 +154,7 @@ namespace BudgetExecution
             HeaderLabel.FlatStyle = FlatStyle.Flat;
 
             // Picture Properties
-            Picture.Size = new Size( 22, 24  );
+            Picture.Size = new Size( 22, 22  );
             Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             
             // File Dialog Properties

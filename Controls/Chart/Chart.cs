@@ -169,6 +169,33 @@ namespace BudgetExecution
             ChartArea.BorderStyle = BorderStyle.None;
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
 
+            // Legend Properties
+            Legend.Font = new Font( "Roboto", 8 );
+            Legend.ItemsSize = new Size( 10, 10 );
+            Legend.VisibleCheckBox = true;
+            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+            Legend.ItemsAlignment = StringAlignment.Center;
+            Legend.ItemsTextAligment = VerticalAlignment.Center;
+            Legend.Orientation = ChartOrientation.Vertical;
+            Legend.FloatingAutoSize = true;
+            Legend.ShowSymbol = true;
+            Legend.ShowItemsShadow = true;
+            Legend.ShowBorder = false;
+            Legend.Visible = true;
+            
+            // Title Properties
+            Title.Font = new Font( "Roboto", 12 );
+            Title.BackColor = Color.FromArgb( 20, 20, 20 );
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            
+            // Toolbar Properties
+            ToolBar.Orientation = ChartOrientation.Horizontal;
+            ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.Position = ChartDock.Floating;
+            ToolBar.ShowGrip = false;
+            ToolBar.ShowBorder = false;
+            
             //ChartSeries Properties
             DropSeriesPoints = false;
             AddRandomSeries = true;
@@ -183,6 +210,7 @@ namespace BudgetExecution
             ElementsSpacing = 10;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
             ColumnFixedWidth = 20;
+            ShowLegend = true;
 
             //Chart Appearance Setting
             Palette = ChartColorPalette.Metro;
@@ -199,34 +227,6 @@ namespace BudgetExecution
             Tilt = 5;
             ScrollPrecision = 100;
             RadarStyle = ChartRadarAxisStyle.Polygon;
-
-            //Chart Legend Setting;
-            ShowLegend = true;
-            Legend.Font = new Font( "Roboto", 8 );
-            Legend.ItemsSize = new Size( 10, 10 );
-            Legend.VisibleCheckBox = true;
-            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-            Legend.ItemsAlignment = StringAlignment.Center;
-            Legend.ItemsTextAligment = VerticalAlignment.Center;
-            Legend.Orientation = ChartOrientation.Vertical;
-            Legend.FloatingAutoSize = true;
-            Legend.ShowSymbol = true;
-            Legend.ShowItemsShadow = true;
-            Legend.ShowBorder = false;
-            Legend.Visible = true;
-
-            // Title ("Title") Properties
-            Title.Font = new Font( "Roboto", 12 );
-            Title.BackColor = Color.FromArgb( 20, 20, 20 );
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-
-            // Toolbar Properties
-            ToolBar.Orientation = ChartOrientation.Horizontal;
-            ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.Position = ChartDock.Floating;
-            ToolBar.ShowGrip = false;
-            ToolBar.ShowBorder = false;
         }
 
         /// <summary>

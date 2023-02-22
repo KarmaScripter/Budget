@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// The image path
         /// </summary>
         public string ImagePath =
-            @"C:\Users\teppler\source\repos\Budget\Resources\Images\Loader\Loading.gif";
+            @"C:\Users\terry\source\repos\Budget\Resources\Images\Loader\Loading.gif";
 
         /// <summary>
         /// Gets or sets the picture.
@@ -49,12 +49,12 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Form Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             BackColor = Color.Black;
             CaptionBarColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Image Configuration
