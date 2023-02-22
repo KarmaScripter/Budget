@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// The image path
         /// </summary>
         public string ImagePath =
-            @"C:\Users\terry\source\repos\Budget\Resources\Images\Loader\Loading.gif";
+            @"C:\Users\teppler\source\repos\Budget\Resources\Images\Loader\Loading.gif";
 
         /// <summary>
         /// Gets or sets the picture.

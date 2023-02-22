@@ -31,13 +31,21 @@ namespace BudgetExecution
         public string BFY { get; set; }
 
         /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public string EFY { get; set; }
+
+        /// <summary>
         /// Gets or sets the fund code.
         /// </summary>
         /// <value>
         /// The fund code.
         /// </value>
         public string FundCode { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the name of the fund.
         /// </summary>
@@ -47,13 +55,21 @@ namespace BudgetExecution
         public string FundName { get; set; }
 
         /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+
+        /// <summary>
         /// Gets or sets the amount.
         /// </summary>
         /// <value>
         /// The amount.
         /// </value>
         public double Amount { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -63,18 +79,18 @@ namespace BudgetExecution
         public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the record.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The record.
         /// </value>
         public DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
@@ -83,6 +99,7 @@ namespace BudgetExecution
         /// </summary>
         public AnnualReimbursableSurvey( )
         {
+            Source = Source.AnnualReimbursableSurvey;
         }
 
         /// <summary>
@@ -93,6 +110,13 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualReimbursableSurveyId" ].ToString(  ) ?? "0" );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -103,6 +127,13 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualReimbursableSurveyId" ].ToString(  ) ?? "0" );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -113,6 +144,13 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "AnnualReimbursableSurveyId" ].ToString(  ) ?? "0" );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
         }
     }
 }

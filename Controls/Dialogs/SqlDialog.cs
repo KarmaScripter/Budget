@@ -94,7 +94,7 @@ namespace BudgetExecution
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";
-            DatabaseDirectory = @"C:\Users\terry\source\repos\Budget\Data\Database\";
+            DatabaseDirectory = @"C:\Users\teppler\source\repos\Budget\Data\Database\";
             
             // Event Wiring
             ThirdButton.Click += OnCloseButtonClicked;

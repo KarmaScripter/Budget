@@ -158,6 +158,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualCarryoverEstimatesId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -180,6 +181,7 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualCarryoverEstimatesId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -201,7 +203,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualCarryoverEstimatesId" ].ToString(  ) ?? "0" );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );

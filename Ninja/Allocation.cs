@@ -258,6 +258,7 @@ namespace BudgetExecution
         /// </summary>
         public Allocation( )
         {
+            Source = Source.Allocations;
         }
 
         /// <summary>
@@ -269,6 +270,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AllocationsId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -303,6 +305,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AllocationsId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -338,6 +341,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary(  );
+            ID = int.Parse( Record[ "Allocations" ].ToString(  ) ?? "0" );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -369,6 +373,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, map )?.Record;
             Data = Record.ToDictionary(  );
+            ID = int.Parse( Record[ "Allocations" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
