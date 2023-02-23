@@ -53,14 +53,6 @@ namespace BudgetExecution
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Gets the rc.
-        /// </summary>
-        /// <value>
-        /// The rc.
-        /// </value>
-        public RC RC { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ResponsibilityCenter" /> class.
         /// </summary>
@@ -81,7 +73,6 @@ namespace BudgetExecution
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
-            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -96,7 +87,6 @@ namespace BudgetExecution
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
-            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -112,7 +102,6 @@ namespace BudgetExecution
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
-            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>
@@ -127,7 +116,6 @@ namespace BudgetExecution
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
-            RC = (RC)Enum.Parse( typeof( RC ), Name );
         }
 
         /// <summary>

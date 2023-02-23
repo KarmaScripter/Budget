@@ -11,9 +11,10 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class OperatingPlan : PRC
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    public class OperatingPlan : Allocation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -22,6 +23,38 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public override int ID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public override string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public override string EFY  { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
+        public override string FundCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -40,22 +73,6 @@ namespace BudgetExecution
         public override string RpioName { get; set; }
 
         /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
-        /// <summary>
         /// Gets or sets the ah code.
         /// </summary>
         /// <value>
@@ -64,12 +81,28 @@ namespace BudgetExecution
         public override string AhCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the fund code.
+        /// Gets or sets the name of the ah.
         /// </summary>
         /// <value>
-        /// The fund code.
+        /// The name of the ah.
         /// </value>
-        public override string FundCode { get; set; }
+        public override string AhName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
+        public override string AppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
+        public  override string AppropriationName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -80,6 +113,14 @@ namespace BudgetExecution
         public override string OrgCode { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the org.
+        /// </summary>
+        /// <value>
+        /// The name of the org.
+        /// </value>
+        public override string OrgName { get; set; }
+
+        /// <summary>
         /// Gets or sets the account code.
         /// </summary>
         /// <value>
@@ -88,12 +129,36 @@ namespace BudgetExecution
         public override string AccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the rc code.
+        /// Gets or sets the program project code.
         /// </summary>
         /// <value>
-        /// The rc code.
+        /// The program project code.
         /// </value>
-        public override string RcCode { get; set; }
+        public override string ProgramProjectCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
+        public override string ProgramProjectName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rpio activity code.
+        /// </summary>
+        /// <value>
+        /// The rpio activity code.
+        /// </value>
+        public override string RpioActivityCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the rpio activity.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio activity.
+        /// </value>
+        public override string RpioActivityName { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -117,64 +182,8 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
-
-        /// <summary>
-        /// Gets or sets it project code.
-        /// </summary>
-        /// <value>
-        /// It project code.
-        /// </value>
-        public string ITProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the project code.
-        /// </summary>
-        /// <value>
-        /// The project code.
-        /// </value>
-        public string ProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the project.
-        /// </summary>
-        /// <value>
-        /// The name of the project.
-        /// </value>
-        public string ProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public override string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the project type.
-        /// </summary>
-        /// <value>
-        /// The name of the project type.
-        /// </value>
-        public string ProjectTypeName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the project type code.
-        /// </summary>
-        /// <value>
-        /// The project type code.
-        /// </value>
-        public string ProjectTypeCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public override string ProgramProjectCode { get; set; }
-
+        public override double Amount { get; set; }
+        
         /// <summary>
         /// Gets or sets the program area code.
         /// </summary>
@@ -182,86 +191,6 @@ namespace BudgetExecution
         /// The program area code.
         /// </value>
         public override string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public override string NpmName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
-        public override string AhName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public override string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the org.
-        /// </summary>
-        /// <value>
-        /// The name of the org.
-        /// </value>
-        public override string OrgName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rc.
-        /// </summary>
-        /// <value>
-        /// The name of the rc.
-        /// </value>
-        public override string RcName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public override string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the activity code.
-        /// </summary>
-        /// <value>
-        /// The activity code.
-        /// </value>
-        public override string ActivityCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the activity.
-        /// </summary>
-        /// <value>
-        /// The name of the activity.
-        /// </value>
-        public override string ActivityName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the local code.
-        /// </summary>
-        /// <value>
-        /// The local code.
-        /// </value>
-        public string LocalCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the local code.
-        /// </summary>
-        /// <value>
-        /// The name of the local code.
-        /// </value>
-        public string LocalCodeName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program area.
@@ -272,20 +201,12 @@ namespace BudgetExecution
         public override string ProgramAreaName { get; set; }
 
         /// <summary>
-        /// Gets or sets the cost area code.
+        /// Gets or sets the NPM code.
         /// </summary>
         /// <value>
-        /// The cost area code.
+        /// The NPM code.
         /// </value>
-        public string CostAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the cost area.
-        /// </summary>
-        /// <value>
-        /// The name of the cost area.
-        /// </value>
-        public string CostAreaName { get; set; }
+        public override string NpmCode { get; set; }
 
         /// <summary>
         /// Gets or sets the goal code.
@@ -317,29 +238,49 @@ namespace BudgetExecution
         /// <value>
         /// The name of the objective.
         /// </value>
-        public override string ObjectiveName { get; set; }
+        public override string ObjectiveName  { get; set; }
 
         /// <summary>
-        /// Gets or sets the source.
+        /// Gets or sets the treasury agency code.
         /// </summary>
         /// <value>
-        /// The source.
+        /// The treasury agency code.
         /// </value>
-        public override Source Source { get; set; }
+        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
-        /// Gets or sets the Record property.
+        /// Gets or sets the treasury account code.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The treasury account code.
         /// </value>
+        public override string TreasuryAccountCode { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public override string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public override string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// </summary>
         public override DataRow Record { get; set; }
 
         /// <summary>
-        /// Gets the arguments.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The arguments.
+        /// The data.
         /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
@@ -358,6 +299,34 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
+            NpmName = Record[ "NpmName" ].ToString(  );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -368,6 +337,34 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
+            NpmName = Record[ "NpmName" ].ToString(  );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -378,6 +375,34 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            AhCode = dataRow[ "AhCode" ].ToString( );
+            AhName = dataRow[ "AhName" ].ToString( );
+            OrgCode = dataRow[ "OrgCode" ].ToString( );
+            OrgName = dataRow[ "OrgName" ].ToString( );
+            AccountCode = dataRow[ "AccountCode" ].ToString( );
+            BocCode = dataRow[ "BocCode" ].ToString( );
+            BocName = dataRow[ "BocName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            NpmCode = dataRow[ "NpmCode" ].ToString(  );
+            NpmName = dataRow[ "NpmName" ].ToString(  );
+            GoalCode = dataRow[ "GoalCode" ].ToString( );
+            GoalName = dataRow[ "GoalName" ].ToString( );
+            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
         }
     }
 }

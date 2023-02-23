@@ -15,6 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class Allocation : PRC
     {
         /// <summary>
@@ -95,7 +96,7 @@ namespace BudgetExecution
         /// <value>
         /// The appropriation code.
         /// </value>
-        public string AppropriationCode { get; set; }
+        public virtual string AppropriationCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the appropriation.
@@ -103,7 +104,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the appropriation.
         /// </value>
-        public string AppropriationName { get; set; }
+        public virtual string AppropriationName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -151,7 +152,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio activity code.
         /// </value>
-        public string RpioActivityCode { get; set; }
+        public virtual string RpioActivityCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio activity.
@@ -159,7 +160,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio activity.
         /// </value>
-        public string RpioActivityName { get; set; }
+        public virtual string RpioActivityName { get; set; }
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -183,7 +184,7 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public virtual double Amount { get; set; }
         
         /// <summary>
         /// Gets or sets the program area code.
@@ -247,7 +248,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury agency code.
         /// </value>
-        public string TreasuryAccountName { get; set; }
+        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -255,7 +256,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
         
         /// <summary>
         /// Gets or sets the budget account code.
@@ -263,7 +264,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -271,7 +272,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public string BudgetAccountName { get; set; }
+        public override string BudgetAccountName { get; set; }
 
         /// <summary>
         /// </summary>

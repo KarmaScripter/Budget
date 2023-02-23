@@ -17,7 +17,7 @@ namespace BudgetExecution
         /// <summary>
         /// The boc manual
         /// </summary>
-        BocManual,
+        ObjectClassManual,
 
         /// <summary>
         /// The cf R31

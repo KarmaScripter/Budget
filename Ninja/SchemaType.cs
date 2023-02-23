@@ -51,6 +51,7 @@ namespace BudgetExecution
         /// </summary>
         public SchemaType( )
         {
+            Source = Source.SchemaTypes;
         }
 
         /// <summary>

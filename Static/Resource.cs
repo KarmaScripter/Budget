@@ -103,87 +103,9 @@ namespace BudgetExecution
         public static readonly string ToolStripImages = AppSettings[ "ToolStripImages" ];
 
         /// <summary>
-        /// The object class sources
-        /// </summary>
-        public static readonly Source[ ] ObjectClassSources =
-        {
-            Source.PayrollAuthority
-        };
-
-        /// <summary>
         /// The chart types
         /// </summary>
         public static readonly string[ ] ChartTypes = Enum.GetNames( typeof( ChartType ) );
-
-        /// <summary>
-        /// The reference sources
-        /// </summary>
-        public static readonly Source[ ] ReferenceSources =
-        {
-            Source.Accounts,
-            Source.AccountingEvents,
-            Source.ActivityCodes,
-            Source.AllowanceHolders,
-            Source.Appropriations,
-            Source.BudgetObjectClasses,
-            Source.CostAreas,
-            Source.FinanceObjectClasses,
-            Source.Funds,
-            Source.Goals,
-            Source.HumanResourceOrganizations,
-            Source.NationalPrograms,
-            Source.Objectives,
-            Source.Organizations,
-            Source.ResourcePlanningOffices,
-            Source.ProgramAreas,
-            Source.Projects,
-            Source.ProgramProjects,
-            Source.Providers,
-            Source.ResponsibilityCenters,
-            Source.WorkCodes,
-            Source.FiscalYears
-        };
-
-        /// <summary>
-        /// The authority sources
-        /// </summary>
-        public static readonly Source[ ] AuthoritySources =
-        {
-            Source.Allocations,
-            Source.ApportionmentData,
-            Source.AppropriationDocuments,
-            Source.BudgetDocuments,
-            Source.BudgetControls,
-            Source.HeadquartersAuthority,
-            Source.PayrollAuthority,
-            Source.RegionalAuthority,
-            Source.Reprogrammings,
-            Source.ReimbursableAgreements,
-            Source.ReimbursableFunds,
-            Source.SuperfundSites,
-            Source.SpecialAccounts,
-            Source.Transfers,
-            Source.UnobligatedAuthority
-        };
-
-        /// <summary>
-        /// The obligation sources
-        /// </summary>
-        public static readonly Source[ ] ObligationSources =
-        {
-            Source.BudgetOutlays,
-            Source.CarryoverOutlays,
-            Source.MonthlyOutlays,
-            Source.ProjectCostCodes,
-            Source.PayrollCostCodes,
-            Source.PayrollActivity,
-            Source.Obligations,
-            Source.Deobligations,
-            Source.SiteActivity,
-            Source.DocumentControlNumbers,
-            Source.ProjectCostCodes,
-            Source.SiteProjectCodes
-        };
 
         /// <summary>
         /// The sources
