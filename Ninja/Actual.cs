@@ -325,7 +325,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0"  );;
+            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0"  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );

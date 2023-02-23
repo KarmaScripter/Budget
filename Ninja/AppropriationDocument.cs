@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class AppropriationDocument : DataUnit
     {
         /// <summary>
@@ -197,7 +198,7 @@ namespace BudgetExecution
         /// <value>
         /// The carry out.
         /// </value>
-        public double CarryOut { get; set; }
+        public double CarryoverOut { get; set; }
 
         /// <summary>
         /// Gets or sets the carry in.
@@ -205,7 +206,7 @@ namespace BudgetExecution
         /// <value>
         /// The carry in.
         /// </value>
-        public double CarryIn { get; set; }
+        public double CarryoverIn { get; set; }
 
         /// <summary>
         /// Gets or sets the estimated reimbursements.
@@ -254,6 +255,7 @@ namespace BudgetExecution
         /// </summary>
         public AppropriationDocument( )
         {
+            Source = Source.AppropriationDocuments;
         }
 
         /// <summary>
@@ -264,6 +266,33 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString(  ) ?? "0" );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Fund = Record[ "Fund" ].ToString( );
+            FundCode = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString(  );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString(  );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString(  ) ?? "" );
+            LastDocumentDate = DateOnly.Parse( Record[ "LastDocumentDate" ].ToString(  ) ?? "" );
+            BudgetingControls = Record[ "BudgetingControls" ].ToString(  );
+            PostingControls = Record[ "PostingControls" ].ToString(  );
+            PreCommitmentControls = Record[ "PreCommitmentControls" ].ToString(  );
+            CommitmentControls = Record[ "CommitmentControls" ].ToString(  );
+            ObligationControls = Record[ "ObligationControls" ].ToString(  );
+            AccrualControls = Record[ "AccrualControls" ].ToString(  );
+            ExpenseControls = Record[ "ExpenseControls" ].ToString(  );
+            ExpenditureControls = Record[ "ExpenditureControls" ].ToString(  );
+            ReimbursementControls = Record[ "ReimbursementControls" ].ToString(  );
+            ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString(  );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
+            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) );
+            EstimatedRecoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) );
+            EstimatedReimbursements =
+                double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) );
         }
 
         /// <summary>
@@ -274,6 +303,33 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString(  ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Fund = Record[ "Fund" ].ToString( );
+            FundCode = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString(  );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString(  );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString(  ) ?? "" );
+            LastDocumentDate = DateOnly.Parse( Record[ "LastDocumentDate" ].ToString(  ) ?? "" );
+            BudgetingControls = Record[ "BudgetingControls" ].ToString(  );
+            PostingControls = Record[ "PostingControls" ].ToString(  );
+            PreCommitmentControls = Record[ "PreCommitmentControls" ].ToString(  );
+            CommitmentControls = Record[ "CommitmentControls" ].ToString(  );
+            ObligationControls = Record[ "ObligationControls" ].ToString(  );
+            AccrualControls = Record[ "AccrualControls" ].ToString(  );
+            ExpenseControls = Record[ "ExpenseControls" ].ToString(  );
+            ExpenditureControls = Record[ "ExpenditureControls" ].ToString(  );
+            ReimbursementControls = Record[ "ReimbursementControls" ].ToString(  );
+            ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString(  );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
+            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) );
+            EstimatedRecoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) );
+            EstimatedReimbursements =
+                double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) );
         }
 
         /// <summary>
@@ -284,6 +340,33 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "AppropriationDocumentsId" ].ToString(  ) ?? "0" );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString(  );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            Fund = dataRow[ "Fund" ].ToString( );
+            FundCode = dataRow[ "FundName" ].ToString( );
+            DocumentType = dataRow[ "DocumentType" ].ToString(  );
+            DocumentNumber = dataRow[ "DocumentNumber" ].ToString(  );
+            DocumentDate = DateOnly.Parse( dataRow[ "DocumentDate" ].ToString(  ) ?? "" );
+            LastDocumentDate = DateOnly.Parse( dataRow[ "LastDocumentDate" ].ToString(  ) ?? "" );
+            BudgetingControls = dataRow[ "BudgetingControls" ].ToString(  );
+            PostingControls = dataRow[ "PostingControls" ].ToString(  );
+            PreCommitmentControls = dataRow[ "PreCommitmentControls" ].ToString(  );
+            CommitmentControls = dataRow[ "CommitmentControls" ].ToString(  );
+            ObligationControls = dataRow[ "ObligationControls" ].ToString(  );
+            AccrualControls = dataRow[ "AccrualControls" ].ToString(  );
+            ExpenseControls = dataRow[ "ExpenseControls" ].ToString(  );
+            ExpenditureControls = dataRow[ "ExpenditureControls" ].ToString(  );
+            ReimbursementControls = dataRow[ "ReimbursementControls" ].ToString(  );
+            ReimbursableAgreementControls = dataRow[ "ReimbursementAgreementControls" ].ToString(  );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) );
+            CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) );
+            CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) );
+            EstimatedRecoveries = double.Parse( dataRow[ "EstimatedRecoveries" ].ToString(  ) );
+            EstimatedReimbursements =
+                double.Parse( dataRow[ "EstimatedReimbursements" ].ToString(  ) );
         }
     }
 }
