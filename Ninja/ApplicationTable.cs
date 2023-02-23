@@ -67,6 +67,7 @@ namespace BudgetExecution
         /// </summary>
         public ApplicationTable( )
         {
+            Source = Source.ApplicationTables;
         }
 
         /// <summary>
@@ -77,6 +78,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ApplicationTablesId" ].ToString(  ) ?? "0" );
+            TableName = Record[ "TableName" ].ToString(  );
+            Model = Record[ "Model" ].ToString(  );
         }
 
         /// <summary>
@@ -87,6 +91,9 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ApplicationTablesId" ].ToString(  ) ?? "0" );
+            TableName = Record[ "TableName" ].ToString(  );
+            Model = Record[ "Model" ].ToString(  );
         }
 
         /// <summary>
@@ -97,6 +104,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "ApplicationTablesId" ].ToString(  ) ?? "0" );
+            TableName = dataRow[ "TableName" ].ToString(  );
+            Model = dataRow[ "Model" ].ToString(  );
         }
     }
 }
