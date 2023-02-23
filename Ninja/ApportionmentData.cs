@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class ApportionmentData : DataUnit
     {
         /// <summary>
@@ -53,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury appropriation fund symbol.
         /// </value>
-        public string TreasuryAppropriationFundSymbol { get; set; }
+        public string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the treasury appropriation fund symbol.
@@ -61,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury appropriation fund symbol.
         /// </value>
-        public string TreasuryAppropriationFundSymbolName { get; set; }
+        public string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the apportionment account code.
@@ -164,6 +165,7 @@ namespace BudgetExecution
         /// </summary>
         public ApportionmentData( )
         {
+            Source = Source.ApportionmentData;
         }
 
         /// <summary>
@@ -174,6 +176,18 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString(  );
+            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString(  );
+            AvailabilityType = Record[ "AvailabilityType" ].ToString(  );
+            LineNumber = Record[ "LineNumber" ].ToString(  );
+            LineName = Record[ "LineName" ].ToString(  );
+            Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -184,6 +198,18 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString(  );
+            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString(  );
+            AvailabilityType = Record[ "AvailabilityType" ].ToString(  );
+            LineNumber = Record[ "LineNumber" ].ToString(  );
+            LineName = Record[ "LineName" ].ToString(  );
+            Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -194,6 +220,18 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString(  );
+            ApportionmentAccountName = dataRow[ "ApportionmentAccountName" ].ToString(  );
+            AvailabilityType = dataRow[ "AvailabilityType" ].ToString(  );
+            LineNumber = dataRow[ "LineNumber" ].ToString(  );
+            LineName = dataRow[ "LineName" ].ToString(  );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) ?? "0" );
         }
     }
 }

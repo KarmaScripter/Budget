@@ -92,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The total authority.
         /// </value>
-        public double TotalAuthority { get; set; }
+        public double Authority { get; set; }
 
         /// <summary>
         /// Gets or sets the budgeted.
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The carry over.
         /// </value>
-        public double CarryOver { get; set; }
+        public double Carryover { get; set; }
 
         /// <summary>
         /// Gets or sets the total reimbursements.
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The total reimbursements.
         /// </value>
-        public double TotalReimbursements { get; set; }
+        public double Reimbursements { get; set; }
 
         /// <summary>
         /// Gets or sets the total recoveries.
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The total recoveries.
         /// </value>
-        public double TotalRecoveries { get; set; }
+        public double Recoveries { get; set; }
 
         /// <summary>
         /// Gets or sets the total used.
@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// <value>
         /// The total used.
         /// </value>
-        public double TotalUsed { get; set; }
+        public double Used { get; set; }
 
         /// <summary>
         /// Gets or sets the total available.
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The total available.
         /// </value>
-        public double TotalAvailable { get; set; }
+        public double Available { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -171,6 +171,7 @@ namespace BudgetExecution
         /// </summary>
         public AppropriationAvailableBalance( )
         {
+            Source = Source.AppropriationAvailableBalances;
         }
 
         /// <summary>
@@ -181,6 +182,21 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
+            Carryover = double.Parse( Record[ "Carryover" ].ToString(  ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString(  ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -191,6 +207,21 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
+            Carryover = double.Parse( Record[ "Carryover" ].ToString(  ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString(  ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -201,6 +232,21 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            Authority = double.Parse( dataRow[ "Authority" ].ToString(  ) ?? "0" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) ?? "0" );
+            Carryover = double.Parse( dataRow[ "Carryover" ].ToString(  ) ?? "0" );
+            Reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString(  ) ?? "0" );
+            Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString(  ) ?? "0" );
+            Used = double.Parse( dataRow[ "Used" ].ToString(  ) ?? "0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString(  ) ?? "0" );
         }
     }
 }
