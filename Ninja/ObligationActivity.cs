@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.

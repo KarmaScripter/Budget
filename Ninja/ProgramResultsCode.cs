@@ -30,6 +30,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class ProgramResultsCode : PRC, IProgramResultsCode
     {
         /// <summary>
@@ -350,7 +351,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramResultsCode"/> class.
         /// </summary>
-        /// <param name = "builder" >
+        /// <param name = "dataBuilder" >
         /// The builder.
         /// </param>
         public ProgramResultsCode( IDataModel dataBuilder )

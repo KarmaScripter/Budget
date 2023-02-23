@@ -124,10 +124,49 @@ namespace BudgetExecution
                 var _app = ConfigurationManager.AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
-
                 if( !string.IsNullOrEmpty( _app ) )
                 {
                     _startInfo.FileName = _app;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        public static void LaunchEdge( )
+        {
+            try
+            {
+                var _path = "";
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
+                }
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        public static void LaunchChrome( )
+        {
+            try
+            {
+                var _path = "";
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.UseShellExecute = true;
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    _startInfo.FileName = _path;
                 }
 
                 Process.Start( _startInfo );
