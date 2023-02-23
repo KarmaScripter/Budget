@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <value>
         /// The estimated recoveries.
         /// </value>
-        public double EstimatedRecoveries { get; set; }
+        public double Recoveries { get; set; }
 
         /// <summary>
         /// Gets or sets the estimated reimbursements.
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <value>
         /// The estimated reimbursements.
         /// </value>
-        public double EstimatedReimbursements  { get; set; }
+        public double Reimbursements  { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -182,6 +182,14 @@ namespace BudgetExecution
             FundName = Record[ "FundName" ].ToString( );
             DocumentType = Record[ "DocumentType" ].ToString(  );
             DocumentNumber = Record[ "DocumentNumber" ].ToString(  );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString(  ) ?? "" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
+            Reimbursements = 
+                double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -192,6 +200,20 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString(  );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString(  );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString(  ) ?? "" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
+            Reimbursements = 
+                double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -202,6 +224,20 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            DocumentType = dataRow[ "DocumentType" ].ToString(  );
+            DocumentNumber = dataRow[ "DocumentNumber" ].ToString(  );
+            DocumentDate = DateOnly.Parse( dataRow[ "DocumentDate" ].ToString(  ) ?? "" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) ?? "0" );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) ?? "0" );
+            CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( dataRow[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
+            Reimbursements = 
+                double.Parse( dataRow[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
         }
     }
 }
