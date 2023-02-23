@@ -250,7 +250,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -258,7 +258,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public string BudgetAccountName { get; set; }
+        public override string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury agency code.
@@ -266,7 +266,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury agency code.
         /// </value>
-        public string TreasuryAccountName { get; set; }
+        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -274,7 +274,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// </summary>

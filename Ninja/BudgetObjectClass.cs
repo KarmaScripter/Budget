@@ -47,7 +47,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public override Source Source { get; set; } =  Source.BudgetObjectClasses;
+        public override Source Source { get; set; } 
 
         /// <summary>
         /// Gets the Data.
@@ -99,6 +99,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetObjectClass( )
         {
+            Source = Source.BudgetObjectClasses;
         }
 
         /// <summary>

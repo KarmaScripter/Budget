@@ -204,6 +204,7 @@ namespace BudgetExecution
         /// </summary>
         public CarryoverApportionment( )
         {
+            Source = Source.CarryoverApportionments;
         }
 
         /// <summary>

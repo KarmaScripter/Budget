@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -12,6 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class CompassOutlay
     {
         /// <summary>
@@ -109,55 +111,7 @@ namespace BudgetExecution
         /// The name of the budget account.
         /// </value>
         public string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
-        public string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        public string BocName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the month processed.
         /// </summary>
@@ -219,6 +173,7 @@ namespace BudgetExecution
         /// </summary>
         public CompassOutlay( )
         {
+            Source = Source.CompassOutlays;
         }
 
         /// <summary>
@@ -229,6 +184,21 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString(  ) );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -239,6 +209,21 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString(  ) );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
         }
 
         /// <summary>
@@ -249,6 +234,21 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString(  ) );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
+            UnliquidatedObligations =
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
         }
     }
 }
