@@ -245,6 +245,38 @@ namespace BudgetExecution
         public override string ObjectiveName  { get; set; }
 
         /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury agency code.
+        /// </summary>
+        /// <value>
+        /// The treasury agency code.
+        /// </value>
+        public string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+
+        /// <summary>
         /// </summary>
         public override Source Source { get; set; } = Source.Actuals;
 
@@ -314,6 +346,10 @@ namespace BudgetExecution
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -354,6 +390,10 @@ namespace BudgetExecution
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
         
         /// <summary>
@@ -394,6 +434,10 @@ namespace BudgetExecution
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
         }
     }
 }

@@ -225,6 +225,38 @@ namespace BudgetExecution
         public double EstimatedRecoveries { get; set; }
 
         /// <summary>
+        /// Gets or sets the treasury agency code.
+        /// </summary>
+        /// <value>
+        /// The treasury agency code.
+        /// </value>
+        public string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public string BudgetAccountName { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -293,6 +325,11 @@ namespace BudgetExecution
             EstimatedRecoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) );
             EstimatedReimbursements =
                 double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) );
+            
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -330,6 +367,11 @@ namespace BudgetExecution
             EstimatedRecoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) );
             EstimatedReimbursements =
                 double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) );
+            
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -367,6 +409,11 @@ namespace BudgetExecution
             EstimatedRecoveries = double.Parse( dataRow[ "EstimatedRecoveries" ].ToString(  ) );
             EstimatedReimbursements =
                 double.Parse( dataRow[ "EstimatedReimbursements" ].ToString(  ) );
+            
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
         }
     }
 }
