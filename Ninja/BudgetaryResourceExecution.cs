@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -13,6 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class BudgetaryResourceExecution
     {
         /// <summary>
@@ -53,7 +55,7 @@ namespace BudgetExecution
         /// <value>
         /// The last update.
         /// </value>
-        public string LastUpdate { get; set; }
+        public DateOnly LastUpdate { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury symbol.
@@ -61,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury symbol.
         /// </value>
-        public string TreasurySymbol { get; set; }
+        public string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the omb account.
@@ -69,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The omb account.
         /// </value>
-        public string OmbAccount { get; set; }
+        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury agency code.
@@ -77,7 +79,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury agency code.
         /// </value>
-        public string TreasuryAgencyCode { get; set; }
+        public string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -246,22 +248,6 @@ namespace BudgetExecution
         /// The amount4.
         /// </value>
         public double Amount4 { get; set; }
-
-        /// <summary>
-        /// Gets or sets the agency.
-        /// </summary>
-        /// <value>
-        /// The agency.
-        /// </value>
-        public string Agency { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bureau.
-        /// </summary>
-        /// <value>
-        /// The bureau.
-        /// </value>
-        public string Bureau { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -292,6 +278,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetaryResourceExecution( )
         {
+            Source = Source.BudgetaryResourceExecution;
         }
 
         /// <summary>
@@ -302,6 +289,34 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            FiscalYear = Record[ "FiscalYear" ].ToString(  );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            LastUpdate = DateOnly.Parse( Record[ "LastUpdate" ].ToString(  ) ?? "" );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            STAT = Record[ "STAT" ].ToString(  );
+            CreditIndicator = Record[ "CreditIndicator" ].ToString(  );
+            LineNumber = Record[ "LineNumber" ].ToString(  );
+            LineDescription = Record[ "LineDescription" ].ToString(  );
+            SectionName = Record[ "SectionName" ].ToString(  );
+            SectionNumber = Record[ "SectionNumber" ].ToString(  );
+            LineType = Record[ "LineType" ].ToString(  );
+            FinancingAccounts = Record[ "FinancingAccounts" ].ToString(  );
+            November = double.Parse( Record[ "November" ].ToString(  )  );
+            January = double.Parse( Record[ "January" ].ToString(  ) );
+            February = double.Parse( Record[ "February" ].ToString(  ) );
+            April = double.Parse( Record[ "April" ].ToString(  ) );
+            May = double.Parse( Record[ " May" ].ToString(  ) );
+            June = double.Parse( Record[ "June" ].ToString(  ) );
+            August = double.Parse( Record[ "August" ].ToString(  ) );
+            October = double.Parse( Record[ "October" ].ToString(  ) );
+            Amount1 = double.Parse( Record[ "Amount1" ].ToString(  ) );
+            Amount2 = double.Parse( Record[ "Amount2" ].ToString(  ) );
+            Amount3 = double.Parse( Record[ "Amount3" ].ToString(  ) );
+            Amount4 = double.Parse( Record[ "Amount4" ].ToString(  ) );
         }
 
         /// <summary>
@@ -312,6 +327,34 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            FiscalYear = Record[ "FiscalYear" ].ToString(  );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            LastUpdate = DateOnly.Parse( Record[ "LastUpdate" ].ToString(  ) ?? "" );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            STAT = Record[ "STAT" ].ToString(  );
+            CreditIndicator = Record[ "CreditIndicator" ].ToString(  );
+            LineNumber = Record[ "LineNumber" ].ToString(  );
+            LineDescription = Record[ "LineDescription" ].ToString(  );
+            SectionName = Record[ "SectionName" ].ToString(  );
+            SectionNumber = Record[ "SectionNumber" ].ToString(  );
+            LineType = Record[ "LineType" ].ToString(  );
+            FinancingAccounts = Record[ "FinancingAccounts" ].ToString(  );
+            November = double.Parse( Record[ "November" ].ToString(  )  );
+            January = double.Parse( Record[ "January" ].ToString(  ) );
+            February = double.Parse( Record[ "February" ].ToString(  ) );
+            April = double.Parse( Record[ "April" ].ToString(  ) );
+            May = double.Parse( Record[ " May" ].ToString(  ) );
+            June = double.Parse( Record[ "June" ].ToString(  ) );
+            August = double.Parse( Record[ "August" ].ToString(  ) );
+            October = double.Parse( Record[ "October" ].ToString(  ) );
+            Amount1 = double.Parse( Record[ "Amount1" ].ToString(  ) );
+            Amount2 = double.Parse( Record[ "Amount2" ].ToString(  ) );
+            Amount3 = double.Parse( Record[ "Amount3" ].ToString(  ) );
+            Amount4 = double.Parse( Record[ "Amount4" ].ToString(  ) );
         }
 
         /// <summary>
@@ -322,6 +365,34 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            FiscalYear = dataRow[ "FiscalYear" ].ToString(  );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            LastUpdate = DateOnly.Parse( dataRow[ "LastUpdate" ].ToString(  ) ?? "" );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            STAT = dataRow[ "STAT" ].ToString(  );
+            CreditIndicator = dataRow[ "CreditIndicator" ].ToString(  );
+            LineNumber = dataRow[ "LineNumber" ].ToString(  );
+            LineDescription = dataRow[ "LineDescription" ].ToString(  );
+            SectionName = dataRow[ "SectionName" ].ToString(  );
+            SectionNumber = dataRow[ "SectionNumber" ].ToString(  );
+            LineType = dataRow[ "LineType" ].ToString(  );
+            FinancingAccounts = dataRow[ "FinancingAccounts" ].ToString(  );
+            November = double.Parse( dataRow[ "November" ].ToString(  )  );
+            January = double.Parse( dataRow[ "January" ].ToString(  ) );
+            February = double.Parse( dataRow[ "February" ].ToString(  ) );
+            April = double.Parse( dataRow[ "April" ].ToString(  ) );
+            May = double.Parse( dataRow[ " May" ].ToString(  ) );
+            June = double.Parse( dataRow[ "June" ].ToString(  ) );
+            August = double.Parse( dataRow[ "August" ].ToString(  ) );
+            October = double.Parse( dataRow[ "October" ].ToString(  ) );
+            Amount1 = double.Parse( dataRow[ "Amount1" ].ToString(  ) );
+            Amount2 = double.Parse( dataRow[ "Amount2" ].ToString(  ) );
+            Amount3 = double.Parse( dataRow[ "Amount3" ].ToString(  ) );
+            Amount4 = double.Parse( dataRow[ "Amount4" ].ToString(  ) );
         }
     }
 }
