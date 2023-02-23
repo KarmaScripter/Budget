@@ -278,7 +278,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// </summary>
-        public override Source Source { get; set; } = Source.Actuals;
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.

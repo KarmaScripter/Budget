@@ -47,6 +47,14 @@ namespace BudgetExecution
         /// <value>
         /// 
         /// </value>
+        public virtual Provider Provider { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
         public virtual DataRow Record { get; set; }
         
         /// <summary>

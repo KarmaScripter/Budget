@@ -16,6 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class StatusOfFunds : PRC
     {
         /// <summary>
@@ -275,28 +276,28 @@ namespace BudgetExecution
         public  override string NpmName { get; set; }
 
         /// <summary>
-        /// Gets or sets the treasury agency code.
-        /// </summary>
-        /// <value>
-        /// The treasury agency code.
-        /// </value>
-        public virtual string TreasuryAccountName { get; set; }
-
-        /// <summary>
         /// Gets or sets the treasury account code.
         /// </summary>
         /// <value>
         /// The treasury account code.
         /// </value>
-        public virtual string TreasuryAccountCode { get; set; }
-        
+        public  override string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury agency code.
+        /// </summary>
+        /// <value>
+        /// The treasury agency code.
+        /// </value>
+        public  override string TreasuryAccountName { get; set; }
+
         /// <summary>
         /// Gets or sets the budget account code.
         /// </summary>
         /// <value>
         /// The budget account code.
         /// </value>
-        public virtual string BudgetAccountCode { get; set; }
+        public  override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -304,7 +305,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public virtual string BudgetAccountName { get; set; }
+        public  override string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the source.

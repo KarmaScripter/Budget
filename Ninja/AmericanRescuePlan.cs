@@ -32,6 +32,14 @@ namespace BudgetExecution
         public int StatusOfFundsId { get; set; }
         
         /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public override string BFY { get; set; }
+
+        /// <summary>
         /// Gets or sets the efy.
         /// </summary>
         /// <value>
