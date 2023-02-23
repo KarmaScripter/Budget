@@ -137,6 +137,38 @@ namespace BudgetExecution
         public double Reimbursements  { get; set; }
         
         /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury agency code.
+        /// </summary>
+        /// <value>
+        /// The treasury agency code.
+        /// </value>
+        public string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public string TreasuryAccountCode { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -176,6 +208,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -190,6 +223,11 @@ namespace BudgetExecution
             Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
             Reimbursements = 
                 double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
+            
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -200,6 +238,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -214,6 +253,11 @@ namespace BudgetExecution
             Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
             Reimbursements = 
                 double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
+            
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -224,6 +268,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -238,6 +283,11 @@ namespace BudgetExecution
             Recoveries = double.Parse( dataRow[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
             Reimbursements = 
                 double.Parse( dataRow[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
+            
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
         }
     }
 }

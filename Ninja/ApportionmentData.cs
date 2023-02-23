@@ -178,10 +178,10 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString(  );
             ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString(  );
             AvailabilityType = Record[ "AvailabilityType" ].ToString(  );
