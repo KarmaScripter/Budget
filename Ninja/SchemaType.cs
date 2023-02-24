@@ -21,6 +21,22 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
+        
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        public string TypeName { get; set; }
+        
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        public string Database { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -62,6 +78,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "SchemaTypesId" ].ToString(  ) ?? "0" );
+            TypeName = Record[ "TypeName" ].ToString(  );
+            Database = Record[ "Database" ].ToString(  );
         }
 
         /// <summary>
@@ -72,6 +91,9 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "SchemaTypesId" ].ToString(  ) ?? "0" );
+            TypeName = Record[ "TypeName" ].ToString(  );
+            Database = Record[ "Database" ].ToString(  );
         }
 
         /// <summary>
@@ -82,6 +104,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "SchemaTypesId" ].ToString(  ) ?? "0" );
+            TypeName = dataRow[ "TypeName" ].ToString(  );
+            Database = dataRow[ "Database" ].ToString(  );
         }
     }
 }
