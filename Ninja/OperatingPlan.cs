@@ -298,6 +298,7 @@ namespace BudgetExecution
         public OperatingPlan( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
+            ID = int.Parse( Record[ "OperatingPlansId" ].ToString(  ) ?? "0" );
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -337,6 +338,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "OperatingPlansId" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -375,6 +377,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "OperatingPlansId" ].ToString(  ) ?? "0" );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );

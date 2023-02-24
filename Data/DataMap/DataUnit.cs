@@ -194,7 +194,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _name = dict.Keys.First( );
+                    var _name = dict.Keys?.First( );
                     var _value = dict[ _name ];
                     return _value.Equals( Code ) && _name.Equals( Name );
                 }
@@ -238,7 +238,7 @@ namespace BudgetExecution
         {
             if( dataRow != null )
             {
-                return int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty );
+                return int.Parse( dataRow[ 0 ].ToString( ) ?? "0" );
             }
             else
             {
