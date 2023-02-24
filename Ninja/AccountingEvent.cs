@@ -64,6 +64,7 @@ namespace BudgetExecution
         /// </summary>
         public AccountingEvent( )
         {
+            Source = Source.AccountingEvents;
         }
 
         /// <summary>
@@ -71,6 +72,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public AccountingEvent( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
@@ -84,6 +86,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AccountingEvent( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
@@ -97,6 +100,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AccountingEvent( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );

@@ -31,7 +31,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class ProgramResultsCode : PRC, IProgramResultsCode
+    public class ProgramResultsCode : StatusOfFunds, IProgramResultsCode
     {
         /// <summary>
         /// Gets or sets the ID.
@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// <value>
         /// double.
         /// </value>
-        public virtual double Amount { get; set; }
+        public  override double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -296,20 +296,13 @@ namespace BudgetExecution
         /// The Data.
         /// </value>
         public override IDictionary<string, object> Data { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the Data elements.
-        /// </summary>
-        /// <value>
-        /// The Data elements.
-        /// </value>
-        public IEnumerable<string> Elements { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "ProgramResultsCode"/> class.
         /// </summary>
         public ProgramResultsCode( )
         {
+            Source = Source.StatusOfFunds;
         }
 
         /// <summary>
@@ -430,18 +423,30 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, dict )?.Record;
             ID = GetId( Record, PrimaryKey.StatusOfFundsId );
-            BudgetLevel = Record[ $"{ Field.BudgetLevel }" ].ToString( );
-            BFY = Record[ $"{ Field.BFY }" ].ToString( );
-            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString( );
-            AhCode = Record[ $"{ Field.AhCode }" ].ToString( );
-            FundCode = Record[ $"{ Field.FundCode }" ].ToString( );
-            OrgCode = Record[ $"{ Field.OrgCode }" ].ToString( );
-            RcCode = Record[ $"{ Field.RcCode }" ].ToString( );
-            BocCode = Record[ $"{ Field.BocCode }" ].ToString( );
-            AccountCode = Record[ $"{ Field.AccountCode }" ].ToString( );
-            ActivityCode = Record[ $"{ Field.ActivityCode }" ].ToString( );
-            Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
-            Data = Record?.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
+            NpmName = Record[ "NpmName" ].ToString(  );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
         /// <summary>

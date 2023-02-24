@@ -66,67 +66,6 @@ namespace BudgetExecution
         public virtual IDictionary<string, object> Data { get; set; }
         
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        protected DataUnit( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="kvp">The KVP.</param>
-        protected DataUnit( KeyValuePair<string, object> kvp )
-        {
-            Name = kvp.Key;
-            Code = kvp.Value.ToString(  );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="columnName">The value.</param>
-        protected DataUnit( string name, string columnName = "" )
-        {
-            Name = name;
-            Code = columnName;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        /// <param name="columnName">The value.</param>
-        protected DataUnit( Field field, string columnName = "" )
-        {
-            Name = field.ToString( );
-            Code = columnName;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="dataRow">The Data row.</param>
-        /// <param name="columnName">The value.</param>
-        protected DataUnit( DataRow dataRow, string columnName )
-        {
-            Name = dataRow[ columnName ].ToString( );
-            Code = dataRow[ columnName ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataUnit"/> class.
-        /// </summary>
-        /// <param name="dataRow">The Data row.</param>
-        /// <param name="dataColumn">The Data column.</param>
-        protected DataUnit( DataRow dataRow, DataColumn dataColumn )
-        {
-            Name = dataColumn.ColumnName;
-            Code = dataRow[ dataColumn ].ToString( );
-        }
-
-        /// <summary>
         /// Determines whether the specified element is match.
         /// </summary>
         /// <param name="unit">The element.</param>
