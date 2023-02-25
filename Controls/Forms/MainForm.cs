@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -26,7 +26,15 @@ namespace BudgetExecution
         /// The tiles.
         /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the menu.
+        /// </summary>
+        /// <value>
+        /// The menu.
+        /// </value>
+        public ContextMenu Menu { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
@@ -57,7 +65,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
-            
+
             // Event Wiring
             ExitButton.Click += null;
             DatabaseTile.Click += OnDatabaseTileClicked;
@@ -69,6 +77,7 @@ namespace BudgetExecution
             ExitButton.Click += OnExitButtonClicked;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -85,7 +94,7 @@ namespace BudgetExecution
             {
                 Tiles = GetTiles( );
                 SetTileProperties( );
-                SetTileText(  );
+                SetTileText( );
             }
             catch( Exception ex )
             {
@@ -122,7 +131,7 @@ namespace BudgetExecution
                 return default( IEnumerable<Tile> );
             }
         }
-        
+
         /// <summary>
         /// Sets the tile titles.
         /// </summary>
@@ -133,7 +142,7 @@ namespace BudgetExecution
                 DatabaseTile.Title.Text = "Data Management";
                 DatabaseTile.Body.Text = string.Empty;
                 DatabaseTile.Banner.Text = "Tables, Schema, Records";
-                UtilityTile.Title.Text =  "Utilities";
+                UtilityTile.Title.Text = "Utilities";
                 UtilityTile.Body.Text = string.Empty;
                 UtilityTile.Banner.Text = "Calculator, Calendar, Web Browser";
                 ReportingTile.Title.Text = "Reporting";
@@ -142,7 +151,7 @@ namespace BudgetExecution
                 ClientTile.Title.Text = "DB Clients";
                 ClientTile.Body.Text = string.Empty;
                 ClientTile.Banner.Text = "SQLite, SQL Server, Access";
-                GuidanceTile.Title.Text =  "Guidance";
+                GuidanceTile.Title.Text = "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
                 WebTile.Title.Text = "Web Resource";
@@ -180,7 +189,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [database tile clicked].
         /// </summary>
@@ -208,7 +217,7 @@ namespace BudgetExecution
                 var _dataGridForm = new DataGridForm( );
                 _dataGridForm.Owner = this;
                 _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
-                _dataGridForm.Show(  );
+                _dataGridForm.Show( );
                 Visible = false;
             }
             catch( Exception ex )
@@ -228,7 +237,7 @@ namespace BudgetExecution
         {
             try
             {
-                ShowChartForm(  );
+                ShowChartForm( );
             }
             catch( Exception ex )
             {
@@ -256,7 +265,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _minion = new MinionSelector(  );
+                var _minion = new MinionSelector( );
                 _minion.ShowDialog( this );
             }
             catch( Exception ex )
@@ -264,7 +273,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [client tile clicked].
         /// </summary>
@@ -376,14 +385,34 @@ namespace BudgetExecution
             try
             {
                 var _loader = new LoadingForm( Status.Processing );
-                _loader.ShowDialog(  );
+                _loader.ShowDialog( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    Menu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

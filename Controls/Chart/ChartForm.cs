@@ -19,10 +19,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
     public partial class ChartForm : MetroForm
     {
         /// <summary>
@@ -186,6 +186,14 @@ namespace BudgetExecution
         public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
+        /// Gets or sets the menu.
+        /// </summary>
+        /// <value>
+        /// The menu.
+        /// </value>
+        public ContextMenu Menu { get; set; }
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -211,7 +219,7 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1300, 700  );
+            MinimumSize = new Size( 1300, 700 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -236,7 +244,7 @@ namespace BudgetExecution
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            
+
             // Initialize Default Provider
             Provider = Provider.Access;
 
@@ -253,7 +261,7 @@ namespace BudgetExecution
             ToolStripTextBox.ForeColor = Color.LightSteelBlue;
             ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            
+
             // Event Wiring
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -290,7 +298,7 @@ namespace BudgetExecution
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartForm"/> class.
         /// </summary>
@@ -338,17 +346,17 @@ namespace BudgetExecution
             try
             {
                 Chart.BindingSource = BindingSource;
-                SetToolStripProperties(  );
+                SetToolStripProperties( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                    Text = $"{ SelectedTable.SplitPascal( ) }";
+                    Text = $"{SelectedTable.SplitPascal( )}";
                     Chart.Title.Text = string.Empty;
                     Chart.ToolBar.Visible = false;
                     LabelTable.Visible = true;
                     TableButton.Visible = true;
-                    PopulateFirstComboBoxItems(  );
+                    PopulateFirstComboBoxItems( );
                     UpdateLabelText( );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
@@ -387,12 +395,12 @@ namespace BudgetExecution
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 TableButton.Click += OnTableButtonClick;
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
@@ -422,8 +430,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void BindDataSource( IDictionary<string, object> where )
         {
-            if( Enum.IsDefined( typeof( Source ), Source ) 
-               && Enum.IsDefined( typeof( Provider ), Provider ) 
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
                && where?.Any( ) == true )
             {
                 try
@@ -440,8 +448,8 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                } 
-            } 
+                }
+            }
         }
 
         /// <summary>
@@ -453,7 +461,7 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true 
+               && where?.Any( ) == true
                && cols?.Any( ) == true )
             {
                 try
@@ -480,7 +488,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindDataSource( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private void BindDataSource( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
@@ -505,7 +513,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Resets the ComboBox visibility.
         /// </summary>
@@ -552,7 +560,7 @@ namespace BudgetExecution
                 {
                     FormFilter.Clear( );
                 }
-                
+
                 FourthCategory = string.Empty;
                 FourthValue = string.Empty;
                 ThirdComboBox.Items.Clear( );
@@ -586,8 +594,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM { Source } "
-                        + $"WHERE { where.ToCriteria(  ) };";
+                    return $"SELECT * FROM {Source} "
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -595,7 +603,7 @@ namespace BudgetExecution
                     return string.Empty;
                 }
             }
-            
+
             return string.Empty;
         }
 
@@ -619,20 +627,20 @@ namespace BudgetExecution
                     var _aggr = string.Empty;
                     foreach( var name in fields )
                     {
-                        _cols += $"{ name }, ";
+                        _cols += $"{name}, ";
                     }
-                    
+
                     foreach( var metric in numerics )
                     {
-                        _aggr += $"SUM({ metric }) AS { metric }, ";
+                        _aggr += $"SUM({metric}) AS {metric}, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT { _columns } FROM { Source } "
-                        + $"WHERE { _criteria } " 
-                        + $"GROUP BY { _groups };";
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
                 {
@@ -653,7 +661,7 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
-               && columns?.Any( ) == true 
+               && columns?.Any( ) == true
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -661,14 +669,14 @@ namespace BudgetExecution
                     var _cols = string.Empty;
                     foreach( var name in columns )
                     {
-                        _cols += $"{ name }, ";
+                        _cols += $"{name}, ";
                     }
-                    
+
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT { _names } FROM { SelectedTable } "
-                        + $"WHERE { _criteria } " 
-                        + $"GROUP BY { _names };";
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
                 {
@@ -727,23 +735,23 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    Text = $"{ Provider } Database ";
+                    Text = $"{Provider} Database ";
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
-                    FirstHeaderLabel.Text = $"Source :  { _table }";
-                    SecondHeaderLabel.Text = $"Records : { _records } ";
-                    ThirdHeaderLabel.Text = $"Fields : { _fields } ";
-                    FourthHeaderLabel.Text = $"Measures : { _numerics } ";
-                    ThirdHeaderLabel.Text = $"Fields : { _fields } ";
-                    NumericsLabel.Text = $"Measures : { _numerics } ";
-                    FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
-                    SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
+                    FirstHeaderLabel.Text = $"Source :  {_table}";
+                    SecondHeaderLabel.Text = $"Records : {_records} ";
+                    ThirdHeaderLabel.Text = $"Fields : {_fields} ";
+                    FourthHeaderLabel.Text = $"Measures : {_numerics} ";
+                    ThirdHeaderLabel.Text = $"Fields : {_fields} ";
+                    NumericsLabel.Text = $"Measures : {_numerics} ";
+                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
+                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
                 }
                 else
                 {
-                    Text = $"{ Provider } Database ";
+                    Text = $"{Provider} Database ";
                     FirstHeaderLabel.Text = "Source :  ";
                     SecondHeaderLabel.Text = "Records : ";
                     ThirdHeaderLabel.Text = "Fields : ";
@@ -790,11 +798,11 @@ namespace BudgetExecution
             {
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
+                var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList(  );
+                    ?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
@@ -817,7 +825,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FirstComboBox.Items.Clear(  );
+                    FirstComboBox.Items.Clear( );
                     foreach( var item in Fields )
                     {
                         FirstComboBox.Items.Add( item );
@@ -874,12 +882,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( !string.IsNullOrEmpty( FirstValue ) 
+                    if( !string.IsNullOrEmpty( FirstValue )
                        && !string.IsNullOrEmpty( SecondValue ) )
                     {
                         foreach( var item in Fields )
                         {
-                            if( !item.Equals( FirstCategory ) 
+                            if( !item.Equals( FirstCategory )
                                && !item.Equals( SecondCategory ) )
                             {
                                 ThirdComboBox.Items.Add( item );
@@ -948,17 +956,17 @@ namespace BudgetExecution
             {
                 if( FormFilter?.Any( ) == true )
                 {
-                    FormFilter.Clear(  );
+                    FormFilter.Clear( );
                 }
 
                 if( SelectedColumns?.Any( ) == true )
                 {
-                    SelectedColumns.Clear(  );
+                    SelectedColumns.Clear( );
                 }
 
                 if( SelectedFields?.Any( ) == true )
                 {
-                    SelectedFields.Clear(  );
+                    SelectedFields.Clear( );
                 }
 
                 if( SelectedNumerics?.Any( ) == true )
@@ -999,7 +1007,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [second ComboBox item selected].
         /// </summary>
@@ -1016,10 +1024,10 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    var _filter = _comboBox.SelectedItem.ToString(  );
+                    var _filter = _comboBox.SelectedItem.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
-                        SecondListBox.Items.Clear(  );
+                        SecondListBox.Items.Clear( );
                         SecondCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
@@ -1056,8 +1064,8 @@ namespace BudgetExecution
 
                     SecondValue = _listBox.SelectedValue.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
-                    FormFilter.Add( SecondCategory, SecondValue  );
-                    PopulateThirdComboBoxItems(  );
+                    FormFilter.Add( SecondCategory, SecondValue );
+                    PopulateThirdComboBoxItems( );
                     if( ThirdComboBox.Visible == false )
                     {
                         ThirdComboBox.Visible = true;
@@ -1092,8 +1100,8 @@ namespace BudgetExecution
                     ThirdValue = string.Empty;
                     FourthCategory = string.Empty;
                     FourthValue = string.Empty;
-                    ThirdListBox.Items.Clear(  );
-                    var _filter = _comboBox?.SelectedItem?.ToString(  );
+                    ThirdListBox.Items.Clear( );
+                    var _filter = _comboBox?.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         ThirdListBox.Items.Clear( );
@@ -1129,7 +1137,7 @@ namespace BudgetExecution
 
                     ThirdValue = _listBox?.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
-                    FormFilter.Add( SecondCategory, SecondValue  );
+                    FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
@@ -1200,8 +1208,8 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    FirstListBox.Items.Clear(  );
-                    var _filter = _comboBox.SelectedItem.ToString(  );
+                    FirstListBox.Items.Clear( );
+                    var _filter = _comboBox.SelectedItem.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         FirstCategory = _filter;
@@ -1240,10 +1248,10 @@ namespace BudgetExecution
                     {
                         FormFilter.Clear( );
                     }
-                    
+
                     FirstValue = _listBox?.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
-                    PopulateSecondComboBoxItems(  );
+                    PopulateSecondComboBoxItems( );
                     SecondComboBox.Visible = true;
                     SecondListBox.Visible = true;
                     SecondListBoxPanel.Visible = true;
@@ -1253,7 +1261,7 @@ namespace BudgetExecution
                         ThirdListBox.Visible = false;
                         ThirdListBoxPanel.Visible = false;
                     }
-                    
+
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
                     UpdateLabelText( );
@@ -1281,7 +1289,7 @@ namespace BudgetExecution
                     }
 
                     var _title = _listBox.SelectedValue?.ToString( );
-                    SelectedTable = _title?.Replace( " ", ""  );
+                    SelectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
                         TableButton.Visible = true;
@@ -1290,7 +1298,7 @@ namespace BudgetExecution
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel?.DataTable;
                         SelectedTable = DataTable?.TableName;
-                        Text = SelectedTable.SplitPascal(  );
+                        Text = SelectedTable.SplitPascal( );
                         Chart.Title.Text = string.Empty;
                         BindingSource.DataSource = DataModel?.DataTable;
                         Chart.BindingSource = BindingSource;
@@ -1301,7 +1309,7 @@ namespace BudgetExecution
                         UpdateLabelText( );
                         LabelTable.Visible = true;
                     }
-                    
+
                     ResetComboBoxVisibility( );
                 }
                 catch( Exception ex )
@@ -1332,7 +1340,7 @@ namespace BudgetExecution
                         Owner.Visible = true;
                     }
 
-                    ClearSelections(  );
+                    ClearSelections( );
                     Visible = false;
                 }
             }
@@ -1341,7 +1349,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [exit button clicked].
         /// </summary>
@@ -1353,7 +1361,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button 
+                if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ExitButton )
                 {
                     Close( );
@@ -1377,12 +1385,12 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.MenuButton )
                 {
-                    if( Owner != null 
+                    if( Owner != null
                        && Owner.Visible == false )
                     {
                         Owner.Visible = true;
                     }
-                    
+
                     Visible = false;
                 }
             }
@@ -1417,7 +1425,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [active tab changed].
         /// </summary>
@@ -1480,7 +1488,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [fold button clicked].
         /// </summary>
@@ -1490,7 +1498,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button 
+                if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.GroupButton )
                 {
                     TabControl.SelectedIndex = 2;
@@ -1517,8 +1525,8 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.CalendarButton )
                 {
                     TabControl.SelectedIndex = 3;
-                    FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
-                    SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
+                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
+                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
                 }
             }
             catch( Exception ex )
@@ -1536,7 +1544,7 @@ namespace BudgetExecution
         {
             try
             {
-                FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
+                FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
             }
             catch( Exception ex )
             {
@@ -1553,7 +1561,7 @@ namespace BudgetExecution
         {
             try
             {
-                SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
+                SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
             }
             catch( Exception ex )
             {
@@ -1624,7 +1632,27 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    Menu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

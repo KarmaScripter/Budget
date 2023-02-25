@@ -15,8 +15,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" )]
     public partial class LoadingForm : MetroForm
     {
         /// <summary>
@@ -64,13 +64,15 @@ namespace BudgetExecution
 
             // Basic Form Properties
             Size = new Size( 1345, 745 );
+            MaximumSize = new Size( 1345, 745 );
+            MinimumSize = new Size( 1345, 745 );
             BackColor = Color.Black;
             CaptionBarColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            
+
             // Timer Configuration
             Timer.Enabled = true;
             Timer.Interval = 5000;
@@ -86,7 +88,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="LoadingForm"/> class.
         /// </summary>
         /// <param name="status">The status.</param>
-        public LoadingForm( Status status ) 
+        public LoadingForm( Status status )
             : this( )
         {
             Status = status;
@@ -103,7 +105,7 @@ namespace BudgetExecution
             {
                 ShowImage( );
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
                 Fail( ex );
             }
@@ -121,12 +123,12 @@ namespace BudgetExecution
                 Timer?.Stop( );
                 Close( );
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the image by status.
         /// </summary>
@@ -134,9 +136,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Enum.IsDefined( typeof( Status ), Status ) )
+                if(Enum.IsDefined( typeof( Status ), Status ))
                 {
-                    switch( Status )
+                    switch(Status)
                     {
                         case Status.Loading:
                         {
@@ -160,7 +162,7 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
                 Fail( ex );
             }
@@ -177,7 +179,7 @@ namespace BudgetExecution
             {
                 Timer?.Dispose( );
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
                 Fail( ex );
             }

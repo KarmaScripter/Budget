@@ -18,6 +18,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -189,13 +190,7 @@ namespace BudgetExecution
             try
             {
                 SelectedColumns = new List<string>( );
-                DataTable = (DataTable)BindingSource.DataSource;
-                Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-                DataModel = new DataBuilder( Source, Provider.Access );
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
-                PopulateFirstTabListBox( );
-                PopulateSecondTabListBox( );
+                PopulateListBox( );
                 SetLabelText( );
             }
             catch( Exception ex )
@@ -221,17 +216,30 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the column ListBox.
         /// </summary>
-        private void PopulateFirstTabListBox( )
+        private void PopulateListBox( )
         {
-            if( Fields?.Any( ) == true )
+            try
             {
-                try
+                ListBox.Items.Clear( );
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                BindingSource.DataSource = DataModel.DataTable;
+                Fields = DataModel.Fields;
+                Numerics = DataModel.Numerics;
+                var _data = DataTable.AsEnumerable(  );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                    ?.Select( r => r.Field<string>( "Identifier" ) )
+                    ?.ToList( );
+                
+                foreach( var name in _names )
                 {
+                    ListBox.Items.Add( name );
                 }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
