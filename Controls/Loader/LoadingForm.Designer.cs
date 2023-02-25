@@ -14,7 +14,7 @@
         /// should be disposed; otherwise, false.</param>
         protected override void Dispose( bool disposing )
         {
-            if( disposing && ( components != null ) )
+            if(disposing && (components != null))
             {
                 components.Dispose( );
             }
@@ -27,98 +27,96 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent( )
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadingForm));
-            this.PictureBox = new System.Windows.Forms.PictureBox();
-            this.Worker = new System.ComponentModel.BackgroundWorker();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.CloaseButton = new BudgetExecution.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container( );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( LoadingForm ) );
+            PictureBox = new System.Windows.Forms.PictureBox( );
+            Worker = new System.ComponentModel.BackgroundWorker( );
+            Timer = new System.Windows.Forms.Timer( components );
+            CloaseButton = new Button( );
+            ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit( );
+            SuspendLayout( );
             // 
             // PictureBox
             // 
-            this.PictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox.Image = global::BudgetExecution.Properties.Resources.Loading;
-            this.PictureBox.Location = new System.Drawing.Point(260, 82);
-            this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(800, 600);
-            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBox.TabIndex = 0;
-            this.PictureBox.TabStop = false;
+            PictureBox.BackColor = System.Drawing.Color.Transparent;
+            PictureBox.Location = new System.Drawing.Point( 260, 82 );
+            PictureBox.Name = "PictureBox";
+            PictureBox.Size = new System.Drawing.Size( 800, 600 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            PictureBox.TabIndex = 0;
+            PictureBox.TabStop = false;
             // 
             // Worker
             // 
-            this.Worker.WorkerReportsProgress = true;
-            this.Worker.WorkerSupportsCancellation = true;
+            Worker.WorkerReportsProgress = true;
+            Worker.WorkerSupportsCancellation = true;
             // 
             // Timer
             // 
-            this.Timer.Enabled = true;
-            this.Timer.Interval = 5000;
+            Timer.Enabled = true;
+            Timer.Interval = 5000;
             // 
             // CloaseButton
             // 
-            this.CloaseButton.BindingSource = null;
-            this.CloaseButton.DataFilter = null;
-            this.CloaseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CloaseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CloaseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloaseButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CloaseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloaseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(84)))));
-            this.CloaseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(84)))));
-            this.CloaseButton.HoverText = null;
-            this.CloaseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.CloaseButton.IsDerivedStyle = true;
-            this.CloaseButton.Location = new System.Drawing.Point(1186, 691);
-            this.CloaseButton.Name = "CloaseButton";
-            this.CloaseButton.NormalBorderColor = System.Drawing.Color.Black;
-            this.CloaseButton.NormalColor = System.Drawing.Color.Black;
-            this.CloaseButton.NormalTextColor = System.Drawing.Color.Black;
-            this.CloaseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CloaseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloaseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloaseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloaseButton.Size = new System.Drawing.Size(140, 40);
-            this.CloaseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CloaseButton.StyleManager = null;
-            this.CloaseButton.TabIndex = 1;
-            this.CloaseButton.Text = "button1";
-            this.CloaseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloaseButton.ThemeName = "Budget Execution";
-            this.CloaseButton.ToolTip = null;
+            CloaseButton.BindingSource = null;
+            CloaseButton.DataFilter = null;
+            CloaseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            CloaseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            CloaseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            CloaseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CloaseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloaseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            CloaseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            CloaseButton.HoverText = null;
+            CloaseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            CloaseButton.IsDerivedStyle = true;
+            CloaseButton.Location = new System.Drawing.Point( 1186, 691 );
+            CloaseButton.Name = "CloaseButton";
+            CloaseButton.NormalBorderColor = System.Drawing.Color.Black;
+            CloaseButton.NormalColor = System.Drawing.Color.Black;
+            CloaseButton.NormalTextColor = System.Drawing.Color.Black;
+            CloaseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            CloaseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloaseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloaseButton.PressTextColor = System.Drawing.Color.White;
+            CloaseButton.Size = new System.Drawing.Size( 140, 40 );
+            CloaseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            CloaseButton.StyleManager = null;
+            CloaseButton.TabIndex = 1;
+            CloaseButton.Text = "button1";
+            CloaseButton.ThemeAuthor = "Terry D. Eppler";
+            CloaseButton.ThemeName = "Budget Execution";
+            CloaseButton.ToolTip = null;
             // 
             // LoadingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CaptionBarColor = System.Drawing.Color.Black;
-            this.CaptionBarHeight = 1;
-            this.CaptionButtonColor = System.Drawing.Color.Black;
-            this.CaptionButtonHoverColor = System.Drawing.Color.Black;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CaptionForeColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1345, 745);
-            this.Controls.Add(this.CloaseButton);
-            this.Controls.Add(this.PictureBox);
-            this.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MetroColor = System.Drawing.Color.Black;
-            this.Name = "LoadingForm";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "LoadingForm";
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF( 6F, 14F );
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.Black;
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionBarColor = System.Drawing.Color.Black;
+            CaptionBarHeight = 1;
+            CaptionButtonColor = System.Drawing.Color.Black;
+            CaptionButtonHoverColor = System.Drawing.Color.Black;
+            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CaptionForeColor = System.Drawing.Color.Black;
+            ClientSize = new System.Drawing.Size( 1345, 745 );
+            Controls.Add( CloaseButton );
+            Controls.Add( PictureBox );
+            Font = new System.Drawing.Font( "Roboto Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ForeColor = System.Drawing.Color.Black;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MetroColor = System.Drawing.Color.Black;
+            Name = "LoadingForm";
+            ShowIcon = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "LoadingForm";
+            ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit( );
+            ResumeLayout( false );
+            PerformLayout( );
         }
 
         #endregion

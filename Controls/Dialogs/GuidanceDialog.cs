@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -13,7 +12,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
     /// 
@@ -29,7 +27,7 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data model.
         /// </summary>
@@ -37,7 +35,7 @@ namespace BudgetExecution
         /// The data model.
         /// </value>
         public DataBuilder DataModel { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -45,7 +43,7 @@ namespace BudgetExecution
         /// The data table.
         /// </value>
         public DataTable DataTable { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
@@ -69,7 +67,7 @@ namespace BudgetExecution
         /// The numerics.
         /// </value>
         public IList<string> Numerics { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the fields.
         /// </summary>
@@ -101,7 +99,7 @@ namespace BudgetExecution
         /// The extenstion.
         /// </value>
         public EXT Extenstion { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the selected path.
         /// </summary>
@@ -117,7 +115,7 @@ namespace BudgetExecution
         /// The selected item.
         /// </value>
         public string SelectedItem { get; set; }
-        
+
         /// <summary>
         /// Initializes a new
         /// instance of the <see cref="SchemaDialog"/> class.
@@ -146,7 +144,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            
+
             // Label Properties
             HeaderLabel.Font = new Font( "Roboto", 10 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
@@ -154,19 +152,19 @@ namespace BudgetExecution
             HeaderLabel.FlatStyle = FlatStyle.Flat;
 
             // Picture Properties
-            Picture.Size = new Size( 22, 22  );
+            Picture.Size = new Size( 22, 22 );
             Picture.SizeMode = PictureBoxSizeMode.StretchImage;
-            
+
             // File Dialog Properties
             OpenFileDialog.Title = "Search for Document";
             OpenFileDialog.CheckPathExists = true;
             OpenFileDialog.CheckFileExists = true;
-            
+
             // Data Properties
             Source = Source.Resources;
             Provider = Provider.Access;
             Extenstion = EXT.PDF;
-            
+
             // Event Wiring
             Load += OnLoad;
         }
@@ -175,7 +173,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="SchemaDialog"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public GuidanceDialog( BindingSource bindingSource ) 
+        public GuidanceDialog( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
@@ -219,7 +217,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the column ListBox.
         /// </summary>
@@ -269,7 +267,6 @@ namespace BudgetExecution
         /// Called when [column ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnListViewSelectedValueChanged( object sender )
         {
             try
@@ -280,7 +277,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [first button clicked].
         /// </summary>
@@ -348,4 +345,3 @@ namespace BudgetExecution
         }
     }
 }
-

@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
-    using Microsoft.Win32;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -17,13 +16,20 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
     public partial class LoadingForm : MetroForm
     {
         /// <summary>
         /// The image path
         /// </summary>
-        public string ImagePath =
-            @"C:\Users\teppler\source\repos\Budget\Resources\Images\Loader\Loading.gif";
+        public readonly string LoadingPath =
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
+
+        public readonly string ProcessingPath =
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
+
+        public readonly string WaitingPath =
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
         /// <summary>
         /// Gets or sets the picture.
@@ -42,6 +48,14 @@ namespace BudgetExecution
         public Bitmap Loader { get; set; }
 
         /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
+        public Status Status { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="LoadingForm"/> class.
         /// </summary>
         public LoadingForm( )
@@ -56,10 +70,7 @@ namespace BudgetExecution
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-
-            // Image Configuration
-            // Loader = new Bitmap( Picture, new Size( 800, 600 ) );
-
+            
             // Timer Configuration
             Timer.Enabled = true;
             Timer.Interval = 5000;
@@ -72,6 +83,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="LoadingForm"/> class.
+        /// </summary>
+        /// <param name="status">The status.</param>
+        public LoadingForm( Status status ) 
+            : this( )
+        {
+            Status = status;
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -80,8 +101,9 @@ namespace BudgetExecution
         {
             try
             {
+                ShowImage( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -96,12 +118,51 @@ namespace BudgetExecution
         {
             try
             {
-                Timer.Stop( );
+                Timer?.Stop( );
                 Close( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Sets the image by status.
+        /// </summary>
+        public void ShowImage( )
+        {
+            try
+            {
+                if( Enum.IsDefined( typeof( Status ), Status ) )
+                {
+                    switch( Status )
+                    {
+                        case Status.Loading:
+                        {
+                            PictureBox.Image = Image.FromFile( LoadingPath );
+                            break;
+                        }
+                        case Status.Processing:
+                        {
+                            PictureBox.Image = Image.FromFile( ProcessingPath );
+                            break;
+                        }
+                        case Status.Waiting:
+                        {
+                            PictureBox.Image = Image.FromFile( WaitingPath );
+                            break;
+                        }
+                        default:
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -114,14 +175,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( Timer != null )
-                {
-                    Timer.Dispose(  );
-                }
+                Timer?.Dispose( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
             }
         }
 

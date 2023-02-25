@@ -36,8 +36,8 @@ namespace BudgetExecution
 
             // Basic Properties
             Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1300, 700  );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -193,6 +193,18 @@ namespace BudgetExecution
         {
             try
             {
+                ShowDatabaseForm( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowDatabaseForm( )
+        {
+            try
+            {
                 var _dataGridForm = new DataGridForm( );
                 _dataGridForm.Owner = this;
                 _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
@@ -204,7 +216,6 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
         /// <summary>
         /// Called when [reporting tile clicked].
         /// </summary>
@@ -214,6 +225,18 @@ namespace BudgetExecution
         /// instance containing the event data.
         /// </param>
         private void OnReportingTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                ShowChartForm(  );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowChartForm( )
         {
             try
             {
@@ -229,6 +252,19 @@ namespace BudgetExecution
             }
         }
 
+        private void ShowSelectionDialog( )
+        {
+            try
+            {
+                var _minion = new MinionSelector(  );
+                _minion.ShowDialog( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [client tile clicked].
         /// </summary>
@@ -241,8 +277,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _minion = new MinionSelector(  );
-                _minion.ShowDialog(  );
+                ShowSelectionDialog( );
             }
             catch( Exception ex )
             {
@@ -340,7 +375,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _loader = new LoadingForm(  );
+                var _loader = new LoadingForm( Status.Processing );
                 _loader.ShowDialog(  );
             }
             catch( Exception ex )

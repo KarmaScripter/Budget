@@ -29,7 +29,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <WarningLevel>5</WarningLevel>
-    <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
     <Optimize>True</Optimize>
     <Deterministic>False</Deterministic>
   </PropertyGroup>
@@ -45,6 +45,7 @@
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="6.1.2" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
+    <PackageReference Include="Syncfusion.Licensing" Version="20.4.0.38" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
@@ -108,9 +109,6 @@
     </Reference>
     <Reference Include="SQLite.Designer">
       <HintPath>Libraries\SQLite.Designer.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Licensing">
-      <HintPath>..\Badjao\Libraries\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity">
       <HintPath>Libraries\System.Data.Entity.dll</HintPath>
