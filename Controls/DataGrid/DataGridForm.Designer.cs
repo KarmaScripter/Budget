@@ -157,6 +157,7 @@
             MenuSeparator =  new ToolSeparator( ) ;
             ExitButton =  new ToolStripButton( ) ;
             ToolStrip =  new ToolStrip( ) ;
+            toolStripMenuItemExt1 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( ) ;
             ContextMenu =  new ContextMenu( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
@@ -1633,7 +1634,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 128, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 114, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -2494,19 +2495,36 @@
             ToolStrip.ThemeStyle.HoverItemForeColor =  System.Drawing.Color.White ;
             ToolStrip.VisualStyle =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray ;
             // 
+            // toolStripMenuItemExt1
+            // 
+            toolStripMenuItemExt1.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            toolStripMenuItemExt1.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            toolStripMenuItemExt1.ForeColor =  System.Drawing.Color.White ;
+            toolStripMenuItemExt1.Name =  "toolStripMenuItemExt1" ;
+            toolStripMenuItemExt1.Size =  new System.Drawing.Size( 198, 22 ) ;
+            toolStripMenuItemExt1.Text =  "toolStripMenuItemExt1" ;
+            // 
             // ContextMenu
             // 
             ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ContextMenu.ForeColor =  System.Drawing.Color.White ;
-            ContextMenu.IsDerivedStyle =  true ;
+            ContextMenu.CanOverrideStyle =  true ;
+            ContextMenu.DropShadowEnabled =  false ;
+            ContextMenu.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ContextMenu.ForeColor =  System.Drawing.Color.DimGray ;
+            ContextMenu.MetroColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ContextMenu.Name =  "ContextMenu" ;
-            ContextMenu.RenderMode =  System.Windows.Forms.ToolStripRenderMode.System ;
             ContextMenu.ShowCheckMargin =  true ;
-            ContextMenu.Size =  new System.Drawing.Size( 153, 244 ) ;
-            ContextMenu.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ContextMenu.StyleManager =  null ;
-            ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
-            ContextMenu.ThemeName =  "Budget Execution" ;
+            ContextMenu.Size =  new System.Drawing.Size( 83, 4 ) ;
+            ContextMenu.Style =  Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black ;
+            ContextMenu.ThemeName =  "Office2016Black" ;
+            ContextMenu.ThemeStyle.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ContextMenu.ThemeStyle.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ContextMenu.ThemeStyle.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ContextMenu.ThemeStyle.ForeColor =  System.Drawing.Color.DimGray ;
+            ContextMenu.ThemeStyle.HoverBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            ContextMenu.ThemeStyle.HoverForeColor =  System.Drawing.Color.White ;
+            ContextMenu.ThemeStyle.PressedBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ContextMenu.ThemeStyle.PressedForeColor =  System.Drawing.Color.White ;
             // 
             // DataGridForm
             // 
@@ -2696,6 +2714,7 @@
         public ComboBox TableComboBox;
         public Layout TablePanel;
         public ListBox TableListBox;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt1;
         public ContextMenu ContextMenu;
     }
 }

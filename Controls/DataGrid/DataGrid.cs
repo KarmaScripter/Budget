@@ -106,7 +106,7 @@ namespace BudgetExecution
             RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
             RowHeadersDefaultCellStyle.ForeColor = Color.Black;
             RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
-            RowHeadersDefaultCellStyle.SelectionBackColor = Color.SteelBlue;
+            RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
             CellBorderStyle = DataGridViewCellBorderStyle.None;
             RowsDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             RowsDefaultCellStyle.Font = new Font( "Roboto", 8 );

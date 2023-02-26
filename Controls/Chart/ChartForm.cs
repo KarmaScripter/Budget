@@ -192,7 +192,7 @@ namespace BudgetExecution
         /// The menu.
         /// </value>
         public ContextMenu Menu { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -218,8 +218,8 @@ namespace BudgetExecution
 
             // Basic Properties
             Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1300, 700 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -594,8 +594,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -638,8 +637,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -658,7 +656,8 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> columns,
+            IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
                && columns?.Any( ) == true
@@ -674,8 +673,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -799,10 +797,8 @@ namespace BudgetExecution
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
@@ -1450,6 +1446,7 @@ namespace BudgetExecution
                         CalendarTabPage.TabVisible = false;
                         break;
                     }
+
                     case 1:
                     {
                         // TabPage Visibility
@@ -1461,6 +1458,7 @@ namespace BudgetExecution
                         ResetComboBoxVisibility( );
                         break;
                     }
+
                     case 2:
                     {
                         // TabPage Visibility
@@ -1471,6 +1469,7 @@ namespace BudgetExecution
                         CalendarTabPage.TabVisible = false;
                         break;
                     }
+
                     case 3:
                     {
                         // TabPage Visibility

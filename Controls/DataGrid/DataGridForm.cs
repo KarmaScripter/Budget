@@ -521,7 +521,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} "
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -1583,7 +1584,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

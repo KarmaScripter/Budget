@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The menu.
         /// </value>
-        public ContextMenu Menu { get; set; }
+        public ContextMenu ContextMenu { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
@@ -93,6 +93,7 @@ namespace BudgetExecution
             try
             {
                 Tiles = GetTiles( );
+                ContextMenu.CreateMenuItems( );
                 SetTileProperties( );
                 SetTileText( );
             }
@@ -404,7 +405,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Menu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

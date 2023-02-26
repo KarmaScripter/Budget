@@ -8,13 +8,12 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
     using MetroSet_UI.Child;
-    using MetroSet_UI.Controls;
-    using MetroSet_UI.Enums;
+    using Syncfusion.Windows.Forms.Spreadsheet;
+    using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ContextMenu : MetroSetContextMenuStrip
+    public class ContextMenu : ContextMenuStripEx
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContextMenu"/> class.
@@ -22,12 +21,21 @@ namespace BudgetExecution
         public ContextMenu( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.White;
+            ForeColor = Color.DimGray;
+            Font = new Font( "Roboto", 9 );
             ShowCheckMargin = true;
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            CreateMenuItems( );
+            MetroColor = Color.FromArgb( 0, 120, 212 );
+            CanApplyTheme = true;
+            CanOverrideStyle = true;
+            Style = ContextMenuStyle.Office2016Black;
+            ThemeStyle.BackColor = Color.FromArgb( 20, 20, 20 );
+            ThemeStyle.Font = new Font( "Roboto", 9 );
+            ThemeStyle.ForeColor = Color.DimGray;
+            ThemeStyle.HoverBackColor = Color.FromArgb( 17, 53, 84 );
+            ThemeStyle.HoverForeColor = Color.White;
+            ThemeStyle.DisabledForeColor = Color.FromArgb( 20, 20, 20 );
+            ThemeStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.PressedForeColor = Color.White;
         }
 
         /// <summary>
@@ -39,6 +47,7 @@ namespace BudgetExecution
         {
             try
             {
+                CreateMenuItems( );
             }
             catch( Exception ex )
             {
@@ -49,7 +58,7 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the menu items.
         /// </summary>
-        private void CreateMenuItems( )
+        public void CreateMenuItems( )
         {
             try
             {
@@ -59,17 +68,13 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _options[ _i ] )
                        && _options[ _i ] != "NS" ) 
                     {
-                        var _item = new MetroSetToolStripMenuItem( );
+                        var _item = new ToolStripMenuItemExt( );
                         _item.Name = $"{ _options[ _i ] }";
                         _item.BackColor = Color.FromArgb( 20, 20, 20 );
-                        _item.Size = new Size( 180, 30 );
-                        _item.TextAlign = ContentAlignment.MiddleCenter;
-                        _item.Font = new Font( "Roboto", 9 );
-                        _item.ForeColor = Color.White;
+                        _item.ForeColor = Color.DimGray;
                         _item.Text = $"{ _options[ _i ] }";
                         _item.Tag = _options[ _i ];
                         _item.Checked = false;
-                        _item.CheckOnClick = false;
                         _item.Click += OnItemClicked;
                         Items.Add( _item ); 
                     }
