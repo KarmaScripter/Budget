@@ -1635,7 +1635,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //Menu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

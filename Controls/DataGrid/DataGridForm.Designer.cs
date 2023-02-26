@@ -158,6 +158,7 @@
             ExitButton =  new ToolStripButton( ) ;
             ToolStrip =  new ToolStrip( ) ;
             toolStripMenuItemExt1 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( ) ;
+            ContextMenu =  new ContextMenu( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             GridTable.SuspendLayout( );
@@ -2494,15 +2495,6 @@
             ToolStrip.ThemeStyle.HoverItemForeColor =  System.Drawing.Color.White ;
             ToolStrip.VisualStyle =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray ;
             // 
-            // toolStripMenuItemExt1
-            // 
-            toolStripMenuItemExt1.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            toolStripMenuItemExt1.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            toolStripMenuItemExt1.ForeColor =  System.Drawing.Color.White ;
-            toolStripMenuItemExt1.Name =  "toolStripMenuItemExt1" ;
-            toolStripMenuItemExt1.Size =  new System.Drawing.Size( 198, 22 ) ;
-            toolStripMenuItemExt1.Text =  "toolStripMenuItemExt1" ;
-            // 
             // DataGridForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -2692,6 +2684,6 @@
         public Layout TablePanel;
         public ListBox TableListBox;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt1;
-        public ClickMenu ContextMenu;
+        public ContextMenu ContextMenu;
     }
 }

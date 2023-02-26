@@ -157,9 +157,6 @@
     <Compile Update="Controls\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Notification\Notification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +252,9 @@
     </Compile>
     <Compile Update="Controls\Editor\Editor.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

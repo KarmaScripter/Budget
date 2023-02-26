@@ -29,6 +29,8 @@ namespace BudgetExecution
             SelectedItemColor = Color.White;
             ShowCheckMargin = true;
             Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
         }
 
         /// <summary>

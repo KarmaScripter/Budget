@@ -41,7 +41,6 @@
             CalendarTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SecondCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
             FirstCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
-            ContextMenu =  new ClickMenu( ) ;
             tabPageAdv1 =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             SourceTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             TableComboBox =  new ComboBox( ) ;
@@ -317,28 +316,6 @@
             FirstCalendar.Style.HorizontalSplitterColor =  System.Drawing.Color.DimGray ;
             FirstCalendar.Style.VerticalSplitterColor =  System.Drawing.Color.DimGray ;
             FirstCalendar.TabIndex =  2 ;
-            // 
-            // ClickMenu
-            // 
-            ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ContextMenu.CanOverrideStyle =  true ;
-            ContextMenu.DropShadowEnabled =  false ;
-            ContextMenu.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ContextMenu.ForeColor =  System.Drawing.Color.DimGray ;
-            ContextMenu.MetroColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ContextMenu.Name =  "ContextMenu" ;
-            ContextMenu.ShowCheckMargin =  true ;
-            ContextMenu.Size =  new System.Drawing.Size( 83, 4 ) ;
-            ContextMenu.Style =  Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black ;
-            ContextMenu.ThemeName =  "Office2016Black" ;
-            ContextMenu.ThemeStyle.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ContextMenu.ThemeStyle.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ContextMenu.ThemeStyle.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ContextMenu.ThemeStyle.ForeColor =  System.Drawing.Color.DimGray ;
-            ContextMenu.ThemeStyle.HoverBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            ContextMenu.ThemeStyle.HoverForeColor =  System.Drawing.Color.White ;
-            ContextMenu.ThemeStyle.PressedBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ContextMenu.ThemeStyle.PressedForeColor =  System.Drawing.Color.White ;
             // 
             // tabPageAdv1
             // 
@@ -720,7 +697,6 @@
         public Label FirstCalendarLabel;
         public Label SecondCalendarLabel;
         public ToolSeparator FirstButtonSeparator;
-        private ClickMenu ContextMenu;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
         public System.Windows.Forms.TableLayoutPanel SourceTable;
         public ComboBox TableComboBox;

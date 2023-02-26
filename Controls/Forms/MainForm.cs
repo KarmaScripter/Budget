@@ -85,7 +85,6 @@ namespace BudgetExecution
         {
             try
             {
-                //ClickMenu.CreateMenuItems( );
                 SetTileProperties( );
                 SetTileText( );
             }
@@ -397,7 +396,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //ClickMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {
