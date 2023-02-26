@@ -41,7 +41,7 @@
             CalendarTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SecondCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
             FirstCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
-            ContextMenu =  new ContextMenu( ) ;
+            ContextMenu =  new ClickMenu( ) ;
             tabPageAdv1 =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             SourceTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             TableComboBox =  new ComboBox( ) ;
@@ -318,7 +318,7 @@
             FirstCalendar.Style.VerticalSplitterColor =  System.Drawing.Color.DimGray ;
             FirstCalendar.TabIndex =  2 ;
             // 
-            // ContextMenu
+            // ClickMenu
             // 
             ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             ContextMenu.CanOverrideStyle =  true ;
@@ -720,7 +720,7 @@
         public Label FirstCalendarLabel;
         public Label SecondCalendarLabel;
         public ToolSeparator FirstButtonSeparator;
-        private ContextMenu ContextMenu;
+        private ClickMenu ContextMenu;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
         public System.Windows.Forms.TableLayoutPanel SourceTable;
         public ComboBox TableComboBox;

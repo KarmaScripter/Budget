@@ -184,15 +184,7 @@ namespace BudgetExecution
         /// The selected numerics.
         /// </value>
         public IList<string> SelectedNumerics { get; set; }
-
-        /// <summary>
-        /// Gets or sets the menu.
-        /// </summary>
-        /// <value>
-        /// The menu.
-        /// </value>
-        public ContextMenu Menu { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -1643,7 +1635,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Menu.Show( this, e.Location );
+                    //Menu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

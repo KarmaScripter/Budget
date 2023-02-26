@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="6.1.2" />
-    <PackageReference Include="MetroFramework" Version="1.2.0.3" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="20.4.0.38" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />

@@ -352,6 +352,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearLabelText( );
+                //ClickMenu.CreateMenuItems( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -366,6 +367,7 @@ namespace BudgetExecution
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
+                MouseClick += OnRightClick;
             }
             catch( Exception ex )
             {
@@ -521,8 +523,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -1584,6 +1585,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    //ClickMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

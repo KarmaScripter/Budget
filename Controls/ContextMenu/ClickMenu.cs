@@ -13,21 +13,20 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ContextMenu : ContextMenuStripEx
+    public class ClickMenu : ContextMenuStripEx
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContextMenu"/> class.
+        /// Initializes a new instance of the <see cref="ClickMenu"/> class.
         /// </summary>
-        public ContextMenu( )
+        public ClickMenu( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DimGray;
             Font = new Font( "Roboto", 9 );
             ShowCheckMargin = true;
             MetroColor = Color.FromArgb( 0, 120, 212 );
-            CanApplyTheme = true;
+            CanApplyTheme = false;
             CanOverrideStyle = true;
-            Style = ContextMenuStyle.Office2016Black;
             ThemeStyle.BackColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.ForeColor = Color.DimGray;
@@ -36,6 +35,7 @@ namespace BudgetExecution
             ThemeStyle.DisabledForeColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.PressedForeColor = Color.White;
+            ThemeStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
         }
 
         /// <summary>
@@ -69,6 +69,8 @@ namespace BudgetExecution
                        && _options[ _i ] != "NS" ) 
                     {
                         var _item = new ToolStripMenuItemExt( );
+                        _item.TextAlign = ContentAlignment.MiddleCenter;
+                        _item.Font = new Font( "Roboto", 9 );
                         _item.Name = $"{ _options[ _i ] }";
                         _item.BackColor = Color.FromArgb( 20, 20, 20 );
                         _item.ForeColor = Color.DimGray;
@@ -93,7 +95,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnItemClicked( object sender, EventArgs e )
         {
-            if( sender is MetroSetToolStripMenuItem item )
+            if( sender is ToolStripMenuItemExt item )
             {
                 try
                 {

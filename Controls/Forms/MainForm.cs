@@ -28,14 +28,6 @@ namespace BudgetExecution
         public IEnumerable<Tile> Tiles { get; set; }
 
         /// <summary>
-        /// Gets or sets the menu.
-        /// </summary>
-        /// <value>
-        /// The menu.
-        /// </value>
-        public ContextMenu ContextMenu { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
         public MainForm( )
@@ -65,6 +57,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
+            Tiles = GetTiles( );
 
             // Event Wiring
             ExitButton.Click += null;
@@ -92,8 +85,7 @@ namespace BudgetExecution
         {
             try
             {
-                Tiles = GetTiles( );
-                ContextMenu.CreateMenuItems( );
+                //ClickMenu.CreateMenuItems( );
                 SetTileProperties( );
                 SetTileText( );
             }
@@ -405,7 +397,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ClickMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {
