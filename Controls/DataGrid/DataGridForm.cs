@@ -95,14 +95,6 @@ namespace BudgetExecution
         public string SqlQuery { get; set; }
 
         /// <summary>
-        /// Gets or sets the menu.
-        /// </summary>
-        /// <value>
-        /// The menu.
-        /// </value>
-        public ContextMenu Menu { get; set; }
-
-        /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
         /// <value>
@@ -1591,7 +1583,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Menu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

@@ -23,12 +23,11 @@ namespace BudgetExecution
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.White;
-            RenderMode = ToolStripRenderMode.System;
             ShowCheckMargin = true;
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
-            VisibleChanged += OnPaint;
+            CreateMenuItems( );
         }
 
         /// <summary>
@@ -40,7 +39,6 @@ namespace BudgetExecution
         {
             try
             {
-                CreateMenuItems(  );
             }
             catch( Exception ex )
             {
@@ -55,7 +53,6 @@ namespace BudgetExecution
         {
             try
             {
-                Items.Clear( );
                 var _options = Enum.GetNames( typeof( MenuOption ) );
                 for( var _i = 0; _i < _options.Length; _i++ )
                 {
@@ -69,7 +66,7 @@ namespace BudgetExecution
                         _item.TextAlign = ContentAlignment.MiddleCenter;
                         _item.Font = new Font( "Roboto", 9 );
                         _item.ForeColor = Color.White;
-                        _item.Text = _options[ _i ];
+                        _item.Text = $"{ _options[ _i ] }";
                         _item.Tag = _options[ _i ];
                         _item.Checked = false;
                         _item.CheckOnClick = false;
