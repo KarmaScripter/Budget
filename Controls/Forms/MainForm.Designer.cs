@@ -31,10 +31,6 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var textItem25 = new Syncfusion.Windows.Forms.Tools.TextItem( );
-            var textItem26 = new Syncfusion.Windows.Forms.Tools.TextItem( );
-            var textItem27 = new Syncfusion.Windows.Forms.Tools.TextItem( );
-            var textItem28 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem1 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem2 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem3 = new Syncfusion.Windows.Forms.Tools.TextItem( );
@@ -55,7 +51,11 @@
             var textItem18 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem19 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem20 = new Syncfusion.Windows.Forms.Tools.TextItem( );
-            var captionImage2 = new Syncfusion.Windows.Forms.CaptionImage( );
+            var textItem21 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem22 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem23 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem24 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var captionImage1 = new Syncfusion.Windows.Forms.CaptionImage( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( MainForm ) );
             DatabaseTile =  new Tile( ) ;
             ReportingTile =  new Tile( ) ;
@@ -67,6 +67,7 @@
             Darkmode =  new MetroSet_UI.Components.StyleManager( ) ;
             TestButton =  new Button( ) ;
             ExitButton =  new Button( ) ;
+            ContextMenu =  new ContextMenu( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             SuspendLayout( );
             // 
@@ -74,25 +75,25 @@
             // 
             DatabaseTile.Anchor =  System.Windows.Forms.AnchorStyles.None ;
             DatabaseTile.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            textItem25.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem25.HubTile =  DatabaseTile ;
-            textItem25.TextColor =  System.Drawing.Color.DarkGray ;
-            DatabaseTile.Banner =  textItem25 ;
+            textItem1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem1.HubTile =  DatabaseTile ;
+            textItem1.TextColor =  System.Drawing.Color.DarkGray ;
+            DatabaseTile.Banner =  textItem1 ;
             DatabaseTile.BannerColor =  System.Drawing.Color.Transparent ;
             DatabaseTile.BannerHeight =  30 ;
             DatabaseTile.BannerIcon =  Properties.Resources.DataTile ;
             DatabaseTile.BindingSource =  null ;
-            textItem26.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem26.HubTile =  DatabaseTile ;
-            textItem26.TextColor =  System.Drawing.Color.DarkGray ;
-            DatabaseTile.Body =  textItem26 ;
+            textItem2.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem2.HubTile =  DatabaseTile ;
+            textItem2.TextColor =  System.Drawing.Color.DarkGray ;
+            DatabaseTile.Body =  textItem2 ;
             DatabaseTile.DataFilter =  null ;
             DatabaseTile.EnableSelectionMarker =  false ;
             DatabaseTile.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem27.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem27.HubTile =  DatabaseTile ;
-            textItem27.TextColor =  System.Drawing.Color.DarkGray ;
-            DatabaseTile.Footer =  textItem27 ;
+            textItem3.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem3.HubTile =  DatabaseTile ;
+            textItem3.TextColor =  System.Drawing.Color.DarkGray ;
+            DatabaseTile.Footer =  textItem3 ;
             DatabaseTile.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             DatabaseTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             DatabaseTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
@@ -105,10 +106,10 @@
             DatabaseTile.ShowBannerIcon =  true ;
             DatabaseTile.Size =  new System.Drawing.Size( 250, 180 ) ;
             DatabaseTile.TabIndex =  0 ;
-            textItem28.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem28.HubTile =  DatabaseTile ;
-            textItem28.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            DatabaseTile.Title =  textItem28 ;
+            textItem4.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem4.HubTile =  DatabaseTile ;
+            textItem4.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            DatabaseTile.Title =  textItem4 ;
             DatabaseTile.ToolTip =  null ;
             DatabaseTile.TurnLiveTileOn =  true ;
             // 
@@ -116,25 +117,25 @@
             // 
             ReportingTile.Anchor =  System.Windows.Forms.AnchorStyles.None ;
             ReportingTile.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            textItem1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem1.HubTile =  ReportingTile ;
-            textItem1.TextColor =  System.Drawing.Color.DarkGray ;
-            ReportingTile.Banner =  textItem1 ;
+            textItem5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem5.HubTile =  ReportingTile ;
+            textItem5.TextColor =  System.Drawing.Color.DarkGray ;
+            ReportingTile.Banner =  textItem5 ;
             ReportingTile.BannerColor =  System.Drawing.Color.Transparent ;
             ReportingTile.BannerHeight =  30 ;
             ReportingTile.BannerIcon =  Properties.Resources.ChartTile ;
             ReportingTile.BindingSource =  null ;
-            textItem2.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem2.HubTile =  ReportingTile ;
-            textItem2.TextColor =  System.Drawing.Color.DarkGray ;
-            ReportingTile.Body =  textItem2 ;
+            textItem6.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem6.HubTile =  ReportingTile ;
+            textItem6.TextColor =  System.Drawing.Color.DarkGray ;
+            ReportingTile.Body =  textItem6 ;
             ReportingTile.DataFilter =  null ;
             ReportingTile.EnableSelectionMarker =  false ;
             ReportingTile.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem3.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem3.HubTile =  ReportingTile ;
-            textItem3.TextColor =  System.Drawing.Color.DarkGray ;
-            ReportingTile.Footer =  textItem3 ;
+            textItem7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem7.HubTile =  ReportingTile ;
+            textItem7.TextColor =  System.Drawing.Color.DarkGray ;
+            ReportingTile.Footer =  textItem7 ;
             ReportingTile.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             ReportingTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             ReportingTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
@@ -147,10 +148,10 @@
             ReportingTile.ShowBannerIcon =  true ;
             ReportingTile.Size =  new System.Drawing.Size( 250, 180 ) ;
             ReportingTile.TabIndex =  1 ;
-            textItem4.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem4.HubTile =  ReportingTile ;
-            textItem4.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ReportingTile.Title =  textItem4 ;
+            textItem8.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem8.HubTile =  ReportingTile ;
+            textItem8.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ReportingTile.Title =  textItem8 ;
             ReportingTile.ToolTip =  null ;
             ReportingTile.TurnLiveTileOn =  true ;
             // 
@@ -158,25 +159,25 @@
             // 
             GuidanceTile.Anchor =  System.Windows.Forms.AnchorStyles.None ;
             GuidanceTile.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            textItem5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem5.HubTile =  GuidanceTile ;
-            textItem5.TextColor =  System.Drawing.Color.DarkGray ;
-            GuidanceTile.Banner =  textItem5 ;
+            textItem9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem9.HubTile =  GuidanceTile ;
+            textItem9.TextColor =  System.Drawing.Color.DarkGray ;
+            GuidanceTile.Banner =  textItem9 ;
             GuidanceTile.BannerColor =  System.Drawing.Color.Transparent ;
             GuidanceTile.BannerHeight =  30 ;
             GuidanceTile.BannerIcon =  Properties.Resources.GuidanceTile ;
             GuidanceTile.BindingSource =  null ;
-            textItem6.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem6.HubTile =  GuidanceTile ;
-            textItem6.TextColor =  System.Drawing.Color.DarkGray ;
-            GuidanceTile.Body =  textItem6 ;
+            textItem10.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem10.HubTile =  GuidanceTile ;
+            textItem10.TextColor =  System.Drawing.Color.DarkGray ;
+            GuidanceTile.Body =  textItem10 ;
             GuidanceTile.DataFilter =  null ;
             GuidanceTile.EnableSelectionMarker =  false ;
             GuidanceTile.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem7.HubTile =  GuidanceTile ;
-            textItem7.TextColor =  System.Drawing.Color.DarkGray ;
-            GuidanceTile.Footer =  textItem7 ;
+            textItem11.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem11.HubTile =  GuidanceTile ;
+            textItem11.TextColor =  System.Drawing.Color.DarkGray ;
+            GuidanceTile.Footer =  textItem11 ;
             GuidanceTile.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             GuidanceTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             GuidanceTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
@@ -189,10 +190,10 @@
             GuidanceTile.ShowBannerIcon =  true ;
             GuidanceTile.Size =  new System.Drawing.Size( 250, 180 ) ;
             GuidanceTile.TabIndex =  2 ;
-            textItem8.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem8.HubTile =  GuidanceTile ;
-            textItem8.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            GuidanceTile.Title =  textItem8 ;
+            textItem12.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem12.HubTile =  GuidanceTile ;
+            textItem12.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            GuidanceTile.Title =  textItem12 ;
             GuidanceTile.ToolTip =  null ;
             GuidanceTile.TurnLiveTileOn =  true ;
             // 
@@ -200,25 +201,25 @@
             // 
             WebTile.Anchor =  System.Windows.Forms.AnchorStyles.None ;
             WebTile.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            textItem9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem9.HubTile =  WebTile ;
-            textItem9.TextColor =  System.Drawing.Color.DarkGray ;
-            WebTile.Banner =  textItem9 ;
+            textItem13.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem13.HubTile =  WebTile ;
+            textItem13.TextColor =  System.Drawing.Color.DarkGray ;
+            WebTile.Banner =  textItem13 ;
             WebTile.BannerColor =  System.Drawing.Color.Transparent ;
             WebTile.BannerHeight =  30 ;
             WebTile.BannerIcon =  Properties.Resources.WebClientTIle ;
             WebTile.BindingSource =  null ;
-            textItem10.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem10.HubTile =  WebTile ;
-            textItem10.TextColor =  System.Drawing.Color.DarkGray ;
-            WebTile.Body =  textItem10 ;
+            textItem14.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem14.HubTile =  WebTile ;
+            textItem14.TextColor =  System.Drawing.Color.DarkGray ;
+            WebTile.Body =  textItem14 ;
             WebTile.DataFilter =  null ;
             WebTile.EnableSelectionMarker =  false ;
             WebTile.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem11.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem11.HubTile =  WebTile ;
-            textItem11.TextColor =  System.Drawing.Color.DarkGray ;
-            WebTile.Footer =  textItem11 ;
+            textItem15.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem15.HubTile =  WebTile ;
+            textItem15.TextColor =  System.Drawing.Color.DarkGray ;
+            WebTile.Footer =  textItem15 ;
             WebTile.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             WebTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             WebTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
@@ -231,10 +232,10 @@
             WebTile.ShowBannerIcon =  true ;
             WebTile.Size =  new System.Drawing.Size( 250, 180 ) ;
             WebTile.TabIndex =  3 ;
-            textItem12.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem12.HubTile =  WebTile ;
-            textItem12.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            WebTile.Title =  textItem12 ;
+            textItem16.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem16.HubTile =  WebTile ;
+            textItem16.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            WebTile.Title =  textItem16 ;
             WebTile.ToolTip =  null ;
             WebTile.TurnLiveTileOn =  true ;
             // 
@@ -242,25 +243,25 @@
             // 
             UtilityTile.Anchor =  System.Windows.Forms.AnchorStyles.None ;
             UtilityTile.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            textItem13.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem13.HubTile =  UtilityTile ;
-            textItem13.TextColor =  System.Drawing.Color.DarkGray ;
-            UtilityTile.Banner =  textItem13 ;
+            textItem17.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem17.HubTile =  UtilityTile ;
+            textItem17.TextColor =  System.Drawing.Color.DarkGray ;
+            UtilityTile.Banner =  textItem17 ;
             UtilityTile.BannerColor =  System.Drawing.Color.Transparent ;
             UtilityTile.BannerHeight =  30 ;
             UtilityTile.BannerIcon =  Properties.Resources.UtilityTile ;
             UtilityTile.BindingSource =  null ;
-            textItem14.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem14.HubTile =  UtilityTile ;
-            textItem14.TextColor =  System.Drawing.Color.DarkGray ;
-            UtilityTile.Body =  textItem14 ;
+            textItem18.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem18.HubTile =  UtilityTile ;
+            textItem18.TextColor =  System.Drawing.Color.DarkGray ;
+            UtilityTile.Body =  textItem18 ;
             UtilityTile.DataFilter =  null ;
             UtilityTile.EnableSelectionMarker =  false ;
             UtilityTile.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem15.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem15.HubTile =  UtilityTile ;
-            textItem15.TextColor =  System.Drawing.Color.DarkGray ;
-            UtilityTile.Footer =  textItem15 ;
+            textItem19.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem19.HubTile =  UtilityTile ;
+            textItem19.TextColor =  System.Drawing.Color.DarkGray ;
+            UtilityTile.Footer =  textItem19 ;
             UtilityTile.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             UtilityTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             UtilityTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
@@ -273,10 +274,10 @@
             UtilityTile.ShowBannerIcon =  true ;
             UtilityTile.Size =  new System.Drawing.Size( 250, 180 ) ;
             UtilityTile.TabIndex =  4 ;
-            textItem16.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem16.HubTile =  UtilityTile ;
-            textItem16.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            UtilityTile.Title =  textItem16 ;
+            textItem20.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem20.HubTile =  UtilityTile ;
+            textItem20.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            UtilityTile.Title =  textItem20 ;
             UtilityTile.ToolTip =  null ;
             UtilityTile.TurnLiveTileOn =  true ;
             // 
@@ -284,25 +285,25 @@
             // 
             ClientTile.Anchor =  System.Windows.Forms.AnchorStyles.None ;
             ClientTile.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            textItem17.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem17.HubTile =  ClientTile ;
-            textItem17.TextColor =  System.Drawing.Color.DarkGray ;
-            ClientTile.Banner =  textItem17 ;
+            textItem21.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem21.HubTile =  ClientTile ;
+            textItem21.TextColor =  System.Drawing.Color.DarkGray ;
+            ClientTile.Banner =  textItem21 ;
             ClientTile.BannerColor =  System.Drawing.Color.Transparent ;
             ClientTile.BannerHeight =  30 ;
             ClientTile.BannerIcon =  Properties.Resources.SqlServerTile ;
             ClientTile.BindingSource =  null ;
-            textItem18.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem18.HubTile =  ClientTile ;
-            textItem18.TextColor =  System.Drawing.Color.DarkGray ;
-            ClientTile.Body =  textItem18 ;
+            textItem22.Font =  new System.Drawing.Font( "Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem22.HubTile =  ClientTile ;
+            textItem22.TextColor =  System.Drawing.Color.DarkGray ;
+            ClientTile.Body =  textItem22 ;
             ClientTile.DataFilter =  null ;
             ClientTile.EnableSelectionMarker =  false ;
             ClientTile.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem19.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem19.HubTile =  ClientTile ;
-            textItem19.TextColor =  System.Drawing.Color.DarkGray ;
-            ClientTile.Footer =  textItem19 ;
+            textItem23.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem23.HubTile =  ClientTile ;
+            textItem23.TextColor =  System.Drawing.Color.DarkGray ;
+            ClientTile.Footer =  textItem23 ;
             ClientTile.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             ClientTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             ClientTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
@@ -315,10 +316,10 @@
             ClientTile.ShowBannerIcon =  true ;
             ClientTile.Size =  new System.Drawing.Size( 250, 180 ) ;
             ClientTile.TabIndex =  5 ;
-            textItem20.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            textItem20.HubTile =  ClientTile ;
-            textItem20.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientTile.Title =  textItem20 ;
+            textItem24.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            textItem24.HubTile =  ClientTile ;
+            textItem24.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ClientTile.Title =  textItem24 ;
             ClientTile.ToolTip =  null ;
             ClientTile.TurnLiveTileOn =  true ;
             // 
@@ -394,6 +395,20 @@
             ExitButton.ThemeName =  "BudgetExecution" ;
             ExitButton.ToolTip =  null ;
             // 
+            // ContextMenu
+            // 
+            ContextMenu.AutoSize =  false ;
+            ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ContextMenu.ForeColor =  System.Drawing.Color.White ;
+            ContextMenu.IsDerivedStyle =  false ;
+            ContextMenu.Name =  "ContextMenu" ;
+            ContextMenu.RenderMode =  System.Windows.Forms.ToolStripRenderMode.System ;
+            ContextMenu.Size =  new System.Drawing.Size( 156, 264 ) ;
+            ContextMenu.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ContextMenu.StyleManager =  null ;
+            ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
+            ContextMenu.ThemeName =  "Budget Execution" ;
+            // 
             // MainForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -406,11 +421,11 @@
             CaptionButtonHoverColor =  System.Drawing.Color.Red ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            captionImage2.BackColor =  System.Drawing.Color.Transparent ;
-            captionImage2.Location =  new System.Drawing.Point( 4, 4 ) ;
-            captionImage2.Name =  "CaptionImage" ;
-            captionImage2.Size =  new System.Drawing.Size( 22, 22 ) ;
-            CaptionImages.Add( captionImage2 );
+            captionImage1.BackColor =  System.Drawing.Color.Transparent ;
+            captionImage1.Location =  new System.Drawing.Point( 4, 4 ) ;
+            captionImage1.Name =  "CaptionImage" ;
+            captionImage1.Size =  new System.Drawing.Size( 22, 22 ) ;
+            CaptionImages.Add( captionImage1 );
             ClientSize =  new System.Drawing.Size( 1338, 713 ) ;
             Controls.Add( ExitButton );
             Controls.Add( TestButton );
@@ -450,5 +465,6 @@
         public Tile GuidanceTile;
         public Tile ReportingTile;
         public Tile DatabaseTile;
+        private ContextMenu ContextMenu;
     }
 }

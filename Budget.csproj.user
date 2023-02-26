@@ -13,6 +13,9 @@
     <Compile Update="Controls\ComboBox\ComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Dialogs\ColorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,7 +256,7 @@
     <Compile Update="Controls\Editor\Editor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
+    <Compile Update="MenuBase.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

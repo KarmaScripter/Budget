@@ -17,8 +17,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -126,7 +126,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 704, 541 );
+            Size = new Size( 503, 429 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -168,6 +168,9 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            SelectButton.Click += OnSelectButtonClicked;
+            ClearButton.Click += OnClearButtonClicked;
         }
 
         /// <summary>
@@ -226,12 +229,12 @@ namespace BudgetExecution
                 BindingSource.DataSource = DataModel.DataTable;
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                var _data = DataTable.AsEnumerable(  );
+                var _data = DataTable.AsEnumerable( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
-                    ?.Select( r => r.Field<string>( "Identifier" ) )
+                    ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
-                
+
                 foreach( var name in _names )
                 {
                     ListBox.Items.Add( name );

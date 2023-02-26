@@ -8,78 +8,285 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Windows.Forms;
     using MetroSet_UI.Child;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ContextMenu : MetroSetContextMenuStrip
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    public class ContextMenu : MenuBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContextMenu"/> class.
         /// </summary>
         public ContextMenu( )
         {
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            BackgroundColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DimGray;
-            ArrowColor = Color.FromArgb( 0, 120, 212  );
+            BackColor = Color.FromArgb( 30, 30, 30 );
+            BackgroundColor = Color.FromArgb( 30, 30, 30 );
+            ForeColor = Color.White;
+            ArrowColor = Color.FromArgb( 17, 53, 84 );
             SeparatorColor = Color.FromArgb( 65, 65, 65 );
-            SelectedItemBackColor = Color.FromArgb( 0, 120, 212  );
-            SelectedItemColor = Color.White;
-            ShowCheckMargin = true;
+            AutoSize = false;
+            Size = new Size( 156, 264 );
+            IsDerivedStyle = false;
+            RenderMode = ToolStripRenderMode.System;
             Style = Style.Custom;
+            ShowCheckMargin = false;
+            ShowImageMargin = true;
+            SelectedItemBackColor = Color.FromArgb( 17, 53, 84 );
+            SelectedItemColor =  Color.White;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
+            
+            // Menu Items
+            FileOption = CreateFileOption( );
+            FolderOption = CreateFolderOption( );
+            CalculatorOption = CreateCalculatorOption( );
+            CalendarOption = CreateCalendarOption( );
+            GuidanceOption = CreateGuidanceOption( );
+            SaveOption = CreateSaveOption( );
+            CloseOption = CreateCloseOption( );
+            ExitOption = CreateExitOption( );
         }
-
+        
         /// <summary>
-        /// Called when [load].
+        /// Initializes the file option.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnPaint( object sender, EventArgs e )
+        private MetroSetToolStripMenuItem CreateFileOption( )
         {
             try
             {
-                CreateItems( );
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.File.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.File }";
+                _item.Tag = MenuOption.File.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
         /// <summary>
-        /// Creates the menu items.
+        /// Initializes the folder option.
         /// </summary>
-        public void CreateItems( )
+        private MetroSetToolStripMenuItem CreateFolderOption( )
         {
             try
             {
-                var _options = Enum.GetNames( typeof( MenuOption ) );
-                for( var _i = 0; _i < _options.Length; _i++ )
-                {
-                    if( !string.IsNullOrEmpty( _options[ _i ] )
-                       && _options[ _i ] != "NS" ) 
-                    {
-                        var _item = new MetroSetToolStripMenuItem(  );
-                        _item.TextAlign = ContentAlignment.MiddleCenter;
-                        _item.Font = new Font( "Roboto", 9 );
-                        _item.Name = $"{ _options[ _i ] }";
-                        _item.BackColor = Color.FromArgb( 20, 20, 20 );
-                        _item.ForeColor = Color.DimGray;
-                        _item.Text = $"{ _options[ _i ] }";
-                        _item.Tag = _options[ _i ];
-                        _item.Checked = false;
-                        _item.Click += OnItemClicked;
-                        Items.Add( _item ); 
-                    }
-                }
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Folder.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Folder }";
+                _item.Tag = MenuOption.Folder.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item ); 
+                return _item;
             }
             catch( Exception ex )
             {
                 Fail( ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the calculator option.
+        /// </summary>
+        private MetroSetToolStripMenuItem CreateCalculatorOption( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Calculator.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Calculator }";
+                _item.Tag = MenuOption.Calculator.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the calendar option.
+        /// </summary>
+        private MetroSetToolStripMenuItem CreateCalendarOption( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Calendar.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Calendar }";
+                _item.Tag = MenuOption.Calendar.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the guidance option.
+        /// </summary>
+        private MetroSetToolStripMenuItem CreateGuidanceOption( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Guidance.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Guidance }";
+                _item.Tag = MenuOption.Guidance.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item ); 
+                return _item;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the save option.
+        /// </summary>
+        private MetroSetToolStripMenuItem CreateSaveOption( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Save.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Save }";
+                _item.Tag = MenuOption.Save.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the close option.
+        /// </summary>
+        private MetroSetToolStripMenuItem CreateCloseOption( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Close.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Close }";
+                _item.Tag = MenuOption.Close.ToString(  );
+                _item.Checked = false;
+                _item.MouseHover += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( MetroSetToolStripMenuItem );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the exit option.
+        /// </summary>
+        private MetroSetToolStripMenuItem CreateExitOption( )
+        {
+            try
+            {
+                var _item = new MetroSetToolStripMenuItem(  );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = MenuOption.Exit.ToString(  );
+                _item.Size = new Size( 160, 30  );
+                _item.BackColor = Color.FromArgb( 30, 30, 30 );
+                _item.ForeColor =  Color.White;
+                _item.Text = $"{ MenuOption.Exit }";
+                _item.Tag = MenuOption.Exit.ToString(  );
+                _item.Checked = false;
+                _item.MouseEnter += OnMouseEnter;
+                _item.MouseLeave += OnMouseLeave;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( MetroSetToolStripMenuItem );
             }
         }
 
@@ -88,15 +295,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnItemClicked( object sender, EventArgs e )
+        private void OnItemClicked( object sender, MouseEventArgs e )
         {
-            if( sender is MetroSetToolStripMenuItem item )
+            if( sender is MetroSetToolStripMenuItem item 
+               && e.Button == MouseButtons.Left )
             {
                 try
                 {
-                    var _owner = item.Owner;
-                    var _parent = _owner.Parent;
                     var _name = item.Tag.ToString( );
+                    var _position = e.Location;
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         var _option = Enum.Parse( typeof( MenuOption ), _name );
@@ -105,36 +312,37 @@ namespace BudgetExecution
                             case MenuOption.File:
                             {
                                 var _file = new FileBrowser(  );
-                                _file.Parent = _parent;
                                 _file.Show(  );
                                 break;
                             }
                             case MenuOption.Folder:
                             {
                                 var _file = new FileBrowser(  );
-                                _file.Parent = _parent;
                                 _file.Show(  );
                                 break;
                             }
                             case MenuOption.Calculator:
                             {
                                 var _calculationForm = new CalculationForm(  );
-                                _calculationForm.Parent = _parent;
-                                _calculationForm.Show( );
+                                var _location = new Point( _position.X, _position.Y  );
+                                _calculationForm.Location = _location;
+                                _calculationForm.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Calendar:
                             {
                                 var _calendarForm = new CalendarForm( );
-                                _calendarForm.Parent = _parent;
-                                _calendarForm.Show( );
+                                var _location = new Point( _position.X, _position.Y  );
+                                _calendarForm.Location = _location;
+                                _calendarForm.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Guidance:
                             {
                                 var _dialog = new GuidanceDialog( );
-                                _dialog.Parent = _parent;
-                                _dialog.Show( );
+                                var _location = new Point( _position.X, _position.Y  );
+                                _dialog.Location = _location;
+                                _dialog.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Save:
@@ -166,7 +374,7 @@ namespace BudgetExecution
                                 break;
                             }
                         }
-                        
+                    
                         Close(  );
                     }
                 }
@@ -175,17 +383,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-        
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

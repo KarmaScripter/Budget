@@ -19,7 +19,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class FileBrowser
     {
         /// <summary>
@@ -99,7 +99,7 @@ namespace BudgetExecution
             Picture.Image = GetImage( );
             FilePaths = GetListViewPaths( );
             FileList.BackColor = Color.FromArgb( 40, 40, 40 );
-            
+
             // Event Wiring
             Load += OnLoaded;
             CloseButton.Click += OnCloseButtonClicked;
@@ -120,7 +120,7 @@ namespace BudgetExecution
                 {
                     PopulateListBox( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
-                    Header.Text = $"{ Extension } File Search";
+                    Header.Text = $"{Extension} File Search";
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
                 }
@@ -151,7 +151,7 @@ namespace BudgetExecution
                             var _file = _files
                                 ?.Where( f => f.Contains( _extension ) )
                                 ?.First( );
-                            
+
                             using var stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( stream );
                             return new Bitmap( _img, 22, 22 );
@@ -287,11 +287,11 @@ namespace BudgetExecution
                 {
                     FileExtension = _radioButton?.Result;
                     var _ext = _radioButton.Tag
-                        ?.ToString(  )
-                        ?.Trim( ".".ToCharArray(  ) )
-                        ?.ToUpper(  );
+                        ?.ToString( )
+                        ?.Trim( ".".ToCharArray( ) )
+                        ?.ToUpper( );
 
-                    Header.Text = $"{ _ext } File Search";
+                    Header.Text = $"{_ext} File Search";
                     MessageLabel.Text = string.Empty;
                     FoundLabel.Text = string.Empty;
                     var _paths = GetListViewPaths( );
@@ -451,16 +451,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FileDialog = new OpenFileDialog(  );
+                    FileDialog = new OpenFileDialog( );
                     FileDialog.DefaultExt = FileExtension;
                     FileDialog.CheckFileExists = true;
                     FileDialog.CheckPathExists = true;
                     FileDialog.Multiselect = false;
-                    var _ext = FileExtension.ToLower(  );
-                    FileDialog.Filter = $@"File Extension | *{ _ext  }";
-                    FileDialog.Title = $@"Search Directories for *{ _ext } files...";
+                    var _ext = FileExtension.ToLower( );
+                    FileDialog.Filter = $@"File Extension | *{_ext}";
+                    FileDialog.Title = $@"Search Directories for *{_ext} files...";
                     FileDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
-                    FileDialog.ShowDialog(  );
+                    FileDialog.ShowDialog( );
                     var _selectedPath = FileDialog.FileName;
                     if( !string.IsNullOrEmpty( _selectedPath ) )
                     {
