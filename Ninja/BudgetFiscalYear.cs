@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        public DateOnly Columbus { get; set; }
+        public override DateOnly Columbus { get; set; }
 
         /// <summary>
         /// Gets or sets the christmas.
@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// <value>
         /// The christmas.
         /// </value>
-        public DateOnly Christmas { get; set; }
+        public override DateOnly Christmas { get; set; }
 
         /// <summary>
         /// Gets or sets the thanksgiving.
@@ -90,7 +90,7 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving.
         /// </value>
-        public DateOnly Thanksgiving { get; set; }
+        public override DateOnly Thanksgiving { get; set; }
 
         /// <summary>
         /// Gets or sets the veterans.
@@ -98,7 +98,7 @@ namespace BudgetExecution
         /// <value>
         /// The veterans.
         /// </value>
-        public DateOnly Veterans { get; set; }
+        public override DateOnly Veterans { get; set; }
 
         /// <summary>
         /// Gets or sets the labor.
@@ -106,7 +106,7 @@ namespace BudgetExecution
         /// <value>
         /// The labor.
         /// </value>
-        public DateOnly Labor { get; set; }
+        public override DateOnly Labor { get; set; }
 
         /// <summary>
         /// Gets or sets the independence.
@@ -114,7 +114,7 @@ namespace BudgetExecution
         /// <value>
         /// The independence.
         /// </value>
-        public DateOnly Independence { get; set; }
+        public override DateOnly Independence { get; set; }
 
         /// <summary>
         /// Gets or sets the juneteenth.
@@ -122,7 +122,7 @@ namespace BudgetExecution
         /// <value>
         /// The juneteenth.
         /// </value>
-        public DateOnly Juneteenth { get; set; }
+        public override DateOnly Juneteenth { get; set; }
 
         /// <summary>
         /// Gets or sets the memorial.
@@ -130,7 +130,7 @@ namespace BudgetExecution
         /// <value>
         /// The memorial.
         /// </value>
-        public DateOnly Memorial { get; set; }
+        public override DateOnly Memorial { get; set; }
 
         /// <summary>
         /// Gets or sets the washingtons.
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// <value>
         /// The washingtons.
         /// </value>
-        public DateOnly Washingtons { get; set; }
+        public override DateOnly Washingtons { get; set; }
 
         /// <summary>
         /// Gets or sets the martin luther king.
@@ -146,7 +146,7 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king.
         /// </value>
-        public DateOnly MartinLutherKing { get; set; }
+        public override DateOnly MartinLutherKing { get; set; }
 
         /// <summary>
         /// Creates new years.
@@ -154,7 +154,7 @@ namespace BudgetExecution
         /// <value>
         /// The new years.
         /// </value>
-        public DateOnly NewYears { get; set; }
+        public override DateOnly NewYears { get; set; }
 
         /// <summary>
         /// Gets or sets the expiring year.
@@ -281,17 +281,17 @@ namespace BudgetExecution
         {
             InputYear = bfy;
             Record = new DataBuilder( Source, SetArgs( bfy ) )?.Record;
-            ID = int.Parse( Record[ "FiscalYeardId" ].ToString( ) );
-            FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
-            LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
-            Availability = Record[ $"{ Field.Availability }" ].ToString( );
-            WorkDays = double.Parse( Record[ $"{ Field.WorkDays }" ].ToString( ) );
-            WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
-            WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
-            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
+            ID = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
+            FirstYear = Record[ "FirstYear" ].ToString( );
+            LastYear = Record[ "LastYEar" ].ToString( );
+            Availability = Record[ "Availability" ].ToString( );
+            WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = Record[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -303,17 +303,17 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "FiscalYeardId" ].ToString( ) );
-            FirstYear = Record[ $"{ Field.FirstYear }" ].ToString( );
-            LastYear = Record[ $"{ Field.LastYear }" ].ToString( );
-            Availability = Record[ $"{ Field.Availability }" ].ToString( );
-            WorkDays = double.Parse( Record[ $"{ Field.WorkDays }" ].ToString( ) );
-            WeekDays = double.Parse( Record[ $"{ Field.WeekDays }" ].ToString( ) );
-            WeekEnds = double.Parse( Record[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = Record[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = DateOnly.Parse( Record[ $"{ Field.StartDate }" ].ToString( ) );
-            EndDate = DateOnly.Parse( Record[ $"{ Field.EndDate }" ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record[ $"{ Field.CancellationDate }" ].ToString( ) );
+            ID = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
+            FirstYear = Record[ "FirstYear" ].ToString( );
+            LastYear = Record[ "LastYEar" ].ToString( );
+            Availability = Record[ "Availability" ].ToString( );
+            WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = Record[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -325,17 +325,17 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataBuilder?.Record;
-            ID = int.Parse( Record?[ "FiscalYeardId" ].ToString( ) );
-            FirstYear = Record?[ $"{ Field.FirstYear }" ].ToString( );
-            LastYear = Record?[ $"{ Field.LastYear }" ].ToString( );
-            Availability = Record?[ $"{ Field.Availability }" ].ToString( );
-            WorkDays = double.Parse( Record?[ $"{ Field.WorkDays }" ].ToString( ) );
-            WeekDays = double.Parse( Record?[ $"{ Field.WeekDays }" ].ToString( ) );
-            WeekEnds = double.Parse( Record?[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = Record?[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = DateOnly.Parse( Record?[ $"{ Field.StartDate }" ].ToString( ) );
-            EndDate = DateOnly.Parse( Record?[ $"{ Field.EndDate }" ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record?[ $"{ Field.CancellationDate }" ].ToString( ) );
+            ID = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
+            FirstYear = Record[ "FirstYear" ].ToString( );
+            LastYear = Record[ "LastYEar" ].ToString( );
+            Availability = Record[ "Availability" ].ToString( );
+            WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = Record[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
         
@@ -347,18 +347,18 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            InputYear = dataRow[ $"{ Field.BFY }" ].ToString( );
-            ID = int.Parse( Record?[ "FiscalYeardId" ].ToString( ) );
-            FirstYear = dataRow[ $"{ Field.FirstYear }" ].ToString( );
-            LastYear = dataRow[ $"{ Field.LastYear }" ].ToString( );
-            Availability = dataRow[ $"{ Field.Availability }" ].ToString( );
-            WorkDays = double.Parse( Record?[ $"{ Field.WorkDays }" ].ToString( ) );
-            WeekDays = double.Parse( Record?[ $"{ Field.WeekDays }" ].ToString( ) );
-            WeekEnds = double.Parse( Record?[ $"{ Field.WeekEnds }" ].ToString( ) );
-            ExpiringYear = Record?[ $"{ Field.ExpiringYear }" ].ToString( );
-            StartDate = DateOnly.Parse( Record?[ $"{ Field.StartDate }" ].ToString( ) );
-            EndDate = DateOnly.Parse( Record?[ $"{ Field.EndDate }" ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record?[ $"{ Field.CancellationDate }" ].ToString( ) );
+            InputYear = dataRow[ "BFY" ].ToString( );
+            ID = int.Parse( dataRow[ "FiscalYearId" ].ToString( ) );
+            FirstYear = dataRow[ "FirstYear" ].ToString( );
+            LastYear = dataRow[ "LastYEar" ].ToString( );
+            Availability = dataRow[ "Availability" ].ToString( );
+            WorkDays = double.Parse( dataRow[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( dataRow[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( dataRow[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = dataRow[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( dataRow[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( dataRow[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( dataRow[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( dataRow );
         }
 
@@ -455,6 +455,7 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
+        
         /// <summary>
         /// Converts to string.
         /// </summary>
