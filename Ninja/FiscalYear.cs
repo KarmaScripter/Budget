@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual string BFY { get; set; }
+        public  override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal year identifier.
@@ -95,14 +95,6 @@ namespace BudgetExecution
         public virtual DateOnly CancellationDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
         /// Determines whether this instance is current.
         /// </summary>
         /// <returns>
@@ -115,7 +107,7 @@ namespace BudgetExecution
         /// </c>
         /// .
         /// </returns>
-        public bool IsCurrent( )
+        public virtual bool IsCurrent( )
         {
             try
             {
@@ -131,21 +123,21 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the arguments.
         /// </summary>
-        /// <param name = "year" >
+        /// <param name = "bfy" >
         /// The year.
         /// </param>
         /// <returns>
         /// </returns>
-        private protected IDictionary<string, object> SetArgs( string year )
+        private protected IDictionary<string, object> SetArgs( string bfy )
         {
-            if( !string.IsNullOrEmpty( year )
-               && year.Length == 4
-               && int.Parse( year ) > 2018
-               && int.Parse( year ) < 2040 )
+            if( !string.IsNullOrEmpty( bfy )
+               && bfy.Length == 4
+               && int.Parse( bfy ) > 2018
+               && int.Parse( bfy ) < 2040 )
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{ Field.BBFY }" ] = year };
+                    return new Dictionary<string, object> { [ "BFY" ] = bfy };
                 }
                 catch( Exception ex )
                 {
@@ -155,26 +147,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-        
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Record?.ItemArray?.Length > 0 
-                    ? Record.ToDictionary( )
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
     }
 }

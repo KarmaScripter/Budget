@@ -220,10 +220,10 @@ namespace BudgetExecution
             Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
             CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
@@ -248,8 +248,8 @@ namespace BudgetExecution
             Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
             CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
@@ -276,8 +276,8 @@ namespace BudgetExecution
             Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) ?? "0" );
             CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( dataRow[ "EstimatedRecoveries" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( dataRow[ "EstimatedReimbursements" ].ToString(  ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
             TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );

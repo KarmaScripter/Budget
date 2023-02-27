@@ -11,17 +11,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "UnusedMemberInSuper.Global" )]
+    [ SuppressMessage( "ReSharper", "UnusedMemberInSuper.Global" ) ]
     public interface ICalendarYear
     {
-        /// <summary>
-        /// Gets or sets the Data.
-        /// </summary>
-        /// <value>
-        /// The Data.
-        /// </value>
-        DataRow Record { get; set; }
-
         /// <summary>
         /// Gets or sets the work days.
         /// </summary>

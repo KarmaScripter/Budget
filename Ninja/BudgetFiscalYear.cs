@@ -25,6 +25,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
     {
         /// <summary>
@@ -236,6 +237,14 @@ namespace BudgetExecution
         public Source Source { get; set; } 
 
         /// <summary>
+        /// Gets or sets the Record.
+        /// </summary>
+        /// <value>
+        /// The data row.
+        /// </value>
+        public DataRow Record { get; set; }
+        
+        /// <summary>
         /// Gets or sets the holidays.
         /// </summary>
         /// <value>
@@ -415,9 +424,10 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
-                    : -1;
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) 
+                    && dataRow != null
+                        ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                        : -1;
             }
             catch( Exception ex )
             {
@@ -426,6 +436,25 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Record?.ItemArray?.Length > 0 
+                    ? Record.ToDictionary( )
+                    : default( IDictionary<string, object> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, object> );
+            }
+        }
         /// <summary>
         /// Converts to string.
         /// </summary>

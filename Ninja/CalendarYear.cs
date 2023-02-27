@@ -16,16 +16,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class CalendarYear : ICalendarYear
+    public abstract class CalendarYear : FederalHoliday, ICalendarYear
     {
-        /// <summary>
-        /// Gets or sets the Data.
-        /// </summary>
-        /// <value>
-        /// The Data.
-        /// </value>
-        public virtual DataRow Record { get; set; }
-
         /// <summary>
         /// Gets or sets the work days.
         /// </summary>
@@ -81,16 +73,5 @@ namespace BudgetExecution
         /// The current year.
         /// </value>
         public virtual int CurrentYear { get; set; }
-
-        /// <summary>
-        /// Get Error Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new Error( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
     }
 }

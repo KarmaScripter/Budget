@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the prof loss trans.
         /// </value>
-        public string ProfLossTransType { get; set; }
+        public string ProfitLossTransType { get; set; }
 
         /// <summary>
         /// Gets or sets the estimated reimbursable spending option.
@@ -355,6 +355,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetControlValue( )
         {
+            Source = Source.BudgetControls;
         }
 
         /// <summary>
@@ -365,6 +366,19 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "BudgetControlValuesId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
+            SecurityOrg = Record[ "" ].ToString(  ); 
+            BudgetingTransType = Record[ "" ].ToString(  );
+            PostedTransType = Record[ "" ].ToString(  );
+            EstimatedReimbursableTransType = Record[ "" ].ToString(  );
+            SpendingAdjustmentTransType = Record[ "" ].ToString(  );
+            EstimatedRecoveriesTransType = Record[ "" ].ToString(  );
+            ActualRecoveriesTransType = Record[ "" ].ToString(  );
+            StrategicReserveTransType = Record[ "" ].ToString(  );
+            SpendingAdjustmentTransType = Record[ "" ].ToString(  );
+            ProfitLossTransType = Record[ "" ].ToString(  );
         }
 
         /// <summary>
@@ -375,6 +389,9 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "BudgetControlValuesId" ].ToString(  ) ?? "0" );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
         }
 
         /// <summary>

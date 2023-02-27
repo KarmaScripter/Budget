@@ -13,23 +13,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FederalHoliday
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    public abstract class FederalHoliday
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public virtual string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the columbus.
@@ -37,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        public DateOnly Columbus { get; set; }
+        public virtual DateOnly Columbus { get; set; }
 
         /// <summary>
         /// Gets or sets the veterans.
@@ -45,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The veterans.
         /// </value>
-        public DateOnly Veterans { get; set; }
+        public virtual DateOnly Veterans { get; set; }
 
         /// <summary>
         /// Gets or sets the thanksgiving.
@@ -53,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving.
         /// </value>
-        public DateOnly Thanksgiving { get; set; }
+        public virtual DateOnly Thanksgiving { get; set; }
 
         /// <summary>
         /// Gets or sets the christmas.
@@ -61,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The christmas.
         /// </value>
-        public DateOnly Christmas { get; set; }
+        public virtual DateOnly Christmas { get; set; }
 
         /// <summary>
         /// Creates new years.
@@ -69,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The new years.
         /// </value>
-        public DateOnly NewYears { get; set; }
+        public virtual DateOnly NewYears { get; set; }
 
         /// <summary>
         /// Gets or sets the martin luther king.
@@ -77,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king.
         /// </value>
-        public DateOnly MartinLutherKing { get; set; }
+        public virtual DateOnly MartinLutherKing { get; set; }
 
         /// <summary>
         /// Gets or sets the washingtons.
@@ -85,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The washingtons.
         /// </value>
-        public DateOnly Washingtons { get; set; }
+        public virtual DateOnly Washingtons { get; set; }
 
         /// <summary>
         /// Gets or sets the memorial.
@@ -93,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The memorial.
         /// </value>
-        public DateOnly Memorial { get; set; }
+        public virtual DateOnly Memorial { get; set; }
 
         /// <summary>
         /// Gets or sets the juneteenth.
@@ -101,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The juneteenth.
         /// </value>
-        public DateOnly Juneteenth { get; set; }
+        public virtual DateOnly Juneteenth { get; set; }
 
         /// <summary>
         /// Gets or sets the independence.
@@ -109,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The independence.
         /// </value>
-        public DateOnly Independence { get; set; }
+        public virtual DateOnly Independence { get; set; }
 
         /// <summary>
         /// Gets or sets the labor.
@@ -117,67 +110,17 @@ namespace BudgetExecution
         /// <value>
         /// The labor.
         /// </value>
-        public DateOnly Labor { get; set; }
+        public virtual DateOnly Labor { get; set; }
         
         /// <summary>
-        /// Gets or sets the source.
+        /// Get Error Dialog.
         /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FederalHoliday"/> class.
-        /// </summary>
-        public FederalHoliday( )
+        /// <param name="ex">The ex.</param>
+        private protected static void Fail( Exception ex )
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FederalHoliday"/> class.
-        /// </summary>
-        /// <param name="query">The query.</param>
-        public FederalHoliday( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FederalHoliday"/> class.
-        /// </summary>
-        /// <param name="builder">The builder.</param>
-        public FederalHoliday( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FederalHoliday"/> class.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public FederalHoliday( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
