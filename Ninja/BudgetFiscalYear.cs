@@ -50,7 +50,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the start date.
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <value>
         /// The expiration date.
         /// </value>
-        public DateOnly ExpirationDate { get; set; }
+        public override DateOnly ExpirationDate { get; set; }
 
         /// <summary>
         /// Gets or sets the cancellation date.
@@ -212,22 +212,6 @@ namespace BudgetExecution
         /// </value>
         public string Availability { get; set; }
         
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
         /// <summary>
         /// Gets the source.
         /// </summary>

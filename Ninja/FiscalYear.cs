@@ -23,20 +23,28 @@ namespace BudgetExecution
     public abstract class FiscalYear : CalendarYear
     {
         /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public  override string BFY { get; set; }
-
-        /// <summary>
         /// Gets or sets the fiscal year identifier.
         /// </summary>
         /// <value>
         /// The fiscal year identifier.
         /// </value>
         public virtual int ID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public  virtual string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public  virtual string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the bbfy.
@@ -93,6 +101,14 @@ namespace BudgetExecution
         /// The cancellation date.
         /// </value>
         public virtual DateOnly CancellationDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the expiration date.
+        /// </summary>
+        /// <value>
+        /// The expiration date.
+        /// </value>
+        public virtual DateOnly ExpirationDate { get; set; }
 
         /// <summary>
         /// Determines whether this instance is current.

@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class CompassLevel
     {
         /// <summary>
@@ -22,14 +23,6 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget level.
-        /// </summary>
-        /// <value>
-        /// The budget level.
-        /// </value>
-        public string BudgetLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -48,6 +41,14 @@ namespace BudgetExecution
         public string EFY { get; set; }
 
         /// <summary>
+        /// Gets or sets the treasury symbol.
+        /// </summary>
+        /// <value>
+        /// The treasury symbol.
+        /// </value>
+        public string TreasurySymbol { get; set; }
+
+        /// <summary>
         /// Gets or sets the fund code.
         /// </summary>
         /// <value>
@@ -62,246 +63,70 @@ namespace BudgetExecution
         /// The name of the fund.
         /// </value>
         public string FundName { get; set; }
-
+        
         /// <summary>
-        /// Gets or sets the appropriation code.
+        /// Gets or sets the budget level.
         /// </summary>
         /// <value>
-        /// The appropriation code.
+        /// The budget level.
         /// </value>
-        public string AppropriationCode { get; set; }
+        public string BudgetLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets the sub appropriation code.
+        /// Gets or sets the rpio code.
         /// </summary>
         /// <value>
-        /// The sub appropriation code.
+        /// The rpio code.
         /// </value>
-        public string SubAppropriationCode { get; set; }
+        public string RpioCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the appropriation.
+        /// Gets or sets the name of the rpio.
         /// </summary>
         /// <value>
-        /// The name of the appropriation.
+        /// The name of the rpio.
         /// </value>
-        public string AppropriationName { get; set; }
+        public string RpioName { get; set; }
 
         /// <summary>
-        /// Gets or sets the treasury symbol.
+        /// Gets or sets the account code.
         /// </summary>
         /// <value>
-        /// The treasury symbol.
+        /// The account code.
         /// </value>
-        public string TreasurySymbol { get; set; }
+        public string AccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the document.
+        /// Gets or sets the program project code.
         /// </summary>
         /// <value>
-        /// The type of the document.
+        /// The program project code.
         /// </value>
-        public string DocumentType { get; set; }
+        public string ProgramProjectCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the lower.
+        /// Gets or sets the name of the program project.
         /// </summary>
         /// <value>
-        /// The name of the lower.
+        /// The name of the program project.
         /// </value>
-        public string LowerName { get; set; }
+        public string ProgramProjectName { get; set; }
 
         /// <summary>
-        /// Gets or sets the description.
+        /// Gets or sets the program area code.
         /// </summary>
         /// <value>
-        /// The description.
+        /// The program area code.
         /// </value>
-        public string Description { get; set; }
+        public string ProgramAreaCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the posted control flag.
+        /// Gets or sets the name of the program area.
         /// </summary>
         /// <value>
-        /// The posted control flag.
+        /// The name of the program area.
         /// </value>
-        public string PostedControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the actual type of the recovery trans.
-        /// </summary>
-        /// <value>
-        /// The actual type of the recovery trans.
-        /// </value>
-        public string ActualRecoveryTransType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the commitment spending control flag.
-        /// </summary>
-        /// <value>
-        /// The commitment spending control flag.
-        /// </value>
-        public string CommitmentSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget default.
-        /// </summary>
-        /// <value>
-        /// The budget default.
-        /// </value>
-        public string BudgetDefault { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower child expenditure spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower child expenditure spending control flag.
-        /// </value>
-        public string LowerChildExpenditureSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower child expense spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower child expense spending control flag.
-        /// </value>
-        public string LowerChildExpenseSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fte control flag.
-        /// </summary>
-        /// <value>
-        /// The fte control flag.
-        /// </value>
-        public string FteControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the accrual spending control flag.
-        /// </summary>
-        /// <value>
-        /// The accrual spending control flag.
-        /// </value>
-        public string AccrualSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligation spending control flag.
-        /// </summary>
-        /// <value>
-        /// The obligation spending control flag.
-        /// </value>
-        public string ObligationSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the pre commitment spending control flag.
-        /// </summary>
-        /// <value>
-        /// The pre commitment spending control flag.
-        /// </value>
-        public string PreCommitmentSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower commitment spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower commitment spending control flag.
-        /// </value>
-        public string LowerCommitmentSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower obligation spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower obligation spending control flag.
-        /// </value>
-        public string LowerObligationSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower expenditure spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower expenditure spending control flag.
-        /// </value>
-        public string LowerExpenditureSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower expense spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower expense spending control flag.
-        /// </value>
-        public string LowerExpenseSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower posted control flag.
-        /// </summary>
-        /// <value>
-        /// The lower posted control flag.
-        /// </value>
-        public string LowerPostedControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the lower posted trans.
-        /// </summary>
-        /// <value>
-        /// The type of the lower posted trans.
-        /// </value>
-        public string LowerPostedTransType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the lower trans.
-        /// </summary>
-        /// <value>
-        /// The type of the lower trans.
-        /// </value>
-        public string LowerTransType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower posted flag.
-        /// </summary>
-        /// <value>
-        /// The lower posted flag.
-        /// </value>
-        public string LowerPostedFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower pre commitment spending control flag.
-        /// </summary>
-        /// <value>
-        /// The lower pre commitment spending control flag.
-        /// </value>
-        public string LowerPreCommitmentSpendingControlFlag { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower recoveries spending option.
-        /// </summary>
-        /// <value>
-        /// The lower recoveries spending option.
-        /// </value>
-        public string LowerRecoveriesSpendingOption { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower recoveries option.
-        /// </summary>
-        /// <value>
-        /// The lower recoveries option.
-        /// </value>
-        public string LowerRecoveriesOption { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lower reimbursable spending option.
-        /// </summary>
-        /// <value>
-        /// The lower reimbursable spending option.
-        /// </value>
-        public string LowerReimbursableSpendingOption { get; set; }
-
-        /// <summary>
-        /// Gets or sets the date.
-        /// </summary>
-        /// <value>
-        /// The date.
-        /// </value>
-        public DateOnly Date { get; set; }
+        public string ProgramAreaName { get; set; }
 
         /// <summary>
         /// Gets or sets the total authority.
@@ -309,23 +134,23 @@ namespace BudgetExecution
         /// <value>
         /// The total authority.
         /// </value>
-        public double TotalAuthority { get; set; }
+        public double Authority { get; set; }
 
         /// <summary>
-        /// Gets or sets the original amount.
+        /// Gets or sets the total budgetd.
         /// </summary>
         /// <value>
-        /// The original amount.
+        /// The total budgeted.
         /// </value>
-        public double OriginalAmount { get; set; }
+        public double Budgeted { get; set; }
 
         /// <summary>
-        /// Gets or sets the carryover availability percentage.
+        /// Gets or sets the posted amount.
         /// </summary>
         /// <value>
-        /// The carryover availability percentage.
+        /// The posted amount.
         /// </value>
-        public double CarryoverAvailabilityPercentage { get; set; }
+        public double Posted { get; set; }
 
         /// <summary>
         /// Gets or sets the carry in.
@@ -333,7 +158,7 @@ namespace BudgetExecution
         /// <value>
         /// The carry in.
         /// </value>
-        public double CarryIn { get; set; }
+        public double CarryoverIn { get; set; }
 
         /// <summary>
         /// Gets or sets the carry out.
@@ -341,39 +166,15 @@ namespace BudgetExecution
         /// <value>
         /// The carry out.
         /// </value>
-        public double CarryOut { get; set; }
-
-        /// <summary>
-        /// Gets or sets the funds in.
-        /// </summary>
-        /// <value>
-        /// The funds in.
-        /// </value>
-        public double FundsIn { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund out.
-        /// </summary>
-        /// <value>
-        /// The fund out.
-        /// </value>
-        public double FundOut { get; set; }
-
-        /// <summary>
-        /// Gets or sets the recoveries withdrawn.
-        /// </summary>
-        /// <value>
-        /// The recoveries withdrawn.
-        /// </value>
-        public double RecoveriesWithdrawn { get; set; }
-
+        public double CarryoverOut { get; set; }
+        
         /// <summary>
         /// Gets or sets the actual recoveries.
         /// </summary>
         /// <value>
         /// The actual recoveries.
         /// </value>
-        public double ActualRecoveries { get; set; }
+        public double Recoveries { get; set; }
 
         /// <summary>
         /// Gets or sets the actual reimbursements.
@@ -381,15 +182,79 @@ namespace BudgetExecution
         /// <value>
         /// The actual reimbursements.
         /// </value>
-        public double ActualReimbursements { get; set; }
+        public double Reimbursements { get; set; }
 
         /// <summary>
-        /// Gets or sets the agreement reimbursables.
+        /// Gets or sets the open commitments.
         /// </summary>
         /// <value>
-        /// The agreement reimbursables.
+        /// The open commitments.
         /// </value>
-        public double AgreementReimbursables { get; set; }
+        public double OpenCommitments { get; set; }
+
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
+        public double Obligations { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ulo.
+        /// </summary>
+        /// <value>
+        /// The ulo.
+        /// </value>
+        public double UnliquidatedObligations { get; set; }
+
+        /// <summary>
+        /// Gets or sets the expenditures.
+        /// </summary>
+        /// <value>
+        /// The expenditures.
+        /// </value>
+        public double Expenditures { get; set; }
+
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
+        public double Available { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public  string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury agency code.
+        /// </summary>
+        /// <value>
+        /// The treasury agency code.
+        /// </value>
+        public  string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        public string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        public  string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -430,6 +295,30 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0");
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString(  ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -440,6 +329,30 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0");
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString(  ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
         }
 
         /// <summary>
@@ -450,6 +363,30 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY =  dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString(  );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            AccountCode = dataRow[ "AccountCode" ].ToString( );
+            Authority = double.Parse( dataRow[ "Authority" ].ToString(  ) ?? "0");
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) ?? "0" );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) ?? "0" );
+            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString(  ) ?? "0" );
+            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString(  ) ?? "0" );
+            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString(  ) ?? "0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString(  ) ?? "0" );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
         }
     }
 }

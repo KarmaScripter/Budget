@@ -17,14 +17,6 @@ namespace BudgetExecution
     public abstract class FederalHoliday
     {
         /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public virtual string BFY { get; set; }
-
-        /// <summary>
         /// Gets or sets the columbus.
         /// </summary>
         /// <value>

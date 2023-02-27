@@ -350,6 +350,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -399,6 +400,7 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             Data = Record.ToDictionary(  );
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -447,7 +449,8 @@ namespace BudgetExecution
             Source = Source.StatusOfFunds;
             Record = dataRow;
             Data = dataRow.ToDictionary(  );
-            ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
+            ID = int.Parse( dataRow[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString(  );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -492,6 +495,7 @@ namespace BudgetExecution
             Record = new DataBuilder( Source, map )?.Record;
             Data = Record.ToDictionary(  );
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString(  ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
