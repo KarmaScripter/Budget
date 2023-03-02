@@ -137,6 +137,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static void LaunchEdge( )
         {
             try
@@ -157,6 +160,9 @@ namespace BudgetExecution
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public static void LaunchChrome( )
         {
             try
@@ -180,7 +186,9 @@ namespace BudgetExecution
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The exception.
+        /// </param>
         private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
