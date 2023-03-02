@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class CompassLevel
     {
@@ -295,6 +295,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CompassLevel" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -303,7 +304,7 @@ namespace BudgetExecution
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             AccountCode = Record[ "AccountCode" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0");
+            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0" );
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
@@ -329,6 +330,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CompassLevel" ].ToString(  ) ?? "0" );
             BFY =  Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -363,6 +365,7 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "CompassLevel" ].ToString(  ) ?? "0" );
             BFY =  dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );

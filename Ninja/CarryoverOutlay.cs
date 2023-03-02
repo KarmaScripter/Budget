@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the omb account.
         /// </value>
-        public string OmbAccountName { get; set; }
+        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the line.
