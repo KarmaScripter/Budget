@@ -72,7 +72,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Opens the access.
+        /// Opens the access database.
         /// </summary>
         public static void OpenAccess( )
         {
@@ -116,7 +116,10 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public static void OpenPdfDocument( )
         {
             try
