@@ -17,15 +17,15 @@ namespace BudgetExecution
     using FontStyle = System.Drawing.FontStyle;
 
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary> Gets or sets the selected table. </summary>
@@ -111,10 +111,10 @@ namespace BudgetExecution
 
             // Basic Properties
             Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1300, 700 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
