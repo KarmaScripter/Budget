@@ -765,13 +765,14 @@ namespace BudgetExecution
         {
             try
             {
+                DropDown.Items.Clear( );
                 var _names = Enum.GetNames( typeof( ChartSeriesType ) );
                 for( var _i = 0; _i < _names.Length; _i++ )
                 {
                     var name = _names[ _i ];
                     if( name != "NS" )
                     {
-                        ToolStrip.DropDown.Items.Add( name );
+                        DropDown.Items.Add( name );
                     }
                 }
             }
@@ -791,8 +792,10 @@ namespace BudgetExecution
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
