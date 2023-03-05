@@ -1634,7 +1634,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 80, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 78, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -2494,6 +2494,25 @@
             ToolStrip.ThemeStyle.HoverItemBackColor =  System.Drawing.Color.SteelBlue ;
             ToolStrip.ThemeStyle.HoverItemForeColor =  System.Drawing.Color.White ;
             ToolStrip.VisualStyle =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray ;
+            // 
+            // toolStripMenuItemExt1
+            // 
+            toolStripMenuItemExt1.Name =  "toolStripMenuItemExt1" ;
+            toolStripMenuItemExt1.Size =  new System.Drawing.Size( 32, 19 ) ;
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.AutoSize =  false ;
+            ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ContextMenu.ForeColor =  System.Drawing.Color.White ;
+            ContextMenu.IsDerivedStyle =  false ;
+            ContextMenu.Name =  "ContextMenu" ;
+            ContextMenu.RenderMode =  System.Windows.Forms.ToolStripRenderMode.System ;
+            ContextMenu.Size =  new System.Drawing.Size( 156, 264 ) ;
+            ContextMenu.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ContextMenu.StyleManager =  null ;
+            ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
+            ContextMenu.ThemeName =  "Budget Execution" ;
             // 
             // DataGridForm
             // 

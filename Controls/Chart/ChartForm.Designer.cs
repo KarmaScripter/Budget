@@ -56,6 +56,7 @@
             FieldLabel =  new Label( ) ;
             tabPageAdv4 =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             tableLayoutPanel4 =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            ContextMenu =  new ContextMenu( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ChartTable.SuspendLayout( );
             FilterTabPage.SuspendLayout( );
@@ -569,6 +570,20 @@
             tableLayoutPanel4.Size =  new System.Drawing.Size( 200, 100 ) ;
             tableLayoutPanel4.TabIndex =  0 ;
             // 
+            // ContextMenu
+            // 
+            ContextMenu.AutoSize =  false ;
+            ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ContextMenu.ForeColor =  System.Drawing.Color.White ;
+            ContextMenu.IsDerivedStyle =  false ;
+            ContextMenu.Name =  "ContextMenu" ;
+            ContextMenu.RenderMode =  System.Windows.Forms.ToolStripRenderMode.System ;
+            ContextMenu.Size =  new System.Drawing.Size( 156, 264 ) ;
+            ContextMenu.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ContextMenu.StyleManager =  null ;
+            ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
+            ContextMenu.ThemeName =  "Budget Execution" ;
+            // 
             // ChartForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -712,5 +727,6 @@
         public Label FieldLabel;
         private Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        public ContextMenu ContextMenu;
     }
 }

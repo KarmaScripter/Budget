@@ -14,9 +14,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class CalculationForm : MetroForm
     {
         /// <summary>
@@ -35,7 +35,7 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 10  );
+            CaptionFont = new Font( "Roboto", 10 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.Red;
             ShowMouseOver = true;
@@ -97,6 +97,7 @@ namespace BudgetExecution
         {
             Calculator.BorderStyle = Border3DStyle.Adjust;
             Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
+            CloseButton.HoverText = "Exit Calculator";
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

@@ -15,194 +15,106 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     [SuppressMessage( "ReSharper", "UnusedVariable" )]
     [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
     [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
     public partial class ChartForm : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the selected table.
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
+        /// <summary> Gets or sets the selected table. </summary>
+        /// <value> The selected table. </value>
         public string SelectedTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
+        /// <summary> Gets or sets the first category. </summary>
+        /// <value> The first category. </value>
         public string FirstCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
+        /// <summary> Gets or sets the first value. </summary>
+        /// <value> The first value. </value>
         public string FirstValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
+        /// <summary> Gets or sets the second category. </summary>
+        /// <value> The second category. </value>
         public string SecondCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
+        /// <summary> Gets or sets the second value. </summary>
+        /// <value> The second value. </value>
         public string SecondValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
+        /// <summary> Gets or sets the third category. </summary>
+        /// <value> The third category. </value>
         public string ThirdCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
+        /// <summary> Gets or sets the third value. </summary>
+        /// <value> The third value. </value>
         public string ThirdValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fourth category.
-        /// </summary>
-        /// <value>
-        /// The fourth category.
-        /// </value>
+        /// <summary> Gets or sets the fourth category. </summary>
+        /// <value> The fourth category. </value>
         public string FourthCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fourth value.
-        /// </summary>
-        /// <value>
-        /// The fourth value.
-        /// </value>
+        /// <summary> Gets or sets the fourth value. </summary>
+        /// <value> The fourth value. </value>
         public string FourthValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
+        /// <summary> Gets or sets the SQL query. </summary>
+        /// <value> The SQL query. </value>
         public string SqlQuery { get; set; }
 
-        /// <summary>
-        /// Gets or sets the x axis.
-        /// </summary>
-        /// <value>
-        /// The x axis.
-        /// </value>
+        /// <summary> Gets or sets the x axis. </summary>
+        /// <value> The x axis. </value>
         public string xAxis { get; set; }
 
-        /// <summary>
-        /// Gets or sets the y axis.
-        /// </summary>
-        /// <value>
-        /// The y axis.
-        /// </value>
+        /// <summary> Gets or sets the y axis. </summary>
+        /// <value> The y axis. </value>
         public IEnumerable<string> yAxis { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
+        /// <summary> Gets or sets the form filter. </summary>
+        /// <value> The form filter. </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
+        /// <summary> Gets or sets the fields. </summary>
+        /// <value> The fields. </value>
         public IList<string> Fields { get; set; }
 
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
+        /// <summary> Gets or sets the numerics. </summary>
+        /// <value> The numerics. </value>
         public IList<string> Numerics { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
+        /// <summary> Gets or sets the selected columns. </summary>
+        /// <value> The selected columns. </value>
         public IList<string> SelectedColumns { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
+        /// <summary> Gets or sets the selected fields. </summary>
+        /// <value> The selected fields. </value>
         public IList<string> SelectedFields { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
+        /// <summary> Gets or sets the selected numerics. </summary>
+        /// <value> The selected numerics. </value>
         public IList<string> SelectedNumerics { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ChartForm"/>
+        /// class.
         /// </summary>
         public ChartForm( )
         {
@@ -255,6 +167,7 @@ namespace BudgetExecution
             ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
 
             // Event Wiring
+            MouseClick += OnRightClick;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -275,9 +188,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ChartForm"/>
+        /// class.
         /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
+        /// <param name = "bindingSource" > The binding source. </param>
         public ChartForm( BindingSource bindingSource )
             : this( )
         {
@@ -292,10 +207,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ChartForm"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name = "source" > The source. </param>
+        /// <param name = "provider" > The provider. </param>
         public ChartForm( Source source, Provider provider )
             : this( )
         {
@@ -310,11 +227,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ChartForm"/>
+        /// class.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The where.</param>
+        /// <param name = "source" > The source. </param>
+        /// <param name = "provider" > The provider. </param>
+        /// <param name = "where" > The where. </param>
         public ChartForm( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
@@ -328,11 +247,13 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -393,9 +314,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the tool strip properties.
-        /// </summary>
+        /// <summary> Sets the tool strip properties. </summary>
         private void SetToolStripProperties( )
         {
             if( ToolStrip.TextBox != null )
@@ -416,10 +335,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="where">The where.</param>
+        /// <summary> Binds the data source. </summary>
+        /// <param name = "where" > The where. </param>
         private void BindDataSource( IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
@@ -444,11 +361,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="cols">The cols.</param>
-        /// <param name="where">The where.</param>
+        /// <summary> Binds the data source. </summary>
+        /// <param name = "cols" > The cols. </param>
+        /// <param name = "where" > The where. </param>
         private void BindDataSource( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
@@ -474,12 +389,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
+        /// <summary> Binds the data source. </summary>
+        /// <param name = "fields" > The fields. </param>
+        /// <param name = "numerics" > The numerics. </param>
+        /// <param name = "where" > The where. </param>
         private void BindDataSource( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
@@ -506,9 +419,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Resets the ComboBox visibility.
-        /// </summary>
+        /// <summary> Resets the ComboBox visibility. </summary>
         private void ResetComboBoxVisibility( )
         {
             try
@@ -540,9 +451,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
+        /// <summary> Clears the selections. </summary>
         private void ClearSelections( )
         {
             try
@@ -575,11 +484,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Creates the SQL text. </summary>
+        /// <param name = "where" > The where. </param>
+        /// <returns> </returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )
@@ -598,13 +505,11 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Creates the SQL text. </summary>
+        /// <param name = "fields" > The fields. </param>
+        /// <param name = "numerics" > The numerics. </param>
+        /// <param name = "where" > The where. </param>
+        /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
@@ -642,12 +547,10 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary>
-        /// Creates the SQL text.
-        /// </summary>
-        /// <param name="columns">The columns.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <summary> Creates the SQL text. </summary>
+        /// <param name = "columns" > The columns. </param>
+        /// <param name = "where" > The where. </param>
+        /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
@@ -678,9 +581,7 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary>
-        /// Clears the label text.
-        /// </summary>
+        /// <summary> Clears the label text. </summary>
         private void ClearLabelText( )
         {
             try
@@ -698,9 +599,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the label text.
-        /// </summary>
+        /// <summary> Sets the label text. </summary>
         private void SetLabelText( )
         {
             try
@@ -716,9 +615,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Updates the label text.
-        /// </summary>
+        /// <summary> Updates the label text. </summary>
         private void UpdateLabelText( )
         {
             try
@@ -756,9 +653,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the tool bar drop down items.
-        /// </summary>
+        /// <summary> Populates the tool bar drop down items. </summary>
         private void PopulateToolBarDropDownItems( )
         {
             try
@@ -779,9 +674,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
+        /// <summary> Populates the table ListBox items. </summary>
         public void PopulateTableListBoxItems( )
         {
             try
@@ -804,9 +697,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the first ComboBox items.
-        /// </summary>
+        /// <summary> Populates the first ComboBox items. </summary>
         private void PopulateFirstComboBoxItems( )
         {
             if( Fields?.Any( ) == true )
@@ -826,9 +717,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the second ComboBox items.
-        /// </summary>
+        /// <summary> Populates the second ComboBox items. </summary>
         private void PopulateSecondComboBoxItems( )
         {
             if( Fields?.Any( ) == true )
@@ -861,9 +750,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the third ComboBox items.
-        /// </summary>
+        /// <summary> Populates the third ComboBox items. </summary>
         private void PopulateThirdComboBoxItems( )
         {
             if( Fields?.Any( ) == true )
@@ -890,9 +777,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the field ListBox.
-        /// </summary>
+        /// <summary> Populates the field ListBox. </summary>
         private void PopulateFieldListBox( )
         {
             if( Fields?.Any( ) == true )
@@ -911,9 +796,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
+        /// <summary> Populates the numeric ListBox. </summary>
         private void PopulateNumericListBox( )
         {
             if( Numerics?.Any( ) == true )
@@ -935,9 +818,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the collections.
-        /// </summary>
+        /// <summary> Clears the collections. </summary>
         private void ClearCollections( )
         {
             try
@@ -968,10 +849,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <summary> Binds the data source. </summary>
+        /// <param name = "sqlText" > The SQL text. </param>
         private void BindDataSource( string sqlText )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
@@ -996,11 +875,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [second ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [second ComboBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1035,10 +916,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [second ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [second ListBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnSecondListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -1072,11 +951,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [third ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [third ComboBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1108,10 +989,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [third ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [third ListBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -1138,10 +1017,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [field ListBox selected value changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [field ListBox selected value changed]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnFieldListBoxSelectedValueChanged( object sender )
         {
             try
@@ -1158,10 +1035,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [numeric ListBox selected value changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [numeric ListBox selected value changed]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnNumericListBoxSelectedValueChanged( object sender )
         {
             try
@@ -1178,11 +1053,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [first ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [first ComboBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1222,10 +1099,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [first ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [first ListBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -1261,10 +1136,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [table ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [table ListBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
         public void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -1307,12 +1180,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [back button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.
-        /// </param>
-        /// <param name="e">The <see cref="EventArgs"/>
+        /// <summary> Called when [back button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnBackButtonClicked( object sender, EventArgs e )
@@ -1338,13 +1210,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [exit button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// <summary> Called when [exit button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1361,11 +1233,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <summary> </summary>
+        /// <param name = "sender" > </param>
+        /// <param name = "e" > </param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1388,11 +1258,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [refresh data button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [refresh data button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRefreshDataButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1414,12 +1286,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
+        /// <summary> Called when [active tab changed]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnActiveTabChanged( object sender, EventArgs e )
@@ -1438,7 +1309,6 @@ namespace BudgetExecution
                         CalendarTabPage.TabVisible = false;
                         break;
                     }
-
                     case 1:
                     {
                         // TabPage Visibility
@@ -1450,7 +1320,6 @@ namespace BudgetExecution
                         ResetComboBoxVisibility( );
                         break;
                     }
-
                     case 2:
                     {
                         // TabPage Visibility
@@ -1461,7 +1330,6 @@ namespace BudgetExecution
                         CalendarTabPage.TabVisible = false;
                         break;
                     }
-
                     case 3:
                     {
                         // TabPage Visibility
@@ -1480,11 +1348,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [fold button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [fold button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnGroupButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1503,11 +1373,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [calendar button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [calendar button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCalendarButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1526,11 +1398,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [start date selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [start date selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnStartDateSelected( object sender, EventArgs e )
         {
             try
@@ -1543,11 +1417,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [end date selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [end date selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnEndDateSelected( object sender, EventArgs e )
         {
             try
@@ -1560,11 +1436,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [remove filter button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [remove filter button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1594,11 +1472,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [table button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [table button click]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnTableButtonClick( object sender, EventArgs e )
         {
             try
@@ -1628,13 +1508,17 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The
+        /// <see cref="MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
             {
                 try
                 {
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {
@@ -1643,10 +1527,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new Error( ex );

@@ -11,17 +11,13 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
     public partial class LoadingForm : MetroForm
     {
-        /// <summary>
-        /// The image path
-        /// </summary>
+        /// <summary> The image path </summary>
         public readonly string LoadingPath =
             @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
@@ -31,32 +27,22 @@ namespace BudgetExecution
         public readonly string WaitingPath =
             @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
-        /// <summary>
-        /// Gets or sets the picture.
-        /// </summary>
-        /// <value>
-        /// The picture.
-        /// </value>
+        /// <summary> Gets or sets the picture. </summary>
+        /// <value> The picture. </value>
         public Image Picture { get; set; }
 
-        /// <summary>
-        /// Gets or sets the loader.
-        /// </summary>
-        /// <value>
-        /// The loader.
-        /// </value>
+        /// <summary> Gets or sets the loader. </summary>
+        /// <value> The loader. </value>
         public Bitmap Loader { get; set; }
 
-        /// <summary>
-        /// Gets or sets the status.
-        /// </summary>
-        /// <value>
-        /// The status.
-        /// </value>
+        /// <summary> Gets or sets the status. </summary>
+        /// <value> The status. </value>
         public Status Status { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoadingForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "LoadingForm"/>
+        /// class.
         /// </summary>
         public LoadingForm( )
         {
@@ -82,28 +68,34 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             FormClosed += OnClose;
+            CloaseButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoadingForm"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "LoadingForm"/>
+        /// class.
         /// </summary>
-        /// <param name="status">The status.</param>
+        /// <param name = "status" > The status. </param>
         public LoadingForm( Status status )
             : this( )
         {
             Status = status;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
             {
                 ShowImage( );
+                CloaseButton.Text = "Close Window";
             }
             catch( Exception ex )
             {
@@ -111,11 +103,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [tick].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [tick]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnTick( object sender, EventArgs e )
         {
             try
@@ -129,9 +123,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the image by status.
-        /// </summary>
+        /// <summary> Sets the image by status. </summary>
         public void ShowImage( )
         {
             try
@@ -168,11 +160,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Raises the Close event. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnClose( object sender, EventArgs e )
         {
             try
@@ -185,10 +179,27 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new Error( ex );
