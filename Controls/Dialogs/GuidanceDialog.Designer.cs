@@ -191,7 +191,7 @@ namespace BudgetExecution
             Picture.DataFilter =  null ;
             Picture.Field =  Field.AccountCode ;
             Picture.HoverText =  null ;
-            Picture.Image =  Properties.Resources.SignpostTile ;
+            Picture.Image =  Properties.Resources.GuidanceTile ;
             Picture.ImageList =  null ;
             Picture.Location =  new System.Drawing.Point( 3, 3 ) ;
             Picture.Name =  "Picture" ;
@@ -210,7 +210,7 @@ namespace BudgetExecution
             HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             HeaderLabel.HoverText =  null ;
             HeaderLabel.IsDerivedStyle =  true ;
-            HeaderLabel.Location =  new System.Drawing.Point( 41, 3 ) ;
+            HeaderLabel.Location =  new System.Drawing.Point( 37, 3 ) ;
             HeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             HeaderLabel.Name =  "HeaderLabel" ;
             HeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
@@ -283,8 +283,8 @@ namespace BudgetExecution
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount =  2 ;
-            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 7.8125F ) );
-            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 92.1875F ) );
+            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 6.92464352F ) );
+            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 93.0753555F ) );
             tableLayoutPanel1.Controls.Add( Picture, 0, 0 );
             tableLayoutPanel1.Controls.Add( HeaderLabel, 1, 0 );
             tableLayoutPanel1.Dock =  System.Windows.Forms.DockStyle.Top ;

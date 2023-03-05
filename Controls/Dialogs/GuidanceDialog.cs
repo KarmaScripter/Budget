@@ -17,8 +17,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class GuidanceDialog : MetroForm
     {
         /// <summary>
@@ -171,6 +171,7 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClicked;
             SelectButton.Click += OnSelectButtonClicked;
             ClearButton.Click += OnClearButtonClicked;
+            BrowseButton.Click += OnBrowseButtonClicked;
         }
 
         /// <summary>
@@ -193,6 +194,10 @@ namespace BudgetExecution
             try
             {
                 SelectedColumns = new List<string>( );
+                CloseButton.HoverText = "Close Window";
+                SelectButton.HoverText = "Open Selected Item";
+                ClearButton.HoverText = "Clear Selected Item";
+                BrowseButton.HoverText = "Search for File";
                 PopulateListBox( );
                 SetLabelText( );
             }
@@ -289,6 +294,28 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [browse button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnBrowseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [first button clicked].
         /// </summary>

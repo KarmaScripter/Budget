@@ -17,7 +17,6 @@
             }
             base.Dispose( disposing );
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -27,28 +26,24 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ChartForm ) );
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             DataGridPanel =  new Layout( ) ;
             DataGrid =  new DataGrid( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            ChartTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            ChartPanel =  new Layout( ) ;
+            Chart =  new Chart( ) ;
+            ChartLabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SecondHeaderLabel =  new Label( ) ;
             FourthHeaderLabel =  new Label( ) ;
             FirstHeaderLabel =  new Label( ) ;
             ThirdHeaderLabel =  new Label( ) ;
-            tableLayoutPanel1 =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            layout1 =  new Layout( ) ;
-            Chart =  new Chart( ) ;
-            tableLayoutPanel2 =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            label1 =  new Label( ) ;
-            label2 =  new Label( ) ;
-            label3 =  new Label( ) ;
-            label4 =  new Label( ) ;
             ToolStrip =  new ToolStrip( ) ;
             AddTableButton =  new ToolStripButton( ) ;
             CalculatorButton =  new ToolStripButton( ) ;
@@ -101,8 +96,8 @@
             BrowseSeparator =  new ToolSeparator( ) ;
             WebButton =  new ToolStripButton( ) ;
             WebSeparator =  new ToolSeparator( ) ;
-            ComboBox =  new ToolStripDropDown( ) ;
-            ComboBoxSeparator =  new ToolSeparator( ) ;
+            DropDown =  new ToolStripDropDown( ) ;
+            DropDownSeparator =  new ToolSeparator( ) ;
             BackButton =  new ToolStripButton( ) ;
             BackSeparator =  new ToolSeparator( ) ;
             MenuButton =  new ToolStripButton( ) ;
@@ -149,10 +144,9 @@
             GridTable.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
-            LabelTable.SuspendLayout( );
-            tableLayoutPanel1.SuspendLayout( );
-            layout1.SuspendLayout( );
-            tableLayoutPanel2.SuspendLayout( );
+            ChartTable.SuspendLayout( );
+            ChartPanel.SuspendLayout( );
+            ChartLabelTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
@@ -223,35 +217,35 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle1.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle1 ;
+            dataGridViewCellStyle6.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle6.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle6.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle6.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle6.SelectionForeColor =  System.Drawing.Color.White ;
+            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle6 ;
             DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             DataGrid.BindingSource =  null ;
             DataGrid.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
             DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle2.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle2.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle2.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
+            dataGridViewCellStyle7.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
+            dataGridViewCellStyle7.BackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle7.ForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle7.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle7.SelectionForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle7.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
+            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle7 ;
             DataGrid.ColumnHeadersHeight =  30 ;
             DataGrid.DataFilter =  null ;
-            dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
-            dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle3.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
-            DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
+            dataGridViewCellStyle8.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
+            dataGridViewCellStyle8.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle8.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle8.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle8.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle8.SelectionForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle8.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
+            DataGrid.DefaultCellStyle =  dataGridViewCellStyle8 ;
             DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
@@ -260,22 +254,22 @@
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle4.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
-            dataGridViewCellStyle4.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle4.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle4.ForeColor =  System.Drawing.Color.Black ;
-            dataGridViewCellStyle4.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle4.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
-            dataGridViewCellStyle4.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle4 ;
+            dataGridViewCellStyle9.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
+            dataGridViewCellStyle9.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle9.ForeColor =  System.Drawing.Color.Black ;
+            dataGridViewCellStyle9.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle9.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
+            dataGridViewCellStyle9.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
+            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle9 ;
             DataGrid.RowHeadersWidth =  20 ;
-            dataGridViewCellStyle5.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle5.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle5.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
+            dataGridViewCellStyle10.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
+            dataGridViewCellStyle10.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle10.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle10.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle10.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle10.SelectionForeColor =  System.Drawing.Color.White ;
+            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle10 ;
             DataGrid.RowTemplate.Height =  28 ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
             DataGrid.Size =  new System.Drawing.Size( 895, 482 ) ;
@@ -289,10 +283,6 @@
             LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.34467F ) );
             LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
             LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 411F ) );
-            LabelTable.Controls.Add( SecondHeaderLabel, 1, 0 );
-            LabelTable.Controls.Add( FourthHeaderLabel, 3, 0 );
-            LabelTable.Controls.Add( FirstHeaderLabel, 0, 0 );
-            LabelTable.Controls.Add( ThirdHeaderLabel, 2, 0 );
             LabelTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
             LabelTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             LabelTable.Name =  "LabelTable" ;
@@ -301,139 +291,47 @@
             LabelTable.Size =  new System.Drawing.Size( 194, 26 ) ;
             LabelTable.TabIndex =  1 ;
             // 
-            // SecondHeaderLabel
+            // ChartTable
             // 
-            SecondHeaderLabel.BindingSource =  null ;
-            SecondHeaderLabel.DataFilter =  null ;
-            SecondHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SecondHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            SecondHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondHeaderLabel.HoverText =  null ;
-            SecondHeaderLabel.IsDerivedStyle =  true ;
-            SecondHeaderLabel.Location =  new System.Drawing.Point( -238, 3 ) ;
-            SecondHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            SecondHeaderLabel.Name =  "SecondHeaderLabel" ;
-            SecondHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondHeaderLabel.Size =  new System.Drawing.Size( 1, 20 ) ;
-            SecondHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SecondHeaderLabel.StyleManager =  null ;
-            SecondHeaderLabel.TabIndex =  44 ;
-            SecondHeaderLabel.Text =  "Source" ;
-            SecondHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            SecondHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            SecondHeaderLabel.ThemeName =  "BudgetExecution" ;
-            SecondHeaderLabel.ToolTip =  null ;
+            ChartTable.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
+            ChartTable.BackColor =  System.Drawing.Color.Transparent ;
+            ChartTable.ColumnCount =  1 ;
+            ChartTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+            ChartTable.Controls.Add( ChartPanel, 0, 1 );
+            ChartTable.Controls.Add( ChartLabelTable, 0, 0 );
+            ChartTable.Location =  new System.Drawing.Point( 49, 76 ) ;
+            ChartTable.Name =  "ChartTable" ;
+            ChartTable.RowCount =  2 ;
+            ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 32F ) );
+            ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+            ChartTable.Size =  new System.Drawing.Size( 970, 590 ) ;
+            ChartTable.TabIndex =  38 ;
             // 
-            // FourthHeaderLabel
+            // ChartPanel
             // 
-            FourthHeaderLabel.BindingSource =  null ;
-            FourthHeaderLabel.DataFilter =  null ;
-            FourthHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            FourthHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            FourthHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FourthHeaderLabel.HoverText =  null ;
-            FourthHeaderLabel.IsDerivedStyle =  true ;
-            FourthHeaderLabel.Location =  new System.Drawing.Point( -213, 3 ) ;
-            FourthHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            FourthHeaderLabel.Name =  "FourthHeaderLabel" ;
-            FourthHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FourthHeaderLabel.Size =  new System.Drawing.Size( 405, 20 ) ;
-            FourthHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            FourthHeaderLabel.StyleManager =  null ;
-            FourthHeaderLabel.TabIndex =  44 ;
-            FourthHeaderLabel.Text =  "Source" ;
-            FourthHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            FourthHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            FourthHeaderLabel.ThemeName =  "BudgetExecution" ;
-            FourthHeaderLabel.ToolTip =  null ;
-            // 
-            // FirstHeaderLabel
-            // 
-            FirstHeaderLabel.BindingSource =  null ;
-            FirstHeaderLabel.DataFilter =  null ;
-            FirstHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            FirstHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            FirstHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstHeaderLabel.HoverText =  null ;
-            FirstHeaderLabel.IsDerivedStyle =  true ;
-            FirstHeaderLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
-            FirstHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            FirstHeaderLabel.Name =  "FirstHeaderLabel" ;
-            FirstHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstHeaderLabel.Size =  new System.Drawing.Size( 1, 20 ) ;
-            FirstHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            FirstHeaderLabel.StyleManager =  null ;
-            FirstHeaderLabel.TabIndex =  33 ;
-            FirstHeaderLabel.Text =  "Source" ;
-            FirstHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            FirstHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            FirstHeaderLabel.ThemeName =  "BudgetExecution" ;
-            FirstHeaderLabel.ToolTip =  null ;
-            // 
-            // ThirdHeaderLabel
-            // 
-            ThirdHeaderLabel.BindingSource =  null ;
-            ThirdHeaderLabel.DataFilter =  null ;
-            ThirdHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            ThirdHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            ThirdHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdHeaderLabel.HoverText =  null ;
-            ThirdHeaderLabel.IsDerivedStyle =  true ;
-            ThirdHeaderLabel.Location =  new System.Drawing.Point( -333, 3 ) ;
-            ThirdHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            ThirdHeaderLabel.Name =  "ThirdHeaderLabel" ;
-            ThirdHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdHeaderLabel.Size =  new System.Drawing.Size( 114, 20 ) ;
-            ThirdHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ThirdHeaderLabel.StyleManager =  null ;
-            ThirdHeaderLabel.TabIndex =  43 ;
-            ThirdHeaderLabel.Text =  "Source" ;
-            ThirdHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            ThirdHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            ThirdHeaderLabel.ThemeName =  "BudgetExecution" ;
-            ThirdHeaderLabel.ToolTip =  null ;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
-            tableLayoutPanel1.BackColor =  System.Drawing.Color.Transparent ;
-            tableLayoutPanel1.ColumnCount =  1 ;
-            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            tableLayoutPanel1.Controls.Add( layout1, 0, 1 );
-            tableLayoutPanel1.Controls.Add( tableLayoutPanel2, 0, 0 );
-            tableLayoutPanel1.Location =  new System.Drawing.Point( 52, 53 ) ;
-            tableLayoutPanel1.Name =  "tableLayoutPanel1" ;
-            tableLayoutPanel1.RowCount =  2 ;
-            tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 32F ) );
-            tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            tableLayoutPanel1.Size =  new System.Drawing.Size( 970, 590 ) ;
-            tableLayoutPanel1.TabIndex =  38 ;
-            // 
-            // layout1
-            // 
-            layout1.BackColor =  System.Drawing.Color.Transparent ;
-            layout1.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            layout1.BindingSource =  null ;
-            layout1.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            layout1.BorderThickness =  1 ;
-            layout1.Children =  null ;
-            layout1.Controls.Add( Chart );
-            layout1.DataFilter =  null ;
-            layout1.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            layout1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            layout1.ForeColor =  System.Drawing.Color.Transparent ;
-            layout1.HoverText =  null ;
-            layout1.IsDerivedStyle =  true ;
-            layout1.Location =  new System.Drawing.Point( 3, 35 ) ;
-            layout1.Name =  "layout1" ;
-            layout1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            layout1.Size =  new System.Drawing.Size( 964, 552 ) ;
-            layout1.Style =  MetroSet_UI.Enums.Style.Custom ;
-            layout1.StyleManager =  null ;
-            layout1.TabIndex =  47 ;
-            layout1.ThemeAuthor =  "Terry D. Eppler" ;
-            layout1.ThemeName =  "Budget Execution" ;
-            layout1.ToolTip =  null ;
+            ChartPanel.BackColor =  System.Drawing.Color.Transparent ;
+            ChartPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ChartPanel.BindingSource =  null ;
+            ChartPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ChartPanel.BorderThickness =  1 ;
+            ChartPanel.Children =  null ;
+            ChartPanel.Controls.Add( Chart );
+            ChartPanel.DataFilter =  null ;
+            ChartPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            ChartPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ChartPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            ChartPanel.HoverText =  null ;
+            ChartPanel.IsDerivedStyle =  true ;
+            ChartPanel.Location =  new System.Drawing.Point( 3, 35 ) ;
+            ChartPanel.Name =  "ChartPanel" ;
+            ChartPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ChartPanel.Size =  new System.Drawing.Size( 964, 552 ) ;
+            ChartPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ChartPanel.StyleManager =  null ;
+            ChartPanel.TabIndex =  47 ;
+            ChartPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            ChartPanel.ThemeName =  "Budget Execution" ;
+            ChartPanel.ToolTip =  null ;
             // 
             // Chart
             // 
@@ -517,116 +415,116 @@
             Chart.xAxis =  null ;
             Chart.yValues =  null ;
             // 
-            // tableLayoutPanel2
+            // ChartLabelTable
             // 
-            tableLayoutPanel2.ColumnCount =  4 ;
-            tableLayoutPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 71.65533F ) );
-            tableLayoutPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.34467F ) );
-            tableLayoutPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
-            tableLayoutPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 411F ) );
-            tableLayoutPanel2.Controls.Add( label1, 1, 0 );
-            tableLayoutPanel2.Controls.Add( label2, 3, 0 );
-            tableLayoutPanel2.Controls.Add( label3, 0, 0 );
-            tableLayoutPanel2.Controls.Add( label4, 2, 0 );
-            tableLayoutPanel2.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            tableLayoutPanel2.Location =  new System.Drawing.Point( 3, 3 ) ;
-            tableLayoutPanel2.Name =  "tableLayoutPanel2" ;
-            tableLayoutPanel2.RowCount =  1 ;
-            tableLayoutPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            tableLayoutPanel2.Size =  new System.Drawing.Size( 964, 26 ) ;
-            tableLayoutPanel2.TabIndex =  1 ;
+            ChartLabelTable.ColumnCount =  4 ;
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 71.65533F ) );
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.34467F ) );
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 411F ) );
+            ChartLabelTable.Controls.Add( SecondHeaderLabel, 1, 0 );
+            ChartLabelTable.Controls.Add( FourthHeaderLabel, 3, 0 );
+            ChartLabelTable.Controls.Add( FirstHeaderLabel, 0, 0 );
+            ChartLabelTable.Controls.Add( ThirdHeaderLabel, 2, 0 );
+            ChartLabelTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            ChartLabelTable.Location =  new System.Drawing.Point( 3, 3 ) ;
+            ChartLabelTable.Name =  "ChartLabelTable" ;
+            ChartLabelTable.RowCount =  1 ;
+            ChartLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ChartLabelTable.Size =  new System.Drawing.Size( 964, 26 ) ;
+            ChartLabelTable.TabIndex =  1 ;
             // 
-            // label1
+            // SecondHeaderLabel
             // 
-            label1.BindingSource =  null ;
-            label1.DataFilter =  null ;
-            label1.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            label1.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            label1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            label1.HoverText =  null ;
-            label1.IsDerivedStyle =  true ;
-            label1.Location =  new System.Drawing.Point( 313, 3 ) ;
-            label1.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            label1.Name =  "label1" ;
-            label1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            label1.Size =  new System.Drawing.Size( 116, 20 ) ;
-            label1.Style =  MetroSet_UI.Enums.Style.Custom ;
-            label1.StyleManager =  null ;
-            label1.TabIndex =  44 ;
-            label1.Text =  "Source" ;
-            label1.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            label1.ThemeAuthor =  "Terry D. Eppler" ;
-            label1.ThemeName =  "BudgetExecution" ;
-            label1.ToolTip =  null ;
+            SecondHeaderLabel.BindingSource =  null ;
+            SecondHeaderLabel.DataFilter =  null ;
+            SecondHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SecondHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            SecondHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SecondHeaderLabel.HoverText =  null ;
+            SecondHeaderLabel.IsDerivedStyle =  true ;
+            SecondHeaderLabel.Location =  new System.Drawing.Point( 313, 3 ) ;
+            SecondHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            SecondHeaderLabel.Name =  "SecondHeaderLabel" ;
+            SecondHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            SecondHeaderLabel.Size =  new System.Drawing.Size( 116, 20 ) ;
+            SecondHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SecondHeaderLabel.StyleManager =  null ;
+            SecondHeaderLabel.TabIndex =  44 ;
+            SecondHeaderLabel.Text =  "Source" ;
+            SecondHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            SecondHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            SecondHeaderLabel.ThemeName =  "BudgetExecution" ;
+            SecondHeaderLabel.ToolTip =  null ;
             // 
-            // label2
+            // FourthHeaderLabel
             // 
-            label2.BindingSource =  null ;
-            label2.DataFilter =  null ;
-            label2.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            label2.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            label2.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            label2.HoverText =  null ;
-            label2.IsDerivedStyle =  true ;
-            label2.Location =  new System.Drawing.Point( 555, 3 ) ;
-            label2.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            label2.Name =  "label2" ;
-            label2.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            label2.Size =  new System.Drawing.Size( 406, 20 ) ;
-            label2.Style =  MetroSet_UI.Enums.Style.Custom ;
-            label2.StyleManager =  null ;
-            label2.TabIndex =  44 ;
-            label2.Text =  "Source" ;
-            label2.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            label2.ThemeAuthor =  "Terry D. Eppler" ;
-            label2.ThemeName =  "BudgetExecution" ;
-            label2.ToolTip =  null ;
+            FourthHeaderLabel.BindingSource =  null ;
+            FourthHeaderLabel.DataFilter =  null ;
+            FourthHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            FourthHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            FourthHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FourthHeaderLabel.HoverText =  null ;
+            FourthHeaderLabel.IsDerivedStyle =  true ;
+            FourthHeaderLabel.Location =  new System.Drawing.Point( 555, 3 ) ;
+            FourthHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            FourthHeaderLabel.Name =  "FourthHeaderLabel" ;
+            FourthHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            FourthHeaderLabel.Size =  new System.Drawing.Size( 406, 20 ) ;
+            FourthHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            FourthHeaderLabel.StyleManager =  null ;
+            FourthHeaderLabel.TabIndex =  44 ;
+            FourthHeaderLabel.Text =  "Source" ;
+            FourthHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            FourthHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            FourthHeaderLabel.ThemeName =  "BudgetExecution" ;
+            FourthHeaderLabel.ToolTip =  null ;
             // 
-            // label3
+            // FirstHeaderLabel
             // 
-            label3.BindingSource =  null ;
-            label3.DataFilter =  null ;
-            label3.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            label3.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            label3.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            label3.HoverText =  null ;
-            label3.IsDerivedStyle =  true ;
-            label3.Location =  new System.Drawing.Point( 3, 3 ) ;
-            label3.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            label3.Name =  "label3" ;
-            label3.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            label3.Size =  new System.Drawing.Size( 304, 20 ) ;
-            label3.Style =  MetroSet_UI.Enums.Style.Custom ;
-            label3.StyleManager =  null ;
-            label3.TabIndex =  33 ;
-            label3.Text =  "Source" ;
-            label3.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            label3.ThemeAuthor =  "Terry D. Eppler" ;
-            label3.ThemeName =  "BudgetExecution" ;
-            label3.ToolTip =  null ;
+            FirstHeaderLabel.BindingSource =  null ;
+            FirstHeaderLabel.DataFilter =  null ;
+            FirstHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            FirstHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            FirstHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FirstHeaderLabel.HoverText =  null ;
+            FirstHeaderLabel.IsDerivedStyle =  true ;
+            FirstHeaderLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
+            FirstHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            FirstHeaderLabel.Name =  "FirstHeaderLabel" ;
+            FirstHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            FirstHeaderLabel.Size =  new System.Drawing.Size( 304, 20 ) ;
+            FirstHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            FirstHeaderLabel.StyleManager =  null ;
+            FirstHeaderLabel.TabIndex =  33 ;
+            FirstHeaderLabel.Text =  "Source" ;
+            FirstHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            FirstHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            FirstHeaderLabel.ThemeName =  "BudgetExecution" ;
+            FirstHeaderLabel.ToolTip =  null ;
             // 
-            // label4
+            // ThirdHeaderLabel
             // 
-            label4.BindingSource =  null ;
-            label4.DataFilter =  null ;
-            label4.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            label4.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            label4.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            label4.HoverText =  null ;
-            label4.IsDerivedStyle =  true ;
-            label4.Location =  new System.Drawing.Point( 435, 3 ) ;
-            label4.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            label4.Name =  "label4" ;
-            label4.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            label4.Size =  new System.Drawing.Size( 114, 20 ) ;
-            label4.Style =  MetroSet_UI.Enums.Style.Custom ;
-            label4.StyleManager =  null ;
-            label4.TabIndex =  43 ;
-            label4.Text =  "Source" ;
-            label4.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            label4.ThemeAuthor =  "Terry D. Eppler" ;
-            label4.ThemeName =  "BudgetExecution" ;
-            label4.ToolTip =  null ;
+            ThirdHeaderLabel.BindingSource =  null ;
+            ThirdHeaderLabel.DataFilter =  null ;
+            ThirdHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            ThirdHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            ThirdHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ThirdHeaderLabel.HoverText =  null ;
+            ThirdHeaderLabel.IsDerivedStyle =  true ;
+            ThirdHeaderLabel.Location =  new System.Drawing.Point( 435, 3 ) ;
+            ThirdHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            ThirdHeaderLabel.Name =  "ThirdHeaderLabel" ;
+            ThirdHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ThirdHeaderLabel.Size =  new System.Drawing.Size( 114, 20 ) ;
+            ThirdHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ThirdHeaderLabel.StyleManager =  null ;
+            ThirdHeaderLabel.TabIndex =  43 ;
+            ThirdHeaderLabel.Text =  "Source" ;
+            ThirdHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            ThirdHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            ThirdHeaderLabel.ThemeName =  "BudgetExecution" ;
+            ThirdHeaderLabel.ToolTip =  null ;
             // 
             // ToolStrip
             // 
@@ -664,7 +562,7 @@
             ToolStrip.Image =  null ;
             ToolStrip.ImageDirectory =  null ;
             ToolStrip.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { ToolStripSeparator, ToolStripTextBox, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, RemoveFiltersButton, RemoveFiltersSeparator, EditRecordButton, EditRecordSeparator, EditColumnButton, EditColumnSeparator, DeleteRecordButton, DeleteRecordSeparator, DeleteColumnButton, DeleteColumnSeparator, RefreshDataButton, RefreshDataSeparator, SaveButton, SaveSeparator, DeleteTableButton, DeleteTableSeparator, AddTableButton, AddTableSeparator, GroupButton, GroupSeparator, ExcelButton, ExcelSeparator, EditSqlButton, EditSqlSeparator, TableButton, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, CalendarSeparator, CalculatorButton, CalculatorSeparator, GuidanceButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, WebSeparator, ComboBox, ComboBoxSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { ToolStripSeparator, ToolStripTextBox, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, RemoveFiltersButton, RemoveFiltersSeparator, EditRecordButton, EditRecordSeparator, EditColumnButton, EditColumnSeparator, DeleteRecordButton, DeleteRecordSeparator, DeleteColumnButton, DeleteColumnSeparator, RefreshDataButton, RefreshDataSeparator, SaveButton, SaveSeparator, DeleteTableButton, DeleteTableSeparator, AddTableButton, AddTableSeparator, GroupButton, GroupSeparator, ExcelButton, ExcelSeparator, EditSqlButton, EditSqlSeparator, TableButton, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, CalendarSeparator, CalculatorButton, CalculatorSeparator, GuidanceButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, WebSeparator, DropDown, DropDownSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton } );
             ToolStrip.Label =  null ;
             ToolStrip.LastButton =  LastButton ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
@@ -970,7 +868,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 68, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 58, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1419,34 +1317,34 @@
             WebSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             WebSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // ComboBox
+            // DropDown
             // 
-            ComboBox.AllowDrop =  true ;
-            ComboBox.BindingSource =  null ;
-            ComboBox.DataFilter =  null ;
-            ComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-            ComboBox.Field =  Field.AccountCode ;
-            ComboBox.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ComboBox.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
-            ComboBox.HoverText =  "Make Selection" ;
-            ComboBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ComboBox.MaxDropDownItems =  100 ;
-            ComboBox.MaxLength =  32767 ;
-            ComboBox.Name =  "ComboBox" ;
-            ComboBox.Numeric =  Numeric.Accepted ;
-            ComboBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ComboBox.Size =  new System.Drawing.Size( 200, 28 ) ;
-            ComboBox.Style =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black ;
-            ComboBox.Tag =  "Make Selection" ;
-            ComboBox.ToolTipText =  "Make Selection" ;
+            DropDown.AllowDrop =  true ;
+            DropDown.BindingSource =  null ;
+            DropDown.DataFilter =  null ;
+            DropDown.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
+            DropDown.Field =  Field.AccountCode ;
+            DropDown.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            DropDown.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
+            DropDown.HoverText =  "Make Selection" ;
+            DropDown.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            DropDown.MaxDropDownItems =  100 ;
+            DropDown.MaxLength =  32767 ;
+            DropDown.Name =  "DropDown" ;
+            DropDown.Numeric =  Numeric.Accepted ;
+            DropDown.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            DropDown.Size =  new System.Drawing.Size( 200, 28 ) ;
+            DropDown.Style =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black ;
+            DropDown.Tag =  "Make Selection" ;
+            DropDown.ToolTipText =  "Make Selection" ;
             // 
-            // ComboBoxSeparator
+            // DropDownSeparator
             // 
-            ComboBoxSeparator.ForeColor =  System.Drawing.Color.Black ;
-            ComboBoxSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ComboBoxSeparator.Name =  "ComboBoxSeparator" ;
-            ComboBoxSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ComboBoxSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
+            DropDownSeparator.ForeColor =  System.Drawing.Color.Black ;
+            DropDownSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            DropDownSeparator.Name =  "DropDownSeparator" ;
+            DropDownSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            DropDownSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // BackButton
             // 
@@ -1532,7 +1430,7 @@
             TabControl.ActiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.ActiveTabFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             TabControl.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.BeforeTouchSize =  new System.Drawing.Size( 309, 586 ) ;
+            TabControl.BeforeTouchSize =  new System.Drawing.Size( 309, 601 ) ;
             TabControl.BindingSource =  null ;
             TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             TabControl.BorderWidth =  1 ;
@@ -1551,7 +1449,7 @@
             TabControl.ItemSize =  new System.Drawing.Size( 100, 10 ) ;
             TabControl.Location =  new System.Drawing.Point( 1022, 76 ) ;
             TabControl.Name =  "TabControl" ;
-            TabControl.Size =  new System.Drawing.Size( 309, 586 ) ;
+            TabControl.Size =  new System.Drawing.Size( 309, 601 ) ;
             TabControl.TabIndex =  45 ;
             TabControl.TabPanelBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.TabStyle =  typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro ) ;
@@ -1575,7 +1473,7 @@
             TableTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             TableTabPage.Name =  "TableTabPage" ;
             TableTabPage.ShowCloseButton =  true ;
-            TableTabPage.Size =  new System.Drawing.Size( 309, 577 ) ;
+            TableTabPage.Size =  new System.Drawing.Size( 309, 592 ) ;
             TableTabPage.TabIndex =  5 ;
             TableTabPage.ThemesEnabled =  false ;
             // 
@@ -1586,7 +1484,7 @@
             SourceTable.Controls.Add( TableComboBox, 0, 0 );
             SourceTable.Controls.Add( TablePanel, 0, 1 );
             SourceTable.GrowStyle =  System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize ;
-            SourceTable.Location =  new System.Drawing.Point( 3, 3 ) ;
+            SourceTable.Location =  new System.Drawing.Point( 0, 26 ) ;
             SourceTable.Name =  "SourceTable" ;
             SourceTable.RowCount =  2 ;
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.34058F ) );
@@ -1698,7 +1596,7 @@
             FilterTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             FilterTabPage.Name =  "FilterTabPage" ;
             FilterTabPage.ShowCloseButton =  true ;
-            FilterTabPage.Size =  new System.Drawing.Size( 309, 577 ) ;
+            FilterTabPage.Size =  new System.Drawing.Size( 309, 592 ) ;
             FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FilterTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FilterTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
@@ -1722,7 +1620,7 @@
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            FilterTable.Size =  new System.Drawing.Size( 372, 1028 ) ;
+            FilterTable.Size =  new System.Drawing.Size( 372, 1043 ) ;
             FilterTable.TabIndex =  46 ;
             // 
             // ThirdTable
@@ -1732,12 +1630,12 @@
             ThirdTable.Controls.Add( ThirdListBoxPanel, 0, 1 );
             ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
             ThirdTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            ThirdTable.Location =  new System.Drawing.Point( 3, 690 ) ;
+            ThirdTable.Location =  new System.Drawing.Point( 3, 700 ) ;
             ThirdTable.Name =  "ThirdTable" ;
             ThirdTable.RowCount =  2 ;
             ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20.33898F ) );
             ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 79.66102F ) );
-            ThirdTable.Size =  new System.Drawing.Size( 366, 335 ) ;
+            ThirdTable.Size =  new System.Drawing.Size( 366, 340 ) ;
             ThirdTable.TabIndex =  45 ;
             // 
             // ThirdListBoxPanel
@@ -1755,7 +1653,7 @@
             ThirdListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             ThirdListBoxPanel.HoverText =  null ;
             ThirdListBoxPanel.IsDerivedStyle =  true ;
-            ThirdListBoxPanel.Location =  new System.Drawing.Point( 3, 71 ) ;
+            ThirdListBoxPanel.Location =  new System.Drawing.Point( 3, 72 ) ;
             ThirdListBoxPanel.Name =  "ThirdListBoxPanel" ;
             ThirdListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             ThirdListBoxPanel.Size =  new System.Drawing.Size( 360, 135 ) ;
@@ -1824,7 +1722,7 @@
             ThirdComboBox.HoverText =  null ;
             ThirdComboBox.IsDerivedStyle =  true ;
             ThirdComboBox.ItemHeight =  24 ;
-            ThirdComboBox.Location =  new System.Drawing.Point( 3, 35 ) ;
+            ThirdComboBox.Location =  new System.Drawing.Point( 3, 36 ) ;
             ThirdComboBox.Name =  "ThirdComboBox" ;
             ThirdComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ThirdComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
@@ -1848,7 +1746,7 @@
             FirstTable.RowCount =  2 ;
             FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.44444F ) );
             FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.55556F ) );
-            FirstTable.Size =  new System.Drawing.Size( 366, 341 ) ;
+            FirstTable.Size =  new System.Drawing.Size( 366, 346 ) ;
             FirstTable.TabIndex =  43 ;
             // 
             // FirstListBoxPanel
@@ -1866,7 +1764,7 @@
             FirstListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstListBoxPanel.HoverText =  null ;
             FirstListBoxPanel.IsDerivedStyle =  true ;
-            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 69 ) ;
+            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 70 ) ;
             FirstListBoxPanel.Name =  "FirstListBoxPanel" ;
             FirstListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             FirstListBoxPanel.Size =  new System.Drawing.Size( 360, 139 ) ;
@@ -1935,7 +1833,7 @@
             FirstComboBox.HoverText =  null ;
             FirstComboBox.IsDerivedStyle =  true ;
             FirstComboBox.ItemHeight =  24 ;
-            FirstComboBox.Location =  new System.Drawing.Point( 3, 33 ) ;
+            FirstComboBox.Location =  new System.Drawing.Point( 3, 34 ) ;
             FirstComboBox.Name =  "FirstComboBox" ;
             FirstComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             FirstComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
@@ -1954,12 +1852,12 @@
             SecondTable.Controls.Add( SecondComboBox, 0, 0 );
             SecondTable.Controls.Add( SecondListBoxPanel, 0, 1 );
             SecondTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SecondTable.Location =  new System.Drawing.Point( 3, 350 ) ;
+            SecondTable.Location =  new System.Drawing.Point( 3, 355 ) ;
             SecondTable.Name =  "SecondTable" ;
             SecondTable.RowCount =  2 ;
             SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.15909F ) );
             SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.84091F ) );
-            SecondTable.Size =  new System.Drawing.Size( 366, 334 ) ;
+            SecondTable.Size =  new System.Drawing.Size( 366, 339 ) ;
             SecondTable.TabIndex =  44 ;
             // 
             // SecondComboBox
@@ -1984,7 +1882,7 @@
             SecondComboBox.HoverText =  null ;
             SecondComboBox.IsDerivedStyle =  true ;
             SecondComboBox.ItemHeight =  24 ;
-            SecondComboBox.Location =  new System.Drawing.Point( 3, 41 ) ;
+            SecondComboBox.Location =  new System.Drawing.Point( 3, 42 ) ;
             SecondComboBox.Name =  "SecondComboBox" ;
             SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
@@ -2011,7 +1909,7 @@
             SecondListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondListBoxPanel.HoverText =  null ;
             SecondListBoxPanel.IsDerivedStyle =  true ;
-            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 77 ) ;
+            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 78 ) ;
             SecondListBoxPanel.Name =  "SecondListBoxPanel" ;
             SecondListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             SecondListBoxPanel.Size =  new System.Drawing.Size( 360, 132 ) ;
@@ -2067,7 +1965,7 @@
             GroupTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             GroupTabPage.Name =  "GroupTabPage" ;
             GroupTabPage.ShowCloseButton =  true ;
-            GroupTabPage.Size =  new System.Drawing.Size( 309, 577 ) ;
+            GroupTabPage.Size =  new System.Drawing.Size( 309, 592 ) ;
             GroupTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             GroupTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             GroupTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
@@ -2087,7 +1985,7 @@
             NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 25F ) );
             NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 191F ) );
             NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            NumericTable.Size =  new System.Drawing.Size( 363, 727 ) ;
+            NumericTable.Size =  new System.Drawing.Size( 363, 742 ) ;
             NumericTable.TabIndex =  9 ;
             // 
             // NumericPanel
@@ -2108,7 +2006,7 @@
             NumericPanel.Location =  new System.Drawing.Point( 3, 28 ) ;
             NumericPanel.Name =  "NumericPanel" ;
             NumericPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            NumericPanel.Size =  new System.Drawing.Size( 357, 696 ) ;
+            NumericPanel.Size =  new System.Drawing.Size( 357, 711 ) ;
             NumericPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             NumericPanel.StyleManager =  null ;
             NumericPanel.TabIndex =  6 ;
@@ -2144,7 +2042,7 @@
             NumericListBox.SelectedValue =  null ;
             NumericListBox.ShowBorder =  false ;
             NumericListBox.ShowScrollBar =  false ;
-            NumericListBox.Size =  new System.Drawing.Size( 109, 477 ) ;
+            NumericListBox.Size =  new System.Drawing.Size( 109, 492 ) ;
             NumericListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             NumericListBox.StyleManager =  null ;
             NumericListBox.TabIndex =  1 ;
@@ -2188,7 +2086,7 @@
             FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 24F ) );
             FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 192F ) );
             FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            FieldTable.Size =  new System.Drawing.Size( 363, 742 ) ;
+            FieldTable.Size =  new System.Drawing.Size( 363, 757 ) ;
             FieldTable.TabIndex =  8 ;
             // 
             // FieldPanel
@@ -2209,7 +2107,7 @@
             FieldPanel.Location =  new System.Drawing.Point( 3, 27 ) ;
             FieldPanel.Name =  "FieldPanel" ;
             FieldPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FieldPanel.Size =  new System.Drawing.Size( 357, 712 ) ;
+            FieldPanel.Size =  new System.Drawing.Size( 357, 727 ) ;
             FieldPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FieldPanel.StyleManager =  null ;
             FieldPanel.TabIndex =  4 ;
@@ -2245,7 +2143,7 @@
             FieldListBox.SelectedValue =  null ;
             FieldListBox.ShowBorder =  false ;
             FieldListBox.ShowScrollBar =  false ;
-            FieldListBox.Size =  new System.Drawing.Size( 109, 477 ) ;
+            FieldListBox.Size =  new System.Drawing.Size( 109, 492 ) ;
             FieldListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             FieldListBox.StyleManager =  null ;
             FieldListBox.TabIndex =  1 ;
@@ -2284,7 +2182,7 @@
             CalendarTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             CalendarTabPage.Name =  "CalendarTabPage" ;
             CalendarTabPage.ShowCloseButton =  true ;
-            CalendarTabPage.Size =  new System.Drawing.Size( 309, 577 ) ;
+            CalendarTabPage.Size =  new System.Drawing.Size( 309, 592 ) ;
             CalendarTabPage.TabIndex =  4 ;
             CalendarTabPage.ThemesEnabled =  false ;
             // 
@@ -2305,7 +2203,7 @@
             CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 85.93156F ) );
             CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 36F ) );
             CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 261F ) );
-            CalendarTable.Size =  new System.Drawing.Size( 372, 1032 ) ;
+            CalendarTable.Size =  new System.Drawing.Size( 372, 1047 ) ;
             CalendarTable.TabIndex =  0 ;
             // 
             // SecondCalendarPanel
@@ -2323,7 +2221,7 @@
             SecondCalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondCalendarPanel.HoverText =  null ;
             SecondCalendarPanel.IsDerivedStyle =  true ;
-            SecondCalendarPanel.Location =  new System.Drawing.Point( 3, 773 ) ;
+            SecondCalendarPanel.Location =  new System.Drawing.Point( 3, 788 ) ;
             SecondCalendarPanel.Name =  "SecondCalendarPanel" ;
             SecondCalendarPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             SecondCalendarPanel.Size =  new System.Drawing.Size( 366, 256 ) ;
@@ -2400,10 +2298,10 @@
             FirstCalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstCalendarPanel.HoverText =  null ;
             FirstCalendarPanel.IsDerivedStyle =  true ;
-            FirstCalendarPanel.Location =  new System.Drawing.Point( 3, 106 ) ;
+            FirstCalendarPanel.Location =  new System.Drawing.Point( 3, 108 ) ;
             FirstCalendarPanel.Name =  "FirstCalendarPanel" ;
             FirstCalendarPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstCalendarPanel.Size =  new System.Drawing.Size( 366, 625 ) ;
+            FirstCalendarPanel.Size =  new System.Drawing.Size( 366, 638 ) ;
             FirstCalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstCalendarPanel.StyleManager =  null ;
             FirstCalendarPanel.TabIndex =  45 ;
@@ -2420,7 +2318,7 @@
             FirstCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             FirstCalendar.Name =  "FirstCalendar" ;
             FirstCalendar.ShowToolTip =  true ;
-            FirstCalendar.Size =  new System.Drawing.Size( 364, 623 ) ;
+            FirstCalendar.Size =  new System.Drawing.Size( 364, 636 ) ;
             FirstCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -2475,7 +2373,7 @@
             FirstCalendarLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             FirstCalendarLabel.Name =  "FirstCalendarLabel" ;
             FirstCalendarLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstCalendarLabel.Size =  new System.Drawing.Size( 366, 97 ) ;
+            FirstCalendarLabel.Size =  new System.Drawing.Size( 366, 99 ) ;
             FirstCalendarLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstCalendarLabel.StyleManager =  null ;
             FirstCalendarLabel.TabIndex =  0 ;
@@ -2493,7 +2391,7 @@
             SecondCalendarLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondCalendarLabel.HoverText =  null ;
             SecondCalendarLabel.IsDerivedStyle =  true ;
-            SecondCalendarLabel.Location =  new System.Drawing.Point( 3, 737 ) ;
+            SecondCalendarLabel.Location =  new System.Drawing.Point( 3, 752 ) ;
             SecondCalendarLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             SecondCalendarLabel.Name =  "SecondCalendarLabel" ;
             SecondCalendarLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
@@ -2533,7 +2431,7 @@
             ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
             Controls.Add( TabControl );
             Controls.Add( ToolStrip );
-            Controls.Add( tableLayoutPanel1 );
+            Controls.Add( ChartTable );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
             FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
@@ -2550,10 +2448,9 @@
             GridTable.ResumeLayout( false );
             DataGridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
-            LabelTable.ResumeLayout( false );
-            tableLayoutPanel1.ResumeLayout( false );
-            layout1.ResumeLayout( false );
-            tableLayoutPanel2.ResumeLayout( false );
+            ChartTable.ResumeLayout( false );
+            ChartPanel.ResumeLayout( false );
+            ChartLabelTable.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
@@ -2583,7 +2480,7 @@
             PerformLayout( );
         }
 
-        private System.Windows.Forms.TableLayoutPanel GridTable;
+        public System.Windows.Forms.TableLayoutPanel GridTable;
         public Layout DataGridPanel;
         public DataGrid DataGrid;
         public System.Windows.Forms.TableLayoutPanel LabelTable;
@@ -2591,13 +2488,9 @@
         public Label FourthHeaderLabel;
         public Label FirstHeaderLabel;
         public Label ThirdHeaderLabel;
-        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        public Layout layout1;
-        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        public Label label1;
-        public Label label2;
-        public Label label3;
-        public Label label4;
+        public System.Windows.Forms.TableLayoutPanel ChartTable;
+        public Layout ChartPanel;
+        public System.Windows.Forms.TableLayoutPanel ChartLabelTable;
         public ToolStrip ToolStrip;
         public ToolStripButton AddTableButton;
         public ToolStripButton CalculatorButton;
@@ -2648,8 +2541,8 @@
         public ToolSeparator BrowseSeparator;
         public ToolStripButton WebButton;
         public ToolSeparator WebSeparator;
-        public ToolStripDropDown ComboBox;
-        public ToolSeparator ComboBoxSeparator;
+        public ToolStripDropDown DropDown;
+        public ToolSeparator DropDownSeparator;
         public ToolStripButton BackButton;
         public ToolSeparator BackSeparator;
         public ToolStripButton MenuButton;
@@ -2697,5 +2590,6 @@
         public Label SecondCalendarLabel;
         public ContextMenu ContextMenu;
         public Chart Chart;
+        #endregion Windows Form Designer generated code
     }
 }

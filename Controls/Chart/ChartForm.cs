@@ -339,6 +339,7 @@ namespace BudgetExecution
             try
             {
                 Chart.BindingSource = BindingSource;
+                Chart.Title.Text = string.Empty;
                 SetToolStripProperties( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
