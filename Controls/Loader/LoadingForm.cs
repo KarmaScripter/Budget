@@ -15,21 +15,21 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
     public partial class LoadingForm : MetroForm
     {
         /// <summary>
         /// The image path
         /// </summary>
         public readonly string LoadingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Loading.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
         public readonly string ProcessingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Processing.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
 
         public readonly string WaitingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
         /// <summary>
         /// Gets or sets the picture.
@@ -70,7 +70,7 @@ namespace BudgetExecution
             CaptionBarColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Timer Configuration
@@ -105,7 +105,7 @@ namespace BudgetExecution
             {
                 ShowImage( );
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -123,7 +123,7 @@ namespace BudgetExecution
                 Timer?.Stop( );
                 Close( );
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -136,9 +136,9 @@ namespace BudgetExecution
         {
             try
             {
-                if(Enum.IsDefined( typeof( Status ), Status ))
+                if( Enum.IsDefined( typeof( Status ), Status ) )
                 {
-                    switch(Status)
+                    switch( Status )
                     {
                         case Status.Loading:
                         {
@@ -162,7 +162,7 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -179,7 +179,7 @@ namespace BudgetExecution
             {
                 Timer?.Dispose( );
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
                 Fail( ex );
             }

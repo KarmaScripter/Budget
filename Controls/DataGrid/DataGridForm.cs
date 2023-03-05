@@ -427,15 +427,15 @@ namespace BudgetExecution
                 {
                     var _sql = CreateSqlText( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    SelectedTable = DataTable.TableName;
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatDataColumns( );
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -460,15 +460,15 @@ namespace BudgetExecution
                 {
                     var _sql = CreateSqlText( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    SelectedTable = DataTable.TableName;
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatDataColumns( );
                     ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -496,6 +496,7 @@ namespace BudgetExecution
                     var _sql = CreateSqlText( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
@@ -522,7 +523,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -582,19 +584,19 @@ namespace BudgetExecution
                     var _aggr = string.Empty;
                     foreach( var name in fields )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{ name }, ";
                     }
 
                     foreach( var metric in numerics )
                     {
-                        _aggr += $"SUM({metric}) AS {metric}, ";
+                        _aggr += $"SUM({ metric }) AS { metric }, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    return $"SELECT { _columns } FROM { Source } " + $"WHERE { _criteria } "
+                        + $"GROUP BY { _groups };";
                 }
                 catch( Exception ex )
                 {
@@ -629,8 +631,8 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_names};";
+                    return $"SELECT { _names } FROM { SelectedTable } " + $"WHERE { _criteria } "
+                        + $"GROUP BY { _names };";
                 }
                 catch( Exception ex )
                 {
@@ -678,20 +680,20 @@ namespace BudgetExecution
                     var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
-                    HeaderLabel.Text = $"{_table} ";
-                    FirstHeaderLabel.Text = $"Provider :  {Provider}";
-                    SecondHeaderLabel.Text = $"Records : {_records} ";
-                    ThirdHeaderLabel.Text = $"Fields : {_fields} ";
-                    FourthHeaderLabel.Text = $"Measures : {_numerics} ";
-                    FieldLabel.Text = $"Fields : {_fields} ";
-                    NumericsLabel.Text = $"Measures : {_numerics} ";
-                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
+                    HeaderLabel.Text = $"{ _table } ";
+                    FirstHeaderLabel.Text = $"Provider :  { Provider }";
+                    SecondHeaderLabel.Text = $"Records : { _records } ";
+                    ThirdHeaderLabel.Text = $"Fields : { _fields } ";
+                    FourthHeaderLabel.Text = $"Measures : { _numerics } ";
+                    FieldLabel.Text = $"Fields : { _fields } ";
+                    NumericsLabel.Text = $"Measures : { _numerics } ";
+                    FirstCalendarLabel.Text = $"Start Date: { FirstCalendar.SelectedDate }";
+                    SecondCalendarLabel.Text = $"End Date: { SecondCalendar.SelectedDate }";
                 }
                 else
                 {
-                    HeaderLabel.Text = $"{Provider} Database ";
-                    FirstHeaderLabel.Text = $"Provider :  {Provider}";
+                    HeaderLabel.Text = $"{ Provider } Database ";
+                    FirstHeaderLabel.Text = $"Provider :  { Provider }";
                     SecondHeaderLabel.Text = "Records : ";
                     ThirdHeaderLabel.Text = "Fields : ";
                     FourthHeaderLabel.Text = "Measures : ";
