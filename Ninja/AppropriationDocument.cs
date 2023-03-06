@@ -265,6 +265,14 @@ namespace BudgetExecution
         public override Source Source { get; set; }
 
         /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public override Provider Provider { get; set; } 
+
+        /// <summary>
         /// Gets or sets the Record property.
         /// </summary>
         /// <value>
