@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class DataUnit : IDataUnit, ISource
+    public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
         /// <summary>
         ///  
@@ -78,7 +78,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( unit.Code?.Equals( Code ) == true )
+                    if( unit.Code?.Equals( Code ) == true 
+                       && unit.Name.Equals( Name ) )
                     {
                         return true;
                     }
