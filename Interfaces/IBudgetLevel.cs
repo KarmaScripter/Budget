@@ -14,27 +14,20 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        int GetNumber();
+        int GetNumber( );
 
         /// <summary>
         /// Gets the name of the level.
         /// </summary>
         /// <returns>
         /// </returns>
-        string GetName();
+        string GetName( );
 
         /// <summary>
         /// Gets the level.
         /// </summary>
         /// <returns>
         /// </returns>
-        Level GetLevel();
-
-        /// <summary>
-        /// Gets the budget level.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        BudgetLevel GetBudgetLevel();
+        Level GetLevel( );
     }
 }
