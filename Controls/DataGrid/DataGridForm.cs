@@ -116,7 +116,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
@@ -129,7 +129,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = SizeGripStyle.Auto;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
@@ -171,7 +171,7 @@ namespace BudgetExecution
             ToolStrip.ImageSize = new Size( 16, 16 );
             ToolStrip.ImageScalingSize = new Size( 16, 16 );
             ToolStripTextBox.Size = new Size( 190, 28 );
-            ToolStripTextBox.ForeColor = Color.LightSteelBlue;
+            ToolStripTextBox.ForeColor = Color.DarkGray;
             ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
 

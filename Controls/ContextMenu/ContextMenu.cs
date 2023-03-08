@@ -63,7 +63,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.File.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.File }";
                 _item.Tag = MenuOption.File.ToString(  );
                 _item.Checked = false;
@@ -93,7 +93,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Folder.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Folder }";
                 _item.Tag = MenuOption.Folder.ToString(  );
                 _item.Checked = false;
@@ -123,7 +123,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Calculator.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Calculator }";
                 _item.Tag = MenuOption.Calculator.ToString(  );
                 _item.Checked = false;
@@ -153,7 +153,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Calendar.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Calendar }";
                 _item.Tag = MenuOption.Calendar.ToString(  );
                 _item.Checked = false;
@@ -183,7 +183,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Guidance.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Guidance }";
                 _item.Tag = MenuOption.Guidance.ToString(  );
                 _item.Checked = false;
@@ -213,7 +213,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Save.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Save }";
                 _item.Tag = MenuOption.Save.ToString(  );
                 _item.Checked = false;
@@ -243,7 +243,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Close.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Close }";
                 _item.Tag = MenuOption.Close.ToString(  );
                 _item.Checked = false;
@@ -273,7 +273,7 @@ namespace BudgetExecution
                 _item.Name = MenuOption.Exit.ToString(  );
                 _item.Size = new Size( 160, 30  );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.White;
+                _item.ForeColor =  Color.DarkGray;
                 _item.Text = $"{ MenuOption.Exit }";
                 _item.Tag = MenuOption.Exit.ToString(  );
                 _item.Checked = false;
@@ -298,12 +298,11 @@ namespace BudgetExecution
         private void OnItemClicked( object sender, MouseEventArgs e )
         {
             if( sender is MetroSetToolStripMenuItem item 
-               && e.Button == MouseButtons.Left )
+               && e?.Button == MouseButtons.Left )
             {
                 try
                 {
                     var _name = item.Tag.ToString( );
-                    var _position = e.Location;
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         var _option = Enum.Parse( typeof( MenuOption ), _name );
@@ -312,36 +311,35 @@ namespace BudgetExecution
                             case MenuOption.File:
                             {
                                 var _file = new FileBrowser(  );
+                                _file.Location = e.Location;
                                 _file.Show(  );
                                 break;
                             }
                             case MenuOption.Folder:
                             {
                                 var _file = new FileBrowser(  );
+                                _file.Location = e.Location;
                                 _file.Show(  );
                                 break;
                             }
                             case MenuOption.Calculator:
                             {
-                                var _calculationForm = new CalculationForm(  );
-                                var _location = new Point( _position.X, _position.Y  );
-                                _calculationForm.Location = _location;
-                                _calculationForm.ShowDialog( );
+                                var _form = new CalculationForm(  );
+                                _form.Location = e.Location;
+                                _form.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Calendar:
                             {
-                                var _calendarForm = new CalendarForm( );
-                                var _location = new Point( _position.X, _position.Y  );
-                                _calendarForm.Location = _location;
-                                _calendarForm.ShowDialog( );
+                                var _form = new CalendarForm( );
+                                _form.Location = e.Location;
+                                _form.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Guidance:
                             {
                                 var _dialog = new GuidanceDialog( );
-                                var _location = new Point( _position.X, _position.Y  );
-                                _dialog.Location = _location;
+                                _dialog.Location = e.Location;
                                 _dialog.ShowDialog( );
                                 break;
                             }
