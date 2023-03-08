@@ -237,14 +237,14 @@ namespace BudgetExecution
         public BudgetOutlay( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );
-            ReportYear = Record[ "ReportYear" ].ToString(  );
-            AgencyName = Record[ "AgencyName" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            Line = Record[ "Line" ].ToString(  );
-            LineSection = Record[ "LineSection" ].ToString(  );
-            LineName = Record[ "LineName" ].ToString(  );
-            LineCategory = Record[ "LineCategory" ].ToString(  );
+            ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString( ) ?? "0" );
+            ReportYear = Record[ "ReportYear" ].ToString( );
+            AgencyName = Record[ "AgencyName" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            Line = Record[ "Line" ].ToString( );
+            LineSection = Record[ "LineSection" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            LineCategory = Record[ "LineCategory" ].ToString( );
             PriorYear = double.Parse( Record[ "PriorYear" ].ToString(  ) ?? "0" );
             CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString(  ) ?? "0" );
             BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString(  ) ?? "0" );
@@ -268,25 +268,25 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );
-            ReportYear = Record[ "ReportYear" ].ToString(  );
-            AgencyName = Record[ "AgencyName" ].ToString(  );
+            ReportYear = Record[ "ReportYear" ].ToString( );
+            AgencyName = Record[ "AgencyName" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            Line = Record[ "Line" ].ToString(  );
-            LineSection = Record[ "LineSection" ].ToString(  );
-            LineName = Record[ "LineName" ].ToString(  );
-            LineCategory = Record[ "LineCategory" ].ToString(  );
-            PriorYear = double.Parse( Record[ "PriorYear" ].ToString(  ) ?? "0" );
-            CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString(  ) ?? "0" );
-            BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString(  ) ?? "0" );
-            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString(  ) ?? "0" );
-            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString(  ) ?? "0" );
-            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString(  ) ?? "0" );
-            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString(  ) ?? "0" );
-            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString(  ) ?? "0" );
-            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString(  ) ?? "0" );
-            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString(  ) ?? "0" );
-            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString(  ) ?? "0" );
-            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString(  ) ?? "0" );
+            Line = Record[ "Line" ].ToString( );
+            LineSection = Record[ "LineSection" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            LineCategory = Record[ "LineCategory" ].ToString( );
+            PriorYear = double.Parse( Record[ "PriorYear" ].ToString( ) ?? "0" );
+            CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
+            BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
             Data = Record.ToDictionary( );
         }
 
@@ -298,25 +298,25 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( dataRow[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );
-            ReportYear = dataRow[ "ReportYear" ].ToString(  );
-            AgencyName = dataRow[ "AgencyName" ].ToString(  );
+            ReportYear = dataRow[ "ReportYear" ].ToString( );
+            AgencyName = dataRow[ "AgencyName" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
-            Line = dataRow[ "Line" ].ToString(  );
-            LineSection = dataRow[ "LineSection" ].ToString(  );
-            LineName = dataRow[ "LineName" ].ToString(  );
-            LineCategory = dataRow[ "LineCategory" ].ToString(  );
-            PriorYear = double.Parse( dataRow[ "PriorYear" ].ToString(  ) ?? "0" );
-            CurrentYear = double.Parse( dataRow[ "CurrentYear" ].ToString(  ) ?? "0" );
-            BudgetYear = Double.Parse( dataRow[ "BudgetYear"].ToString(  ) ?? "0" );
-            OutYear1 = double.Parse( dataRow[ "OutYear1" ].ToString(  ) ?? "0" );
-            OutYear2 = double.Parse( dataRow[ "OutYear2" ].ToString(  ) ?? "0" );
-            OutYear3 = double.Parse( dataRow[ "OutYear3" ].ToString(  ) ?? "0" );
-            OutYear4 = double.Parse( dataRow[ "OutYear4" ].ToString(  ) ?? "0" );
-            OutYear5 = double.Parse( dataRow[ "OutYear5" ].ToString(  ) ?? "0" );
-            OutYear6 = double.Parse( dataRow[ "OutYear6" ].ToString(  ) ?? "0" );
-            OutYear7 = double.Parse( dataRow[ "OutYear7" ].ToString(  ) ?? "0" );
-            OutYear8 = double.Parse( dataRow[ "OutYear8" ].ToString(  ) ?? "0" );
-            OutYear9 = double.Parse( dataRow[ "OutYear9" ].ToString(  ) ?? "0" );
+            Line = dataRow[ "Line" ].ToString( );
+            LineSection = dataRow[ "LineSection" ].ToString( );
+            LineName = dataRow[ "LineName" ].ToString( );
+            LineCategory = dataRow[ "LineCategory" ].ToString( );
+            PriorYear = double.Parse( dataRow[ "PriorYear" ].ToString( ) ?? "0" );
+            CurrentYear = double.Parse( dataRow[ "CurrentYear" ].ToString( ) ?? "0" );
+            BudgetYear = Double.Parse( dataRow[ "BudgetYear"].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( dataRow[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( dataRow[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( dataRow[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( dataRow[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( dataRow[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( dataRow[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( dataRow[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( dataRow[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( dataRow[ "OutYear9" ].ToString( ) ?? "0" );
             Data = dataRow.ToDictionary( );
         }
     }
