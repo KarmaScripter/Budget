@@ -11,142 +11,82 @@ namespace BudgetExecution
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class AdministrativeRequest
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public abstract class AdministrativeRequest : DataUnit
     {
-        public int ID { get; set; }
-        
-        public string Analyst { get; set; }
-        
-        public string RpioCode { get; set; }
-        
-        public string DocumentTitle { get; set; }
-
-        public double Amount { get; set; }
-        
-        public string FundCode { get; set; }
-        
-        public string BFY { get; set; }
-        
-        public string Status { get; set; }
-
-        public DateOnly OriginalActionDate { get; set; }
-        
-        public DateOnly LastActionDate { get; set; }
-
-        public double Duration { get; set; }
-        
-        public string BudgetFormulationSystem  { get; set; }
-        
-        public string Comments { get; set; }
-        
-        public string RequestType { get; set; }
-        
-        public string TypeCode { get; set; }
-        
-        public string Decision { get; set; }
-
         /// <summary>
-        /// Gets or sets the source.
+        /// 
         /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
+        public virtual string Analyst { get; set; }
+        
         /// <summary>
-        /// Gets or sets the Record property.
+        /// 
         /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
+        public virtual string RpioCode { get; set; }
+        
         /// <summary>
-        /// Gets the arguments.
+        /// 
         /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        public AdministrativeRequest( )
-        {
-            Source = Source.AdministrativeRequests;
-        }
-
-        public AdministrativeRequest( IQuery query ) 
-            : this( )
-        {
-            Record = new DataBuilder( query )?.Record;
-            Data = Record.ToDictionary(  );
-            ID = int.Parse( Record[ "AdministrativeRequestsId" ].ToString(  ) ?? "0" );
-            Analyst = Record[ "Analyst" ].ToString(  );
-            RpioCode = Record[ "RpioCode" ].ToString(  );
-            DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0"  );
-            FundCode = Record[ "FundCode" ].ToString(  );
-            BFY = Record[ "BFY" ].ToString(  );
-            Status = Record[ "Status" ].ToString( );
-            Duration = double.Parse( Record[ "Duration" ].ToString(  ) ?? "0" );
-            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
-            Comments = Record[ "Comments" ].ToString(  );
-            RequestType = Record[ "RequestType" ].ToString(  );
-            TypeCode = Record[ "TypeCode" ].ToString(  );
-            Decision = Record[ "Decision" ].ToString(  );
-            OriginalActionDate 
-                = DateOnly.Parse( Record[ "OriginalActionDate" ].ToString(  ) ?? string.Empty );
-            LastActionDate 
-                = DateOnly.Parse( Record[ "LastActionDate" ].ToString(  ) ?? string.Empty );
-        }
-
-        public AdministrativeRequest( IDataModel builder ) 
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary(  );
-            ID = int.Parse( Record[ "AdministrativeRequestsId" ].ToString(  ) ?? "0" );
-            Analyst = Record[ "Analyst" ].ToString(  );
-            RpioCode = Record[ "RpioCode" ].ToString(  );
-            DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0"  );
-            FundCode = Record[ "FundCode" ].ToString(  );
-            BFY = Record[ "BFY" ].ToString(  );
-            Status = Record[ "Status" ].ToString( );
-            Duration = double.Parse( Record[ "Duration" ].ToString(  ) ?? "0" );
-            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
-            Comments = Record[ "Comments" ].ToString(  );
-            RequestType = Record[ "RequestType" ].ToString(  );
-            TypeCode = Record[ "TypeCode" ].ToString(  );
-            Decision = Record[ "Decision" ].ToString(  );
-            OriginalActionDate 
-                = DateOnly.Parse( Record[ "OriginalActionDate" ].ToString(  ) ?? string.Empty );
-            LastActionDate 
-                = DateOnly.Parse( Record[ "LastActionDate" ].ToString(  ) ?? string.Empty );
-        }
-
-        public AdministrativeRequest( DataRow dataRow ) 
-            : this( )
-        {
-            Record = dataRow;
-            Data = Record.ToDictionary(  );
-            ID = int.Parse( Record[ "AdministrativeRequestsId" ].ToString(  ) ?? "0" );
-            Analyst = Record[ "Analyst" ].ToString(  );
-            RpioCode = Record[ "RpioCode" ].ToString(  );
-            DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0"  );
-            FundCode = Record[ "FundCode" ].ToString(  );
-            BFY = Record[ "BFY" ].ToString(  );
-            Status = Record[ "Status" ].ToString( );
-            Duration = double.Parse( Record[ "Duration" ].ToString(  ) ?? "0" );
-            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
-            Comments = Record[ "Comments" ].ToString(  );
-            RequestType = Record[ "RequestType" ].ToString(  );
-            TypeCode = Record[ "TypeCode" ].ToString(  );
-            Decision = Record[ "Decision" ].ToString(  );
-            OriginalActionDate 
-                = DateOnly.Parse( Record[ "OriginalActionDate" ].ToString(  ) ?? string.Empty );
-            LastActionDate 
-                = DateOnly.Parse( Record[ "LastActionDate" ].ToString(  ) ?? string.Empty );
-        }
+        public virtual string DocumentTitle { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual double Amount { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string FundCode { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string BFY { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string Status { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual DateOnly OriginalActionDate { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual DateOnly LastActionDate { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual double Duration { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string BudgetFormulationSystem  { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string Comments { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string RequestType { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string TypeCode { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual string Decision { get; set; }
     }
 }

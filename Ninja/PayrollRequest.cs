@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -11,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class PayrollRequest
+    public class PayrollRequest : AdministrativeRequest
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,15 +22,87 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Analysts.
+        /// </summary>
+        /// <value>
+        /// The Analyst
+        /// </value>
+        public override string Analyst { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the DocumentTitle.
+        /// </summary>
+        /// <value>
+        /// The DocumentTitle.
+        /// </value>
+        public override string DocumentTitle { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the Amount.
+        /// </summary>
+        /// <value>
+        /// The Amount.
+        /// </value>
+        public override double Amount { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the Fund.
+        /// </summary>
+        /// <value>
+        /// The Fund
+        /// </value>
+        public override string FundCode { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the Status
+        /// </summary>
+        /// <value>
+        /// The Status.
+        /// </value>
+        public override string Status { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the Original Request Date.
+        /// </summary>
+        /// <value>
+        /// The Original Request Date.
+        /// </value>
+        public virtual DateOnly OriginalRequestDate { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the Last Activity Date.
+        /// </summary>
+        /// <value>
+        /// The Last Activity Date.
+        /// </value>
+        public virtual DateOnly LastActivityDate { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the BFS.
+        /// </summary>
+        /// <value>
+        /// The BFS.
+        /// </value>
+        public override string BudgetFormulationSystem { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the Comments.
+        /// </summary>
+        /// <value>
+        /// The Comments.
+        /// </value>
+        public override string Comments { get; set; }
+        
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -37,7 +110,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -45,43 +118,6 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayrollRequest"/> class.
-        /// </summary>
-        public PayrollRequest( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayrollRequest"/> class.
-        /// </summary>
-        /// <param name="query">The query.</param>
-        public PayrollRequest( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayrollRequest"/> class.
-        /// </summary>
-        /// <param name="builder">The builder.</param>
-        public PayrollRequest( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayrollRequest"/> class.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public PayrollRequest( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-        }
+        public override IDictionary<string, object> Data { get; set; }
     }
 }

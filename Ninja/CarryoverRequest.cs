@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CarryoverRequest
+    public class CarryoverRequest : AdministrativeRequest
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the Analysts.
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The Analyst
         /// </value>
-        public string Analyst { get; set; }
+        public override string Analyst { get; set; }
         
         /// <summary>
         /// Gets or sets the DocumentTitle.
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The DocumentTitle.
         /// </value>
-        public string DocumentTitle { get; set; }
+        public override string DocumentTitle { get; set; }
         
         /// <summary>
         /// Gets or sets the Amount.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The Amount.
         /// </value>
-        public double Amount { get; set; }
+        public override double Amount { get; set; }
         
         /// <summary>
         /// Gets or sets the Fund.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The Fund
         /// </value>
-        public string Fund { get; set; }
+        public override string FundCode { get; set; }
         
         /// <summary>
         /// Gets or sets the Status
@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The Status.
         /// </value>
-        public string Status { get; set; }
+        public override string Status { get; set; }
         
         /// <summary>
         /// Gets or sets the Original Request Date.
@@ -85,7 +85,7 @@ namespace BudgetExecution
         /// <value>
         /// The BFS.
         /// </value>
-        public string BudgetFormulationSystem { get; set; }
+        public override string BudgetFormulationSystem { get; set; }
         
         /// <summary>
         /// Gets or sets the Comments.
@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The Comments.
         /// </value>
-        public string Comments { get; set; }
+        public override string Comments { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public  override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public  override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -117,7 +117,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CarryoverRequest"/> class.
@@ -139,7 +139,7 @@ namespace BudgetExecution
             Analyst = Record[ "Analyst" ].ToString(  );
             DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
             Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
-            Fund = Record[ "Fund" ].ToString(  );
+            FundCode = Record[ "FundCode" ].ToString(  );
             Status = Record[ "Status" ].ToString(  );
             BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
             Comments = Record[ "Comments" ].ToString(  );
@@ -161,7 +161,7 @@ namespace BudgetExecution
             Analyst = Record[ "Analyst" ].ToString(  );
             DocumentTitle = Record[ "DocumentTitle" ].ToString(  );
             Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
-            Fund = Record[ "Fund" ].ToString(  );
+            FundCode = Record[ "FundCode" ].ToString(  );
             Status = Record[ "Status" ].ToString(  );
             BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString(  );
             Comments = Record[ "Comments" ].ToString(  );
@@ -183,7 +183,7 @@ namespace BudgetExecution
             Analyst = dataRow[ "Analyst" ].ToString(  );
             DocumentTitle = dataRow[ "DocumentTitle" ].ToString(  );
             Amount = double.Parse(dataRow[ "Amount" ].ToString(  ) ?? "0" );
-            Fund = dataRow[ "Fund" ].ToString(  );
+            FundCode = dataRow[ "FundCode" ].ToString(  );
             Status = dataRow[ "Status" ].ToString(  );
             BudgetFormulationSystem = dataRow[ "BudgetFormulationSystem" ].ToString(  );
             Comments = dataRow[ "Comments" ].ToString(  );
