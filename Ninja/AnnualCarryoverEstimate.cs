@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualCarryoverEstimate : PRC
+    public class AnnualCarryoverEstimate : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public override string BFY { get; set; }
+        public string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public override string EFY { get; set; }
+        public string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public override string FundCode { get; set; }
+        public string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public override string FundName { get; set; }
+        public string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public override string RpioCode { get; set; }
+        public string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public override string RpioName { get; set; }
+        public string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
