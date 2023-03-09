@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CongressionalControl
+    public class CongressionalControl : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -119,12 +119,20 @@ namespace BudgetExecution
         public string MemoRequirement { get; set; }
         
         /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -132,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -140,23 +148,38 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CongressionalControl"/> class.
         /// </summary>
         public CongressionalControl( )
         {
+            Source = Source.CongressionalControls;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CongressionalControl"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CongressionalControl( IQuery query )
+        public CongressionalControl( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CongressionalControlsId" ].ToString( ) ?? "0" );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            SubProjectCode = Record[ "SubProjectCode" ].ToString( );
+            SubProjectName = Record[ "SubProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            ReprogrammingRestriction = Record[ "ReprogrammingRestriction" ].ToString(  );
+            IncreaseRestriction = Record[ "IncreaseRestriction" ].ToString( );
+            DecreaseRestriction = Record[ "DecreaseRestriction" ].ToString( );
+            MemoRequirement = Record[ "MemoRequirement" ].ToString(  );
         }
 
         /// <summary>
@@ -164,9 +187,23 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CongressionalControl( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CongressionalControlsId" ].ToString( ) ?? "0" );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            SubProjectCode = Record[ "SubProjectCode" ].ToString( );
+            SubProjectName = Record[ "SubProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            ReprogrammingRestriction = Record[ "ReprogrammingRestriction" ].ToString(  );
+            IncreaseRestriction = Record[ "IncreaseRestriction" ].ToString( );
+            DecreaseRestriction = Record[ "DecreaseRestriction" ].ToString( );
+            MemoRequirement = Record[ "MemoRequirement" ].ToString(  );
         }
 
         /// <summary>
@@ -174,9 +211,22 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CongressionalControl( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "CongressionalControlsId" ].ToString( ) ?? "0" );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            SubProjectCode = dataRow[ "SubProjectCode" ].ToString( );
+            SubProjectName = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            ReprogrammingRestriction = dataRow[ "ReprogrammingRestriction" ].ToString(  );
+            IncreaseRestriction = dataRow[ "IncreaseRestriction" ].ToString( );
+            DecreaseRestriction = dataRow[ "DecreaseRestriction" ].ToString( );
+            MemoRequirement = dataRow[ "MemoRequirement" ].ToString(  );
         }
     }
 }

@@ -47,6 +47,14 @@ namespace BudgetExecution
         public override string Name { get; set; }
         
         /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
+
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
@@ -61,14 +69,6 @@ namespace BudgetExecution
         /// The data row.
         /// </value>
         public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public  override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -95,6 +95,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
         }
 
         /// <summary>
@@ -106,6 +110,10 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
         }
 
         /// <summary>
@@ -117,6 +125,10 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
+            Code = dataRow[ "Code" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
+            Type = dataRow[ "Type" ].ToString( );
         }
     }
 }
