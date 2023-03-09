@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public  override Provider Provider { get; set; }
+        public override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
