@@ -94,6 +94,7 @@ namespace BudgetExecution
         /// </summary>
         public DataRuleDescription( )
         {
+            Source = Source.DataRuleDescriptions;
         }
 
         /// <summary>
@@ -101,9 +102,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public DataRuleDescription( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            Schedule = Record[ "Schedule" ].ToString(  );
+            LineNumber = Record[ "LineNumber" ].ToString(  );
+            RuleNumber = Record[ "RuleNumber" ].ToString(  );
+            ScheduleOrder = Record[ "ScheduleOrder" ].ToString(  );
+            RuleDescription = Record[ "RuleDescription" ].ToString(  );
         }
 
         /// <summary>
@@ -111,9 +118,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public DataRuleDescription( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            Schedule = Record[ "Schedule" ].ToString(  );
+            LineNumber = Record[ "LineNumber" ].ToString(  );
+            RuleNumber = Record[ "RuleNumber" ].ToString(  );
+            ScheduleOrder = Record[ "ScheduleOrder" ].ToString(  );
+            RuleDescription = Record[ "RuleDescription" ].ToString(  );
         }
 
         /// <summary>
@@ -121,9 +134,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public DataRuleDescription( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            Schedule = dataRow[ "Schedule" ].ToString(  );
+            LineNumber = dataRow[ "LineNumber" ].ToString(  );
+            RuleNumber = dataRow[ "RuleNumber" ].ToString(  );
+            ScheduleOrder = dataRow[ "ScheduleOrder" ].ToString(  );
+            RuleDescription = dataRow[ "RuleDescription" ].ToString(  );
         }
     }
 }

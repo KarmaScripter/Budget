@@ -308,6 +308,7 @@ namespace BudgetExecution
         /// </summary>
         public StatusOfSupplementalFunding( )
         {
+            Source = Source.StatusOfSupplementalFunding;
         }
 
         /// <summary>
@@ -317,6 +318,7 @@ namespace BudgetExecution
         public StatusOfSupplementalFunding( IQuery query )
             : base( query )
         {
+            Source = Source.StatusOfSupplementalFunding;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -360,6 +362,7 @@ namespace BudgetExecution
         public StatusOfSupplementalFunding( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
+            Source = Source.StatusOfSupplementalFunding;
             Record = dataBuilder.Record;
             Data = Record.ToDictionary(  );
             BFY =  Record[ "BFY" ].ToString( );
@@ -400,8 +403,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="StatusOfSupplementalFunding"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StatusOfSupplementalFunding( DataRow dataRow )
+        public StatusOfSupplementalFunding( DataRow dataRow ) 
+            : base( dataRow )
         {
+            Source = Source.StatusOfSupplementalFunding;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );

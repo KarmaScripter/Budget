@@ -101,13 +101,13 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString(  ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString(  );
-            LastName = Record[ "LastName" ].ToString(  );
-            FullName = Record[ "FullName" ].ToString(  );
-            RPIO = Record[ "RPIO" ].ToString(  );
-            EmailAddress = Record[ "EmailAddress" ].ToString(  );
-            Section = Record[ "Section" ].ToString(  );
+            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
+            FirstName = Record[ "FirstName" ].ToString( );
+            LastName = Record[ "LastName" ].ToString( );
+            FullName = Record[ "FullName" ].ToString( );
+            RPIO = Record[ "RPIO" ].ToString( );
+            EmailAddress = Record[ "EmailAddress" ].ToString( );
+            Section = Record[ "Section" ].ToString( );
         }
 
         /// <summary>
@@ -119,13 +119,13 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString(  ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString(  );
-            LastName = Record[ "LastName" ].ToString(  );
-            FullName = Record[ "FullName" ].ToString(  );
-            RPIO = Record[ "RPIO" ].ToString(  );
-            EmailAddress = Record[ "EmailAddress" ].ToString(  );
-            Section = Record[ "Section" ].ToString(  );
+            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
+            FirstName = Record[ "FirstName" ].ToString( );
+            LastName = Record[ "LastName" ].ToString( );
+            FullName = Record[ "FullName" ].ToString( );
+            RPIO = Record[ "RPIO" ].ToString( );
+            EmailAddress = Record[ "EmailAddress" ].ToString( );
+            Section = Record[ "Section" ].ToString( );
         }
 
         /// <summary>
@@ -137,13 +137,13 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString(  ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString(  );
-            LastName = Record[ "LastName" ].ToString(  );
-            FullName = Record[ "FullName" ].ToString(  );
-            RPIO = Record[ "RPIO" ].ToString(  );
-            EmailAddress = Record[ "EmailAddress" ].ToString(  );
-            Section = Record[ "Section" ].ToString(  );
+            ID = int.Parse( dataRow[ "ContactsId" ].ToString(  ) ?? "0" );
+            FirstName = dataRow[ "FirstName" ].ToString( );
+            LastName = dataRow[ "LastName" ].ToString( );
+            FullName = dataRow[ "FullName" ].ToString( );
+            RPIO = dataRow[ "RPIO" ].ToString( );
+            EmailAddress = dataRow[ "EmailAddress" ].ToString( );
+            Section = dataRow[ "Section" ].ToString( );
         }
     }
 }

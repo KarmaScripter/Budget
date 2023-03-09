@@ -357,7 +357,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="StatusOfJobsActFunding"/> class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name="dataBuilder">The builder.</param>
         public StatusOfJobsActFunding( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
