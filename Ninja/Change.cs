@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Change
+    public class Change : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -85,7 +85,15 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -93,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -101,20 +109,22 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Change"/> class.
         /// </summary>
         public Change( )
         {
+            Source = Source.Changes;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Change"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Change( IQuery query )
+        public Change( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -125,6 +135,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Change( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -135,6 +146,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Change( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

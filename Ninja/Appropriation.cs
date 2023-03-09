@@ -75,6 +75,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public Appropriation( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -89,6 +90,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Appropriation( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -103,6 +105,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Appropriation( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

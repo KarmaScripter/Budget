@@ -107,6 +107,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public AnnualCarryoverSurvey( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -124,6 +125,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AnnualCarryoverSurvey( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -141,6 +143,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AnnualCarryoverSurvey( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

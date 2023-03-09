@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CarryoverOutlay
+    public class CarryoverOutlay : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the report year.
@@ -204,7 +204,15 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -212,7 +220,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -220,20 +228,22 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
         public CarryoverOutlay( )
         {
+            Source = Source.CarryoverOutlays;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CarryoverOutlay( IQuery query )
+        public CarryoverOutlay( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -270,6 +280,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CarryoverOutlay( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -306,6 +317,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CarryoverOutlay( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class BudgetOutlay
+    public class BudgetOutlay : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the report year.
@@ -205,15 +205,23 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
+        
         /// <summary>
         /// Gets or sets the Record property.
         /// </summary>
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
         
         /// <summary>
         /// Gets the arguments.
@@ -221,20 +229,22 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
         /// </summary>
         public BudgetOutlay( )
         {
+            Source = Source.BudgetOutlays;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetOutlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public BudgetOutlay( IQuery query )
+        public BudgetOutlay( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString( ) ?? "0" );
@@ -245,18 +255,18 @@ namespace BudgetExecution
             LineSection = Record[ "LineSection" ].ToString( );
             LineName = Record[ "LineName" ].ToString( );
             LineCategory = Record[ "LineCategory" ].ToString( );
-            PriorYear = double.Parse( Record[ "PriorYear" ].ToString(  ) ?? "0" );
-            CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString(  ) ?? "0" );
-            BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString(  ) ?? "0" );
-            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString(  ) ?? "0" );
-            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString(  ) ?? "0" );
-            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString(  ) ?? "0" );
-            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString(  ) ?? "0" );
-            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString(  ) ?? "0" );
-            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString(  ) ?? "0" );
-            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString(  ) ?? "0" );
-            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString(  ) ?? "0" );
-            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString(  ) ?? "0" );
+            PriorYear = double.Parse( Record[ "PriorYear" ].ToString( ) ?? "0" );
+            CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
+            BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
             Data = Record.ToDictionary( );
         }
 
@@ -265,6 +275,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetOutlay( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );
@@ -295,6 +306,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetOutlay( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             ID = int.Parse( dataRow[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );

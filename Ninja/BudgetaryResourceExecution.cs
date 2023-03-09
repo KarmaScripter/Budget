@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetaryResourceExecution
+    public class BudgetaryResourceExecution : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal year.
@@ -255,15 +255,20 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Provider
+        /// </summary>
+        public override Provider Provider { get; set; }
+        
         /// <summary>
         /// Gets or sets the Record property.
         /// </summary>
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -271,7 +276,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
@@ -285,7 +290,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public BudgetaryResourceExecution( IQuery query )
+        public BudgetaryResourceExecution( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -305,18 +311,18 @@ namespace BudgetExecution
             SectionNumber = Record[ "SectionNumber" ].ToString(  );
             LineType = Record[ "LineType" ].ToString(  );
             FinancingAccounts = Record[ "FinancingAccounts" ].ToString(  );
-            November = double.Parse( Record[ "November" ].ToString(  )  );
-            January = double.Parse( Record[ "January" ].ToString(  ) );
-            February = double.Parse( Record[ "February" ].ToString(  ) );
-            April = double.Parse( Record[ "April" ].ToString(  ) );
-            May = double.Parse( Record[ " May" ].ToString(  ) );
-            June = double.Parse( Record[ "June" ].ToString(  ) );
-            August = double.Parse( Record[ "August" ].ToString(  ) );
-            October = double.Parse( Record[ "October" ].ToString(  ) );
-            Amount1 = double.Parse( Record[ "Amount1" ].ToString(  ) );
-            Amount2 = double.Parse( Record[ "Amount2" ].ToString(  ) );
-            Amount3 = double.Parse( Record[ "Amount3" ].ToString(  ) );
-            Amount4 = double.Parse( Record[ "Amount4" ].ToString(  ) );
+            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
+            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
+            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
+            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
+            May = double.Parse( Record[ " May" ].ToString( ) ?? "0" );
+            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
+            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
+            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
+            Amount1 = double.Parse( Record[ "Amount1" ].ToString( ) ?? "0" );
+            Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
+            Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
+            Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -324,6 +330,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetaryResourceExecution( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -343,18 +350,18 @@ namespace BudgetExecution
             SectionNumber = Record[ "SectionNumber" ].ToString(  );
             LineType = Record[ "LineType" ].ToString(  );
             FinancingAccounts = Record[ "FinancingAccounts" ].ToString(  );
-            November = double.Parse( Record[ "November" ].ToString(  )  );
-            January = double.Parse( Record[ "January" ].ToString(  ) );
-            February = double.Parse( Record[ "February" ].ToString(  ) );
-            April = double.Parse( Record[ "April" ].ToString(  ) );
-            May = double.Parse( Record[ " May" ].ToString(  ) );
-            June = double.Parse( Record[ "June" ].ToString(  ) );
-            August = double.Parse( Record[ "August" ].ToString(  ) );
-            October = double.Parse( Record[ "October" ].ToString(  ) );
-            Amount1 = double.Parse( Record[ "Amount1" ].ToString(  ) );
-            Amount2 = double.Parse( Record[ "Amount2" ].ToString(  ) );
-            Amount3 = double.Parse( Record[ "Amount3" ].ToString(  ) );
-            Amount4 = double.Parse( Record[ "Amount4" ].ToString(  ) );
+            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
+            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
+            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
+            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
+            May = double.Parse( Record[ " May" ].ToString( ) ?? "0" );
+            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
+            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
+            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
+            Amount1 = double.Parse( Record[ "Amount1" ].ToString( ) ?? "0" );
+            Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
+            Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
+            Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -362,6 +369,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetaryResourceExecution( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
@@ -381,18 +389,18 @@ namespace BudgetExecution
             SectionNumber = dataRow[ "SectionNumber" ].ToString(  );
             LineType = dataRow[ "LineType" ].ToString(  );
             FinancingAccounts = dataRow[ "FinancingAccounts" ].ToString(  );
-            November = double.Parse( dataRow[ "November" ].ToString(  )  );
-            January = double.Parse( dataRow[ "January" ].ToString(  ) );
-            February = double.Parse( dataRow[ "February" ].ToString(  ) );
-            April = double.Parse( dataRow[ "April" ].ToString(  ) );
-            May = double.Parse( dataRow[ " May" ].ToString(  ) );
-            June = double.Parse( dataRow[ "June" ].ToString(  ) );
-            August = double.Parse( dataRow[ "August" ].ToString(  ) );
-            October = double.Parse( dataRow[ "October" ].ToString(  ) );
-            Amount1 = double.Parse( dataRow[ "Amount1" ].ToString(  ) );
-            Amount2 = double.Parse( dataRow[ "Amount2" ].ToString(  ) );
-            Amount3 = double.Parse( dataRow[ "Amount3" ].ToString(  ) );
-            Amount4 = double.Parse( dataRow[ "Amount4" ].ToString(  ) );
+            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
+            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
+            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
+            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
+            May = double.Parse( Record[ " May" ].ToString( ) ?? "0" );
+            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
+            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
+            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
+            Amount1 = double.Parse( Record[ "Amount1" ].ToString( ) ?? "0" );
+            Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
+            Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
+            Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
         }
     }
 }

@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassOutlay
+    public class CompassOutlay : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -150,7 +150,15 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -158,7 +166,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -166,7 +174,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
@@ -180,7 +188,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CompassOutlay( IQuery query )
+        public CompassOutlay( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -195,7 +204,7 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
             MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString(  ) );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
             ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
             UnliquidatedObligations =
                 double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
@@ -206,6 +215,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CompassOutlay( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -220,7 +230,7 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
             MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString(  ) );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
             ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
             UnliquidatedObligations =
                 double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
@@ -231,6 +241,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CompassOutlay( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
@@ -245,7 +256,7 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
             MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString(  ) );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
             ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
             UnliquidatedObligations =
                 double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );

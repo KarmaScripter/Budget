@@ -107,6 +107,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public AnnualReimbursableSurvey( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -124,6 +125,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AnnualReimbursableSurvey( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -141,6 +143,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AnnualReimbursableSurvey( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

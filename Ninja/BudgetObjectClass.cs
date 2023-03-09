@@ -50,6 +50,14 @@ namespace BudgetExecution
         public override Source Source { get; set; } 
 
         /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
+
+        /// <summary>
         /// Gets the Data.
         /// </summary>
         /// <value>
@@ -133,7 +141,6 @@ namespace BudgetExecution
             Name = Record[ $"{ Field.BocName }" ].ToString( );
             Code = Record[ $"{ Field.BocCode }" ].ToString( );
             Data = Record?.ToDictionary( );
-
             if ( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
@@ -147,13 +154,13 @@ namespace BudgetExecution
         /// The query.
         /// </param>
         public BudgetObjectClass( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query )?.Record;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
             Name = Record[ $"{ Field.BocName }" ].ToString( );
             Code = Record[ $"{ Field.BocCode }" ].ToString( );
             Data = Record?.ToDictionary( );
-
             if ( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
@@ -167,13 +174,13 @@ namespace BudgetExecution
         /// The database.
         /// </param>
         public BudgetObjectClass( IDataModel builder )
+            : this( )
         {
             Record = builder?.Record;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
             Name = Record?[ $"{ Field.BocName }" ].ToString( );
             Code = Record?[ $"{ Field.BocCode }" ].ToString( );
             Data = Record?.ToDictionary( );
-
             if ( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
@@ -186,14 +193,14 @@ namespace BudgetExecution
         /// <param name = "dataRow" >
         /// The Data.
         /// </param>
-        public BudgetObjectClass( DataRow dataRow )
+        public BudgetObjectClass( DataRow dataRow ) 
+            : this( )
         {
             Record = dataRow;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
             Name = dataRow[ $"{ Field.BocName }" ].ToString( );
             Code = dataRow[ $"{ Field.BocCode }" ].ToString( );
             Data = Record?.ToDictionary( );
-
             if ( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );

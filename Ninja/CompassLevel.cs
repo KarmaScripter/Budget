@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassLevel
+    public class CompassLevel : PRC
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury symbol.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public override string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public override string FundName { get; set; }
         
         /// <summary>
         /// Gets or sets the budget level.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget level.
         /// </value>
-        public string BudgetLevel { get; set; }
+        public override string BudgetLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public string RpioCode { get; set; }
+        public override string RpioCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public string RpioName { get; set; }
+        public override string RpioName { get; set; }
 
         /// <summary>
         /// Gets or sets the account code.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public string AccountCode { get; set; }
+        public override string AccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The program project code.
         /// </value>
-        public string ProgramProjectCode { get; set; }
+        public override string ProgramProjectCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program project.
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public string ProgramProjectName { get; set; }
+        public override string ProgramProjectName { get; set; }
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The program area code.
         /// </value>
-        public string ProgramAreaCode { get; set; }
+        public override string ProgramAreaCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the program area.
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public string ProgramAreaName { get; set; }
+        public override string ProgramAreaName { get; set; }
 
         /// <summary>
         /// Gets or sets the total authority.
@@ -230,7 +230,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public  string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury agency code.
@@ -238,7 +238,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury agency code.
         /// </value>
-        public  string TreasuryAccountName { get; set; }
+        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -246,7 +246,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -254,7 +254,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public  string BudgetAccountName { get; set; }
+        public override string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -262,7 +262,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -270,7 +270,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -278,20 +278,22 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         public CompassLevel( )
         {
+            Source = Source.CompassLevels;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CompassLevel( IQuery query )
+        public CompassLevel( IQuery query ) 
+            : base( query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -326,7 +328,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public CompassLevel( IDataModel builder )
+        public CompassLevel( IDataModel builder ) 
+            : base( builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -361,7 +364,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public CompassLevel( DataRow dataRow )
+        public CompassLevel( DataRow dataRow ) 
+            : base( dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

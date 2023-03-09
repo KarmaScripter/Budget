@@ -83,6 +83,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public ActivityCode( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "ActivityCodesId" ].ToString(  ) ?? "0" );
@@ -96,6 +97,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ActivityCode( IDataModel builder )
+            : this( )
         {
             Record = builder?.Record;
             ID = int.Parse( Record?[ "ActivityCodesId" ].ToString(  ) ?? "0" );
@@ -109,6 +111,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ActivityCode( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             ID = int.Parse( Record[ "ActivityCodesId" ].ToString(  ) ?? "0" );
@@ -118,6 +121,7 @@ namespace BudgetExecution
         }
 
         public ActivityCode( string code )
+            : this( )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = int.Parse( Record[ "ActivityCodesId" ].ToString(  ) ?? "0" );

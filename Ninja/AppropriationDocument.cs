@@ -303,6 +303,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public AppropriationDocument( IQuery query )
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -326,10 +327,10 @@ namespace BudgetExecution
             ExpenditureControls = Record[ "ExpenditureControls" ].ToString(  );
             ReimbursementControls = Record[ "ReimbursementControls" ].ToString(  );
             ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString(  );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
-            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) );
-            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" ) ;
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
             Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
             Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -343,6 +344,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AppropriationDocument( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -366,12 +368,12 @@ namespace BudgetExecution
             ExpenditureControls = Record[ "ExpenditureControls" ].ToString( );
             Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
             Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
-            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) );
-            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) );
-            Recoveries = double.Parse( Record[ "EstimatedRecoveries" ].ToString( ) );
-            Reimbursements = double.Parse( Record[ "EstimatedReimbursements" ].ToString( ) );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" ) ;
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -404,8 +406,6 @@ namespace BudgetExecution
             AccrualControls = dataRow[ "AccrualControls" ].ToString(  );
             ExpenseControls = dataRow[ "ExpenseControls" ].ToString(  );
             ExpenditureControls = dataRow[ "ExpenditureControls" ].ToString(  );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) );
             Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) );
             CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) );

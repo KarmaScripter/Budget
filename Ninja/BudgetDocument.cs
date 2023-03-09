@@ -12,9 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetDocument
+    public class BudgetDocument : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -174,7 +174,15 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public  override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the record.
@@ -182,7 +190,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -190,7 +198,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BudgetDocument" /> class.
@@ -204,7 +212,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="BudgetDocument" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public BudgetDocument( IQuery query )
+        public BudgetDocument( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -233,6 +242,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetDocument( IDataModel builder )
+            : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -261,6 +271,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetDocument( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
