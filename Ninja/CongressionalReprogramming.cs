@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -12,6 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class CongressionalReprogramming : Reprogramming
     {
         /// <summary>
@@ -255,6 +257,36 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CongressionalReprogrammingId" ].ToString( ) ?? "0" );
+            BFY =  Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            FromTo = Record[ "FromTo" ].ToString(  );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            ResourceType = Record[ "ResourceType" ].ToString( );
+            ProcessedDate = DateOnly.Parse( Record[ "ProcessedDate" ].ToString( ) );
+            Quarter = Record[ "Quarter" ].ToString(  );
+            ReprogrammingNumber = Record[ "ReprogrammingNumber" ].ToString(  );
+            ControlNumber = Record[ "ControlNumber" ].ToString(  );
+            Line = Record[ "Line" ].ToString(  );
+            Subline = Record[ "Subline" ].ToString(  );
+            Purpose = Record[ "Purpose" ].ToString(  );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString(  );
         }
 
         /// <summary>
