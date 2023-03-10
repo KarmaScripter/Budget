@@ -202,6 +202,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the database form.
+        /// </summary>
         private void ShowDatabaseForm( )
         {
             try
@@ -237,6 +240,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the chart form.
+        /// </summary>
         private void ShowChartForm( )
         {
             try
@@ -253,6 +259,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the selection dialog.
+        /// </summary>
         private void ShowSelectionDialog( )
         {
             try

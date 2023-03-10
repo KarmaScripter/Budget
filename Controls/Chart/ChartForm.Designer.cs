@@ -859,7 +859,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 54, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 48, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1429,8 +1429,8 @@
             TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.Controls.Add( TableTabPage );
             TabControl.Controls.Add( FilterTabPage );
-            TabControl.Controls.Add( CalendarTabPage );
             TabControl.Controls.Add( GroupTabPage );
+            TabControl.Controls.Add( CalendarTabPage );
             TabControl.FixedSingleBorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.FocusOnTabClick =  false ;
             TabControl.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -1870,7 +1870,7 @@
             FieldTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             FieldTable.Controls.Add( FieldPanel, 0, 1 );
             FieldTable.Controls.Add( FieldLabel, 0, 0 );
-            FieldTable.Location =  new System.Drawing.Point( 3, 26 ) ;
+            FieldTable.Location =  new System.Drawing.Point( 6, 26 ) ;
             FieldTable.Name =  "FieldTable" ;
             FieldTable.RowCount =  2 ;
             FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 27F ) );
@@ -1970,7 +1970,7 @@
             NumericTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             NumericTable.Controls.Add( NumericPanel, 0, 1 );
             NumericTable.Controls.Add( NumericsLabel, 0, 0 );
-            NumericTable.Location =  new System.Drawing.Point( 3, 323 ) ;
+            NumericTable.Location =  new System.Drawing.Point( 6, 323 ) ;
             NumericTable.Name =  "NumericTable" ;
             NumericTable.RowCount =  2 ;
             NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 25F ) );
@@ -2083,7 +2083,7 @@
             CalendarTable.Controls.Add( FirstCalendarLabel, 0, 0 );
             CalendarTable.Controls.Add( SecondCalendarLabel, 0, 2 );
             CalendarTable.GrowStyle =  System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize ;
-            CalendarTable.Location =  new System.Drawing.Point( 0, 14 ) ;
+            CalendarTable.Location =  new System.Drawing.Point( 3, 9 ) ;
             CalendarTable.Name =  "CalendarTable" ;
             CalendarTable.RowCount =  4 ;
             CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 14.06844F ) );
@@ -2122,13 +2122,12 @@
             // SecondCalendar
             // 
             SecondCalendar.CanOverrideStyle =  true ;
-            SecondCalendar.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SecondCalendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            SecondCalendar.Location =  new System.Drawing.Point( 1, 1 ) ;
+            SecondCalendar.Location =  new System.Drawing.Point( 13, 17 ) ;
             SecondCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             SecondCalendar.Name =  "SecondCalendar" ;
             SecondCalendar.ShowToolTip =  true ;
-            SecondCalendar.Size =  new System.Drawing.Size( 259, 254 ) ;
+            SecondCalendar.Size =  new System.Drawing.Size( 231, 225 ) ;
             SecondCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             SecondCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             SecondCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -2199,13 +2198,12 @@
             // FirstCalendar
             // 
             FirstCalendar.CanOverrideStyle =  true ;
-            FirstCalendar.Dock =  System.Windows.Forms.DockStyle.Fill ;
             FirstCalendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            FirstCalendar.Location =  new System.Drawing.Point( 1, 1 ) ;
+            FirstCalendar.Location =  new System.Drawing.Point( 13, 11 ) ;
             FirstCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             FirstCalendar.Name =  "FirstCalendar" ;
             FirstCalendar.ShowToolTip =  true ;
-            FirstCalendar.Size =  new System.Drawing.Size( 259, 228 ) ;
+            FirstCalendar.Size =  new System.Drawing.Size( 231, 204 ) ;
             FirstCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;

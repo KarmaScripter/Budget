@@ -58,13 +58,13 @@
             var captionImage1 = new Syncfusion.Windows.Forms.CaptionImage( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( MainForm ) );
             DatabaseTile =  new Tile( ) ;
+            ToolTip =  new SmallTip( ) ;
             ReportingTile =  new Tile( ) ;
             GuidanceTile =  new Tile( ) ;
             WebTile =  new Tile( ) ;
             UtilityTile =  new Tile( ) ;
             ClientTile =  new Tile( ) ;
             BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
-            Darkmode =  new MetroSet_UI.Components.StyleManager( ) ;
             TestButton =  new Button( ) ;
             ExitButton =  new Button( ) ;
             ContextMenu =  new ContextMenu( ) ;
@@ -110,8 +110,28 @@
             textItem4.HubTile =  DatabaseTile ;
             textItem4.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             DatabaseTile.Title =  textItem4 ;
-            DatabaseTile.ToolTip =  null ;
+            DatabaseTile.ToolTip =  ToolTip ;
             DatabaseTile.TurnLiveTileOn =  true ;
+            // 
+            // ToolTip
+            // 
+            ToolTip.AutoPopDelay =  5000 ;
+            ToolTip.BackColor =  System.Drawing.Color.FromArgb(   5  ,   5  ,   5   ) ;
+            ToolTip.BindingSource =  null ;
+            ToolTip.BorderColor =  System.Drawing.SystemColors.Highlight ;
+            ToolTip.ForeColor =  System.Drawing.Color.White ;
+            ToolTip.InitialDelay =  500 ;
+            ToolTip.IsDerivedStyle =  true ;
+            ToolTip.Name =  null ;
+            ToolTip.OwnerDraw =  true ;
+            ToolTip.ReshowDelay =  100 ;
+            ToolTip.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ToolTip.StyleManager =  null ;
+            ToolTip.ThemeAuthor =  "Terry D. Eppler" ;
+            ToolTip.ThemeName =  "Budget Execution" ;
+            ToolTip.TipIcon =  System.Windows.Forms.ToolTipIcon.Info ;
+            ToolTip.TipText =  null ;
+            ToolTip.TipTitle =  null ;
             // 
             // ReportingTile
             // 
@@ -152,7 +172,7 @@
             textItem8.HubTile =  ReportingTile ;
             textItem8.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ReportingTile.Title =  textItem8 ;
-            ReportingTile.ToolTip =  null ;
+            ReportingTile.ToolTip =  ToolTip ;
             ReportingTile.TurnLiveTileOn =  true ;
             // 
             // GuidanceTile
@@ -194,7 +214,7 @@
             textItem12.HubTile =  GuidanceTile ;
             textItem12.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             GuidanceTile.Title =  textItem12 ;
-            GuidanceTile.ToolTip =  null ;
+            GuidanceTile.ToolTip =  ToolTip ;
             GuidanceTile.TurnLiveTileOn =  true ;
             // 
             // WebTile
@@ -236,7 +256,7 @@
             textItem16.HubTile =  WebTile ;
             textItem16.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             WebTile.Title =  textItem16 ;
-            WebTile.ToolTip =  null ;
+            WebTile.ToolTip =  ToolTip ;
             WebTile.TurnLiveTileOn =  true ;
             // 
             // UtilityTile
@@ -278,7 +298,7 @@
             textItem20.HubTile =  UtilityTile ;
             textItem20.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             UtilityTile.Title =  textItem20 ;
-            UtilityTile.ToolTip =  null ;
+            UtilityTile.ToolTip =  ToolTip ;
             UtilityTile.TurnLiveTileOn =  true ;
             // 
             // ClientTile
@@ -320,16 +340,8 @@
             textItem24.HubTile =  ClientTile ;
             textItem24.TextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClientTile.Title =  textItem24 ;
-            ClientTile.ToolTip =  null ;
+            ClientTile.ToolTip =  ToolTip ;
             ClientTile.TurnLiveTileOn =  true ;
-            // 
-            // Darkmode
-            // 
-            Darkmode.CustomTheme =  "C:\\Users\\teppler\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml" ;
-            Darkmode.MetroForm =  this ;
-            Darkmode.Style =  MetroSet_UI.Enums.Style.Custom ;
-            Darkmode.ThemeAuthor =  "Terry D. Eppler" ;
-            Darkmode.ThemeName =  "BudgetExecution" ;
             // 
             // TestButton
             // 
@@ -356,12 +368,11 @@
             TestButton.PressTextColor =  System.Drawing.Color.White ;
             TestButton.Size =  new System.Drawing.Size( 140, 40 ) ;
             TestButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            TestButton.StyleManager =  Darkmode ;
             TestButton.TabIndex =  6 ;
             TestButton.Text =  "Test" ;
             TestButton.ThemeAuthor =  "Terry D. Eppler" ;
             TestButton.ThemeName =  "BudgetExecution" ;
-            TestButton.ToolTip =  null ;
+            TestButton.ToolTip =  ToolTip ;
             // 
             // ExitButton
             // 
@@ -388,12 +399,11 @@
             ExitButton.PressTextColor =  System.Drawing.Color.White ;
             ExitButton.Size =  new System.Drawing.Size( 140, 40 ) ;
             ExitButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ExitButton.StyleManager =  Darkmode ;
             ExitButton.TabIndex =  7 ;
-            ExitButton.Text =  "Exit Application" ;
+            ExitButton.Text =  "Exit " ;
             ExitButton.ThemeAuthor =  "Terry D. Eppler" ;
             ExitButton.ThemeName =  "BudgetExecution" ;
-            ExitButton.ToolTip =  null ;
+            ExitButton.ToolTip =  ToolTip ;
             // 
             // ContextMenu
             // 
@@ -454,8 +464,6 @@
         }
 
         #endregion
-        public MetroSet_UI.Components.StyleManager Darkmode;
-        public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
         public Button ExitButton;
         public Button TestButton;
@@ -465,6 +473,7 @@
         public Tile GuidanceTile;
         public Tile ReportingTile;
         public Tile DatabaseTile;
-        private ContextMenu ContextMenu;
+        public ContextMenu ContextMenu;
+        public SmallTip ToolTip;
     }
 }

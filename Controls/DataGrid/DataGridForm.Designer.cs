@@ -1369,11 +1369,11 @@
             CalendarTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             CalendarTable.Name =  "CalendarTable" ;
             CalendarTable.RowCount =  4 ;
-            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 14.06844F ) );
-            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 85.93156F ) );
-            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 36F ) );
-            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 261F ) );
-            CalendarTable.Size =  new System.Drawing.Size( 263, 555 ) ;
+            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 11.2840471F ) );
+            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 88.71595F ) );
+            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 30F ) );
+            CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 254F ) );
+            CalendarTable.Size =  new System.Drawing.Size( 271, 555 ) ;
             CalendarTable.TabIndex =  0 ;
             // 
             // SecondCalendarPanel
@@ -1391,10 +1391,10 @@
             SecondCalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondCalendarPanel.HoverText =  null ;
             SecondCalendarPanel.IsDerivedStyle =  true ;
-            SecondCalendarPanel.Location =  new System.Drawing.Point( 3, 296 ) ;
+            SecondCalendarPanel.Location =  new System.Drawing.Point( 3, 303 ) ;
             SecondCalendarPanel.Name =  "SecondCalendarPanel" ;
             SecondCalendarPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondCalendarPanel.Size =  new System.Drawing.Size( 257, 256 ) ;
+            SecondCalendarPanel.Size =  new System.Drawing.Size( 265, 249 ) ;
             SecondCalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondCalendarPanel.StyleManager =  null ;
             SecondCalendarPanel.TabIndex =  46 ;
@@ -1405,14 +1405,13 @@
             // SecondCalendar
             // 
             SecondCalendar.CanOverrideStyle =  true ;
-            SecondCalendar.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SecondCalendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            SecondCalendar.Location =  new System.Drawing.Point( 1, 1 ) ;
+            SecondCalendar.Location =  new System.Drawing.Point( 21, 13 ) ;
             SecondCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             SecondCalendar.Name =  "SecondCalendar" ;
             SecondCalendar.SelectedDate =  new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 ) ;
             SecondCalendar.ShowToolTip =  true ;
-            SecondCalendar.Size =  new System.Drawing.Size( 252, 254 ) ;
+            SecondCalendar.Size =  new System.Drawing.Size( 224, 222 ) ;
             SecondCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             SecondCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             SecondCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -1469,10 +1468,10 @@
             FirstCalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstCalendarPanel.HoverText =  null ;
             FirstCalendarPanel.IsDerivedStyle =  true ;
-            FirstCalendarPanel.Location =  new System.Drawing.Point( 3, 39 ) ;
+            FirstCalendarPanel.Location =  new System.Drawing.Point( 3, 33 ) ;
             FirstCalendarPanel.Name =  "FirstCalendarPanel" ;
             FirstCalendarPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstCalendarPanel.Size =  new System.Drawing.Size( 257, 215 ) ;
+            FirstCalendarPanel.Size =  new System.Drawing.Size( 265, 234 ) ;
             FirstCalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstCalendarPanel.StyleManager =  null ;
             FirstCalendarPanel.TabIndex =  45 ;
@@ -1483,14 +1482,13 @@
             // FirstCalendar
             // 
             FirstCalendar.CanOverrideStyle =  true ;
-            FirstCalendar.Dock =  System.Windows.Forms.DockStyle.Fill ;
             FirstCalendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            FirstCalendar.Location =  new System.Drawing.Point( 1, 1 ) ;
+            FirstCalendar.Location =  new System.Drawing.Point( 21, 6 ) ;
             FirstCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             FirstCalendar.Name =  "FirstCalendar" ;
             FirstCalendar.SelectedDate =  new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 ) ;
             FirstCalendar.ShowToolTip =  true ;
-            FirstCalendar.Size =  new System.Drawing.Size( 252, 213 ) ;
+            FirstCalendar.Size =  new System.Drawing.Size( 224, 211 ) ;
             FirstCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -1545,7 +1543,7 @@
             FirstCalendarLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             FirstCalendarLabel.Name =  "FirstCalendarLabel" ;
             FirstCalendarLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstCalendarLabel.Size =  new System.Drawing.Size( 257, 30 ) ;
+            FirstCalendarLabel.Size =  new System.Drawing.Size( 265, 24 ) ;
             FirstCalendarLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstCalendarLabel.StyleManager =  null ;
             FirstCalendarLabel.TabIndex =  0 ;
@@ -1563,11 +1561,11 @@
             SecondCalendarLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondCalendarLabel.HoverText =  null ;
             SecondCalendarLabel.IsDerivedStyle =  true ;
-            SecondCalendarLabel.Location =  new System.Drawing.Point( 3, 260 ) ;
+            SecondCalendarLabel.Location =  new System.Drawing.Point( 3, 273 ) ;
             SecondCalendarLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             SecondCalendarLabel.Name =  "SecondCalendarLabel" ;
             SecondCalendarLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondCalendarLabel.Size =  new System.Drawing.Size( 257, 30 ) ;
+            SecondCalendarLabel.Size =  new System.Drawing.Size( 265, 24 ) ;
             SecondCalendarLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondCalendarLabel.StyleManager =  null ;
             SecondCalendarLabel.TabIndex =  1 ;
@@ -1636,7 +1634,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 50, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 38, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
