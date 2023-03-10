@@ -21,7 +21,7 @@ namespace BudgetExecution
         public CalendarForm( )
         {
             InitializeComponent( );
-            
+
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -40,13 +40,14 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
-            
+
             // Close Button
-            CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
-            CloseButton.HoverTextColor = Color.FromArgb( 0, 120, 212 );
+            CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
+            CloseButton.HoverTextColor = Color.White;
+            CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 ); 
             CloseButton.Text = "Close";
             CloseButton.HoverText = "Close Calendar";
-            
+
             // Event Wiring
             Load += OnLoad;
         }
@@ -68,7 +69,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
@@ -85,7 +86,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

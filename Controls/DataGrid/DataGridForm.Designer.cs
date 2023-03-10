@@ -659,7 +659,7 @@
             SourceTable.RowCount =  2 ;
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.34058F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.65942F ) );
-            SourceTable.Size =  new System.Drawing.Size( 295, 555 ) ;
+            SourceTable.Size =  new System.Drawing.Size( 270, 555 ) ;
             SourceTable.TabIndex =  48 ;
             // 
             // TableComboBox
@@ -689,7 +689,7 @@
             TableComboBox.Name =  "TableComboBox" ;
             TableComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             TableComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
-            TableComboBox.Size =  new System.Drawing.Size( 289, 30 ) ;
+            TableComboBox.Size =  new System.Drawing.Size( 264, 30 ) ;
             TableComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             TableComboBox.StyleManager =  null ;
             TableComboBox.TabIndex =  1 ;
@@ -715,7 +715,7 @@
             TablePanel.Location =  new System.Drawing.Point( 3, 38 ) ;
             TablePanel.Name =  "TablePanel" ;
             TablePanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            TablePanel.Size =  new System.Drawing.Size( 289, 514 ) ;
+            TablePanel.Size =  new System.Drawing.Size( 264, 514 ) ;
             TablePanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             TablePanel.StyleManager =  null ;
             TablePanel.TabIndex =  0 ;
@@ -737,7 +737,7 @@
             TableListBox.HoverText =  null ;
             TableListBox.IsDerivedStyle =  true ;
             TableListBox.ItemHeight =  28 ;
-            TableListBox.Location =  new System.Drawing.Point( 37, 28 ) ;
+            TableListBox.Location =  new System.Drawing.Point( 25, 25 ) ;
             TableListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             TableListBox.MultiSelect =  false ;
             TableListBox.Name =  "TableListBox" ;
@@ -781,7 +781,7 @@
             FilterTable.Controls.Add( ThirdTable, 0, 2 );
             FilterTable.Controls.Add( FirstTable, 0, 0 );
             FilterTable.Controls.Add( SecondTable, 0, 1 );
-            FilterTable.Location =  new System.Drawing.Point( 25, 20 ) ;
+            FilterTable.Location =  new System.Drawing.Point( 3, 23 ) ;
             FilterTable.Name =  "FilterTable" ;
             FilterTable.RowCount =  3 ;
             FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33.77704F ) );
@@ -1149,7 +1149,7 @@
             NumericTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             NumericTable.Controls.Add( NumericPanel, 0, 1 );
             NumericTable.Controls.Add( NumericsLabel, 0, 0 );
-            NumericTable.Location =  new System.Drawing.Point( 30, 301 ) ;
+            NumericTable.Location =  new System.Drawing.Point( 15, 305 ) ;
             NumericTable.Name =  "NumericTable" ;
             NumericTable.RowCount =  2 ;
             NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 25F ) );
@@ -1250,7 +1250,7 @@
             FieldTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             FieldTable.Controls.Add( FieldPanel, 0, 1 );
             FieldTable.Controls.Add( FieldLabel, 0, 0 );
-            FieldTable.Location =  new System.Drawing.Point( 27, 20 ) ;
+            FieldTable.Location =  new System.Drawing.Point( 12, 19 ) ;
             FieldTable.Name =  "FieldTable" ;
             FieldTable.RowCount =  2 ;
             FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 24F ) );
@@ -1366,7 +1366,7 @@
             CalendarTable.Controls.Add( FirstCalendarLabel, 0, 0 );
             CalendarTable.Controls.Add( SecondCalendarLabel, 0, 2 );
             CalendarTable.GrowStyle =  System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize ;
-            CalendarTable.Location =  new System.Drawing.Point( 23, 16 ) ;
+            CalendarTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             CalendarTable.Name =  "CalendarTable" ;
             CalendarTable.RowCount =  4 ;
             CalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 14.06844F ) );
@@ -1410,6 +1410,7 @@
             SecondCalendar.Location =  new System.Drawing.Point( 1, 1 ) ;
             SecondCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             SecondCalendar.Name =  "SecondCalendar" ;
+            SecondCalendar.SelectedDate =  new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 ) ;
             SecondCalendar.ShowToolTip =  true ;
             SecondCalendar.Size =  new System.Drawing.Size( 252, 254 ) ;
             SecondCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
@@ -1487,6 +1488,7 @@
             FirstCalendar.Location =  new System.Drawing.Point( 1, 1 ) ;
             FirstCalendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             FirstCalendar.Name =  "FirstCalendar" ;
+            FirstCalendar.SelectedDate =  new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 ) ;
             FirstCalendar.ShowToolTip =  true ;
             FirstCalendar.Size =  new System.Drawing.Size( 252, 213 ) ;
             FirstCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
@@ -1634,7 +1636,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 60, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 50, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
