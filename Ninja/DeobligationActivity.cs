@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DeobligationActivity : PRC
+    public class DeobligationActivity : Deobligation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -157,7 +157,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public string DocumentNumber { get; set; }
+        public override string DocumentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the processed date.
@@ -165,7 +165,7 @@ namespace BudgetExecution
         /// <value>
         /// The processed date.
         /// </value>
-        public DateOnly ProcessedDate { get; set; }
+        public override DateOnly ProcessedDate { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -173,7 +173,7 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public override double Amount { get; set; }
         
         /// <summary>
         /// Gets or sets the source.

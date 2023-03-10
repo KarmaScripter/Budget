@@ -190,7 +190,7 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public  override double Amount { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -198,7 +198,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public override Source Source { get; set; }  = Source.Deobligations;
+        public override Source Source { get; set; }   
 
         /// <summary>
         /// Gets or sets the provider.
