@@ -403,10 +403,10 @@ namespace BudgetExecution
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
