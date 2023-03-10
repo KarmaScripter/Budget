@@ -319,6 +319,7 @@ namespace BudgetExecution
         public OpenCommitment( IQuery query ) 
             : base( query )
         {
+            Source = Source.OpenCommitments;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -366,6 +367,7 @@ namespace BudgetExecution
         public OpenCommitment( IDataModel builder ) 
             : base( builder )
         {
+            Source = Source.OpenCommitments;
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -413,6 +415,7 @@ namespace BudgetExecution
         public OpenCommitment( DataRow dataRow ) 
             : base( dataRow )
         {
+            Source = Source.OpenCommitments;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY =  dataRow[ "BFY" ].ToString( );

@@ -367,8 +367,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Obligation( IQuery query )
+        public Obligation( IQuery query ) 
+            : base( query )
         {
+            Source = Source.Obligations;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -413,8 +415,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Obligation( IDataModel builder )
+        public Obligation( IDataModel builder ) 
+            : base( builder )
         {
+            Source = Source.Obligations;
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -459,8 +463,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Obligation( DataRow dataRow )
+        public Obligation( DataRow dataRow ) 
+            : base( dataRow )
         {
+            Source = Source.Obligations;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY =  dataRow[ "BFY" ].ToString( );

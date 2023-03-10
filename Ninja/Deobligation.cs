@@ -229,14 +229,17 @@ namespace BudgetExecution
         /// </summary>
         public Deobligation( )
         {
+            Source = Source.Deobligations;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Deobligation( IQuery query )
+        public Deobligation( IQuery query ) 
+            : base( query )
         {
+            Source = Source.Deobligations;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -281,8 +284,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Deobligation( IDataModel builder )
+        public Deobligation( IDataModel builder ) 
+            : base( builder )
         {
+            Source = Source.Deobligations;
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY =  Record[ "BFY" ].ToString( );
@@ -327,8 +332,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Deobligation( DataRow dataRow )
+        public Deobligation( DataRow dataRow ) 
+            : base( dataRow )
         {
+            Source = Source.Deobligations;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY =  dataRow[ "BFY" ].ToString( );

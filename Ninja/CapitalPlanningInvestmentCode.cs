@@ -93,6 +93,7 @@ namespace BudgetExecution
         public CapitalPlanningInvestmentCode( IQuery query ) 
             : this( )
         {
+            Source = Source.CapitalPlanningInvestmentCodes;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
@@ -106,8 +107,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CapitalPlanningInvestmentCode( IDataModel builder )
-            : this( )
         {
+            Source = Source.CapitalPlanningInvestmentCodes;
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
@@ -121,8 +122,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CapitalPlanningInvestmentCode( DataRow dataRow )
-            : this( )
         {
+            Source = Source.CapitalPlanningInvestmentCodes;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
