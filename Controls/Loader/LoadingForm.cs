@@ -19,13 +19,13 @@ namespace BudgetExecution
     {
         /// <summary> The image path </summary>
         public readonly string LoadingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Loading.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
         public readonly string ProcessingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Processing.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
 
         public readonly string WaitingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
         /// <summary> Gets or sets the picture. </summary>
         /// <value> The picture. </value>
