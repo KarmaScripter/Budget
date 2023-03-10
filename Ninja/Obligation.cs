@@ -478,9 +478,9 @@ namespace BudgetExecution
             BocName = dataRow[ "BocName" ].ToString( );
             Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) );
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString(  ) );
+            ULO = double.Parse( dataRow[ "ULO" ].ToString( ) );
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString(  ) );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString(  ) );
             Used = double.Parse( dataRow[ "Used" ].ToString(  ) );
@@ -489,16 +489,16 @@ namespace BudgetExecution
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString(  );
-            NpmName = dataRow[ "NpmName" ].ToString(  );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
             GoalCode = dataRow[ "GoalCode" ].ToString( );
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
     }
 }
