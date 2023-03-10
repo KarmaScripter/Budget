@@ -19,10 +19,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     public partial class ChartForm : MetroForm
     {
         /// <summary>
@@ -620,19 +620,19 @@ namespace BudgetExecution
                     var _aggr = string.Empty;
                     foreach( var name in fields )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{ name }, ";
                     }
 
                     foreach( var metric in numerics )
                     {
-                        _aggr += $"SUM({metric}) AS {metric}, ";
+                        _aggr += $"SUM({ metric }) AS { metric }, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    return $"SELECT { _columns } FROM { Source } " + $"WHERE { _criteria } "
+                        + $"GROUP BY { _groups };";
                 }
                 catch( Exception ex )
                 {
@@ -792,10 +792,8 @@ namespace BudgetExecution
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {

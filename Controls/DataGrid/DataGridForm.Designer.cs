@@ -826,7 +826,7 @@
             ThirdListBoxPanel.Location =  new System.Drawing.Point( 3, 38 ) ;
             ThirdListBoxPanel.Name =  "ThirdListBoxPanel" ;
             ThirdListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdListBoxPanel.Size =  new System.Drawing.Size( 251, 135 ) ;
+            ThirdListBoxPanel.Size =  new System.Drawing.Size( 251, 126 ) ;
             ThirdListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             ThirdListBoxPanel.StyleManager =  null ;
             ThirdListBoxPanel.TabIndex =  28 ;
@@ -862,7 +862,7 @@
             ThirdListBox.SelectedValue =  null ;
             ThirdListBox.ShowBorder =  false ;
             ThirdListBox.ShowScrollBar =  false ;
-            ThirdListBox.Size =  new System.Drawing.Size( 201, 90 ) ;
+            ThirdListBox.Size =  new System.Drawing.Size( 201, 81 ) ;
             ThirdListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             ThirdListBox.StyleManager =  null ;
             ThirdListBox.TabIndex =  0 ;
@@ -914,8 +914,8 @@
             FirstTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             FirstTable.Name =  "FirstTable" ;
             FirstTable.RowCount =  2 ;
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.44444F ) );
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.55556F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80F ) );
             FirstTable.Size =  new System.Drawing.Size( 257, 180 ) ;
             FirstTable.TabIndex =  43 ;
             // 
@@ -934,10 +934,10 @@
             FirstListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstListBoxPanel.HoverText =  null ;
             FirstListBoxPanel.IsDerivedStyle =  true ;
-            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 37 ) ;
+            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 39 ) ;
             FirstListBoxPanel.Name =  "FirstListBoxPanel" ;
             FirstListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstListBoxPanel.Size =  new System.Drawing.Size( 251, 139 ) ;
+            FirstListBoxPanel.Size =  new System.Drawing.Size( 251, 138 ) ;
             FirstListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBoxPanel.StyleManager =  null ;
             FirstListBoxPanel.TabIndex =  26 ;
@@ -973,7 +973,7 @@
             FirstListBox.SelectedValue =  null ;
             FirstListBox.ShowBorder =  false ;
             FirstListBox.ShowScrollBar =  false ;
-            FirstListBox.Size =  new System.Drawing.Size( 201, 95 ) ;
+            FirstListBox.Size =  new System.Drawing.Size( 201, 94 ) ;
             FirstListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBox.StyleManager =  null ;
             FirstListBox.TabIndex =  0 ;
@@ -1634,7 +1634,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 72, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 66, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
