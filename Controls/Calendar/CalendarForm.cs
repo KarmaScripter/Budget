@@ -44,6 +44,8 @@ namespace BudgetExecution
             // Close Button
             CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
             CloseButton.HoverTextColor = Color.FromArgb( 0, 120, 212 );
+            CloseButton.Text = "Close";
+            CloseButton.HoverText = "Close Calendar";
             
             // Event Wiring
             Load += OnLoad;
@@ -58,6 +60,7 @@ namespace BudgetExecution
         {
             try
             {
+                CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
                 CloseButton.Click += OnCloseButtonClicked;
             }
             catch( Exception ex )
