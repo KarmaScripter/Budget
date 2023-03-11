@@ -19,6 +19,7 @@ namespace BudgetExecution
     /// <seealso/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataGrid : DataGridView, IDataGrid
     {
         /// <summary>
@@ -144,7 +145,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="DataGrid"/> class.
         /// </summary>
         /// <param name="dataGrid">The dataGrid.</param>
-        public DataGrid( DataGridView dataGrid )
+        public DataGrid( Control dataGrid )
             : this( dataGrid.Size, dataGrid.Location )
         {
         }

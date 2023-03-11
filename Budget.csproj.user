@@ -256,7 +256,7 @@
     <Compile Update="Controls\Editor\Editor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="MenuBase.cs">
+    <Compile Update="Controls\ContextMenu\MenuBase.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

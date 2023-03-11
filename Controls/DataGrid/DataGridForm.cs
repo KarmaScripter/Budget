@@ -6,9 +6,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
@@ -29,6 +31,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
     [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
     [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -195,7 +198,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 1;
+            CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -293,7 +296,7 @@ namespace BudgetExecution
             Source = DataBuilder.GetSource( SelectedTable );
             DataModel = new DataBuilder( Source, Provider );
             DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel.DataTable;
+            BindingSource.DataSource = DataModel?.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
             DataGrid.DataSource = BindingSource?.DataSource;
@@ -353,6 +356,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearLabelText( );
+                InitRadioButtons( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -418,7 +422,7 @@ namespace BudgetExecution
         /// Binds the data source.
         /// </summary>
         /// <param name="where">The where.</param>
-        private void BindDataSource( IDictionary<string, object> where )
+        private void BindData( IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
@@ -426,7 +430,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( where );
+                    var _sql = GetSqlText( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
                     SelectedTable = DataTable?.TableName;
@@ -450,7 +454,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindDataSource( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
@@ -459,7 +463,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( cols, where );
+                    var _sql = GetSqlText( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
                     SelectedTable = DataTable?.TableName;
@@ -484,7 +488,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindDataSource( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
@@ -494,7 +498,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( fields, numerics, where );
+                    var _sql = GetSqlText( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
                     SelectedTable = DataTable?.TableName;
@@ -518,7 +522,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IDictionary<string, object> where )
+        private string GetSqlText( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )
             {
@@ -535,6 +539,43 @@ namespace BudgetExecution
             }
 
             return string.Empty;
+        }
+
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <returns></returns>
+        private Image GetImage( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), Provider ) )
+            {
+                try
+                {
+                    var _path = ConfigurationManager.AppSettings[ "Extensions" ];
+                    if( !string.IsNullOrEmpty( _path ) )
+                    {
+                        var _files = Directory.GetFiles( _path );
+                        if( _files?.Any( ) == true )
+                        {
+                            var _extension = Provider.ToString( );
+                            var _file = _files
+                                ?.Where( f => f.Contains( _extension ) )
+                                ?.First( );
+
+                            using var stream = File.Open( _file, FileMode.Open );
+                            var _img = Image.FromStream( stream );
+                            return new Bitmap( _img, 22, 20 );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( Bitmap );
+                }
+            }
+
+            return default( Bitmap );
         }
 
         /// <summary>
@@ -572,7 +613,7 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -596,7 +637,8 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -615,7 +657,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns,
+        private string GetSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -632,8 +674,9 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_names};";
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
                 {
@@ -643,6 +686,56 @@ namespace BudgetExecution
             }
 
             return string.Empty;
+        }
+
+        /// <summary>
+        /// Sets the RadioButton tags.
+        /// </summary>
+        private void InitRadioButtons( )
+        {
+            try
+            {
+                SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.HoverText = "SQLite Provider";
+                AccessRadioButton.Tag = "Access";
+                AccessRadioButton.HoverText = "MS Access Provider";
+                AccessRadioButton.Checked = true;
+                SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.HoverText = "SQL Compact Provider";
+                SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.HoverText = "Sql Server Provider";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<RadioButton> GetRadioButtons( )
+        {
+            try
+            {
+                var _buttons = new List<RadioButton>
+                {
+                    SQLiteRadioButton,
+                    AccessRadioButton,
+                    SqlCeRadioButton,
+                    SqlServerRadioButton
+                };
+
+                return _buttons?.Any( ) == true
+                    ? _buttons
+                    : default( IEnumerable<RadioButton> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IEnumerable<RadioButton> );
+            }
         }
 
         /// <summary>
@@ -965,8 +1058,10 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -992,8 +1087,10 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1019,8 +1116,10 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1224,9 +1323,9 @@ namespace BudgetExecution
                     }
 
                     ClearLabelText( );
-                    BindDataSource( FormFilter );
+                    BindData( FormFilter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlQuery = GetSqlText( FormFilter );
 
                     //SqlHeader.Text = SqlQuery;
                 }
@@ -1300,9 +1399,9 @@ namespace BudgetExecution
                     }
 
                     ClearLabelText( );
-                    BindDataSource( FormFilter );
+                    BindData( FormFilter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlQuery = GetSqlText( FormFilter );
                 }
                 catch( Exception ex )
                 {
@@ -1375,9 +1474,9 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     ClearLabelText( );
-                    BindDataSource( FormFilter );
+                    BindData( FormFilter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlQuery = GetSqlText( FormFilter );
 
                     //SqlHeader.Text = SqlQuery;
                 }
@@ -1403,7 +1502,7 @@ namespace BudgetExecution
                     SelectedColumns.Add( _selectedItem );
                 }
 
-                SqlQuery = CreateSqlText( SelectedColumns, FormFilter );
+                SqlQuery = GetSqlText( SelectedColumns, FormFilter );
                 SqlHeader.Text = SqlQuery;
             }
             catch( Exception ex )
@@ -1426,9 +1525,9 @@ namespace BudgetExecution
                     SelectedNumerics.Add( _selectedItem );
                 }
 
-                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
-                BindDataSource( SelectedFields, SelectedNumerics, FormFilter );
+                BindData( SelectedFields, SelectedNumerics, FormFilter );
             }
             catch( Exception ex )
             {
@@ -1814,6 +1913,27 @@ namespace BudgetExecution
             }
         }
 
+        public virtual void OnRadioButtonSelected( object sender )
+        {
+            if( sender is RadioButton _radioButton
+               && !string.IsNullOrEmpty( _radioButton.Tag?.ToString( ) ) )
+            {
+                try
+                {
+                    //FileExtension = _radioButton?.Result;
+                    var _ext = _radioButton.Tag?.ToString( )
+                        ?.Trim( ".".ToCharArray( ) )
+                        ?.ToUpper( );
+
+                    //Header.Text = $"{_ext} File Search";
+                    //Picture.Image = GetImage( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

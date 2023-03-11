@@ -13,6 +13,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref = "DataModel" />
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataBuilder : DataModel, IDataModel
     {
         /// <summary>
