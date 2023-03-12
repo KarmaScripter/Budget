@@ -363,7 +363,7 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearLabelText( );
                 InitRadioButtons( );
-                SetPicture( );
+                SetImage( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -552,7 +552,7 @@ namespace BudgetExecution
         /// Gets the image.
         /// </summary>
         /// <returns></returns>
-        private Image GetImage( )
+        private void SetImage( )
         {
             try
             {
@@ -567,32 +567,12 @@ namespace BudgetExecution
                             ?.Where( f => f.Contains( _extension ) )
                             ?.First( );
 
-                        var stream = File.Open( _file, FileMode.Open );
-                        var _img = Image.FromStream( stream );
-                        return new Bitmap( _img, 18, 18 );
+                        if( !string.IsNullOrEmpty( _file ) 
+                           && File.Exists( _file ) )
+                        {
+                            PictureBox.Image = Image.FromFile( _file );
+                        }
                     }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Bitmap );
-            }
-
-            return default( Bitmap );
-        }
-
-        /// <summary>
-        /// Sets the picture.
-        /// </summary>
-        private void SetPicture( )
-        {
-            try
-            {
-                var _image = GetImage( );
-                if( _image != null )
-                {
-                    PictureBox.Image = _image;
                 }
             }
             catch( Exception ex )
@@ -1954,7 +1934,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
-                        SetPicture( );
+                        SetImage( );
                     }
                 }
                 catch( Exception ex )
