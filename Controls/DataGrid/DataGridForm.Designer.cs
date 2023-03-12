@@ -162,9 +162,9 @@
             SQLiteRadioButton =  new RadioButton( ) ;
             ProviderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SqlCeRadioButton =  new RadioButton( ) ;
-            PictureBox =  new Picture( ) ;
             HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             HeaderLabel =  new Label( ) ;
+            PictureBox =  new System.Windows.Forms.PictureBox( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             GridTable.SuspendLayout( );
@@ -194,8 +194,8 @@
             FirstCalendarPanel.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ProviderTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             HeaderTable.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             SuspendLayout( );
             // 
             // ToolTip
@@ -1601,7 +1601,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 4, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 0, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -2599,31 +2599,13 @@
             SqlCeRadioButton.ThemeName =  "Budget Execution" ;
             SqlCeRadioButton.ToolTip =  null ;
             // 
-            // PictureBox
-            // 
-            PictureBox.BackColor =  System.Drawing.Color.Transparent ;
-            PictureBox.BindingSource =  null ;
-            PictureBox.DataFilter =  null ;
-            PictureBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            PictureBox.Field =  Field.AccountCode ;
-            PictureBox.HoverText =  null ;
-            PictureBox.ImageList =  null ;
-            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
-            PictureBox.Name =  "PictureBox" ;
-            PictureBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            PictureBox.Size =  new System.Drawing.Size( 33, 30 ) ;
-            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.Zoom ;
-            PictureBox.TabIndex =  52 ;
-            PictureBox.TabStop =  false ;
-            PictureBox.ToolTip =  null ;
-            // 
             // HeaderTable
             // 
             HeaderTable.ColumnCount =  2 ;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.98953652F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.01046F ) );
-            HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( HeaderLabel, 1, 0 );
+            HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
             HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
             HeaderTable.Name =  "HeaderTable" ;
@@ -2654,6 +2636,15 @@
             HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
             HeaderLabel.ThemeName =  "Budget Execution" ;
             HeaderLabel.ToolTip =  null ;
+            // 
+            // PictureBox
+            // 
+            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            PictureBox.Name =  "PictureBox" ;
+            PictureBox.Size =  new System.Drawing.Size( 20, 20 ) ;
+            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
+            PictureBox.TabIndex =  54 ;
+            PictureBox.TabStop =  false ;
             // 
             // DataGridForm
             // 
@@ -2718,8 +2709,8 @@
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ProviderTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             HeaderTable.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             ResumeLayout( false );
             PerformLayout( );
         }
@@ -2777,7 +2768,6 @@
         public Label SecondCalendarLabel;
         public Layout SecondCalendarPanel;
         public Layout FirstCalendarPanel;
-        public Picture PictureBox;
         public Layout NumericPanel;
         public ListBox NumericListBox;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
@@ -2854,5 +2844,6 @@
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
         public Label HeaderLabel;
         public Label Title;
+        public System.Windows.Forms.PictureBox PictureBox;
     }
 }

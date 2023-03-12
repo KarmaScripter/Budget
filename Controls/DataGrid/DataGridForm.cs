@@ -226,9 +226,6 @@ namespace BudgetExecution
             NumericsLabel.ForeColor = Color.DarkGray;
 
             // Header Properties
-            PictureBox.Size = new Size( 22, 20 );
-            PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            PictureBox.Scale( new SizeF( 18, 18 ) );
             HeaderLabel.Font = new Font( "Roboto", 10 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -567,10 +564,11 @@ namespace BudgetExecution
                             ?.Where( f => f.Contains( _extension ) )
                             ?.First( );
 
-                        if( !string.IsNullOrEmpty( _file ) 
+                        if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
-                            PictureBox.Image = Image.FromFile( _file );
+                            var _img = Image.FromFile( _file );
+                            PictureBox.Image = _img;
                         }
                     }
                 }
@@ -1570,6 +1568,7 @@ namespace BudgetExecution
                     case 0:
                     {
                         ProviderTable.Visible = true;
+                        SetImage( );
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
