@@ -228,8 +228,8 @@ namespace BudgetExecution
             // Header Properties
             PictureBox.Size = new Size( 22, 20 );
             PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            PictureBox.Scale( new SizeF( 16, 16 ) );
-            HeaderLabel.Font = new Font( "Roboto", 11 );
+            PictureBox.Scale( new SizeF( 18, 18 ) );
+            HeaderLabel.Font = new Font( "Roboto", 10 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
 
@@ -276,6 +276,10 @@ namespace BudgetExecution
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
@@ -374,10 +378,6 @@ namespace BudgetExecution
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
-                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 MouseClick += OnRightClick;
             }
             catch( Exception ex )
@@ -567,9 +567,9 @@ namespace BudgetExecution
                             ?.Where( f => f.Contains( _extension ) )
                             ?.First( );
 
-                        using var stream = File.Open( _file, FileMode.Open );
+                        var stream = File.Open( _file, FileMode.Open );
                         var _img = Image.FromStream( stream );
-                        return new Bitmap( _img, 22, 20 );
+                        return new Bitmap( _img, 18, 18 );
                     }
                 }
             }
@@ -797,7 +797,7 @@ namespace BudgetExecution
                     var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
-                    Title.Text = $"{_table} ";
+                    HeaderLabel.Text = $"{_table} ";
                     FirstGridLabel.Text = $"Provider :  {Provider}";
                     SecondGridLabel.Text = $"Records : {_records} ";
                     ThirdGridLabel.Text = $"Fields : {_fields} ";
@@ -809,7 +809,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    Title.Text = $"{Provider} Database ";
+                    HeaderLabel.Text = $"{Provider} Database ";
                     FirstGridLabel.Text = $"Provider :  {Provider}";
                     SecondGridLabel.Text = "Records : ";
                     ThirdGridLabel.Text = "Fields : ";
