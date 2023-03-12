@@ -227,7 +227,7 @@ namespace BudgetExecution
 
             // Header Properties
             PictureBox.Size = new Size( 22, 20 );
-            HeaderLabel.Font = new Font( "Roboto", 12 );
+            HeaderLabel.Font = new Font( "Roboto", 11 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
 

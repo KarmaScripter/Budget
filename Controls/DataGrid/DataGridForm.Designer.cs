@@ -31,11 +31,11 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( DataGridForm ) );
             BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
             ToolTip =  new SmallTip( ) ;
@@ -98,8 +98,6 @@
             FirstCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
             FirstCalendarLabel =  new Label( ) ;
             SecondCalendarLabel =  new Label( ) ;
-            PictureBox =  new Picture( ) ;
-            HeaderLabel =  new Label( ) ;
             ToolStripSeparator =  new ToolSeparator( ) ;
             ToolStripTextBox =  new ToolStripTextBox( ) ;
             TextBoxSeparator =  new ToolSeparator( ) ;
@@ -164,9 +162,9 @@
             SQLiteRadioButton =  new RadioButton( ) ;
             ProviderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SqlCeRadioButton =  new RadioButton( ) ;
-            Picture =  new Picture( ) ;
+            this.PictureBox =  new Picture( ) ;
             HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            Title =  new Label( ) ;
+            HeaderLabel =  new Label( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             GridTable.SuspendLayout( );
@@ -194,10 +192,9 @@
             CalendarTable.SuspendLayout( );
             SecondCalendarPanel.SuspendLayout( );
             FirstCalendarPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             ToolStrip.SuspendLayout( );
             ProviderTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize) this.PictureBox  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             SuspendLayout( );
             // 
@@ -302,35 +299,35 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle1.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle1 ;
+            dataGridViewCellStyle6.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle6.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle6.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle6.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle6.SelectionForeColor =  System.Drawing.Color.White ;
+            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle6 ;
             DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             DataGrid.BindingSource =  BindingSource ;
             DataGrid.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
             DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle2.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle2.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle2.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
+            dataGridViewCellStyle7.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
+            dataGridViewCellStyle7.BackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle7.ForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle7.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle7.SelectionForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle7.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
+            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle7 ;
             DataGrid.ColumnHeadersHeight =  30 ;
             DataGrid.DataFilter =  null ;
-            dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
-            dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle3.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
-            DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
+            dataGridViewCellStyle8.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
+            dataGridViewCellStyle8.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle8.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle8.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle8.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle8.SelectionForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle8.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
+            DataGrid.DefaultCellStyle =  dataGridViewCellStyle8 ;
             DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
@@ -339,22 +336,22 @@
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle4.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
-            dataGridViewCellStyle4.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle4.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle4.ForeColor =  System.Drawing.Color.Black ;
-            dataGridViewCellStyle4.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle4.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
-            dataGridViewCellStyle4.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle4 ;
+            dataGridViewCellStyle9.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
+            dataGridViewCellStyle9.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle9.ForeColor =  System.Drawing.Color.Black ;
+            dataGridViewCellStyle9.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle9.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
+            dataGridViewCellStyle9.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
+            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle9 ;
             DataGrid.RowHeadersWidth =  20 ;
-            dataGridViewCellStyle5.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle5.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle5.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
+            dataGridViewCellStyle10.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
+            dataGridViewCellStyle10.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle10.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle10.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle10.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle10.SelectionForeColor =  System.Drawing.Color.White ;
+            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle10 ;
             DataGrid.RowTemplate.Height =  28 ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
             DataGrid.Size =  new System.Drawing.Size( 895, 494 ) ;
@@ -1585,47 +1582,6 @@
             SecondCalendarLabel.ThemeName =  "Budget Execution" ;
             SecondCalendarLabel.ToolTip =  null ;
             // 
-            // PictureBox
-            // 
-            PictureBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            PictureBox.BackColor =  System.Drawing.Color.Transparent ;
-            PictureBox.BindingSource =  null ;
-            PictureBox.DataFilter =  null ;
-            PictureBox.Field =  Field.AccountCode ;
-            PictureBox.HoverText =  null ;
-            PictureBox.Image =  Properties.Resources.TableSetting ;
-            PictureBox.ImageList =  null ;
-            PictureBox.Location =  new System.Drawing.Point( 0, 4 ) ;
-            PictureBox.Name =  "PictureBox" ;
-            PictureBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            PictureBox.Size =  new System.Drawing.Size( 0, 0 ) ;
-            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
-            PictureBox.TabIndex =  45 ;
-            PictureBox.TabStop =  false ;
-            PictureBox.ToolTip =  null ;
-            // 
-            // HeaderLabel
-            // 
-            HeaderLabel.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            HeaderLabel.BindingSource =  null ;
-            HeaderLabel.DataFilter =  null ;
-            HeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            HeaderLabel.HoverText =  null ;
-            HeaderLabel.IsDerivedStyle =  true ;
-            HeaderLabel.Location =  new System.Drawing.Point( 41, 4 ) ;
-            HeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            HeaderLabel.Name =  "HeaderLabel" ;
-            HeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            HeaderLabel.Size =  new System.Drawing.Size( 923, 0 ) ;
-            HeaderLabel.Style =  MetroSet_UI.Enums.Style.Light ;
-            HeaderLabel.StyleManager =  null ;
-            HeaderLabel.TabIndex =  46 ;
-            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-            HeaderLabel.ThemeAuthor =  null ;
-            HeaderLabel.ThemeName =  null ;
-            HeaderLabel.ToolTip =  null ;
-            // 
             // ToolStripSeparator
             // 
             ToolStripSeparator.ForeColor =  System.Drawing.Color.Black ;
@@ -1645,7 +1601,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 16, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 10, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -2643,31 +2599,31 @@
             SqlCeRadioButton.ThemeName =  "Budget Execution" ;
             SqlCeRadioButton.ToolTip =  null ;
             // 
-            // Picture
+            // PictureBox
             // 
-            Picture.BackColor =  System.Drawing.Color.Transparent ;
-            Picture.BindingSource =  null ;
-            Picture.DataFilter =  null ;
-            Picture.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            Picture.Field =  Field.AccountCode ;
-            Picture.HoverText =  null ;
-            Picture.ImageList =  null ;
-            Picture.Location =  new System.Drawing.Point( 3, 3 ) ;
-            Picture.Name =  "Picture" ;
-            Picture.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Picture.Size =  new System.Drawing.Size( 33, 30 ) ;
-            Picture.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
-            Picture.TabIndex =  52 ;
-            Picture.TabStop =  false ;
-            Picture.ToolTip =  null ;
+            this.PictureBox.BackColor =  System.Drawing.Color.Transparent ;
+            this.PictureBox.BindingSource =  null ;
+            this.PictureBox.DataFilter =  null ;
+            this.PictureBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            this.PictureBox.Field =  Field.AccountCode ;
+            this.PictureBox.HoverText =  null ;
+            this.PictureBox.ImageList =  null ;
+            this.PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            this.PictureBox.Name =  "PictureBox" ;
+            this.PictureBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            this.PictureBox.Size =  new System.Drawing.Size( 33, 30 ) ;
+            this.PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
+            this.PictureBox.TabIndex =  52 ;
+            this.PictureBox.TabStop =  false ;
+            this.PictureBox.ToolTip =  null ;
             // 
             // HeaderTable
             // 
             HeaderTable.ColumnCount =  2 ;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.98953652F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.01046F ) );
-            HeaderTable.Controls.Add( Picture, 0, 0 );
-            HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Controls.Add( this.PictureBox, 0, 0 );
+            HeaderTable.Controls.Add( HeaderLabel, 1, 0 );
             HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
             HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
             HeaderTable.Name =  "HeaderTable" ;
@@ -2676,27 +2632,28 @@
             HeaderTable.Size =  new System.Drawing.Size( 1338, 36 ) ;
             HeaderTable.TabIndex =  53 ;
             // 
-            // Title
+            // HeaderLabel
             // 
-            Title.BindingSource =  null ;
-            Title.DataFilter =  null ;
-            Title.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            Title.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            Title.Font =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            Title.HoverText =  null ;
-            Title.IsDerivedStyle =  true ;
-            Title.Location =  new System.Drawing.Point( 42, 3 ) ;
-            Title.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            Title.Name =  "Title" ;
-            Title.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Title.Size =  new System.Drawing.Size( 1293, 30 ) ;
-            Title.Style =  MetroSet_UI.Enums.Style.Custom ;
-            Title.StyleManager =  null ;
-            Title.TabIndex =  53 ;
-            Title.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-            Title.ThemeAuthor =  "Terry D. Eppler" ;
-            Title.ThemeName =  "Budget Execution" ;
-            Title.ToolTip =  null ;
+            HeaderLabel.BindingSource =  null ;
+            HeaderLabel.DataFilter =  null ;
+            HeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            HeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            HeaderLabel.HoverText =  null ;
+            HeaderLabel.IsDerivedStyle =  true ;
+            HeaderLabel.Location =  new System.Drawing.Point( 42, 3 ) ;
+            HeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            HeaderLabel.Name =  "HeaderLabel" ;
+            HeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 1293, 30 ) ;
+            HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            HeaderLabel.StyleManager =  null ;
+            HeaderLabel.TabIndex =  53 ;
+            HeaderLabel.Text =  "label1" ;
+            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+            HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            HeaderLabel.ThemeName =  "Budget Execution" ;
+            HeaderLabel.ToolTip =  null ;
             // 
             // DataGridForm
             // 
@@ -2715,8 +2672,6 @@
             Controls.Add( HeaderTable );
             Controls.Add( TabControl );
             Controls.Add( SqlHeader );
-            Controls.Add( HeaderLabel );
-            Controls.Add( PictureBox );
             Controls.Add( ToolStrip );
             Controls.Add( GridTable );
             Controls.Add( ProviderTable );
@@ -2760,11 +2715,10 @@
             CalendarTable.ResumeLayout( false );
             SecondCalendarPanel.ResumeLayout( false );
             FirstCalendarPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ProviderTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize) this.PictureBox  ).EndInit( );
             HeaderTable.ResumeLayout( false );
             ResumeLayout( false );
             PerformLayout( );
@@ -2824,7 +2778,6 @@
         public Layout SecondCalendarPanel;
         public Layout FirstCalendarPanel;
         public Picture PictureBox;
-        public Label HeaderLabel;
         public Layout NumericPanel;
         public ListBox NumericListBox;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
@@ -2898,8 +2851,9 @@
         public RadioButton SQLiteRadioButton;
         public System.Windows.Forms.TableLayoutPanel ProviderTable;
         public RadioButton SqlCeRadioButton;
-        public Picture Picture;
+        public Picture PictureBox;
         private System.Windows.Forms.TableLayoutPanel HeaderTable;
-        public Label Title;
+        private Label HeaderLabel;
+        private Label Title;
     }
 }
