@@ -227,6 +227,8 @@ namespace BudgetExecution
 
             // Header Properties
             PictureBox.Size = new Size( 22, 20 );
+            PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            PictureBox.Scale( new SizeF( 16, 16 ) );
             HeaderLabel.Font = new Font( "Roboto", 11 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -357,6 +359,7 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearLabelText( );
                 InitRadioButtons( );
+                SetPicture( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -371,6 +374,10 @@ namespace BudgetExecution
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
+                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 MouseClick += OnRightClick;
             }
             catch( Exception ex )
@@ -547,35 +554,51 @@ namespace BudgetExecution
         /// <returns></returns>
         private Image GetImage( )
         {
-            if( Enum.IsDefined( typeof( Provider ), Provider ) )
+            try
             {
-                try
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                if( !string.IsNullOrEmpty( _path ) )
                 {
-                    var _path = ConfigurationManager.AppSettings[ "Extensions" ];
-                    if( !string.IsNullOrEmpty( _path ) )
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
                     {
-                        var _files = Directory.GetFiles( _path );
-                        if( _files?.Any( ) == true )
-                        {
-                            var _extension = Provider.ToString( );
-                            var _file = _files
-                                ?.Where( f => f.Contains( _extension ) )
-                                ?.First( );
+                        var _extension = Provider.ToString( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _extension ) )
+                            ?.First( );
 
-                            using var stream = File.Open( _file, FileMode.Open );
-                            var _img = Image.FromStream( stream );
-                            return new Bitmap( _img, 22, 20 );
-                        }
+                        using var stream = File.Open( _file, FileMode.Open );
+                        var _img = Image.FromStream( stream );
+                        return new Bitmap( _img, 22, 20 );
                     }
                 }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( Bitmap );
-                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Bitmap );
             }
 
             return default( Bitmap );
+        }
+
+        /// <summary>
+        /// Sets the picture.
+        /// </summary>
+        private void SetPicture( )
+        {
+            try
+            {
+                var _image = GetImage( );
+                if( _image != null )
+                {
+                    PictureBox.Image = _image;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
@@ -1566,6 +1589,7 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
+                        ProviderTable.Visible = true;
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1576,6 +1600,7 @@ namespace BudgetExecution
                     }
                     case 1:
                     {
+                        ProviderTable.Visible = false;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1586,6 +1611,7 @@ namespace BudgetExecution
                     }
                     case 2:
                     {
+                        ProviderTable.Visible = false;
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
@@ -1595,6 +1621,7 @@ namespace BudgetExecution
                     }
                     case 3:
                     {
+                        ProviderTable.Visible = false;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
@@ -1927,6 +1954,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
+                        SetPicture( );
                     }
                 }
                 catch( Exception ex )

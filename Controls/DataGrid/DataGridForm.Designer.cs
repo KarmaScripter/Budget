@@ -162,7 +162,7 @@
             SQLiteRadioButton =  new RadioButton( ) ;
             ProviderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SqlCeRadioButton =  new RadioButton( ) ;
-            this.PictureBox =  new Picture( ) ;
+            PictureBox =  new Picture( ) ;
             HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             HeaderLabel =  new Label( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
@@ -194,14 +194,14 @@
             FirstCalendarPanel.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ProviderTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) this.PictureBox  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             HeaderTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // ToolTip
             // 
             ToolTip.AutoPopDelay =  5000 ;
-            ToolTip.BackColor =  System.Drawing.Color.FromArgb(   5  ,   5  ,   5   ) ;
+            ToolTip.BackColor =  System.Drawing.Color.FromArgb( 5, 5, 5 ) ;
             ToolTip.BindingSource =  null ;
             ToolTip.BorderColor =  System.Drawing.SystemColors.Highlight ;
             ToolTip.ForeColor =  System.Drawing.Color.White ;
@@ -276,7 +276,7 @@
             GridPanel.BackColor =  System.Drawing.Color.Transparent ;
             GridPanel.BackgroundColor =  System.Drawing.Color.White ;
             GridPanel.BindingSource =  null ;
-            GridPanel.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            GridPanel.BorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             GridPanel.BorderThickness =  1 ;
             GridPanel.Children =  null ;
             GridPanel.DataFilter =  null ;
@@ -299,13 +299,13 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle6.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle6.BackColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             dataGridViewCellStyle6.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle6.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle6.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle6.SelectionBackColor =  System.Drawing.Color.FromArgb( 17, 53, 84 ) ;
             dataGridViewCellStyle6.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle6 ;
-            DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb( 45, 45, 45 ) ;
             DataGrid.BindingSource =  BindingSource ;
             DataGrid.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
@@ -314,30 +314,30 @@
             dataGridViewCellStyle7.BackColor =  System.Drawing.Color.SteelBlue ;
             dataGridViewCellStyle7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle7.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle7.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle7.SelectionBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             dataGridViewCellStyle7.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle7.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
             DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle7 ;
             DataGrid.ColumnHeadersHeight =  30 ;
             DataGrid.DataFilter =  null ;
             dataGridViewCellStyle8.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
-            dataGridViewCellStyle8.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle8.BackColor =  System.Drawing.Color.FromArgb( 45, 45, 45 ) ;
             dataGridViewCellStyle8.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle8.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle8.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle8.SelectionBackColor =  System.Drawing.Color.FromArgb( 17, 53, 84 ) ;
             dataGridViewCellStyle8.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle8.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
             DataGrid.DefaultCellStyle =  dataGridViewCellStyle8 ;
             DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
+            DataGrid.GridColor =  System.Drawing.Color.FromArgb( 141, 139, 138 ) ;
             DataGrid.HoverText =  null ;
             DataGrid.Location =  new System.Drawing.Point( 38, 39 ) ;
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
             dataGridViewCellStyle9.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
-            dataGridViewCellStyle9.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle9.BackColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             dataGridViewCellStyle9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle9.ForeColor =  System.Drawing.Color.Black ;
             dataGridViewCellStyle9.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
@@ -346,10 +346,10 @@
             DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle9 ;
             DataGrid.RowHeadersWidth =  20 ;
             dataGridViewCellStyle10.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle10.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle10.BackColor =  System.Drawing.Color.FromArgb( 45, 45, 45 ) ;
             dataGridViewCellStyle10.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle10.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle10.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle10.SelectionBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             dataGridViewCellStyle10.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle10 ;
             DataGrid.RowTemplate.Height =  28 ;
@@ -400,9 +400,9 @@
             // DataGridPanel
             // 
             DataGridPanel.BackColor =  System.Drawing.Color.Transparent ;
-            DataGridPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            DataGridPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             DataGridPanel.BindingSource =  null ;
-            DataGridPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            DataGridPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             DataGridPanel.BorderThickness =  1 ;
             DataGridPanel.Children =  null ;
             DataGridPanel.Controls.Add( DataGrid );
@@ -513,7 +513,7 @@
             // 
             // SqlHeader
             // 
-            SqlHeader.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            SqlHeader.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             SqlHeader.BindingSource =  null ;
             SqlHeader.DataFilter =  null ;
             SqlHeader.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
@@ -541,7 +541,7 @@
             DropDown.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
             DropDown.Field =  Field.AccountCode ;
             DropDown.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DropDown.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
+            DropDown.ForeColor =  System.Drawing.Color.FromArgb( 218, 218, 218 ) ;
             DropDown.HoverText =  "Make Selection" ;
             DropDown.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             DropDown.MaxDropDownItems =  100 ;
@@ -605,42 +605,42 @@
             // 
             // TabControl
             // 
-            TabControl.ActiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.ActiveTabColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.ActiveTabFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            TabControl.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.BeforeTouchSize =  new System.Drawing.Size( 309, 574 ) ;
             TabControl.BindingSource =  null ;
             TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             TabControl.BorderWidth =  1 ;
             TabControl.CanOverrideStyle =  true ;
-            TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.Controls.Add( TableTabPage );
             TabControl.Controls.Add( FilterTabPage );
             TabControl.Controls.Add( GroupTabPage );
             TabControl.Controls.Add( CalendarTabPage );
-            TabControl.FixedSingleBorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.FixedSingleBorderColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.FocusOnTabClick =  false ;
             TabControl.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             TabControl.ForeColor =  System.Drawing.Color.LightGray ;
-            TabControl.InactiveCloseButtonForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.InactiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.InactiveCloseButtonForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            TabControl.InactiveTabColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.ItemSize =  new System.Drawing.Size( 100, 10 ) ;
             TabControl.Location =  new System.Drawing.Point( 1014, 105 ) ;
             TabControl.Name =  "TabControl" ;
             TabControl.Size =  new System.Drawing.Size( 309, 574 ) ;
             TabControl.TabIndex =  44 ;
-            TabControl.TabPanelBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.TabPanelBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.TabStyle =  typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro ) ;
             TabControl.ThemeName =  "TabRendererMetro" ;
-            TabControl.ThemeStyle.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.ThemeStyle.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.ThemeStyle.BorderFillColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.ThemeStyle.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            TabControl.ThemeStyle.BorderColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            TabControl.ThemeStyle.BorderFillColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage =  null ;
-            TabControl.ThemeStyle.TabPanelBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.ThemeStyle.TabStyle.ActiveBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.ThemeStyle.TabPanelBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            TabControl.ThemeStyle.TabStyle.ActiveBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.ThemeStyle.TabStyle.ActiveFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            TabControl.ThemeStyle.TabStyle.ActiveForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            TabControl.ThemeStyle.TabStyle.SeparatorColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TabControl.ThemeStyle.TabStyle.ActiveForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            TabControl.ThemeStyle.TabStyle.SeparatorColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TabControl.ToolTip =  ToolTip ;
             // 
             // TableTabPage
@@ -673,11 +673,11 @@
             // TableComboBox
             // 
             TableComboBox.AllowDrop =  true ;
-            TableComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            TableComboBox.ArrowColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             TableComboBox.BackColor =  System.Drawing.Color.Transparent ;
-            TableComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            TableComboBox.BackgroundColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             TableComboBox.BindingSource =  null ;
-            TableComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            TableComboBox.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             TableComboBox.CausesValidation =  false ;
             TableComboBox.DataFilter =  null ;
             TableComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
@@ -695,7 +695,7 @@
             TableComboBox.Items.AddRange( new object[ ] { "Execution", "Reference", "Maintenance" } );
             TableComboBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             TableComboBox.Name =  "TableComboBox" ;
-            TableComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            TableComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             TableComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
             TableComboBox.Size =  new System.Drawing.Size( 264, 30 ) ;
             TableComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
@@ -708,9 +708,9 @@
             // TablePanel
             // 
             TablePanel.BackColor =  System.Drawing.Color.Transparent ;
-            TablePanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TablePanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TablePanel.BindingSource =  null ;
-            TablePanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            TablePanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             TablePanel.BorderThickness =  1 ;
             TablePanel.Children =  null ;
             TablePanel.Controls.Add( TableListBox );
@@ -733,14 +733,14 @@
             // 
             // TableListBox
             // 
-            TableListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            TableListBox.BackColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             TableListBox.BindingSource =  null ;
-            TableListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            TableListBox.BorderColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             TableListBox.DataFilter =  null ;
-            TableListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TableListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TableListBox.DisabledBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            TableListBox.DisabledForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             TableListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            TableListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            TableListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb( 17, 53, 84 ) ;
             TableListBox.HoveredItemColor =  System.Drawing.Color.White ;
             TableListBox.HoverText =  null ;
             TableListBox.IsDerivedStyle =  true ;
@@ -752,7 +752,7 @@
             TableListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             TableListBox.SelectedIndex =  -1 ;
             TableListBox.SelectedItem =  null ;
-            TableListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            TableListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             TableListBox.SelectedItemColor =  System.Drawing.Color.White ;
             TableListBox.SelectedText =  null ;
             TableListBox.SelectedValue =  null ;
@@ -775,7 +775,7 @@
             FilterTabPage.Name =  "FilterTabPage" ;
             FilterTabPage.ShowCloseButton =  true ;
             FilterTabPage.Size =  new System.Drawing.Size( 309, 565 ) ;
-            FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FilterTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FilterTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
             FilterTabPage.TabIndex =  1 ;
@@ -783,7 +783,7 @@
             // 
             // FilterTable
             // 
-            FilterTable.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            FilterTable.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             FilterTable.ColumnCount =  1 ;
             FilterTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             FilterTable.Controls.Add( ThirdTable, 0, 2 );
@@ -819,9 +819,9 @@
             // ThirdListBoxPanel
             // 
             ThirdListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            ThirdListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ThirdListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             ThirdListBoxPanel.BindingSource =  null ;
-            ThirdListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ThirdListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             ThirdListBoxPanel.BorderThickness =  1 ;
             ThirdListBoxPanel.Children =  null ;
             ThirdListBoxPanel.Controls.Add( ThirdListBox );
@@ -844,15 +844,15 @@
             // 
             // ThirdListBox
             // 
-            ThirdListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            ThirdListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ThirdListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            ThirdListBox.BackColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             ThirdListBox.BindingSource =  null ;
-            ThirdListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            ThirdListBox.BorderColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             ThirdListBox.DataFilter =  null ;
-            ThirdListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ThirdListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ThirdListBox.DisabledBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            ThirdListBox.DisabledForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             ThirdListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            ThirdListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             ThirdListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
             ThirdListBox.HoverText =  null ;
             ThirdListBox.IsDerivedStyle =  true ;
@@ -864,7 +864,7 @@
             ThirdListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             ThirdListBox.SelectedIndex =  -1 ;
             ThirdListBox.SelectedItem =  null ;
-            ThirdListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ThirdListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             ThirdListBox.SelectedItemColor =  System.Drawing.Color.White ;
             ThirdListBox.SelectedText =  null ;
             ThirdListBox.SelectedValue =  null ;
@@ -881,11 +881,11 @@
             // ThirdComboBox
             // 
             ThirdComboBox.AllowDrop =  true ;
-            ThirdComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ThirdComboBox.ArrowColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             ThirdComboBox.BackColor =  System.Drawing.Color.Transparent ;
-            ThirdComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ThirdComboBox.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
             ThirdComboBox.BindingSource =  null ;
-            ThirdComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ThirdComboBox.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             ThirdComboBox.CausesValidation =  false ;
             ThirdComboBox.DataFilter =  null ;
             ThirdComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
@@ -902,7 +902,7 @@
             ThirdComboBox.ItemHeight =  24 ;
             ThirdComboBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             ThirdComboBox.Name =  "ThirdComboBox" ;
-            ThirdComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ThirdComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             ThirdComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
             ThirdComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
             ThirdComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
@@ -930,9 +930,9 @@
             // FirstListBoxPanel
             // 
             FirstListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            FirstListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstListBoxPanel.BindingSource =  null ;
-            FirstListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            FirstListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             FirstListBoxPanel.BorderThickness =  1 ;
             FirstListBoxPanel.Children =  null ;
             FirstListBoxPanel.Controls.Add( FirstListBox );
@@ -955,15 +955,15 @@
             // 
             // FirstListBox
             // 
-            FirstListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            FirstListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            FirstListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            FirstListBox.BackColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             FirstListBox.BindingSource =  null ;
-            FirstListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            FirstListBox.BorderColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             FirstListBox.DataFilter =  null ;
-            FirstListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FirstListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstListBox.DisabledBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            FirstListBox.DisabledForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            FirstListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             FirstListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
             FirstListBox.HoverText =  null ;
             FirstListBox.IsDerivedStyle =  true ;
@@ -975,7 +975,7 @@
             FirstListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             FirstListBox.SelectedIndex =  -1 ;
             FirstListBox.SelectedItem =  null ;
-            FirstListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstListBox.SelectedItemColor =  System.Drawing.Color.White ;
             FirstListBox.SelectedText =  null ;
             FirstListBox.SelectedValue =  null ;
@@ -992,11 +992,11 @@
             // FirstComboBox
             // 
             FirstComboBox.AllowDrop =  true ;
-            FirstComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstComboBox.ArrowColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstComboBox.BackColor =  System.Drawing.Color.Transparent ;
-            FirstComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            FirstComboBox.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
             FirstComboBox.BindingSource =  null ;
-            FirstComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            FirstComboBox.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             FirstComboBox.CausesValidation =  false ;
             FirstComboBox.DataFilter =  null ;
             FirstComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
@@ -1013,7 +1013,7 @@
             FirstComboBox.ItemHeight =  24 ;
             FirstComboBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             FirstComboBox.Name =  "FirstComboBox" ;
-            FirstComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
             FirstComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
             FirstComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
@@ -1041,11 +1041,11 @@
             // SecondComboBox
             // 
             SecondComboBox.AllowDrop =  true ;
-            SecondComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondComboBox.ArrowColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondComboBox.BackColor =  System.Drawing.Color.Transparent ;
-            SecondComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            SecondComboBox.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
             SecondComboBox.BindingSource =  null ;
-            SecondComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            SecondComboBox.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             SecondComboBox.CausesValidation =  false ;
             SecondComboBox.DataFilter =  null ;
             SecondComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
@@ -1062,7 +1062,7 @@
             SecondComboBox.ItemHeight =  24 ;
             SecondComboBox.Location =  new System.Drawing.Point( 3, 5 ) ;
             SecondComboBox.Name =  "SecondComboBox" ;
-            SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
             SecondComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
             SecondComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
@@ -1075,9 +1075,9 @@
             // SecondListBoxPanel
             // 
             SecondListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            SecondListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondListBoxPanel.BindingSource =  null ;
-            SecondListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            SecondListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             SecondListBoxPanel.BorderThickness =  1 ;
             SecondListBoxPanel.Children =  null ;
             SecondListBoxPanel.Controls.Add( SecondListBox );
@@ -1100,15 +1100,15 @@
             // 
             // SecondListBox
             // 
-            SecondListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            SecondListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            SecondListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            SecondListBox.BackColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             SecondListBox.BindingSource =  null ;
-            SecondListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            SecondListBox.BorderColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             SecondListBox.DataFilter =  null ;
-            SecondListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondListBox.DisabledBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            SecondListBox.DisabledForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            SecondListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             SecondListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
             SecondListBox.HoverText =  null ;
             SecondListBox.IsDerivedStyle =  true ;
@@ -1120,7 +1120,7 @@
             SecondListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             SecondListBox.SelectedIndex =  -1 ;
             SecondListBox.SelectedItem =  null ;
-            SecondListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondListBox.SelectedItemColor =  System.Drawing.Color.White ;
             SecondListBox.SelectedText =  null ;
             SecondListBox.SelectedValue =  null ;
@@ -1144,7 +1144,7 @@
             GroupTabPage.Name =  "GroupTabPage" ;
             GroupTabPage.ShowCloseButton =  true ;
             GroupTabPage.Size =  new System.Drawing.Size( 309, 565 ) ;
-            GroupTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            GroupTabPage.TabBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             GroupTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             GroupTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
             GroupTabPage.TabIndex =  2 ;
@@ -1152,7 +1152,7 @@
             // 
             // NumericTable
             // 
-            NumericTable.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            NumericTable.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             NumericTable.ColumnCount =  1 ;
             NumericTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             NumericTable.Controls.Add( NumericPanel, 0, 1 );
@@ -1169,9 +1169,9 @@
             // NumericPanel
             // 
             NumericPanel.BackColor =  System.Drawing.Color.Transparent ;
-            NumericPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            NumericPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             NumericPanel.BindingSource =  null ;
-            NumericPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            NumericPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             NumericPanel.BorderThickness =  1 ;
             NumericPanel.Children =  null ;
             NumericPanel.Controls.Add( NumericListBox );
@@ -1194,15 +1194,15 @@
             // 
             // NumericListBox
             // 
-            NumericListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            NumericListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            NumericListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            NumericListBox.BackColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             NumericListBox.BindingSource =  null ;
-            NumericListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            NumericListBox.BorderColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             NumericListBox.DataFilter =  null ;
-            NumericListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            NumericListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            NumericListBox.DisabledBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            NumericListBox.DisabledForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             NumericListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            NumericListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            NumericListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             NumericListBox.HoveredItemColor =  System.Drawing.Color.White ;
             NumericListBox.HoverText =  null ;
             NumericListBox.IsDerivedStyle =  true ;
@@ -1214,7 +1214,7 @@
             NumericListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             NumericListBox.SelectedIndex =  -1 ;
             NumericListBox.SelectedItem =  null ;
-            NumericListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            NumericListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             NumericListBox.SelectedItemColor =  System.Drawing.Color.White ;
             NumericListBox.SelectedText =  null ;
             NumericListBox.SelectedValue =  null ;
@@ -1253,7 +1253,7 @@
             // 
             // FieldTable
             // 
-            FieldTable.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            FieldTable.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             FieldTable.ColumnCount =  1 ;
             FieldTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             FieldTable.Controls.Add( FieldPanel, 0, 1 );
@@ -1270,9 +1270,9 @@
             // FieldPanel
             // 
             FieldPanel.BackColor =  System.Drawing.Color.Transparent ;
-            FieldPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FieldPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FieldPanel.BindingSource =  null ;
-            FieldPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            FieldPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             FieldPanel.BorderThickness =  1 ;
             FieldPanel.Children =  null ;
             FieldPanel.Controls.Add( FieldListBox );
@@ -1295,15 +1295,15 @@
             // 
             // FieldListBox
             // 
-            FieldListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            FieldListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            FieldListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            FieldListBox.BackColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             FieldListBox.BindingSource =  null ;
-            FieldListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            FieldListBox.BorderColor =  System.Drawing.Color.FromArgb( 55, 55, 55 ) ;
             FieldListBox.DataFilter =  null ;
-            FieldListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FieldListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FieldListBox.DisabledBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            FieldListBox.DisabledForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FieldListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FieldListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            FieldListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb( 50, 93, 129 ) ;
             FieldListBox.HoveredItemColor =  System.Drawing.Color.White ;
             FieldListBox.HoverText =  null ;
             FieldListBox.IsDerivedStyle =  true ;
@@ -1315,7 +1315,7 @@
             FieldListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             FieldListBox.SelectedIndex =  -1 ;
             FieldListBox.SelectedItem =  null ;
-            FieldListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FieldListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FieldListBox.SelectedItemColor =  System.Drawing.Color.White ;
             FieldListBox.SelectedText =  null ;
             FieldListBox.SelectedValue =  null ;
@@ -1366,7 +1366,7 @@
             // 
             // CalendarTable
             // 
-            CalendarTable.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            CalendarTable.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             CalendarTable.ColumnCount =  1 ;
             CalendarTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             CalendarTable.Controls.Add( SecondCalendarPanel, 0, 3 );
@@ -1387,9 +1387,9 @@
             // SecondCalendarPanel
             // 
             SecondCalendarPanel.BackColor =  System.Drawing.Color.Transparent ;
-            SecondCalendarPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendarPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendarPanel.BindingSource =  null ;
-            SecondCalendarPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            SecondCalendarPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             SecondCalendarPanel.BorderThickness =  1 ;
             SecondCalendarPanel.Children =  null ;
             SecondCalendarPanel.Controls.Add( SecondCalendar );
@@ -1420,39 +1420,39 @@
             SecondCalendar.SelectedDate =  new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 ) ;
             SecondCalendar.ShowToolTip =  true ;
             SecondCalendar.Size =  new System.Drawing.Size( 224, 222 ) ;
-            SecondCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            SecondCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondCalendar.Style.Cell.BlackoutDatesForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondCalendar.Style.Cell.CellBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendar.Style.Cell.BlackoutDatesForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            SecondCalendar.Style.Cell.CellBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendar.Style.Cell.CellFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondCalendar.Style.Cell.CellForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondCalendar.Style.Cell.CellHoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondCalendar.Style.Cell.CellForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            SecondCalendar.Style.Cell.CellHoverBorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondCalendar.Style.Cell.SelectedCellBackColor =  System.Drawing.Color.SteelBlue ;
             SecondCalendar.Style.Cell.SelectedCellBorderColor =  System.Drawing.Color.SteelBlue ;
             SecondCalendar.Style.Cell.SelectedCellFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
             SecondCalendar.Style.Cell.SelectedCellForeColor =  System.Drawing.Color.White ;
             SecondCalendar.Style.Cell.SelectedCellHoverBorderColor =  System.Drawing.Color.SteelBlue ;
-            SecondCalendar.Style.Cell.TodayBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendar.Style.Cell.TodayBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendar.Style.Cell.TodayFont =  new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
-            SecondCalendar.Style.Cell.TodayForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondCalendar.Style.Cell.TodayHoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondCalendar.Style.Cell.TrailingCellBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendar.Style.Cell.TodayForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            SecondCalendar.Style.Cell.TodayHoverBorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            SecondCalendar.Style.Cell.TrailingCellBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendar.Style.Cell.TrailingCellFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondCalendar.Style.Cell.TrailingCellForeColor =  System.Drawing.Color.SteelBlue ;
-            SecondCalendar.Style.Cell.WeekNumberBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendar.Style.Cell.WeekNumberBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendar.Style.Cell.WeekNumberFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondCalendar.Style.Cell.WeekNumberForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondCalendar.Style.Footer.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondCalendar.Style.Footer.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondCalendar.Style.Cell.WeekNumberForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            SecondCalendar.Style.Footer.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            SecondCalendar.Style.Footer.ForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondCalendar.Style.Footer.HoverBackColor =  System.Drawing.Color.SteelBlue ;
             SecondCalendar.Style.Footer.HoverForeColor =  System.Drawing.Color.White ;
-            SecondCalendar.Style.Header.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondCalendar.Style.Header.DayNamesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondCalendar.Style.Header.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            SecondCalendar.Style.Header.DayNamesBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             SecondCalendar.Style.Header.DayNamesFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondCalendar.Style.Header.DayNamesForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondCalendar.Style.Header.DayNamesForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondCalendar.Style.Header.Font =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
-            SecondCalendar.Style.Header.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondCalendar.Style.Header.ForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SecondCalendar.Style.Header.HoverForeColor =  System.Drawing.Color.White ;
             SecondCalendar.Style.Header.NavigationButtonDisabledForeColor =  System.Drawing.Color.DimGray ;
             SecondCalendar.Style.Header.NavigationButtonForeColor =  System.Drawing.Color.SteelBlue ;
@@ -1464,9 +1464,9 @@
             // FirstCalendarPanel
             // 
             FirstCalendarPanel.BackColor =  System.Drawing.Color.Transparent ;
-            FirstCalendarPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendarPanel.BackgroundColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendarPanel.BindingSource =  null ;
-            FirstCalendarPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            FirstCalendarPanel.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             FirstCalendarPanel.BorderThickness =  1 ;
             FirstCalendarPanel.Children =  null ;
             FirstCalendarPanel.Controls.Add( FirstCalendar );
@@ -1497,39 +1497,39 @@
             FirstCalendar.SelectedDate =  new System.DateTime( 2023, 3, 9, 0, 0, 0, 0 ) ;
             FirstCalendar.ShowToolTip =  true ;
             FirstCalendar.Size =  new System.Drawing.Size( 224, 211 ) ;
-            FirstCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FirstCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendar.Style.BorderColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            FirstCalendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstCalendar.Style.Cell.BlackoutDatesForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FirstCalendar.Style.Cell.CellBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendar.Style.Cell.BlackoutDatesForeColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            FirstCalendar.Style.Cell.CellBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendar.Style.Cell.CellFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstCalendar.Style.Cell.CellForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            FirstCalendar.Style.Cell.CellHoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstCalendar.Style.Cell.CellForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            FirstCalendar.Style.Cell.CellHoverBorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstCalendar.Style.Cell.SelectedCellBackColor =  System.Drawing.Color.SteelBlue ;
             FirstCalendar.Style.Cell.SelectedCellBorderColor =  System.Drawing.Color.SteelBlue ;
             FirstCalendar.Style.Cell.SelectedCellFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
             FirstCalendar.Style.Cell.SelectedCellForeColor =  System.Drawing.Color.White ;
             FirstCalendar.Style.Cell.SelectedCellHoverBorderColor =  System.Drawing.Color.SteelBlue ;
-            FirstCalendar.Style.Cell.TodayBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendar.Style.Cell.TodayBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendar.Style.Cell.TodayFont =  new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
-            FirstCalendar.Style.Cell.TodayForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            FirstCalendar.Style.Cell.TodayHoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            FirstCalendar.Style.Cell.TrailingCellBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendar.Style.Cell.TodayForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            FirstCalendar.Style.Cell.TodayHoverBorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            FirstCalendar.Style.Cell.TrailingCellBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendar.Style.Cell.TrailingCellFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FirstCalendar.Style.Cell.TrailingCellForeColor =  System.Drawing.Color.SteelBlue ;
-            FirstCalendar.Style.Cell.WeekNumberBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendar.Style.Cell.WeekNumberBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendar.Style.Cell.WeekNumberFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstCalendar.Style.Cell.WeekNumberForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            FirstCalendar.Style.Footer.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FirstCalendar.Style.Footer.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstCalendar.Style.Cell.WeekNumberForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
+            FirstCalendar.Style.Footer.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            FirstCalendar.Style.Footer.ForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstCalendar.Style.Footer.HoverBackColor =  System.Drawing.Color.SteelBlue ;
             FirstCalendar.Style.Footer.HoverForeColor =  System.Drawing.Color.White ;
-            FirstCalendar.Style.Header.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FirstCalendar.Style.Header.DayNamesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FirstCalendar.Style.Header.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            FirstCalendar.Style.Header.DayNamesBackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             FirstCalendar.Style.Header.DayNamesFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstCalendar.Style.Header.DayNamesForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstCalendar.Style.Header.DayNamesForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstCalendar.Style.Header.Font =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
-            FirstCalendar.Style.Header.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            FirstCalendar.Style.Header.ForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             FirstCalendar.Style.Header.HoverForeColor =  System.Drawing.Color.White ;
             FirstCalendar.Style.Header.NavigationButtonDisabledForeColor =  System.Drawing.Color.DimGray ;
             FirstCalendar.Style.Header.NavigationButtonForeColor =  System.Drawing.Color.SteelBlue ;
@@ -1592,7 +1592,7 @@
             // 
             // ToolStripTextBox
             // 
-            ToolStripTextBox.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ToolStripTextBox.BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             ToolStripTextBox.BindingSource =  null ;
             ToolStripTextBox.Field =  Field.AccountCode ;
             ToolStripTextBox.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -2288,7 +2288,7 @@
             ComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
             ComboBox.Field =  Field.AccountCode ;
             ComboBox.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ComboBox.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
+            ComboBox.ForeColor =  System.Drawing.Color.FromArgb( 218, 218, 218 ) ;
             ComboBox.HoverText =  "Make Selection" ;
             ComboBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ComboBox.MaxDropDownItems =  100 ;
@@ -2453,11 +2453,11 @@
             ToolStrip.ThemeStyle.ArrowColor =  System.Drawing.Color.SteelBlue ;
             ToolStrip.ThemeStyle.BackColor =  System.Drawing.Color.Transparent ;
             ToolStrip.ThemeStyle.BottomToolStripBackColor =  System.Drawing.Color.Transparent ;
-            ToolStrip.ThemeStyle.CaptionBackColor =  System.Drawing.Color.FromArgb(   28  ,   28  ,   28   ) ;
+            ToolStrip.ThemeStyle.CaptionBackColor =  System.Drawing.Color.FromArgb( 28, 28, 28 ) ;
             ToolStrip.ThemeStyle.CaptionForeColor =  System.Drawing.Color.Black ;
-            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor =  System.Drawing.Color.FromArgb( 65, 65, 65 ) ;
             ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor =  System.Drawing.Color.SteelBlue ;
-            ToolStrip.ThemeStyle.DropDownStyle.BorderColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ToolStrip.ThemeStyle.DropDownStyle.BorderColor =  System.Drawing.Color.FromArgb( 40, 40, 40 ) ;
             ToolStrip.ThemeStyle.HoverItemBackColor =  System.Drawing.Color.SteelBlue ;
             ToolStrip.ThemeStyle.HoverItemForeColor =  System.Drawing.Color.White ;
             ToolStrip.VisualStyle =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray ;
@@ -2470,7 +2470,7 @@
             // ContextMenu
             // 
             ContextMenu.AutoSize =  false ;
-            ContextMenu.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ContextMenu.BackColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
             ContextMenu.ForeColor =  System.Drawing.Color.White ;
             ContextMenu.IsDerivedStyle =  false ;
             ContextMenu.Name =  "ContextMenu" ;
@@ -2483,12 +2483,12 @@
             // 
             // SqlServerRadioButton
             // 
-            SqlServerRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SqlServerRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SqlServerRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
+            SqlServerRadioButton.BorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SqlServerRadioButton.Checked =  false ;
             SqlServerRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
             SqlServerRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            SqlServerRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            SqlServerRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb( 205, 205, 205 ) ;
             SqlServerRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SqlServerRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SqlServerRadioButton.Group =  0 ;
@@ -2508,12 +2508,12 @@
             // 
             // AccessRadioButton
             // 
-            AccessRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            AccessRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            AccessRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
+            AccessRadioButton.BorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             AccessRadioButton.Checked =  false ;
             AccessRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
             AccessRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            AccessRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            AccessRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb( 205, 205, 205 ) ;
             AccessRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
             AccessRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             AccessRadioButton.Group =  0 ;
@@ -2533,12 +2533,12 @@
             // 
             // SQLiteRadioButton
             // 
-            SQLiteRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SQLiteRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SQLiteRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
+            SQLiteRadioButton.BorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SQLiteRadioButton.Checked =  false ;
             SQLiteRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
             SQLiteRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            SQLiteRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            SQLiteRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb( 205, 205, 205 ) ;
             SQLiteRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SQLiteRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SQLiteRadioButton.Group =  0 ;
@@ -2576,12 +2576,12 @@
             // 
             // SqlCeRadioButton
             // 
-            SqlCeRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SqlCeRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SqlCeRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb( 30, 30, 30 ) ;
+            SqlCeRadioButton.BorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             SqlCeRadioButton.Checked =  false ;
             SqlCeRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
             SqlCeRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            SqlCeRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            SqlCeRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb( 205, 205, 205 ) ;
             SqlCeRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SqlCeRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SqlCeRadioButton.Group =  0 ;
@@ -2601,28 +2601,28 @@
             // 
             // PictureBox
             // 
-            this.PictureBox.BackColor =  System.Drawing.Color.Transparent ;
-            this.PictureBox.BindingSource =  null ;
-            this.PictureBox.DataFilter =  null ;
-            this.PictureBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            this.PictureBox.Field =  Field.AccountCode ;
-            this.PictureBox.HoverText =  null ;
-            this.PictureBox.ImageList =  null ;
-            this.PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
-            this.PictureBox.Name =  "PictureBox" ;
-            this.PictureBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            this.PictureBox.Size =  new System.Drawing.Size( 33, 30 ) ;
-            this.PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
-            this.PictureBox.TabIndex =  52 ;
-            this.PictureBox.TabStop =  false ;
-            this.PictureBox.ToolTip =  null ;
+            PictureBox.BackColor =  System.Drawing.Color.Transparent ;
+            PictureBox.BindingSource =  null ;
+            PictureBox.DataFilter =  null ;
+            PictureBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            PictureBox.Field =  Field.AccountCode ;
+            PictureBox.HoverText =  null ;
+            PictureBox.ImageList =  null ;
+            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            PictureBox.Name =  "PictureBox" ;
+            PictureBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            PictureBox.Size =  new System.Drawing.Size( 33, 30 ) ;
+            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
+            PictureBox.TabIndex =  52 ;
+            PictureBox.TabStop =  false ;
+            PictureBox.ToolTip =  null ;
             // 
             // HeaderTable
             // 
             HeaderTable.ColumnCount =  2 ;
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.98953652F ) );
             HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.01046F ) );
-            HeaderTable.Controls.Add( this.PictureBox, 0, 0 );
+            HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( HeaderLabel, 1, 0 );
             HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
             HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
@@ -2659,15 +2659,15 @@
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
-            BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BackColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            BorderColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
-            CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             CaptionBarHeight =  5 ;
-            CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionButtonColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
+            CaptionButtonHoverColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
-            CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CaptionForeColor =  System.Drawing.Color.FromArgb( 0, 120, 212 ) ;
             ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
             Controls.Add( HeaderTable );
             Controls.Add( TabControl );
@@ -2681,7 +2681,7 @@
             Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
             MaximizeBox =  false ;
             MaximumSize =  new System.Drawing.Size( 1400, 800 ) ;
-            MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            MetroColor =  System.Drawing.Color.FromArgb( 20, 20, 20 ) ;
             MinimizeBox =  false ;
             Name =  "DataGridForm" ;
             ShowIcon =  false ;
@@ -2718,7 +2718,7 @@
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ProviderTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) this.PictureBox  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             HeaderTable.ResumeLayout( false );
             ResumeLayout( false );
             PerformLayout( );
@@ -2851,9 +2851,8 @@
         public RadioButton SQLiteRadioButton;
         public System.Windows.Forms.TableLayoutPanel ProviderTable;
         public RadioButton SqlCeRadioButton;
-        public Picture PictureBox;
-        private System.Windows.Forms.TableLayoutPanel HeaderTable;
-        private Label HeaderLabel;
-        private Label Title;
+        public System.Windows.Forms.TableLayoutPanel HeaderTable;
+        public Label HeaderLabel;
+        public Label Title;
     }
 }
