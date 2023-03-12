@@ -46,13 +46,13 @@
             Separator15 =  new ToolSeparator( ) ;
             GridPanel =  new Layout( ) ;
             DataGrid =  new DataGrid( ) ;
-            FirstHeaderLabel =  new Label( ) ;
+            FirstGridLabel =  new Label( ) ;
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             DataGridPanel =  new Layout( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            SecondHeaderLabel =  new Label( ) ;
-            FourthHeaderLabel =  new Label( ) ;
-            ThirdHeaderLabel =  new Label( ) ;
+            SecondGridLabel =  new Label( ) ;
+            FourthGridLabel =  new Label( ) ;
+            ThirdGridLabel =  new Label( ) ;
             SqlHeader =  new Label( ) ;
             DropDown =  new ToolStripDropDown( ) ;
             Separator2 =  new ToolSeparator( ) ;
@@ -165,7 +165,7 @@
             ProviderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             SqlCeRadioButton =  new RadioButton( ) ;
             Picture =  new Picture( ) ;
-            PictureLabel =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             Title =  new Label( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
@@ -198,7 +198,7 @@
             ToolStrip.SuspendLayout( );
             ProviderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
-            PictureLabel.SuspendLayout( );
+            HeaderTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // ToolTip
@@ -361,28 +361,28 @@
             DataGrid.TabIndex =  0 ;
             DataGrid.ToolTip =  null ;
             // 
-            // FirstHeaderLabel
+            // FirstGridLabel
             // 
-            FirstHeaderLabel.BindingSource =  null ;
-            FirstHeaderLabel.DataFilter =  null ;
-            FirstHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            FirstHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            FirstHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FirstHeaderLabel.HoverText =  null ;
-            FirstHeaderLabel.IsDerivedStyle =  true ;
-            FirstHeaderLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
-            FirstHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            FirstHeaderLabel.Name =  "FirstHeaderLabel" ;
-            FirstHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstHeaderLabel.Size =  new System.Drawing.Size( 304, 20 ) ;
-            FirstHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            FirstHeaderLabel.StyleManager =  null ;
-            FirstHeaderLabel.TabIndex =  33 ;
-            FirstHeaderLabel.Text =  "Source" ;
-            FirstHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            FirstHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            FirstHeaderLabel.ThemeName =  "BudgetExecution" ;
-            FirstHeaderLabel.ToolTip =  null ;
+            FirstGridLabel.BindingSource =  null ;
+            FirstGridLabel.DataFilter =  null ;
+            FirstGridLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            FirstGridLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            FirstGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FirstGridLabel.HoverText =  null ;
+            FirstGridLabel.IsDerivedStyle =  true ;
+            FirstGridLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
+            FirstGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            FirstGridLabel.Name =  "FirstGridLabel" ;
+            FirstGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            FirstGridLabel.Size =  new System.Drawing.Size( 304, 20 ) ;
+            FirstGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            FirstGridLabel.StyleManager =  null ;
+            FirstGridLabel.TabIndex =  33 ;
+            FirstGridLabel.Text =  "Source" ;
+            FirstGridLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            FirstGridLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            FirstGridLabel.ThemeName =  "BudgetExecution" ;
+            FirstGridLabel.ToolTip =  null ;
             // 
             // GridTable
             // 
@@ -433,10 +433,10 @@
             LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.34467F ) );
             LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
             LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 411F ) );
-            LabelTable.Controls.Add( SecondHeaderLabel, 1, 0 );
-            LabelTable.Controls.Add( FourthHeaderLabel, 3, 0 );
-            LabelTable.Controls.Add( FirstHeaderLabel, 0, 0 );
-            LabelTable.Controls.Add( ThirdHeaderLabel, 2, 0 );
+            LabelTable.Controls.Add( SecondGridLabel, 1, 0 );
+            LabelTable.Controls.Add( FourthGridLabel, 3, 0 );
+            LabelTable.Controls.Add( FirstGridLabel, 0, 0 );
+            LabelTable.Controls.Add( ThirdGridLabel, 2, 0 );
             LabelTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
             LabelTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             LabelTable.Name =  "LabelTable" ;
@@ -445,74 +445,74 @@
             LabelTable.Size =  new System.Drawing.Size( 964, 26 ) ;
             LabelTable.TabIndex =  1 ;
             // 
-            // SecondHeaderLabel
+            // SecondGridLabel
             // 
-            SecondHeaderLabel.BindingSource =  null ;
-            SecondHeaderLabel.DataFilter =  null ;
-            SecondHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SecondHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            SecondHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondHeaderLabel.HoverText =  null ;
-            SecondHeaderLabel.IsDerivedStyle =  true ;
-            SecondHeaderLabel.Location =  new System.Drawing.Point( 313, 3 ) ;
-            SecondHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            SecondHeaderLabel.Name =  "SecondHeaderLabel" ;
-            SecondHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondHeaderLabel.Size =  new System.Drawing.Size( 116, 20 ) ;
-            SecondHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SecondHeaderLabel.StyleManager =  null ;
-            SecondHeaderLabel.TabIndex =  44 ;
-            SecondHeaderLabel.Text =  "Source" ;
-            SecondHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            SecondHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            SecondHeaderLabel.ThemeName =  "BudgetExecution" ;
-            SecondHeaderLabel.ToolTip =  null ;
+            SecondGridLabel.BindingSource =  null ;
+            SecondGridLabel.DataFilter =  null ;
+            SecondGridLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SecondGridLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            SecondGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SecondGridLabel.HoverText =  null ;
+            SecondGridLabel.IsDerivedStyle =  true ;
+            SecondGridLabel.Location =  new System.Drawing.Point( 313, 3 ) ;
+            SecondGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            SecondGridLabel.Name =  "SecondGridLabel" ;
+            SecondGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            SecondGridLabel.Size =  new System.Drawing.Size( 116, 20 ) ;
+            SecondGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SecondGridLabel.StyleManager =  null ;
+            SecondGridLabel.TabIndex =  44 ;
+            SecondGridLabel.Text =  "Source" ;
+            SecondGridLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            SecondGridLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            SecondGridLabel.ThemeName =  "BudgetExecution" ;
+            SecondGridLabel.ToolTip =  null ;
             // 
-            // FourthHeaderLabel
+            // FourthGridLabel
             // 
-            FourthHeaderLabel.BindingSource =  null ;
-            FourthHeaderLabel.DataFilter =  null ;
-            FourthHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            FourthHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            FourthHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FourthHeaderLabel.HoverText =  null ;
-            FourthHeaderLabel.IsDerivedStyle =  true ;
-            FourthHeaderLabel.Location =  new System.Drawing.Point( 555, 3 ) ;
-            FourthHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            FourthHeaderLabel.Name =  "FourthHeaderLabel" ;
-            FourthHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FourthHeaderLabel.Size =  new System.Drawing.Size( 406, 20 ) ;
-            FourthHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            FourthHeaderLabel.StyleManager =  null ;
-            FourthHeaderLabel.TabIndex =  44 ;
-            FourthHeaderLabel.Text =  "Source" ;
-            FourthHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            FourthHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            FourthHeaderLabel.ThemeName =  "BudgetExecution" ;
-            FourthHeaderLabel.ToolTip =  null ;
+            FourthGridLabel.BindingSource =  null ;
+            FourthGridLabel.DataFilter =  null ;
+            FourthGridLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            FourthGridLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            FourthGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FourthGridLabel.HoverText =  null ;
+            FourthGridLabel.IsDerivedStyle =  true ;
+            FourthGridLabel.Location =  new System.Drawing.Point( 555, 3 ) ;
+            FourthGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            FourthGridLabel.Name =  "FourthGridLabel" ;
+            FourthGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            FourthGridLabel.Size =  new System.Drawing.Size( 406, 20 ) ;
+            FourthGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            FourthGridLabel.StyleManager =  null ;
+            FourthGridLabel.TabIndex =  44 ;
+            FourthGridLabel.Text =  "Source" ;
+            FourthGridLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            FourthGridLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            FourthGridLabel.ThemeName =  "BudgetExecution" ;
+            FourthGridLabel.ToolTip =  null ;
             // 
-            // ThirdHeaderLabel
+            // ThirdGridLabel
             // 
-            ThirdHeaderLabel.BindingSource =  null ;
-            ThirdHeaderLabel.DataFilter =  null ;
-            ThirdHeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            ThirdHeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            ThirdHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdHeaderLabel.HoverText =  null ;
-            ThirdHeaderLabel.IsDerivedStyle =  true ;
-            ThirdHeaderLabel.Location =  new System.Drawing.Point( 435, 3 ) ;
-            ThirdHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            ThirdHeaderLabel.Name =  "ThirdHeaderLabel" ;
-            ThirdHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdHeaderLabel.Size =  new System.Drawing.Size( 114, 20 ) ;
-            ThirdHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ThirdHeaderLabel.StyleManager =  null ;
-            ThirdHeaderLabel.TabIndex =  43 ;
-            ThirdHeaderLabel.Text =  "Source" ;
-            ThirdHeaderLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
-            ThirdHeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-            ThirdHeaderLabel.ThemeName =  "BudgetExecution" ;
-            ThirdHeaderLabel.ToolTip =  null ;
+            ThirdGridLabel.BindingSource =  null ;
+            ThirdGridLabel.DataFilter =  null ;
+            ThirdGridLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            ThirdGridLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            ThirdGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ThirdGridLabel.HoverText =  null ;
+            ThirdGridLabel.IsDerivedStyle =  true ;
+            ThirdGridLabel.Location =  new System.Drawing.Point( 435, 3 ) ;
+            ThirdGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            ThirdGridLabel.Name =  "ThirdGridLabel" ;
+            ThirdGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ThirdGridLabel.Size =  new System.Drawing.Size( 114, 20 ) ;
+            ThirdGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ThirdGridLabel.StyleManager =  null ;
+            ThirdGridLabel.TabIndex =  43 ;
+            ThirdGridLabel.Text =  "Source" ;
+            ThirdGridLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            ThirdGridLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            ThirdGridLabel.ThemeName =  "BudgetExecution" ;
+            ThirdGridLabel.ToolTip =  null ;
             // 
             // SqlHeader
             // 
@@ -1645,7 +1645,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 20, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 16, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -2661,20 +2661,20 @@
             Picture.TabStop =  false ;
             Picture.ToolTip =  null ;
             // 
-            // PictureLabel
+            // HeaderTable
             // 
-            PictureLabel.ColumnCount =  2 ;
-            PictureLabel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.98953652F ) );
-            PictureLabel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.01046F ) );
-            PictureLabel.Controls.Add( Picture, 0, 0 );
-            PictureLabel.Controls.Add( Title, 1, 0 );
-            PictureLabel.Dock =  System.Windows.Forms.DockStyle.Top ;
-            PictureLabel.Location =  new System.Drawing.Point( 0, 0 ) ;
-            PictureLabel.Name =  "PictureLabel" ;
-            PictureLabel.RowCount =  1 ;
-            PictureLabel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            PictureLabel.Size =  new System.Drawing.Size( 1338, 36 ) ;
-            PictureLabel.TabIndex =  53 ;
+            HeaderTable.ColumnCount =  2 ;
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.98953652F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.01046F ) );
+            HeaderTable.Controls.Add( Picture, 0, 0 );
+            HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
+            HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
+            HeaderTable.Name =  "HeaderTable" ;
+            HeaderTable.RowCount =  1 ;
+            HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderTable.Size =  new System.Drawing.Size( 1338, 36 ) ;
+            HeaderTable.TabIndex =  53 ;
             // 
             // Title
             // 
@@ -2712,7 +2712,7 @@
             CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
-            Controls.Add( PictureLabel );
+            Controls.Add( HeaderTable );
             Controls.Add( TabControl );
             Controls.Add( SqlHeader );
             Controls.Add( HeaderLabel );
@@ -2765,7 +2765,7 @@
             ToolStrip.PerformLayout( );
             ProviderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
-            PictureLabel.ResumeLayout( false );
+            HeaderTable.ResumeLayout( false );
             ResumeLayout( false );
             PerformLayout( );
         }
@@ -2780,7 +2780,7 @@
         public ToolStripButton HomeButton;
         public Layout GridPanel;
         public DataGrid DataGrid;
-        public Label FirstHeaderLabel;
+        public Label FirstGridLabel;
         public System.Windows.Forms.TableLayoutPanel GridTable;
         public ToolSeparator Separator1;
         public ToolSeparator Separator2;
@@ -2789,10 +2789,10 @@
         public ToolSeparator Separator25;
         public ToolSeparator toolSeparator24;
         public ToolStripDropDown DropDown;
-        public Label ThirdHeaderLabel;
-        public Label FourthHeaderLabel;
+        public Label ThirdGridLabel;
+        public Label FourthGridLabel;
         public System.Windows.Forms.TableLayoutPanel LabelTable;
-        public Label SecondHeaderLabel;
+        public Label SecondGridLabel;
         public TabControl TabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTabPage;
         public System.Windows.Forms.TableLayoutPanel SecondTable;
@@ -2899,7 +2899,7 @@
         public System.Windows.Forms.TableLayoutPanel ProviderTable;
         public RadioButton SqlCeRadioButton;
         public Picture Picture;
-        private System.Windows.Forms.TableLayoutPanel PictureLabel;
+        private System.Windows.Forms.TableLayoutPanel HeaderTable;
         public Label Title;
     }
 }

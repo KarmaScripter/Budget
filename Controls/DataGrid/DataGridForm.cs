@@ -211,17 +211,17 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Label Properties
-            FirstHeaderLabel.Font = new Font( "Roboto", 8 );
-            FirstHeaderLabel.ForeColor = Color.DarkGray;
-            SecondHeaderLabel.Font = new Font( "Roboto", 8 );
-            SecondHeaderLabel.ForeColor = Color.DarkGray;
-            SecondHeaderLabel.Text = string.Empty;
-            ThirdHeaderLabel.Font = new Font( "Roboto", 8 );
-            ThirdHeaderLabel.ForeColor = Color.DarkGray;
-            ThirdHeaderLabel.Text = string.Empty;
-            FourthHeaderLabel.Font = new Font( "Roboto", 8 );
-            FourthHeaderLabel.ForeColor = Color.DarkGray;
-            FourthHeaderLabel.Text = string.Empty;
+            FirstGridLabel.Font = new Font( "Roboto", 8 );
+            FirstGridLabel.ForeColor = Color.DarkGray;
+            SecondGridLabel.Font = new Font( "Roboto", 8 );
+            SecondGridLabel.ForeColor = Color.DarkGray;
+            SecondGridLabel.Text = string.Empty;
+            ThirdGridLabel.Font = new Font( "Roboto", 8 );
+            ThirdGridLabel.ForeColor = Color.DarkGray;
+            ThirdGridLabel.Text = string.Empty;
+            FourthGridLabel.Font = new Font( "Roboto", 8 );
+            FourthGridLabel.ForeColor = Color.DarkGray;
+            FourthGridLabel.Text = string.Empty;
             FieldLabel.ForeColor = Color.DarkGray;
             NumericsLabel.ForeColor = Color.DarkGray;
 
@@ -747,10 +747,10 @@ namespace BudgetExecution
             {
                 Text = string.Empty;
                 HeaderLabel.Text = string.Empty;
-                FirstHeaderLabel.Text = string.Empty;
-                SecondHeaderLabel.Text = string.Empty;
-                ThirdHeaderLabel.Text = string.Empty;
-                FourthHeaderLabel.Text = string.Empty;
+                FirstGridLabel.Text = string.Empty;
+                SecondGridLabel.Text = string.Empty;
+                ThirdGridLabel.Text = string.Empty;
+                FourthGridLabel.Text = string.Empty;
                 SqlHeader.Text = string.Empty;
                 FieldLabel.Text = string.Empty;
                 NumericsLabel.Text = string.Empty;
@@ -774,11 +774,11 @@ namespace BudgetExecution
                     var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
-                    HeaderLabel.Text = $"{_table} ";
-                    FirstHeaderLabel.Text = $"Provider :  {Provider}";
-                    SecondHeaderLabel.Text = $"Records : {_records} ";
-                    ThirdHeaderLabel.Text = $"Fields : {_fields} ";
-                    FourthHeaderLabel.Text = $"Measures : {_numerics} ";
+                    Title.Text = $"{_table} ";
+                    FirstGridLabel.Text = $"Provider :  {Provider}";
+                    SecondGridLabel.Text = $"Records : {_records} ";
+                    ThirdGridLabel.Text = $"Fields : {_fields} ";
+                    FourthGridLabel.Text = $"Measures : {_numerics} ";
                     FieldLabel.Text = $"Fields : {_fields} ";
                     NumericsLabel.Text = $"Measures : {_numerics} ";
                     FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
@@ -786,11 +786,11 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    HeaderLabel.Text = $"{Provider} Database ";
-                    FirstHeaderLabel.Text = $"Provider :  {Provider}";
-                    SecondHeaderLabel.Text = "Records : ";
-                    ThirdHeaderLabel.Text = "Fields : ";
-                    FourthHeaderLabel.Text = "Measures : ";
+                    Title.Text = $"{Provider} Database ";
+                    FirstGridLabel.Text = $"Provider :  {Provider}";
+                    SecondGridLabel.Text = "Records : ";
+                    ThirdGridLabel.Text = "Fields : ";
+                    FourthGridLabel.Text = "Measures : ";
                     FieldLabel.Text = "Fields : ";
                     NumericsLabel.Text = "Measures : ";
                 }
@@ -1913,20 +1913,21 @@ namespace BudgetExecution
             }
         }
 
-        public virtual void OnRadioButtonSelected( object sender )
+        /// <summary>
+        /// Called when [provider button checked].
+        /// </summary>
+        /// <param name="sender">The sender.</param> 
+        private void OnRadioButtonChecked( object sender )
         {
-            if( sender is RadioButton _radioButton
-               && !string.IsNullOrEmpty( _radioButton.Tag?.ToString( ) ) )
+            if( sender is RadioButton button )
             {
                 try
                 {
-                    //FileExtension = _radioButton?.Result;
-                    var _ext = _radioButton.Tag?.ToString( )
-                        ?.Trim( ".".ToCharArray( ) )
-                        ?.ToUpper( );
-
-                    //Header.Text = $"{_ext} File Search";
-                    //Picture.Image = GetImage( );
+                    var _name = button.Tag?.ToString( );
+                    if( !string.IsNullOrEmpty( _name ) )
+                    {
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -1934,6 +1935,7 @@ namespace BudgetExecution
                 }
             }
         }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

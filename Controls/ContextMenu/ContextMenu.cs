@@ -345,28 +345,28 @@ namespace BudgetExecution
                             }
                             case MenuOption.Save:
                             {
-                                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                                var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
                             case MenuOption.Close:
                             {
-                                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                                var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
                             case MenuOption.Exit:
                             {
-                                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                                var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
                             default:
                             {
-                                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                                var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
