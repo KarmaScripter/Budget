@@ -58,7 +58,7 @@ namespace BudgetExecution
             Image = GetImage( toolType );
             Click += OnClick;
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -81,14 +81,13 @@ namespace BudgetExecution
                 try
                 {
                     var _path = AppSettings[ "ToolStrip" ] + $"{ toolType }.png";
-
                     if( File.Exists( _path ) )
                     {
                         using var _stream = File.Open( _path, FileMode.Open );
                         var _image = Image.FromStream( _stream );
                         return ( _image != null )
                             ? _image
-                            : default( Image );
+                            : default;
                     }
                 }
                 catch( Exception ex )
@@ -112,7 +111,6 @@ namespace BudgetExecution
                 {
                     var _path = AppSettings[ "ToolStrip" ] + $"{ ToolType }.png";
                     using var _stream = File.Open( _path, FileMode.Open );
-
                     if( _stream != null )
                     {
                         var _image = Image.FromStream( _stream );
@@ -125,6 +123,7 @@ namespace BudgetExecution
                 }
             }
         }
+
         /// <summary>
         /// Called when [mouse over].
         /// </summary>
@@ -226,6 +225,14 @@ namespace BudgetExecution
                         case ToolType.CalendarButton:
                         case ToolType.TableButton:
                         case ToolType.EditSqlButton:
+                        case ToolType.AddButton:
+                        case ToolType.AddTableButton:
+                        case ToolType.AddDatabaseButton:
+                        case ToolType.EditColumnButton:
+                        case ToolType.DeleteColumnButton:
+                        case ToolType.DeleteTableButton:
+                        case ToolType.DeleteDatabaseButton:
+                        case ToolType.AddColumnButton:
                         {
                             break;
                         }
@@ -243,6 +250,7 @@ namespace BudgetExecution
                         {
                             var _excel =
                                 @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
+
                             using var _excelForm = new ExcelForm( _excel );
                             _excelForm?.ShowDialog( );
                             break;
@@ -258,19 +266,6 @@ namespace BudgetExecution
                         {
                             using var _message = new PdfForm( );
                             _message?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.AddButton:
-                        case ToolType.AddTableButton:
-                        case ToolType.AddDatabaseButton:
-                        case ToolType.EditColumnButton:
-                        case ToolType.DeleteColumnButton:
-                        case ToolType.DeleteTableButton:
-                        case ToolType.DeleteDatabaseButton:
-                        case ToolType.AddColumnButton:
-                        {
-                            var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
-                            _dialog?.ShowDialog( );
                             break;
                         }
                         case ToolType.DeleteButton:

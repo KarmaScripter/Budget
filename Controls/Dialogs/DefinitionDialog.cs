@@ -27,6 +27,14 @@ namespace BudgetExecution
         /// The sqlite data types.
         /// </value>
         public override IEnumerable<string> DataTypes { get; set; }
+        
+        public override string SelectedTable { get; set; }
+        
+        public Provider SelectedProvider { get; set; }
+        
+        public string SelectedType { get; set; }
+        
+        public string ColumnName { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
@@ -72,7 +80,6 @@ namespace BudgetExecution
         public DefinitionDialog( ToolType toolType )
             : this( )
         {
-            Provider = Provider.Access;
             ToolType = toolType;
         }
 

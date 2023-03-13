@@ -360,7 +360,7 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearLabelText( );
                 InitRadioButtons( );
-                SetImage( );
+                SetProviderImage( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -375,6 +375,12 @@ namespace BudgetExecution
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
+                EditRecordButton.Click += OnEditRecordButtonClicked;
+                EditColumnButton.Click += OnEditColumnButtonClicked;
+                DeleteRecordButton.Click += OnDeleteRecordButtonClicked;
+                DeleteColumnButton.Click += OnDeleteColumnButtonClicked;
+                AddTableButton.Click += OnAddTableButtonClicked;
+                DeleteTableButton.Click += OnDeleteTableButtonClicked;
                 MouseClick += OnRightClick;
             }
             catch( Exception ex )
@@ -549,7 +555,7 @@ namespace BudgetExecution
         /// Gets the image.
         /// </summary>
         /// <returns></returns>
-        private void SetImage( )
+        private void SetProviderImage( )
         {
             try
             {
@@ -579,6 +585,70 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the dialog image.
+        /// </summary>
+        private void SetDialogImage( ToolType type )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        switch( type )
+                        {
+                            case ToolType.EditColumnButton:
+                            case ToolType.EditRecordButton:
+                            case ToolType.DeleteRecordButton:
+                            case ToolType.DeleteColumnButton:
+                            {
+                                var _tool = type.ToString( );
+                                var _file = _files
+                                    ?.Where( f => f.Contains( _tool ) )
+                                    ?.First( );
+
+                                if( !string.IsNullOrEmpty( _file )
+                                    && File.Exists( _file ) )
+                                {
+                                    var _img = Image.FromFile( _file );
+                                    PictureBox.Image = _img;
+                                }
+
+                                break;
+                            }
+                            case ToolType.AddTableButton:
+                            case ToolType.DeleteTableButton:
+                            {
+                                var _tool = type.ToString( );
+                                var _file = _files
+                                    ?.Where( f => f.Contains( "TableButton" ) )
+                                    ?.First( );
+
+                                if( !string.IsNullOrEmpty( _file )
+                                    && File.Exists( _file ) )
+                                {
+                                    var _img = Image.FromFile( _file );
+                                    PictureBox.Image = _img;
+                                }
+
+                                break;
+                            }
+                            default:
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
         /// <summary>
         /// Resets the ComboBox visibility.
         /// </summary>
@@ -776,7 +846,7 @@ namespace BudgetExecution
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
                     HeaderLabel.Text = $"{_table} ";
-                    FirstGridLabel.Text = $"Provider :  {Provider}";
+                    FirstGridLabel.Text = $"Data Provider :  {Provider}";
                     SecondGridLabel.Text = $"Records : {_records} ";
                     ThirdGridLabel.Text = $"Fields : {_fields} ";
                     FourthGridLabel.Text = $"Measures : {_numerics} ";
@@ -1568,12 +1638,12 @@ namespace BudgetExecution
                     case 0:
                     {
                         ProviderTable.Visible = true;
-                        SetImage( );
+                        SetProviderImage( );
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-                        SetToolButtonVisibility( false );
+                        SetToolButtonVisibility( true );
                         PopulateExecutionTables( );
                         break;
                     }
@@ -1663,6 +1733,144 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [edit record button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnEditRecordButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.EditRecordButton )
+                {
+                    SetDialogImage( _button.ToolType );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    _dialog?.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [edit column button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnEditColumnButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.EditColumnButton )
+                {
+                    SetDialogImage( _button.ToolType );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    _dialog?.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [delete record button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnDeleteRecordButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.DeleteRecordButton )
+                {
+                    SetDialogImage( _button.ToolType );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    _dialog?.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [delete column button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnDeleteColumnButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.DeleteColumnButton )
+                {
+                    SetDialogImage( _button.ToolType );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    _dialog?.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [add table button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnAddTableButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.AddTableButton )
+                {
+                    SetDialogImage( _button.ToolType );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    _dialog?.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [delete table button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnDeleteTableButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.DeleteTableButton )
+                {
+                    SetDialogImage( _button.ToolType );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    _dialog?.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1693,6 +1901,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    SetDialogImage( _button.ToolType );
                     var _dialog = new SqlDialog( BindingSource );
                     _dialog.SqlEditor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
@@ -1755,7 +1964,6 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearCollections( );
                     ClearLabelText( );
-                    ToolStrip.Visible = false;
                     TabControl.SelectedIndex = 0;
                 }
             }
@@ -1933,7 +2141,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
-                        SetImage( );
+                        SetProviderImage( );
                     }
                 }
                 catch( Exception ex )

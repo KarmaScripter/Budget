@@ -55,7 +55,7 @@ namespace BudgetExecution
         BackButton,
         
         /// <summary>
-        /// The bluetooth button
+        /// The blue tooth button
         /// </summary>
         BlueToothButton,
 

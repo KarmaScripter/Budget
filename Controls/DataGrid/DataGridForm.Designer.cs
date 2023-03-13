@@ -371,7 +371,7 @@
             FirstGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             FirstGridLabel.Name =  "FirstGridLabel" ;
             FirstGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstGridLabel.Size =  new System.Drawing.Size( 304, 20 ) ;
+            FirstGridLabel.Size =  new System.Drawing.Size( 143, 22 ) ;
             FirstGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstGridLabel.StyleManager =  null ;
             FirstGridLabel.TabIndex =  33 ;
@@ -392,7 +392,7 @@
             GridTable.Location =  new System.Drawing.Point( 41, 70 ) ;
             GridTable.Name =  "GridTable" ;
             GridTable.RowCount =  2 ;
-            GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 32F ) );
+            GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 34F ) );
             GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             GridTable.Size =  new System.Drawing.Size( 970, 602 ) ;
             GridTable.TabIndex =  37 ;
@@ -412,10 +412,10 @@
             DataGridPanel.ForeColor =  System.Drawing.Color.Transparent ;
             DataGridPanel.HoverText =  null ;
             DataGridPanel.IsDerivedStyle =  true ;
-            DataGridPanel.Location =  new System.Drawing.Point( 3, 35 ) ;
+            DataGridPanel.Location =  new System.Drawing.Point( 3, 37 ) ;
             DataGridPanel.Name =  "DataGridPanel" ;
             DataGridPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            DataGridPanel.Size =  new System.Drawing.Size( 964, 564 ) ;
+            DataGridPanel.Size =  new System.Drawing.Size( 964, 562 ) ;
             DataGridPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             DataGridPanel.StyleManager =  null ;
             DataGridPanel.TabIndex =  47 ;
@@ -426,10 +426,10 @@
             // LabelTable
             // 
             LabelTable.ColumnCount =  4 ;
-            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 71.65533F ) );
-            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.34467F ) );
-            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
-            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 411F ) );
+            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 53.9249153F ) );
+            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 46.0750847F ) );
+            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 126F ) );
+            LabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 560F ) );
             LabelTable.Controls.Add( SecondGridLabel, 1, 0 );
             LabelTable.Controls.Add( FourthGridLabel, 3, 0 );
             LabelTable.Controls.Add( FirstGridLabel, 0, 0 );
@@ -439,7 +439,7 @@
             LabelTable.Name =  "LabelTable" ;
             LabelTable.RowCount =  1 ;
             LabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            LabelTable.Size =  new System.Drawing.Size( 964, 26 ) ;
+            LabelTable.Size =  new System.Drawing.Size( 964, 28 ) ;
             LabelTable.TabIndex =  1 ;
             // 
             // SecondGridLabel
@@ -451,11 +451,11 @@
             SecondGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondGridLabel.HoverText =  null ;
             SecondGridLabel.IsDerivedStyle =  true ;
-            SecondGridLabel.Location =  new System.Drawing.Point( 313, 3 ) ;
+            SecondGridLabel.Location =  new System.Drawing.Point( 152, 3 ) ;
             SecondGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             SecondGridLabel.Name =  "SecondGridLabel" ;
             SecondGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondGridLabel.Size =  new System.Drawing.Size( 116, 20 ) ;
+            SecondGridLabel.Size =  new System.Drawing.Size( 122, 22 ) ;
             SecondGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondGridLabel.StyleManager =  null ;
             SecondGridLabel.TabIndex =  44 ;
@@ -474,11 +474,11 @@
             FourthGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FourthGridLabel.HoverText =  null ;
             FourthGridLabel.IsDerivedStyle =  true ;
-            FourthGridLabel.Location =  new System.Drawing.Point( 555, 3 ) ;
+            FourthGridLabel.Location =  new System.Drawing.Point( 406, 3 ) ;
             FourthGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             FourthGridLabel.Name =  "FourthGridLabel" ;
             FourthGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FourthGridLabel.Size =  new System.Drawing.Size( 406, 20 ) ;
+            FourthGridLabel.Size =  new System.Drawing.Size( 555, 22 ) ;
             FourthGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FourthGridLabel.StyleManager =  null ;
             FourthGridLabel.TabIndex =  44 ;
@@ -497,11 +497,11 @@
             ThirdGridLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ThirdGridLabel.HoverText =  null ;
             ThirdGridLabel.IsDerivedStyle =  true ;
-            ThirdGridLabel.Location =  new System.Drawing.Point( 435, 3 ) ;
+            ThirdGridLabel.Location =  new System.Drawing.Point( 280, 3 ) ;
             ThirdGridLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             ThirdGridLabel.Name =  "ThirdGridLabel" ;
             ThirdGridLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdGridLabel.Size =  new System.Drawing.Size( 114, 20 ) ;
+            ThirdGridLabel.Size =  new System.Drawing.Size( 120, 22 ) ;
             ThirdGridLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             ThirdGridLabel.StyleManager =  null ;
             ThirdGridLabel.TabIndex =  43 ;

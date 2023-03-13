@@ -57,6 +57,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
+            ExitButton.HoverText = "Exit Application";
             Tiles = GetTiles( );
 
             // Event Wiring
