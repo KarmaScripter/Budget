@@ -1765,7 +1765,7 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.EditColumnButton )
                 {
                     SetDialogImage( _button.ToolType );
-                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
+                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetProviderImage( );
                 }
