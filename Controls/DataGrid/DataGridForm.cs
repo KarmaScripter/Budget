@@ -600,9 +600,9 @@ namespace BudgetExecution
                     {
                         switch( type )
                         {
-                            case ToolType.EditColumnButton:
                             case ToolType.EditRecordButton:
                             case ToolType.DeleteRecordButton:
+                            case ToolType.EditColumnButton:
                             case ToolType.DeleteColumnButton:
                             {
                                 var _tool = type.ToString( );
@@ -611,7 +611,7 @@ namespace BudgetExecution
                                     ?.First( );
 
                                 if( !string.IsNullOrEmpty( _file )
-                                    && File.Exists( _file ) )
+                                   && File.Exists( _file ) )
                                 {
                                     var _img = Image.FromFile( _file );
                                     PictureBox.Image = _img;
@@ -628,16 +628,12 @@ namespace BudgetExecution
                                     ?.First( );
 
                                 if( !string.IsNullOrEmpty( _file )
-                                    && File.Exists( _file ) )
+                                   && File.Exists( _file ) )
                                 {
                                     var _img = Image.FromFile( _file );
                                     PictureBox.Image = _img;
                                 }
 
-                                break;
-                            }
-                            default:
-                            {
                                 break;
                             }
                         }
@@ -1745,8 +1741,9 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.EditRecordButton )
                 {
                     SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
+                    SetProviderImage( );
                 }
             }
             catch( Exception ex )
@@ -1768,8 +1765,9 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.EditColumnButton )
                 {
                     SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
+                    SetProviderImage( );
                 }
             }
             catch( Exception ex )
@@ -1793,6 +1791,7 @@ namespace BudgetExecution
                     SetDialogImage( _button.ToolType );
                     var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
+                    SetProviderImage( );
                 }
             }
             catch( Exception ex )
@@ -1816,6 +1815,7 @@ namespace BudgetExecution
                     SetDialogImage( _button.ToolType );
                     var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
+                    SetProviderImage( );
                 }
             }
             catch( Exception ex )
@@ -1839,6 +1839,7 @@ namespace BudgetExecution
                     SetDialogImage( _button.ToolType );
                     var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
+                    SetProviderImage( );
                 }
             }
             catch( Exception ex )
@@ -1862,6 +1863,7 @@ namespace BudgetExecution
                     SetDialogImage( _button.ToolType );
                     var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
+                    SetProviderImage( );
                 }
             }
             catch( Exception ex )
@@ -1901,10 +1903,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetDialogImage( _button.ToolType );
+                    SetDialogImage( ToolType.EditSqlButton );
                     var _dialog = new SqlDialog( BindingSource );
                     _dialog.SqlEditor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
+                    SetProviderImage( );
                 }
                 catch( Exception ex )
                 {

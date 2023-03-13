@@ -225,10 +225,12 @@ namespace BudgetExecution
                         case ToolType.CalendarButton:
                         case ToolType.TableButton:
                         case ToolType.EditSqlButton:
+                        case ToolType.EditRecordButton:
                         case ToolType.AddButton:
                         case ToolType.AddTableButton:
                         case ToolType.AddDatabaseButton:
                         case ToolType.EditColumnButton:
+                        case ToolType.DeleteRecordButton:
                         case ToolType.DeleteColumnButton:
                         case ToolType.DeleteTableButton:
                         case ToolType.DeleteDatabaseButton:
@@ -271,11 +273,9 @@ namespace BudgetExecution
                         case ToolType.DeleteButton:
                         case ToolType.EditButton:
                         case ToolType.DataRowButton:
-                        case ToolType.EditRecordButton:
                         case ToolType.CopyButton:
                         case ToolType.AccountButton:
                         case ToolType.AddRecordButton:
-                        case ToolType.DeleteRecordButton:
                         {
                             var _dialog = new EditDialog( _button.ToolType, BindingSource  );
                             _dialog?.ShowDialog( );
