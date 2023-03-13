@@ -600,31 +600,17 @@ namespace BudgetExecution
                     {
                         switch( type )
                         {
+                            case ToolType.AddTableButton:
+                            case ToolType.DeleteTableButton:
                             case ToolType.EditRecordButton:
                             case ToolType.DeleteRecordButton:
                             case ToolType.EditColumnButton:
                             case ToolType.DeleteColumnButton:
+                            case ToolType.EditSqlButton:
                             {
                                 var _tool = type.ToString( );
                                 var _file = _files
                                     ?.Where( f => f.Contains( _tool ) )
-                                    ?.First( );
-
-                                if( !string.IsNullOrEmpty( _file )
-                                   && File.Exists( _file ) )
-                                {
-                                    var _img = Image.FromFile( _file );
-                                    PictureBox.Image = _img;
-                                }
-
-                                break;
-                            }
-                            case ToolType.AddTableButton:
-                            case ToolType.DeleteTableButton:
-                            {
-                                var _tool = type.ToString( );
-                                var _file = _files
-                                    ?.Where( f => f.Contains( "TableButton" ) )
                                     ?.First( );
 
                                 if( !string.IsNullOrEmpty( _file )
@@ -1789,7 +1775,7 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.DeleteRecordButton )
                 {
                     SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetProviderImage( );
                 }
@@ -1899,11 +1885,12 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnSqlButtonClick( object sender, EventArgs e )
         {
-            if( !string.IsNullOrEmpty( SqlQuery ) )
+            if( !string.IsNullOrEmpty( SqlQuery )
+               && sender is ToolStripButton _button )
             {
                 try
                 {
-                    SetDialogImage( ToolType.EditSqlButton );
+                    SetDialogImage( _button.ToolType );
                     var _dialog = new SqlDialog( BindingSource );
                     _dialog.SqlEditor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
