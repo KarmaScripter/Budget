@@ -159,7 +159,7 @@ namespace BudgetExecution
             try
             {
                 return !string.IsNullOrEmpty( primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) ?? string.Empty )
+                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? "0" )
                     : -1;
             }
             catch( Exception ex )
@@ -197,7 +197,7 @@ namespace BudgetExecution
             if( dataRow != null
                && Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) )
             {
-                return int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) ?? string.Empty );
+                return int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? "0" );
             }
             else
             {

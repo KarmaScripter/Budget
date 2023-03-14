@@ -10,7 +10,7 @@
     <PackageIcon>BudExNinja.png</PackageIcon>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <LangVersion>10</LangVersion>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
     <RootNamespace>BudgetExecution</RootNamespace>
     <Authors>Terry D. Eppler</Authors>
     <Company>US EPA</Company>
@@ -25,6 +25,8 @@
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     <BaseIntermediateOutputPath />
     <IsPublishable>False</IsPublishable>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
@@ -43,7 +45,7 @@
     <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="6.1.2" />
+    <PackageReference Include="EPPlus" Version="6.1.3" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="20.4.0.38" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
@@ -109,45 +111,51 @@
     </Reference>
     <Reference Include="SQLite.Designer">
       <HintPath>Libraries\SQLite.Designer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.Entity">
       <HintPath>Libraries\System.Data.Entity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.Entity.Design">
       <HintPath>Libraries\System.Data.Entity.Design.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.Linq">
       <HintPath>Libraries\System.Data.Linq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.OleDb">
       <HintPath>Libraries\System.Data.OleDb.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlClient">
       <HintPath>Libraries\System.Data.SqlClient.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SQLite">
       <HintPath>Libraries\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SQLite.EF6">
       <HintPath>Libraries\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SQLite.Linq">
       <HintPath>Libraries\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlServerCe">
       <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Remoting">
       <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Controls\Forms\SuperfundGuidance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Forms\BudgetGuidance.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Controls\Forms\SuperfundGuidance.cs" />
+    <Compile Update="Controls\Forms\BudgetGuidance.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
@@ -162,9 +170,7 @@
     <Compile Update="Controls\Calendar\CalendarForm.cs" />
     <Compile Remove="bin\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
-    <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Controls\Dialogs\GuidanceDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

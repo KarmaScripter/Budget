@@ -212,7 +212,7 @@ namespace BudgetExecution
         /// <value>
         /// The used.
         /// </value>
-        public double Used { get; set; }
+        public override double Used { get; set; }
 
         /// <summary>
         /// Gets or sets the unliquidated obligations.
@@ -259,13 +259,15 @@ namespace BudgetExecution
         /// </summary>
         public ObligationActivity( )
         {
+            Source = Source.ObligationActivity;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObligationActivity"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ObligationActivity( IQuery query )
+        public ObligationActivity( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -276,6 +278,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ObligationActivity( IDataModel builder )
+            : this( builder.Query )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -286,6 +289,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ObligationActivity( DataRow dataRow )
+            : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

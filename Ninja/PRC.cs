@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -19,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public abstract class PRC : DataUnit
+    public abstract class PRC : BudgetUnit
     {
         /// <summary>
         /// Gets or sets the ID.
@@ -27,7 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The ID.
         /// </value>
-        public  override int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -36,23 +35,7 @@ namespace BudgetExecution
         /// The budget level.
         /// </value>
         public virtual string BudgetLevel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public virtual string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public virtual string EFY { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the rpio code.
         /// </summary>
@@ -68,23 +51,7 @@ namespace BudgetExecution
         /// The name of the rpio.
         /// </value>
         public virtual string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public virtual string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public virtual string FundName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the ah code.
         /// </summary>
@@ -134,10 +101,10 @@ namespace BudgetExecution
         public virtual string ActivityCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the activit.
+        /// Gets or sets the name of the activity.
         /// </summary>
         /// <value>
-        /// The name of the activit.
+        /// The name of the activity.
         /// </value>
         public virtual string ActivityName { get; set; }
 
@@ -220,7 +187,7 @@ namespace BudgetExecution
         /// The name of the objective.
         /// </value>
         public virtual string ObjectiveName { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the program project code.
         /// </summary>
@@ -252,46 +219,14 @@ namespace BudgetExecution
         /// The name of the program area.
         /// </value>
         public virtual string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public virtual string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury agency code.
-        /// </summary>
-        /// <value>
-        /// The treasury agency code.
-        /// </value>
-        public virtual string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public virtual string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public virtual string BudgetAccountName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the Source .
         /// </summary>
         /// <value>
         /// The name of the Source.
         /// </value>
-        public  override Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Provider.
@@ -307,7 +242,7 @@ namespace BudgetExecution
         /// <value>
         /// The Data.
         /// </value>
-        public  override IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PRC"/> class.
@@ -324,7 +259,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -341,16 +276,16 @@ namespace BudgetExecution
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -360,8 +295,8 @@ namespace BudgetExecution
         protected PRC( IDataModel dataBuilder )
         {
             Record = dataBuilder.Record;
-            Data = Record.ToDictionary(  );
-            BFY =  Record[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -378,16 +313,16 @@ namespace BudgetExecution
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -397,8 +332,8 @@ namespace BudgetExecution
         protected PRC( DataRow dataRow )
         {
             Record = dataRow;
-            Data = Record.ToDictionary(  );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
@@ -415,8 +350,8 @@ namespace BudgetExecution
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString(  );
-            NpmName = dataRow[ "NpmName" ].ToString(  );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
             GoalCode = dataRow[ "GoalCode" ].ToString( );
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
@@ -430,8 +365,8 @@ namespace BudgetExecution
         protected PRC( IDictionary<string, object> map )
         {
             Record = new DataBuilder( Source, map )?.Record;
-            Data = Record.ToDictionary(  );
-            BFY =  Record[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -448,16 +383,16 @@ namespace BudgetExecution
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -473,16 +408,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return dataRow[ field ].ToString(  );
+                    return dataRow[ field ].ToString( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( string );
+                    return default;
                 }
             }
 
-            return default( string );
+            return default;
         }
 
         /// <summary>
@@ -503,11 +438,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( double );
+                    return default;
                 }
             }
 
-            return default( double );
+            return default;
         }
 
         /// <summary>
@@ -523,16 +458,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return double.Parse( dataRow[ $"{ field }" ]?.ToString( ) ?? string.Empty );
+                    return double.Parse( dataRow[ $"{field}" ]?.ToString( ) ?? string.Empty );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( double );
+                    return default;
                 }
             }
 
-            return default( double );
+            return default;
         }
 
         /// <summary>
@@ -544,13 +479,13 @@ namespace BudgetExecution
             try
             {
                 return Record.ItemArray != null
-                    ? Record.ToDictionary(  )
-                    : default( IDictionary<string, object> );
+                    ? Record.ToDictionary( )
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, object> );
+                return default;
             }
         }
     }

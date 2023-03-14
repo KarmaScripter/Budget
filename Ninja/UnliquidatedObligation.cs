@@ -280,7 +280,7 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public override double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -337,15 +337,15 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( Record[ "Used" ].ToString(  ) );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -385,21 +385,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( Record[ "Used" ].ToString(  ) );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -433,15 +433,15 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( dataRow[ "Used" ].ToString(  ) );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );

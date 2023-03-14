@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public string BudgetAccountName { get; set; }
+        public override string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the treasury account.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury account.
         /// </value>
-        public string TreasuryAccountName { get; set; }
+        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the budgeted.
@@ -159,49 +159,53 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppropriationLevelAuthority"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="AppropriationLevelAuthority"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public AppropriationLevelAuthority( IQuery query )
         {
+            Source = Source.AppropriationLevelAuthority;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
-            Carryover = double.Parse(Record[ "Carryover" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Carryover = double.Parse( Record[ "Carryover" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppropriationLevelAuthority"/> class.
+        /// Initializes a new instance
+        /// of the <see cref="AppropriationLevelAuthority"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AppropriationLevelAuthority( IDataModel builder )
         {
+            Source = Source.AppropriationLevelAuthority;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
-            Carryover = double.Parse( Record[ "Carryover" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString(  ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString(  ) ?? "0" );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Carryover = double.Parse( Record[ "Carryover" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -210,22 +214,22 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public AppropriationLevelAuthority( DataRow dataRow )
         {
+            Source = Source.AppropriationLevelAuthority;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
-            Authority = double.Parse( dataRow[ "Authority" ].ToString(  ) ?? "0" );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) ?? "0" );
-            Carryover = double.Parse( dataRow[ "Carryover" ].ToString(  ) ?? "0" );
-            Reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString(  ) ?? "0" );
-            Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString(  ) ?? "0" );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
+            Carryover = double.Parse( dataRow[ "Carryover" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
         }
     }
-
 }

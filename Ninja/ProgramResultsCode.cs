@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// Program Results Codes (PRCs) were established to account for and relate
@@ -19,11 +18,7 @@ namespace BudgetExecution
     /// updated at any time.
     /// </summary>
     /// <seealso cref = "IProgramResultsCode"/>
-    /// <seealso cref = "IProgram"/>
-    /// <seealso cref = "IDataModel"/>
     /// <seealso cref = "IProgramResultsCode"/>
-    /// <seealso cref = "IFund"/>
-    /// <seealso cref = "ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -39,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The ID.
         /// </value>
-        public  override int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -175,7 +170,7 @@ namespace BudgetExecution
         /// <value>
         /// double.
         /// </value>
-        public  override double Amount { get; set; }
+        public override double Amount { get; set; }
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -240,7 +235,7 @@ namespace BudgetExecution
         /// The name of the objective.
         /// </value>
         public override string ObjectiveName { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the program project code.
         /// </summary>
@@ -311,11 +306,12 @@ namespace BudgetExecution
         /// <param name = "query" >
         /// The query.
         /// </param>
-        public ProgramResultsCode( IQuery query )
+        public ProgramResultsCode( IQuery query ) 
+            : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -333,8 +329,8 @@ namespace BudgetExecution
             Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -347,11 +343,12 @@ namespace BudgetExecution
         /// <param name = "dataBuilder" >
         /// The builder.
         /// </param>
-        public ProgramResultsCode( IDataModel dataBuilder )
+        public ProgramResultsCode( IDataModel dataBuilder ) 
+            : this( dataBuilder.Query )
         {
             Record = dataBuilder.Record;
-            Data = Record.ToDictionary(  );
-            BFY =  Record[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -369,8 +366,8 @@ namespace BudgetExecution
             Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -387,8 +384,8 @@ namespace BudgetExecution
         public ProgramResultsCode( DataRow dataRow )
         {
             Record = dataRow;
-            Data = Record.ToDictionary(  );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
@@ -406,8 +403,8 @@ namespace BudgetExecution
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString(  );
-            NpmName = dataRow[ "NpmName" ].ToString(  );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
             GoalCode = dataRow[ "GoalCode" ].ToString( );
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
@@ -423,7 +420,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, dict )?.Record;
             ID = GetId( Record, PrimaryKey.StatusOfFundsId );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -441,8 +438,8 @@ namespace BudgetExecution
             Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -459,7 +456,7 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
@@ -479,9 +476,10 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
-                    : -1;
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey )
+                    && dataRow != null
+                        ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
+                        : -1;
             }
             catch( Exception ex )
             {
