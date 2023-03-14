@@ -13,11 +13,13 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    /// <seealso cref="BudgetExecution.IDataUnit" />
+    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="BudgetExecution.IProvider" />
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
         /// <summary>
-        ///  
         /// </summary>
         public virtual int ID { get; set; }
 
@@ -37,34 +39,26 @@ namespace BudgetExecution
         public virtual object Value { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets the source.
         /// </summary>
         public virtual Source Source { get; set; }
 
         /// <summary>
-        /// 
         /// </summary>
-        /// <value>
-        /// 
-        /// </value>
         public virtual Provider Provider { get; set; }
-        
+
         /// <summary>
-        /// 
         /// </summary>
-        /// <value>
-        /// 
-        /// </value>
         public virtual DataRow Record { get; set; }
-        
+
         /// <summary>
-        /// 
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// 
+        /// The data.
         /// </value>
         public virtual IDictionary<string, object> Data { get; set; }
-        
+
         /// <summary>
         /// Determines whether the specified element is match.
         /// </summary>
@@ -149,10 +143,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// 
+        /// Gets the identifier.
         /// </summary>
-        /// <param name="dataRow"></param>
-        /// <param name="primaryKey"></param>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="primaryKey">The primary key.</param>
         /// <returns></returns>
         public virtual int GetId( DataRow dataRow, string primaryKey )
         {
@@ -206,7 +200,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Get Error Dialog.
+        /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         protected static void Fail( Exception ex )

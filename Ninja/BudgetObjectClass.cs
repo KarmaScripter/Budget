@@ -18,16 +18,12 @@ namespace BudgetExecution
     /// known as Finance Object Classes. EPA uses the categories defined by the values
     /// of the ObjectClasses enumeration.
     /// </summary>
-    /// <seealso cref = "IProgram"/>
-    /// <seealso cref = "IBudgetObjectClass"/>
-    /// <seealso cref = "ISource"/>
-    /// <seealso cref = "IDataModel"/>
     /// <seealso cref = "IBudgetObjectClass"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class BudgetObjectClass : DataUnit, IBudgetObjectClass, ISource
+    public class BudgetObjectClass : DataUnit, IBudgetObjectClass
     {
         /// <summary>
         /// The codes
@@ -47,7 +43,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public override Source Source { get; set; } 
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -55,7 +51,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public  override Provider Provider { get; set; }
+        public override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets the Data.
@@ -121,8 +117,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( boc ) )?.Record;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
-            Name = Record[ $"{ Field.BocName }" ].ToString( );
-            Code = Record[ $"{ Field.BocCode }" ].ToString( );
+            Name = Record[ "BocName" ].ToString( );
+            Code = Record[ "BocCode" ].ToString( );
             Category = boc;
             Data = Record?.ToDictionary( );
         }
@@ -138,10 +134,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
-            Name = Record[ $"{ Field.BocName }" ].ToString( );
-            Code = Record[ $"{ Field.BocCode }" ].ToString( );
+            Name = Record[ "BocName" ].ToString( );
+            Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
-            if ( Name != null )
+            if( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             }
@@ -158,10 +154,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
-            Name = Record[ $"{ Field.BocName }" ].ToString( );
-            Code = Record[ $"{ Field.BocCode }" ].ToString( );
+            Name = Record[ "BocName" ].ToString( );
+            Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
-            if ( Name != null )
+            if( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             }
@@ -178,10 +174,10 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
-            Name = Record?[ $"{ Field.BocName }" ].ToString( );
-            Code = Record?[ $"{ Field.BocCode }" ].ToString( );
+            Name = Record[ "BocName" ].ToString( );
+            Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
-            if ( Name != null )
+            if( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             }
@@ -193,15 +189,15 @@ namespace BudgetExecution
         /// <param name = "dataRow" >
         /// The Data.
         /// </param>
-        public BudgetObjectClass( DataRow dataRow ) 
+        public BudgetObjectClass( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
-            Name = dataRow[ $"{ Field.BocName }" ].ToString( );
-            Code = dataRow[ $"{ Field.BocCode }" ].ToString( );
+            Name = Record[ "BocName" ].ToString( );
+            Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
-            if ( Name != null )
+            if( Name != null )
             {
                 Category = (BOC)Enum.Parse( typeof( BOC ), Name );
             }
@@ -218,12 +214,12 @@ namespace BudgetExecution
             {
                 return Data?.Any( ) == true
                     ? Data
-                    : default( IDictionary<string, object> );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, object> );
+                return default;
             }
         }
 
@@ -267,12 +263,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{ Field.Code }" ] = code };
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IDictionary<string, object> );
+                    return default;
                 }
             }
             else if( !string.IsNullOrEmpty( code )
@@ -281,16 +277,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{ Field.Name }" ] = code };
+                    return new Dictionary<string, object> { [ $"{Field.Name}" ] = code };
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IDictionary<string, object> );
+                    return default;
                 }
             }
 
-            return default( IDictionary<string, object> );
+            return default;
         }
 
         /// <summary>
@@ -317,13 +313,13 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IDictionary<string, object> );
+                    return default;
                 }
             }
 
-            return default( IDictionary<string, object> );
+            return default;
         }
-        
+
         /// <summary>
         /// Gets the budget object class category.
         /// </summary>
@@ -340,7 +336,7 @@ namespace BudgetExecution
             catch( SystemException ex )
             {
                 Fail( ex );
-                return default( BOC );
+                return default;
             }
         }
     }

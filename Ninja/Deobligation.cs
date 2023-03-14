@@ -1,5 +1,5 @@
-﻿// <copyright file = "Deobligations.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -190,15 +190,15 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public  override double Amount { get; set; }
-        
+        public override double Amount { get; set; }
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public override Source Source { get; set; }   
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -236,13 +236,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Deobligation( IQuery query ) 
+        public Deobligation( IQuery query )
             : base( query )
         {
             Source = Source.Deobligations;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -255,15 +255,15 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( Record[ "Used" ].ToString( ) );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -284,13 +284,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Deobligation( IDataModel builder ) 
-            : base( builder )
+        public Deobligation( IDataModel builder )
+            : base( builder.Query )
         {
             Source = Source.Deobligations;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -303,21 +303,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( Record[ "Used" ].ToString(  ) );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -332,13 +332,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Deobligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Deobligation( DataRow dataRow ) 
+        public Deobligation( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.Deobligations;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
@@ -351,15 +351,15 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( dataRow[ "Used" ].ToString(  ) );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
