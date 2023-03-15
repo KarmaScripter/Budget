@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -12,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FundSymbol : BudgetUnit
+    public class FundSymbol : Fund
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -92,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The apportionment account code.
         /// </value>
-        public string ApportionmentAccountCode { get; set; }
+        public override string ApportionmentAccountCode { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -130,15 +131,40 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="FundSymbol"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public FundSymbol( IQuery query )
+        public FundSymbol( IQuery query ) 
+            : base( query )
         {
-            Source = Source.FundSymbols;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "FundSymbolsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) ?? string.Empty );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) ?? string.Empty );
+            SubLevelPrefix = Record[ "SubLevelPrefix" ].ToString( );
+            AllocationTransferAgency = Record[ "AllocationTransferAgency" ].ToString( );
+            AgencyIdentifier = Record[ "AgencyIdentifier" ].ToString( );
+            BeginningPeriodOfAvailability = Record[ "BeginningPeriodOfAvailability" ].ToString( );
+            EndingPeriodOfAvailability = Record[ "EndingPeriodOfAvailability" ].ToString( );
+            MultiYearIndicator = Record[ "MultiYearIndicator" ].ToString( );
+            MainAccount = Record[ "MainAccount" ].ToString( );
+            SubAccount = Record[ "SubAccount" ].ToString( );
+            FundCategory = Record[ "FundCategory" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
+            FundGroup = Record[ "FundGroup" ].ToString( );
+            NoYear = Record[ "NoYear" ].ToString( );
+            Carryover = Record[ "Carryover" ].ToString( );
+            CancelledYearSpendingAccount = Record[ "CancelledYearSpendingAccount" ].ToString( );
+            ApplyAtAllLevels = Record[ "ApplyAtAllLevels" ].ToString( );
+            BatsFund = Record[ "BatsFund" ].ToString( );
+            BatsEndDate = DateOnly.Parse( Record[ "BatsEndDate" ].ToString( ) ?? string.Empty );
+            BatsOptionId = Record[ "BatsOptionId" ].ToString( );
+            SecurityOrg = Record[ "SecurityOrg" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -152,17 +178,37 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public FundSymbol( IDataModel builder )
         {
-            Source = Source.FundSymbols;
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "FundSymbolsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) ?? string.Empty );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) ?? string.Empty );
+            SubLevelPrefix = Record[ "SubLevelPrefix" ].ToString( );
+            AllocationTransferAgency = Record[ "AllocationTransferAgency" ].ToString( );
+            AgencyIdentifier = Record[ "AgencyIdentifier" ].ToString( );
+            BeginningPeriodOfAvailability = Record[ "BeginningPeriodOfAvailability" ].ToString( );
+            EndingPeriodOfAvailability = Record[ "EndingPeriodOfAvailability" ].ToString( );
+            MultiYearIndicator = Record[ "MultiYearIndicator" ].ToString( );
+            MainAccount = Record[ "MainAccount" ].ToString( );
+            SubAccount = Record[ "SubAccount" ].ToString( );
+            FundCategory = Record[ "FundCategory" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
+            FundGroup = Record[ "FundGroup" ].ToString( );
+            NoYear = Record[ "NoYear" ].ToString( );
+            Carryover = Record[ "Carryover" ].ToString( );
+            CancelledYearSpendingAccount = Record[ "CancelledYearSpendingAccount" ].ToString( );
+            ApplyAtAllLevels = Record[ "ApplyAtAllLevels" ].ToString( );
+            BatsFund = Record[ "BatsFund" ].ToString( );
+            BatsEndDate = DateOnly.Parse( Record[ "BatsEndDate" ].ToString( ) ?? string.Empty );
+            BatsOptionId = Record[ "BatsOptionId" ].ToString( );
+            SecurityOrg = Record[ "SecurityOrg" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -176,17 +222,37 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public FundSymbol( DataRow dataRow )
         {
-            Source = Source.FundSymbols;
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "FundSymbolsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) ?? string.Empty );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) ?? string.Empty );
+            SubLevelPrefix = Record[ "SubLevelPrefix" ].ToString( );
+            AllocationTransferAgency = Record[ "AllocationTransferAgency" ].ToString( );
+            AgencyIdentifier = Record[ "AgencyIdentifier" ].ToString( );
+            BeginningPeriodOfAvailability = Record[ "BeginningPeriodOfAvailability" ].ToString( );
+            EndingPeriodOfAvailability = Record[ "EndingPeriodOfAvailability" ].ToString( );
+            MultiYearIndicator = Record[ "MultiYearIndicator" ].ToString( );
+            MainAccount = Record[ "MainAccount" ].ToString( );
+            SubAccount = Record[ "SubAccount" ].ToString( );
+            FundCategory = Record[ "FundCategory" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
+            FundGroup = Record[ "FundGroup" ].ToString( );
+            NoYear = Record[ "NoYear" ].ToString( );
+            Carryover = Record[ "Carryover" ].ToString( );
+            CancelledYearSpendingAccount = Record[ "CancelledYearSpendingAccount" ].ToString( );
+            ApplyAtAllLevels = Record[ "ApplyAtAllLevels" ].ToString( );
+            BatsFund = Record[ "BatsFund" ].ToString( );
+            BatsEndDate = DateOnly.Parse( Record[ "BatsEndDate" ].ToString( ) ?? string.Empty );
+            BatsOptionId = Record[ "BatsOptionId" ].ToString( );
+            SecurityOrg = Record[ "SecurityOrg" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );

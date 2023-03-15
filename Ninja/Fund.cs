@@ -275,7 +275,7 @@ namespace BudgetExecution
         /// <value>
         /// The apportionment account code.
         /// </value>
-        public string ApportionmentAccountCode { get; set; }
+        public virtual string ApportionmentAccountCode { get; set; }
 
         /// <summary>
         /// Gets the arguments.
