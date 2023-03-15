@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The main.
         /// </value>
-        string Main { get; set; }
+        string MainAccount { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account code.
