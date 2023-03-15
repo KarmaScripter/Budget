@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using DocumentFormat.OpenXml.Spreadsheet;
 
     /// <summary>
     /// 
@@ -43,7 +44,7 @@ namespace BudgetExecution
         /// The efy.
         /// </value>
         public string EFY { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the short name.
         /// </summary>
@@ -313,10 +314,19 @@ namespace BudgetExecution
         public Fund( FundCode fundCode )
         {
             Record = new DataBuilder( Source, GetArgs( fundCode ) )?.Record;
-            ID = GetId( Record, PrimaryKey.FundsId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
-            Data = Record?.ToDictionary( );
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -329,8 +339,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = GetId( Record, PrimaryKey.FundsId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
+            Name = Record[ $"{Field.Name}" ].ToString( );
+            Code = Record[ $"{Field.Code}" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -344,8 +354,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = GetId( Record, PrimaryKey.FundsId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
+            Name = Record[ $"{Field.Name}" ].ToString( );
+            Code = Record[ $"{Field.Code}" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -359,8 +369,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = GetId( Record, PrimaryKey.FundsId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
+            Name = Record[ $"{Field.Name}" ].ToString( );
+            Code = Record[ $"{Field.Code}" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -375,8 +385,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = GetId( dataRow, PrimaryKey.FundsId );
-            Name = dataRow[ $"{ Field.Name }" ].ToString( );
-            Code = dataRow[ $"{ Field.Code }" ].ToString( );
+            Name = dataRow[ $"{Field.Name}" ].ToString( );
+            Code = dataRow[ $"{Field.Code}" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 
@@ -391,12 +401,12 @@ namespace BudgetExecution
             {
                 return Data?.Any( ) == true
                     ? Data
-                    : default( IDictionary<string, object> );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, object> );
+                return default;
             }
         }
 
@@ -434,11 +444,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IDictionary<string, object> );
+                    return default;
                 }
             }
 
-            return default( IDictionary<string, object> );
+            return default;
         }
 
         /// <summary>
@@ -455,15 +465,15 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( FundCode ), fundCode )
                     ? new Dictionary<string, object> { [ "FundCode" ] = fundCode.ToString( ) }
-                    : default( Dictionary<string, object> );
+                    : default;
             }
             catch( SystemException ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, object> );
+                return default;
             }
         }
-        
+
         /// <summary>
         /// Gets the fund.
         /// </summary>
@@ -478,7 +488,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IFund );
+                return default;
             }
         }
 
@@ -492,13 +502,13 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( int );
+                return default;
             }
         }
 
@@ -513,13 +523,13 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( int );
+                return default;
             }
         }
     }
