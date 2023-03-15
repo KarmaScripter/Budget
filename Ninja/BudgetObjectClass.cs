@@ -153,7 +153,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
+            ID = int.Parse( Record[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
             Name = Record[ "BocName" ].ToString( );
             Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -173,9 +173,9 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
-            Name = Record[ "BocName" ].ToString( );
-            Code = Record[ "BocCode" ].ToString( );
+            ID = int.Parse( Record?[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
+            Name = Record?[ "BocName" ].ToString( );
+            Code = Record?[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
             if( Name != null )
             {
@@ -193,7 +193,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
+            ID = int.Parse( dataRow[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
             Name = Record[ "BocName" ].ToString( );
             Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -263,7 +263,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                    return new Dictionary<string, object> { [ "Code" ] = code };
                 }
                 catch( Exception ex )
                 {
@@ -277,7 +277,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.Name}" ] = code };
+                    return new Dictionary<string, object> { [ "Name" ] = code };
                 }
                 catch( Exception ex )
                 {
@@ -307,7 +307,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ Field.Code.ToString( ) ] = boc.ToString( )
+                        [ "Code" ] = boc.ToString( )
                     };
                 }
                 catch( Exception ex )
@@ -329,9 +329,10 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( Name ) && Enum.IsDefined( typeof( BOC ), Name )
-                    ? (BOC)Enum.Parse( typeof( BOC ), Name )
-                    : BOC.NS;
+                return !string.IsNullOrEmpty( Name ) 
+                    && Enum.IsDefined( typeof( BOC ), Name )
+                        ? (BOC)Enum.Parse( typeof( BOC ), Name )
+                        : BOC.NS;
             }
             catch( SystemException ex )
             {

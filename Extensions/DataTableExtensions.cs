@@ -15,7 +15,6 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Xml.Linq;
     using OfficeOpenXml;
-    using Syncfusion.Windows.Forms.Tools;
 
     /// <summary>
     /// 
@@ -87,7 +86,7 @@ namespace BudgetExecution
             {
                 if( dataTable == null )
                 {
-                    throw new Exception( "OSExportToExcelFile: Null or empty input datatable!\n" );
+                    throw new Exception( "Null or empty input datatable!\n" );
                 }
 
                 var _excel = new ExcelPackage( );
@@ -121,8 +120,7 @@ namespace BudgetExecution
                     }
                     catch( Exception ex )
                     {
-                        throw new Exception( "OSExportToExcelFile: Excel file could not be saved.\n"
-                            + ex.Message );
+                        throw new Exception( "Excel file could not be saved.\n" + ex.Message );
                     }
                 }
             }
@@ -142,9 +140,7 @@ namespace BudgetExecution
         public static DataTable FromExcel( this DataTable dataTable, string filePath,
             string sheetName )
         {
-            if( dataTable?.Columns.Count > 0
-               && dataTable.Rows.Count > 0
-               && !string.IsNullOrEmpty( filePath )
+            if( !string.IsNullOrEmpty( filePath )
                && !string.IsNullOrEmpty( sheetName ) )
             {
                 try

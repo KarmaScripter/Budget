@@ -1,5 +1,5 @@
-﻿// <copyright file = "CompassLevel.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// The name of the fund.
         /// </value>
         public override string FundName { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
@@ -167,7 +167,7 @@ namespace BudgetExecution
         /// The carry out.
         /// </value>
         public double CarryoverOut { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the actual recoveries.
         /// </summary>
@@ -292,108 +292,108 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CompassLevel( IQuery query ) 
+        public CompassLevel( IQuery query )
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CompassLevel" ].ToString(  ) ?? "0" );
-            BFY =  Record[ "BFY" ].ToString( );
+            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             AccountCode = Record[ "AccountCode" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString(  ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public CompassLevel( IDataModel builder ) 
+        public CompassLevel( IDataModel builder )
             : base( builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CompassLevel" ].ToString(  ) ?? "0" );
-            BFY =  Record[ "BFY" ].ToString( );
+            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString(  );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             AccountCode = Record[ "AccountCode" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString(  ) ?? "0");
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString(  ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public CompassLevel( DataRow dataRow ) 
+        public CompassLevel( DataRow dataRow )
             : base( dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "CompassLevel" ].ToString(  ) ?? "0" );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            ID = int.Parse( dataRow[ "CompassLevel" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
-            BudgetLevel = dataRow[ "BudgetLevel" ].ToString(  );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
             RpioName = dataRow[ "RpioName" ].ToString( );
             AccountCode = dataRow[ "AccountCode" ].ToString( );
-            Authority = double.Parse( dataRow[ "Authority" ].ToString(  ) ?? "0");
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString(  ) ?? "0" );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString(  ) ?? "0" );
+            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString(  ) ?? "0" );
-            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString(  ) ?? "0" );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString(  ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString(  ) ?? "0" );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
     }
 }

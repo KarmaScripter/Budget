@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FundSymbol
+    public class FundSymbol : BudgetUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public override string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public override string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public override string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public override string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the treasury account.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury account.
         /// </value>
-        public string TreasuryAccountName { get; set; }
+        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public string BudgetAccountName { get; set; }
+        public override string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the apportionment account code.
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -116,13 +116,14 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FundSymbol"/> class.
         /// </summary>
         public FundSymbol( )
         {
+            Source = Source.FundSymbols;
         }
 
         /// <summary>
@@ -131,8 +132,18 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public FundSymbol( IQuery query )
         {
+            Source = Source.FundSymbols;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
         /// <summary>
@@ -141,8 +152,22 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public FundSymbol( IDataModel builder )
         {
+            Source = Source.FundSymbols;
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
         /// <summary>
@@ -151,8 +176,22 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public FundSymbol( DataRow dataRow )
         {
+            Source = Source.FundSymbols;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
     }
 }
