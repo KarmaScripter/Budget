@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class GeneralLedgerAccount
     {
         /// <summary>
@@ -30,22 +31,14 @@ namespace BudgetExecution
         /// The bfy.
         /// </value>
         public string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the fund code.
         /// </summary>
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public string AccountClassification { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -53,23 +46,15 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury symbol.
-        /// </summary>
-        /// <value>
-        /// The treasury symbol.
-        /// </value>
-        public string TreasurySymbol { get; set; }
-
+        public string ShortName { get; set; }
+        
         /// <summary>
         /// Gets or sets the account number.
         /// </summary>
         /// <value>
         /// The account number.
         /// </value>
-        public string AccountNumber { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the account.
@@ -77,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the account.
         /// </value>
-        public string AccountName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the beginning balance.
@@ -85,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The beginning balance.
         /// </value>
-        public double BeginningBalance { get; set; }
+        public string NormalBalance { get; set; }
 
         /// <summary>
         /// Gets or sets the credit balance.
@@ -93,15 +78,63 @@ namespace BudgetExecution
         /// <value>
         /// The credit balance.
         /// </value>
-        public double CreditBalance { get; set; }
+        public string RealOrClosingAccount { get; set; }
 
+        /// <summary>
+        /// Gets or sets the summary account.
+        /// </summary>
+        /// <value>
+        /// The summary account.
+        /// </value>
+        public string SummaryAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cash account.
+        /// </summary>
+        /// <value>
+        /// The cash account.
+        /// </value>
+        public string CashAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reportable account.
+        /// </summary>
+        /// <value>
+        /// The reportable account.
+        /// </value>
+        public string ReportableAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cost allocation indicator.
+        /// </summary>
+        /// <value>
+        /// The cost allocation indicator.
+        /// </value>
+        public string CostAllocationIndicator { get; set; }
+
+        /// <summary>
+        /// Gets or sets the federal non federal.
+        /// </summary>
+        /// <value>
+        /// The federal non federal.
+        /// </value>
+        public string FederalNonFederal { get; set; }
+
+        /// <summary>
+        /// Gets or sets the attribute value.
+        /// </summary>
+        /// <value>
+        /// The attribute value.
+        /// </value>
+        public string AttributeValue { get; set; }
+        
         /// <summary>
         /// Gets or sets the debit balance.
         /// </summary>
         /// <value>
         /// The debit balance.
         /// </value>
-        public double DebitBalance { get; set; }
+        public string Usage { get; set; }
 
         /// <summary>
         /// Gets or sets the closing amount.
@@ -109,7 +142,7 @@ namespace BudgetExecution
         /// <value>
         /// The closing amount.
         /// </value>
-        public double ClosingAmount { get; set; }
+        public string Deposit { get; set; }
         
         /// <summary>
         /// Gets or sets the source.
@@ -140,6 +173,7 @@ namespace BudgetExecution
         /// </summary>
         public GeneralLedgerAccount( )
         {
+            Source = Source.GeneralLedgerAccounts;
         }
 
         /// <summary>
@@ -150,6 +184,22 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            NormalBalance = Record[ "NormalBalance" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            SummaryAccount = Record[ "SummaryAccount" ].ToString( );
+            AccountClassification = Record[ "AccountClassification" ].ToString( );
+            CashAccount = Record[ "CashAccount" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            RealOrClosingAccount = Record[ "RealOrClosingAccount" ].ToString( );
+            FederalNonFederal = Record[ "FederalNonFederal" ].ToString( );
+            AttributeValue = Record[ "AttributeValue" ].ToString( );
+            Usage = Record[ "Usage" ].ToString( );
+            Deposit = Record[ "Deposit" ].ToString( );
         }
 
         /// <summary>
@@ -160,6 +210,22 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            NormalBalance = Record[ "NormalBalance" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            SummaryAccount = Record[ "SummaryAccount" ].ToString( );
+            AccountClassification = Record[ "AccountClassification" ].ToString( );
+            CashAccount = Record[ "CashAccount" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            RealOrClosingAccount = Record[ "RealOrClosingAccount" ].ToString( );
+            FederalNonFederal = Record[ "FederalNonFederal" ].ToString( );
+            AttributeValue = Record[ "AttributeValue" ].ToString( );
+            Usage = Record[ "Usage" ].ToString( );
+            Deposit = Record[ "Deposit" ].ToString( );
         }
 
         /// <summary>
@@ -170,6 +236,22 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            Number = dataRow[ "Number" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
+            ShortName = dataRow[ "ShortName" ].ToString( );
+            NormalBalance = dataRow[ "NormalBalance" ].ToString( );
+            ReportableAccount = dataRow[ "ReportableAccount" ].ToString( );
+            SummaryAccount = dataRow[ "SummaryAccount" ].ToString( );
+            AccountClassification = dataRow[ "AccountClassification" ].ToString( );
+            CashAccount = dataRow[ "CashAccount" ].ToString( );
+            ReportableAccount = dataRow[ "ReportableAccount" ].ToString( );
+            RealOrClosingAccount = dataRow[ "RealOrClosingAccount" ].ToString( );
+            FederalNonFederal = dataRow[ "FederalNonFederal" ].ToString( );
+            AttributeValue = dataRow[ "AttributeValue" ].ToString( );
+            Usage = dataRow[ "Usage" ].ToString( );
+            Deposit = dataRow[ "Deposit" ].ToString( );
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FundCategory
+    public class FundCategory : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the code.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The code.
         /// </value>
-        public string Code { get; set; }
+        public override string Code { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; set; }
+        public override string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the short name.
@@ -52,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -60,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataRow Record { get; set; }
+        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FundCategory"/> class.
@@ -85,6 +85,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
         }
 
         /// <summary>
@@ -95,6 +98,9 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
         }
 
         /// <summary>
@@ -105,6 +111,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
         }
     }
 }

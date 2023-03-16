@@ -1,5 +1,5 @@
-﻿// <copyright file = "OperatingPlan.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public override string EFY  { get; set; }
+        public override string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the appropriation.
         /// </value>
-        public  override string AppropriationName { get; set; }
+        public override string AppropriationName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -183,7 +183,7 @@ namespace BudgetExecution
         /// The amount.
         /// </value>
         public override double Amount { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the program area code.
         /// </summary>
@@ -238,7 +238,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the objective.
         /// </value>
-        public override string ObjectiveName  { get; set; }
+        public override string ObjectiveName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury agency code.
@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// The treasury account code.
         /// </value>
         public override string TreasuryAccountCode { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the budget account code.
         /// </summary>
@@ -298,9 +298,9 @@ namespace BudgetExecution
         public OperatingPlan( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            ID = int.Parse( Record[ "OperatingPlansId" ].ToString(  ) ?? "0" );
+            ID = int.Parse( Record[ "OperatingPlansId" ].ToString( ) ?? "0" );
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -313,21 +313,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -338,8 +338,8 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "OperatingPlansId" ].ToString(  ) ?? "0" );
-            BFY =  Record[ "BFY" ].ToString( );
+            ID = int.Parse( Record[ "OperatingPlansId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -352,21 +352,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -377,8 +377,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "OperatingPlansId" ].ToString(  ) ?? "0" );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            ID = int.Parse( dataRow[ "OperatingPlansId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
@@ -391,21 +391,21 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString(  );
-            NpmName = dataRow[ "NpmName" ].ToString(  );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
             GoalCode = dataRow[ "GoalCode" ].ToString( );
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
     }
 }

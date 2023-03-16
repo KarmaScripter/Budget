@@ -16,11 +16,11 @@ namespace BudgetExecution
     /// <seealso cref="DataUnit" />
     /// <seealso cref="BudgetExecution.IOrganization" />
     /// <seealso cref="BudgetExecution.ISource" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Organization : DataUnit, IOrganization, ISource
+    public class Organization : DataUnit, IOrganization
     {
         /// <summary>
         /// The source
@@ -78,9 +78,9 @@ namespace BudgetExecution
         public Organization( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ObjectivesId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -91,9 +91,9 @@ namespace BudgetExecution
         public Organization( string org )
         {
             Record = new DataBuilder( Source, GetArgs( org ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ObjectivesId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -103,10 +103,10 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public Organization( IDataModel builder )
         {
-            Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.ObjectivesId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Record = builder.Record;
+            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -117,9 +117,9 @@ namespace BudgetExecution
         public Organization( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( dataRow, PrimaryKey.ObjectivesId );
-            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
-            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
+            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 
@@ -139,11 +139,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IDictionary<string, object> );
+                    return default;
                 }
             }
 
-            return default( IDictionary<string, object> );
+            return default;
         }
 
         /// <summary>
@@ -156,12 +156,12 @@ namespace BudgetExecution
             {
                 return Data?.Any( ) == true
                     ? Data
-                    : default( IDictionary<string, object> );
+                    : default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, object> );
+                return default;
             }
         }
 
@@ -178,7 +178,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IOrganization );
+                return default;
             }
         }
     }

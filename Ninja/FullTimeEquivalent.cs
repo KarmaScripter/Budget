@@ -21,7 +21,7 @@ namespace BudgetExecution
     /// <seealso cref = "ProgramResultsCode"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class FullTimeEquivalent : ProgramResultsCode
+    public class FullTimeEquivalent : OperatingPlan
     {
         /// <summary>
         /// Gets or sets the ProgramResultCodes identifier.
@@ -338,7 +338,7 @@ namespace BudgetExecution
         /// <summary>
         /// The source
         /// </summary>
-        public override Source Source { get; set; } =  Source.FullTimeEquivalents;
+        public override Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -362,6 +362,7 @@ namespace BudgetExecution
         /// </summary>
         public FullTimeEquivalent( )
         {
+            Source = Source.FullTimeEquivalents;
         }
 
         /// <summary>
@@ -373,8 +374,38 @@ namespace BudgetExecution
         public FullTimeEquivalent( IQuery query )
             : base( query )
         {
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId  );
-            Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
+            Source = Source.FullTimeEquivalents;
+            Record = new DataBuilder( query ).Record;
+            ID = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -386,8 +417,38 @@ namespace BudgetExecution
         public FullTimeEquivalent( IDataModel builder )
             : base( builder )
         {
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId  );
-            Amount = double.Parse( Record[ $"{ Numeric.Amount }" ].ToString( ) );
+            Source = Source.FullTimeEquivalents;
+            Record = builder.Record;
+            ID = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -399,8 +460,38 @@ namespace BudgetExecution
         public FullTimeEquivalent( DataRow dataRow )
             : base( dataRow )
         {
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId  );
-            Amount = double.Parse( dataRow[ $"{ Numeric.Amount }" ].ToString( ) );
+            Source = Source.FullTimeEquivalents;
+            Record = dataRow;
+            ID = int.Parse( dataRow[ "FullTimeEquivalentsId" ].ToString( ) );
+            Data = dataRow.ToDictionary( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            AhCode = dataRow[ "AhCode" ].ToString( );
+            AhName = dataRow[ "AhName" ].ToString( );
+            OrgCode = dataRow[ "OrgCode" ].ToString( );
+            OrgName = dataRow[ "OrgName" ].ToString( );
+            AccountCode = dataRow[ "AccountCode" ].ToString( );
+            BocCode = dataRow[ "BocCode" ].ToString( );
+            BocName = dataRow[ "BocName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
+            GoalCode = dataRow[ "GoalCode" ].ToString( );
+            GoalName = dataRow[ "GoalName" ].ToString( );
+            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -413,7 +504,7 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
@@ -434,7 +525,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
