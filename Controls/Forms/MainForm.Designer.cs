@@ -368,6 +368,7 @@
             TestButton.PressTextColor =  System.Drawing.Color.White ;
             TestButton.Size =  new System.Drawing.Size( 140, 40 ) ;
             TestButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            TestButton.StyleManager =  null ;
             TestButton.TabIndex =  6 ;
             TestButton.Text =  "Test" ;
             TestButton.ThemeAuthor =  "Terry D. Eppler" ;
@@ -399,6 +400,7 @@
             ExitButton.PressTextColor =  System.Drawing.Color.White ;
             ExitButton.Size =  new System.Drawing.Size( 140, 40 ) ;
             ExitButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ExitButton.StyleManager =  null ;
             ExitButton.TabIndex =  7 ;
             ExitButton.Text =  "Exit " ;
             ExitButton.ThemeAuthor =  "Terry D. Eppler" ;
