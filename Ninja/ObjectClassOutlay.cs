@@ -12,6 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class ObjectClassOutlay
     {
         /// <summary>
@@ -30,6 +31,22 @@ namespace BudgetExecution
         /// </value>
         public string ReportYear { get; set; }
 
+        /// <summary>
+        /// Gets or sets the omb agency code.
+        /// </summary>
+        /// <value>
+        /// The omb agency code.
+        /// </value>
+        public string TreasuryAgencyCode { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the omb agency code.
+        /// </summary>
+        /// <value>
+        /// The omb agency code.
+        /// </value>
+        public string TreasuryBureauCode { get; set; }
+        
         /// <summary>
         /// Gets or sets the omb agency code.
         /// </summary>
@@ -184,9 +201,10 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ObjectClassOutlaysId" ].ToString( ) ?? "0" );
-            ReportYear = Record[ "" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ReportYear = Record[ "ReportYear" ].ToString( );
+            TreasuryAgencyCode = Record[ "TreasuryAgencyCode" ].ToString( );
+            TreasuryBureauCode = Record[ "TreasuryBureauCode" ].ToString( );
+            BudgetAgencyCode = Record[ "BudgetAgencyCode" ].ToString( );
             BudgetBureauCode = Record[ "BudgetBureauCode" ].ToString( );
             BudgetBureauName = Record[ "BudgetBureauName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -195,6 +213,9 @@ namespace BudgetExecution
             ObjectClassGroupNumber = Record[ "ObjectClassGroupNumber" ].ToString( );
             ObjectClassGroupName = Record[ "ObjectClassGroupName" ].ToString( );
             FinanceObjectClass = Record[ "FinanceObjectClass" ].ToString( );
+            PriorYear = double.Parse( Record[ "PriorYear" ].ToString( ) ?? "0" );
+            CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
+            BudgetYear = double.Parse( Record[ "BudgetYear" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -204,6 +225,24 @@ namespace BudgetExecution
         public ObjectClassOutlay( IDataModel builder )
         {
             Source = builder.Source;
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ObjectClassOutlaysId" ].ToString( ) ?? "0" );
+            ReportYear = Record[ "ReportYear" ].ToString( );
+            TreasuryAgencyCode = Record[ "TreasuryAgencyCode" ].ToString( );
+            TreasuryBureauCode = Record[ "TreasuryBureauCode" ].ToString( );
+            BudgetAgencyCode = Record[ "BudgetAgencyCode" ].ToString( );
+            BudgetBureauCode = Record[ "BudgetBureauCode" ].ToString( );
+            BudgetBureauName = Record[ "BudgetBureauName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            DirectReimbursable = Record[ "DirectReimbursable" ].ToString( );
+            ObjectClassGroupNumber = Record[ "ObjectClassGroupNumber" ].ToString( );
+            ObjectClassGroupName = Record[ "ObjectClassGroupName" ].ToString( );
+            FinanceObjectClass = Record[ "FinanceObjectClass" ].ToString( );
+            PriorYear = double.Parse( Record[ "PriorYear" ].ToString( ) ?? "0" );
+            CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
+            BudgetYear = double.Parse( Record[ "BudgetYear" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -212,6 +251,24 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public ObjectClassOutlay( DataRow dataRow )
         {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "ObjectClassOutlaysId" ].ToString( ) ?? "0" );
+            ReportYear = dataRow[ "ReportYear" ].ToString( );
+            TreasuryAgencyCode = dataRow[ "TreasuryAgencyCode" ].ToString( );
+            TreasuryBureauCode = dataRow[ "TreasuryBureauCode" ].ToString( );
+            BudgetAgencyCode = dataRow[ "BudgetAgencyCode" ].ToString( );
+            BudgetBureauCode = dataRow[ "BudgetBureauCode" ].ToString( );
+            BudgetBureauName = dataRow[ "BudgetBureauName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            DirectReimbursable = dataRow[ "DirectReimbursable" ].ToString( );
+            ObjectClassGroupNumber = dataRow[ "ObjectClassGroupNumber" ].ToString( );
+            ObjectClassGroupName = dataRow[ "ObjectClassGroupName" ].ToString( );
+            FinanceObjectClass = dataRow[ "FinanceObjectClass" ].ToString( );
+            PriorYear = double.Parse( dataRow[ "PriorYear" ].ToString( ) ?? "0" );
+            CurrentYear = double.Parse( dataRow[ "CurrentYear" ].ToString( ) ?? "0" );
+            BudgetYear = double.Parse( dataRow[ "BudgetYear" ].ToString( ) ?? "0" );
         }
     }
 }
