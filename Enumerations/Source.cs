@@ -390,6 +390,11 @@ namespace BudgetExecution
         Organizations,
 
         /// <summary>
+        /// The monthly actuals
+        /// </summary>
+        MonthlyActuals,
+        
+        /// <summary>
         /// The pay periods
         /// </summary>
         PayPeriods,

@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury symbol.
         /// </value>
-        public string TreasurySymbol { get; set; }
+        public string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the treasury symbol.
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury symbol.
         /// </value>
-        public string TreasurySymbolName { get; set; }
+        public string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -180,6 +180,7 @@ namespace BudgetExecution
         /// </summary>
         public MonthlyLedgerAccountBalance( )
         {
+            Source = Source.MonthlyLedgerAccountBalances;
         }
 
         /// <summary>
@@ -190,6 +191,18 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            LedgerAccount = Record[ "LedgerAccount" ].ToString( );
+            LedgerName = Record[ "LedgerName" ].ToString( );
+            CreditBalance = double.Parse( Record[ "CreditBalance" ].ToString( ) ?? "0" );
+            DebitBalance = double.Parse( Record[ "DebitBalance" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -200,6 +213,18 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            LedgerAccount = Record[ "LedgerAccount" ].ToString( );
+            LedgerName = Record[ "LedgerName" ].ToString( );
+            CreditBalance = double.Parse( Record[ "CreditBalance" ].ToString( ) ?? "0" );
+            DebitBalance = double.Parse( Record[ "DebitBalance" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -210,6 +235,18 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            LedgerAccount = dataRow[ "LedgerAccount" ].ToString( );
+            LedgerName = dataRow[ "LedgerName" ].ToString( );
+            CreditBalance = double.Parse( dataRow[ "CreditBalance" ].ToString( ) ?? "0" );
+            DebitBalance = double.Parse( dataRow[ "DebitBalance" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
     }
 }

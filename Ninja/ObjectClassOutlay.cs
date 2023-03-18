@@ -6,10 +6,12 @@ namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ObjectClassOutlay
     {
         /// <summary>
@@ -34,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The omb agency code.
         /// </value>
-        public string OmbAgencyCode { get; set; }
+        public string BudgetAgencyCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the omb agency.
@@ -42,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the omb agency.
         /// </value>
-        public string OmbAgencyName { get; set; }
+        public string BudgetAgencyName { get; set; }
 
         /// <summary>
         /// Gets or sets the omb bureau code.
@@ -50,7 +52,7 @@ namespace BudgetExecution
         /// <value>
         /// The omb bureau code.
         /// </value>
-        public string OmbBureauCode { get; set; }
+        public string BudgetBureauCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the omb bureau.
@@ -58,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the omb bureau.
         /// </value>
-        public string OmbBureauName { get; set; }
+        public string BudgetBureauName { get; set; }
 
         /// <summary>
         /// Gets or sets the omb account code.
@@ -66,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The omb account code.
         /// </value>
-        public string OmbAccountCode { get; set; }
+        public string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the omb account.
@@ -74,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the omb account.
         /// </value>
-        public string OmbAccountName { get; set; }
+        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the direct reimbursable.
@@ -169,6 +171,7 @@ namespace BudgetExecution
         /// </summary>
         public ObjectClassOutlay( )
         {
+            Source = Source.ObjectClassOutlays;
         }
 
         /// <summary>
@@ -177,6 +180,21 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public ObjectClassOutlay( IQuery query )
         {
+            Source = query.Source;
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ObjectClassOutlaysId" ].ToString( ) ?? "0" );
+            ReportYear = Record[ "" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BudgetBureauCode = Record[ "BudgetBureauCode" ].ToString( );
+            BudgetBureauName = Record[ "BudgetBureauName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            DirectReimbursable = Record[ "DirectReimbursable" ].ToString( );
+            ObjectClassGroupNumber = Record[ "ObjectClassGroupNumber" ].ToString( );
+            ObjectClassGroupName = Record[ "ObjectClassGroupName" ].ToString( );
+            FinanceObjectClass = Record[ "FinanceObjectClass" ].ToString( );
         }
 
         /// <summary>
@@ -185,6 +203,7 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public ObjectClassOutlay( IDataModel builder )
         {
+            Source = builder.Source;
         }
 
         /// <summary>

@@ -1,9 +1,11 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
+//
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -11,10 +13,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.PRC" />
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Actual : PRC
+    /// <seealso cref="BudgetExecution.Actual" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class MonthlyActual : Actual
     {
         /// <summary>
         /// </summary>
@@ -90,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The appropriation code.
         /// </value>
-        public virtual string AppropriationCode { get; set; }
+        public override string AppropriationCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the appropriation.
@@ -98,7 +99,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the appropriation.
         /// </value>
-        public virtual string AppropriationName { get; set; }
+        public override string AppropriationName { get; set; }
 
         /// <summary>
         /// Gets or sets the appropriation code.
@@ -106,7 +107,7 @@ namespace BudgetExecution
         /// <value>
         /// The appropriation code.
         /// </value>
-        public virtual string SubAppropriationCode { get; set; }
+        public override string SubAppropriationCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the appropriation.
@@ -114,7 +115,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the appropriation.
         /// </value>
-        public virtual string SubAppropriationName { get; set; }
+        public override string SubAppropriationName { get; set; }
 
         /// <summary>
         /// Gets or sets the org code.
@@ -157,22 +158,6 @@ namespace BudgetExecution
         public override string ProgramProjectName { get; set; }
 
         /// <summary>
-        /// Gets or sets the rpio activity code.
-        /// </summary>
-        /// <value>
-        /// The rpio activity code.
-        /// </value>
-        public string RpioActivityCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio activity.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio activity.
-        /// </value>
-        public string RpioActivityName { get; set; }
-
-        /// <summary>
         /// Gets or sets the boc code.
         /// </summary>
         /// <value>
@@ -194,7 +179,7 @@ namespace BudgetExecution
         /// <value>
         /// The ulo.
         /// </value>
-        public virtual double ULO { get; set; }
+        public override double ULO { get; set; }
 
         /// <summary>
         /// Gets or sets the obligations.
@@ -202,7 +187,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligations.
         /// </value>
-        public virtual double Obligations { get; set; }
+        public override double Obligations { get; set; }
 
         /// <summary>
         /// Gets or sets the balance.
@@ -210,7 +195,7 @@ namespace BudgetExecution
         /// <value>
         /// The balance.
         /// </value>
-        public virtual double Balance { get; set; }
+        public override double Balance { get; set; }
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -317,23 +302,20 @@ namespace BudgetExecution
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
-        public Actual( )
+        public MonthlyActual( )
         {
-            Source = Source.Actuals;
+            Source = Source.MonthlyActuals;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Actual( IQuery query )
-            : this( )
+        public MonthlyActual( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -371,15 +353,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
         /// <param name="builder"></param>
-        public Actual( IDataModel builder )
-            : this( )
+        public MonthlyActual( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ActualsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -417,15 +396,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Actual( DataRow dataRow )
-            : this( )
+        public MonthlyActual( DataRow dataRow )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "ActualsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
