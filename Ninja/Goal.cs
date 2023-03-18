@@ -21,6 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Goal : DataUnit, IGoal, ISource
     {
         /// <summary>
@@ -84,8 +85,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = GetId( Record, PrimaryKey.GoalsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -100,8 +101,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = GetId( Record, PrimaryKey.GoalsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -116,8 +117,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = GetId( Record, PrimaryKey.GoalsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -131,8 +132,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = GetId( Record, PrimaryKey.GoalsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -170,7 +171,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{ Field.Code }" ] = code };
+                    return new Dictionary<string, object> { [ $"Code" ] = code };
                 }
                 catch( Exception ex )
                 {

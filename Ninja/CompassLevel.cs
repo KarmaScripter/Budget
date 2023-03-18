@@ -325,7 +325,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public CompassLevel( IDataModel builder )
@@ -361,7 +362,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="CompassLevel"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public CompassLevel( DataRow dataRow )

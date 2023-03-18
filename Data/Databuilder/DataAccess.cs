@@ -1,5 +1,5 @@
-﻿// <copyright file = "DataAccess.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -60,8 +60,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSet = new DataSet( $"{ Provider }" );
-                    DataTable = new DataTable( $"{ Source }" );
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
                     DataTable.TableName = Source.ToString( );
                     DataSet.Tables.Add( DataTable );
                     var _adapter = Query.DataAdapter;
@@ -91,8 +91,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSet = new DataSet( $"{ Provider }" );
-                    DataTable = new DataTable( $"{ Source }" );
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
                     DataSet.Tables.Add( DataTable );
                     var _adapter = Query.DataAdapter;
                     _adapter?.Fill( DataSet, DataTable.TableName );
@@ -147,8 +147,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DataSet = new DataSet( $"{ Provider }" );
-                    DataTable = new DataTable( $"{ Source }" );
+                    DataSet = new DataSet( $"{Provider}" );
+                    DataTable = new DataTable( $"{Source}" );
                     DataSet.Tables.Add( DataTable );
                     var _adapter = Query?.DataAdapter;
                     _adapter?.Fill( DataSet, DataTable.TableName );
@@ -225,7 +225,7 @@ namespace BudgetExecution
                     return default( IList<string> );
                 }
             }
-            
+
             return default( IList<string> );
         }
 
@@ -243,11 +243,9 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( col.Ordinal > 0
-                           && !col.ColumnName.EndsWith( "Id" ) 
-                           && ( col.DataType == typeof( double ) 
-                               | col.DataType == typeof( decimal ) 
-                               | col.DataType == typeof( float ) 
-                               | col.DataType == typeof( int ) ) )
+                           && !col.ColumnName.EndsWith( "Id" )
+                           && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
+                           | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
@@ -263,7 +261,7 @@ namespace BudgetExecution
                     return default( IList<string> );
                 }
             }
-            
+
             return default( IList<string> );
         }
 
@@ -281,9 +279,9 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( col.Ordinal > 0
-                           && ( col.DataType == typeof( DateTime ) 
+                           && ( col.DataType == typeof( DateTime )
                                || col.DataType == typeof( DateOnly )
-                               || col.DataType == typeof( DateTimeOffset ) 
+                               || col.DataType == typeof( DateTimeOffset )
                                || col.ColumnName.EndsWith( "Date" ) ) )
                         {
                             _dates.Add( col.ColumnName );
@@ -300,19 +298,20 @@ namespace BudgetExecution
                     return default( IList<string> );
                 }
             }
-            
+
             return default( IList<string> );
         }
+
         /// <summary>
         /// Compresses the specified column names.
         /// </summary>
         /// <param name="columnNames">The column names.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public DataTable Compress( IEnumerable<string> columnNames, 
+        public DataTable Compress( IEnumerable<string> columnNames,
             IDictionary<string, object> where )
         {
-            if( columnNames?.Any( ) == true 
+            if( columnNames?.Any( ) == true
                && where?.Any( ) == true
                && DataTable != null )
             {
@@ -331,9 +330,9 @@ namespace BudgetExecution
                             {
                                 _fields.Add( col.ColumnName );
                             }
-                            else if( col.ColumnName == name 
-                                    && col.Ordinal > 0 
-                                    && col.DataType != typeof( string ) 
+                            else if( col.ColumnName == name
+                                    && col.Ordinal > 0
+                                    && col.DataType != typeof( string )
                                     && col.DataType != typeof( DateTime )
                                     && col.DataType != typeof( DateOnly )
                                     && col.DataType != typeof( DateTimeOffset ) )
@@ -342,12 +341,13 @@ namespace BudgetExecution
                             }
                         }
                     }
-                    
-                    var _dataSet = new DataSet( $"UI" );
-                    var _dataTable = new DataTable( $"{ Source }" );
+
+                    var _dataSet = new DataSet( "UI" );
+                    var _dataTable = new DataTable( $"{Source}" );
                     _dataSet.Tables.Add( _dataTable );
-                    var _sqlStatement = new SqlStatement( Source, Provider, 
-                        _fields, _numerics, where, SQL.SELECT );
+                    var _sqlStatement = new SqlStatement( Source, Provider, _fields, _numerics,
+                        where, SQL.SELECT );
+
                     var _query = new Query( _sqlStatement );
                     var _adapter = _query?.DataAdapter;
                     _adapter?.Fill( _dataSet, _dataTable.TableName );
@@ -360,7 +360,7 @@ namespace BudgetExecution
                     return default( DataTable );
                 }
             }
-            
+
             return default( DataTable );
         }
     }

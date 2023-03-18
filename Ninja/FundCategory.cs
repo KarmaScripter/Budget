@@ -23,6 +23,7 @@ namespace BudgetExecution
         public override int ID { get; set; }
 
         /// <summary>
+        /// 
         /// Gets or sets the code.
         /// </summary>
         /// <value>
