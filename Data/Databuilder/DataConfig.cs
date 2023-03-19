@@ -72,6 +72,14 @@ namespace BudgetExecution
         public IEnumerable<string> ColumnNames { get; set; }
 
         /// <summary>
+        /// Gets or sets the keys.
+        /// </summary>
+        /// <value>
+        /// The keys.
+        /// </value>
+        public IList<int> Keys { get; set; }
+
+        /// <summary>
         /// Gets or sets the fields.
         /// </summary>
         /// <value>

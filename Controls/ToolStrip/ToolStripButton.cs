@@ -224,6 +224,7 @@ namespace BudgetExecution
                         case ToolType.HomeButton:
                         case ToolType.CalendarButton:
                         case ToolType.TableButton:
+                        case ToolType.LookupButton:
                         case ToolType.EditSqlButton:
                         case ToolType.EditRecordButton:
                         case ToolType.AddButton:
@@ -332,13 +333,6 @@ namespace BudgetExecution
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );
-                            break;
-                        }
-                        case ToolType.LookupButton:
-                        {
-                            var _dialog = new LookupDialog( );
-                            _dialog.BindingSource = BindingSource;
-                            _dialog?.ShowDialog( );
                             break;
                         }
                         case ToolType.CalculatorButton:

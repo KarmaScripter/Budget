@@ -33,7 +33,6 @@
             components =  new System.ComponentModel.Container( ) ;
             var spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
             var formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
-            var captionImage1 = new Syncfusion.Windows.Forms.CaptionImage( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelForm ) );
             Ribbon =  new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon( ) ;
             Spreadsheet =  new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet( ) ;
@@ -64,9 +63,14 @@
             Separator10 =  new ToolSeparator( ) ;
             Separator11 =  new ToolSeparator( ) ;
             ContextMenu =  new ContextMenu( ) ;
+            HeaderPanel =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            PictureBox =  new System.Windows.Forms.PictureBox( ) ;
+            Header =  new Label( ) ;
             ( (System.ComponentModel.ISupportInitialize) Ribbon  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ToolStrip.SuspendLayout( );
+            HeaderPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             SuspendLayout( );
             // 
             // Ribbon
@@ -76,7 +80,7 @@
             Ribbon.Font =  new System.Drawing.Font( "Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Ribbon.HideMenuButtonToolTip =  true ;
             Ribbon.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Metro ;
-            Ribbon.Location =  new System.Drawing.Point( 0, 0 ) ;
+            Ribbon.Location =  new System.Drawing.Point( 0, 36 ) ;
             Ribbon.MenuButtonFont =  new System.Drawing.Font( "Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Ribbon.MenuButtonText =  "FILE" ;
             Ribbon.MenuButtonWidth =  56 ;
@@ -96,7 +100,7 @@
             Ribbon.RibbonStyle =  Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2010 ;
             Ribbon.ShowQuickItemsDropDownButton =  false ;
             Ribbon.ShowRibbonDisplayOptionButton =  false ;
-            Ribbon.Size =  new System.Drawing.Size( 1338, 155 ) ;
+            Ribbon.Size =  new System.Drawing.Size( 1338, 148 ) ;
             Ribbon.Spreadsheet =  Spreadsheet ;
             Ribbon.SystemText.QuickAccessDialogDropDownName =  "Start menu" ;
             Ribbon.SystemText.RenameDisplayLabelText =  "&Display Name:" ;
@@ -123,7 +127,7 @@
             Spreadsheet.DefaultRowCount =  101 ;
             Spreadsheet.DisplayAlerts =  true ;
             Spreadsheet.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            Spreadsheet.FileName =  "Book2" ;
+            Spreadsheet.FileName =  "Book3" ;
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
@@ -131,12 +135,12 @@
             formulaRangeSelectionController1.AllowSelectionOnEditing =  true ;
             Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController1 ;
             Spreadsheet.IsCustomTabItemContextMenuEnabled =  false ;
-            Spreadsheet.Location =  new System.Drawing.Point( 0, 155 ) ;
+            Spreadsheet.Location =  new System.Drawing.Point( 0, 184 ) ;
             Spreadsheet.Name =  "Spreadsheet" ;
             Spreadsheet.SelectedTabIndex =  0 ;
             Spreadsheet.SelectedTabItem =  null ;
             Spreadsheet.ShowBusyIndicator =  true ;
-            Spreadsheet.Size =  new System.Drawing.Size( 1338, 512 ) ;
+            Spreadsheet.Size =  new System.Drawing.Size( 1338, 509 ) ;
             Spreadsheet.TabIndex =  1 ;
             Spreadsheet.TabItemContextMenu =  null ;
             Spreadsheet.Text =  "Spreadsheet" ;
@@ -182,7 +186,7 @@
             ToolStrip.Label =  null ;
             ToolStrip.LastButton =  null ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
-            ToolStrip.Location =  new System.Drawing.Point( 0, 667 ) ;
+            ToolStrip.Location =  new System.Drawing.Point( 0, 693 ) ;
             ToolStrip.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStrip.Name =  "ToolStrip" ;
             ToolStrip.NextButton =  null ;
@@ -290,7 +294,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 246, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 236, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -517,6 +521,54 @@
             ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
             ContextMenu.ThemeName =  "Budget Execution" ;
             // 
+            // HeaderPanel
+            // 
+            HeaderPanel.ColumnCount =  2 ;
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 1277F ) );
+            HeaderPanel.Controls.Add( PictureBox, 0, 0 );
+            HeaderPanel.Controls.Add( Header, 1, 0 );
+            HeaderPanel.Dock =  System.Windows.Forms.DockStyle.Top ;
+            HeaderPanel.Location =  new System.Drawing.Point( 0, 0 ) ;
+            HeaderPanel.Name =  "HeaderPanel" ;
+            HeaderPanel.RowCount =  1 ;
+            HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderPanel.Size =  new System.Drawing.Size( 1338, 36 ) ;
+            HeaderPanel.TabIndex =  3 ;
+            // 
+            // PictureBox
+            // 
+            PictureBox.Image =  Properties.Resources.EPA ;
+            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            PictureBox.Name =  "PictureBox" ;
+            PictureBox.Size =  new System.Drawing.Size( 38, 22 ) ;
+            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
+            PictureBox.TabIndex =  0 ;
+            PictureBox.TabStop =  false ;
+            // 
+            // Header
+            // 
+            Header.BindingSource =  null ;
+            Header.DataFilter =  null ;
+            Header.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            Header.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            Header.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
+            Header.HoverText =  null ;
+            Header.IsDerivedStyle =  true ;
+            Header.Location =  new System.Drawing.Point( 64, 3 ) ;
+            Header.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            Header.Name =  "Header" ;
+            Header.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            Header.Size =  new System.Drawing.Size( 1271, 30 ) ;
+            Header.Style =  MetroSet_UI.Enums.Style.Custom ;
+            Header.StyleManager =  null ;
+            Header.TabIndex =  1 ;
+            Header.Text =  "Budget Execution" ;
+            Header.TextAlign =  System.Drawing.ContentAlignment.TopCenter ;
+            Header.ThemeAuthor =  "Terry D. Eppler" ;
+            Header.ThemeName =  "Budget Execution" ;
+            Header.ToolTip =  null ;
+            // 
             // ExcelForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -524,20 +576,16 @@
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            captionImage1.BackColor =  System.Drawing.Color.Transparent ;
-            captionImage1.Image =  Properties.Resources.EPA ;
-            captionImage1.Location =  new System.Drawing.Point( 4, 4 ) ;
-            captionImage1.Name =  "CaptionImage1" ;
-            captionImage1.Size =  new System.Drawing.Size( 50, 20 ) ;
-            CaptionImages.Add( captionImage1 );
-            ClientSize =  new System.Drawing.Size( 1338, 713 ) ;
+            ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
             Controls.Add( Spreadsheet );
             Controls.Add( ToolStrip );
             Controls.Add( Ribbon );
+            Controls.Add( HeaderPanel );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
@@ -552,11 +600,12 @@
             ShowMinimizeBox =  false ;
             ShowMouseOver =  true ;
             StartPosition =  System.Windows.Forms.FormStartPosition.CenterScreen ;
-            Text =  "Budget Execution" ;
             ( (System.ComponentModel.ISupportInitialize) Ribbon  ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
+            HeaderPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             ResumeLayout( false );
             PerformLayout( );
         }
@@ -599,5 +648,8 @@
         public ToolStripButton TableButton;
         public ToolSeparator Separator5;
         public ToolSeparator Separator11;
+        private System.Windows.Forms.TableLayoutPanel HeaderPanel;
+        public System.Windows.Forms.PictureBox PictureBox;
+        public Label Header;
     }
 }

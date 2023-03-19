@@ -214,7 +214,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 1340, 690 );
+            Size = new Size( 1340, 678 );
 
             // Event Wiring
             Load += OnLoad;
@@ -251,15 +251,15 @@ namespace BudgetExecution
         /// <param name="provider">
         /// The provider.
         /// </param>
-        public FilterDialog( Source source, Provider provider )
+        public FilterDialog( Source source, Provider provider = Provider.Access )
             : this( )
         {
             Source = source;
             Provider = provider;
             DataModel = new DataBuilder( source, provider );
             DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataTable;
             SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataModel.DataTable;
             Fields = DataModel.Fields;
             Numerics = DataModel.Numerics;
         }

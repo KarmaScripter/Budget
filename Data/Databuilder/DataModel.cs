@@ -1,5 +1,5 @@
-﻿// <copyright file = "DataModel.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -105,7 +105,7 @@ namespace BudgetExecution
             DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames(  );
+            ColumnNames = GetColumnNames( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -152,14 +152,15 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> fields, 
+        public DataModel( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
         {
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, fields, numerics, where, 
+            SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
+
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataSetName = DataSet.DataSetName;
@@ -192,7 +193,7 @@ namespace BudgetExecution
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Fields = GetFields( );
-            Numerics = GetNumerics(  );
+            Numerics = GetNumerics( );
             Dates = GetDates( );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
@@ -216,7 +217,7 @@ namespace BudgetExecution
             DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames(  );
+            ColumnNames = GetColumnNames( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -288,10 +289,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRows
-                        ?.Select( v => v.Field<string>( column ) )
-                        ?.Distinct( );
-                    
+                    var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
                     return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<string> );
@@ -322,9 +320,8 @@ namespace BudgetExecution
                 try
                 {
                     var _query = dataRows
-                        ?.Where( v => v.Field<string>( $"{ name }" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{ name }" ) )
-                        ?.Distinct( );
+                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                        ?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
 
                     return _query?.Any( ) == true
                         ? _query
@@ -393,7 +390,7 @@ namespace BudgetExecution
                         {
                             _table?.Columns?.Add( header
                                 ? _cell.Text
-                                : $"Column { _cell.Start.Column }" );
+                                : $"Column {_cell.Start.Column}" );
                         }
 
                         var _start = header

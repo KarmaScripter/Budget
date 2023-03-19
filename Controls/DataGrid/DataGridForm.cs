@@ -631,7 +631,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Resets the ComboBox visibility.
         /// </summary>
@@ -1963,7 +1963,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [exit button clicked].
         /// </summary>

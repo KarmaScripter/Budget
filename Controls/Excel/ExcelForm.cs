@@ -207,7 +207,7 @@ namespace BudgetExecution
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Text = $"{DataTable.TableName.SplitPascal( )} ";
+            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
 
         /// <summary>
@@ -221,8 +221,9 @@ namespace BudgetExecution
             DataTable = dataTable;
             BindingSource.DataSource = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Text = $"{DataTable.TableName.SplitPascal( )} ";
+            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
+
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -236,6 +237,9 @@ namespace BudgetExecution
         {
             try
             {
+                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Header.Font = new Font( "Roboto", 12, FontStyle.Bold );
+                Header.TextAlign = ContentAlignment.TopCenter;
                 BackButton.Click += OnBackButtonClicked;
                 LookupButton.Click += OnLookupButtonClicked;
                 Spreadsheet.MouseClick += OnRightClick;
@@ -261,8 +265,9 @@ namespace BudgetExecution
                 try
                 {
                     Spreadsheet?.SetActiveSheet( "Sheet1" );
+                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                    Spreadsheet?.SetZoomFactor( "Data", 100 );
                     Spreadsheet?.ActiveSheet?.ImportDataTable( DataTable, true, 1, 1 );
-                    Spreadsheet?.SetZoomFactor( "Sheet1", 100 );
                     Spreadsheet?.SetGridLinesVisibility( false );
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
@@ -351,7 +356,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.LookupButton )
                 {
-                    var _dialog = new FilterDialog( BindingSource );
+                    var _dialog = new FilterDialog( Source, Provider );
                     _dialog.ShowDialog( this );
                 }
             }

@@ -303,6 +303,40 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the keys.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<int> GetKeys( )
+        {
+            if( DataTable != null )
+            {
+                try
+                {
+                    var _keys = new List<int>( );
+                    foreach( DataRow _row in DataTable.Rows )
+                    {
+                        var _data = _row.ItemArray[ 0 ];
+                        if( _data?.GetType( ) == typeof( int ) )
+                        {
+                            var _item = int.Parse( _data?.ToString( ) ?? "0" );
+                            _keys.Add( _item );
+                        }
+                    }
+
+                    return _keys?.Any( ) == true
+                        ? _keys
+                        : default( IList<int> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<int> );
+                }
+            }
+
+            return default( IList<int> );
+        }
+        /// <summary>
         /// Compresses the specified column names.
         /// </summary>
         /// <param name="columnNames">The column names.</param>

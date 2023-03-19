@@ -350,7 +350,7 @@ partial class FilterDialog
         ClearButton.HoverText =  null ;
         ClearButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         ClearButton.IsDerivedStyle =  true ;
-        ClearButton.Location =  new System.Drawing.Point( 97, 610 ) ;
+        ClearButton.Location =  new System.Drawing.Point( 105, 567 ) ;
         ClearButton.Name =  "ClearButton" ;
         ClearButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         ClearButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -382,7 +382,7 @@ partial class FilterDialog
         SelectButton.HoverText =  null ;
         SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SelectButton.IsDerivedStyle =  true ;
-        SelectButton.Location =  new System.Drawing.Point( 787, 610 ) ;
+        SelectButton.Location =  new System.Drawing.Point( 782, 567 ) ;
         SelectButton.Name =  "SelectButton" ;
         SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -414,7 +414,7 @@ partial class FilterDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 1137, 610 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 1137, 567 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -1941,7 +1941,7 @@ partial class FilterDialog
         GroupButton.HoverText =  null ;
         GroupButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         GroupButton.IsDerivedStyle =  true ;
-        GroupButton.Location =  new System.Drawing.Point( 413, 610 ) ;
+        GroupButton.Location =  new System.Drawing.Point( 427, 567 ) ;
         GroupButton.Name =  "GroupButton" ;
         GroupButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         GroupButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -1971,7 +1971,7 @@ partial class FilterDialog
         CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
         CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        ClientSize =  new System.Drawing.Size( 1328, 654 ) ;
+        ClientSize =  new System.Drawing.Size( 1328, 642 ) ;
         Controls.Add( GroupButton );
         Controls.Add( CloseButton );
         Controls.Add( SelectButton );
@@ -1982,10 +1982,10 @@ partial class FilterDialog
         FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
         Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
         MaximizeBox =  false ;
-        MaximumSize =  new System.Drawing.Size( 1340, 690 ) ;
+        MaximumSize =  new System.Drawing.Size( 1340, 678 ) ;
         MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         MinimizeBox =  false ;
-        MinimumSize =  new System.Drawing.Size( 1340, 690 ) ;
+        MinimumSize =  new System.Drawing.Size( 1340, 678 ) ;
         Name =  "FilterDialog" ;
         ShowIcon =  false ;
         ShowMaximizeBox =  false ;
