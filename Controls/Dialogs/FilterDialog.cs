@@ -1484,6 +1484,9 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        ClearButton.Visible = false;
+                        GroupButton.Visible = false;
+                        SelectButton.Visible = false;
                         break;
                     }
                     case 1:
@@ -1492,6 +1495,10 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
+                        ClearButton.Visible = false;
+                        GroupButton.Visible = false;
+                        SelectButton.Visible = false;
                         break;
                     }
                     case 2:
@@ -1501,6 +1508,9 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        ClearButton.Visible = true;
+                        GroupButton.Visible = true;
+                        SelectButton.Visible = true;
                         PopulateFieldListBox( );
                         PopulateNumericListBox( );
                         break;
@@ -1512,6 +1522,9 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
+                        ClearButton.Visible = true;
+                        GroupButton.Visible = true;
+                        SelectButton.Visible = true;
                         break;
                     }
                 }

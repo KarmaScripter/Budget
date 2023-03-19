@@ -356,7 +356,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.LookupButton )
                 {
-                    var _dialog = new FilterDialog( Source, Provider );
+                    var _dialog = new FilterDialog( BindingSource );
                     _dialog.ShowDialog( this );
                 }
             }
