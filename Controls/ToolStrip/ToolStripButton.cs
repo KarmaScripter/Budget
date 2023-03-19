@@ -30,7 +30,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor =  Color.Transparent;
+            BackColor = Color.Transparent;
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             AutoToolTip = false;
@@ -80,7 +80,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ toolType }.png";
+                    var _path = AppSettings[ "ToolStrip" ] + $"{toolType}.png";
                     if( File.Exists( _path ) )
                     {
                         using var _stream = File.Open( _path, FileMode.Open );
@@ -109,7 +109,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ ToolType }.png";
+                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
                     using var _stream = File.Open( _path, FileMode.Open );
                     if( _stream != null )
                     {
@@ -244,8 +244,8 @@ namespace BudgetExecution
                         case ToolType.PdfImportButton:
                         case ToolType.ExcelImportButton:
                         {
-                            var _fileDialog = new FileBrowser(  );
-                            _fileDialog.ShowDialog(  );
+                            var _fileDialog = new FileBrowser( );
+                            _fileDialog.ShowDialog( );
                             break;
                         }
                         case ToolType.ExcelButton:
@@ -277,14 +277,14 @@ namespace BudgetExecution
                         case ToolType.AccountButton:
                         case ToolType.AddRecordButton:
                         {
-                            var _dialog = new EditDialog( _button.ToolType, BindingSource  );
+                            var _dialog = new EditDialog( _button.ToolType, BindingSource );
                             _dialog?.ShowDialog( );
                             break;
                         }
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
                         {
-                            var _dialog = new SqlDialog( _button.ToolType, BindingSource  );
+                            var _dialog = new SqlDialog( _button.ToolType, BindingSource );
                             _dialog?.ShowDialog( );
                             break;
                         }
@@ -331,7 +331,7 @@ namespace BudgetExecution
                         case ToolType.RefreshButton:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
+                            _notification.Show( );
                             break;
                         }
                         case ToolType.LookupButton:
@@ -368,7 +368,7 @@ namespace BudgetExecution
                         default:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show(  );
+                            _notification.Show( );
                             break;
                         }
                     }

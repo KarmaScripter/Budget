@@ -1963,27 +1963,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Called when [search button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSearchButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _source = DataModel.Source;
-                var _provider = DataModel.Provider;
-                var _dialog = new FilterDialog( _source, _provider );
-                _dialog?.ShowDialog( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [exit button clicked].
         /// </summary>

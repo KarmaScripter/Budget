@@ -123,7 +123,7 @@
             Spreadsheet.DefaultRowCount =  101 ;
             Spreadsheet.DisplayAlerts =  true ;
             Spreadsheet.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            Spreadsheet.FileName =  "Book2" ;
+            Spreadsheet.FileName =  "Book1" ;
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
@@ -290,7 +290,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 256, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 248, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -424,7 +424,7 @@
             LookupButton.Size =  new System.Drawing.Size( 23, 24 ) ;
             LookupButton.Text =  "toolStripButton1" ;
             LookupButton.ToolTip =  ToolTip ;
-            LookupButton.ToolType =  ToolType.NS ;
+            LookupButton.ToolType =  ToolType.LookupButton ;
             // 
             // Separator8
             // 

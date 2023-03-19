@@ -124,8 +124,8 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -240,38 +240,9 @@ namespace BudgetExecution
                 LookupButton.Click += OnLookupButtonClicked;
                 Spreadsheet.MouseClick += OnRightClick;
                 ToolStrip.Office12Mode = true;
-                ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.Label.Text = $"Excel Data";
                 Ribbon.Spreadsheet = Spreadsheet;
-                PopulateToolBarDropDownItems( );
                 SetTableProperties( DataTable );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the tool bar drop down items.
-        /// </summary>
-        public void PopulateToolBarDropDownItems( )
-        {
-            try
-            {
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var name = _names[ _i ];
-                    DropDown.Items.Add( name );
-                }
             }
             catch( Exception ex )
             {
@@ -380,8 +351,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.LookupButton )
                 {
-                    var _dialog = new FilterDialog( );
-                    _dialog.BindingSource = BindingSource;
+                    var _dialog = new FilterDialog( BindingSource );
                     _dialog.ShowDialog( this );
                 }
             }

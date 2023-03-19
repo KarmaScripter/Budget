@@ -14,6 +14,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Bibliography;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -73,6 +74,22 @@ namespace BudgetExecution
         /// The third value.
         /// </value>
         public string ThirdValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fourth category.
+        /// </summary>
+        /// <value>
+        /// The fourth category.
+        /// </value>
+        public string FourthCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fourth value.
+        /// </summary>
+        /// <value>
+        /// The fourth value.
+        /// </value>
+        public string FourthValue { get; set; }
 
         /// <summary>
         /// Gets or sets the SQL query.
@@ -205,13 +222,16 @@ namespace BudgetExecution
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            ClearButton.Click += OnFirstButtonClick;
             SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
             SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            SelectButton.Click += OnSecondButtonClick;
             ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
             ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            CloseButton.Click += OnThirdButtonClick;
+            FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
+            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
+            ClearButton.Click += OnClearButtonClick;
+            SelectButton.Click += OnSecondButtonClick;
+            GroupButton.Click += OnGroupButtonClick;
+            CloseButton.Click += OnCloseButtonClick;
             AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
@@ -238,6 +258,7 @@ namespace BudgetExecution
             DataModel = new DataBuilder( source, provider );
             DataTable = DataModel.DataTable;
             BindingSource.DataSource = DataTable;
+            SelectedTable = DataTable.TableName;
             Fields = DataModel.Fields;
             Numerics = DataModel.Numerics;
         }
@@ -249,8 +270,14 @@ namespace BudgetExecution
         public FilterDialog( BindingSource bindingSource )
             : this( )
         {
-            BindingSource = bindingSource;
-            DataTable = (DataTable)BindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = DataTable.TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            Provider = Provider.Access;
+            DataModel = new DataBuilder( Source, Provider );
+            BindingSource.DataSource = DataModel.DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
         }
 
         /// <summary>
@@ -267,11 +294,11 @@ namespace BudgetExecution
             {
                 SqlQuery = string.Empty;
                 FormFilter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
                 if( SelectedTable != null )
                 {
-                    var _text = $"{DataTable.TableName}";
-                    HeaderLabel.Text = $"{_text.SplitPascal( )} Filter";
-                    SetLabelText( );
                     ClearButton.Visible = !ClearButton.Visible;
                     SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = FilterTabPage;
@@ -292,14 +319,32 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = false;
                     CalendarTabPage.TabVisible = false;
                     PopulateTableListBoxItems( );
-                    Text = "Select Data Source";
                     AccessRadioButton.Checked = true;
-                    Provider = GetProvider( );
-                    Source = Source.ApplicationTables;
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
+                    Provider = Provider.Access;
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the RadioButton tags.
+        /// </summary>
+        private void InitRadioButtons( )
+        {
+            try
+            {
+                SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.HoverText = "SQLite Provider";
+                AccessRadioButton.Tag = "Access";
+                AccessRadioButton.HoverText = "MS Access Provider";
+                AccessRadioButton.Checked = true;
+                SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.HoverText = "SQL Compact Provider";
+                SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.HoverText = "Sql Server Provider";
             }
             catch( Exception ex )
             {
@@ -311,7 +356,7 @@ namespace BudgetExecution
         /// Gets the provider.
         /// </summary>
         /// <returns></returns>
-        private Provider GetProvider( )
+        private Provider GetRadioButtonProvider( )
         {
             try
             {
@@ -346,15 +391,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the label configuration.
+        /// Sets the provider RadioButton.
         /// </summary>
-        private void SetLabelText( )
+        /// <param name="provider">The provider.</param>
+        private void SetProviderRadioButton( Provider provider )
         {
             try
             {
-                FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
-                SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
-                ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
+                switch( provider )
+                {
+                    case Provider.SQLite:
+                    {
+                        SQLiteRadioButton.Checked = true;
+                        break;
+                    }
+                    case Provider.SqlServer:
+                    {
+                        SqlServerRadioButton.Checked = true;
+                        break;
+                    }
+                    case Provider.Access:
+                    {
+                        AccessRadioButton.Checked = true;
+                        break;
+                    }
+                    case Provider.SqlCe:
+                    {
+                        SqlCeRadioButton.Checked = true;
+                        break;
+                    }
+                }
             }
             catch( Exception ex )
             {
@@ -416,7 +482,7 @@ namespace BudgetExecution
                 }
 
                 if( FourthTable?.Visible == true )
-                { 
+                {
                     FourthTable.Visible = false;
                 }
             }
@@ -429,7 +495,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the selected filter values.
         /// </summary>
-        private void ClearFilterSelections( )
+        private void ClearSelections( )
         {
             try
             {
@@ -443,7 +509,8 @@ namespace BudgetExecution
                     FormFilter.Clear( );
                 }
 
-                if( !string.IsNullOrEmpty( ThirdValue ) )
+                if( !string.IsNullOrEmpty( ThirdValue )
+                   || ThirdTable.Visible )
                 {
                     ThirdComboBox.Items.Clear( );
                     ThirdListBox.Items.Clear( );
@@ -452,24 +519,58 @@ namespace BudgetExecution
                     ThirdTable.Visible = false;
                 }
 
-                if( !string.IsNullOrEmpty( SecondValue ) )
+                if( !string.IsNullOrEmpty( SecondValue )
+                   || SecondTable.Visible )
                 {
                     SecondComboBox.Items.Clear( );
                     SecondListBox.Items.Clear( );
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
                     SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
                 }
 
-                if( !string.IsNullOrEmpty( FirstValue ) )
+                if( !string.IsNullOrEmpty( FirstValue )
+                   || FirstTable.Visible )
                 {
                     FirstComboBox.Items.Clear( );
                     FirstListBox.Items.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
+                    PopulateFirstComboBoxItems( );
+                    FirstTable.Visible = true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear( );
+                }
+
+                if( SelectedColumns?.Any( ) == true )
+                {
+                    SelectedColumns.Clear( );
+                }
+
+                if( SelectedFields?.Any( ) == true )
+                {
+                    SelectedFields.Clear( );
+                }
+
+                if( SelectedNumerics?.Any( ) == true )
+                {
+                    SelectedNumerics.Clear( );
                 }
             }
             catch( Exception ex )
@@ -611,7 +712,6 @@ namespace BudgetExecution
                     }
 
                     SecondComboBox.SelectedIndex = -1;
-                    SetLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -650,6 +750,37 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Populates the fourth ComboBox items.
+        /// </summary>
+        public void PopulateFourthComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( !string.IsNullOrEmpty( FirstValue )
+                       && !string.IsNullOrEmpty( SecondValue )
+                       && !string.IsNullOrEmpty( ThirdValue ) )
+                    {
+                        FourthComboBox.Items.Clear( );
+                        foreach( var item in Fields )
+                        {
+                            if( !item.Equals( FirstCategory )
+                               && !item.Equals( SecondCategory )
+                               && !item.Equals( ThirdCategory ) )
+                            {
+                                FourthComboBox.Items.Add( item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
         /// <summary>
         /// Populates the field ListBox.
         /// </summary>
@@ -825,6 +956,7 @@ namespace BudgetExecution
             {
                 TableListBox.Items.Clear( );
                 ReferenceListBox.Items.Clear( );
+                MaintenanceListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data
@@ -847,6 +979,16 @@ namespace BudgetExecution
                 {
                     var name = _references[ _i ];
                     ReferenceListBox.Items.Add( name );
+                }
+
+                var _mx = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
+
+                for( var _i = 0; _i < _mx?.Count - 1; _i++ )
+                {
+                    var name = _mx[ _i ];
+                    MaintenanceListBox.Items.Add( name );
                 }
             }
             catch( Exception ex )
@@ -891,36 +1033,9 @@ namespace BudgetExecution
                         if( SecondTable.Visible == true )
                         {
                             SecondTable.Visible = false;
-                        }
-
-                        if( ThirdTable.Visible == true )
-                        {
                             ThirdTable.Visible = false;
+                            FourthTable.Visible = false;
                         }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [RadioButton checked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnRadioButtonChecked( object sender )
-        {
-            if( sender is RadioButton _radio
-               && _radio.Tag != null )
-            {
-                try
-                {
-                    var _tag = _radio.Tag.ToString( );
-                    if( !string.IsNullOrEmpty( _tag ) )
-                    {
-                        Provider = (Provider)Enum.Parse( typeof( Provider ), _tag );
                     }
                 }
                 catch( Exception ex )
@@ -947,6 +1062,8 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     if( FirstListBox.Items?.Count > 0 )
                     {
                         FirstListBox.Items.Clear( );
@@ -962,7 +1079,6 @@ namespace BudgetExecution
                             FirstListBox?.Items?.Add( item );
                         }
 
-                        SetLabelText( );
                         ClearButton.Visible = !ClearButton.Visible;
                         SelectButton.Visible = !SelectButton.Visible;
                     }
@@ -1001,6 +1117,7 @@ namespace BudgetExecution
                     if( ThirdTable.Visible == true )
                     {
                         ThirdTable.Visible = false;
+                        FourthTable.Visible = false;
                     }
                 }
                 catch( Exception ex )
@@ -1029,6 +1146,8 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     if( SecondListBox.Items.Count > 0 )
                     {
                         SecondListBox.Items.Clear( );
@@ -1043,8 +1162,6 @@ namespace BudgetExecution
                         {
                             SecondListBox.Items.Add( item );
                         }
-
-                        SetLabelText( );
                     }
                 }
                 catch( Exception ex )
@@ -1103,7 +1220,13 @@ namespace BudgetExecution
                     SqlQuery = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
                     var _filter = _comboBox.SelectedItem?.ToString( );
+                    if( FourthTable.Visible == false )
+                    {
+                        FourthTable.Visible = true;
+                    }
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         ThirdListBox.Items.Clear( );
@@ -1143,6 +1266,65 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
+                    SqlQuery = $"SELECT * FROM {Source} "
+                        + $"WHERE {FormFilter.ToCriteria( )};";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [fourth ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnFourthComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    SqlQuery = string.Empty;
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
+                    var _filter = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _filter ) )
+                    {
+                        FourthListBox.Items.Clear( );
+                        FourthCategory = _filter;
+                        var _data = DataModel.DataElements[ _filter ];
+                        foreach( var item in _data )
+                        {
+                            FourthListBox.Items.Add( item );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        public void OnFourthListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    FourthValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue );
+                    FormFilter.Add( ThirdCategory, ThirdValue );
+                    FormFilter.Add( FourthCategory, FourthValue );
                     SqlQuery = $"SELECT * FROM {Source} "
                         + $"WHERE {FormFilter.ToCriteria( )};";
                 }
@@ -1205,7 +1387,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnFirstButtonClick( object sender, EventArgs e )
+        public void OnClearButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
@@ -1213,9 +1395,8 @@ namespace BudgetExecution
                 {
                     if( FormFilter?.Any( ) == true )
                     {
-                        ClearFilterSelections( );
+                        ClearSelections( );
                         PopulateFirstComboBoxItems( );
-                        SetLabelText( );
                     }
                 }
                 catch( Exception ex )
@@ -1251,6 +1432,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [group button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnGroupButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button )
+            {
+                try
+                {
+                    TabControl.SelectedIndex = 2;
+                    PopulateFieldListBox( );
+                    PopulateNumericListBox( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [third button click].
         /// </summary>
         /// <param name="sender">The sender.
@@ -1258,13 +1461,13 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnThirdButtonClick( object sender, EventArgs e )
+        public void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
                 try
                 {
-                    ClearFilterSelections( );
+                    ClearSelections( );
                     BindingSource.DataSource = null;
                     DataTable = null;
                     DataModel = null;
@@ -1304,6 +1507,30 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [RadioButton checked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnRadioButtonChecked( object sender )
+        {
+            if( sender is RadioButton _radio
+               && _radio.Tag != null )
+            {
+                try
+                {
+                    var _tag = _radio.Tag.ToString( );
+                    if( !string.IsNullOrEmpty( _tag ) )
+                    {
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _tag );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [active tab changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1321,6 +1548,7 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        HeaderLabel.Text = $"Select {Provider} Data Table";
                         break;
                     }
                     case 1:
@@ -1329,8 +1557,10 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
-                        SetProviderImage( ); 
+                        HeaderLabel.Text = string.Empty;
+                        SetProviderImage( );
                         ResetComboBoxVisibility( );
+                        HeaderLabel.Text = $"Filter {SelectedTable.SplitPascal( )} Data Rows";
                         break;
                     }
                     case 2:
@@ -1340,6 +1570,7 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        HeaderLabel.Text = $"Group {SelectedTable.SplitPascal( )} Data Columns";
                         PopulateFieldListBox( );
                         PopulateNumericListBox( );
                         break;
@@ -1347,6 +1578,7 @@ namespace BudgetExecution
                     case 3:
                     {
                         ProviderTable.Visible = false;
+                        HeaderLabel.Text = string.Empty;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
