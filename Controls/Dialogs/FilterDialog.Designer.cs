@@ -47,6 +47,18 @@ partial class FilterDialog
         CloseButton =  new Button( ) ;
         ToolTip =  new SmallTip( ) ;
         TabControl =  new TabControl( ) ;
+        FilterTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
+        FourthTable =  new HeaderPanel( ) ;
+        FourthPanel =  new Layout( ) ;
+        FourthListBox =  new ListBox( ) ;
+        listBox1 =  new ListBox( ) ;
+        FourthComboBox =  new ComboBox( ) ;
+        ThirdTable =  new HeaderPanel( ) ;
+        SecondTable =  new HeaderPanel( ) ;
+        SecondPanel =  new Layout( ) ;
+        SecondListBox =  new ListBox( ) ;
+        SecondComboBox =  new ComboBox( ) ;
+        FirstTable =  new HeaderPanel( ) ;
         TableTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         MaintenanceTable =  new HeaderPanel( ) ;
         layout1 =  new Layout( ) ;
@@ -63,18 +75,6 @@ partial class FilterDialog
         AccessRadioButton =  new RadioButton( ) ;
         SqlServerRadioButton =  new RadioButton( ) ;
         SQLiteRadioButton =  new RadioButton( ) ;
-        FilterTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
-        FourthTable =  new HeaderPanel( ) ;
-        FourthPanel =  new Layout( ) ;
-        FourthListBox =  new ListBox( ) ;
-        listBox1 =  new ListBox( ) ;
-        FourthComboBox =  new ComboBox( ) ;
-        ThirdTable =  new HeaderPanel( ) ;
-        SecondTable =  new HeaderPanel( ) ;
-        SecondPanel =  new Layout( ) ;
-        SecondListBox =  new ListBox( ) ;
-        SecondComboBox =  new ComboBox( ) ;
-        FirstTable =  new HeaderPanel( ) ;
         GroupTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         SqlTable =  new HeaderPanel( ) ;
         SqlPanel =  new Layout( ) ;
@@ -113,6 +113,13 @@ partial class FilterDialog
         ThirdPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
         TabControl.SuspendLayout( );
+        FilterTabPage.SuspendLayout( );
+        FourthTable.SuspendLayout( );
+        FourthPanel.SuspendLayout( );
+        ThirdTable.SuspendLayout( );
+        SecondTable.SuspendLayout( );
+        SecondPanel.SuspendLayout( );
+        FirstTable.SuspendLayout( );
         TableTabPage.SuspendLayout( );
         MaintenanceTable.SuspendLayout( );
         layout1.SuspendLayout( );
@@ -122,13 +129,6 @@ partial class FilterDialog
         TablePanel.SuspendLayout( );
         ProviderTable.SuspendLayout( );
         ProviderPanel.SuspendLayout( );
-        FilterTabPage.SuspendLayout( );
-        FourthTable.SuspendLayout( );
-        FourthPanel.SuspendLayout( );
-        ThirdTable.SuspendLayout( );
-        SecondTable.SuspendLayout( );
-        SecondPanel.SuspendLayout( );
-        FirstTable.SuspendLayout( );
         GroupTabPage.SuspendLayout( );
         SqlTable.SuspendLayout( );
         SqlPanel.SuspendLayout( );
@@ -355,7 +355,7 @@ partial class FilterDialog
         ClearButton.HoverText =  null ;
         ClearButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         ClearButton.IsDerivedStyle =  true ;
-        ClearButton.Location =  new System.Drawing.Point( 53, 587 ) ;
+        ClearButton.Location =  new System.Drawing.Point( 92, 621 ) ;
         ClearButton.Name =  "ClearButton" ;
         ClearButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         ClearButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -364,7 +364,7 @@ partial class FilterDialog
         ClearButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.PressTextColor =  System.Drawing.Color.White ;
-        ClearButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        ClearButton.Size =  new System.Drawing.Size( 122, 35 ) ;
         ClearButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         ClearButton.StyleManager =  null ;
         ClearButton.TabIndex =  9 ;
@@ -387,7 +387,7 @@ partial class FilterDialog
         SelectButton.HoverText =  null ;
         SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SelectButton.IsDerivedStyle =  true ;
-        SelectButton.Location =  new System.Drawing.Point( 742, 587 ) ;
+        SelectButton.Location =  new System.Drawing.Point( 784, 621 ) ;
         SelectButton.Name =  "SelectButton" ;
         SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -396,7 +396,7 @@ partial class FilterDialog
         SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SelectButton.PressTextColor =  System.Drawing.Color.White ;
-        SelectButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        SelectButton.Size =  new System.Drawing.Size( 122, 35 ) ;
         SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SelectButton.StyleManager =  null ;
         SelectButton.TabIndex =  10 ;
@@ -419,7 +419,7 @@ partial class FilterDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 1098, 587 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 1137, 621 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -428,7 +428,7 @@ partial class FilterDialog
         CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressTextColor =  System.Drawing.Color.White ;
-        CloseButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        CloseButton.Size =  new System.Drawing.Size( 111, 35 ) ;
         CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         CloseButton.StyleManager =  null ;
         CloseButton.TabIndex =  11 ;
@@ -462,13 +462,13 @@ partial class FilterDialog
         TabControl.ActiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.ActiveTabFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         TabControl.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TabControl.BeforeTouchSize =  new System.Drawing.Size( 1288, 517 ) ;
+        TabControl.BeforeTouchSize =  new System.Drawing.Size( 1298, 544 ) ;
         TabControl.BindingSource =  null ;
         TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
         TabControl.CanOverrideStyle =  true ;
         TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TabControl.Controls.Add( TableTabPage );
         TabControl.Controls.Add( FilterTabPage );
+        TabControl.Controls.Add( TableTabPage );
         TabControl.Controls.Add( GroupTabPage );
         TabControl.Controls.Add( CalendarTabPage );
         TabControl.Dock =  System.Windows.Forms.DockStyle.Top ;
@@ -481,7 +481,7 @@ partial class FilterDialog
         TabControl.ItemSize =  new System.Drawing.Size( 100, 30 ) ;
         TabControl.Location =  new System.Drawing.Point( 0, 38 ) ;
         TabControl.Name =  "TabControl" ;
-        TabControl.Size =  new System.Drawing.Size( 1288, 517 ) ;
+        TabControl.Size =  new System.Drawing.Size( 1298, 544 ) ;
         TabControl.TabIndex =  12 ;
         TabControl.TabPanelBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.TabStyle =  typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro ) ;
@@ -497,6 +497,329 @@ partial class FilterDialog
         TabControl.ThemeStyle.TabStyle.SeparatorColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.ToolTip =  null ;
         // 
+        // FilterTabPage
+        // 
+        FilterTabPage.Controls.Add( FourthTable );
+        FilterTabPage.Controls.Add( ThirdTable );
+        FilterTabPage.Controls.Add( SecondTable );
+        FilterTabPage.Controls.Add( FirstTable );
+        FilterTabPage.Image =  null ;
+        FilterTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
+        FilterTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
+        FilterTabPage.Name =  "FilterTabPage" ;
+        FilterTabPage.ShowCloseButton =  true ;
+        FilterTabPage.Size =  new System.Drawing.Size( 1298, 515 ) ;
+        FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FilterTabPage.TabIndex =  1 ;
+        FilterTabPage.ThemesEnabled =  false ;
+        // 
+        // FourthTable
+        // 
+        FourthTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FourthTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        FourthTable.CaptionText =  "Fourth Category" ;
+        FourthTable.ColumnCount =  1 ;
+        FourthTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        FourthTable.Controls.Add( FourthPanel, 0, 1 );
+        FourthTable.Controls.Add( FourthComboBox, 0, 0 );
+        FourthTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FourthTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        FourthTable.Location =  new System.Drawing.Point( 1026, 54 ) ;
+        FourthTable.Name =  "FourthTable" ;
+        FourthTable.RowCount =  2 ;
+        FourthTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.2857141F ) );
+        FourthTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.71429F ) );
+        FourthTable.Size =  new System.Drawing.Size( 245, 366 ) ;
+        FourthTable.TabIndex =  12 ;
+        // 
+        // FourthPanel
+        // 
+        FourthPanel.BackColor =  System.Drawing.Color.Transparent ;
+        FourthPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FourthPanel.BindingSource =  null ;
+        FourthPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        FourthPanel.BorderThickness =  1 ;
+        FourthPanel.Children =  null ;
+        FourthPanel.Controls.Add( FourthListBox );
+        FourthPanel.Controls.Add( listBox1 );
+        FourthPanel.DataFilter =  null ;
+        FourthPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        FourthPanel.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FourthPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        FourthPanel.HoverText =  null ;
+        FourthPanel.IsDerivedStyle =  true ;
+        FourthPanel.Location =  new System.Drawing.Point( 3, 55 ) ;
+        FourthPanel.Name =  "FourthPanel" ;
+        FourthPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FourthPanel.Size =  new System.Drawing.Size( 239, 308 ) ;
+        FourthPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FourthPanel.StyleManager =  null ;
+        FourthPanel.TabIndex =  3 ;
+        FourthPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        FourthPanel.ThemeName =  "BudgetExecution" ;
+        FourthPanel.ToolTip =  null ;
+        // 
+        // FourthListBox
+        // 
+        FourthListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+        FourthListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+        FourthListBox.BindingSource =  null ;
+        FourthListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        FourthListBox.DataFilter =  null ;
+        FourthListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FourthListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FourthListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FourthListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        FourthListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
+        FourthListBox.HoverText =  null ;
+        FourthListBox.IsDerivedStyle =  true ;
+        FourthListBox.ItemHeight =  28 ;
+        FourthListBox.Location =  new System.Drawing.Point( 20, 21 ) ;
+        FourthListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        FourthListBox.MultiSelect =  false ;
+        FourthListBox.Name =  "FourthListBox" ;
+        FourthListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FourthListBox.SelectedIndex =  -1 ;
+        FourthListBox.SelectedItem =  null ;
+        FourthListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        FourthListBox.SelectedItemColor =  System.Drawing.Color.White ;
+        FourthListBox.SelectedText =  null ;
+        FourthListBox.SelectedValue =  null ;
+        FourthListBox.ShowBorder =  false ;
+        FourthListBox.ShowScrollBar =  false ;
+        FourthListBox.Size =  new System.Drawing.Size( 199, 267 ) ;
+        FourthListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FourthListBox.StyleManager =  null ;
+        FourthListBox.TabIndex =  1 ;
+        FourthListBox.ThemeAuthor =  "Terry D. Eppler" ;
+        FourthListBox.ThemeName =  "BudgetExecution" ;
+        FourthListBox.ToolTip =  null ;
+        // 
+        // listBox1
+        // 
+        listBox1.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+        listBox1.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+        listBox1.BindingSource =  null ;
+        listBox1.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        listBox1.DataFilter =  null ;
+        listBox1.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        listBox1.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        listBox1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        listBox1.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        listBox1.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
+        listBox1.HoverText =  null ;
+        listBox1.IsDerivedStyle =  true ;
+        listBox1.ItemHeight =  28 ;
+        listBox1.Location =  new System.Drawing.Point( 18, 19 ) ;
+        listBox1.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        listBox1.MultiSelect =  false ;
+        listBox1.Name =  "listBox1" ;
+        listBox1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        listBox1.SelectedIndex =  -1 ;
+        listBox1.SelectedItem =  null ;
+        listBox1.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        listBox1.SelectedItemColor =  System.Drawing.Color.White ;
+        listBox1.SelectedText =  null ;
+        listBox1.SelectedValue =  null ;
+        listBox1.ShowBorder =  false ;
+        listBox1.ShowScrollBar =  false ;
+        listBox1.Size =  new System.Drawing.Size( 0, 141 ) ;
+        listBox1.Style =  MetroSet_UI.Enums.Style.Custom ;
+        listBox1.StyleManager =  null ;
+        listBox1.TabIndex =  0 ;
+        listBox1.ThemeAuthor =  "Terry D. Eppler" ;
+        listBox1.ThemeName =  "BudgetExecution" ;
+        listBox1.ToolTip =  null ;
+        // 
+        // FourthComboBox
+        // 
+        FourthComboBox.AllowDrop =  true ;
+        FourthComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        FourthComboBox.BackColor =  System.Drawing.Color.Transparent ;
+        FourthComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FourthComboBox.BindingSource =  null ;
+        FourthComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        FourthComboBox.CausesValidation =  false ;
+        FourthComboBox.DataFilter =  null ;
+        FourthComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        FourthComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        FourthComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        FourthComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        FourthComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
+        FourthComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
+        FourthComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        FourthComboBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FourthComboBox.FormattingEnabled =  true ;
+        FourthComboBox.HoverText =  "Select Third Category" ;
+        FourthComboBox.IsDerivedStyle =  true ;
+        FourthComboBox.ItemHeight =  24 ;
+        FourthComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
+        FourthComboBox.MaxDropDownItems =  60 ;
+        FourthComboBox.Name =  "FourthComboBox" ;
+        FourthComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        FourthComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
+        FourthComboBox.Size =  new System.Drawing.Size( 239, 30 ) ;
+        FourthComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FourthComboBox.StyleManager =  null ;
+        FourthComboBox.TabIndex =  1 ;
+        FourthComboBox.ThemeAuthor =  "Terry D. Eppler" ;
+        FourthComboBox.ThemeName =  "BudgetExecution" ;
+        FourthComboBox.ToolTip =  null ;
+        // 
+        // ThirdTable
+        // 
+        ThirdTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        ThirdTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        ThirdTable.CaptionText =  "Third Category" ;
+        ThirdTable.ColumnCount =  1 ;
+        ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        ThirdTable.Controls.Add( ThirdPanel, 0, 1 );
+        ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
+        ThirdTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ThirdTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        ThirdTable.Location =  new System.Drawing.Point( 697, 54 ) ;
+        ThirdTable.Name =  "ThirdTable" ;
+        ThirdTable.RowCount =  2 ;
+        ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
+        ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
+        ThirdTable.Size =  new System.Drawing.Size( 248, 366 ) ;
+        ThirdTable.TabIndex =  11 ;
+        // 
+        // SecondTable
+        // 
+        SecondTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SecondTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        SecondTable.CaptionText =  "Second Category" ;
+        SecondTable.ColumnCount =  1 ;
+        SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        SecondTable.Controls.Add( SecondPanel, 0, 1 );
+        SecondTable.Controls.Add( SecondComboBox, 0, 0 );
+        SecondTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SecondTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        SecondTable.Location =  new System.Drawing.Point( 369, 54 ) ;
+        SecondTable.Name =  "SecondTable" ;
+        SecondTable.RowCount =  2 ;
+        SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
+        SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
+        SecondTable.Size =  new System.Drawing.Size( 248, 366 ) ;
+        SecondTable.TabIndex =  10 ;
+        // 
+        // SecondPanel
+        // 
+        SecondPanel.BackColor =  System.Drawing.Color.Transparent ;
+        SecondPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SecondPanel.BindingSource =  null ;
+        SecondPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        SecondPanel.BorderThickness =  1 ;
+        SecondPanel.Children =  null ;
+        SecondPanel.Controls.Add( SecondListBox );
+        SecondPanel.DataFilter =  null ;
+        SecondPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        SecondPanel.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SecondPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        SecondPanel.HoverText =  null ;
+        SecondPanel.IsDerivedStyle =  true ;
+        SecondPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
+        SecondPanel.Name =  "SecondPanel" ;
+        SecondPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SecondPanel.Size =  new System.Drawing.Size( 242, 307 ) ;
+        SecondPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SecondPanel.StyleManager =  null ;
+        SecondPanel.TabIndex =  2 ;
+        SecondPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        SecondPanel.ThemeName =  "BudgetExecution" ;
+        SecondPanel.ToolTip =  null ;
+        // 
+        // SecondListBox
+        // 
+        SecondListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+        SecondListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+        SecondListBox.BindingSource =  null ;
+        SecondListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        SecondListBox.DataFilter =  null ;
+        SecondListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SecondListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SecondListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SecondListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SecondListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
+        SecondListBox.HoverText =  null ;
+        SecondListBox.IsDerivedStyle =  true ;
+        SecondListBox.ItemHeight =  28 ;
+        SecondListBox.Location =  new System.Drawing.Point( 17, 19 ) ;
+        SecondListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        SecondListBox.MultiSelect =  false ;
+        SecondListBox.Name =  "SecondListBox" ;
+        SecondListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SecondListBox.SelectedIndex =  -1 ;
+        SecondListBox.SelectedItem =  null ;
+        SecondListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SecondListBox.SelectedItemColor =  System.Drawing.Color.White ;
+        SecondListBox.SelectedText =  null ;
+        SecondListBox.SelectedValue =  null ;
+        SecondListBox.ShowBorder =  false ;
+        SecondListBox.ShowScrollBar =  false ;
+        SecondListBox.Size =  new System.Drawing.Size( 205, 266 ) ;
+        SecondListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SecondListBox.StyleManager =  null ;
+        SecondListBox.TabIndex =  0 ;
+        SecondListBox.ThemeAuthor =  "Terry D. Eppler" ;
+        SecondListBox.ThemeName =  "BudgetExecution" ;
+        SecondListBox.ToolTip =  null ;
+        // 
+        // SecondComboBox
+        // 
+        SecondComboBox.AllowDrop =  true ;
+        SecondComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SecondComboBox.BackColor =  System.Drawing.Color.Transparent ;
+        SecondComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SecondComboBox.BindingSource =  BindingSource ;
+        SecondComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        SecondComboBox.CausesValidation =  false ;
+        SecondComboBox.DataFilter =  null ;
+        SecondComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        SecondComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        SecondComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        SecondComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        SecondComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
+        SecondComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
+        SecondComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        SecondComboBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SecondComboBox.FormattingEnabled =  true ;
+        SecondComboBox.HoverText =  "Select Second Category" ;
+        SecondComboBox.IsDerivedStyle =  true ;
+        SecondComboBox.ItemHeight =  24 ;
+        SecondComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
+        SecondComboBox.MaxDropDownItems =  60 ;
+        SecondComboBox.Name =  "SecondComboBox" ;
+        SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
+        SecondComboBox.Size =  new System.Drawing.Size( 242, 30 ) ;
+        SecondComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SecondComboBox.StyleManager =  null ;
+        SecondComboBox.TabIndex =  1 ;
+        SecondComboBox.ThemeAuthor =  "Terry D. Eppler" ;
+        SecondComboBox.ThemeName =  "BudgetExecution" ;
+        SecondComboBox.ToolTip =  null ;
+        // 
+        // FirstTable
+        // 
+        FirstTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FirstTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        FirstTable.CaptionText =  "First Category" ;
+        FirstTable.ColumnCount =  1 ;
+        FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        FirstTable.Controls.Add( FirstPanel, 0, 1 );
+        FirstTable.Controls.Add( FirstComboBox, 0, 0 );
+        FirstTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FirstTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        FirstTable.Location =  new System.Drawing.Point( 53, 54 ) ;
+        FirstTable.Name =  "FirstTable" ;
+        FirstTable.RowCount =  2 ;
+        FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.5714283F ) );
+        FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.42857F ) );
+        FirstTable.Size =  new System.Drawing.Size( 248, 366 ) ;
+        FirstTable.TabIndex =  9 ;
+        // 
         // TableTabPage
         // 
         TableTabPage.Controls.Add( MaintenanceTable );
@@ -508,7 +831,7 @@ partial class FilterDialog
         TableTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         TableTabPage.Name =  "TableTabPage" ;
         TableTabPage.ShowCloseButton =  true ;
-        TableTabPage.Size =  new System.Drawing.Size( 1288, 488 ) ;
+        TableTabPage.Size =  new System.Drawing.Size( 1338, 515 ) ;
         TableTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TableTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         TableTabPage.TabIndex =  2 ;
@@ -524,7 +847,7 @@ partial class FilterDialog
         MaintenanceTable.Controls.Add( layout1, 0, 0 );
         MaintenanceTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         MaintenanceTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        MaintenanceTable.Location =  new System.Drawing.Point( 963, 54 ) ;
+        MaintenanceTable.Location =  new System.Drawing.Point( 1010, 54 ) ;
         MaintenanceTable.Name =  "MaintenanceTable" ;
         MaintenanceTable.RowCount =  1 ;
         MaintenanceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -602,7 +925,7 @@ partial class FilterDialog
         ReferenceTable.Controls.Add( ReferencePanel, 0, 0 );
         ReferenceTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ReferenceTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        ReferenceTable.Location =  new System.Drawing.Point( 637, 54 ) ;
+        ReferenceTable.Location =  new System.Drawing.Point( 666, 54 ) ;
         ReferenceTable.Name =  "ReferenceTable" ;
         ReferenceTable.RowCount =  1 ;
         ReferenceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -680,7 +1003,7 @@ partial class FilterDialog
         SourceTable.Controls.Add( TablePanel, 0, 0 );
         SourceTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         SourceTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        SourceTable.Location =  new System.Drawing.Point( 320, 54 ) ;
+        SourceTable.Location =  new System.Drawing.Point( 328, 54 ) ;
         SourceTable.Name =  "SourceTable" ;
         SourceTable.RowCount =  1 ;
         SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -894,329 +1217,6 @@ partial class FilterDialog
         SQLiteRadioButton.ThemeName =  "Budget Execution" ;
         SQLiteRadioButton.ToolTip =  ToolTip ;
         // 
-        // FilterTabPage
-        // 
-        FilterTabPage.Controls.Add( FourthTable );
-        FilterTabPage.Controls.Add( ThirdTable );
-        FilterTabPage.Controls.Add( SecondTable );
-        FilterTabPage.Controls.Add( FirstTable );
-        FilterTabPage.Image =  null ;
-        FilterTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-        FilterTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
-        FilterTabPage.Name =  "FilterTabPage" ;
-        FilterTabPage.ShowCloseButton =  true ;
-        FilterTabPage.Size =  new System.Drawing.Size( 1288, 488 ) ;
-        FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FilterTabPage.TabIndex =  1 ;
-        FilterTabPage.ThemesEnabled =  false ;
-        // 
-        // FourthTable
-        // 
-        FourthTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FourthTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        FourthTable.CaptionText =  "Fourth Category" ;
-        FourthTable.ColumnCount =  1 ;
-        FourthTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        FourthTable.Controls.Add( FourthPanel, 0, 1 );
-        FourthTable.Controls.Add( FourthComboBox, 0, 0 );
-        FourthTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FourthTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        FourthTable.Location =  new System.Drawing.Point( 996, 54 ) ;
-        FourthTable.Name =  "FourthTable" ;
-        FourthTable.RowCount =  2 ;
-        FourthTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.2857141F ) );
-        FourthTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.71429F ) );
-        FourthTable.Size =  new System.Drawing.Size( 245, 366 ) ;
-        FourthTable.TabIndex =  12 ;
-        // 
-        // FourthPanel
-        // 
-        FourthPanel.BackColor =  System.Drawing.Color.Transparent ;
-        FourthPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FourthPanel.BindingSource =  null ;
-        FourthPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        FourthPanel.BorderThickness =  1 ;
-        FourthPanel.Children =  null ;
-        FourthPanel.Controls.Add( FourthListBox );
-        FourthPanel.Controls.Add( listBox1 );
-        FourthPanel.DataFilter =  null ;
-        FourthPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        FourthPanel.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FourthPanel.ForeColor =  System.Drawing.Color.Transparent ;
-        FourthPanel.HoverText =  null ;
-        FourthPanel.IsDerivedStyle =  true ;
-        FourthPanel.Location =  new System.Drawing.Point( 3, 55 ) ;
-        FourthPanel.Name =  "FourthPanel" ;
-        FourthPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        FourthPanel.Size =  new System.Drawing.Size( 239, 308 ) ;
-        FourthPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        FourthPanel.StyleManager =  null ;
-        FourthPanel.TabIndex =  3 ;
-        FourthPanel.ThemeAuthor =  "Terry D. Eppler" ;
-        FourthPanel.ThemeName =  "BudgetExecution" ;
-        FourthPanel.ToolTip =  null ;
-        // 
-        // FourthListBox
-        // 
-        FourthListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-        FourthListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        FourthListBox.BindingSource =  null ;
-        FourthListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        FourthListBox.DataFilter =  null ;
-        FourthListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FourthListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FourthListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FourthListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        FourthListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
-        FourthListBox.HoverText =  null ;
-        FourthListBox.IsDerivedStyle =  true ;
-        FourthListBox.ItemHeight =  28 ;
-        FourthListBox.Location =  new System.Drawing.Point( 20, 21 ) ;
-        FourthListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        FourthListBox.MultiSelect =  false ;
-        FourthListBox.Name =  "FourthListBox" ;
-        FourthListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        FourthListBox.SelectedIndex =  -1 ;
-        FourthListBox.SelectedItem =  null ;
-        FourthListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        FourthListBox.SelectedItemColor =  System.Drawing.Color.White ;
-        FourthListBox.SelectedText =  null ;
-        FourthListBox.SelectedValue =  null ;
-        FourthListBox.ShowBorder =  false ;
-        FourthListBox.ShowScrollBar =  false ;
-        FourthListBox.Size =  new System.Drawing.Size( 199, 267 ) ;
-        FourthListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        FourthListBox.StyleManager =  null ;
-        FourthListBox.TabIndex =  1 ;
-        FourthListBox.ThemeAuthor =  "Terry D. Eppler" ;
-        FourthListBox.ThemeName =  "BudgetExecution" ;
-        FourthListBox.ToolTip =  null ;
-        // 
-        // listBox1
-        // 
-        listBox1.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-        listBox1.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        listBox1.BindingSource =  null ;
-        listBox1.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        listBox1.DataFilter =  null ;
-        listBox1.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        listBox1.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        listBox1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        listBox1.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        listBox1.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
-        listBox1.HoverText =  null ;
-        listBox1.IsDerivedStyle =  true ;
-        listBox1.ItemHeight =  28 ;
-        listBox1.Location =  new System.Drawing.Point( 18, 19 ) ;
-        listBox1.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        listBox1.MultiSelect =  false ;
-        listBox1.Name =  "listBox1" ;
-        listBox1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        listBox1.SelectedIndex =  -1 ;
-        listBox1.SelectedItem =  null ;
-        listBox1.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        listBox1.SelectedItemColor =  System.Drawing.Color.White ;
-        listBox1.SelectedText =  null ;
-        listBox1.SelectedValue =  null ;
-        listBox1.ShowBorder =  false ;
-        listBox1.ShowScrollBar =  false ;
-        listBox1.Size =  new System.Drawing.Size( 0, 141 ) ;
-        listBox1.Style =  MetroSet_UI.Enums.Style.Custom ;
-        listBox1.StyleManager =  null ;
-        listBox1.TabIndex =  0 ;
-        listBox1.ThemeAuthor =  "Terry D. Eppler" ;
-        listBox1.ThemeName =  "BudgetExecution" ;
-        listBox1.ToolTip =  null ;
-        // 
-        // FourthComboBox
-        // 
-        FourthComboBox.AllowDrop =  true ;
-        FourthComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        FourthComboBox.BackColor =  System.Drawing.Color.Transparent ;
-        FourthComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FourthComboBox.BindingSource =  null ;
-        FourthComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        FourthComboBox.CausesValidation =  false ;
-        FourthComboBox.DataFilter =  null ;
-        FourthComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        FourthComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        FourthComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        FourthComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        FourthComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
-        FourthComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-        FourthComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        FourthComboBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FourthComboBox.FormattingEnabled =  true ;
-        FourthComboBox.HoverText =  "Select Third Category" ;
-        FourthComboBox.IsDerivedStyle =  true ;
-        FourthComboBox.ItemHeight =  24 ;
-        FourthComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
-        FourthComboBox.MaxDropDownItems =  60 ;
-        FourthComboBox.Name =  "FourthComboBox" ;
-        FourthComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        FourthComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
-        FourthComboBox.Size =  new System.Drawing.Size( 239, 30 ) ;
-        FourthComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        FourthComboBox.StyleManager =  null ;
-        FourthComboBox.TabIndex =  1 ;
-        FourthComboBox.ThemeAuthor =  "Terry D. Eppler" ;
-        FourthComboBox.ThemeName =  "BudgetExecution" ;
-        FourthComboBox.ToolTip =  null ;
-        // 
-        // ThirdTable
-        // 
-        ThirdTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        ThirdTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        ThirdTable.CaptionText =  "Third Category" ;
-        ThirdTable.ColumnCount =  1 ;
-        ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ThirdTable.Controls.Add( ThirdPanel, 0, 1 );
-        ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
-        ThirdTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        ThirdTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        ThirdTable.Location =  new System.Drawing.Point( 671, 54 ) ;
-        ThirdTable.Name =  "ThirdTable" ;
-        ThirdTable.RowCount =  2 ;
-        ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
-        ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
-        ThirdTable.Size =  new System.Drawing.Size( 248, 366 ) ;
-        ThirdTable.TabIndex =  11 ;
-        // 
-        // SecondTable
-        // 
-        SecondTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SecondTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        SecondTable.CaptionText =  "Second Category" ;
-        SecondTable.ColumnCount =  1 ;
-        SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        SecondTable.Controls.Add( SecondPanel, 0, 1 );
-        SecondTable.Controls.Add( SecondComboBox, 0, 0 );
-        SecondTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SecondTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        SecondTable.Location =  new System.Drawing.Point( 358, 54 ) ;
-        SecondTable.Name =  "SecondTable" ;
-        SecondTable.RowCount =  2 ;
-        SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
-        SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
-        SecondTable.Size =  new System.Drawing.Size( 248, 366 ) ;
-        SecondTable.TabIndex =  10 ;
-        // 
-        // SecondPanel
-        // 
-        SecondPanel.BackColor =  System.Drawing.Color.Transparent ;
-        SecondPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SecondPanel.BindingSource =  null ;
-        SecondPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        SecondPanel.BorderThickness =  1 ;
-        SecondPanel.Children =  null ;
-        SecondPanel.Controls.Add( SecondListBox );
-        SecondPanel.DataFilter =  null ;
-        SecondPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        SecondPanel.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SecondPanel.ForeColor =  System.Drawing.Color.Transparent ;
-        SecondPanel.HoverText =  null ;
-        SecondPanel.IsDerivedStyle =  true ;
-        SecondPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
-        SecondPanel.Name =  "SecondPanel" ;
-        SecondPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        SecondPanel.Size =  new System.Drawing.Size( 242, 307 ) ;
-        SecondPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        SecondPanel.StyleManager =  null ;
-        SecondPanel.TabIndex =  2 ;
-        SecondPanel.ThemeAuthor =  "Terry D. Eppler" ;
-        SecondPanel.ThemeName =  "BudgetExecution" ;
-        SecondPanel.ToolTip =  null ;
-        // 
-        // SecondListBox
-        // 
-        SecondListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-        SecondListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        SecondListBox.BindingSource =  null ;
-        SecondListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        SecondListBox.DataFilter =  null ;
-        SecondListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SecondListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SecondListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SecondListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        SecondListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
-        SecondListBox.HoverText =  null ;
-        SecondListBox.IsDerivedStyle =  true ;
-        SecondListBox.ItemHeight =  28 ;
-        SecondListBox.Location =  new System.Drawing.Point( 17, 19 ) ;
-        SecondListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        SecondListBox.MultiSelect =  false ;
-        SecondListBox.Name =  "SecondListBox" ;
-        SecondListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        SecondListBox.SelectedIndex =  -1 ;
-        SecondListBox.SelectedItem =  null ;
-        SecondListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SecondListBox.SelectedItemColor =  System.Drawing.Color.White ;
-        SecondListBox.SelectedText =  null ;
-        SecondListBox.SelectedValue =  null ;
-        SecondListBox.ShowBorder =  false ;
-        SecondListBox.ShowScrollBar =  false ;
-        SecondListBox.Size =  new System.Drawing.Size( 205, 266 ) ;
-        SecondListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        SecondListBox.StyleManager =  null ;
-        SecondListBox.TabIndex =  0 ;
-        SecondListBox.ThemeAuthor =  "Terry D. Eppler" ;
-        SecondListBox.ThemeName =  "BudgetExecution" ;
-        SecondListBox.ToolTip =  null ;
-        // 
-        // SecondComboBox
-        // 
-        SecondComboBox.AllowDrop =  true ;
-        SecondComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SecondComboBox.BackColor =  System.Drawing.Color.Transparent ;
-        SecondComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SecondComboBox.BindingSource =  BindingSource ;
-        SecondComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        SecondComboBox.CausesValidation =  false ;
-        SecondComboBox.DataFilter =  null ;
-        SecondComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        SecondComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        SecondComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        SecondComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        SecondComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
-        SecondComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-        SecondComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        SecondComboBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SecondComboBox.FormattingEnabled =  true ;
-        SecondComboBox.HoverText =  "Select Second Category" ;
-        SecondComboBox.IsDerivedStyle =  true ;
-        SecondComboBox.ItemHeight =  24 ;
-        SecondComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
-        SecondComboBox.MaxDropDownItems =  60 ;
-        SecondComboBox.Name =  "SecondComboBox" ;
-        SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
-        SecondComboBox.Size =  new System.Drawing.Size( 242, 30 ) ;
-        SecondComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        SecondComboBox.StyleManager =  null ;
-        SecondComboBox.TabIndex =  1 ;
-        SecondComboBox.ThemeAuthor =  "Terry D. Eppler" ;
-        SecondComboBox.ThemeName =  "BudgetExecution" ;
-        SecondComboBox.ToolTip =  null ;
-        // 
-        // FirstTable
-        // 
-        FirstTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FirstTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        FirstTable.CaptionText =  "First Category" ;
-        FirstTable.ColumnCount =  1 ;
-        FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        FirstTable.Controls.Add( FirstPanel, 0, 1 );
-        FirstTable.Controls.Add( FirstComboBox, 0, 0 );
-        FirstTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FirstTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        FirstTable.Location =  new System.Drawing.Point( 53, 54 ) ;
-        FirstTable.Name =  "FirstTable" ;
-        FirstTable.RowCount =  2 ;
-        FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.5714283F ) );
-        FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.42857F ) );
-        FirstTable.Size =  new System.Drawing.Size( 248, 366 ) ;
-        FirstTable.TabIndex =  9 ;
-        // 
         // GroupTabPage
         // 
         GroupTabPage.Controls.Add( SqlTable );
@@ -1227,7 +1227,7 @@ partial class FilterDialog
         GroupTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         GroupTabPage.Name =  "GroupTabPage" ;
         GroupTabPage.ShowCloseButton =  true ;
-        GroupTabPage.Size =  new System.Drawing.Size( 1288, 488 ) ;
+        GroupTabPage.Size =  new System.Drawing.Size( 1338, 515 ) ;
         GroupTabPage.TabIndex =  4 ;
         GroupTabPage.ThemesEnabled =  false ;
         // 
@@ -1475,7 +1475,7 @@ partial class FilterDialog
         CalendarTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         CalendarTabPage.Name =  "CalendarTabPage" ;
         CalendarTabPage.ShowCloseButton =  true ;
-        CalendarTabPage.Size =  new System.Drawing.Size( 1288, 488 ) ;
+        CalendarTabPage.Size =  new System.Drawing.Size( 1338, 515 ) ;
         CalendarTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CalendarTabPage.TabForeColor =  System.Drawing.Color.LightGray ;
         CalendarTabPage.TabIndex =  3 ;
@@ -1944,7 +1944,7 @@ partial class FilterDialog
         HeaderTable.Name =  "HeaderTable" ;
         HeaderTable.RowCount =  1 ;
         HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.Size =  new System.Drawing.Size( 1288, 38 ) ;
+        HeaderTable.Size =  new System.Drawing.Size( 1298, 38 ) ;
         HeaderTable.TabIndex =  13 ;
         // 
         // HeaderLabel
@@ -1956,11 +1956,11 @@ partial class FilterDialog
         HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         HeaderLabel.HoverText =  null ;
         HeaderLabel.IsDerivedStyle =  true ;
-        HeaderLabel.Location =  new System.Drawing.Point( 53, 3 ) ;
+        HeaderLabel.Location =  new System.Drawing.Point( 54, 3 ) ;
         HeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
         HeaderLabel.Name =  "HeaderLabel" ;
         HeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        HeaderLabel.Size =  new System.Drawing.Size( 1232, 32 ) ;
+        HeaderLabel.Size =  new System.Drawing.Size( 1241, 32 ) ;
         HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
         HeaderLabel.StyleManager =  null ;
         HeaderLabel.TabIndex =  0 ;
@@ -1991,7 +1991,7 @@ partial class FilterDialog
         GroupButton.HoverText =  null ;
         GroupButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         GroupButton.IsDerivedStyle =  true ;
-        GroupButton.Location =  new System.Drawing.Point( 390, 587 ) ;
+        GroupButton.Location =  new System.Drawing.Point( 413, 621 ) ;
         GroupButton.Name =  "GroupButton" ;
         GroupButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         GroupButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -2000,7 +2000,7 @@ partial class FilterDialog
         GroupButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         GroupButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         GroupButton.PressTextColor =  System.Drawing.Color.White ;
-        GroupButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        GroupButton.Size =  new System.Drawing.Size( 131, 35 ) ;
         GroupButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         GroupButton.StyleManager =  null ;
         GroupButton.TabIndex =  14 ;
@@ -2014,7 +2014,7 @@ partial class FilterDialog
         AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
         AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
         BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
         CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionBarHeight =  5 ;
@@ -2022,7 +2022,7 @@ partial class FilterDialog
         CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
         CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        ClientSize =  new System.Drawing.Size( 1288, 639 ) ;
+        ClientSize =  new System.Drawing.Size( 1298, 689 ) ;
         Controls.Add( GroupButton );
         Controls.Add( CloseButton );
         Controls.Add( SelectButton );
@@ -2034,22 +2034,28 @@ partial class FilterDialog
         FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
         Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
         MaximizeBox =  false ;
-        MaximumSize =  new System.Drawing.Size( 1300, 650 ) ;
+        MaximumSize =  new System.Drawing.Size( 1310, 700 ) ;
         MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         MinimizeBox =  false ;
-        MinimumSize =  new System.Drawing.Size( 1300, 650 ) ;
+        MinimumSize =  new System.Drawing.Size( 1310, 700 ) ;
         Name =  "FilterDialog" ;
         ShowIcon =  false ;
         ShowMaximizeBox =  false ;
         ShowMinimizeBox =  false ;
         SizeGripStyle =  System.Windows.Forms.SizeGripStyle.Hide ;
         StartPosition =  System.Windows.Forms.FormStartPosition.CenterParent ;
-        Text =  "DataSource Name" ;
         FirstPanel.ResumeLayout( false );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
         ThirdPanel.ResumeLayout( false );
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
         TabControl.ResumeLayout( false );
+        FilterTabPage.ResumeLayout( false );
+        FourthTable.ResumeLayout( false );
+        FourthPanel.ResumeLayout( false );
+        ThirdTable.ResumeLayout( false );
+        SecondTable.ResumeLayout( false );
+        SecondPanel.ResumeLayout( false );
+        FirstTable.ResumeLayout( false );
         TableTabPage.ResumeLayout( false );
         MaintenanceTable.ResumeLayout( false );
         layout1.ResumeLayout( false );
@@ -2059,13 +2065,6 @@ partial class FilterDialog
         TablePanel.ResumeLayout( false );
         ProviderTable.ResumeLayout( false );
         ProviderPanel.ResumeLayout( false );
-        FilterTabPage.ResumeLayout( false );
-        FourthTable.ResumeLayout( false );
-        FourthPanel.ResumeLayout( false );
-        ThirdTable.ResumeLayout( false );
-        SecondTable.ResumeLayout( false );
-        SecondPanel.ResumeLayout( false );
-        FirstTable.ResumeLayout( false );
         GroupTabPage.ResumeLayout( false );
         SqlTable.ResumeLayout( false );
         SqlPanel.ResumeLayout( false );

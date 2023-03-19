@@ -25,6 +25,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "UnusedVariable" )]
     [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
     [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class FilterDialog : MetroForm
     {
         /// <summary>
@@ -200,7 +201,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
@@ -213,7 +214,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 1080, 575 );
+            Size = new Size( 1310, 700 );
 
             // Event Wiring
             Load += OnLoad;
@@ -229,7 +230,7 @@ namespace BudgetExecution
             FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
             FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
             ClearButton.Click += OnClearButtonClick;
-            SelectButton.Click += OnSecondButtonClick;
+            SelectButton.Click += OnSelectButtonClick;
             GroupButton.Click += OnGroupButtonClick;
             CloseButton.Click += OnCloseButtonClick;
             AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
@@ -300,6 +301,7 @@ namespace BudgetExecution
                 if( SelectedTable != null )
                 {
                     ClearButton.Visible = !ClearButton.Visible;
+                    GroupButton.Visible = !GroupButton.Visible;
                     SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = FilterTabPage;
                     FilterTabPage.TabVisible = true;
@@ -313,6 +315,7 @@ namespace BudgetExecution
                 else
                 {
                     ClearButton.Visible = !ClearButton.Visible;
+                    GroupButton.Visible = !GroupButton.Visible;
                     SelectButton.Visible = !SelectButton.Visible;
                     TabControl.SelectedTab = TableTabPage;
                     TableTabPage.TabVisible = true;
@@ -460,39 +463,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Resets the ComboBox visibility.
-        /// </summary>
-        private void ResetComboBoxVisibility( )
-        {
-            try
-            {
-                if( FirstTable?.Visible == false )
-                {
-                    FirstTable.Visible = true;
-                }
-
-                if( SecondTable?.Visible == true )
-                {
-                    SecondTable.Visible = false;
-                }
-
-                if( ThirdTable?.Visible == true )
-                {
-                    ThirdTable.Visible = false;
-                }
-
-                if( FourthTable?.Visible == true )
-                {
-                    FourthTable.Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Clears the selected filter values.
         /// </summary>
         private void ClearSelections( )
@@ -501,6 +471,7 @@ namespace BudgetExecution
             {
                 SqlQuery = string.Empty;
                 ClearButton.Visible = !ClearButton.Visible;
+                GroupButton.Visible = !GroupButton.Visible;
                 SelectButton.Visible = !SelectButton.Visible;
                 SelectedTable = string.Empty;
                 TabControl.SelectedTab = TableTabPage;
@@ -509,6 +480,15 @@ namespace BudgetExecution
                     FormFilter.Clear( );
                 }
 
+                if( !string.IsNullOrEmpty( FourthValue )
+                   || FourthTable.Visible )
+                {
+                    FourthComboBox.Items.Clear( );
+                    FourthListBox.Items.Clear( );
+                    FourthCategory = string.Empty;
+                    FourthValue = string.Empty;
+                    ThirdTable.Visible = false;
+                }
                 if( !string.IsNullOrEmpty( ThirdValue )
                    || ThirdTable.Visible )
                 {
@@ -536,7 +516,6 @@ namespace BudgetExecution
                     FirstListBox.Items.Clear( );
                     FirstCategory = string.Empty;
                     FirstValue = string.Empty;
-                    PopulateFirstComboBoxItems( );
                     FirstTable.Visible = true;
                 }
             }
@@ -602,6 +581,7 @@ namespace BudgetExecution
 
             return string.Empty;
         }
+
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
@@ -1024,18 +1004,6 @@ namespace BudgetExecution
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
                         PopulateFirstComboBoxItems( );
-                        Text = $"Filter: {DataTable.TableName.SplitPascal( )}";
-                        if( FirstTable.Visible == false )
-                        {
-                            FirstTable.Visible = true;
-                        }
-
-                        if( SecondTable.Visible == true )
-                        {
-                            SecondTable.Visible = false;
-                            ThirdTable.Visible = false;
-                            FourthTable.Visible = false;
-                        }
                     }
                 }
                 catch( Exception ex )
@@ -1079,8 +1047,9 @@ namespace BudgetExecution
                             FirstListBox?.Items?.Add( item );
                         }
 
-                        ClearButton.Visible = !ClearButton.Visible;
-                        SelectButton.Visible = !SelectButton.Visible;
+                        ClearButton.Visible = true;
+                        GroupButton.Visible = true;
+                        SelectButton.Visible = true;
                     }
                 }
                 catch( Exception ex )
@@ -1109,16 +1078,6 @@ namespace BudgetExecution
                     FirstValue = _listBox.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems( );
-                    if( SecondTable.Visible == false )
-                    {
-                        SecondTable.Visible = true;
-                    }
-
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                        FourthTable.Visible = false;
-                    }
                 }
                 catch( Exception ex )
                 {
@@ -1162,6 +1121,10 @@ namespace BudgetExecution
                         {
                             SecondListBox.Items.Add( item );
                         }
+
+                        ClearButton.Visible = true;
+                        GroupButton.Visible = true;
+                        SelectButton.Visible = true;
                     }
                 }
                 catch( Exception ex )
@@ -1191,10 +1154,6 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     PopulateThirdComboBoxItems( );
-                    if( ThirdTable.Visible == false )
-                    {
-                        ThirdTable.Visible = true;
-                    }
                 }
                 catch( Exception ex )
                 {
@@ -1223,10 +1182,6 @@ namespace BudgetExecution
                     FourthCategory = string.Empty;
                     FourthValue = string.Empty;
                     var _filter = _comboBox.SelectedItem?.ToString( );
-                    if( FourthTable.Visible == false )
-                    {
-                        FourthTable.Visible = true;
-                    }
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
                         ThirdListBox.Items.Clear( );
@@ -1236,6 +1191,10 @@ namespace BudgetExecution
                         {
                             ThirdListBox.Items.Add( item );
                         }
+
+                        ClearButton.Visible = true;
+                        GroupButton.Visible = true;
+                        SelectButton.Visible = true;
                     }
                 }
                 catch( Exception ex )
@@ -1268,6 +1227,7 @@ namespace BudgetExecution
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     SqlQuery = $"SELECT * FROM {Source} "
                         + $"WHERE {FormFilter.ToCriteria( )};";
+                    PopulateFourthComboBoxItems( );
                 }
                 catch( Exception ex )
                 {
@@ -1300,6 +1260,10 @@ namespace BudgetExecution
                         {
                             FourthListBox.Items.Add( item );
                         }
+
+                        ClearButton.Visible = true;
+                        GroupButton.Visible = true;
+                        SelectButton.Visible = true;
                     }
                 }
                 catch( Exception ex )
@@ -1351,6 +1315,7 @@ namespace BudgetExecution
                 }
 
                 SqlQuery = GetSqlText( SelectedColumns, FormFilter );
+                SqlTextBox.Text = SqlQuery;
             }
             catch( Exception ex )
             {
@@ -1373,7 +1338,7 @@ namespace BudgetExecution
                 }
 
                 SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                BindData( SelectedFields, SelectedNumerics, FormFilter );
+                SqlTextBox.Text = SqlQuery;
             }
             catch( Exception ex )
             {
@@ -1396,7 +1361,11 @@ namespace BudgetExecution
                     if( FormFilter?.Any( ) == true )
                     {
                         ClearSelections( );
+                        ClearCollections( );
                         PopulateFirstComboBoxItems( );
+                        SqlTextBox.Text = string.Empty;
+                        TabControl.SelectedIndex = 1;
+                        HeaderLabel.Text = $"Filter {SelectedTable.SplitPascal( )} Data Rows";
                     }
                 }
                 catch( Exception ex )
@@ -1413,15 +1382,14 @@ namespace BudgetExecution
         /// <param name="e">
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnSecondButtonClick( object sender, EventArgs e )
+        public void OnSelectButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button )
             {
                 try
                 {
-                    SqlQuery = CreateSqlText( FormFilter );
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    BindingSource.DataSource = DataModel.DataTable;
+                    SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                    SqlTextBox.Text = SqlQuery;
                     Close( );
                 }
                 catch( Exception ex )
@@ -1559,7 +1527,6 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         HeaderLabel.Text = string.Empty;
                         SetProviderImage( );
-                        ResetComboBoxVisibility( );
                         HeaderLabel.Text = $"Filter {SelectedTable.SplitPascal( )} Data Rows";
                         break;
                     }
