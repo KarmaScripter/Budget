@@ -219,7 +219,7 @@ namespace BudgetExecution
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
         }
-        
+
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="FilterDialog"/> class.
@@ -267,10 +267,10 @@ namespace BudgetExecution
             {
                 SqlQuery = string.Empty;
                 FormFilter = new Dictionary<string, object>( );
-                if( DataTable != null )
+                if( SelectedTable != null )
                 {
                     var _text = $"{DataTable.TableName}";
-                    Text = $"{_text.SplitPascal( )} Filter";
+                    HeaderLabel.Text = $"{_text.SplitPascal( )} Filter";
                     SetLabelText( );
                     ClearButton.Visible = !ClearButton.Visible;
                     SelectButton.Visible = !SelectButton.Visible;
@@ -355,6 +355,70 @@ namespace BudgetExecution
                 FirstLabel.Text = "Columns : " + FirstComboBox.Items.Count;
                 SecondLabel.Text = "Columns : " + SecondComboBox.Items.Count;
                 ThirdLabel.Text = "Columns : " + ThirdComboBox.Items.Count;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <returns></returns>
+        private void SetProviderImage( )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        var _extension = Provider.ToString( );
+                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
+                        if( !string.IsNullOrEmpty( _file )
+                           && File.Exists( _file ) )
+                        {
+                            var _img = Image.FromFile( _file );
+                            PictureBox.Image = _img;
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Resets the ComboBox visibility.
+        /// </summary>
+        private void ResetComboBoxVisibility( )
+        {
+            try
+            {
+                if( FirstTable?.Visible == false )
+                {
+                    FirstTable.Visible = true;
+                }
+
+                if( SecondTable?.Visible == true )
+                {
+                    SecondTable.Visible = false;
+                }
+
+                if( ThirdTable?.Visible == true )
+                {
+                    ThirdTable.Visible = false;
+                }
+
+                if( FourthTable?.Visible == true )
+                { 
+                    FourthTable.Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -1265,6 +1329,8 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        SetProviderImage( ); 
+                        ResetComboBoxVisibility( );
                         break;
                     }
                     case 2:
@@ -1274,6 +1340,8 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        PopulateFieldListBox( );
+                        PopulateNumericListBox( );
                         break;
                     }
                     case 3:

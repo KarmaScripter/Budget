@@ -631,6 +631,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+        
         /// <summary>
         /// Resets the ComboBox visibility.
         /// </summary>

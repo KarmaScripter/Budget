@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -17,8 +16,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
     public partial class ProgramProjectDialog : MetroForm
     {
         /// <summary>
@@ -125,9 +124,6 @@ namespace BudgetExecution
             // Bind DataSource
             Source = Source.ProgramProjectDescriptions;
             Provider = Provider.Access;
-            DataModel = new DataBuilder( Source, Provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataTable;
 
             // Event Wiring
             Load += OnLoad;
@@ -158,18 +154,20 @@ namespace BudgetExecution
         {
             try
             {
-                Current = BindingSource.GetCurrentDataRow(  );
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                BindingSource.DataSource = DataTable;
+                Current = BindingSource.GetCurrentDataRow( );
                 ProgramListBox.ShowScrollBar = true;
-                Text = Current[ "ProgramTitle" ].ToString(  );
-
+                Text = Current[ "ProgramTitle" ].ToString( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
                     FormFilter.Add( "Code", SelectedProgram );
-                    BindingSource.Filter = FormFilter.ToCriteria(  );
+                    BindingSource.Filter = FormFilter.ToCriteria( );
                 }
 
-                PopulateListBoxItems(  );
-                CreateBindings(  );
+                PopulateListBoxItems( );
+                CreateBindings( );
             }
             catch( Exception ex )
             {
@@ -186,7 +184,6 @@ namespace BudgetExecution
             {
                 var _data = DataModel.DataElements;
                 var _codes = _data[ "Name" ];
-
                 foreach( var code in _codes )
                 {
                     if( !string.IsNullOrEmpty( code ) )
@@ -208,8 +205,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _data = BindingSource.GetCurrentDataRow(  );
-                Text = _data[ "ProgramTitle" ].ToString(  );
+                var _data = BindingSource.GetCurrentDataRow( );
+                Text = _data[ "ProgramTitle" ].ToString( );
                 ProgramAreaLabel.Text = "Program Area - " + _data[ "ProgramAreaCode" ];
                 ProgramProjectLabel.Text = "Program Project - " + _data[ "Code" ];
             }
@@ -270,7 +267,7 @@ namespace BudgetExecution
         {
             try
             {
-                BindingSource.MovePrevious(  );
+                BindingSource.MovePrevious( );
             }
             catch( Exception ex )
             {
@@ -287,7 +284,7 @@ namespace BudgetExecution
         {
             try
             {
-                BindingSource.MoveNext(  );
+                BindingSource.MoveNext( );
             }
             catch( Exception ex )
             {
@@ -306,8 +303,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SelectedProgram = _listBox.SelectedValue?.ToString(  );
-
+                    SelectedProgram = _listBox.SelectedValue?.ToString( );
                     if( !string.IsNullOrEmpty( SelectedProgram ) )
                     {
                         var _current = BindingSource.Find( "Name", SelectedProgram );

@@ -170,6 +170,7 @@ namespace BudgetExecution
             Load += OnLoad;
             MouseClick += OnRightClick;
             LookupButton.Click += null;
+            TableButton.Click += null;
         }
 
         /// <summary>

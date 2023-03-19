@@ -33,497 +33,496 @@ partial class ProgramProjectDialog
     /// </summary>
     private void InitializeComponent( )
     {
-            this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgramProjectDialog));
-            this.CloseButton = new BudgetExecution.Button();
-            this.StatutoryAuthorityTextBox = new BudgetExecution.RichTextBox();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.StatutoryAuthorityLabel = new BudgetExecution.Label();
-            this.StatutoryAuthorityTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ProgramDescriptionTextBox = new BudgetExecution.RichTextBox();
-            this.ProgramAreaNameTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ProgramAreaLabel = new BudgetExecution.Label();
-            this.ProgramAreaNameTextBox = new BudgetExecution.RichTextBox();
-            this.ProgramListBox = new BudgetExecution.ListBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ProgramProjectLabel = new BudgetExecution.Label();
-            this.ProgramProjectNameTextBox = new BudgetExecution.RichTextBox();
-            this.PreviousButton = new BudgetExecution.Button();
-            this.NextButton = new BudgetExecution.Button();
-            this.label1 = new BudgetExecution.Label();
-            this.SearchButton = new BudgetExecution.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
-            this.StatutoryAuthorityTable.SuspendLayout();
-            this.ProgramAreaNameTable.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.BindingSource = null;
-            this.CloseButton.DataFilter = null;
-            this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverText = null;
-            this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(830, 520);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(121, 46);
-            this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CloseButton.StyleManager = null;
-            this.CloseButton.TabIndex = 0;
-            this.CloseButton.Text = "Close";
-            this.CloseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloseButton.ThemeName = "Budget Execution";
-            this.CloseButton.ToolTip = null;
-            // 
-            // StatutoryAuthorityTextBox
-            // 
-            this.StatutoryAuthorityTextBox.AutoWordSelection = false;
-            this.StatutoryAuthorityTextBox.BindingSource = this.BindingSource;
-            this.StatutoryAuthorityTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.StatutoryAuthorityTextBox.DataFilter = null;
-            this.StatutoryAuthorityTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.StatutoryAuthorityTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.StatutoryAuthorityTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            this.StatutoryAuthorityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StatutoryAuthorityTextBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.StatutoryAuthorityTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.StatutoryAuthorityTextBox.HoverText = null;
-            this.StatutoryAuthorityTextBox.IsDerivedStyle = true;
-            this.StatutoryAuthorityTextBox.Lines = null;
-            this.StatutoryAuthorityTextBox.Location = new System.Drawing.Point(3, 38);
-            this.StatutoryAuthorityTextBox.MaxLength = 32767;
-            this.StatutoryAuthorityTextBox.Name = "StatutoryAuthorityTextBox";
-            this.StatutoryAuthorityTextBox.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.StatutoryAuthorityTextBox.ReadOnly = false;
-            this.StatutoryAuthorityTextBox.Size = new System.Drawing.Size(307, 157);
-            this.StatutoryAuthorityTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.StatutoryAuthorityTextBox.StyleManager = null;
-            this.StatutoryAuthorityTextBox.TabIndex = 1;
-            this.StatutoryAuthorityTextBox.Tag = "Laws";
-            this.StatutoryAuthorityTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.StatutoryAuthorityTextBox.ThemeName = "Budget Execution";
-            this.StatutoryAuthorityTextBox.ToolTip = null;
-            this.StatutoryAuthorityTextBox.WordWrap = true;
-            // 
-            // StatutoryAuthorityLabel
-            // 
-            this.StatutoryAuthorityLabel.AccessibleName = "";
-            this.StatutoryAuthorityLabel.BindingSource = null;
-            this.StatutoryAuthorityLabel.DataFilter = null;
-            this.StatutoryAuthorityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StatutoryAuthorityLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StatutoryAuthorityLabel.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.StatutoryAuthorityLabel.HoverText = null;
-            this.StatutoryAuthorityLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.StatutoryAuthorityLabel.IsDerivedStyle = true;
-            this.StatutoryAuthorityLabel.Location = new System.Drawing.Point(3, 3);
-            this.StatutoryAuthorityLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.StatutoryAuthorityLabel.Name = "StatutoryAuthorityLabel";
-            this.StatutoryAuthorityLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.StatutoryAuthorityLabel.Size = new System.Drawing.Size(307, 29);
-            this.StatutoryAuthorityLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.StatutoryAuthorityLabel.StyleManager = null;
-            this.StatutoryAuthorityLabel.TabIndex = 0;
-            this.StatutoryAuthorityLabel.Text = "Statutory Authority";
-            this.StatutoryAuthorityLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.StatutoryAuthorityLabel.ThemeAuthor = "Terry D. Eppler";
-            this.StatutoryAuthorityLabel.ThemeName = "Budget Execution";
-            this.StatutoryAuthorityLabel.ToolTip = null;
-            // 
-            // StatutoryAuthorityTable
-            // 
-            this.StatutoryAuthorityTable.ColumnCount = 1;
-            this.StatutoryAuthorityTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.8806F));
-            this.StatutoryAuthorityTable.Controls.Add(this.StatutoryAuthorityTextBox, 0, 1);
-            this.StatutoryAuthorityTable.Controls.Add(this.StatutoryAuthorityLabel, 0, 0);
-            this.StatutoryAuthorityTable.Location = new System.Drawing.Point(25, 41);
-            this.StatutoryAuthorityTable.Name = "StatutoryAuthorityTable";
-            this.StatutoryAuthorityTable.RowCount = 2;
-            this.StatutoryAuthorityTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.07229F));
-            this.StatutoryAuthorityTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.92771F));
-            this.StatutoryAuthorityTable.Size = new System.Drawing.Size(313, 198);
-            this.StatutoryAuthorityTable.TabIndex = 3;
-            // 
-            // ProgramDescriptionTextBox
-            // 
-            this.ProgramDescriptionTextBox.AutoWordSelection = false;
-            this.ProgramDescriptionTextBox.BindingSource = this.BindingSource;
-            this.ProgramDescriptionTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ProgramDescriptionTextBox.DataFilter = null;
-            this.ProgramDescriptionTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ProgramDescriptionTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.ProgramDescriptionTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            this.ProgramDescriptionTextBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProgramDescriptionTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ProgramDescriptionTextBox.HoverText = null;
-            this.ProgramDescriptionTextBox.IsDerivedStyle = true;
-            this.ProgramDescriptionTextBox.Lines = null;
-            this.ProgramDescriptionTextBox.Location = new System.Drawing.Point(25, 288);
-            this.ProgramDescriptionTextBox.MaxLength = 32767;
-            this.ProgramDescriptionTextBox.Name = "ProgramDescriptionTextBox";
-            this.ProgramDescriptionTextBox.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.ProgramDescriptionTextBox.ReadOnly = false;
-            this.ProgramDescriptionTextBox.Size = new System.Drawing.Size(926, 180);
-            this.ProgramDescriptionTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ProgramDescriptionTextBox.StyleManager = null;
-            this.ProgramDescriptionTextBox.TabIndex = 1;
-            this.ProgramDescriptionTextBox.Tag = "Description";
-            this.ProgramDescriptionTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.ProgramDescriptionTextBox.ThemeName = "Budget Execution";
-            this.ProgramDescriptionTextBox.ToolTip = null;
-            this.ProgramDescriptionTextBox.WordWrap = true;
-            // 
-            // ProgramAreaNameTable
-            // 
-            this.ProgramAreaNameTable.ColumnCount = 1;
-            this.ProgramAreaNameTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.8806F));
-            this.ProgramAreaNameTable.Controls.Add(this.ProgramAreaLabel, 0, 0);
-            this.ProgramAreaNameTable.Controls.Add(this.ProgramAreaNameTextBox, 0, 1);
-            this.ProgramAreaNameTable.Location = new System.Drawing.Point(355, 44);
-            this.ProgramAreaNameTable.Name = "ProgramAreaNameTable";
-            this.ProgramAreaNameTable.RowCount = 2;
-            this.ProgramAreaNameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36F));
-            this.ProgramAreaNameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64F));
-            this.ProgramAreaNameTable.Size = new System.Drawing.Size(234, 75);
-            this.ProgramAreaNameTable.TabIndex = 7;
-            // 
-            // ProgramAreaLabel
-            // 
-            this.ProgramAreaLabel.AccessibleName = "";
-            this.ProgramAreaLabel.BindingSource = null;
-            this.ProgramAreaLabel.DataFilter = null;
-            this.ProgramAreaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProgramAreaLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProgramAreaLabel.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProgramAreaLabel.HoverText = null;
-            this.ProgramAreaLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ProgramAreaLabel.IsDerivedStyle = true;
-            this.ProgramAreaLabel.Location = new System.Drawing.Point(3, 3);
-            this.ProgramAreaLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.ProgramAreaLabel.Name = "ProgramAreaLabel";
-            this.ProgramAreaLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ProgramAreaLabel.Size = new System.Drawing.Size(228, 21);
-            this.ProgramAreaLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ProgramAreaLabel.StyleManager = null;
-            this.ProgramAreaLabel.TabIndex = 0;
-            this.ProgramAreaLabel.Text = "Program Area";
-            this.ProgramAreaLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.ProgramAreaLabel.ThemeAuthor = "Terry D. Eppler";
-            this.ProgramAreaLabel.ThemeName = "Budget Execution";
-            this.ProgramAreaLabel.ToolTip = null;
-            // 
-            // ProgramAreaNameTextBox
-            // 
-            this.ProgramAreaNameTextBox.AutoWordSelection = false;
-            this.ProgramAreaNameTextBox.BindingSource = this.BindingSource;
-            this.ProgramAreaNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ProgramAreaNameTextBox.DataFilter = null;
-            this.ProgramAreaNameTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ProgramAreaNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.ProgramAreaNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            this.ProgramAreaNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProgramAreaNameTextBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProgramAreaNameTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ProgramAreaNameTextBox.HoverText = null;
-            this.ProgramAreaNameTextBox.IsDerivedStyle = true;
-            this.ProgramAreaNameTextBox.Lines = null;
-            this.ProgramAreaNameTextBox.Location = new System.Drawing.Point(3, 30);
-            this.ProgramAreaNameTextBox.MaxLength = 32767;
-            this.ProgramAreaNameTextBox.Name = "ProgramAreaNameTextBox";
-            this.ProgramAreaNameTextBox.Padding = new System.Windows.Forms.Padding(3);
-            this.ProgramAreaNameTextBox.ReadOnly = false;
-            this.ProgramAreaNameTextBox.Size = new System.Drawing.Size(228, 42);
-            this.ProgramAreaNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ProgramAreaNameTextBox.StyleManager = null;
-            this.ProgramAreaNameTextBox.TabIndex = 1;
-            this.ProgramAreaNameTextBox.Text = "ProgramAreaName";
-            this.ProgramAreaNameTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.ProgramAreaNameTextBox.ThemeName = "Budget Execution";
-            this.ProgramAreaNameTextBox.ToolTip = null;
-            this.ProgramAreaNameTextBox.WordWrap = true;
-            // 
-            // ProgramListBox
-            // 
-            this.ProgramListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ProgramListBox.BindingSource = null;
-            this.ProgramListBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ProgramListBox.DataFilter = null;
-            this.ProgramListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ProgramListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ProgramListBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProgramListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.ProgramListBox.HoveredItemColor = System.Drawing.Color.White;
-            this.ProgramListBox.HoverText = null;
-            this.ProgramListBox.IsDerivedStyle = true;
-            this.ProgramListBox.ItemHeight = 28;
-            this.ProgramListBox.Location = new System.Drawing.Point(613, 41);
-            this.ProgramListBox.Margin = new System.Windows.Forms.Padding(1);
-            this.ProgramListBox.MultiSelect = true;
-            this.ProgramListBox.Name = "ProgramListBox";
-            this.ProgramListBox.Padding = new System.Windows.Forms.Padding(1);
-            this.ProgramListBox.SelectedIndex = -1;
-            this.ProgramListBox.SelectedItem = null;
-            this.ProgramListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ProgramListBox.SelectedItemColor = System.Drawing.Color.White;
-            this.ProgramListBox.SelectedText = null;
-            this.ProgramListBox.SelectedValue = null;
-            this.ProgramListBox.ShowBorder = false;
-            this.ProgramListBox.ShowScrollBar = false;
-            this.ProgramListBox.Size = new System.Drawing.Size(338, 198);
-            this.ProgramListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ProgramListBox.StyleManager = null;
-            this.ProgramListBox.TabIndex = 8;
-            this.ProgramListBox.ThemeAuthor = "Terry D. Eppler";
-            this.ProgramListBox.ThemeName = "Budget Execution";
-            this.ProgramListBox.ToolTip = null;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.8806F));
-            this.tableLayoutPanel2.Controls.Add(this.ProgramProjectLabel, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ProgramProjectNameTextBox, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(358, 157);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.92683F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.07317F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(234, 82);
-            this.tableLayoutPanel2.TabIndex = 9;
-            // 
-            // ProgramProjectLabel
-            // 
-            this.ProgramProjectLabel.AccessibleName = "";
-            this.ProgramProjectLabel.BindingSource = null;
-            this.ProgramProjectLabel.DataFilter = null;
-            this.ProgramProjectLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProgramProjectLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProgramProjectLabel.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProgramProjectLabel.HoverText = null;
-            this.ProgramProjectLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ProgramProjectLabel.IsDerivedStyle = true;
-            this.ProgramProjectLabel.Location = new System.Drawing.Point(3, 3);
-            this.ProgramProjectLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.ProgramProjectLabel.Name = "ProgramProjectLabel";
-            this.ProgramProjectLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.ProgramProjectLabel.Size = new System.Drawing.Size(228, 21);
-            this.ProgramProjectLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ProgramProjectLabel.StyleManager = null;
-            this.ProgramProjectLabel.TabIndex = 0;
-            this.ProgramProjectLabel.Text = "Program Project";
-            this.ProgramProjectLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.ProgramProjectLabel.ThemeAuthor = "Terry D. Eppler";
-            this.ProgramProjectLabel.ThemeName = "Budget Execution";
-            this.ProgramProjectLabel.ToolTip = null;
-            // 
-            // ProgramProjectNameTextBox
-            // 
-            this.ProgramProjectNameTextBox.AutoWordSelection = false;
-            this.ProgramProjectNameTextBox.BindingSource = this.BindingSource;
-            this.ProgramProjectNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ProgramProjectNameTextBox.DataFilter = null;
-            this.ProgramProjectNameTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ProgramProjectNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.ProgramProjectNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            this.ProgramProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProgramProjectNameTextBox.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProgramProjectNameTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ProgramProjectNameTextBox.HoverText = null;
-            this.ProgramProjectNameTextBox.IsDerivedStyle = true;
-            this.ProgramProjectNameTextBox.Lines = null;
-            this.ProgramProjectNameTextBox.Location = new System.Drawing.Point(3, 30);
-            this.ProgramProjectNameTextBox.MaxLength = 32767;
-            this.ProgramProjectNameTextBox.Name = "ProgramProjectNameTextBox";
-            this.ProgramProjectNameTextBox.Padding = new System.Windows.Forms.Padding(3);
-            this.ProgramProjectNameTextBox.ReadOnly = false;
-            this.ProgramProjectNameTextBox.Size = new System.Drawing.Size(228, 49);
-            this.ProgramProjectNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ProgramProjectNameTextBox.StyleManager = null;
-            this.ProgramProjectNameTextBox.TabIndex = 1;
-            this.ProgramProjectNameTextBox.Tag = "Code";
-            this.ProgramProjectNameTextBox.ThemeAuthor = "Terry D. Eppler";
-            this.ProgramProjectNameTextBox.ThemeName = "Budget Execution";
-            this.ProgramProjectNameTextBox.ToolTip = null;
-            this.ProgramProjectNameTextBox.WordWrap = true;
-            // 
-            // PreviousButton
-            // 
-            this.PreviousButton.BindingSource = null;
-            this.PreviousButton.DataFilter = null;
-            this.PreviousButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.PreviousButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.PreviousButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.PreviousButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PreviousButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.PreviousButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.PreviousButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.PreviousButton.HoverText = null;
-            this.PreviousButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.PreviousButton.IsDerivedStyle = true;
-            this.PreviousButton.Location = new System.Drawing.Point(277, 520);
-            this.PreviousButton.Name = "PreviousButton";
-            this.PreviousButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.PreviousButton.NormalColor = System.Drawing.Color.Transparent;
-            this.PreviousButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.PreviousButton.Padding = new System.Windows.Forms.Padding(1);
-            this.PreviousButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.PreviousButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.PreviousButton.PressTextColor = System.Drawing.Color.White;
-            this.PreviousButton.Size = new System.Drawing.Size(121, 46);
-            this.PreviousButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.PreviousButton.StyleManager = null;
-            this.PreviousButton.TabIndex = 9;
-            this.PreviousButton.Text = "Previous";
-            this.PreviousButton.ThemeAuthor = "Terry D. Eppler";
-            this.PreviousButton.ThemeName = "Budget Execution";
-            this.PreviousButton.ToolTip = null;
-            // 
-            // NextButton
-            // 
-            this.NextButton.BindingSource = null;
-            this.NextButton.DataFilter = null;
-            this.NextButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.NextButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.NextButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.NextButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NextButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.NextButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.NextButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.NextButton.HoverText = null;
-            this.NextButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.NextButton.IsDerivedStyle = true;
-            this.NextButton.Location = new System.Drawing.Point(565, 520);
-            this.NextButton.Name = "NextButton";
-            this.NextButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.NextButton.NormalColor = System.Drawing.Color.Transparent;
-            this.NextButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.NextButton.Padding = new System.Windows.Forms.Padding(1);
-            this.NextButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.NextButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.NextButton.PressTextColor = System.Drawing.Color.White;
-            this.NextButton.Size = new System.Drawing.Size(121, 46);
-            this.NextButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.NextButton.StyleManager = null;
-            this.NextButton.TabIndex = 10;
-            this.NextButton.Text = "Next";
-            this.NextButton.ThemeAuthor = "Terry D. Eppler";
-            this.NextButton.ThemeName = "Budget Execution";
-            this.NextButton.ToolTip = null;
-            // 
-            // label1
-            // 
-            this.label1.BindingSource = null;
-            this.label1.DataFilter = null;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.HoverText = null;
-            this.label1.IsDerivedStyle = true;
-            this.label1.Location = new System.Drawing.Point(28, 259);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(1);
-            this.label1.Size = new System.Drawing.Size(165, 23);
-            this.label1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.label1.StyleManager = null;
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Description";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.ThemeAuthor = "Terry D. Eppler";
-            this.label1.ThemeName = "Budget Execution";
-            this.label1.ToolTip = null;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.BindingSource = null;
-            this.SearchButton.DataFilter = null;
-            this.SearchButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SearchButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SearchButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SearchButton.HoverText = null;
-            this.SearchButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.SearchButton.IsDerivedStyle = true;
-            this.SearchButton.Location = new System.Drawing.Point(28, 520);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.SearchButton.NormalColor = System.Drawing.Color.Transparent;
-            this.SearchButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SearchButton.Padding = new System.Windows.Forms.Padding(1);
-            this.SearchButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SearchButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SearchButton.PressTextColor = System.Drawing.Color.White;
-            this.SearchButton.Size = new System.Drawing.Size(121, 46);
-            this.SearchButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SearchButton.StyleManager = null;
-            this.SearchButton.TabIndex = 13;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.ThemeAuthor = "Terry D. Eppler";
-            this.SearchButton.ThemeName = "Budget Execution";
-            this.SearchButton.ToolTip = null;
-            // 
-            // ProgramProjectDialog
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionBarHeight = 30;
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            captionImage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            captionImage1.Image = global::BudgetExecution.Properties.Resources.EPA;
-            captionImage1.Location = new System.Drawing.Point(5, 5);
-            captionImage1.Name = "CaptionImage1";
-            captionImage1.Size = new System.Drawing.Size(42, 16);
-            this.CaptionImages.Add(captionImage1);
-            this.ClientSize = new System.Drawing.Size(970, 578);
-            this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.ProgramDescriptionTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.NextButton);
-            this.Controls.Add(this.StatutoryAuthorityTable);
-            this.Controls.Add(this.PreviousButton);
-            this.Controls.Add(this.CloseButton);
-            this.Controls.Add(this.ProgramAreaNameTable);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.ProgramListBox);
-            this.Font = new System.Drawing.Font("Roboto Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Name = "ProgramProjectDialog";
-            this.ShowIcon = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
-            this.StatutoryAuthorityTable.ResumeLayout(false);
-            this.ProgramAreaNameTable.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+        components =  new System.ComponentModel.Container( ) ;
+        var captionImage2 = new Syncfusion.Windows.Forms.CaptionImage( );
+        var resources = new System.ComponentModel.ComponentResourceManager( typeof( ProgramProjectDialog ) );
+        CloseButton =  new Button( ) ;
+        StatutoryAuthorityTextBox =  new RichTextBox( ) ;
+        BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
+        StatutoryAuthorityLabel =  new Label( ) ;
+        StatutoryAuthorityTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+        ProgramDescriptionTextBox =  new RichTextBox( ) ;
+        ProgramAreaTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+        ProgramAreaLabel =  new Label( ) ;
+        ProgramAreaNameTextBox =  new RichTextBox( ) ;
+        ProgramListBox =  new ListBox( ) ;
+        ProgramProjectTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+        ProgramProjectLabel =  new Label( ) ;
+        ProgramProjectNameTextBox =  new RichTextBox( ) ;
+        PreviousButton =  new Button( ) ;
+        NextButton =  new Button( ) ;
+        DescriptionLabel =  new Label( ) ;
+        SearchButton =  new Button( ) ;
+        ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+        StatutoryAuthorityTable.SuspendLayout( );
+        ProgramAreaTable.SuspendLayout( );
+        ProgramProjectTable.SuspendLayout( );
+        SuspendLayout( );
+        // 
+        // CloseButton
+        // 
+        CloseButton.BindingSource =  null ;
+        CloseButton.DataFilter =  null ;
+        CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        CloseButton.HoverText =  null ;
+        CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        CloseButton.IsDerivedStyle =  true ;
+        CloseButton.Location =  new System.Drawing.Point( 1055, 520 ) ;
+        CloseButton.Name =  "CloseButton" ;
+        CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
+        CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.PressTextColor =  System.Drawing.Color.White ;
+        CloseButton.Size =  new System.Drawing.Size( 121, 46 ) ;
+        CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        CloseButton.StyleManager =  null ;
+        CloseButton.TabIndex =  0 ;
+        CloseButton.Text =  "Close" ;
+        CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
+        CloseButton.ThemeName =  "Budget Execution" ;
+        CloseButton.ToolTip =  null ;
+        // 
+        // StatutoryAuthorityTextBox
+        // 
+        StatutoryAuthorityTextBox.AutoWordSelection =  false ;
+        StatutoryAuthorityTextBox.BindingSource =  BindingSource ;
+        StatutoryAuthorityTextBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        StatutoryAuthorityTextBox.DataFilter =  null ;
+        StatutoryAuthorityTextBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   204  ,   204  ,   204   ) ;
+        StatutoryAuthorityTextBox.DisabledBorderColor =  System.Drawing.Color.FromArgb(   155  ,   155  ,   155   ) ;
+        StatutoryAuthorityTextBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   136  ,   136  ,   136   ) ;
+        StatutoryAuthorityTextBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        StatutoryAuthorityTextBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        StatutoryAuthorityTextBox.HoverColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        StatutoryAuthorityTextBox.HoverText =  null ;
+        StatutoryAuthorityTextBox.IsDerivedStyle =  true ;
+        StatutoryAuthorityTextBox.Lines =  null ;
+        StatutoryAuthorityTextBox.Location =  new System.Drawing.Point( 3, 38 ) ;
+        StatutoryAuthorityTextBox.MaxLength =  32767 ;
+        StatutoryAuthorityTextBox.Name =  "StatutoryAuthorityTextBox" ;
+        StatutoryAuthorityTextBox.Padding =  new System.Windows.Forms.Padding( 3, 10, 3, 3 ) ;
+        StatutoryAuthorityTextBox.ReadOnly =  false ;
+        StatutoryAuthorityTextBox.Size =  new System.Drawing.Size( 356, 157 ) ;
+        StatutoryAuthorityTextBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        StatutoryAuthorityTextBox.StyleManager =  null ;
+        StatutoryAuthorityTextBox.TabIndex =  1 ;
+        StatutoryAuthorityTextBox.Tag =  "Laws" ;
+        StatutoryAuthorityTextBox.ThemeAuthor =  "Terry D. Eppler" ;
+        StatutoryAuthorityTextBox.ThemeName =  "Budget Execution" ;
+        StatutoryAuthorityTextBox.ToolTip =  null ;
+        StatutoryAuthorityTextBox.WordWrap =  true ;
+        // 
+        // StatutoryAuthorityLabel
+        // 
+        StatutoryAuthorityLabel.AccessibleName =  "" ;
+        StatutoryAuthorityLabel.BindingSource =  null ;
+        StatutoryAuthorityLabel.DataFilter =  null ;
+        StatutoryAuthorityLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        StatutoryAuthorityLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        StatutoryAuthorityLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        StatutoryAuthorityLabel.HoverText =  null ;
+        StatutoryAuthorityLabel.ImageAlign =  System.Drawing.ContentAlignment.TopLeft ;
+        StatutoryAuthorityLabel.IsDerivedStyle =  true ;
+        StatutoryAuthorityLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
+        StatutoryAuthorityLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        StatutoryAuthorityLabel.Name =  "StatutoryAuthorityLabel" ;
+        StatutoryAuthorityLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        StatutoryAuthorityLabel.Size =  new System.Drawing.Size( 356, 29 ) ;
+        StatutoryAuthorityLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        StatutoryAuthorityLabel.StyleManager =  null ;
+        StatutoryAuthorityLabel.TabIndex =  0 ;
+        StatutoryAuthorityLabel.Text =  "Statutory Authority" ;
+        StatutoryAuthorityLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+        StatutoryAuthorityLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        StatutoryAuthorityLabel.ThemeName =  "Budget Execution" ;
+        StatutoryAuthorityLabel.ToolTip =  null ;
+        // 
+        // StatutoryAuthorityTable
+        // 
+        StatutoryAuthorityTable.ColumnCount =  1 ;
+        StatutoryAuthorityTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 33.8806F ) );
+        StatutoryAuthorityTable.Controls.Add( StatutoryAuthorityTextBox, 0, 1 );
+        StatutoryAuthorityTable.Controls.Add( StatutoryAuthorityLabel, 0, 0 );
+        StatutoryAuthorityTable.Location =  new System.Drawing.Point( 25, 41 ) ;
+        StatutoryAuthorityTable.Name =  "StatutoryAuthorityTable" ;
+        StatutoryAuthorityTable.RowCount =  2 ;
+        StatutoryAuthorityTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 18.07229F ) );
+        StatutoryAuthorityTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 81.92771F ) );
+        StatutoryAuthorityTable.Size =  new System.Drawing.Size( 362, 198 ) ;
+        StatutoryAuthorityTable.TabIndex =  3 ;
+        // 
+        // ProgramDescriptionTextBox
+        // 
+        ProgramDescriptionTextBox.AutoWordSelection =  false ;
+        ProgramDescriptionTextBox.BindingSource =  BindingSource ;
+        ProgramDescriptionTextBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        ProgramDescriptionTextBox.DataFilter =  null ;
+        ProgramDescriptionTextBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   204  ,   204  ,   204   ) ;
+        ProgramDescriptionTextBox.DisabledBorderColor =  System.Drawing.Color.FromArgb(   155  ,   155  ,   155   ) ;
+        ProgramDescriptionTextBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   136  ,   136  ,   136   ) ;
+        ProgramDescriptionTextBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ProgramDescriptionTextBox.HoverColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ProgramDescriptionTextBox.HoverText =  null ;
+        ProgramDescriptionTextBox.IsDerivedStyle =  true ;
+        ProgramDescriptionTextBox.Lines =  null ;
+        ProgramDescriptionTextBox.Location =  new System.Drawing.Point( 25, 288 ) ;
+        ProgramDescriptionTextBox.MaxLength =  32767 ;
+        ProgramDescriptionTextBox.Name =  "ProgramDescriptionTextBox" ;
+        ProgramDescriptionTextBox.Padding =  new System.Windows.Forms.Padding( 3, 10, 3, 3 ) ;
+        ProgramDescriptionTextBox.ReadOnly =  false ;
+        ProgramDescriptionTextBox.Size =  new System.Drawing.Size( 1118, 180 ) ;
+        ProgramDescriptionTextBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ProgramDescriptionTextBox.StyleManager =  null ;
+        ProgramDescriptionTextBox.TabIndex =  1 ;
+        ProgramDescriptionTextBox.Tag =  "Description" ;
+        ProgramDescriptionTextBox.ThemeAuthor =  "Terry D. Eppler" ;
+        ProgramDescriptionTextBox.ThemeName =  "Budget Execution" ;
+        ProgramDescriptionTextBox.ToolTip =  null ;
+        ProgramDescriptionTextBox.WordWrap =  true ;
+        // 
+        // ProgramAreaTable
+        // 
+        ProgramAreaTable.ColumnCount =  1 ;
+        ProgramAreaTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 33.8806F ) );
+        ProgramAreaTable.Controls.Add( ProgramAreaLabel, 0, 0 );
+        ProgramAreaTable.Controls.Add( ProgramAreaNameTextBox, 0, 1 );
+        ProgramAreaTable.Location =  new System.Drawing.Point( 411, 44 ) ;
+        ProgramAreaTable.Name =  "ProgramAreaTable" ;
+        ProgramAreaTable.RowCount =  2 ;
+        ProgramAreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 36F ) );
+        ProgramAreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 64F ) );
+        ProgramAreaTable.Size =  new System.Drawing.Size( 365, 75 ) ;
+        ProgramAreaTable.TabIndex =  7 ;
+        // 
+        // ProgramAreaLabel
+        // 
+        ProgramAreaLabel.AccessibleName =  "" ;
+        ProgramAreaLabel.BindingSource =  null ;
+        ProgramAreaLabel.DataFilter =  null ;
+        ProgramAreaLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        ProgramAreaLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        ProgramAreaLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ProgramAreaLabel.HoverText =  null ;
+        ProgramAreaLabel.ImageAlign =  System.Drawing.ContentAlignment.TopLeft ;
+        ProgramAreaLabel.IsDerivedStyle =  true ;
+        ProgramAreaLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
+        ProgramAreaLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        ProgramAreaLabel.Name =  "ProgramAreaLabel" ;
+        ProgramAreaLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        ProgramAreaLabel.Size =  new System.Drawing.Size( 359, 21 ) ;
+        ProgramAreaLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ProgramAreaLabel.StyleManager =  null ;
+        ProgramAreaLabel.TabIndex =  0 ;
+        ProgramAreaLabel.Text =  "Program Area" ;
+        ProgramAreaLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+        ProgramAreaLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        ProgramAreaLabel.ThemeName =  "Budget Execution" ;
+        ProgramAreaLabel.ToolTip =  null ;
+        // 
+        // ProgramAreaNameTextBox
+        // 
+        ProgramAreaNameTextBox.AutoWordSelection =  false ;
+        ProgramAreaNameTextBox.BindingSource =  BindingSource ;
+        ProgramAreaNameTextBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        ProgramAreaNameTextBox.DataFilter =  null ;
+        ProgramAreaNameTextBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   204  ,   204  ,   204   ) ;
+        ProgramAreaNameTextBox.DisabledBorderColor =  System.Drawing.Color.FromArgb(   155  ,   155  ,   155   ) ;
+        ProgramAreaNameTextBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   136  ,   136  ,   136   ) ;
+        ProgramAreaNameTextBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        ProgramAreaNameTextBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ProgramAreaNameTextBox.HoverColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ProgramAreaNameTextBox.HoverText =  null ;
+        ProgramAreaNameTextBox.IsDerivedStyle =  true ;
+        ProgramAreaNameTextBox.Lines =  null ;
+        ProgramAreaNameTextBox.Location =  new System.Drawing.Point( 3, 30 ) ;
+        ProgramAreaNameTextBox.MaxLength =  32767 ;
+        ProgramAreaNameTextBox.Name =  "ProgramAreaNameTextBox" ;
+        ProgramAreaNameTextBox.Padding =  new System.Windows.Forms.Padding( 3 ) ;
+        ProgramAreaNameTextBox.ReadOnly =  false ;
+        ProgramAreaNameTextBox.Size =  new System.Drawing.Size( 359, 42 ) ;
+        ProgramAreaNameTextBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ProgramAreaNameTextBox.StyleManager =  null ;
+        ProgramAreaNameTextBox.TabIndex =  1 ;
+        ProgramAreaNameTextBox.Text =  "ProgramAreaName" ;
+        ProgramAreaNameTextBox.ThemeAuthor =  "Terry D. Eppler" ;
+        ProgramAreaNameTextBox.ThemeName =  "Budget Execution" ;
+        ProgramAreaNameTextBox.ToolTip =  null ;
+        ProgramAreaNameTextBox.WordWrap =  true ;
+        // 
+        // ProgramListBox
+        // 
+        ProgramListBox.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+        ProgramListBox.BindingSource =  null ;
+        ProgramListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        ProgramListBox.DataFilter =  null ;
+        ProgramListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        ProgramListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        ProgramListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ProgramListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        ProgramListBox.HoveredItemColor =  System.Drawing.Color.White ;
+        ProgramListBox.HoverText =  null ;
+        ProgramListBox.IsDerivedStyle =  true ;
+        ProgramListBox.ItemHeight =  28 ;
+        ProgramListBox.Location =  new System.Drawing.Point( 805, 41 ) ;
+        ProgramListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        ProgramListBox.MultiSelect =  true ;
+        ProgramListBox.Name =  "ProgramListBox" ;
+        ProgramListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        ProgramListBox.SelectedIndex =  -1 ;
+        ProgramListBox.SelectedItem =  null ;
+        ProgramListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ProgramListBox.SelectedItemColor =  System.Drawing.Color.White ;
+        ProgramListBox.SelectedText =  null ;
+        ProgramListBox.SelectedValue =  null ;
+        ProgramListBox.ShowBorder =  false ;
+        ProgramListBox.ShowScrollBar =  false ;
+        ProgramListBox.Size =  new System.Drawing.Size( 338, 198 ) ;
+        ProgramListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ProgramListBox.StyleManager =  null ;
+        ProgramListBox.TabIndex =  8 ;
+        ProgramListBox.ThemeAuthor =  "Terry D. Eppler" ;
+        ProgramListBox.ThemeName =  "Budget Execution" ;
+        ProgramListBox.ToolTip =  null ;
+        // 
+        // ProgramProjectTable
+        // 
+        ProgramProjectTable.ColumnCount =  1 ;
+        ProgramProjectTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 33.8806F ) );
+        ProgramProjectTable.Controls.Add( ProgramProjectLabel, 0, 0 );
+        ProgramProjectTable.Controls.Add( ProgramProjectNameTextBox, 0, 1 );
+        ProgramProjectTable.Location =  new System.Drawing.Point( 411, 157 ) ;
+        ProgramProjectTable.Name =  "ProgramProjectTable" ;
+        ProgramProjectTable.RowCount =  2 ;
+        ProgramProjectTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 32.92683F ) );
+        ProgramProjectTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 67.07317F ) );
+        ProgramProjectTable.Size =  new System.Drawing.Size( 365, 82 ) ;
+        ProgramProjectTable.TabIndex =  9 ;
+        // 
+        // ProgramProjectLabel
+        // 
+        ProgramProjectLabel.AccessibleName =  "" ;
+        ProgramProjectLabel.BindingSource =  null ;
+        ProgramProjectLabel.DataFilter =  null ;
+        ProgramProjectLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        ProgramProjectLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        ProgramProjectLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ProgramProjectLabel.HoverText =  null ;
+        ProgramProjectLabel.ImageAlign =  System.Drawing.ContentAlignment.TopLeft ;
+        ProgramProjectLabel.IsDerivedStyle =  true ;
+        ProgramProjectLabel.Location =  new System.Drawing.Point( 3, 3 ) ;
+        ProgramProjectLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        ProgramProjectLabel.Name =  "ProgramProjectLabel" ;
+        ProgramProjectLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        ProgramProjectLabel.Size =  new System.Drawing.Size( 359, 21 ) ;
+        ProgramProjectLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ProgramProjectLabel.StyleManager =  null ;
+        ProgramProjectLabel.TabIndex =  0 ;
+        ProgramProjectLabel.Text =  "Program Project" ;
+        ProgramProjectLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+        ProgramProjectLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        ProgramProjectLabel.ThemeName =  "Budget Execution" ;
+        ProgramProjectLabel.ToolTip =  null ;
+        // 
+        // ProgramProjectNameTextBox
+        // 
+        ProgramProjectNameTextBox.AutoWordSelection =  false ;
+        ProgramProjectNameTextBox.BindingSource =  BindingSource ;
+        ProgramProjectNameTextBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        ProgramProjectNameTextBox.DataFilter =  null ;
+        ProgramProjectNameTextBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   204  ,   204  ,   204   ) ;
+        ProgramProjectNameTextBox.DisabledBorderColor =  System.Drawing.Color.FromArgb(   155  ,   155  ,   155   ) ;
+        ProgramProjectNameTextBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   136  ,   136  ,   136   ) ;
+        ProgramProjectNameTextBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        ProgramProjectNameTextBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ProgramProjectNameTextBox.HoverColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ProgramProjectNameTextBox.HoverText =  null ;
+        ProgramProjectNameTextBox.IsDerivedStyle =  true ;
+        ProgramProjectNameTextBox.Lines =  null ;
+        ProgramProjectNameTextBox.Location =  new System.Drawing.Point( 3, 30 ) ;
+        ProgramProjectNameTextBox.MaxLength =  32767 ;
+        ProgramProjectNameTextBox.Name =  "ProgramProjectNameTextBox" ;
+        ProgramProjectNameTextBox.Padding =  new System.Windows.Forms.Padding( 3 ) ;
+        ProgramProjectNameTextBox.ReadOnly =  false ;
+        ProgramProjectNameTextBox.Size =  new System.Drawing.Size( 359, 49 ) ;
+        ProgramProjectNameTextBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ProgramProjectNameTextBox.StyleManager =  null ;
+        ProgramProjectNameTextBox.TabIndex =  1 ;
+        ProgramProjectNameTextBox.Tag =  "Code" ;
+        ProgramProjectNameTextBox.ThemeAuthor =  "Terry D. Eppler" ;
+        ProgramProjectNameTextBox.ThemeName =  "Budget Execution" ;
+        ProgramProjectNameTextBox.ToolTip =  null ;
+        ProgramProjectNameTextBox.WordWrap =  true ;
+        // 
+        // PreviousButton
+        // 
+        PreviousButton.BindingSource =  null ;
+        PreviousButton.DataFilter =  null ;
+        PreviousButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        PreviousButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        PreviousButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        PreviousButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        PreviousButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        PreviousButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        PreviousButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        PreviousButton.HoverText =  null ;
+        PreviousButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        PreviousButton.IsDerivedStyle =  true ;
+        PreviousButton.Location =  new System.Drawing.Point( 361, 520 ) ;
+        PreviousButton.Name =  "PreviousButton" ;
+        PreviousButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        PreviousButton.NormalColor =  System.Drawing.Color.Transparent ;
+        PreviousButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        PreviousButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        PreviousButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        PreviousButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        PreviousButton.PressTextColor =  System.Drawing.Color.White ;
+        PreviousButton.Size =  new System.Drawing.Size( 121, 46 ) ;
+        PreviousButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        PreviousButton.StyleManager =  null ;
+        PreviousButton.TabIndex =  9 ;
+        PreviousButton.Text =  "Previous" ;
+        PreviousButton.ThemeAuthor =  "Terry D. Eppler" ;
+        PreviousButton.ThemeName =  "Budget Execution" ;
+        PreviousButton.ToolTip =  null ;
+        // 
+        // NextButton
+        // 
+        NextButton.BindingSource =  null ;
+        NextButton.DataFilter =  null ;
+        NextButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        NextButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        NextButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        NextButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        NextButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        NextButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        NextButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        NextButton.HoverText =  null ;
+        NextButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        NextButton.IsDerivedStyle =  true ;
+        NextButton.Location =  new System.Drawing.Point( 675, 520 ) ;
+        NextButton.Name =  "NextButton" ;
+        NextButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        NextButton.NormalColor =  System.Drawing.Color.Transparent ;
+        NextButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        NextButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        NextButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        NextButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        NextButton.PressTextColor =  System.Drawing.Color.White ;
+        NextButton.Size =  new System.Drawing.Size( 121, 46 ) ;
+        NextButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        NextButton.StyleManager =  null ;
+        NextButton.TabIndex =  10 ;
+        NextButton.Text =  "Next" ;
+        NextButton.ThemeAuthor =  "Terry D. Eppler" ;
+        NextButton.ThemeName =  "Budget Execution" ;
+        NextButton.ToolTip =  null ;
+        // 
+        // DescriptionLabel
+        // 
+        DescriptionLabel.BindingSource =  null ;
+        DescriptionLabel.DataFilter =  null ;
+        DescriptionLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        DescriptionLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        DescriptionLabel.HoverText =  null ;
+        DescriptionLabel.IsDerivedStyle =  true ;
+        DescriptionLabel.Location =  new System.Drawing.Point( 28, 259 ) ;
+        DescriptionLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        DescriptionLabel.Name =  "DescriptionLabel" ;
+        DescriptionLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        DescriptionLabel.Size =  new System.Drawing.Size( 165, 23 ) ;
+        DescriptionLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        DescriptionLabel.StyleManager =  null ;
+        DescriptionLabel.TabIndex =  12 ;
+        DescriptionLabel.Text =  "Description" ;
+        DescriptionLabel.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+        DescriptionLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        DescriptionLabel.ThemeName =  "Budget Execution" ;
+        DescriptionLabel.ToolTip =  null ;
+        // 
+        // SearchButton
+        // 
+        SearchButton.BindingSource =  null ;
+        SearchButton.DataFilter =  null ;
+        SearchButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        SearchButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        SearchButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        SearchButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SearchButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SearchButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SearchButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SearchButton.HoverText =  null ;
+        SearchButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        SearchButton.IsDerivedStyle =  true ;
+        SearchButton.Location =  new System.Drawing.Point( 28, 520 ) ;
+        SearchButton.Name =  "SearchButton" ;
+        SearchButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        SearchButton.NormalColor =  System.Drawing.Color.Transparent ;
+        SearchButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SearchButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SearchButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SearchButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SearchButton.PressTextColor =  System.Drawing.Color.White ;
+        SearchButton.Size =  new System.Drawing.Size( 121, 46 ) ;
+        SearchButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SearchButton.StyleManager =  null ;
+        SearchButton.TabIndex =  13 ;
+        SearchButton.Text =  "Search" ;
+        SearchButton.ThemeAuthor =  "Terry D. Eppler" ;
+        SearchButton.ThemeName =  "Budget Execution" ;
+        SearchButton.ToolTip =  null ;
+        // 
+        // ProgramProjectDialog
+        // 
+        AutoScaleDimensions =  new System.Drawing.SizeF( 6F, 14F ) ;
+        AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
+        BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CaptionBarHeight =  30 ;
+        CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
+        CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        captionImage2.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        captionImage2.Image =  Properties.Resources.EPA ;
+        captionImage2.Location =  new System.Drawing.Point( 5, 5 ) ;
+        captionImage2.Name =  "CaptionImage1" ;
+        captionImage2.Size =  new System.Drawing.Size( 42, 16 ) ;
+        CaptionImages.Add( captionImage2 );
+        ClientSize =  new System.Drawing.Size( 1188, 578 ) ;
+        Controls.Add( SearchButton );
+        Controls.Add( ProgramDescriptionTextBox );
+        Controls.Add( DescriptionLabel );
+        Controls.Add( NextButton );
+        Controls.Add( StatutoryAuthorityTable );
+        Controls.Add( PreviousButton );
+        Controls.Add( CloseButton );
+        Controls.Add( ProgramAreaTable );
+        Controls.Add( ProgramProjectTable );
+        Controls.Add( ProgramListBox );
+        Font =  new System.Drawing.Font( "Roboto Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ForeColor =  System.Drawing.Color.LightSteelBlue ;
+        FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
+        Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
+        MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        Name =  "ProgramProjectDialog" ;
+        ShowIcon =  false ;
+        SizeGripStyle =  System.Windows.Forms.SizeGripStyle.Hide ;
+        StartPosition =  System.Windows.Forms.FormStartPosition.CenterParent ;
+        ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+        StatutoryAuthorityTable.ResumeLayout( false );
+        ProgramAreaTable.ResumeLayout( false );
+        ProgramProjectTable.ResumeLayout( false );
+        ResumeLayout( false );
     }
 
     #endregion
@@ -532,16 +531,16 @@ partial class ProgramProjectDialog
     private System.Windows.Forms.TableLayoutPanel StatutoryAuthorityTable;
     private RichTextBox ProgramDescriptionTextBox;
     public System.Windows.Forms.BindingSource BindingSource;
-    private System.Windows.Forms.TableLayoutPanel ProgramAreaNameTable;
+    private System.Windows.Forms.TableLayoutPanel ProgramAreaTable;
     private Label ProgramAreaLabel;
     private RichTextBox ProgramAreaNameTextBox;
     public Button PreviousButton;
     public Button NextButton;
     private Button CloseButton;
     private ListBox ProgramListBox;
-    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+    private System.Windows.Forms.TableLayoutPanel ProgramProjectTable;
     private Label ProgramProjectLabel;
     private RichTextBox ProgramProjectNameTextBox;
-    private Label label1;
     public Button SearchButton;
+    public Label DescriptionLabel;
 }
