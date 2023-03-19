@@ -214,7 +214,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 1310, 700 );
+            Size = new Size( 1340, 690 );
 
             // Event Wiring
             Load += OnLoad;
@@ -422,37 +422,6 @@ namespace BudgetExecution
                     {
                         SqlCeRadioButton.Checked = true;
                         break;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the image.
-        /// </summary>
-        /// <returns></returns>
-        private void SetProviderImage( )
-        {
-            try
-            {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
-                if( !string.IsNullOrEmpty( _path ) )
-                {
-                    var _files = Directory.GetFiles( _path );
-                    if( _files?.Any( ) == true )
-                    {
-                        var _extension = Provider.ToString( );
-                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
-                        if( !string.IsNullOrEmpty( _file )
-                           && File.Exists( _file ) )
-                        {
-                            var _img = Image.FromFile( _file );
-                            PictureBox.Image = _img;
-                        }
                     }
                 }
             }
@@ -1365,7 +1334,6 @@ namespace BudgetExecution
                         PopulateFirstComboBoxItems( );
                         SqlTextBox.Text = string.Empty;
                         TabControl.SelectedIndex = 1;
-                        HeaderLabel.Text = $"Filter {SelectedTable.SplitPascal( )} Data Rows";
                     }
                 }
                 catch( Exception ex )
@@ -1516,7 +1484,6 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-                        HeaderLabel.Text = $"Select {Provider} Data Table";
                         break;
                     }
                     case 1:
@@ -1525,9 +1492,6 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
-                        HeaderLabel.Text = string.Empty;
-                        SetProviderImage( );
-                        HeaderLabel.Text = $"Filter {SelectedTable.SplitPascal( )} Data Rows";
                         break;
                     }
                     case 2:
@@ -1537,7 +1501,6 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-                        HeaderLabel.Text = $"Group {SelectedTable.SplitPascal( )} Data Columns";
                         PopulateFieldListBox( );
                         PopulateNumericListBox( );
                         break;
@@ -1545,7 +1508,6 @@ namespace BudgetExecution
                     case 3:
                     {
                         ProviderTable.Visible = false;
-                        HeaderLabel.Text = string.Empty;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;

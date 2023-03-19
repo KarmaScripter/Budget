@@ -104,9 +104,6 @@ partial class FilterDialog
         FirstCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
         FirstCalendarLabel =  new Label( ) ;
         ContextMenu =  new ContextMenu( ) ;
-        HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-        HeaderLabel =  new Label( ) ;
-        PictureBox =  new System.Windows.Forms.PictureBox( ) ;
         GroupButton =  new Button( ) ;
         FirstPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
@@ -143,8 +140,6 @@ partial class FilterDialog
         SecondCalendarTable.SuspendLayout( );
         DateSelectionPanel.SuspendLayout( );
         FirstCalendarTable.SuspendLayout( );
-        HeaderTable.SuspendLayout( );
-        ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
         SuspendLayout( );
         // 
         // FirstPanel
@@ -355,7 +350,7 @@ partial class FilterDialog
         ClearButton.HoverText =  null ;
         ClearButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         ClearButton.IsDerivedStyle =  true ;
-        ClearButton.Location =  new System.Drawing.Point( 92, 621 ) ;
+        ClearButton.Location =  new System.Drawing.Point( 97, 610 ) ;
         ClearButton.Name =  "ClearButton" ;
         ClearButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         ClearButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -387,7 +382,7 @@ partial class FilterDialog
         SelectButton.HoverText =  null ;
         SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SelectButton.IsDerivedStyle =  true ;
-        SelectButton.Location =  new System.Drawing.Point( 784, 621 ) ;
+        SelectButton.Location =  new System.Drawing.Point( 787, 610 ) ;
         SelectButton.Name =  "SelectButton" ;
         SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -419,7 +414,7 @@ partial class FilterDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 1137, 621 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 1137, 610 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -462,7 +457,7 @@ partial class FilterDialog
         TabControl.ActiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.ActiveTabFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         TabControl.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TabControl.BeforeTouchSize =  new System.Drawing.Size( 1298, 544 ) ;
+        TabControl.BeforeTouchSize =  new System.Drawing.Size( 1328, 544 ) ;
         TabControl.BindingSource =  null ;
         TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
         TabControl.CanOverrideStyle =  true ;
@@ -479,9 +474,9 @@ partial class FilterDialog
         TabControl.InactiveCloseButtonForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.InactiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.ItemSize =  new System.Drawing.Size( 100, 30 ) ;
-        TabControl.Location =  new System.Drawing.Point( 0, 38 ) ;
+        TabControl.Location =  new System.Drawing.Point( 0, 0 ) ;
         TabControl.Name =  "TabControl" ;
-        TabControl.Size =  new System.Drawing.Size( 1298, 544 ) ;
+        TabControl.Size =  new System.Drawing.Size( 1328, 544 ) ;
         TabControl.TabIndex =  12 ;
         TabControl.TabPanelBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.TabStyle =  typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro ) ;
@@ -508,7 +503,7 @@ partial class FilterDialog
         FilterTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         FilterTabPage.Name =  "FilterTabPage" ;
         FilterTabPage.ShowCloseButton =  true ;
-        FilterTabPage.Size =  new System.Drawing.Size( 1298, 515 ) ;
+        FilterTabPage.Size =  new System.Drawing.Size( 1328, 515 ) ;
         FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         FilterTabPage.TabIndex =  1 ;
         FilterTabPage.ThemesEnabled =  false ;
@@ -831,7 +826,7 @@ partial class FilterDialog
         TableTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         TableTabPage.Name =  "TableTabPage" ;
         TableTabPage.ShowCloseButton =  true ;
-        TableTabPage.Size =  new System.Drawing.Size( 1338, 515 ) ;
+        TableTabPage.Size =  new System.Drawing.Size( 1328, 515 ) ;
         TableTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TableTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         TableTabPage.TabIndex =  2 ;
@@ -1227,7 +1222,7 @@ partial class FilterDialog
         GroupTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         GroupTabPage.Name =  "GroupTabPage" ;
         GroupTabPage.ShowCloseButton =  true ;
-        GroupTabPage.Size =  new System.Drawing.Size( 1338, 515 ) ;
+        GroupTabPage.Size =  new System.Drawing.Size( 1328, 515 ) ;
         GroupTabPage.TabIndex =  4 ;
         GroupTabPage.ThemesEnabled =  false ;
         // 
@@ -1475,7 +1470,7 @@ partial class FilterDialog
         CalendarTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
         CalendarTabPage.Name =  "CalendarTabPage" ;
         CalendarTabPage.ShowCloseButton =  true ;
-        CalendarTabPage.Size =  new System.Drawing.Size( 1338, 515 ) ;
+        CalendarTabPage.Size =  new System.Drawing.Size( 1328, 515 ) ;
         CalendarTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CalendarTabPage.TabForeColor =  System.Drawing.Color.LightGray ;
         CalendarTabPage.TabIndex =  3 ;
@@ -1932,51 +1927,6 @@ partial class FilterDialog
         ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
         ContextMenu.ThemeName =  "Budget Execution" ;
         // 
-        // HeaderTable
-        // 
-        HeaderTable.ColumnCount =  2 ;
-        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 3.956229F ) );
-        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 96.04377F ) );
-        HeaderTable.Controls.Add( HeaderLabel, 1, 0 );
-        HeaderTable.Controls.Add( PictureBox, 0, 0 );
-        HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
-        HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
-        HeaderTable.Name =  "HeaderTable" ;
-        HeaderTable.RowCount =  1 ;
-        HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.Size =  new System.Drawing.Size( 1298, 38 ) ;
-        HeaderTable.TabIndex =  13 ;
-        // 
-        // HeaderLabel
-        // 
-        HeaderLabel.BindingSource =  null ;
-        HeaderLabel.DataFilter =  null ;
-        HeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        HeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        HeaderLabel.HoverText =  null ;
-        HeaderLabel.IsDerivedStyle =  true ;
-        HeaderLabel.Location =  new System.Drawing.Point( 54, 3 ) ;
-        HeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        HeaderLabel.Name =  "HeaderLabel" ;
-        HeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        HeaderLabel.Size =  new System.Drawing.Size( 1241, 32 ) ;
-        HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        HeaderLabel.StyleManager =  null ;
-        HeaderLabel.TabIndex =  0 ;
-        HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleCenter ;
-        HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
-        HeaderLabel.ThemeName =  "Budget Execution" ;
-        HeaderLabel.ToolTip =  ToolTip ;
-        // 
-        // PictureBox
-        // 
-        PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
-        PictureBox.Name =  "PictureBox" ;
-        PictureBox.Size =  new System.Drawing.Size( 44, 32 ) ;
-        PictureBox.TabIndex =  1 ;
-        PictureBox.TabStop =  false ;
-        // 
         // GroupButton
         // 
         GroupButton.BindingSource =  null ;
@@ -1991,7 +1941,7 @@ partial class FilterDialog
         GroupButton.HoverText =  null ;
         GroupButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         GroupButton.IsDerivedStyle =  true ;
-        GroupButton.Location =  new System.Drawing.Point( 413, 621 ) ;
+        GroupButton.Location =  new System.Drawing.Point( 413, 610 ) ;
         GroupButton.Name =  "GroupButton" ;
         GroupButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         GroupButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -2017,27 +1967,25 @@ partial class FilterDialog
         BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
         CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        CaptionBarHeight =  5 ;
         CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
         CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        ClientSize =  new System.Drawing.Size( 1298, 689 ) ;
+        ClientSize =  new System.Drawing.Size( 1328, 654 ) ;
         Controls.Add( GroupButton );
         Controls.Add( CloseButton );
         Controls.Add( SelectButton );
         Controls.Add( ClearButton );
         Controls.Add( TabControl );
-        Controls.Add( HeaderTable );
         Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ForeColor =  System.Drawing.Color.LightGray ;
         FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
         Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
         MaximizeBox =  false ;
-        MaximumSize =  new System.Drawing.Size( 1310, 700 ) ;
+        MaximumSize =  new System.Drawing.Size( 1340, 690 ) ;
         MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         MinimizeBox =  false ;
-        MinimumSize =  new System.Drawing.Size( 1310, 700 ) ;
+        MinimumSize =  new System.Drawing.Size( 1340, 690 ) ;
         Name =  "FilterDialog" ;
         ShowIcon =  false ;
         ShowMaximizeBox =  false ;
@@ -2079,8 +2027,6 @@ partial class FilterDialog
         SecondCalendarTable.ResumeLayout( false );
         DateSelectionPanel.ResumeLayout( false );
         FirstCalendarTable.ResumeLayout( false );
-        HeaderTable.ResumeLayout( false );
-        ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
         ResumeLayout( false );
     }
 
@@ -2143,12 +2089,9 @@ partial class FilterDialog
     public Layout FieldPanel;
     public ListBox FieldListBox;
     private ContextMenu ContextMenu;
-    public System.Windows.Forms.TableLayoutPanel HeaderTable;
-    public Label HeaderLabel;
     public HeaderPanel SqlTable;
     public Layout SqlPanel;
     public TextBox SqlTextBox;
-    public System.Windows.Forms.PictureBox PictureBox;
     private HeaderPanel headerPanel1;
     public HeaderPanel MaintenanceTable;
     public HeaderPanel ReferenceTable;
