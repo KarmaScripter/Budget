@@ -344,6 +344,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [lookup button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -355,7 +375,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.LookupButton )
                 {
-                    var _dialog = new QueryDialog( );
+                    var _dialog = new FilterDialog( );
                     _dialog.BindingSource = BindingSource;
                     _dialog.ShowDialog( this );
                 }
