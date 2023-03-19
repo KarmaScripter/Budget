@@ -2116,13 +2116,13 @@
             ExcelImportButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ExcelImportButton.ForeColor =  System.Drawing.Color.LightGray ;
             ExcelImportButton.HoverText =  "Excel Import" ;
-            ExcelImportButton.Image =  Properties.Resources.ExcelImportButton ;
+            ExcelImportButton.Image =  Properties.Resources.UploadButton ;
             ExcelImportButton.ImageScaling =  System.Windows.Forms.ToolStripItemImageScaling.None ;
             ExcelImportButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
             ExcelImportButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ExcelImportButton.Name =  "ExcelImportButton" ;
             ExcelImportButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ExcelImportButton.Size =  new System.Drawing.Size( 24, 28 ) ;
+            ExcelImportButton.Size =  new System.Drawing.Size( 23, 28 ) ;
             ExcelImportButton.Text =  "toolStripButton1" ;
             ExcelImportButton.ToolTip =  ToolTip ;
             ExcelImportButton.ToolType =  ToolType.ExcelImportButton ;

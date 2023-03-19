@@ -1971,7 +1971,7 @@ partial class FilterDialog
         CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
         CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        ClientSize =  new System.Drawing.Size( 1328, 642 ) ;
+        ClientSize =  new System.Drawing.Size( 1328, 640 ) ;
         Controls.Add( GroupButton );
         Controls.Add( CloseButton );
         Controls.Add( SelectButton );
@@ -1982,10 +1982,10 @@ partial class FilterDialog
         FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
         Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
         MaximizeBox =  false ;
-        MaximumSize =  new System.Drawing.Size( 1340, 678 ) ;
+        MaximumSize =  new System.Drawing.Size( 1340, 676 ) ;
         MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         MinimizeBox =  false ;
-        MinimumSize =  new System.Drawing.Size( 1340, 678 ) ;
+        MinimumSize =  new System.Drawing.Size( 1340, 676 ) ;
         Name =  "FilterDialog" ;
         ShowIcon =  false ;
         ShowMaximizeBox =  false ;

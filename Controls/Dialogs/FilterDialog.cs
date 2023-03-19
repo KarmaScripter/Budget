@@ -214,7 +214,7 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 1340, 678 );
+            Size = new Size( 1340, 676 );
 
             // Event Wiring
             Load += OnLoad;
