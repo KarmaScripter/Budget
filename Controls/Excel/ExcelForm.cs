@@ -19,7 +19,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class ExcelForm : MetroForm
     {
         /// <summary>
@@ -53,7 +53,7 @@ namespace BudgetExecution
         /// The col count.
         /// </value>
         public int ColCount { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the grid.
         /// </summary>
@@ -112,7 +112,7 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1300, 700  );
+            MinimumSize = new Size( 1300, 700 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -135,7 +135,7 @@ namespace BudgetExecution
             MaximizeBox = false;
             ToolStripTextBox.Font = new Font( "Roboto", 8 );
             ToolStripTextBox.ForeColor = Color.White;
-            
+
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
 
@@ -152,7 +152,7 @@ namespace BudgetExecution
             ToolStripTextBox.ForeColor = Color.LightSteelBlue;
             ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            
+
             // Spreadsheet Properties
             Spreadsheet.AllowCellContextMenu = true;
             Spreadsheet.CanApplyTheme = true;
@@ -165,16 +165,16 @@ namespace BudgetExecution
             Spreadsheet.DefaultRowCount = 60;
             Spreadsheet.AllowZooming = true;
             Spreadsheet.AllowFiltering = true;
-            
+
             // Event Wiring
             Load += OnLoad;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelForm"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public ExcelForm( string filePath ) 
+        public ExcelForm( string filePath )
             : this( )
         {
             Spreadsheet.Open( filePath );
@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// <see cref="ExcelForm"/> class.
         /// </summary>
         /// <param name="fileStream">The file.</param>
-        public ExcelForm( Stream fileStream ) 
+        public ExcelForm( Stream fileStream )
             : this( )
         {
             Spreadsheet.Open( fileStream );
@@ -198,13 +198,13 @@ namespace BudgetExecution
         /// <see cref="ExcelForm"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public ExcelForm( BindingSource bindingSource ) 
+        public ExcelForm( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Text = $"{ DataTable.TableName.SplitPascal( ) } ";
+            Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
 
         /// <summary>
@@ -212,13 +212,13 @@ namespace BudgetExecution
         /// of the <see cref="ExcelForm"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public ExcelForm( DataTable dataTable ) 
+        public ExcelForm( DataTable dataTable )
             : this( )
         {
             DataTable = dataTable;
             BindingSource.DataSource = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Text = $"{ DataTable.TableName.SplitPascal( ) } ";
+            Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
         /// <summary>
         /// Called when [load].
@@ -242,12 +242,12 @@ namespace BudgetExecution
                 PopulateToolBarDropDownItems( );
                 SetTableProperties( DataTable );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the tool bar drop down items.
         /// </summary>
@@ -256,12 +256,12 @@ namespace BudgetExecution
             try
             {
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
+                var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( r => r.Field<string>( "TableName" ) )
-                    ?.ToList(  );
-                
+                    ?.ToList( );
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
@@ -279,7 +279,7 @@ namespace BudgetExecution
         /// </summary>
         private void SetTableProperties( DataTable table )
         {
-            if( table != null 
+            if( table != null
                && table?.Rows?.Count > 0 )
             {
                 try
@@ -290,7 +290,7 @@ namespace BudgetExecution
                     Spreadsheet?.SetGridLinesVisibility( false );
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
-                    ToolStripTextBox.Text = $"  Rows: { RowCount }  Columns: { ColCount }";
+                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
                     var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
                     var _name = table.TableName ?? "DataTable";
                     var _usedRange = _activeSheet?.UsedRange;
@@ -321,7 +321,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [back button clicked].
         /// </summary>
@@ -331,10 +331,33 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button 
+                if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.BackButton )
                 {
-                    Close(  );
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnLookupButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.LookupButton )
+                {
+                    var _dialog = new QueryDialog( );
+                    _dialog.BindingSource = BindingSource;
+                    _dialog.ShowDialog( this );
                 }
             }
             catch( Exception ex )

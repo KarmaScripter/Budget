@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class QueryDialog : MetroForm
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data model.
         /// </summary>
@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// The data model.
         /// </value>
         public DataBuilder DataModel { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// The data table.
         /// </value>
         public DataTable DataTable { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// The numerics.
         /// </value>
         public IList<string> Numerics { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the fields.
         /// </summary>
@@ -120,12 +120,12 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            
+
             // ListBox Properties
             FirstListBox.MultiSelect = false;
             SecondListBox.MultiSelect = true;
             ThirdListBox.MultiSelect = true;
-            
+
             // TableProperties
             FirstTable.Location = new Point( 12, 12 );
             FirstTable.Size = new Size( 280, 376 );
@@ -139,7 +139,7 @@ namespace BudgetExecution
             ThirdTable.Size = new Size( 280, 376 );
             ThirdTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             ThirdTable.Visible = true;
-            
+
             // Button Properties
             FirstButton.Size = new Size( 160, 55 );
             FirstButton.Location = new Point( 30, 400 );
@@ -147,7 +147,7 @@ namespace BudgetExecution
             SecondButton.Location = new Point( 352, 400 );
             ThirdButton.Size = new Size( 160, 55 );
             ThirdButton.Location = new Point( 670, 400 );
-            
+
             // Event Wiring
             Load += OnLoad;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -157,12 +157,12 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="QueryDialog"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public QueryDialog( BindingSource bindingSource ) 
+        public QueryDialog( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
         }
-        
+
         /// <summary>
         /// Called when [load].
         /// </summary>
@@ -175,16 +175,16 @@ namespace BudgetExecution
                 ThirdButton.Click += OnCloseButtonClicked;
                 SecondListBox.MultiSelect = true;
                 ThirdListBox.MultiSelect = true;
-                PopulateFirstListBoxItems(  );
+                PopulateFirstListBoxItems( );
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                PopulateSecondListBox(  );
+                PopulateSecondListBox( );
                 PopulateThirdListBoxItems( );
                 SetLabelConfiguration( );
-                FirstListBox.SelectedValue = $"{ Source }";
+                FirstListBox.SelectedValue = $"{Source}";
             }
             catch( Exception ex )
             {
@@ -218,9 +218,9 @@ namespace BudgetExecution
             try
             {
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
+                var _data = _model.GetData( );
                 var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )?.ToList(  );
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
@@ -307,7 +307,7 @@ namespace BudgetExecution
                 {
                     FormFilter.Clear( );
                 }
-                
+
                 BindingSource.DataSource = null;
                 SqlQuery = string.Empty;
                 SecondListBox.Items?.Clear( );
@@ -326,8 +326,8 @@ namespace BudgetExecution
                     PopulateSecondListBox( );
                     PopulateThirdListBoxItems( );
                 }
-                
-                SetLabelConfiguration(  );
+
+                SetLabelConfiguration( );
             }
             catch( Exception ex )
             {
@@ -373,7 +373,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

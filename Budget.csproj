@@ -43,6 +43,7 @@
     <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
     <PackageReference Include="EPPlus" Version="6.1.3" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="20.4.0.38" />
@@ -80,6 +81,8 @@
     <PackageReference Include="Syncfusion.Maps.Windows" Version="20.4.0.38" />
     <PackageReference Include="Syncfusion.SfSmithChart.WinForms" Version="20.4.0.38" />
       <PackageReference Include="Syncfusion.HTMLUI.Windows" Version="20.4.0.38" />
+      <PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
+      <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
       <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
 </ItemGroup>
   <ItemGroup>

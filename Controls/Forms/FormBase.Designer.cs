@@ -26,33 +26,32 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent( )
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBase));
-            this.SuspendLayout();
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( FormBase ) );
+            SuspendLayout( );
             // 
             // FormBase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.DarkRed;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(933, 483);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.Name = "FormBase";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
+            AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
+            BackColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
+            BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
+            CaptionBarColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
+            CaptionButtonColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CaptionButtonHoverColor =  System.Drawing.Color.DarkRed ;
+            CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ClientSize =  new System.Drawing.Size( 1171, 633 ) ;
+            Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ForeColor =  System.Drawing.Color.DarkGray ;
+            Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
+            MetroColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
+            Name =  "FormBase" ;
+            ShowIcon =  false ;
+            StartPosition =  System.Windows.Forms.FormStartPosition.CenterScreen ;
+            ResumeLayout( false );
         }
 
         #endregion
