@@ -31,8 +31,8 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
-            var formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
+            var spreadsheetCopyPaste2 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
+            var formulaRangeSelectionController2 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelForm ) );
             Ribbon =  new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon( ) ;
             Spreadsheet =  new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet( ) ;
@@ -40,22 +40,20 @@
             ToolStrip =  new ToolStrip( ) ;
             HomeButton =  new ToolStripButton( ) ;
             ToolTip =  new SmallTip( ) ;
+            Label2 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
             Separator1 =  new ToolSeparator( ) ;
             ToolStripTextBox =  new ToolStripTextBox( ) ;
+            Label3 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            this.Separator2 =  new ToolSeparator( ) ;
             UploadButton =  new ToolStripButton( ) ;
-            Separator8 =  new ToolSeparator( ) ;
-            Separator9 =  new ToolSeparator( ) ;
-            Separator10 =  new ToolSeparator( ) ;
             ChartButton =  new ToolStripButton( ) ;
+            Label4 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            Label5 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            Label6 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            this.Separator3 =  new ToolSeparator( ) ;
             BackButton =  new ToolStripButton( ) ;
-            toolSeparator2 =  new ToolSeparator( ) ;
-            toolSeparator19 =  new ToolSeparator( ) ;
-            ToolStripSpacer1 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            ToolStripSpacer2 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            Separator11 =  new ToolSeparator( ) ;
-            ToolStripSpacer3 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            ToolStripSpacer4 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            ToolStripSpacer5 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            this.Separator4 =  new ToolSeparator( ) ;
+            Separator5 =  new ToolSeparator( ) ;
             ContextMenu =  new ContextMenu( ) ;
             ( (System.ComponentModel.ISupportInitialize) Ribbon  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
@@ -109,9 +107,9 @@
             Spreadsheet.AllowTabItemContextMenu =  true ;
             Spreadsheet.AllowZooming =  true ;
             Spreadsheet.BaseThemeName =  "" ;
-            spreadsheetCopyPaste1.AllowPasteOptionPopup =  true ;
-            spreadsheetCopyPaste1.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
-            Spreadsheet.CopyPaste =  spreadsheetCopyPaste1 ;
+            spreadsheetCopyPaste2.AllowPasteOptionPopup =  true ;
+            spreadsheetCopyPaste2.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
+            Spreadsheet.CopyPaste =  spreadsheetCopyPaste2 ;
             Spreadsheet.DefaultColumnCount =  101 ;
             Spreadsheet.DefaultRowCount =  101 ;
             Spreadsheet.DisplayAlerts =  true ;
@@ -120,9 +118,9 @@
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
-            formulaRangeSelectionController1.AllowMouseSelection =  true ;
-            formulaRangeSelectionController1.AllowSelectionOnEditing =  true ;
-            Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController1 ;
+            formulaRangeSelectionController2.AllowMouseSelection =  true ;
+            formulaRangeSelectionController2.AllowSelectionOnEditing =  true ;
+            Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController2 ;
             Spreadsheet.IsCustomTabItemContextMenuEnabled =  false ;
             Spreadsheet.Location =  new System.Drawing.Point( 0, 155 ) ;
             Spreadsheet.Name =  "Spreadsheet" ;
@@ -171,7 +169,8 @@
             ToolStrip.Image =  null ;
             ToolStrip.ImageDirectory =  null ;
             ToolStrip.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { ToolStripSpacer1, Separator1, ToolStripTextBox, this.Separator2, ToolStripSpacer2, Separator11, this.LookupButton, Separator3, UploadButton, this.Separator5, ChartButton, this.Separator4, ToolStripSpacer3, ToolStripSpacer4, ToolStripSpacer5, Separator8, BackButton, Separator9, HomeButton, Separator10 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, this.Separator2, ToolStripTextBox, Label3, UploadButton, ChartButton, Label4, Label5, Label6, this.Separator3, BackButton, this.Separator4, HomeButton, Separator5 } );
+            ToolStrip.Label =  null ;
             ToolStrip.LastButton =  null ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
             ToolStrip.Location =  new System.Drawing.Point( 0, 667 ) ;
@@ -247,6 +246,14 @@
             ToolTip.TipText =  null ;
             ToolTip.TipTitle =  null ;
             // 
+            // Label2
+            // 
+            Label2.BackColor =  System.Drawing.Color.Transparent ;
+            Label2.ForeColor =  System.Drawing.Color.Transparent ;
+            Label2.Name =  "Label2" ;
+            Label2.Size =  new System.Drawing.Size( 106, 27 ) ;
+            Label2.Text =  "toolStripLabelExt1" ;
+            // 
             // Separator1
             // 
             Separator1.ForeColor =  System.Drawing.Color.Black ;
@@ -266,9 +273,17 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 234, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 230, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
+            // 
+            // Label3
+            // 
+            Label3.BackColor =  System.Drawing.Color.Transparent ;
+            Label3.ForeColor =  System.Drawing.Color.Transparent ;
+            Label3.Name =  "Label3" ;
+            Label3.Size =  new System.Drawing.Size( 88, 27 ) ;
+            Label3.Text =  "this is a spacer" ;
             // 
             // Separator2
             // 
@@ -277,51 +292,6 @@
             this.Separator2.Name =  "Separator2" ;
             this.Separator2.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             this.Separator2.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // Separator3
-            // 
-            Separator3.ForeColor =  System.Drawing.Color.Black ;
-            Separator3.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator3.Name =  "Separator3" ;
-            Separator3.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator3.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // LookupButton
-            // 
-            this.LookupButton.AutoToolTip =  false ;
-            this.LookupButton.BackColor =  System.Drawing.Color.Transparent ;
-            this.LookupButton.BindingSource =  BindingSource ;
-            this.LookupButton.DataFilter =  null ;
-            this.LookupButton.DisplayStyle =  System.Windows.Forms.ToolStripItemDisplayStyle.Image ;
-            this.LookupButton.Field =  Field.AccountCode ;
-            this.LookupButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            this.LookupButton.ForeColor =  System.Drawing.Color.LightGray ;
-            this.LookupButton.HoverText =  "Open Query Dialog" ;
-            this.LookupButton.Image =  Properties.Resources.DataSearchButton ;
-            this.LookupButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            this.LookupButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            this.LookupButton.Name =  "LookupButton" ;
-            this.LookupButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            this.LookupButton.Size =  new System.Drawing.Size( 23, 28 ) ;
-            this.LookupButton.Text =  "toolStripButton1" ;
-            this.LookupButton.ToolTip =  ToolTip ;
-            this.LookupButton.ToolType =  ToolType.LookupButton ;
-            // 
-            // Separator4
-            // 
-            this.Separator4.ForeColor =  System.Drawing.Color.Black ;
-            this.Separator4.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            this.Separator4.Name =  "Separator4" ;
-            this.Separator4.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            this.Separator4.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // Separator5
-            // 
-            this.Separator5.ForeColor =  System.Drawing.Color.Black ;
-            this.Separator5.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            this.Separator5.Name =  "Separator5" ;
-            this.Separator5.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            this.Separator5.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // UploadButton
             // 
@@ -344,30 +314,6 @@
             UploadButton.ToolTip =  ToolTip ;
             UploadButton.ToolType =  ToolType.UploadButton ;
             // 
-            // Separator8
-            // 
-            Separator8.ForeColor =  System.Drawing.Color.Black ;
-            Separator8.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator8.Name =  "Separator8" ;
-            Separator8.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator8.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // Separator9
-            // 
-            Separator9.ForeColor =  System.Drawing.Color.Black ;
-            Separator9.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator9.Name =  "Separator9" ;
-            Separator9.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator9.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // Separator10
-            // 
-            Separator10.ForeColor =  System.Drawing.Color.Black ;
-            Separator10.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator10.Name =  "Separator10" ;
-            Separator10.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator10.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
             // ChartButton
             // 
             ChartButton.AutoToolTip =  false ;
@@ -388,6 +334,38 @@
             ChartButton.Text =  "toolStripButton7" ;
             ChartButton.ToolTip =  ToolTip ;
             ChartButton.ToolType =  ToolType.ChartButton ;
+            // 
+            // Label4
+            // 
+            Label4.BackColor =  System.Drawing.Color.Transparent ;
+            Label4.ForeColor =  System.Drawing.Color.Transparent ;
+            Label4.Name =  "Label4" ;
+            Label4.Size =  new System.Drawing.Size( 91, 27 ) ;
+            Label4.Text =  "this is  a spacer" ;
+            // 
+            // Label5
+            // 
+            Label5.BackColor =  System.Drawing.Color.Transparent ;
+            Label5.ForeColor =  System.Drawing.Color.Transparent ;
+            Label5.Name =  "Label5" ;
+            Label5.Size =  new System.Drawing.Size( 88, 27 ) ;
+            Label5.Text =  "this is a spacer" ;
+            // 
+            // Label6
+            // 
+            Label6.BackColor =  System.Drawing.Color.Transparent ;
+            Label6.ForeColor =  System.Drawing.Color.Transparent ;
+            Label6.Name =  "Label6" ;
+            Label6.Size =  new System.Drawing.Size( 88, 27 ) ;
+            Label6.Text =  "this is a spacer" ;
+            // 
+            // Separator3
+            // 
+            this.Separator3.ForeColor =  System.Drawing.Color.Black ;
+            this.Separator3.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            this.Separator3.Name =  "Separator3" ;
+            this.Separator3.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            this.Separator3.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // BackButton
             // 
@@ -410,69 +388,21 @@
             BackButton.ToolTip =  null ;
             BackButton.ToolType =  ToolType.BackButton ;
             // 
-            // toolSeparator2
+            // Separator4
             // 
-            toolSeparator2.ForeColor =  System.Drawing.Color.Black ;
-            toolSeparator2.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            toolSeparator2.Name =  "toolSeparator2" ;
-            toolSeparator2.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            toolSeparator2.Size =  new System.Drawing.Size( 6, 32 ) ;
+            this.Separator4.ForeColor =  System.Drawing.Color.Black ;
+            this.Separator4.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            this.Separator4.Name =  "Separator4" ;
+            this.Separator4.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            this.Separator4.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // toolSeparator19
+            // Separator5
             // 
-            toolSeparator19.ForeColor =  System.Drawing.Color.Black ;
-            toolSeparator19.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            toolSeparator19.Name =  "toolSeparator19" ;
-            toolSeparator19.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            toolSeparator19.Size =  new System.Drawing.Size( 6, 30 ) ;
-            // 
-            // ToolStripSpacer1
-            // 
-            ToolStripSpacer1.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer1.ForeColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer1.Name =  "ToolStripSpacer1" ;
-            ToolStripSpacer1.Size =  new System.Drawing.Size( 106, 27 ) ;
-            ToolStripSpacer1.Text =  "toolStripLabelExt1" ;
-            // 
-            // ToolStripSpacer2
-            // 
-            ToolStripSpacer2.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer2.ForeColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer2.Name =  "ToolStripSpacer2" ;
-            ToolStripSpacer2.Size =  new System.Drawing.Size( 88, 27 ) ;
-            ToolStripSpacer2.Text =  "this is a spacer" ;
-            // 
-            // Separator11
-            // 
-            Separator11.ForeColor =  System.Drawing.Color.Black ;
-            Separator11.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator11.Name =  "Separator11" ;
-            Separator11.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Separator11.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // ToolStripSpacer3
-            // 
-            ToolStripSpacer3.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer3.ForeColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer3.Name =  "ToolStripSpacer3" ;
-            ToolStripSpacer3.Size =  new System.Drawing.Size( 91, 27 ) ;
-            ToolStripSpacer3.Text =  "this is  a spacer" ;
-            // 
-            // ToolStripSpacer4
-            // 
-            ToolStripSpacer4.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer4.ForeColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer4.Name =  "ToolStripSpacer4" ;
-            ToolStripSpacer4.Size =  new System.Drawing.Size( 88, 27 ) ;
-            ToolStripSpacer4.Text =  "this is a spacer" ;
-            // 
-            // ToolStripSpacer5
-            // 
-            ToolStripSpacer5.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer5.ForeColor =  System.Drawing.Color.Transparent ;
-            ToolStripSpacer5.Name =  "ToolStripSpacer5" ;
-            ToolStripSpacer5.Size =  new System.Drawing.Size( 88, 27 ) ;
-            ToolStripSpacer5.Text =  "this is a spacer" ;
+            Separator5.ForeColor =  System.Drawing.Color.Black ;
+            Separator5.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            Separator5.Name =  "Separator5" ;
+            Separator5.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            Separator5.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // ContextMenu
             // 
@@ -531,59 +461,27 @@
         public Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet Spreadsheet;
         public System.Windows.Forms.BindingSource BindingSource;
         public ToolStripTextBox ToolStripTextBox;
-        public ToolStripLabel Label;
         public ToolStripDropDown DropDown;
-        public ToolSeparator Separator12;
-        public ToolSeparator Separator13;
-        public ToolSeparator Separator14;
-        public ToolSeparator Separator15;
-        public ToolStripButton FirstButton;
-        public ToolStripButton LastButton;
         public ToolStripButton AddButton;
         public ToolStripButton DeleteButton;
         public ToolStripButton EditButton;
         public ToolStripButton RefreshButton;
-        public ToolStripButton SaveButton;
-        public ToolStripButton ExcelButton;
         public ToolStripButton ChartButton;
         public ToolStripButton HomeButton;
-        public ToolSeparator Separator16;
-        public ToolStripButton PreviousButton;
-        public ToolStripButton NextButton;
-        public ToolSeparator Separator17;
-        public ToolSeparator Separator18;
         private ToolStrip ToolStrip;
         private SmallTip ToolTip;
-
-        private ToolSeparator toolSeparator1;
-        private ToolSeparator toolSeparator2;
-        private ToolSeparator toolSeparator3;
         public ToolStripButton RefreshDataButton;
-        public ToolSeparator Separator8;
-        public ToolSeparator Separator9;
-        public ToolSeparator Separator10;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt ToolStripSpacer1;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt ToolStripSpacer2;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt ToolStripSpacer3;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt ToolStripSpacer4;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt ToolStripSpacer5;
-        private ToolSeparator Separator11;
+        public ToolSeparator Separator5;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label2;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label3;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label4;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label5;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label6;
         public ContextMenu ContextMenu;
         public ToolStripButton UploadButton;
-        private ToolSeparator toolSeparator6;
         public ToolStripButton DeleteDatabaseButton;
-        private ToolSeparator toolSeparator7;
-        private ToolSeparator toolSeparator8;
-        private ToolSeparator toolSeparator9;
-        private ToolSeparator toolSeparator10;
         private ToolSeparator Separator2;
-        private ToolSeparator toolSeparator12;
-        private ToolSeparator toolSeparator14;
-        private ToolSeparator toolSeparator15;
-        private ToolSeparator toolSeparator16;
-        private ToolSeparator toolSeparator17;
         public ToolStripButton BackButton;
-        private ToolSeparator toolSeparator19;
         public ToolSeparator Separator3;
         public ToolSeparator Separator1;
         public ToolSeparator Separator4;
