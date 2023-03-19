@@ -7,9 +7,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
@@ -198,6 +200,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            MouseClick += OnRightClick;
+            TabControl.TabIndexChanged += OnActiveTabChanged;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -212,8 +216,10 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
         }
-
+        
         /// <summary>
         /// Initializes a new instance
         /// of the <see cref="FilterDialog"/> class.
@@ -431,6 +437,87 @@ namespace BudgetExecution
 
             return string.Empty;
         }
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    foreach( var name in fields )
+                    {
+                        _cols += $"{name}, ";
+                    }
+
+                    foreach( var metric in numerics )
+                    {
+                        _aggr += $"SUM({metric}) AS {metric}, ";
+                    }
+
+                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    var _criteria = where.ToCriteria( );
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string GetSqlText( IEnumerable<string> columns,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
+               && !string.IsNullOrEmpty( SelectedTable ) )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    foreach( var name in columns )
+                    {
+                        _cols += $"{name}, ";
+                    }
+
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names} ;";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
 
         /// <summary>
         /// Populates the second como box items.
@@ -482,7 +569,6 @@ namespace BudgetExecution
                        && !string.IsNullOrEmpty( SecondValue ) )
                     {
                         ThirdComboBox.Items.Clear( );
-
                         foreach( var item in Fields )
                         {
                             if( !item.Equals( FirstCategory )
@@ -501,12 +587,67 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the field ListBox.
+        /// </summary>
+        private void PopulateFieldListBox( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FieldListBox.Items.Count > 0 )
+                    {
+                        FieldListBox.Items.Clear( );
+                    }
+
+                    foreach( var _item in Fields )
+                    {
+                        FieldListBox.Items.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateNumericListBox( )
+        {
+            if( Numerics?.Any( ) == true )
+            {
+                try
+                {
+                    if( NumericListBox.Items.Count > 0 )
+                    {
+                        NumericListBox.Items.Clear( );
+                    }
+
+                    for( var _i = 0; _i < Numerics.Count; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
+                        {
+                            NumericListBox.Items.Add( Numerics[ _i ] );
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Binds the data source.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        private void BindDataSource( Source source, Provider provider,
+        private void BindData( Source source, Provider provider,
             IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), source )
@@ -522,6 +663,66 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataModel.DataTable;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = GetSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( Enum.IsDefined( typeof( Source ), Source )
+               && Enum.IsDefined( typeof( Provider ), Provider )
+               && where?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = GetSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
                 }
                 catch( Exception ex )
                 {
@@ -653,7 +854,6 @@ namespace BudgetExecution
                 try
                 {
                     var _tag = _radio.Tag.ToString( );
-
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _tag );
@@ -890,6 +1090,52 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [field ListBox selected value changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnFieldListBoxSelectedValueChanged( object sender )
+        {
+            try
+            {
+                var _selectedItem = FieldListBox.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem ) )
+                {
+                    SelectedFields.Add( _selectedItem );
+                    SelectedColumns.Add( _selectedItem );
+                }
+
+                SqlQuery = GetSqlText( SelectedColumns, FormFilter );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [numeric ListBox selected value changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnNumericListBoxSelectedValueChanged( object sender )
+        {
+            try
+            {
+                var _selectedItem = NumericListBox.SelectedItem.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem ) )
+                {
+                    SelectedNumerics.Add( _selectedItem );
+                }
+
+                SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                BindData( SelectedFields, SelectedNumerics, FormFilter );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [close button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -970,6 +1216,80 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                switch( TabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ProviderTable.Visible = true;
+                        TableTabPage.TabVisible = true;
+                        FilterTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
+                        break;
+                    }
+                    case 1:
+                    {
+                        ProviderTable.Visible = false;
+                        FilterTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        break;
+                    }
+                    case 2:
+                    {
+                        ProviderTable.Visible = false;
+                        GroupTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
+                        CalendarTabPage.TabVisible = false;
+                        break;
+                    }
+                    case 3:
+                    {
+                        ProviderTable.Visible = false;
+                        CalendarTabPage.TabVisible = true;
+                        GroupTabPage.TabVisible = false;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
+                        break;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

@@ -83,6 +83,13 @@ partial class FilterDialog
         SecondComboBox =  new ComboBox( ) ;
         SecondPanel =  new Layout( ) ;
         SecondListBox =  new ListBox( ) ;
+        GroupTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
+        NumericTable =  new HeaderPanel( ) ;
+        NumericPanel =  new Layout( ) ;
+        NumericListBox =  new ListBox( ) ;
+        FieldTable =  new HeaderPanel( ) ;
+        FieldPanel =  new Layout( ) ;
+        FieldListBox =  new ListBox( ) ;
         CalendarTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         CalendarDataPanel =  new Layout( ) ;
         TimeLabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
@@ -101,14 +108,7 @@ partial class FilterDialog
         FirstCalendarTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
         FirstCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
         FirstCalendarLabel =  new Label( ) ;
-        GroupTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         ContextMenu =  new ContextMenu( ) ;
-        FieldTable =  new HeaderPanel( ) ;
-        NumericTable =  new HeaderPanel( ) ;
-        FieldPanel =  new Layout( ) ;
-        NumericPanel =  new Layout( ) ;
-        FieldListBox =  new ListBox( ) ;
-        NumericListBox =  new ListBox( ) ;
         FirstTable.SuspendLayout( );
         FirstPanel.SuspendLayout( );
         ThirdTable.SuspendLayout( );
@@ -130,6 +130,11 @@ partial class FilterDialog
         FourthPanel.SuspendLayout( );
         SecondTable.SuspendLayout( );
         SecondPanel.SuspendLayout( );
+        GroupTabPage.SuspendLayout( );
+        NumericTable.SuspendLayout( );
+        NumericPanel.SuspendLayout( );
+        FieldTable.SuspendLayout( );
+        FieldPanel.SuspendLayout( );
         CalendarTabPage.SuspendLayout( );
         CalendarDataPanel.SuspendLayout( );
         TimeLabelTable.SuspendLayout( );
@@ -137,11 +142,6 @@ partial class FilterDialog
         SecondCalendarTable.SuspendLayout( );
         DateSelectionPanel.SuspendLayout( );
         FirstCalendarTable.SuspendLayout( );
-        GroupTabPage.SuspendLayout( );
-        FieldTable.SuspendLayout( );
-        NumericTable.SuspendLayout( );
-        FieldPanel.SuspendLayout( );
-        NumericPanel.SuspendLayout( );
         SuspendLayout( );
         // 
         // FirstTable
@@ -464,7 +464,7 @@ partial class FilterDialog
         SelectButton.HoverText =  null ;
         SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SelectButton.IsDerivedStyle =  true ;
-        SelectButton.Location =  new System.Drawing.Point( 572, 512 ) ;
+        SelectButton.Location =  new System.Drawing.Point( 542, 512 ) ;
         SelectButton.Name =  "SelectButton" ;
         SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -544,10 +544,10 @@ partial class FilterDialog
         TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
         TabControl.CanOverrideStyle =  true ;
         TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TabControl.Controls.Add( FilterTabPage );
-        TabControl.Controls.Add( TableTabPage );
-        TabControl.Controls.Add( CalendarTabPage );
         TabControl.Controls.Add( GroupTabPage );
+        TabControl.Controls.Add( TableTabPage );
+        TabControl.Controls.Add( FilterTabPage );
+        TabControl.Controls.Add( CalendarTabPage );
         TabControl.Dock =  System.Windows.Forms.DockStyle.Top ;
         TabControl.FixedSingleBorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.FocusOnTabClick =  false ;
@@ -1387,6 +1387,177 @@ partial class FilterDialog
         SecondListBox.ThemeName =  "BudgetExecution" ;
         SecondListBox.ToolTip =  null ;
         // 
+        // GroupTabPage
+        // 
+        GroupTabPage.Controls.Add( NumericTable );
+        GroupTabPage.Controls.Add( FieldTable );
+        GroupTabPage.Image =  null ;
+        GroupTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
+        GroupTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
+        GroupTabPage.Name =  "GroupTabPage" ;
+        GroupTabPage.ShowCloseButton =  true ;
+        GroupTabPage.Size =  new System.Drawing.Size( 1188, 445 ) ;
+        GroupTabPage.TabIndex =  4 ;
+        GroupTabPage.ThemesEnabled =  false ;
+        // 
+        // NumericTable
+        // 
+        NumericTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        NumericTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        NumericTable.CaptionText =  "Numerics" ;
+        NumericTable.ColumnCount =  1 ;
+        NumericTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+        NumericTable.Controls.Add( NumericPanel, 0, 1 );
+        NumericTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        NumericTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        NumericTable.Location =  new System.Drawing.Point( 670, 24 ) ;
+        NumericTable.Name =  "NumericTable" ;
+        NumericTable.RowCount =  2 ;
+        NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.51351357F ) );
+        NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.48649F ) );
+        NumericTable.Size =  new System.Drawing.Size( 323, 386 ) ;
+        NumericTable.TabIndex =  1 ;
+        // 
+        // NumericPanel
+        // 
+        NumericPanel.BackColor =  System.Drawing.Color.Transparent ;
+        NumericPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        NumericPanel.BindingSource =  null ;
+        NumericPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        NumericPanel.BorderThickness =  1 ;
+        NumericPanel.Children =  null ;
+        NumericPanel.Controls.Add( NumericListBox );
+        NumericPanel.DataFilter =  null ;
+        NumericPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        NumericPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        NumericPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        NumericPanel.HoverText =  null ;
+        NumericPanel.IsDerivedStyle =  true ;
+        NumericPanel.Location =  new System.Drawing.Point( 3, 32 ) ;
+        NumericPanel.Name =  "NumericPanel" ;
+        NumericPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        NumericPanel.Size =  new System.Drawing.Size( 317, 351 ) ;
+        NumericPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        NumericPanel.StyleManager =  null ;
+        NumericPanel.TabIndex =  0 ;
+        NumericPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        NumericPanel.ThemeName =  "Budget Execution" ;
+        NumericPanel.ToolTip =  null ;
+        // 
+        // NumericListBox
+        // 
+        NumericListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+        NumericListBox.BindingSource =  null ;
+        NumericListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        NumericListBox.DataFilter =  null ;
+        NumericListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        NumericListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        NumericListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        NumericListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        NumericListBox.HoveredItemColor =  System.Drawing.Color.White ;
+        NumericListBox.HoverText =  null ;
+        NumericListBox.IsDerivedStyle =  true ;
+        NumericListBox.ItemHeight =  28 ;
+        NumericListBox.Location =  new System.Drawing.Point( 54, 41 ) ;
+        NumericListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        NumericListBox.MultiSelect =  true ;
+        NumericListBox.Name =  "NumericListBox" ;
+        NumericListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        NumericListBox.SelectedIndex =  -1 ;
+        NumericListBox.SelectedItem =  null ;
+        NumericListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        NumericListBox.SelectedItemColor =  System.Drawing.Color.White ;
+        NumericListBox.SelectedText =  null ;
+        NumericListBox.SelectedValue =  null ;
+        NumericListBox.ShowBorder =  false ;
+        NumericListBox.ShowScrollBar =  false ;
+        NumericListBox.Size =  new System.Drawing.Size( 219, 274 ) ;
+        NumericListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        NumericListBox.StyleManager =  null ;
+        NumericListBox.TabIndex =  0 ;
+        NumericListBox.ThemeAuthor =  "Terry D. Eppler" ;
+        NumericListBox.ThemeName =  "Budget Execution" ;
+        NumericListBox.ToolTip =  null ;
+        // 
+        // FieldTable
+        // 
+        FieldTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FieldTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        FieldTable.CaptionText =  "Fields" ;
+        FieldTable.ColumnCount =  1 ;
+        FieldTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+        FieldTable.Controls.Add( FieldPanel, 0, 1 );
+        FieldTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FieldTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        FieldTable.Location =  new System.Drawing.Point( 191, 24 ) ;
+        FieldTable.Name =  "FieldTable" ;
+        FieldTable.RowCount =  2 ;
+        FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.24324322F ) );
+        FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.75676F ) );
+        FieldTable.Size =  new System.Drawing.Size( 344, 386 ) ;
+        FieldTable.TabIndex =  0 ;
+        // 
+        // FieldPanel
+        // 
+        FieldPanel.BackColor =  System.Drawing.Color.Transparent ;
+        FieldPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FieldPanel.BindingSource =  null ;
+        FieldPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        FieldPanel.BorderThickness =  1 ;
+        FieldPanel.Children =  null ;
+        FieldPanel.Controls.Add( FieldListBox );
+        FieldPanel.DataFilter =  null ;
+        FieldPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        FieldPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FieldPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        FieldPanel.HoverText =  null ;
+        FieldPanel.IsDerivedStyle =  true ;
+        FieldPanel.Location =  new System.Drawing.Point( 3, 31 ) ;
+        FieldPanel.Name =  "FieldPanel" ;
+        FieldPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FieldPanel.Size =  new System.Drawing.Size( 338, 352 ) ;
+        FieldPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FieldPanel.StyleManager =  null ;
+        FieldPanel.TabIndex =  0 ;
+        FieldPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        FieldPanel.ThemeName =  "Budget Execution" ;
+        FieldPanel.ToolTip =  null ;
+        // 
+        // FieldListBox
+        // 
+        FieldListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+        FieldListBox.BindingSource =  null ;
+        FieldListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        FieldListBox.DataFilter =  null ;
+        FieldListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FieldListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        FieldListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FieldListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        FieldListBox.HoveredItemColor =  System.Drawing.Color.White ;
+        FieldListBox.HoverText =  null ;
+        FieldListBox.IsDerivedStyle =  true ;
+        FieldListBox.ItemHeight =  28 ;
+        FieldListBox.Location =  new System.Drawing.Point( 47, 42 ) ;
+        FieldListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        FieldListBox.MultiSelect =  true ;
+        FieldListBox.Name =  "FieldListBox" ;
+        FieldListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FieldListBox.SelectedIndex =  -1 ;
+        FieldListBox.SelectedItem =  null ;
+        FieldListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        FieldListBox.SelectedItemColor =  System.Drawing.Color.White ;
+        FieldListBox.SelectedText =  null ;
+        FieldListBox.SelectedValue =  null ;
+        FieldListBox.ShowBorder =  false ;
+        FieldListBox.ShowScrollBar =  false ;
+        FieldListBox.Size =  new System.Drawing.Size( 219, 274 ) ;
+        FieldListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FieldListBox.StyleManager =  null ;
+        FieldListBox.TabIndex =  0 ;
+        FieldListBox.ThemeAuthor =  "Terry D. Eppler" ;
+        FieldListBox.ThemeName =  "Budget Execution" ;
+        FieldListBox.ToolTip =  null ;
+        // 
         // CalendarTabPage
         // 
         CalendarTabPage.Controls.Add( CalendarDataPanel );
@@ -1840,19 +2011,6 @@ partial class FilterDialog
         FirstCalendarLabel.ThemeName =  "Budget Execution" ;
         FirstCalendarLabel.ToolTip =  null ;
         // 
-        // GroupTabPage
-        // 
-        GroupTabPage.Controls.Add( NumericTable );
-        GroupTabPage.Controls.Add( FieldTable );
-        GroupTabPage.Image =  null ;
-        GroupTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-        GroupTabPage.Location =  new System.Drawing.Point( 0, 29 ) ;
-        GroupTabPage.Name =  "GroupTabPage" ;
-        GroupTabPage.ShowCloseButton =  true ;
-        GroupTabPage.Size =  new System.Drawing.Size( 1188, 445 ) ;
-        GroupTabPage.TabIndex =  4 ;
-        GroupTabPage.ThemesEnabled =  false ;
-        // 
         // ContextMenu
         // 
         ContextMenu.AutoSize =  false ;
@@ -1866,160 +2024,6 @@ partial class FilterDialog
         ContextMenu.StyleManager =  null ;
         ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
         ContextMenu.ThemeName =  "Budget Execution" ;
-        // 
-        // FieldTable
-        // 
-        FieldTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FieldTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        FieldTable.ColumnCount =  1 ;
-        FieldTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-        FieldTable.Controls.Add( FieldPanel, 0, 1 );
-        FieldTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FieldTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        FieldTable.Location =  new System.Drawing.Point( 191, 24 ) ;
-        FieldTable.Name =  "FieldTable" ;
-        FieldTable.RowCount =  2 ;
-        FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-        FieldTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 90F ) );
-        FieldTable.Size =  new System.Drawing.Size( 344, 386 ) ;
-        FieldTable.TabIndex =  0 ;
-        // 
-        // NumericTable
-        // 
-        NumericTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        NumericTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        NumericTable.ColumnCount =  1 ;
-        NumericTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-        NumericTable.Controls.Add( NumericPanel, 0, 1 );
-        NumericTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        NumericTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        NumericTable.Location =  new System.Drawing.Point( 670, 24 ) ;
-        NumericTable.Name =  "NumericTable" ;
-        NumericTable.RowCount =  2 ;
-        NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-        NumericTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 90F ) );
-        NumericTable.Size =  new System.Drawing.Size( 323, 386 ) ;
-        NumericTable.TabIndex =  1 ;
-        // 
-        // FieldPanel
-        // 
-        FieldPanel.BackColor =  System.Drawing.Color.Transparent ;
-        FieldPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FieldPanel.BindingSource =  null ;
-        FieldPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        FieldPanel.BorderThickness =  1 ;
-        FieldPanel.Children =  null ;
-        FieldPanel.Controls.Add( FieldListBox );
-        FieldPanel.DataFilter =  null ;
-        FieldPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FieldPanel.ForeColor =  System.Drawing.Color.Transparent ;
-        FieldPanel.HoverText =  null ;
-        FieldPanel.IsDerivedStyle =  true ;
-        FieldPanel.Location =  new System.Drawing.Point( 3, 41 ) ;
-        FieldPanel.Name =  "FieldPanel" ;
-        FieldPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        FieldPanel.Size =  new System.Drawing.Size( 338, 342 ) ;
-        FieldPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        FieldPanel.StyleManager =  null ;
-        FieldPanel.TabIndex =  0 ;
-        FieldPanel.ThemeAuthor =  "Terry D. Eppler" ;
-        FieldPanel.ThemeName =  "Budget Execution" ;
-        FieldPanel.ToolTip =  null ;
-        // 
-        // NumericPanel
-        // 
-        NumericPanel.BackColor =  System.Drawing.Color.Transparent ;
-        NumericPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        NumericPanel.BindingSource =  null ;
-        NumericPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        NumericPanel.BorderThickness =  1 ;
-        NumericPanel.Children =  null ;
-        NumericPanel.Controls.Add( NumericListBox );
-        NumericPanel.DataFilter =  null ;
-        NumericPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        NumericPanel.ForeColor =  System.Drawing.Color.Transparent ;
-        NumericPanel.HoverText =  null ;
-        NumericPanel.IsDerivedStyle =  true ;
-        NumericPanel.Location =  new System.Drawing.Point( 3, 41 ) ;
-        NumericPanel.Name =  "NumericPanel" ;
-        NumericPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        NumericPanel.Size =  new System.Drawing.Size( 317, 342 ) ;
-        NumericPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        NumericPanel.StyleManager =  null ;
-        NumericPanel.TabIndex =  0 ;
-        NumericPanel.ThemeAuthor =  "Terry D. Eppler" ;
-        NumericPanel.ThemeName =  "Budget Execution" ;
-        NumericPanel.ToolTip =  null ;
-        // 
-        // FieldListBox
-        // 
-        FieldListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        FieldListBox.BindingSource =  null ;
-        FieldListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        FieldListBox.DataFilter =  null ;
-        FieldListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FieldListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        FieldListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        FieldListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-        FieldListBox.HoveredItemColor =  System.Drawing.Color.White ;
-        FieldListBox.HoverText =  null ;
-        FieldListBox.IsDerivedStyle =  true ;
-        FieldListBox.ItemHeight =  28 ;
-        FieldListBox.Location =  new System.Drawing.Point( 59, 27 ) ;
-        FieldListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        FieldListBox.MultiSelect =  true ;
-        FieldListBox.Name =  "FieldListBox" ;
-        FieldListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        FieldListBox.SelectedIndex =  -1 ;
-        FieldListBox.SelectedItem =  null ;
-        FieldListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        FieldListBox.SelectedItemColor =  System.Drawing.Color.White ;
-        FieldListBox.SelectedText =  null ;
-        FieldListBox.SelectedValue =  null ;
-        FieldListBox.ShowBorder =  false ;
-        FieldListBox.ShowScrollBar =  false ;
-        FieldListBox.Size =  new System.Drawing.Size( 219, 274 ) ;
-        FieldListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        FieldListBox.StyleManager =  null ;
-        FieldListBox.TabIndex =  0 ;
-        FieldListBox.ThemeAuthor =  "Terry D. Eppler" ;
-        FieldListBox.ThemeName =  "Budget Execution" ;
-        FieldListBox.ToolTip =  null ;
-        // 
-        // NumericListBox
-        // 
-        NumericListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        NumericListBox.BindingSource =  null ;
-        NumericListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        NumericListBox.DataFilter =  null ;
-        NumericListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        NumericListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        NumericListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        NumericListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-        NumericListBox.HoveredItemColor =  System.Drawing.Color.White ;
-        NumericListBox.HoverText =  null ;
-        NumericListBox.IsDerivedStyle =  true ;
-        NumericListBox.ItemHeight =  28 ;
-        NumericListBox.Location =  new System.Drawing.Point( 50, 24 ) ;
-        NumericListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        NumericListBox.MultiSelect =  true ;
-        NumericListBox.Name =  "NumericListBox" ;
-        NumericListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        NumericListBox.SelectedIndex =  -1 ;
-        NumericListBox.SelectedItem =  null ;
-        NumericListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        NumericListBox.SelectedItemColor =  System.Drawing.Color.White ;
-        NumericListBox.SelectedText =  null ;
-        NumericListBox.SelectedValue =  null ;
-        NumericListBox.ShowBorder =  false ;
-        NumericListBox.ShowScrollBar =  false ;
-        NumericListBox.Size =  new System.Drawing.Size( 219, 274 ) ;
-        NumericListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        NumericListBox.StyleManager =  null ;
-        NumericListBox.TabIndex =  0 ;
-        NumericListBox.ThemeAuthor =  "Terry D. Eppler" ;
-        NumericListBox.ThemeName =  "Budget Execution" ;
-        NumericListBox.ToolTip =  null ;
         // 
         // FilterDialog
         // 
@@ -2075,6 +2079,11 @@ partial class FilterDialog
         FourthPanel.ResumeLayout( false );
         SecondTable.ResumeLayout( false );
         SecondPanel.ResumeLayout( false );
+        GroupTabPage.ResumeLayout( false );
+        NumericTable.ResumeLayout( false );
+        NumericPanel.ResumeLayout( false );
+        FieldTable.ResumeLayout( false );
+        FieldPanel.ResumeLayout( false );
         CalendarTabPage.ResumeLayout( false );
         CalendarDataPanel.ResumeLayout( false );
         TimeLabelTable.ResumeLayout( false );
@@ -2082,11 +2091,6 @@ partial class FilterDialog
         SecondCalendarTable.ResumeLayout( false );
         DateSelectionPanel.ResumeLayout( false );
         FirstCalendarTable.ResumeLayout( false );
-        GroupTabPage.ResumeLayout( false );
-        FieldTable.ResumeLayout( false );
-        NumericTable.ResumeLayout( false );
-        FieldPanel.ResumeLayout( false );
-        NumericPanel.ResumeLayout( false );
         ResumeLayout( false );
     }
 

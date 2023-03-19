@@ -168,6 +168,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            MouseClick += OnRightClick;
+            LookupButton.Click += null;
         }
 
         /// <summary>
@@ -234,6 +236,8 @@ namespace BudgetExecution
             try
             {
                 BackButton.Click += OnBackButtonClicked;
+                LookupButton.Click += OnLookupButtonClicked;
+                Spreadsheet.MouseClick += OnRightClick;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Label.ForeColor = Color.Black;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
