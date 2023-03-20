@@ -234,7 +234,6 @@ namespace BudgetExecution
             // TabPage Properties
             TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
             TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
 
             // Initialize Default Provider
@@ -257,21 +256,14 @@ namespace BudgetExecution
             // Event Wiring
             MouseClick += OnRightClick;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
-            RemoveFiltersButton.Click += null;
+            FilterButton.Click += null;
             TableButton.Click += null;
             RefreshDataButton.Click += null;
             GroupButton.Click += null;
-            CalendarButton.Click += null;
             Load += OnLoad;
         }
 
@@ -369,24 +361,15 @@ namespace BudgetExecution
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
-                SecondComboBox.Visible = false;
-                SecondListBox.Visible = false;
-                SecondListBoxPanel.Visible = false;
-                ThirdComboBox.Visible = false;
-                ThirdListBox.Visible = false;
-                ThirdListBoxPanel.Visible = false;
                 PopulateToolBarDropDownItems( );
                 ExitButton.Click += OnExitButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                FilterButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                FilterButton.Click += OnRemoveFilterButtonClicked;
                 TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
-                CalendarButton.Click += OnCalendarButtonClicked;
-                FirstCalendar.SelectionChanged += OnStartDateSelected;
-                SecondCalendar.SelectionChanged += OnEndDateSelected;
                 TableButton.Click += OnTableButtonClick;
             }
             catch( Exception ex )
@@ -509,40 +492,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Resets the ComboBox visibility.
-        /// </summary>
-        private void ResetComboBoxVisibility( )
-        {
-            try
-            {
-                if( FirstComboBox?.Visible == false )
-                {
-                    FirstComboBox.Visible = true;
-                    FirstListBox.Visible = true;
-                    FirstListBoxPanel.Visible = true;
-                }
-
-                if( SecondComboBox.Visible == true )
-                {
-                    SecondComboBox.Visible = false;
-                    SecondListBox.Visible = false;
-                    SecondListBoxPanel.Visible = false;
-                }
-
-                if( ThirdComboBox?.Visible == true )
-                {
-                    ThirdComboBox.Visible = false;
-                    ThirdListBox.Visible = false;
-                    ThirdListBoxPanel.Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Clears the selections.
         /// </summary>
         private void ClearSelections( )
@@ -557,19 +506,12 @@ namespace BudgetExecution
 
                 FourthCategory = string.Empty;
                 FourthValue = string.Empty;
-                ThirdComboBox.Items.Clear( );
-                ThirdListBox.Items.Clear( );
                 ThirdCategory = string.Empty;
                 ThirdValue = string.Empty;
-                SecondComboBox.Items.Clear( );
-                SecondListBox.Items.Clear( );
                 SecondCategory = string.Empty;
                 SecondValue = string.Empty;
-                FirstComboBox.Items.Clear( );
-                FirstListBox.Items.Clear( );
                 FirstCategory = string.Empty;
                 FirstValue = string.Empty;
-                ResetComboBoxVisibility( );
             }
             catch( Exception ex )
             {
@@ -738,8 +680,6 @@ namespace BudgetExecution
                     FourthHeaderLabel.Text = $"Measures : {_numerics} ";
                     ThirdHeaderLabel.Text = $"Fields : {_fields} ";
                     NumericsLabel.Text = $"Measures : {_numerics} ";
-                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
                 }
                 else
                 {
@@ -816,11 +756,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FirstComboBox.Items.Clear( );
-                    foreach( var item in Fields )
-                    {
-                        FirstComboBox.Items.Add( item );
-                    }
                 }
                 catch( Exception ex )
                 {
@@ -838,14 +773,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SecondComboBox.Items.Clear( );
                     if( !string.IsNullOrEmpty( FirstValue ) )
                     {
                         foreach( var item in Fields )
                         {
                             if( !item.Equals( FirstCategory ) )
                             {
-                                SecondComboBox.Items.Add( item );
                             }
                         }
                     }
@@ -853,7 +786,6 @@ namespace BudgetExecution
                     {
                         foreach( var item in Fields )
                         {
-                            SecondComboBox.Items.Add( item );
                         }
                     }
                 }
@@ -881,7 +813,6 @@ namespace BudgetExecution
                             if( !item.Equals( FirstCategory )
                                && !item.Equals( SecondCategory ) )
                             {
-                                ThirdComboBox.Items.Add( item );
                             }
                         }
                     }
@@ -904,7 +835,6 @@ namespace BudgetExecution
                 {
                     foreach( var _item in Fields )
                     {
-                        FieldListBox.Items.Add( _item );
                     }
                 }
                 catch( Exception ex )
@@ -927,7 +857,7 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
+                            SecondListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -1018,18 +948,12 @@ namespace BudgetExecution
                     var _filter = _comboBox.SelectedItem.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
-                        SecondListBox.Items.Clear( );
                         SecondCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
                         {
-                            SecondListBox.Items.Add( item );
                         }
                     }
-
-                    ThirdComboBox.Visible = false;
-                    ThirdListBox.Visible = false;
-                    ThirdListBoxPanel.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -1057,13 +981,6 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     PopulateThirdComboBoxItems( );
-                    if( ThirdComboBox.Visible == false )
-                    {
-                        ThirdComboBox.Visible = true;
-                        ThirdListBox.Visible = true;
-                        ThirdListBoxPanel.Visible = true;
-                    }
-
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
                     UpdateLabelText( );
@@ -1091,16 +1008,13 @@ namespace BudgetExecution
                     ThirdValue = string.Empty;
                     FourthCategory = string.Empty;
                     FourthValue = string.Empty;
-                    ThirdListBox.Items.Clear( );
                     var _filter = _comboBox?.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
-                        ThirdListBox.Items.Clear( );
                         ThirdCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
                         {
-                            ThirdListBox.Items.Add( item );
                         }
                     }
                 }
@@ -1149,11 +1063,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _selectedItem = FieldListBox.SelectedItem?.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem ) )
-                {
-                    SelectedColumns.Add( _selectedItem );
-                }
             }
             catch( Exception ex )
             {
@@ -1169,7 +1078,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _selectedItem = NumericListBox.SelectedItem?.ToString( );
+                var _selectedItem = SecondListBox.SelectedItem?.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedColumns?.Add( _selectedItem );
@@ -1199,7 +1108,6 @@ namespace BudgetExecution
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
-                    FirstListBox.Items.Clear( );
                     var _filter = _comboBox.SelectedItem.ToString( );
                     if( !string.IsNullOrEmpty( _filter ) )
                     {
@@ -1207,16 +1115,8 @@ namespace BudgetExecution
                         var _data = DataModel.DataElements[ _filter ];
                         foreach( var item in _data )
                         {
-                            FirstListBox.Items.Add( item );
                         }
                     }
-
-                    SecondComboBox.Visible = false;
-                    SecondListBox.Visible = false;
-                    SecondListBoxPanel.Visible = false;
-                    ThirdComboBox.Visible = false;
-                    ThirdListBox.Visible = false;
-                    ThirdListBoxPanel.Visible = false;
                 }
                 catch( Exception ex )
                 {
@@ -1243,16 +1143,6 @@ namespace BudgetExecution
                     FirstValue = _listBox?.SelectedValue?.ToString( );
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems( );
-                    SecondComboBox.Visible = true;
-                    SecondListBox.Visible = true;
-                    SecondListBoxPanel.Visible = true;
-                    if( ThirdComboBox.Visible == true )
-                    {
-                        ThirdComboBox.Visible = false;
-                        ThirdListBox.Visible = false;
-                        ThirdListBoxPanel.Visible = false;
-                    }
-
                     SqlQuery = CreateSqlText( FormFilter );
                     BindDataSource( SqlQuery );
                     UpdateLabelText( );
@@ -1300,8 +1190,6 @@ namespace BudgetExecution
                         UpdateLabelText( );
                         LabelTable.Visible = true;
                     }
-
-                    ResetComboBoxVisibility( );
                 }
                 catch( Exception ex )
                 {
@@ -1428,20 +1316,14 @@ namespace BudgetExecution
                         // TabPage Visibility
                         TabControl.SelectedTab = TableTabPage;
                         TableTabPage.TabVisible = true;
-                        FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
-                        CalendarTabPage.TabVisible = false;
                         break;
                     }
                     case 1:
                     {
                         // TabPage Visibility
-                        TabControl.SelectedTab = FilterTabPage;
-                        FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
-                        CalendarTabPage.TabVisible = false;
-                        ResetComboBoxVisibility( );
                         break;
                     }
                     case 2:
@@ -1450,18 +1332,13 @@ namespace BudgetExecution
                         TabControl.SelectedTab = GroupTabPage;
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = false;
-                        CalendarTabPage.TabVisible = false;
                         break;
                     }
                     case 3:
                     {
                         // TabPage Visibility
-                        TabControl.SelectedTab = CalendarTabPage;
-                        CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = false;
                         break;
                     }
                 }
@@ -1496,29 +1373,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [calendar button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnCalendarButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.CalendarButton )
-                {
-                    TabControl.SelectedIndex = 3;
-                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [start date selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1527,7 +1381,6 @@ namespace BudgetExecution
         {
             try
             {
-                FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
             }
             catch( Exception ex )
             {
@@ -1544,7 +1397,6 @@ namespace BudgetExecution
         {
             try
             {
-                SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
             }
             catch( Exception ex )
             {
@@ -1577,7 +1429,6 @@ namespace BudgetExecution
                     Numerics = DataModel.Numerics;
                     TabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
-                    ResetComboBoxVisibility( );
                 }
             }
             catch( Exception ex )
