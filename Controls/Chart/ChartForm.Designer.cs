@@ -82,8 +82,6 @@
             ExitButton =  new ToolStripButton( ) ;
             TabControl =  new TabControl( ) ;
             GroupTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
-            this.SecondPanel =  new Layout( ) ;
-            SecondListBox =  new ListBox( ) ;
             TableTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             TablePanel =  new Layout( ) ;
             TableListBox =  new ListBox( ) ;
@@ -105,116 +103,12 @@
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
             TabControl.SuspendLayout( );
             GroupTabPage.SuspendLayout( );
-            this.SecondPanel.SuspendLayout( );
             TableTabPage.SuspendLayout( );
             TablePanel.SuspendLayout( );
             FirstTable.SuspendLayout( );
             FirstTablePanel.SuspendLayout( );
             headerPanel1.SuspendLayout( );
             SuspendLayout( );
-            // 
-            // GridTable
-            // 
-            GridTable.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
-            GridTable.BackColor =  System.Drawing.Color.Transparent ;
-            GridTable.ColumnCount =  1 ;
-            GridTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            GridTable.Controls.Add( DataGridPanel, 0, 1 );
-            GridTable.Location =  new System.Drawing.Point( 0, 0 ) ;
-            GridTable.Name =  "GridTable" ;
-            GridTable.RowCount =  2 ;
-            GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridTable.Size =  new System.Drawing.Size( 200, 100 ) ;
-            GridTable.TabIndex =  0 ;
-            // 
-            // DataGridPanel
-            // 
-            DataGridPanel.BackColor =  System.Drawing.Color.Transparent ;
-            DataGridPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            DataGridPanel.BindingSource =  null ;
-            DataGridPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            DataGridPanel.BorderThickness =  1 ;
-            DataGridPanel.Children =  null ;
-            DataGridPanel.Controls.Add( DataGrid );
-            DataGridPanel.DataFilter =  null ;
-            DataGridPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            DataGridPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DataGridPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            DataGridPanel.HoverText =  null ;
-            DataGridPanel.IsDerivedStyle =  true ;
-            DataGridPanel.Location =  new System.Drawing.Point( 3, 23 ) ;
-            DataGridPanel.Name =  "DataGridPanel" ;
-            DataGridPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            DataGridPanel.Size =  new System.Drawing.Size( 194, 74 ) ;
-            DataGridPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            DataGridPanel.StyleManager =  null ;
-            DataGridPanel.TabIndex =  47 ;
-            DataGridPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            DataGridPanel.ThemeName =  "Budget Execution" ;
-            DataGridPanel.ToolTip =  null ;
-            // 
-            // DataGrid
-            // 
-            DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle6.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle6.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle6.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle6.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle6.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle6 ;
-            DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            DataGrid.BindingSource =  null ;
-            DataGrid.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
-            DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
-            DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle7.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle7.BackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle7.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle7.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle7.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle7.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle7 ;
-            DataGrid.ColumnHeadersHeight =  30 ;
-            DataGrid.DataFilter =  null ;
-            dataGridViewCellStyle8.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
-            dataGridViewCellStyle8.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle8.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle8.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle8.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle8.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle8.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
-            DataGrid.DefaultCellStyle =  dataGridViewCellStyle8 ;
-            DataGrid.EnableHeadersVisualStyles =  false ;
-            DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
-            DataGrid.HoverText =  null ;
-            DataGrid.Location =  new System.Drawing.Point( 38, 39 ) ;
-            DataGrid.MultiSelect =  false ;
-            DataGrid.Name =  "DataGrid" ;
-            DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle9.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
-            dataGridViewCellStyle9.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle9.ForeColor =  System.Drawing.Color.Black ;
-            dataGridViewCellStyle9.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle9.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
-            dataGridViewCellStyle9.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle9 ;
-            DataGrid.RowHeadersWidth =  20 ;
-            dataGridViewCellStyle10.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle10.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle10.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle10.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle10.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle10.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle10 ;
-            DataGrid.RowTemplate.Height =  28 ;
-            DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
-            DataGrid.Size =  new System.Drawing.Size( 895, 482 ) ;
-            DataGrid.TabIndex =  0 ;
-            DataGrid.ToolTip =  null ;
             // 
             // LabelTable
             // 
@@ -1083,32 +977,6 @@
             GroupTabPage.TabIndex =  2 ;
             GroupTabPage.ThemesEnabled =  false ;
             // 
-            // SecondPanel
-            // 
-            this.SecondPanel.BackColor =  System.Drawing.Color.Transparent ;
-            this.SecondPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            this.SecondPanel.BindingSource =  null ;
-            this.SecondPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            this.SecondPanel.BorderThickness =  1 ;
-            this.SecondPanel.Children =  null ;
-            this.SecondPanel.Controls.Add( SecondListBox );
-            this.SecondPanel.DataFilter =  null ;
-            this.SecondPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            this.SecondPanel.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            this.SecondPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            this.SecondPanel.HoverText =  null ;
-            this.SecondPanel.IsDerivedStyle =  true ;
-            this.SecondPanel.Location =  new System.Drawing.Point( 3, 40 ) ;
-            this.SecondPanel.Name =  "SecondPanel" ;
-            this.SecondPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            this.SecondPanel.Size =  new System.Drawing.Size( 252, 233 ) ;
-            this.SecondPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            this.SecondPanel.StyleManager =  null ;
-            this.SecondPanel.TabIndex =  6 ;
-            this.SecondPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            this.SecondPanel.ThemeName =  "BudgetExecution" ;
-            this.SecondPanel.ToolTip =  null ;
-            // 
             // SecondListBox
             // 
             SecondListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
@@ -1308,24 +1176,6 @@
             FirstTablePanel.ThemeName =  "Budget Execution" ;
             FirstTablePanel.ToolTip =  null ;
             // 
-            // headerPanel1
-            // 
-            headerPanel1.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            headerPanel1.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-            headerPanel1.ColumnCount =  1 ;
-            headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            headerPanel1.Controls.Add( this.SecondPanel, 0, 1 );
-            headerPanel1.Controls.Add( SecondComboBox, 0, 0 );
-            headerPanel1.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            headerPanel1.ForeColor =  System.Drawing.Color.DarkGray ;
-            headerPanel1.Location =  new System.Drawing.Point( 27, 310 ) ;
-            headerPanel1.Name =  "headerPanel1" ;
-            headerPanel1.RowCount =  2 ;
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 13.405797F ) );
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 86.5942F ) );
-            headerPanel1.Size =  new System.Drawing.Size( 258, 276 ) ;
-            headerPanel1.TabIndex =  11 ;
-            // 
             // SecondComboBox
             // 
             SecondComboBox.AllowDrop =  true ;
@@ -1434,7 +1284,6 @@
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
             TabControl.ResumeLayout( false );
             GroupTabPage.ResumeLayout( false );
-            this.SecondPanel.ResumeLayout( false );
             TableTabPage.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
             FirstTable.ResumeLayout( false );
