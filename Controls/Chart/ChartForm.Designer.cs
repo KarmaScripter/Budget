@@ -93,6 +93,7 @@
             TablePanel =  new Layout( ) ;
             TableListBox =  new ListBox( ) ;
             ContextMenu =  new ContextMenu( ) ;
+            SourceTable =  new HeaderPanel( ) ;
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             ChartTable.SuspendLayout( );
             ChartPanel.SuspendLayout( );
@@ -108,6 +109,7 @@
             FirstListBoxPanel.SuspendLayout( );
             TableTabPage.SuspendLayout( );
             TablePanel.SuspendLayout( );
+            SourceTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // GridTable
@@ -1026,8 +1028,8 @@
             TabControl.BorderWidth =  1 ;
             TabControl.CanOverrideStyle =  true ;
             TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.Controls.Add( GroupTabPage );
             TabControl.Controls.Add( TableTabPage );
+            TabControl.Controls.Add( GroupTabPage );
             TabControl.FixedSingleBorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.FocusOnTabClick =  false ;
             TabControl.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -1295,7 +1297,7 @@
             // 
             // TableTabPage
             // 
-            TableTabPage.Controls.Add( TablePanel );
+            TableTabPage.Controls.Add( SourceTable );
             TableTabPage.Image =  null ;
             TableTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
             TableTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
@@ -1315,14 +1317,15 @@
             TablePanel.Children =  null ;
             TablePanel.Controls.Add( TableListBox );
             TablePanel.DataFilter =  null ;
+            TablePanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
             TablePanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             TablePanel.ForeColor =  System.Drawing.Color.Transparent ;
             TablePanel.HoverText =  null ;
             TablePanel.IsDerivedStyle =  true ;
-            TablePanel.Location =  new System.Drawing.Point( 12, 26 ) ;
+            TablePanel.Location =  new System.Drawing.Point( 3, 3 ) ;
             TablePanel.Name =  "TablePanel" ;
             TablePanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            TablePanel.Size =  new System.Drawing.Size( 278, 555 ) ;
+            TablePanel.Size =  new System.Drawing.Size( 264, 549 ) ;
             TablePanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             TablePanel.StyleManager =  null ;
             TablePanel.TabIndex =  0 ;
@@ -1344,7 +1347,7 @@
             TableListBox.HoverText =  null ;
             TableListBox.IsDerivedStyle =  true ;
             TableListBox.ItemHeight =  28 ;
-            TableListBox.Location =  new System.Drawing.Point( 37, 38 ) ;
+            TableListBox.Location =  new System.Drawing.Point( 30, 32 ) ;
             TableListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             TableListBox.MultiSelect =  false ;
             TableListBox.Name =  "TableListBox" ;
@@ -1357,7 +1360,7 @@
             TableListBox.SelectedValue =  null ;
             TableListBox.ShowBorder =  false ;
             TableListBox.ShowScrollBar =  false ;
-            TableListBox.Size =  new System.Drawing.Size( 203, 487 ) ;
+            TableListBox.Size =  new System.Drawing.Size( 203, 489 ) ;
             TableListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             TableListBox.StyleManager =  null ;
             TableListBox.TabIndex =  0 ;
@@ -1378,6 +1381,22 @@
             ContextMenu.StyleManager =  null ;
             ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
             ContextMenu.ThemeName =  "Budget Execution" ;
+            // 
+            // SourceTable
+            // 
+            SourceTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SourceTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            SourceTable.ColumnCount =  1 ;
+            SourceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            SourceTable.Controls.Add( TablePanel, 0, 0 );
+            SourceTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SourceTable.ForeColor =  System.Drawing.Color.DarkGray ;
+            SourceTable.Location =  new System.Drawing.Point( 21, 26 ) ;
+            SourceTable.Name =  "SourceTable" ;
+            SourceTable.RowCount =  1 ;
+            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            SourceTable.Size =  new System.Drawing.Size( 270, 555 ) ;
+            SourceTable.TabIndex =  1 ;
             // 
             // ChartForm
             // 
@@ -1421,6 +1440,7 @@
             FirstListBoxPanel.ResumeLayout( false );
             TableTabPage.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
+            SourceTable.ResumeLayout( false );
             ResumeLayout( false );
             PerformLayout( );
         }
@@ -1493,5 +1513,6 @@
         public Layout FirstListBoxPanel;
         public ListBox FirstListBox;
         public ListBox SecondListBox;
+        public HeaderPanel SourceTable;
     }
 }
