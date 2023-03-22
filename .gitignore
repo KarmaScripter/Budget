@@ -62,3 +62,4 @@ dkms.conf
 *.laccdb
 *.sdf
 *.lock
+*.vsidx
