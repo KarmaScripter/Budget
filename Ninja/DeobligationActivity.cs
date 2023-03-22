@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class DeobligationActivity : Deobligation
     {
         /// <summary>
@@ -256,7 +257,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeobligationActivity"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DeobligationActivity"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public DeobligationActivity( IDataModel builder )

@@ -26,7 +26,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the identifier.
         /// </summary>
-        public  override int ID { get; set; }
+        public override int ID { get; set; }
 
         /// <summary>
         /// Gets the code.
