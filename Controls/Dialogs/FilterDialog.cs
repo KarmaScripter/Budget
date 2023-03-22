@@ -189,6 +189,14 @@ namespace BudgetExecution
         public Provider Provider { get; set; }
 
         /// <summary>
+        /// Gets or sets the type of the tool.
+        /// </summary>
+        /// <value>
+        /// The type of the tool.
+        /// </value>
+        public ToolType ToolType { get; set; }
+        
+        /// <summary>
         /// Initializes a new instance of the <see cref="FilterDialog"/> class.
         /// </summary>
         public FilterDialog( )
@@ -331,7 +339,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Sets the RadioButton tags.
         /// </summary>

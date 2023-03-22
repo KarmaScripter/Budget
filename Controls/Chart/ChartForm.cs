@@ -231,11 +231,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
-            // TabPage Properties
-            TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
-            TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-
             // Initialize Default Provider
             Provider = Provider.Access;
 
@@ -255,15 +250,11 @@ namespace BudgetExecution
 
             // Event Wiring
             MouseClick += OnRightClick;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
             FilterButton.Click += null;
             TableButton.Click += null;
-            RefreshDataButton.Click += null;
-            GroupButton.Click += null;
             Load += OnLoad;
         }
 
@@ -335,7 +326,6 @@ namespace BudgetExecution
                 SetToolStripProperties( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 1;
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     Text = $"{SelectedTable.SplitPascal( )}";
                     Chart.Title.Text = string.Empty;
@@ -347,10 +337,8 @@ namespace BudgetExecution
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 0;
                     LabelTable.Visible = false;
                     TableButton.Visible = false;
-                    PopulateTableListBoxItems( );
                     Text = "Visualization";
                     Chart.Title.Text = "Select Data Table";
                     Chart.ToolBar.Visible = false;
@@ -366,10 +354,7 @@ namespace BudgetExecution
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
                 FilterButton.Click += OnRemoveFilterButtonClicked;
-                RefreshDataButton.Click += OnRefreshDataButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
                 FilterButton.Click += OnRemoveFilterButtonClicked;
-                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
                 TableButton.Click += OnTableButtonClick;
             }
             catch( Exception ex )
@@ -721,32 +706,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
-        public void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                TableListBox.Items.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var name = _names[ _i ];
-                    TableListBox.Items.Add( name );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
@@ -821,6 +781,40 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        private void OpenFilterDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenGroupDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenTableDialog( )
+        {
+            try
+            {
+                var _form = new FilterDialog( BindingSource );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -1174,7 +1168,6 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( SelectedTable ) )
                     {
                         TableButton.Visible = true;
-                        TabControl.SelectedIndex = 1;
                         Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel?.DataTable;
@@ -1291,7 +1284,6 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearCollections( );
                     ClearLabelText( );
-                    TabControl.SelectedIndex = 0;
                 }
             }
             catch( Exception ex )
@@ -1299,56 +1291,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnActiveTabChanged( object sender, EventArgs e )
-        {
-            try
-            {
-                switch( TabControl.SelectedIndex )
-                {
-                    case 0:
-                    {
-                        // TabPage Visibility
-                        TabControl.SelectedTab = TableTabPage;
-                        TableTabPage.TabVisible = true;
-                        GroupTabPage.TabVisible = false;
-                        break;
-                    }
-                    case 1:
-                    {
-                        // TabPage Visibility
-                        TableTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
-                        break;
-                    }
-                    case 2:
-                    {
-                        // TabPage Visibility
-                        TabControl.SelectedTab = GroupTabPage;
-                        GroupTabPage.TabVisible = true;
-                        TableTabPage.TabVisible = false;
-                        break;
-                    }
-                    case 3:
-                    {
-                        // TabPage Visibility
-                        GroupTabPage.TabVisible = false;
-                        TableTabPage.TabVisible = false;
-                        break;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [group button clicked].
         /// </summary>
@@ -1361,7 +1304,6 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.GroupButton )
                 {
-                    TabControl.SelectedIndex = 2;
                     PopulateFieldListBox( );
                     PopulateNumericListBox( );
                 }
@@ -1427,9 +1369,41 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    TabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnSourceButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnGroupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception ex )
             {

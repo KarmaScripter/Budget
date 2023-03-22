@@ -462,9 +462,9 @@ partial class FilterDialog
         TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
         TabControl.CanOverrideStyle =  true ;
         TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TabControl.Controls.Add( FilterTabPage );
-        TabControl.Controls.Add( TableTabPage );
         TabControl.Controls.Add( GroupTabPage );
+        TabControl.Controls.Add( TableTabPage );
+        TabControl.Controls.Add( FilterTabPage );
         TabControl.Controls.Add( CalendarTabPage );
         TabControl.Dock =  System.Windows.Forms.DockStyle.Top ;
         TabControl.FixedSingleBorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;

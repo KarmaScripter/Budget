@@ -19,7 +19,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class SchemaDialog : MetroForm
     {
         /// <summary>
@@ -29,7 +29,7 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data model.
         /// </summary>
@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// The data model.
         /// </value>
         public DataBuilder DataModel { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -45,7 +45,7 @@ namespace BudgetExecution
         /// The data table.
         /// </value>
         public DataTable DataTable { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// The numerics.
         /// </value>
         public IList<string> Numerics { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the fields.
         /// </summary>
@@ -122,30 +122,16 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            
-            // ListBox Properties
-            FieldsListBox.MultiSelect = true;
-            NumericsListBox.MultiSelect = true;
-            
-            // TableProperties
-            FirstTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            FirstTable.Visible = true;
-            SecondTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            
+
             // Event Wiring
             Load += OnLoad;
-            FieldsListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericsListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FirstButton.Click += OnFirstButtonClicked;
-            SecondButton.Click += OnSecondButtonClicked;
-            ThirdButton.Click += OnCloseButtonClicked;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SchemaDialog"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public SchemaDialog( BindingSource bindingSource ) 
+        public SchemaDialog( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
@@ -161,33 +147,12 @@ namespace BudgetExecution
             try
             {
                 SelectedColumns = new List<string>( );
-                SelectionsTextBox.Text = string.Empty;
-                SelectionsTextBox.Visible = false;
                 DataTable = (DataTable)BindingSource.DataSource;
                 Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
                 DataModel = new DataBuilder( Source, Provider.Access );
-                Text = "Schema: " + DataTable.TableName.SplitPascal(  );
+                Text = "Schema: " + DataTable.TableName.SplitPascal( );
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                PopulateFieldListBox( );
-                PopulateNumericListBox( );
-                SetLabelText( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the label configuration.
-        /// </summary>
-        private void SetLabelText( )
-        {
-            try
-            {
-                FirstLabel.Text = "Fields:  " + NumericsListBox.Items?.Count;
-                SecondLabel.Text = "Numerics:  " + NumericsListBox.Items?.Count;
             }
             catch( Exception ex )
             {
@@ -195,51 +160,6 @@ namespace BudgetExecution
             }
         }
         
-        /// <summary>
-        /// Populates the column ListBox.
-        /// </summary>
-        private void PopulateFieldListBox( )
-        {
-            if( Fields?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var _item in Fields )
-                    {
-                        FieldsListBox.Items.Add( _item );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
-        private void PopulateNumericListBox( )
-        {
-            if( Numerics?.Any( ) == true )
-            {
-                try
-                {
-                    for( var _i = 0; _i < Numerics.Count; _i++ )
-                    {
-                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
-                        {
-                            NumericsListBox.Items.Add( Numerics[ _i ] );
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary>
         /// Updates the header text.
         /// </summary>
@@ -249,19 +169,14 @@ namespace BudgetExecution
             {
                 var _text = string.Empty;
                 var _selections = string.Empty;
-
-                if( SelectedColumns?.Any(  ) == true )
+                if( SelectedColumns?.Any( ) == true )
                 {
                     foreach( var item in SelectedColumns )
                     {
-                        _selections += $"{ item }, ";
+                        _selections += $"{item}, ";
                     }
 
-                    var _trimmed = _selections?.TrimEnd( ", ".ToCharArray(  ) );
-                    SelectionsTextBox.Text = _text + _trimmed;
-                    SelectionsTextBox.BorderColor = Color.FromArgb( 65, 65, 65 );
-                    SelectionsTextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-                    SelectionsTextBox.Visible = true;
+                    var _trimmed = _selections?.TrimEnd( ", ".ToCharArray( ) );
                 }
             }
             catch( Exception ex )
@@ -269,90 +184,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Called when [column ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnFieldListBoxSelectedValueChanged( object sender )
-        {
-            try
-            {
-                var _selectedItem = FieldsListBox.SelectedItem.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem ) )
-                {
-                    SelectedColumns.Add( _selectedItem );
-                }
-                
-                UpdateHeaderText(  );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [numeric ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnNumericListBoxSelectedValueChanged( object sender )
-        {
-            try
-            {
-                var _selectedItem = NumericsListBox.SelectedItem.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem ) )
-                {
-                    SelectedColumns.Add( _selectedItem );
-                }
-                
-                UpdateHeaderText(  );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [first button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnFirstButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( FieldsListBox.SelectedItems?.Count > 0 )
-                {
-                    FieldsListBox.SelectedItems.Clear(  );
-                    FieldsListBox.Items.Clear( );
-                    PopulateFieldListBox(  );
-                }
-                
-                if( NumericsListBox.SelectedItems?.Count > 0 )
-                {
-                    NumericsListBox.SelectedItems.Clear(  );
-                    NumericsListBox.Items.Clear(  );
-                    PopulateNumericListBox(  );
-                }
-                
-                if( SelectedColumns?.Count > 0 )
-                {
-                    SelectedColumns.Clear(  );
-                }
-
-                SelectionsTextBox.Text = string.Empty;
-                SelectionsTextBox.Visible = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [second button clicked].
         /// </summary>
@@ -362,7 +194,7 @@ namespace BudgetExecution
         {
             try
             {
-                UpdateHeaderText(  );
+                UpdateHeaderText( );
             }
             catch( Exception ex )
             {
