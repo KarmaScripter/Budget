@@ -4,6 +4,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -28,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The rate identifier.
         /// </value>
-        public string RateId { get; set; }
+        public int RateId { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
@@ -165,6 +166,20 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
+            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
+            Description = Record[ "Description" ].ToString( );
+            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
+            Sort = Record[ "Sort" ].ToString( );
         }
 
         /// <summary>
@@ -175,6 +190,20 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
+            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
+            Description = Record[ "Description" ].ToString( );
+            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
+            Sort = Record[ "Sort" ].ToString( );
         }
 
         /// <summary>
@@ -185,6 +214,20 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
+            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
+            Description = Record[ "Description" ].ToString( );
+            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
+            Sort = Record[ "Sort" ].ToString( );
         }
     }
 }
