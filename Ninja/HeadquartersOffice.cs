@@ -23,13 +23,10 @@ namespace BudgetExecution
         public override int ID { get; set; }
 
         /// <summary>
-        /// Gets or sets the resource planning offices identifier.
+        /// Get or sets the RPIO 
         /// </summary>
-        /// <value>
-        /// The resource planning offices identifier.
-        /// </value>
-        public int ResourcePlanningOfficesId { get; set; }
-
+        public string RPIO { get; set; }
+        
         /// <summary>
         /// Gets or sets the code.
         /// </summary>
@@ -75,6 +72,7 @@ namespace BudgetExecution
         /// </summary>
         public HeadquartersOffice( )
         {
+            Source = Source.HeadquartersOffices;
         }
 
         /// <summary>
@@ -85,6 +83,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <summary>
