@@ -19,10 +19,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     public partial class ChartForm : MetroForm
     {
         /// <summary>
@@ -350,6 +350,11 @@ namespace BudgetExecution
                 SelectedNumerics = new List<string>( );
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
                 PopulateToolBarDropDownItems( );
+                ChartTable.MouseClick += OnRightClick;
+                FirstTable.MouseClick += OnRightClick;
+                FirstListBoxPanel.MouseClick += OnRightClick;
+                SecondTable.MouseClick += OnRightClick;
+                SecondListBoxPanel.MouseClick += OnRightClick;
                 ExitButton.Click += OnExitButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
@@ -706,7 +711,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
@@ -1291,7 +1296,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [group button clicked].
         /// </summary>

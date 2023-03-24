@@ -168,7 +168,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            MouseClick += OnRightClick;
             LookupButton.Click += null;
             TableButton.Click += null;
         }
@@ -240,6 +239,8 @@ namespace BudgetExecution
                 Header.ForeColor = Color.FromArgb( 0, 120, 212 );
                 Header.Font = new Font( "Roboto", 12, FontStyle.Bold );
                 Header.TextAlign = ContentAlignment.TopCenter;
+                Header.MouseClick += OnRightClick;
+                PictureBox.MouseClick += OnRightClick;
                 BackButton.Click += OnBackButtonClicked;
                 LookupButton.Click += OnLookupButtonClicked;
                 Spreadsheet.MouseClick += OnRightClick;
@@ -329,7 +330,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
-        private void OnRightClick( object sender, MouseEventArgs e )
+        public void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
             {

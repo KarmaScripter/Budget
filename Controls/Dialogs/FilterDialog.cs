@@ -195,7 +195,7 @@ namespace BudgetExecution
         /// The type of the tool.
         /// </value>
         public ToolType ToolType { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FilterDialog"/> class.
         /// </summary>
@@ -339,7 +339,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the RadioButton tags.
         /// </summary>

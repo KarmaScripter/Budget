@@ -277,6 +277,9 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            HeaderTable.MouseClick += OnRightClick;
+            HeaderLabel.MouseClick += OnRightClick;
+            TabControl.MouseClick += OnRightClick;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
