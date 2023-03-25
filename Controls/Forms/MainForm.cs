@@ -39,7 +39,7 @@ namespace BudgetExecution
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );

@@ -189,7 +189,7 @@ namespace BudgetExecution
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
@@ -1973,8 +1973,9 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ChartButton )
                 {
                     var _chart = new ChartForm( );
+                    _chart.Owner = this;
                     _chart.BindingSource = BindingSource;
-                    Close( );
+                    Visible = false;
                     _chart.Show( );
                 }
             }
@@ -1998,8 +1999,8 @@ namespace BudgetExecution
                 {
                     var _excelForm = new ExcelForm( BindingSource );
                     _excelForm.Owner = this;
-                    Visible = false;
                     _excelForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
