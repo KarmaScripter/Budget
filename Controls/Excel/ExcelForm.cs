@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// The name of the file.
         /// </value>
         public string FileName { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the row count.
         /// </summary>
@@ -301,6 +301,36 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [table button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTableButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Owner?.Name.Equals( "DataGridForm" ) == true 
+                   || Owner?.Name.Equals( "ChartForm" ) == true )
+                {
+                    Visible = false;
+                    Owner.Visible = true;
+                }
+                else
+                {
+                    var _dataForm = new DataGridForm( BindingSource );
+                    _dataForm.Owner = this;
+                    _dataForm.Show( );
+                }
+
+                Visible = false;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

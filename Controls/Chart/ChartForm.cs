@@ -1425,15 +1425,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( !string.IsNullOrEmpty( SelectedTable ) )
+                if( !string.IsNullOrEmpty( SelectedTable ) 
+                   && ( Owner?.Name.Equals( "DataGridForm" ) == true 
+                       || Owner?.Name.Equals( "ChartForm" ) == true ) )
                 {
-                    var _dataForm = new DataGridForm( BindingSource );
-                    _dataForm.Owner = this;
-                    _dataForm.Show( );
+                    Visible = false;
+                    Owner.Visible = true;
                 }
                 else
                 {
-                    var _dataForm = new DataGridForm( );
+                    var _dataForm = new DataGridForm( BindingSource );
                     _dataForm.Owner = this;
                     _dataForm.Show( );
                 }
