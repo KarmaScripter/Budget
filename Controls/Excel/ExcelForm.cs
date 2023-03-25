@@ -9,7 +9,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
-    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
@@ -37,7 +36,7 @@ namespace BudgetExecution
         /// The name of the file.
         /// </value>
         public string FileName { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the row count.
         /// </summary>
@@ -168,7 +167,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            LookupButton.Click += null;
+            RemoveFiltersButton.Click += null;
             TableButton.Click += null;
         }
 
@@ -242,7 +241,7 @@ namespace BudgetExecution
                 Header.MouseClick += OnRightClick;
                 PictureBox.MouseClick += OnRightClick;
                 BackButton.Click += OnBackButtonClicked;
-                LookupButton.Click += OnLookupButtonClicked;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 Spreadsheet.MouseClick += OnRightClick;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
@@ -313,7 +312,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Name.Equals( "DataGridForm" ) == true 
+                if( Owner?.Name.Equals( "DataGridForm" ) == true
                    || Owner?.Name.Equals( "ChartForm" ) == true )
                 {
                     Owner.Visible = true;
@@ -422,6 +421,28 @@ namespace BudgetExecution
                 {
                     var _dialog = new FilterDialog( BindingSource );
                     _dialog.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [remove filter button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.RemoveFiltersButton )
+                {
+                    var _filter = new FilterDialog( Source, Provider );
+                    _filter.ShowDialog( this );
                 }
             }
             catch( Exception ex )

@@ -31,8 +31,8 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
-            var formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
+            var spreadsheetCopyPaste2 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
+            var formulaRangeSelectionController2 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelForm ) );
             Ribbon =  new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon( ) ;
             Spreadsheet =  new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet( ) ;
@@ -53,7 +53,7 @@
             Separator6 =  new ToolSeparator( ) ;
             ChartButton =  new ToolStripButton( ) ;
             Separator7 =  new ToolSeparator( ) ;
-            LookupButton =  new ToolStripButton( ) ;
+            RemoveFiltersButton =  new ToolStripButton( ) ;
             Separator8 =  new ToolSeparator( ) ;
             Label4 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
             Label5 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
@@ -64,8 +64,8 @@
             Separator11 =  new ToolSeparator( ) ;
             ContextMenu =  new ContextMenu( ) ;
             HeaderPanel =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            PictureBox =  new System.Windows.Forms.PictureBox( ) ;
             Header =  new Label( ) ;
+            PictureBox =  new System.Windows.Forms.PictureBox( ) ;
             ( (System.ComponentModel.ISupportInitialize) Ribbon  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ToolStrip.SuspendLayout( );
@@ -120,9 +120,9 @@
             Spreadsheet.AllowTabItemContextMenu =  true ;
             Spreadsheet.AllowZooming =  true ;
             Spreadsheet.BaseThemeName =  "" ;
-            spreadsheetCopyPaste1.AllowPasteOptionPopup =  true ;
-            spreadsheetCopyPaste1.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
-            Spreadsheet.CopyPaste =  spreadsheetCopyPaste1 ;
+            spreadsheetCopyPaste2.AllowPasteOptionPopup =  true ;
+            spreadsheetCopyPaste2.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
+            Spreadsheet.CopyPaste =  spreadsheetCopyPaste2 ;
             Spreadsheet.DefaultColumnCount =  101 ;
             Spreadsheet.DefaultRowCount =  101 ;
             Spreadsheet.DisplayAlerts =  true ;
@@ -131,9 +131,9 @@
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
-            formulaRangeSelectionController1.AllowMouseSelection =  true ;
-            formulaRangeSelectionController1.AllowSelectionOnEditing =  true ;
-            Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController1 ;
+            formulaRangeSelectionController2.AllowMouseSelection =  true ;
+            formulaRangeSelectionController2.AllowSelectionOnEditing =  true ;
+            Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController2 ;
             Spreadsheet.IsCustomTabItemContextMenuEnabled =  false ;
             Spreadsheet.Location =  new System.Drawing.Point( 0, 184 ) ;
             Spreadsheet.Name =  "Spreadsheet" ;
@@ -182,7 +182,7 @@
             ToolStrip.Image =  null ;
             ToolStrip.ImageDirectory =  null ;
             ToolStrip.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, Separator5, TableButton, Separator4, UploadButton, Separator6, ChartButton, Separator7, LookupButton, Separator8, Label4, Label5, Label6, Separator9, BackButton, Separator10, HomeButton, Separator11 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, Label2, Separator2, ToolStripTextBox, Separator3, Label3, Separator5, TableButton, Separator4, UploadButton, Separator6, ChartButton, Separator7, RemoveFiltersButton, Separator8, Label4, Label5, Label6, Separator9, BackButton, Separator10, HomeButton, Separator11 } );
             ToolStrip.Label =  null ;
             ToolStrip.LastButton =  null ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
@@ -294,7 +294,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 216, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 212, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -409,26 +409,26 @@
             Separator7.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             Separator7.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // LookupButton
+            // RemoveFiltersButton
             // 
-            LookupButton.AutoToolTip =  false ;
-            LookupButton.BackColor =  System.Drawing.Color.Transparent ;
-            LookupButton.BindingSource =  BindingSource ;
-            LookupButton.DataFilter =  null ;
-            LookupButton.DisplayStyle =  System.Windows.Forms.ToolStripItemDisplayStyle.Image ;
-            LookupButton.Field =  Field.AccountCode ;
-            LookupButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            LookupButton.ForeColor =  System.Drawing.Color.LightGray ;
-            LookupButton.HoverText =  "Data Query" ;
-            LookupButton.Image =  Properties.Resources.LookupButton ;
-            LookupButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            LookupButton.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            LookupButton.Name =  "LookupButton" ;
-            LookupButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            LookupButton.Size =  new System.Drawing.Size( 23, 24 ) ;
-            LookupButton.Text =  "toolStripButton1" ;
-            LookupButton.ToolTip =  ToolTip ;
-            LookupButton.ToolType =  ToolType.LookupButton ;
+            RemoveFiltersButton.AutoToolTip =  false ;
+            RemoveFiltersButton.BackColor =  System.Drawing.Color.Transparent ;
+            RemoveFiltersButton.BindingSource =  BindingSource ;
+            RemoveFiltersButton.DataFilter =  null ;
+            RemoveFiltersButton.DisplayStyle =  System.Windows.Forms.ToolStripItemDisplayStyle.Image ;
+            RemoveFiltersButton.Field =  Field.AccountCode ;
+            RemoveFiltersButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            RemoveFiltersButton.ForeColor =  System.Drawing.Color.LightGray ;
+            RemoveFiltersButton.HoverText =  "Data Query" ;
+            RemoveFiltersButton.Image =  Properties.Resources.FilterButton ;
+            RemoveFiltersButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
+            RemoveFiltersButton.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            RemoveFiltersButton.Name =  "RemoveFiltersButton" ;
+            RemoveFiltersButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            RemoveFiltersButton.Size =  new System.Drawing.Size( 23, 24 ) ;
+            RemoveFiltersButton.Text =  "toolStripButton1" ;
+            RemoveFiltersButton.ToolTip =  ToolTip ;
+            RemoveFiltersButton.ToolType =  ToolType.RemoveFiltersButton ;
             // 
             // Separator8
             // 
@@ -526,8 +526,8 @@
             HeaderPanel.ColumnCount =  2 ;
             HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 1277F ) );
-            HeaderPanel.Controls.Add( PictureBox, 0, 0 );
             HeaderPanel.Controls.Add( Header, 1, 0 );
+            HeaderPanel.Controls.Add( PictureBox, 0, 0 );
             HeaderPanel.Dock =  System.Windows.Forms.DockStyle.Top ;
             HeaderPanel.Location =  new System.Drawing.Point( 0, 0 ) ;
             HeaderPanel.Name =  "HeaderPanel" ;
@@ -535,16 +535,6 @@
             HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             HeaderPanel.Size =  new System.Drawing.Size( 1338, 36 ) ;
             HeaderPanel.TabIndex =  3 ;
-            // 
-            // PictureBox
-            // 
-            PictureBox.Image =  Properties.Resources.EPA ;
-            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
-            PictureBox.Name =  "PictureBox" ;
-            PictureBox.Size =  new System.Drawing.Size( 55, 27 ) ;
-            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
-            PictureBox.TabIndex =  0 ;
-            PictureBox.TabStop =  false ;
             // 
             // Header
             // 
@@ -568,6 +558,16 @@
             Header.ThemeAuthor =  "Terry D. Eppler" ;
             Header.ThemeName =  "Budget Execution" ;
             Header.ToolTip =  null ;
+            // 
+            // PictureBox
+            // 
+            PictureBox.Image =  Properties.Resources.EPA ;
+            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            PictureBox.Name =  "PictureBox" ;
+            PictureBox.Size =  new System.Drawing.Size( 44, 18 ) ;
+            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
+            PictureBox.TabIndex =  0 ;
+            PictureBox.TabStop =  false ;
             // 
             // ExcelForm
             // 
@@ -642,7 +642,7 @@
         public ToolSeparator Separator1;
         public ToolSeparator Separator4;
         public ToolSeparator Separator7;
-        public ToolStripButton LookupButton;
+        public ToolStripButton RemoveFiltersButton;
         public ToolSeparator Separator8;
         public ToolSeparator Separator9;
         public ToolSeparator Separator10;

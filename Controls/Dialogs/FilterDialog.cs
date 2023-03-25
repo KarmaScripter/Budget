@@ -1,20 +1,16 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Bibliography;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -222,11 +218,14 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Size = new Size( 1340, 676 );
+            Size = new Size( 1340, 674 );
+
+            // Header Label Properties
+            SourceHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            FilterHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            GroupHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
 
             // Event Wiring
-            Load += OnLoad;
-            MouseClick += OnRightClick;
             TabControl.TabIndexChanged += OnActiveTabChanged;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -247,6 +246,8 @@ namespace BudgetExecution
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
             NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
             FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -466,6 +467,7 @@ namespace BudgetExecution
                     FourthValue = string.Empty;
                     ThirdTable.Visible = false;
                 }
+
                 if( !string.IsNullOrEmpty( ThirdValue )
                    || ThirdTable.Visible )
                 {
@@ -546,8 +548,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -610,8 +611,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> columns,
-            IDictionary<string, object> where )
+        private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
                && columns?.Any( ) == true
@@ -738,6 +738,7 @@ namespace BudgetExecution
                 }
             }
         }
+
         /// <summary>
         /// Populates the field ListBox.
         /// </summary>
@@ -799,8 +800,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        private void BindData( Source source, Provider provider,
-            IDictionary<string, object> where )
+        private void BindData( Source source, Provider provider, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), source )
                && Enum.IsDefined( typeof( Provider ), provider )
@@ -916,10 +916,8 @@ namespace BudgetExecution
                 MaintenanceListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )
-                    ?.ToList( );
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
@@ -929,8 +927,7 @@ namespace BudgetExecution
 
                 var _references = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
 
                 for( var _i = 0; _i < _references?.Count - 1; _i++ )
                 {
@@ -938,14 +935,40 @@ namespace BudgetExecution
                     ReferenceListBox.Items.Add( name );
                 }
 
-                var _mx = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
 
                 for( var _i = 0; _i < _mx?.Count - 1; _i++ )
                 {
                     var name = _mx[ _i ];
                     MaintenanceListBox.Items.Add( name );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the label text.
+        /// </summary>
+        private void UpdateHeaderText( )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
+                    SourceHeader.Text = $"{Provider} Data Sources ";
+                    FilterHeader.Text = $"Data Filters : {_table}";
+                    GroupHeader.Text = $"Aggregate Columns : {_table} ";
+                }
+                else
+                {
+                    SourceHeader.Text = "Data Sources";
+                    FilterHeader.Text = "Select Filters";
+                    GroupHeader.Text = "Aggregate Columns";
                 }
             }
             catch( Exception ex )
@@ -1202,8 +1225,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    SqlQuery = $"SELECT * FROM {Source} "
-                        + $"WHERE {FormFilter.ToCriteria( )};";
+                    SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
                     PopulateFourthComboBoxItems( );
                 }
                 catch( Exception ex )
@@ -1266,8 +1288,7 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     FormFilter.Add( FourthCategory, FourthValue );
-                    SqlQuery = $"SELECT * FROM {Source} "
-                        + $"WHERE {FormFilter.ToCriteria( )};";
+                    SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -1495,6 +1516,7 @@ namespace BudgetExecution
                         ClearButton.Visible = false;
                         GroupButton.Visible = false;
                         SelectButton.Visible = false;
+                        UpdateHeaderText( );
                         break;
                     }
                     case 1:
@@ -1507,6 +1529,7 @@ namespace BudgetExecution
                         ClearButton.Visible = false;
                         GroupButton.Visible = false;
                         SelectButton.Visible = false;
+                        UpdateHeaderText( );
                         break;
                     }
                     case 2:
@@ -1519,6 +1542,7 @@ namespace BudgetExecution
                         ClearButton.Visible = true;
                         GroupButton.Visible = true;
                         SelectButton.Visible = true;
+                        UpdateHeaderText( );
                         PopulateFieldListBox( );
                         PopulateNumericListBox( );
                         break;
@@ -1533,6 +1557,7 @@ namespace BudgetExecution
                         ClearButton.Visible = true;
                         GroupButton.Visible = true;
                         SelectButton.Visible = true;
+                        UpdateHeaderText( );
                         break;
                     }
                 }

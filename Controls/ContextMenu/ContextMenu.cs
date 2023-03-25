@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -10,7 +9,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using MetroSet_UI.Child;
-    using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -35,10 +33,10 @@ namespace BudgetExecution
             ShowCheckMargin = false;
             ShowImageMargin = true;
             SelectedItemBackColor = Color.FromArgb( 17, 53, 84 );
-            SelectedItemColor =  Color.White;
+            SelectedItemColor = Color.White;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
-            
+
             // Menu Items
             FileOption = CreateFileOption( );
             FolderOption = CreateFolderOption( );
@@ -49,7 +47,7 @@ namespace BudgetExecution
             CloseOption = CreateCloseOption( );
             ExitOption = CreateExitOption( );
         }
-        
+
         /// <summary>
         /// Initializes the file option.
         /// </summary>
@@ -57,15 +55,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.File.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.File.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.File }";
-                _item.Tag = MenuOption.File.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.File}";
+                _item.Tag = MenuOption.File.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
@@ -87,20 +85,20 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Folder.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Folder.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Folder }";
-                _item.Tag = MenuOption.Folder.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Folder}";
+                _item.Tag = MenuOption.Folder.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
-                Items.Add( _item ); 
+                Items.Add( _item );
                 return _item;
             }
             catch( Exception ex )
@@ -117,15 +115,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Calculator.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Calculator.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Calculator }";
-                _item.Tag = MenuOption.Calculator.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Calculator}";
+                _item.Tag = MenuOption.Calculator.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
@@ -147,15 +145,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Calendar.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Calendar.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Calendar }";
-                _item.Tag = MenuOption.Calendar.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Calendar}";
+                _item.Tag = MenuOption.Calendar.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
@@ -177,20 +175,20 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Guidance.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Guidance.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Guidance }";
-                _item.Tag = MenuOption.Guidance.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Guidance}";
+                _item.Tag = MenuOption.Guidance.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
                 _item.MouseDown += OnItemClicked;
-                Items.Add( _item ); 
+                Items.Add( _item );
                 return _item;
             }
             catch( Exception ex )
@@ -207,15 +205,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Save.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Save.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Save }";
-                _item.Tag = MenuOption.Save.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Save}";
+                _item.Tag = MenuOption.Save.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
@@ -237,15 +235,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Close.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Close.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Close }";
-                _item.Tag = MenuOption.Close.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Close}";
+                _item.Tag = MenuOption.Close.ToString( );
                 _item.Checked = false;
                 _item.MouseHover += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
@@ -267,15 +265,15 @@ namespace BudgetExecution
         {
             try
             {
-                var _item = new MetroSetToolStripMenuItem(  );
+                var _item = new MetroSetToolStripMenuItem( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Exit.ToString(  );
-                _item.Size = new Size( 160, 30  );
+                _item.Name = MenuOption.Exit.ToString( );
+                _item.Size = new Size( 160, 30 );
                 _item.BackColor = Color.FromArgb( 30, 30, 30 );
-                _item.ForeColor =  Color.DarkGray;
-                _item.Text = $"{ MenuOption.Exit }";
-                _item.Tag = MenuOption.Exit.ToString(  );
+                _item.ForeColor = Color.White;
+                _item.Text = $"{MenuOption.Exit}";
+                _item.Tag = MenuOption.Exit.ToString( );
                 _item.Checked = false;
                 _item.MouseEnter += OnMouseEnter;
                 _item.MouseLeave += OnMouseLeave;
@@ -297,7 +295,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnItemClicked( object sender, MouseEventArgs e )
         {
-            if( sender is MetroSetToolStripMenuItem item 
+            if( sender is MetroSetToolStripMenuItem item
                && e?.Button == MouseButtons.Left )
             {
                 try
@@ -310,21 +308,21 @@ namespace BudgetExecution
                         {
                             case MenuOption.File:
                             {
-                                var _file = new FileBrowser(  );
+                                var _file = new FileBrowser( );
                                 _file.Location = e.Location;
-                                _file.Show(  );
+                                _file.Show( );
                                 break;
                             }
                             case MenuOption.Folder:
                             {
-                                var _file = new FileBrowser(  );
+                                var _file = new FileBrowser( );
                                 _file.Location = e.Location;
-                                _file.Show(  );
+                                _file.Show( );
                                 break;
                             }
                             case MenuOption.Calculator:
                             {
-                                var _form = new CalculationForm(  );
+                                var _form = new CalculationForm( );
                                 _form.Location = e.Location;
                                 _form.ShowDialog( );
                                 break;
@@ -372,8 +370,8 @@ namespace BudgetExecution
                                 break;
                             }
                         }
-                    
-                        Close(  );
+
+                        Close( );
                     }
                 }
                 catch( Exception ex )
@@ -384,4 +382,3 @@ namespace BudgetExecution
         }
     }
 }
-

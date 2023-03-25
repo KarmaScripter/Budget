@@ -59,7 +59,7 @@
             TableSeparator =  new ToolSeparator( ) ;
             DropDown =  new ToolStripDropDown( ) ;
             DropDownSeparator =  new ToolSeparator( ) ;
-            Label2 =  new ToolStripLabel( ) ;
+            DropDownSpacer =  new ToolStripLabel( ) ;
             LabelSeparator =  new ToolSeparator( ) ;
             BackButton =  new ToolStripButton( ) ;
             BackSeparator =  new ToolSeparator( ) ;
@@ -78,6 +78,9 @@
             SecondListBoxPanel =  new Layout( ) ;
             SecondListBox =  new ListBox( ) ;
             SecondComboBox =  new ComboBox( ) ;
+            NavigationSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            ExitSeparator =  new ToolSeparator( ) ;
+            NavigationSeparator =  new ToolSeparator( ) ;
             ChartTable.SuspendLayout( );
             ChartPanel.SuspendLayout( );
             ChartLabelTable.SuspendLayout( );
@@ -382,7 +385,7 @@
             ToolStrip.Image =  null ;
             ToolStrip.ImageDirectory =  null ;
             ToolStrip.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Label1, ToolStripSeparator, ToolStripTextBox, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, FilterButton, RemoveFiltersSeparator, ExcelButton, EditSqlSeparator, TableButton, TableSeparator, DropDown, DropDownSeparator, Label2, LabelSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Label1, ToolStripSeparator, ToolStripTextBox, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, NavigationSpacer, NavigationSeparator, FilterButton, RemoveFiltersSeparator, ExcelButton, EditSqlSeparator, TableButton, TableSeparator, DropDown, DropDownSeparator, DropDownSpacer, LabelSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
             ToolStrip.Label =  null ;
             ToolStrip.LastButton =  LastButton ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
@@ -537,7 +540,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 142, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 178, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -663,7 +666,7 @@
             FilterButton.Size =  new System.Drawing.Size( 23, 24 ) ;
             FilterButton.Text =  "toolStripButton1" ;
             FilterButton.ToolTip =  null ;
-            FilterButton.ToolType =  ToolType.FilterButton ;
+            FilterButton.ToolType =  ToolType.RemoveFiltersButton ;
             // 
             // RemoveFiltersSeparator
             // 
@@ -718,22 +721,22 @@
             DropDownSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             DropDownSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // Label2
+            // DropDownSpacer
             // 
-            Label2.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            Label2.BindingSource =  null ;
-            Label2.DataFilter =  null ;
-            Label2.Field =  Field.AccountCode ;
-            Label2.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            Label2.ForeColor =  System.Drawing.Color.Transparent ;
-            Label2.HoverText =  null ;
-            Label2.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            Label2.Name =  "Label2" ;
-            Label2.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Label2.Size =  new System.Drawing.Size( 240, 28 ) ;
-            Label2.Tag =  "" ;
-            Label2.Text =  "this a lable for spacing this a lable for spacing" ;
-            Label2.ToolTip =  null ;
+            DropDownSpacer.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            DropDownSpacer.BindingSource =  null ;
+            DropDownSpacer.DataFilter =  null ;
+            DropDownSpacer.Field =  Field.AccountCode ;
+            DropDownSpacer.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            DropDownSpacer.ForeColor =  System.Drawing.Color.Transparent ;
+            DropDownSpacer.HoverText =  null ;
+            DropDownSpacer.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            DropDownSpacer.Name =  "DropDownSpacer" ;
+            DropDownSpacer.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            DropDownSpacer.Size =  new System.Drawing.Size( 161, 28 ) ;
+            DropDownSpacer.Tag =  "" ;
+            DropDownSpacer.Text =  "this a lable for a little spacing " ;
+            DropDownSpacer.ToolTip =  null ;
             // 
             // LabelSeparator
             // 
@@ -1084,6 +1087,30 @@
             SecondComboBox.ThemeName =  "Budget Execution" ;
             SecondComboBox.ToolTip =  null ;
             // 
+            // NavigationSpacer
+            // 
+            NavigationSpacer.BackColor =  System.Drawing.Color.Transparent ;
+            NavigationSpacer.ForeColor =  System.Drawing.Color.Transparent ;
+            NavigationSpacer.Name =  "NavigationSpacer" ;
+            NavigationSpacer.Size =  new System.Drawing.Size( 106, 27 ) ;
+            NavigationSpacer.Text =  "toolStripLabelExt1" ;
+            // 
+            // ExitSeparator
+            // 
+            ExitSeparator.ForeColor =  System.Drawing.Color.Black ;
+            ExitSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            ExitSeparator.Name =  "ExitSeparator" ;
+            ExitSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ExitSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
+            // 
+            // NavigationSeparator
+            // 
+            NavigationSeparator.ForeColor =  System.Drawing.Color.Black ;
+            NavigationSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            NavigationSeparator.Name =  "NavigationSeparator" ;
+            NavigationSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            NavigationSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
+            // 
             // ChartForm
             // 
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
@@ -1173,7 +1200,7 @@
 
         #endregion Windows Form Designer generated code
         public ToolStripLabel Label1;
-        public ToolStripLabel Label2;
+        public ToolStripLabel DropDownSpacer;
         public ToolSeparator LabelSeparator;
         public HeaderPanel FirstTable;
         public ComboBox FirstComboBox;
@@ -1183,5 +1210,9 @@
         public Layout SecondListBoxPanel;
         public ListBox SecondListBox;
         public ComboBox SecondComboBox;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt NavigationSpacer;
+        private ToolSeparator NavigatioinSeparator;
+        public ToolSeparator ExitSeparator;
+        public ToolSeparator NavigationSeparator;
     }
 }
