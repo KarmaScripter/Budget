@@ -19,10 +19,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
     public partial class ChartForm : MetroForm
     {
         /// <summary>
@@ -255,6 +255,17 @@ namespace BudgetExecution
             MenuButton.Click += null;
             FilterButton.Click += null;
             TableButton.Click += null;
+            ChartTable.MouseClick += OnRightClick;
+            FirstTable.MouseClick += OnRightClick;
+            FirstListBoxPanel.MouseClick += OnRightClick;
+            SecondTable.MouseClick += OnRightClick;
+            SecondListBoxPanel.MouseClick += OnRightClick;
+            ExitButton.Click += OnExitButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            FilterButton.Click += OnRemoveFilterButtonClicked;
+            FilterButton.Click += OnRemoveFilterButtonClicked;
+            TableButton.Click += OnTableButtonClick;
             Load += OnLoad;
         }
 
@@ -350,17 +361,6 @@ namespace BudgetExecution
                 SelectedNumerics = new List<string>( );
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
                 PopulateToolBarDropDownItems( );
-                ChartTable.MouseClick += OnRightClick;
-                FirstTable.MouseClick += OnRightClick;
-                FirstListBoxPanel.MouseClick += OnRightClick;
-                SecondTable.MouseClick += OnRightClick;
-                SecondListBoxPanel.MouseClick += OnRightClick;
-                ExitButton.Click += OnExitButtonClicked;
-                BackButton.Click += OnBackButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                FilterButton.Click += OnRemoveFilterButtonClicked;
-                FilterButton.Click += OnRemoveFilterButtonClicked;
-                TableButton.Click += OnTableButtonClick;
             }
             catch( Exception ex )
             {

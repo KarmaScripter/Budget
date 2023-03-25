@@ -730,9 +730,10 @@ namespace BudgetExecution
             FormBorderStyle =  FormBorderStyle.FixedSingle ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             MaximizeBox =  false ;
-            MaximumSize =  new System.Drawing.Size( 700, 550 ) ;
+            MaximumSize =  new System.Drawing.Size( 700, 480 ) ;
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
+            MinimumSize =  new System.Drawing.Size( 700, 480 ) ;
             Name =  "FileBrowser" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;

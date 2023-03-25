@@ -32,8 +32,6 @@
             var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            DataGridPanel =  new Layout( ) ;
-            DataGrid =  new DataGrid( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ChartTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ChartPanel =  new Layout( ) ;
@@ -85,7 +83,6 @@
             SecondListBoxPanel =  new Layout( ) ;
             SecondListBox =  new ListBox( ) ;
             SecondComboBox =  new ComboBox( ) ;
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             ChartTable.SuspendLayout( );
             ChartPanel.SuspendLayout( );
             ChartLabelTable.SuspendLayout( );
@@ -103,91 +100,6 @@
             GridTable.Name =  "GridTable" ;
             GridTable.Size =  new System.Drawing.Size( 200, 100 ) ;
             GridTable.TabIndex =  0 ;
-            // 
-            // DataGridPanel
-            // 
-            DataGridPanel.BackColor =  System.Drawing.Color.Transparent ;
-            DataGridPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            DataGridPanel.BindingSource =  null ;
-            DataGridPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            DataGridPanel.BorderThickness =  1 ;
-            DataGridPanel.Children =  null ;
-            DataGridPanel.DataFilter =  null ;
-            DataGridPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DataGridPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            DataGridPanel.HoverText =  null ;
-            DataGridPanel.IsDerivedStyle =  true ;
-            DataGridPanel.Location =  new System.Drawing.Point( 1, 1 ) ;
-            DataGridPanel.Name =  "DataGridPanel" ;
-            DataGridPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            DataGridPanel.Size =  new System.Drawing.Size( 700, 428 ) ;
-            DataGridPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            DataGridPanel.StyleManager =  null ;
-            DataGridPanel.TabIndex =  0 ;
-            DataGridPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            DataGridPanel.ThemeName =  "Budget Execution" ;
-            DataGridPanel.ToolTip =  null ;
-            // 
-            // DataGrid
-            // 
-            DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   50  ,   50  ,   50   ) ;
-            dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle1.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle1 ;
-            DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            DataGrid.BindingSource =  null ;
-            DataGrid.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
-            DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
-            DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle2.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle2.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle2.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
-            DataGrid.ColumnHeadersHeight =  30 ;
-            DataGrid.DataFilter =  null ;
-            dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
-            dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle3.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
-            DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
-            DataGrid.EnableHeadersVisualStyles =  false ;
-            DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
-            DataGrid.HoverText =  null ;
-            DataGrid.Location =  new System.Drawing.Point( 0, 0 ) ;
-            DataGrid.MultiSelect =  false ;
-            DataGrid.Name =  "DataGrid" ;
-            DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle4.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
-            dataGridViewCellStyle4.BackColor =  System.Drawing.Color.FromArgb(   50  ,   50  ,   50   ) ;
-            dataGridViewCellStyle4.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle4.ForeColor =  System.Drawing.Color.Black ;
-            dataGridViewCellStyle4.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle4.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
-            dataGridViewCellStyle4.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle4 ;
-            DataGrid.RowHeadersWidth =  20 ;
-            dataGridViewCellStyle5.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle5.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle5.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
-            DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
-            DataGrid.Size =  new System.Drawing.Size( 906, 527 ) ;
-            DataGrid.TabIndex =  0 ;
-            DataGrid.ToolTip =  null ;
             // 
             // LabelTable
             // 
@@ -630,7 +542,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 156, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 154, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1204,7 +1116,6 @@
             ShowMaximizeBox =  false ;
             ShowMinimizeBox =  false ;
             StartPosition =  System.Windows.Forms.FormStartPosition.CenterScreen ;
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
             ChartTable.ResumeLayout( false );
             ChartPanel.ResumeLayout( false );
             ChartLabelTable.ResumeLayout( false );
@@ -1220,8 +1131,6 @@
         }
 
         public System.Windows.Forms.TableLayoutPanel GridTable;
-        public Layout DataGridPanel;
-        public DataGrid DataGrid;
         public System.Windows.Forms.TableLayoutPanel LabelTable;
         public Label SecondHeaderLabel;
         public Label FourthHeaderLabel;
