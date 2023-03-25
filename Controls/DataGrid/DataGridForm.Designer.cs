@@ -31,11 +31,11 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( DataGridForm ) );
             BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
             ToolTip =  new SmallTip( ) ;
@@ -120,7 +120,7 @@
             SaveSeparator =  new ToolSeparator( ) ;
             GroupButton =  new ToolStripButton( ) ;
             GroupSeparator =  new ToolSeparator( ) ;
-            ExcelButton =  new ToolStripButton( ) ;
+            ExcelExportButton =  new ToolStripButton( ) ;
             ExcelSeparator =  new ToolSeparator( ) ;
             EditSqlButton =  new ToolStripButton( ) ;
             EditSqlSeparator =  new ToolSeparator( ) ;
@@ -143,6 +143,11 @@
             MenuSeparator =  new ToolSeparator( ) ;
             ExitButton =  new ToolStripButton( ) ;
             ToolStrip =  new ToolStrip( ) ;
+            FilterSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            FilterSpaceSeparator =  new ToolSeparator( ) ;
+            LabelSpaceSeparator =  new ToolSeparator( ) ;
+            LabelSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            ExitSeparator =  new ToolSeparator( ) ;
             toolStripMenuItemExt1 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( ) ;
             ContextMenu =  new ContextMenu( ) ;
             SqlServerRadioButton =  new RadioButton( ) ;
@@ -153,11 +158,6 @@
             HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             HeaderLabel =  new Label( ) ;
             PictureBox =  new System.Windows.Forms.PictureBox( ) ;
-            LabelSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            LabelSpaceSeparator =  new ToolSeparator( ) ;
-            ExitSeparator =  new ToolSeparator( ) ;
-            FilterSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            FilterSpaceSeparator =  new ToolSeparator( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
             GridTable.SuspendLayout( );
@@ -294,35 +294,35 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle1.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle1 ;
+            dataGridViewCellStyle6.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle6.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle6.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle6.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle6.SelectionForeColor =  System.Drawing.Color.White ;
+            DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle6 ;
             DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             DataGrid.BindingSource =  BindingSource ;
             DataGrid.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
             DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle2.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle2.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle2.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
+            dataGridViewCellStyle7.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
+            dataGridViewCellStyle7.BackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle7.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle7.ForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle7.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle7.SelectionForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle7.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
+            DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle7 ;
             DataGrid.ColumnHeadersHeight =  30 ;
             DataGrid.DataFilter =  null ;
-            dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
-            dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle3.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
-            DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
+            dataGridViewCellStyle8.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
+            dataGridViewCellStyle8.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle8.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle8.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle8.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle8.SelectionForeColor =  System.Drawing.Color.White ;
+            dataGridViewCellStyle8.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
+            DataGrid.DefaultCellStyle =  dataGridViewCellStyle8 ;
             DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
@@ -331,22 +331,22 @@
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
-            dataGridViewCellStyle4.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
-            dataGridViewCellStyle4.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            dataGridViewCellStyle4.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle4.ForeColor =  System.Drawing.Color.Black ;
-            dataGridViewCellStyle4.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
-            dataGridViewCellStyle4.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
-            dataGridViewCellStyle4.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
-            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle4 ;
+            dataGridViewCellStyle9.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.BottomCenter ;
+            dataGridViewCellStyle9.BackColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            dataGridViewCellStyle9.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle9.ForeColor =  System.Drawing.Color.Black ;
+            dataGridViewCellStyle9.SelectionBackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle9.SelectionForeColor =  System.Drawing.SystemColors.HighlightText ;
+            dataGridViewCellStyle9.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
+            DataGrid.RowHeadersDefaultCellStyle =  dataGridViewCellStyle9 ;
             DataGrid.RowHeadersWidth =  20 ;
-            dataGridViewCellStyle5.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle5.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            dataGridViewCellStyle5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            dataGridViewCellStyle5.ForeColor =  System.Drawing.Color.LightSteelBlue ;
-            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
-            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
+            dataGridViewCellStyle10.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
+            dataGridViewCellStyle10.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
+            dataGridViewCellStyle10.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            dataGridViewCellStyle10.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            dataGridViewCellStyle10.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle10.SelectionForeColor =  System.Drawing.Color.White ;
+            DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle10 ;
             DataGrid.RowTemplate.Height =  28 ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
             DataGrid.Size =  new System.Drawing.Size( 895, 507 ) ;
@@ -1564,7 +1564,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 178, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 166, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  ToolTip ;
             // 
@@ -1873,26 +1873,26 @@
             GroupSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             GroupSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // ExcelButton
+            // ExcelExportButton
             // 
-            ExcelButton.AutoToolTip =  false ;
-            ExcelButton.BackColor =  System.Drawing.Color.Transparent ;
-            ExcelButton.BindingSource =  BindingSource ;
-            ExcelButton.DataFilter =  null ;
-            ExcelButton.DisplayStyle =  System.Windows.Forms.ToolStripItemDisplayStyle.Image ;
-            ExcelButton.Field =  Field.AccountCode ;
-            ExcelButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ExcelButton.ForeColor =  System.Drawing.Color.LightGray ;
-            ExcelButton.HoverText =  "Excel Export" ;
-            ExcelButton.Image =  Properties.Resources.ExcelButton ;
-            ExcelButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            ExcelButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ExcelButton.Name =  "ExcelButton" ;
-            ExcelButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ExcelButton.Size =  new System.Drawing.Size( 23, 28 ) ;
-            ExcelButton.Text =  "toolStripButton2" ;
-            ExcelButton.ToolTip =  ToolTip ;
-            ExcelButton.ToolType =  ToolType.ExcelExportButton ;
+            ExcelExportButton.AutoToolTip =  false ;
+            ExcelExportButton.BackColor =  System.Drawing.Color.Transparent ;
+            ExcelExportButton.BindingSource =  BindingSource ;
+            ExcelExportButton.DataFilter =  null ;
+            ExcelExportButton.DisplayStyle =  System.Windows.Forms.ToolStripItemDisplayStyle.Image ;
+            ExcelExportButton.Field =  Field.AccountCode ;
+            ExcelExportButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ExcelExportButton.ForeColor =  System.Drawing.Color.LightGray ;
+            ExcelExportButton.HoverText =  "Excel Export" ;
+            ExcelExportButton.Image =  Properties.Resources.ExcelButton ;
+            ExcelExportButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
+            ExcelExportButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            ExcelExportButton.Name =  "ExcelExportButton" ;
+            ExcelExportButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ExcelExportButton.Size =  new System.Drawing.Size( 23, 28 ) ;
+            ExcelExportButton.Text =  "toolStripButton2" ;
+            ExcelExportButton.ToolTip =  ToolTip ;
+            ExcelExportButton.ToolType =  ToolType.ExcelExportButton ;
             // 
             // ExcelSeparator
             // 
@@ -2198,6 +2198,7 @@
             // 
             ToolStrip.AddButton =  null ;
             ToolStrip.AddColumnButton =  null ;
+            ToolStrip.AddTableButton =  null ;
             ToolStrip.BackColor =  System.Drawing.Color.Transparent ;
             ToolStrip.BindingSource =  BindingSource ;
             ToolStrip.BorderStyle =  Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge ;
@@ -2210,13 +2211,16 @@
             ToolStrip.ChartButton =  ChartButton ;
             ToolStrip.DataFilter =  null ;
             ToolStrip.DeleteButton =  null ;
+            ToolStrip.DeleteColumnButton =  null ;
             ToolStrip.DeleteRecordButton =  EditRecordButton ;
+            ToolStrip.DeleteTableButton =  null ;
             ToolStrip.Dock =  System.Windows.Forms.DockStyle.Bottom ;
             ToolStrip.DropDown =  DropDown ;
             ToolStrip.EditButton =  EditSqlButton ;
             ToolStrip.EditColumnButton =  EditColumnButton ;
+            ToolStrip.EditRecordButton =  null ;
             ToolStrip.EditSqlButton =  EditSqlButton ;
-            ToolStrip.ExcelButton =  ExcelButton ;
+            ToolStrip.ExcelButton =  ExcelExportButton ;
             ToolStrip.FilterDataButton =  null ;
             ToolStrip.FirstButton =  FirstButton ;
             ToolStrip.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -2226,7 +2230,7 @@
             ToolStrip.Image =  null ;
             ToolStrip.ImageDirectory =  null ;
             ToolStrip.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { ToolStripSeparator, ToolStripTextBox, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, FilterSpacer, FilterSpaceSeparator, RemoveFiltersButton, EditRecordSeparator, EditRecordButton, EditColumnSeparator, EditColumnButton, ColumnSeparator, RefreshDataButton, RefreshDataSeparator, SaveButton, SaveSeparator, GroupButton, GroupSeparator, ExcelButton, ExcelSeparator, EditSqlButton, EditSqlSeparator, ChartButton, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, LabelSpaceSeparator, LabelSpacer, WebSeparator, ComboBox, ComboBoxSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { ToolStripSeparator, ToolStripTextBox, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, FilterSpacer, FilterSpaceSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, SaveButton, SaveSeparator, ExcelExportButton, ExcelSeparator, EditSqlButton, EditSqlSeparator, ChartButton, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, LabelSpaceSeparator, LabelSpacer, WebSeparator, ComboBox, ComboBoxSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
             ToolStrip.Label =  null ;
             ToolStrip.LastButton =  LastButton ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
@@ -2262,6 +2266,46 @@
             ToolStrip.ThemeStyle.HoverItemBackColor =  System.Drawing.Color.SteelBlue ;
             ToolStrip.ThemeStyle.HoverItemForeColor =  System.Drawing.Color.White ;
             ToolStrip.VisualStyle =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray ;
+            // 
+            // FilterSpacer
+            // 
+            FilterSpacer.BackColor =  System.Drawing.Color.Transparent ;
+            FilterSpacer.ForeColor =  System.Drawing.Color.Transparent ;
+            FilterSpacer.Name =  "FilterSpacer" ;
+            FilterSpacer.Size =  new System.Drawing.Size( 102, 27 ) ;
+            FilterSpacer.Text =  "this is a for space" ;
+            // 
+            // FilterSpaceSeparator
+            // 
+            FilterSpaceSeparator.ForeColor =  System.Drawing.Color.Black ;
+            FilterSpaceSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            FilterSpaceSeparator.Name =  "FilterSpaceSeparator" ;
+            FilterSpaceSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            FilterSpaceSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
+            // 
+            // LabelSpaceSeparator
+            // 
+            LabelSpaceSeparator.ForeColor =  System.Drawing.Color.Black ;
+            LabelSpaceSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            LabelSpaceSeparator.Name =  "LabelSpaceSeparator" ;
+            LabelSpaceSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            LabelSpaceSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
+            // 
+            // LabelSpacer
+            // 
+            LabelSpacer.BackColor =  System.Drawing.Color.Transparent ;
+            LabelSpacer.ForeColor =  System.Drawing.Color.Transparent ;
+            LabelSpacer.Name =  "LabelSpacer" ;
+            LabelSpacer.Size =  new System.Drawing.Size( 131, 27 ) ;
+            LabelSpacer.Text =  "this is a lable for space" ;
+            // 
+            // ExitSeparator
+            // 
+            ExitSeparator.ForeColor =  System.Drawing.Color.Black ;
+            ExitSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            ExitSeparator.Name =  "ExitSeparator" ;
+            ExitSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ExitSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // toolStripMenuItemExt1
             // 
@@ -2447,46 +2491,6 @@
             PictureBox.TabIndex =  54 ;
             PictureBox.TabStop =  false ;
             // 
-            // LabelSpacer
-            // 
-            LabelSpacer.BackColor =  System.Drawing.Color.Transparent ;
-            LabelSpacer.ForeColor =  System.Drawing.Color.Transparent ;
-            LabelSpacer.Name =  "LabelSpacer" ;
-            LabelSpacer.Size =  new System.Drawing.Size( 167, 27 ) ;
-            LabelSpacer.Text =  "this is a lable providing space" ;
-            // 
-            // LabelSpaceSeparator
-            // 
-            LabelSpaceSeparator.ForeColor =  System.Drawing.Color.Black ;
-            LabelSpaceSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            LabelSpaceSeparator.Name =  "LabelSpaceSeparator" ;
-            LabelSpaceSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            LabelSpaceSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // ExitSeparator
-            // 
-            ExitSeparator.ForeColor =  System.Drawing.Color.Black ;
-            ExitSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ExitSeparator.Name =  "ExitSeparator" ;
-            ExitSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ExitSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // FilterSpacer
-            // 
-            FilterSpacer.BackColor =  System.Drawing.Color.Transparent ;
-            FilterSpacer.ForeColor =  System.Drawing.Color.Transparent ;
-            FilterSpacer.Name =  "FilterSpacer" ;
-            FilterSpacer.Size =  new System.Drawing.Size( 52, 27 ) ;
-            FilterSpacer.Text =  "  Filters  " ;
-            // 
-            // FilterSpaceSeparator
-            // 
-            FilterSpaceSeparator.ForeColor =  System.Drawing.Color.Black ;
-            FilterSpaceSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            FilterSpaceSeparator.Name =  "FilterSpaceSeparator" ;
-            FilterSpaceSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FilterSpaceSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
             // DataGridForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -2633,7 +2637,7 @@
         public ToolSeparator SaveSeparator;
         public ToolStripButton GroupButton;
         public ToolSeparator GroupSeparator;
-        public ToolStripButton ExcelButton;
+        public ToolStripButton ExcelExportButton;
         public ToolSeparator ExcelSeparator;
         public ToolStripButton EditSqlButton;
         public ToolSeparator EditSqlSeparator;

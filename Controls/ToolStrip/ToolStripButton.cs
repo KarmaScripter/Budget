@@ -236,6 +236,7 @@ namespace BudgetExecution
                         case ToolType.DeleteTableButton:
                         case ToolType.DeleteDatabaseButton:
                         case ToolType.AddColumnButton:
+                        case ToolType.ExcelExportButton:
                         {
                             break;
                         }
@@ -255,12 +256,6 @@ namespace BudgetExecution
                                 @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
 
                             using var _excelForm = new ExcelForm( _excel );
-                            _excelForm?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.ExcelExportButton:
-                        {
-                            using var _excelForm = new ExcelForm( BindingSource );
                             _excelForm?.ShowDialog( );
                             break;
                         }

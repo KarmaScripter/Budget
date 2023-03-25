@@ -290,6 +290,7 @@ namespace BudgetExecution
             FirstCalendarPanel.MouseClick += OnRightClick;
             SecondCalendarPanel.MouseClick += OnRightClick;
             GridPanel.MouseClick += OnRightClick;
+            ExcelExportButton.Click += null;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
@@ -378,6 +379,7 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
+                ExcelExportButton.Click += OnExcelExportButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
@@ -390,10 +392,6 @@ namespace BudgetExecution
                 EditSqlButton.Click += OnSqlButtonClick;
                 EditRecordButton.Click += OnEditRecordButtonClicked;
                 EditColumnButton.Click += OnEditColumnButtonClicked;
-                DeleteRecordButton.Click += OnDeleteRecordButtonClicked;
-                DeleteColumnButton.Click += OnDeleteColumnButtonClicked;
-                AddTableButton.Click += OnAddTableButtonClicked;
-                DeleteTableButton.Click += OnDeleteTableButtonClicked;
                 MouseClick += OnRightClick;
             }
             catch( Exception ex )
@@ -860,8 +858,8 @@ namespace BudgetExecution
                     FourthGridLabel.Text = "Measures : ";
                     FieldsTable.CaptionText = "Fields : ";
                     NumericsTable.CaptionText = "Measures : ";
-                    FirstCalendarTable.CaptionText = $"Start Date : ";
-                    SecondCalendarTable.CaptionText = $"End Date : ";
+                    FirstCalendarTable.CaptionText = "Start Date : ";
+                    SecondCalendarTable.CaptionText = "End Date : ";
                 }
             }
             catch( Exception ex )
@@ -1197,37 +1195,6 @@ namespace BudgetExecution
                         TableListBox.Items?.Add( name );
                     }
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the tool button visibility.
-        /// </summary>
-        /// <param name="visible">if set to <c>true</c> [visible].</param>
-        private void SetToolButtonVisibility( bool visible )
-        {
-            try
-            {
-                EditRecordButton.Visible = visible;
-                EditRecordSeparator.Visible = visible;
-                EditColumnButton.Visible = visible;
-                EditColumnSeparator.Visible = visible;
-                DeleteRecordButton.Visible = visible;
-                DeleteRecordSeparator.Visible = visible;
-                DeleteColumnButton.Visible = visible;
-                ColumnSeparator.Visible = visible;
-                SaveButton.Visible = visible;
-                SaveSeparator.Visible = visible;
-                GroupButton.Visible = !visible;
-                GroupSeparator.Visible = !visible;
-                DeleteTableButton.Visible = visible;
-                DeleteTableSeparator.Visible = visible;
-                AddTableButton.Visible = visible;
-                AddTableSeparator.Visible = visible;
             }
             catch( Exception ex )
             {
@@ -1640,7 +1607,6 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-                        SetToolButtonVisibility( true );
                         PopulateExecutionTables( );
                         break;
                     }
@@ -1651,7 +1617,6 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-                        SetToolButtonVisibility( true );
                         ResetComboBoxVisibility( );
                         break;
                     }
@@ -1662,7 +1627,6 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
-                        SetToolButtonVisibility( false );
                         break;
                     }
                     case 3:
@@ -1672,7 +1636,6 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
-                        SetToolButtonVisibility( false );
                         break;
                     }
                 }
@@ -1693,7 +1656,8 @@ namespace BudgetExecution
             try
             {
                 if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.GroupButton )
+                   && _button.ToolType == ToolType.GroupButton
+                   && FormFilter.Count > 0 )
                 {
                     TabControl.SelectedIndex = 2;
                     PopulateFieldListBox( );
@@ -1766,102 +1730,6 @@ namespace BudgetExecution
             {
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.EditColumnButton )
-                {
-                    SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
-                    _dialog?.ShowDialog( this );
-                    SetProviderImage( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [delete record button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnDeleteRecordButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.DeleteRecordButton )
-                {
-                    SetDialogImage( _button.ToolType );
-                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
-                    _dialog?.ShowDialog( this );
-                    SetProviderImage( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [delete column button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnDeleteColumnButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.DeleteColumnButton )
-                {
-                    SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
-                    _dialog?.ShowDialog( this );
-                    SetProviderImage( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [add table button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnAddTableButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.AddTableButton )
-                {
-                    SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
-                    _dialog?.ShowDialog( this );
-                    SetProviderImage( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [delete table button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnDeleteTableButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.DeleteTableButton )
                 {
                     SetDialogImage( _button.ToolType );
                     var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
@@ -2108,6 +1976,30 @@ namespace BudgetExecution
                     _chart.BindingSource = BindingSource;
                     Close( );
                     _chart.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [excel export button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnExcelExportButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.ExcelExportButton )
+                {
+                    var _excelForm = new ExcelForm( BindingSource );
+                    _excelForm.Owner = this;
+                    Visible = false;
+                    _excelForm.Show( );
                 }
             }
             catch( Exception ex )
