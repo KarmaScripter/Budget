@@ -259,7 +259,6 @@ namespace BudgetExecution
             Provider = Provider.Access;
 
             // Event Wiring
-            MouseClick += OnRightClick;
             Load += OnLoad;
             Shown += OnShown;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -277,9 +276,20 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            MouseClick += OnRightClick;
             HeaderTable.MouseClick += OnRightClick;
             HeaderLabel.MouseClick += OnRightClick;
             TabControl.MouseClick += OnRightClick;
+            TablePanel.MouseClick += OnRightClick;
+            TableTabPage.MouseClick += OnRightClick;
+            FilterTabPage.MouseClick += OnRightClick;
+            FilterTable.MouseClick += OnRightClick;
+            GroupTabPage.MouseClick += OnRightClick;
+            FieldsTable.MouseClick += OnRightClick;
+            FieldPanel.MouseClick += OnRightClick;
+            NumericsTable.MouseClick += OnRightClick;
+            NumericPanel.MouseClick += OnRightClick;
+            GridPanel.MouseClick += OnRightClick;
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
