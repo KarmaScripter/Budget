@@ -222,8 +222,6 @@ namespace BudgetExecution
             FourthGridLabel.Font = new Font( "Roboto", 8 );
             FourthGridLabel.ForeColor = Color.DarkGray;
             FourthGridLabel.Text = string.Empty;
-            FieldLabel.ForeColor = Color.DarkGray;
-            NumericsLabel.ForeColor = Color.DarkGray;
 
             // Header Properties
             HeaderLabel.Font = new Font( "Roboto", 10 );
@@ -289,9 +287,7 @@ namespace BudgetExecution
             NumericsTable.MouseClick += OnRightClick;
             NumericPanel.MouseClick += OnRightClick;
             CalendarTabPage.MouseClick += OnRightClick;
-            FirstCalendarLabel.MouseClick += OnRightClick;
             FirstCalendarPanel.MouseClick += OnRightClick;
-            SecondCalendarLabel.MouseClick += OnRightClick;
             SecondCalendarPanel.MouseClick += OnRightClick;
             GridPanel.MouseClick += OnRightClick;
             ExitButton.Click += null;
@@ -823,8 +819,8 @@ namespace BudgetExecution
                 ThirdGridLabel.Text = string.Empty;
                 FourthGridLabel.Text = string.Empty;
                 SqlHeader.Text = string.Empty;
-                FieldLabel.Text = string.Empty;
-                NumericsLabel.Text = string.Empty;
+                FieldsTable.CaptionText = "Fields : ";
+                NumericsTable.CaptionText = "Numerics : ";
             }
             catch( Exception ex )
             {
@@ -850,10 +846,10 @@ namespace BudgetExecution
                     SecondGridLabel.Text = $"Records : {_records} ";
                     ThirdGridLabel.Text = $"Fields : {_fields} ";
                     FourthGridLabel.Text = $"Measures : {_numerics} ";
-                    FieldLabel.Text = $"Fields : {_fields} ";
-                    NumericsLabel.Text = $"Measures : {_numerics} ";
-                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
+                    FieldsTable.CaptionText = $"Fields : {_fields} ";
+                    NumericsTable.CaptionText = $"Measures : {_numerics} ";
+                    FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
+                    SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
                 else
                 {
@@ -862,8 +858,10 @@ namespace BudgetExecution
                     SecondGridLabel.Text = "Records : ";
                     ThirdGridLabel.Text = "Fields : ";
                     FourthGridLabel.Text = "Measures : ";
-                    FieldLabel.Text = "Fields : ";
-                    NumericsLabel.Text = "Measures : ";
+                    FieldsTable.CaptionText = "Fields : ";
+                    NumericsTable.CaptionText = "Measures : ";
+                    FirstCalendarTable.CaptionText = $"Start Date : ";
+                    SecondCalendarTable.CaptionText = $"End Date : ";
                 }
             }
             catch( Exception ex )
@@ -1221,7 +1219,7 @@ namespace BudgetExecution
                 DeleteRecordButton.Visible = visible;
                 DeleteRecordSeparator.Visible = visible;
                 DeleteColumnButton.Visible = visible;
-                DeleteColumnSeparator.Visible = visible;
+                ColumnSeparator.Visible = visible;
                 SaveButton.Visible = visible;
                 SaveSeparator.Visible = visible;
                 GroupButton.Visible = !visible;
@@ -1548,8 +1546,7 @@ namespace BudgetExecution
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = GetSqlText( FormFilter );
-
-                    //SqlHeader.Text = SqlQuery;
+                    SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -1722,8 +1719,10 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.CalendarButton )
                 {
                     TabControl.SelectedIndex = 3;
-                    FirstCalendarLabel.Text = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarLabel.Text = $"End Date: {SecondCalendar.SelectedDate}";
+                    FirstCalendarTable.CaptionText = string.Empty;
+                    FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
+                    SecondCalendarTable.CaptionText = string.Empty;
+                    SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
             }
             catch( Exception ex )
@@ -1930,7 +1929,8 @@ namespace BudgetExecution
         {
             try
             {
-                FirstCalendarLabel.Text = $"Start Date: {FirstCalendar?.SelectedDate}";
+                FirstCalendarTable.CaptionText = string.Empty;
+                FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar?.SelectedDate}";
             }
             catch( Exception ex )
             {
@@ -1947,7 +1947,8 @@ namespace BudgetExecution
         {
             try
             {
-                SecondCalendarLabel.Text = $"End Date: {SecondCalendar?.SelectedDate}";
+                SecondCalendarTable.CaptionText = string.Empty;
+                SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar?.SelectedDate}";
             }
             catch( Exception ex )
             {
