@@ -26,11 +26,6 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ChartTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
@@ -542,7 +537,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 154, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 142, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -956,7 +951,7 @@
             FirstListBox.HoverText =  null ;
             FirstListBox.IsDerivedStyle =  true ;
             FirstListBox.ItemHeight =  28 ;
-            FirstListBox.Location =  new System.Drawing.Point( 30, 22 ) ;
+            FirstListBox.Location =  new System.Drawing.Point( 30, 26 ) ;
             FirstListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             FirstListBox.MultiSelect =  true ;
             FirstListBox.Name =  "FirstListBox" ;
@@ -969,7 +964,7 @@
             FirstListBox.SelectedValue =  null ;
             FirstListBox.ShowBorder =  false ;
             FirstListBox.ShowScrollBar =  false ;
-            FirstListBox.Size =  new System.Drawing.Size( 200, 187 ) ;
+            FirstListBox.Size =  new System.Drawing.Size( 189, 183 ) ;
             FirstListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBox.StyleManager =  null ;
             FirstListBox.TabIndex =  0 ;
@@ -990,8 +985,8 @@
             SecondTable.Location =  new System.Drawing.Point( 1043, 407 ) ;
             SecondTable.Name =  "SecondTable" ;
             SecondTable.RowCount =  2 ;
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 36F ) );
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 11F ) );
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 37F ) );
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 10F ) );
             SecondTable.Size =  new System.Drawing.Size( 258, 259 ) ;
             SecondTable.TabIndex =  47 ;
             // 
@@ -1010,10 +1005,10 @@
             SecondListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondListBoxPanel.HoverText =  null ;
             SecondListBoxPanel.IsDerivedStyle =  true ;
-            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 39 ) ;
+            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 40 ) ;
             SecondListBoxPanel.Name =  "SecondListBoxPanel" ;
             SecondListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondListBoxPanel.Size =  new System.Drawing.Size( 252, 217 ) ;
+            SecondListBoxPanel.Size =  new System.Drawing.Size( 252, 216 ) ;
             SecondListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondListBoxPanel.StyleManager =  null ;
             SecondListBoxPanel.TabIndex =  47 ;
@@ -1035,7 +1030,7 @@
             SecondListBox.HoverText =  null ;
             SecondListBox.IsDerivedStyle =  true ;
             SecondListBox.ItemHeight =  28 ;
-            SecondListBox.Location =  new System.Drawing.Point( 31, 21 ) ;
+            SecondListBox.Location =  new System.Drawing.Point( 30, 23 ) ;
             SecondListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             SecondListBox.MultiSelect =  true ;
             SecondListBox.Name =  "SecondListBox" ;
@@ -1048,7 +1043,7 @@
             SecondListBox.SelectedValue =  null ;
             SecondListBox.ShowBorder =  false ;
             SecondListBox.ShowScrollBar =  false ;
-            SecondListBox.Size =  new System.Drawing.Size( 200, 166 ) ;
+            SecondListBox.Size =  new System.Drawing.Size( 189, 166 ) ;
             SecondListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondListBox.StyleManager =  null ;
             SecondListBox.TabIndex =  0 ;

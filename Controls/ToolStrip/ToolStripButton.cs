@@ -237,6 +237,7 @@ namespace BudgetExecution
                         case ToolType.DeleteDatabaseButton:
                         case ToolType.AddColumnButton:
                         case ToolType.ExcelExportButton:
+                        case ToolType.ChartButton:
                         {
                             break;
                         }
@@ -345,12 +346,6 @@ namespace BudgetExecution
                         case ToolType.WebButton:
                         {
                             using var _form = new WebPage( );
-                            _form?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.ChartButton:
-                        {
-                            var _form = new ChartForm( );
                             _form?.ShowDialog( );
                             break;
                         }

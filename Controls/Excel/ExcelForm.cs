@@ -316,8 +316,8 @@ namespace BudgetExecution
                 if( Owner?.Name.Equals( "DataGridForm" ) == true 
                    || Owner?.Name.Equals( "ChartForm" ) == true )
                 {
-                    Visible = false;
                     Owner.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
@@ -327,6 +327,29 @@ namespace BudgetExecution
                 }
 
                 Visible = false;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [chart button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnChartButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.ChartButton )
+                {
+                    var _chart = new ChartForm( BindingSource );
+                    _chart.Show( );
+                    Close( );
+                }
             }
             catch( Exception ex )
             {
@@ -349,9 +372,14 @@ namespace BudgetExecution
                     if( Owner?.Visible == false )
                     {
                         Owner.Visible = true;
+                        Close( );
                     }
-
-                    Close( );
+                    else
+                    {
+                        var _main = new MainForm( );
+                        _main.Show( );
+                        Close( );
+                    }
                 }
             }
             catch( Exception ex )
