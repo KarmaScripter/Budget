@@ -18,9 +18,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class EditDialog : EditBase
     {
         /// <summary>
@@ -45,7 +45,7 @@ namespace BudgetExecution
         public EditDialog( )
         {
             InitializeComponent( );
-            
+
             // Basic Properties
             Size = new Size( 1310, 646 );
             TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
@@ -54,10 +54,12 @@ namespace BudgetExecution
             CloseButton.Text = "Exit";
             Frames = GetFrames( );
             TabPages = GetTabPages( );
-            
+
             // Event Wiring
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
+            MouseClick += OnRightClick;
+            TabPage.MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -65,12 +67,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
-        public EditDialog( ToolType toolType, BindingSource bindingSource ) 
+        public EditDialog( ToolType toolType, BindingSource bindingSource )
             : this( )
         {
             ToolType = toolType;
             BindingSource = bindingSource;
-            DataTable = BindingSource.GetDataTable(  );
+            DataTable = BindingSource.GetDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider.Access );
             Columns = DataTable.GetColumnNames( );
@@ -309,12 +311,12 @@ namespace BudgetExecution
                     for( var i = 0; i < _cols.Length; i++ )
                     {
                         _frames[ i ].Label.Text = _cols[ i ].SplitPascal( );
-                        var _text = _items[ i ]?.ToString( ) ;
-                        if( Numerics?.Contains( _cols[ i ] ) == true 
+                        var _text = _items[ i ]?.ToString( );
+                        if( Numerics?.Contains( _cols[ i ] ) == true
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
-                            _frames[ i ].TextBox.Text =  _value.ToString( "N2" );
+                            _frames[ i ].TextBox.Text = _value.ToString( "N2" );
                             _frames[ i ].TextBox.TextAlign = HorizontalAlignment.Right;
                         }
                         else
@@ -349,7 +351,7 @@ namespace BudgetExecution
                             _tabPages.Add( tabpage.Name, tabpage );
                         }
                     }
-                    
+
                     return _tabPages?.Any( ) == true
                         ? _tabPages
                         : default( IDictionary<string, TabPageAdv> );
@@ -394,6 +396,26 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default;
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
     }

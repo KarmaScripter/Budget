@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class DefinitionDialog : EditBase
     {
         /// <summary>
@@ -27,13 +27,13 @@ namespace BudgetExecution
         /// The sqlite data types.
         /// </value>
         public override IEnumerable<string> DataTypes { get; set; }
-        
+
         public override string SelectedTable { get; set; }
-        
+
         public Provider SelectedProvider { get; set; }
-        
+
         public string SelectedType { get; set; }
-        
+
         public string ColumnName { get; set; }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace BudgetExecution
         public DefinitionDialog( )
         {
             InitializeComponent( );
-            
+
             // Basic Properties
             Size = new Size( 1310, 646 );
             SqliteRadioButton.Tag = "SQLite";
@@ -53,23 +53,21 @@ namespace BudgetExecution
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
             TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-            ProviderPanelLabel.ForeColor = Color.DarkGray;
-            TablePanelLabel.ForeColor = Color.DarkGray;
-            SchemaPanelLabel.ForeColor = Color.DarkGray;
-            
+
             // Populate Controls
             TabPages = GetTabPages( );
             Panels = GetPanels( );
             ListBoxes = GetListBoxes( );
             RadioButtons = GetRadioButtons( );
             ComboBoxes = GetComboBoxes( );
-            
+
             // Wire Events
             AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
             SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
+            TabPage.MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -97,7 +95,7 @@ namespace BudgetExecution
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Columns = DataTable.GetColumnNames( );
         }
-        
+
         /// <summary>
         /// Called when [visible].
         /// </summary>
@@ -129,12 +127,12 @@ namespace BudgetExecution
                 TableNameComboBox.Items.Clear( );
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
+                var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.ToList(  );
-                
+                    ?.ToList( );
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
@@ -281,7 +279,7 @@ namespace BudgetExecution
                     var _tabPages = new Dictionary<string, TabPageAdv>( );
                     foreach( TabPageAdv page in TabControl.TabPages )
                     {
-                        if( page != null 
+                        if( page != null
                            && !string.IsNullOrEmpty( page.Name ) )
                         {
                             _tabPages.Add( page.Name, page );
@@ -300,6 +298,26 @@ namespace BudgetExecution
             }
 
             return default;
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

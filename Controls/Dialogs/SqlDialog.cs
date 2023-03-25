@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -19,6 +18,7 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml.Wordprocessing;
     using Syncfusion.Drawing;
     using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
 
     /// <summary>
     /// 
@@ -88,17 +88,18 @@ namespace BudgetExecution
         public SqlDialog( )
         {
             InitializeComponent( );
-            
+
             // Basic Properties
             Size = new Size( 1310, 646 );
             TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
             FirstButton.Text = "Save";
             ThirdButton.Text = "Exit";
             DatabaseDirectory = @"C:\Users\terry\source\repos\Budget\Data\Database\";
-            
+
             // Event Wiring
             ThirdButton.Click += OnCloseButtonClicked;
             Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace BudgetExecution
             ToolType = ToolType.EditSqlButton;
             BindingSource = bindingSource;
             Provider = provider;
-            DataTable = BindingSource.GetDataTable(  );
+            DataTable = BindingSource.GetDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
@@ -128,13 +129,13 @@ namespace BudgetExecution
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="provider">The provider.</param>
         public SqlDialog( ToolType toolType, BindingSource bindingSource,
-            Provider provider = Provider.Access  ) 
+            Provider provider = Provider.Access )
             : this( )
         {
             ToolType = toolType;
             BindingSource = bindingSource;
             Provider = provider;
-            DataTable = BindingSource.GetDataTable(  );
+            DataTable = BindingSource.GetDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
@@ -198,7 +199,7 @@ namespace BudgetExecution
                 Commands?.Clear( );
                 Statements?.Clear( );
                 Provider = Provider.Access;
-                AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Checked;
+                AccessRadioButton.CheckState = CheckState.Checked;
                 Commands = CreateCommandList( Provider );
                 PopulateSqlComboBox( Commands );
             }
@@ -207,7 +208,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the provider.
         /// </summary>
@@ -289,34 +290,34 @@ namespace BudgetExecution
                     SqlListBox.Items.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
-                        if( _commands.Contains( list[ _i ] ) 
-                           && list[ _i ].Equals( $"{ SQL.CREATEDATABASE }" ) )
+                        if( _commands.Contains( list[ _i ] )
+                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE DATABASE" );
                         }
-                        else if( _commands.Contains( list[ _i ] ) 
-                                && list[ _i ].Equals( $"{ SQL.CREATETABLE }" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
                         {
-                            SqlComboBox.Items.Add( "CREATE TABLE"  );
+                            SqlComboBox.Items.Add( "CREATE TABLE" );
                         }
-                        else if( _commands.Contains( list[ _i ] ) 
-                                && list[ _i ].Equals( $"{ SQL.ALTERTABLE }" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
                         {
-                            SqlComboBox.Items.Add( "ALTER TABLE"  );
+                            SqlComboBox.Items.Add( "ALTER TABLE" );
                         }
-                        else if( _commands.Contains( list[ _i ] ) 
-                                && list[ _i ].Equals( $"{ SQL.CREATEVIEW }" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
                         {
-                            SqlComboBox.Items.Add( "CREATE VIEW"  );
+                            SqlComboBox.Items.Add( "CREATE VIEW" );
                         }
-                        else if( _commands.Contains( list[ _i ] ) 
-                                && list[ _i ].Equals( $"{ SQL.SELECTALL }" ) )
+                        else if( _commands.Contains( list[ _i ] )
+                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
                         {
-                            SqlComboBox.Items.Add( "SELECT ALL"  );
+                            SqlComboBox.Items.Add( "SELECT ALL" );
                         }
                         else if( _commands.Contains( list[ _i ] ) )
                         {
-                            SqlComboBox.Items.Add( list[ _i ]  );
+                            SqlComboBox.Items.Add( list[ _i ] );
                         }
                     }
                 }
@@ -338,7 +339,7 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = DatabaseDirectory + @$"\{ provider }\DataModels\";
+                    var _path = DatabaseDirectory + @$"\{provider}\DataModels\";
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
@@ -354,13 +355,13 @@ namespace BudgetExecution
                         ? _list
                         : default( IList<string> );
                 }
-                
-                return default( IList<string> );
+
+                return default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<string> );
+                return default;
             }
         }
 
@@ -375,7 +376,7 @@ namespace BudgetExecution
             {
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    var _path = DatabaseDirectory + @$"\{ provider }\DataModels\";
+                    var _path = DatabaseDirectory + @$"\{provider}\DataModels\";
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
@@ -392,12 +393,12 @@ namespace BudgetExecution
                         : default( IList<string> );
                 }
 
-                return default( IList<string> );
+                return default;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<string> );
+                return default;
             }
         }
 
@@ -425,7 +426,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _tag = _button.Tag?.ToString(  );
+                    var _tag = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
                         SetProvider( _tag );
@@ -453,13 +454,17 @@ namespace BudgetExecution
                 SqlEditor.BorderStyle = BorderStyle.FixedSingle;
                 SqlEditor.CanOverrideStyle = true;
                 SqlEditor.CanApplyTheme = true;
-                SqlEditor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8 );
-                SqlEditor.ContextChoiceFont = new System.Drawing.Font( "Roboto", 8 );
+                SqlEditor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                SqlEditor.ContextChoiceFont = new Font( "Roboto", 8 );
                 SqlEditor.ContextChoiceForeColor = Color.Black;
-                SqlEditor.ContextChoiceBackColor =  SystemColors.ControlLight;
+                SqlEditor.ContextChoiceBackColor = SystemColors.ControlLight;
                 SqlEditor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.ContextPromptBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-                SqlEditor.ContextTooltipBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 )  );
+                SqlEditor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                SqlEditor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
                 SqlEditor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
                 SqlEditor.EndOfLineBackColor = SystemColors.ControlLight;
                 SqlEditor.EndOfLineForeColor = SystemColors.ControlLight;
@@ -468,9 +473,9 @@ namespace BudgetExecution
                 SqlEditor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
                 SqlEditor.IndicatorMarginBackColor = SystemColors.ControlLight;
                 SqlEditor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.Font = new System.Drawing.Font( "Roboto", 12  );
+                SqlEditor.Font = new Font( "Roboto", 12 );
                 SqlEditor.LineNumbersColor = Color.Black;
-                SqlEditor.LineNumbersFont = new System.Drawing.Font( "Roboto", 8, FontStyle.Bold );
+                SqlEditor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
                 SqlEditor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
                 SqlEditor.ScrollColorScheme = Office2007ColorScheme.Black;
                 SqlEditor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
@@ -489,6 +494,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+
         /// <summary>
         /// Called when [ComboBox item selected].
         /// </summary>
@@ -502,28 +508,32 @@ namespace BudgetExecution
                 {
                     SelectedCommand = string.Empty;
                     var _selection = _comboBox.SelectedItem?.ToString( );
-                    SqlListBox.Items.Clear(  );
+                    SqlListBox.Items.Clear( );
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = DatabaseDirectory + @$"\{ Provider }\DataModels\{ SelectedCommand }";
+                        var _path = DatabaseDirectory
+                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
                             var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
-                            var _caption = _item?.SplitPascal(  );
+                            var _caption = _item?.SplitPascal( );
                             SqlListBox.Items.Add( _caption );
                         }
                     }
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = DatabaseDirectory + @$"\{ Provider }\DataModels\{ SelectedCommand }";
+                        var _path = DatabaseDirectory
+                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
                             var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
-                            var _caption = _item?.SplitPascal(  );
+                            var _caption = _item?.SplitPascal( );
                             SqlListBox.Items.Add( _caption );
                         }
                     }
@@ -547,13 +557,14 @@ namespace BudgetExecution
                 {
                     SqlEditor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( SelectedQuery?.Contains( " " ) == true 
+                    if( SelectedQuery?.Contains( " " ) == true
                        || SelectedCommand?.Contains( " " ) == true )
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = DatabaseDirectory 
-                            + @$"\{ Provider }\DataModels\{ _command }\{ _query }.sql";
+                        var _filePath = DatabaseDirectory
+                            + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
+
                         var _stream = File.OpenRead( _filePath );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
@@ -561,8 +572,9 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = DatabaseDirectory 
-                            + @$"\{ Provider }\DataModels\{ SelectedCommand }\{ SelectedQuery }.sql";
+                        var _path = DatabaseDirectory
+                            + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
+
                         var _stream = File.OpenRead( _path );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
@@ -590,6 +602,26 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
     }

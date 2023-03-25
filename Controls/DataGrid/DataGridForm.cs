@@ -277,7 +277,6 @@ namespace BudgetExecution
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
             MouseClick += OnRightClick;
-            HeaderTable.MouseClick += OnRightClick;
             HeaderLabel.MouseClick += OnRightClick;
             TabControl.MouseClick += OnRightClick;
             TablePanel.MouseClick += OnRightClick;
@@ -289,6 +288,11 @@ namespace BudgetExecution
             FieldPanel.MouseClick += OnRightClick;
             NumericsTable.MouseClick += OnRightClick;
             NumericPanel.MouseClick += OnRightClick;
+            CalendarTabPage.MouseClick += OnRightClick;
+            FirstCalendarLabel.MouseClick += OnRightClick;
+            FirstCalendarPanel.MouseClick += OnRightClick;
+            SecondCalendarLabel.MouseClick += OnRightClick;
+            SecondCalendarPanel.MouseClick += OnRightClick;
             GridPanel.MouseClick += OnRightClick;
             ExitButton.Click += null;
             BackButton.Click += null;
