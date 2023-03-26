@@ -91,7 +91,7 @@ namespace BudgetExecution
 
             // Column SeriesConfiguration
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            ColumnHeadersHeight = 24;
+            ColumnHeadersHeight = 22;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -102,7 +102,7 @@ namespace BudgetExecution
 
             // Row SeriesConfiguration
             RowHeadersWidth = 20;
-            RowTemplate.Height = 24;
+            RowTemplate.Height = 22;
             RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             RowHeadersDefaultCellStyle.BackColor = Color.FromArgb( 50, 50, 50 );
             RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );

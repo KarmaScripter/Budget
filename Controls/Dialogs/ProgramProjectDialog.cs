@@ -10,15 +10,15 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using System.Data;
-    using System.Linq;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
         /// <summary>
@@ -103,7 +103,7 @@ namespace BudgetExecution
             // Basic Properties
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 1309, 614 );
+            Size = new Size( 908, 614 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -128,10 +128,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            NextButton.Click += OnNextButtonClicked;
-            PreviousButton.Click += OnPreviousButtonClicked;
             CloseButton.Click += OnCloseButtonClicked;
-            ProgramListBox.SelectedValueChanged += OnListBoxItemSelected;
             BindingSource.CurrentChanged += UpdateHeaderTitle;
             MouseClick += OnRightClick;
         }
@@ -161,7 +158,6 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 Current = BindingSource.GetCurrentDataRow( );
-                ProgramListBox.ShowScrollBar = true;
                 Header.ForeColor = Color.FromArgb( 0, 120, 212 );
                 Header.Text = Current[ "ProgramTitle" ].ToString( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
@@ -170,32 +166,7 @@ namespace BudgetExecution
                     BindingSource.Filter = FormFilter.ToCriteria( );
                 }
 
-                PopulateListBoxItems( );
                 BindData( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the ComboBox items.
-        /// </summary>
-        private void PopulateListBoxItems( )
-        {
-            try
-            {
-                ProgramListBox.Items.Clear( );
-                var _data = DataModel.DataElements;
-                var _names = _data[ "Name" ];
-                foreach( var _name in _names )
-                {
-                    if( !string.IsNullOrEmpty( _name ) )
-                    {
-                        ProgramListBox.Items.Add( _name );
-                    }
-                }
             }
             catch( Exception ex )
             {
@@ -268,57 +239,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnPreviousButtonClicked( object sender, EventArgs e )
+        public void OnSearchButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                BindingSource.MovePrevious( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [next button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnNextButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                BindingSource.MoveNext( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    SelectedProgram = _listBox.SelectedValue?.ToString( );
-                    if( !string.IsNullOrEmpty( SelectedProgram ) )
-                    {
-                        var _current = BindingSource.Find( "Name", SelectedProgram );
-                        BindingSource.Position = _current;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
             }
         }
 
