@@ -8,7 +8,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.PathBase" />
-    public class DataPath : PathBase, IPath
+    public class DataPath : PathBase, IDataPath
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataPath"/> class.

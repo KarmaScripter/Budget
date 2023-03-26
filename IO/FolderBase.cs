@@ -16,7 +16,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public abstract class FolderBase
+    public abstract class FolderBase 
     {
         /// <summary>
         /// Gets or sets the buffer.
@@ -25,12 +25,7 @@ namespace BudgetExecution
         /// The buffer.
         /// </value>
         public virtual string Buffer { get; set; }
-
-        /// <summary>
-        /// The base stream
-        /// </summary>
-        public virtual DirectoryInfo DirectoryInfo { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the name of the file.
         /// </summary>
@@ -69,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
         /// </value>
-        public virtual bool HasParent { get; set; }
+        public virtual DirectoryInfo Parent { get; set; }
 
         /// <summary>
         /// Gets or sets the creation date.
@@ -84,7 +79,7 @@ namespace BudgetExecution
         /// <value>
         ///   <c>true</c> if this instance has sub files; otherwise, <c>false</c>.
         /// </value>
-        public virtual bool HasSubFiles { get; set; }
+        public virtual IEnumerable<string> SubFiles { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance has sub folders.
@@ -92,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         ///   <c>true</c> if this instance has sub folders; otherwise, <c>false</c>.
         /// </value>
-        public virtual bool HasSubFolders { get; set; }
+        public virtual IEnumerable<string> SubFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the security.
@@ -100,12 +95,12 @@ namespace BudgetExecution
         /// <value>
         /// The security.
         /// </value>
-        public virtual FileSecurity FileSecurity { get; set; }
+        public virtual DirectorySecurity Security { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderBase"/> class.
         /// </summary>
-        public FolderBase( )
+        protected FolderBase( )
         {
         }
 
@@ -113,72 +108,50 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="FolderBase"/> class.
         /// </summary>
         /// <param name="input">The input.</param>
-        public FolderBase( string input )
+        protected FolderBase( string input ) 
         {
             Buffer = input;
             FullPath = Path.GetFullPath( input );
-            DirectoryInfo = new DirectoryInfo( FullPath );
             Name = Path.GetDirectoryName( input );
-            FullName = DirectoryInfo.FullName;
-            Created = DirectoryInfo.CreationTime;
-            Modified = DirectoryInfo.LastWriteTime;
-            HasParent = DirectoryInfo.Parent != null;
-            HasSubFiles = Directory.GetFiles( input ).Length > 0;
-            HasSubFolders = Directory.GetDirectories( input ).Length > 0;
+            FullName = new DirectoryInfo( FullPath ).FullName;
+            Created = new DirectoryInfo( FullPath ).CreationTime;
+            Modified = new DirectoryInfo( FullPath ).LastWriteTime;
+            Parent = new DirectoryInfo( FullPath ).Parent;
+            SubFiles = Directory.GetFiles( input );
+            SubFolders = Directory.GetDirectories( input );
+            Security = new DirectorySecurity( FullPath, AccessControlSections.Access );
         }
 
         /// <summary>
-        /// Gets the files.
+        /// Gets the sub file dictionary.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<string> GetFileNames( )
-        {
-            if( HasSubFiles )
-            {
-                try
-                {
-                    var _files = Directory.GetFiles( FullPath );
-
-                    return _files?.Any( ) == true
-                        ? _files
-                        : default( IEnumerable<string> );
-                }
-                catch( IOException ex )
-                {
-                    Fail( ex );
-
-                    return default( IEnumerable<string> );
-                }
-            }
-
-            return default( IEnumerable<string> );
-        }
-
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <returns></returns>
-        public virtual IEnumerable<FileInfo> GetStreamData( )
+        public virtual IDictionary<string, FileInfo> GetSubFileData( )
         {
             if( !string.IsNullOrEmpty( FullPath ) )
             {
                 try
                 {
-                    IEnumerable<FileInfo> _enumerable = DirectoryInfo?.GetFiles( FullPath );
-
-                    return _enumerable?.Any( ) == true
-                        ? _enumerable
-                        : default( IEnumerable<FileInfo> );
+                    var _data = new Dictionary<string, FileInfo>();
+                    foreach( var file in SubFiles )
+                    {
+                        var _name = Path.GetFileNameWithoutExtension( file );
+                        var _file = new FileInfo( file );
+                        _data.Add( _name, _file );
+                    }
+                    
+                    return _data?.Any( ) == true 
+                        ? _data 
+                        : default( IDictionary<string, FileInfo> );
                 }
                 catch( IOException ex )
                 {
                     Fail( ex );
-
-                    return default( IEnumerable<FileInfo> );
+                    return default( IDictionary<string, FileInfo> );
                 }
             }
 
-            return default( IEnumerable<FileInfo> );
+            return default( IDictionary<string, FileInfo> );
         }
 
         /// <summary>
@@ -190,7 +163,6 @@ namespace BudgetExecution
             try
             {
                 var _folders = Enum.GetNames( typeof( Environment.SpecialFolder ) );
-
                 return _folders?.Any( ) == true
                     ? _folders
                     : default( string[ ] );
@@ -198,7 +170,6 @@ namespace BudgetExecution
             catch( IOException ex )
             {
                 Fail( ex );
-
                 return default( IEnumerable<string> );
             }
         }
@@ -207,60 +178,33 @@ namespace BudgetExecution
         /// Gets the sub folders.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<DirectoryInfo> GetSubFolders( )
+        public virtual IDictionary<string, DirectoryInfo> GetSubDirectoryData( )
         {
-            if( DirectoryInfo != null )
-            {
                 try
                 {
-                    var _folders = DirectoryInfo?.GetDirectories( );
-
-                    return _folders?.Any( ) != true
-                        ? _folders
-                        : default( DirectoryInfo[ ] );
+                    var _data = new Dictionary<string, DirectoryInfo>();
+                    foreach( var file in SubFolders )
+                    {
+                        var _name = Path.GetDirectoryName( file );
+                        var _folder = new DirectoryInfo( file );
+                        _data.Add( _name, _folder );
+                    }
+                    return _data?.Any( ) != true
+                        ? _data
+                        : default( IDictionary<string, DirectoryInfo> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
-                    return default( IEnumerable<DirectoryInfo> );
+                    return default( IDictionary<string, DirectoryInfo> );
                 }
-            }
-
-            return default( IEnumerable<DirectoryInfo> );
         }
-
-        /// <summary>
-        /// Gets the parent.
-        /// </summary>
-        /// <returns></returns>
-        protected virtual DirectoryInfo GetBaseDirectory( )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( Buffer )
-                   && Directory.Exists( Buffer ) )
-                {
-                    var _file = new DirectoryInfo( Buffer );
-
-                    return _file?.Parent;
-                }
-
-                return default( DirectoryInfo );
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-
-                return default( DirectoryInfo );
-            }
-        }
-
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
+        protected private static void Fail( Exception ex )
         {
             using var _error = new Error( ex );
             _error?.SetText( );

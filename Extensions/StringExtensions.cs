@@ -314,7 +314,6 @@ namespace BudgetExecution
         public static int WordCount( this string text )
         {
             var _count = 0;
-
             try
             {
                 var re = new Regex( @"[^\text]+" );

@@ -5,10 +5,9 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Compression;
-    using System.Linq;
     using System.Security.AccessControl;
 
     /// <summary>
@@ -16,6 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="FolderBase" />
     /// <seealso cref="IFolder" />
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Folder : FolderBase, IFolder
     {
         /// <summary>
@@ -41,100 +41,56 @@ namespace BudgetExecution
         /// <returns></returns>
         public DirectoryInfo CreateSubDirectory( string folderName )
         {
-            if( string.IsNullOrEmpty( folderName ) )
-            {
-                return default;
-            }
-
             if( !string.IsNullOrEmpty( folderName )
-               && Directory.Exists( folderName ) )
-            {
-                Directory.Delete( folderName );
-            }
-
-            try
-            {
-                return !string.IsNullOrEmpty( folderName ) && !Directory.Exists( folderName )
-                    ? DirectoryInfo?.CreateSubdirectory( folderName )
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<FileInfo> GetSubFiles( )
-        {
-            if( HasSubFiles && DirectoryInfo != null )
+               && !Directory.Exists( folderName ) )
             {
                 try
                 {
-                    var _files = DirectoryInfo.GetFiles( );
-
-                    return _files?.Any( ) == true
-                        ? _files
-                        : default( IEnumerable<FileInfo> );
+                    return new DirectoryInfo( FullPath )
+                        ?.CreateSubdirectory( folderName );
                 }
-                catch( IOException ex )
+                catch( Exception ex )
                 {
                     Fail( ex );
-
-                    return default;
+                    return default( DirectoryInfo );
                 }
             }
 
-            return default;
+            return default( DirectoryInfo );
         }
 
         /// <summary>
         /// Moves the specified folderpath.
         /// </summary>
-        /// <param name="fullName">The folderpath.</param>
-        public void Move( string fullName )
+        /// <param name="path">The folderpath.</param>
+        public void Move( string path )
         {
-            try
+            if( !string.IsNullOrEmpty( path ) )
             {
-                switch( string.IsNullOrEmpty( fullName ) )
+                try
                 {
-                    case false when !Directory.Exists( fullName ):
-
-                        DirectoryInfo?.MoveTo( fullName );
-
-                        break;
-
-                    case false when Directory.Exists( fullName ):
-
-                        Directory.CreateDirectory( fullName );
-                        DirectoryInfo?.MoveTo( fullName );
-
-                        break;
+                    var _directory = new DirectoryInfo( FullPath );
+                    _directory.MoveTo( path );
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
         /// <summary>
         /// Zips the specified filepath.
         /// </summary>
-        /// <param name="destinationPath">The filepath.</param>
-        public void Zip( string destinationPath )
+        /// <param name="destination">The filepath.</param>
+        public void Zip( string destination )
         {
             try
             {
-                if( !string.IsNullOrEmpty( destinationPath )
+                if( !string.IsNullOrEmpty( destination )
                    && !string.IsNullOrEmpty( FullPath ) )
                 {
-                    ZipFile.CreateFromDirectory( FullPath, destinationPath );
+                    ZipFile.CreateFromDirectory( FullPath, destination );
                 }
             }
             catch( Exception ex )
@@ -173,7 +129,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    DirectoryInfo?.SetAccessControl( security );
+                    var _directory = new DirectoryInfo( FullPath );
+                    _directory?.SetAccessControl( security );
                 }
                 catch( Exception ex )
                 {
@@ -197,7 +154,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -205,21 +161,21 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the specified filepath.
         /// </summary>
-        /// <param name="fullName">The filepath.</param>
+        /// <param name="fullPath">The filepath.</param>
         /// <returns></returns>
-        public static DirectoryInfo Create( string fullName )
+        public static DirectoryInfo Create( string fullPath )
         {
             try
             {
-                return !string.IsNullOrEmpty( fullName ) && !Directory.Exists( fullName )
-                    ? Directory.CreateDirectory( fullName )
-                    : default;
+                return !string.IsNullOrEmpty( fullPath ) 
+                    && !Directory.Exists( fullPath )
+                        ? Directory.CreateDirectory( fullPath )
+                        : default( DirectoryInfo );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-
-                return default;
+                return default( DirectoryInfo );
             }
         }
 
@@ -246,15 +202,15 @@ namespace BudgetExecution
         /// <summary>
         /// Creats the zip file.
         /// </summary>
-        /// <param name="sourcePath">The sourcePath.</param>
-        /// <param name="destinationPath">The destinationPath.</param>
-        public static void CreateZipFile( string sourcePath, string destinationPath )
+        /// <param name="source">The sourcePath.</param>
+        /// <param name="destination">The destination.</param>
+        public static void CreateZipFile( string source, string destination )
         {
             try
             {
-                if( !string.IsNullOrEmpty( sourcePath ) )
+                if( !string.IsNullOrEmpty( source ) )
                 {
-                    ZipFile.CreateFromDirectory( sourcePath, destinationPath );
+                    ZipFile.CreateFromDirectory( source, destination );
                 }
             }
             catch( Exception ex )

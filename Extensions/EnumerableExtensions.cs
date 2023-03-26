@@ -37,7 +37,6 @@ namespace BudgetExecution
                     var _dictionary = _row?.ToDictionary( );
                     var _array = _dictionary?.Keys.ToArray( );
                     var _names = Enum.GetNames( typeof( Numeric ) );
-
                     if( _array != null )
                     {
                         foreach( var k in _array )
@@ -54,7 +53,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -79,7 +77,6 @@ namespace BudgetExecution
                     var _dict = _row?.ToDictionary( );
                     var _key = _dict?.Keys.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
-
                     if( _key != null )
                     {
                         foreach( var k in _key )
@@ -97,7 +94,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -118,12 +114,12 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<int>( );
-
                     foreach( var _row in dataRow )
                     {
                         if( _row?.ItemArray[ 0 ] != null )
                         {
-                            _list?.Add( int.Parse( _row.ItemArray[ 0 ]?.ToString( ) ) );
+                            var _item = _row.ItemArray[ 0 ].ToString( ) ?? string.Empty;
+                            _list?.Add( int.Parse( _item ) );
                         }
                     }
 
@@ -134,7 +130,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -154,7 +149,6 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new BindingList<DataRow>( );
-
                     foreach( var item in dataRows )
                     {
                         _list.Add( item );
@@ -167,7 +161,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -179,25 +172,25 @@ namespace BudgetExecution
         /// Filters the specified columnName.
         /// </summary>
         /// <param name="dataRow">The dataRow.</param>
-        /// <param name="columnName">The columnName.</param>
-        /// <param name="filter">The filter.</param>
+        /// <param name="name">The columnName.</param>
+        /// <param name="value">The filter.</param>
         /// <returns></returns>
         public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow,
-            string columnName, string filter )
+            string name, string value )
         {
             if( dataRow?.Any( ) == true
-               && !string.IsNullOrEmpty( columnName )
-               && !string.IsNullOrEmpty( filter ) )
+               && !string.IsNullOrEmpty( name )
+               && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
                     var _row = dataRow?.First( );
                     var _dictionary = _row.ToDictionary( );
                     var _array = _dictionary.Keys.ToArray( );
-
-                    if( _array?.Contains( columnName ) == true )
+                    if( _array?.Contains( name ) == true )
                     {
-                        var _select = dataRow?.Where( p => p.Field<string>( columnName ) == filter )
+                        var _select = dataRow
+                            ?.Where( p => p.Field<string>( name ) == value )
                             ?.Select( p => p );
 
                         return _select?.Any( ) == true
@@ -208,7 +201,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -232,7 +224,6 @@ namespace BudgetExecution
                 {
                     var _table = dataRow.CopyToDataTable( );
                     var _rows = _table?.Select( dict.ToCriteria( ) );
-
                     return _rows?.Any( ) == true
                         ? _rows
                         : default( IEnumerable<DataRow> );
@@ -240,7 +231,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -253,25 +243,24 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="column">The column.</param>
-        /// <param name="filter">The filter.</param>
+        /// <param name="value">The filter.</param>
         /// <returns></returns>
         public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow,
-            DataColumn column, string filter )
+            DataColumn column, string value )
         {
             if( dataRow?.Any( ) == true
                && column != null
-               && !string.IsNullOrEmpty( filter ) )
+               && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
                     var _row = dataRow?.First( );
                     var _columns = _row?.Table?.Columns;
-
                     if( !string.IsNullOrEmpty( column.ColumnName )
                        && _columns?.Contains( column.ColumnName ) == true )
                     {
                         var _enumerable = dataRow
-                            ?.Where( p => p.Field<string>( column.ColumnName ).Equals( filter ) )
+                            ?.Where( p => p.Field<string>( column.ColumnName ).Equals( value ) )
                             ?.Select( p => p );
 
                         return _enumerable?.Any( ) == true
@@ -282,48 +271,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary>
-        /// Filters the specified field.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="field">The field.</param>
-        /// <param name="filter">The filter.</param>
-        /// <returns></returns>
-        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, Field field,
-            string filter )
-        {
-            if( dataRow?.Any( ) == true
-               && Enum.IsDefined( typeof( Field ), field )
-               && !string.IsNullOrEmpty( filter ) )
-            {
-                try
-                {
-                    var _row = dataRow?.First( );
-                    var _columns = _row?.Table?.Columns;
-
-                    if( _columns?.Contains( field.ToString( ) ) == true )
-                    {
-                        var _enumerable = dataRow
-                            ?.Where( p => p.Field<string>( field.ToString( ) ).Equals( filter ) )
-                            ?.Select( p => p );
-
-                        return _enumerable?.Any( ) == true
-                            ? _enumerable.ToArray( )
-                            : default;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-
                     return default;
                 }
             }
@@ -362,13 +309,11 @@ namespace BudgetExecution
                 var _worksheet = _workbook.Worksheets[ 0 ];
                 var _range = _worksheet.Cells;
                 _range?.LoadFromCollection( type, true, style );
-
                 return _excel;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -388,7 +333,6 @@ namespace BudgetExecution
                && end > 0 )
             {
                 var _index = 0;
-
                 foreach( var item in type )
                 {
                     if( _index >= end )

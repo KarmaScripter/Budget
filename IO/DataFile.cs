@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="PathBase" />
-    public class DataFile : FileBase, IFile
+    public class DataFile : FileBase, IDataFile
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataFile"/> class.
@@ -33,16 +33,6 @@ namespace BudgetExecution
         public DataFile( string input )
             : base( input )
         {
-            Buffer = input;
-            FileInfo = new FileInfo( input );
-            FullPath = FileInfo.FullName;
-            HasParent = CheckParent( );
-            Length = FileInfo.Length;
-            Attributes = FileInfo.Attributes;
-            FileSecurity = FileInfo.GetAccessControl( );
-            Created = FileInfo.CreationTime;
-            Modified = FileInfo.LastWriteTime;
-            Extension = FileInfo.Extension;
         }
 
         /// <summary>
@@ -164,7 +154,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return CheckParent( )
+                    return HasParent
                         ? GetParent( Buffer )?.FullName
                         : string.Empty;
                 }
@@ -176,27 +166,6 @@ namespace BudgetExecution
             }
 
             return string.Empty;
-        }
-
-        /// <summary>Returns a string that
-        /// represents the current object.
-        /// </summary>
-        /// <returns>A string that represents
-        /// the current object.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( Name )
-                    ? Name
-                    : string.Empty;
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
         }
 
         /// <summary>
@@ -236,6 +205,50 @@ namespace BudgetExecution
                 return _dialog.FileName;
             }
             catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        /// <returns></returns>
+        public static string Save( )
+        {
+            try
+            {
+                var _dialog = new SaveFileDialog( );
+                _dialog.CreatePrompt = true;
+                _dialog.OverwritePrompt = true;
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                _dialog.ShowDialog( );
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>Returns a string that
+        /// represents the current object.
+        /// </summary>
+        /// <returns>A string that represents
+        /// the current object.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( Name )
+                    ? Name
+                    : string.Empty;
+            }
+            catch( IOException ex )
             {
                 Fail( ex );
                 return string.Empty;

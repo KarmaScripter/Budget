@@ -24,13 +24,13 @@ namespace BudgetExecution
         /// Gets the Data.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<FileInfo> GetSubFiles( );
+        IDictionary<string, FileInfo> GetSubFileData( );
 
         /// <summary>
         /// Moves the specified fullName.
         /// </summary>
-        /// <param name="fullName">The fullName.</param>
-        void Move( string fullName );
+        /// <param name="path">The fullName.</param>
+        void Move( string path );
 
         /// <summary>
         /// Sets the access control.
@@ -39,10 +39,10 @@ namespace BudgetExecution
         void SetAccessControl( DirectorySecurity security );
 
         /// <summary>
-        /// Zips the specified destinationPath.
+        /// Zips the specified destination.
         /// </summary>
-        /// <param name="destinationPath">The destinationPath.</param>
-        void Zip( string destinationPath );
+        /// <param name="destination">The destination.</param>
+        void Zip( string destination );
 
         /// <summary>
         /// Uns the zip.
@@ -55,23 +55,11 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         IEnumerable<string> GetSpecialFolders( );
-
-        /// <summary>
-        /// Gets the files.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<string> GetFileNames( );
-
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<FileInfo> GetStreamData( );
-
+        
         /// <summary>
         /// Gets the sub folders.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<DirectoryInfo> GetSubFolders( );
+        IDictionary<string, DirectoryInfo> GetSubDirectoryData( );
     }
 }
