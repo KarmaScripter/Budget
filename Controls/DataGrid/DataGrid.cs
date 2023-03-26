@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.CodeDom;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -90,9 +91,9 @@ namespace BudgetExecution
 
             // Column SeriesConfiguration
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            ColumnHeadersHeight = 30;
+            ColumnHeadersHeight = 24;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
@@ -101,7 +102,7 @@ namespace BudgetExecution
 
             // Row SeriesConfiguration
             RowHeadersWidth = 20;
-            RowTemplate.Height = 28;
+            RowTemplate.Height = 24;
             RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             RowHeadersDefaultCellStyle.BackColor = Color.FromArgb( 50, 50, 50 );
             RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -125,6 +126,7 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             ColumnHeaderMouseClick += OnRightClick;
+            CellMouseClick += OnCellEnter;
         }
 
         /// <summary>
@@ -220,6 +222,38 @@ namespace BudgetExecution
             return default( DataRow );
         }
 
+        public void OnCellEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                if( CurrentCell.ValueType == typeof( string ) )
+                {
+                    var _cellValue = CurrentCell?.Value?.ToString( );
+                    if( _cellValue?.Length >= 6
+                       && _cellValue.Length <= 9 )
+                    {
+                        var _code = _cellValue.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                }
+                else if( CurrentCell.ValueType == typeof( double ) )
+                {
+                    var _dialog = new CalculationForm( );
+                    _dialog.ShowDialog( );
+                }
+                else if( CurrentCell.ValueType == typeof( decimal ) )
+                {
+                    var _dialog = new CalculationForm( );
+                    _dialog.ShowDialog( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [right click].
         /// </summary>

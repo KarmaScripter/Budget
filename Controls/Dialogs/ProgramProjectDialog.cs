@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
     using System.Data;
+    using System.Linq;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
@@ -102,9 +103,9 @@ namespace BudgetExecution
             // Basic Properties
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 982, 614 );
+            Size = new Size( 1309, 614 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
@@ -116,10 +117,10 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            FormFilter = new Dictionary<string, object>( );
 
             // Bind DataSource
             Source = Source.ProgramProjectDescriptions;
@@ -132,6 +133,7 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClicked;
             ProgramListBox.SelectedValueChanged += OnListBoxItemSelected;
             BindingSource.CurrentChanged += UpdateHeaderTitle;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -154,12 +156,14 @@ namespace BudgetExecution
         {
             try
             {
+                FormFilter = new Dictionary<string, object>( );
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 Current = BindingSource.GetCurrentDataRow( );
                 ProgramListBox.ShowScrollBar = true;
-                Text = Current[ "ProgramTitle" ].ToString( );
+                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Header.Text = Current[ "ProgramTitle" ].ToString( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
                     FormFilter.Add( "Code", SelectedProgram );
@@ -167,7 +171,7 @@ namespace BudgetExecution
                 }
 
                 PopulateListBoxItems( );
-                CreateBindings( );
+                BindData( );
             }
             catch( Exception ex )
             {
@@ -182,13 +186,14 @@ namespace BudgetExecution
         {
             try
             {
+                ProgramListBox.Items.Clear( );
                 var _data = DataModel.DataElements;
-                var _codes = _data[ "Name" ];
-                foreach( var code in _codes )
+                var _names = _data[ "Name" ];
+                foreach( var _name in _names )
                 {
-                    if( !string.IsNullOrEmpty( code ) )
+                    if( !string.IsNullOrEmpty( _name ) )
                     {
-                        ProgramListBox.Items.Add( code );
+                        ProgramListBox.Items.Add( _name );
                     }
                 }
             }
@@ -206,9 +211,9 @@ namespace BudgetExecution
             try
             {
                 var _data = BindingSource.GetCurrentDataRow( );
-                Text = _data[ "ProgramTitle" ].ToString( );
-                ProgramAreaLabel.Text = "Program Area - " + _data[ "ProgramAreaCode" ];
-                ProgramProjectLabel.Text = "Program Project - " + _data[ "Code" ];
+                Header.Text = _data[ "ProgramTitle" ].ToString( );
+                ProgramAreaTable.CaptionText = "Program Area - " + _data[ "ProgramAreaCode" ];
+                ProgramProjectTable.CaptionText = "Program Project - " + _data[ "Code" ];
             }
             catch( Exception ex )
             {
@@ -219,7 +224,7 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the bindings.
         /// </summary>
-        private void CreateBindings( )
+        private void BindData( )
         {
             if( BindingSource != null )
             {
@@ -309,6 +314,26 @@ namespace BudgetExecution
                         var _current = BindingSource.Find( "Name", SelectedProgram );
                         BindingSource.Position = _current;
                     }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {
