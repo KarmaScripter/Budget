@@ -49,15 +49,7 @@ namespace BudgetExecution
         /// The changed date.
         /// </value>
         DateTime Modified { get; set; }
-
-        /// <summary>
-        /// Gets the information.
-        /// </summary>
-        /// <value>
-        /// The information.
-        /// </value>
-        FileInfo FileInfo { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the extension.
         /// </summary>

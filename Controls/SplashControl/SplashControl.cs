@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SplashControl : SplashPanel
+    public class SplashWindow : SplashPanel
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -61,7 +61,7 @@ namespace BudgetExecution
         public virtual string HoverText { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashControl" /> class.
+        /// Initializes a new instance of the <see cref="SplashWindow" /> class.
         /// </summary>
         /// <remarks>
         /// The default value for the
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// The splash panel has animation turned and by default will appear in the
         /// middle of the screen.
         /// </remarks>
-        public SplashControl( )
+        public SplashWindow( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.White;
@@ -97,31 +97,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashControl"/> class.
+        /// Initializes a new instance of the <see cref="SplashWindow"/> class.
         /// </summary>
         /// <param name="message">The message.</param>
-        public SplashControl( string message )
+        public SplashWindow( string message )
             : this( )
         {
             Text = message;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashControl"/> class.
+        /// Initializes a new instance of the <see cref="SplashWindow"/> class.
         /// </summary>
         /// <param name="toolTip">The tool tip.</param>
-        public SplashControl( SmallTip toolTip )
+        public SplashWindow( SmallTip toolTip )
             : this( )
         {
             Text = toolTip?.TipText;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashControl"/> class.
+        /// Initializes a new instance of the <see cref="SplashWindow"/> class.
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="message">The message.</param>
-        public SplashControl( Control control, string message )
+        public SplashWindow( Control control, string message )
             : this( )
         {
             Parent = control;
@@ -223,7 +223,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _stream = File.Open( path, FileMode.Open );
+                    var _stream = File.Open( path, FileMode.Open );
                     FormIcon = new Icon( _stream );
                 }
                 catch( Exception ex )

@@ -16,9 +16,9 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the sub directory.
         /// </summary>
-        /// <param name="folderName">The folderName.</param>
+        /// <param name="dirName">The folderName.</param>
         /// <returns></returns>
-        DirectoryInfo CreateSubDirectory( string folderName );
+        DirectoryInfo CreateSubDirectory( string dirName );
 
         /// <summary>
         /// Gets the Data.
@@ -29,8 +29,8 @@ namespace BudgetExecution
         /// <summary>
         /// Moves the specified fullName.
         /// </summary>
-        /// <param name="path">The fullName.</param>
-        void Move( string path );
+        /// <param name="destination">The fullName.</param>
+        void Move( string destination );
 
         /// <summary>
         /// Sets the access control.

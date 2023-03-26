@@ -62,7 +62,7 @@ namespace BudgetExecution
         public DataGrid( )
         {
             EnableHeadersVisualStyles = false;
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 8 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -83,7 +83,7 @@ namespace BudgetExecution
 
             // Default Cell Style
             DefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            DefaultCellStyle.ForeColor = Color.LightSteelBlue;
+            DefaultCellStyle.ForeColor = Color.LightGray;
             DefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
             DefaultCellStyle.SelectionForeColor = Color.White;
             DefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -92,7 +92,7 @@ namespace BudgetExecution
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             ColumnHeadersHeight = 30;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
+            ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
@@ -111,12 +111,12 @@ namespace BudgetExecution
             CellBorderStyle = DataGridViewCellBorderStyle.None;
             RowsDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             RowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
-            RowsDefaultCellStyle.ForeColor = Color.LightSteelBlue;
+            RowsDefaultCellStyle.ForeColor = Color.LightGray;
             RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
             RowsDefaultCellStyle.SelectionForeColor = Color.White;
             RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb( 50, 50, 50 );
-            AlternatingRowsDefaultCellStyle.ForeColor = Color.LightSteelBlue;
+            AlternatingRowsDefaultCellStyle.ForeColor = Color.LightGray;
             AlternatingRowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
             AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -163,7 +163,7 @@ namespace BudgetExecution
         {
             Parent = parent;
         }
-        
+
         /// <summary>
         /// Gets the filter values.
         /// </summary>
@@ -179,7 +179,7 @@ namespace BudgetExecution
                         var _vals = string.Empty;
                         foreach( var _kvp in dict )
                         {
-                            _vals += $"{ _kvp.Key } = '{ _kvp.Value }' AND ";
+                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
                         }
 
                         return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
@@ -205,7 +205,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _dataRow = BindingSource.GetCurrentDataRow(  );
+                    var _dataRow = BindingSource.GetCurrentDataRow( );
                     return _dataRow?.ItemArray?.Length > 0
                         ? _dataRow
                         : default( DataRow );
@@ -216,7 +216,7 @@ namespace BudgetExecution
                     return default( DataRow );
                 }
             }
-            
+
             return default( DataRow );
         }
 
@@ -246,51 +246,6 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Sets the column configuration.
-        /// </summary>
-        public void SetColumnConfiguration( )
-        {
-            try
-            {
-                ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle( );
-                ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the row configuration.
-        /// </summary>
-        public void SetRowConfiguration( )
-        {
-            try
-            {
-                RowHeadersDefaultCellStyle = new DataGridViewCellStyle( );
-                RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
-                RowHeadersDefaultCellStyle.ForeColor = Color.Black;
-                RowHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Bold );
-                RowHeadersDefaultCellStyle.BackColor = Color.FromArgb( 141, 139, 138 );
-                RowsDefaultCellStyle = new DataGridViewCellStyle( );
-                RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter;
-                RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-                RowsDefaultCellStyle.SelectionBackColor = SystemColors.ControlLight;
-                RowsDefaultCellStyle.ForeColor = Color.Black;
-                RowsDefaultCellStyle.Font = new Font( "Roboto", 9 );
-                RowsDefaultCellStyle.BackColor = Color.LightSteelBlue;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 

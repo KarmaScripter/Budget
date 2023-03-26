@@ -28,26 +28,26 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Folder"/> class.
         /// </summary>
-        /// <param name="file">The file.</param>
-        public Folder( string file )
-            : base( file )
+        /// <param name="dirPath">The file.</param>
+        public Folder( string dirPath )
+            : base( dirPath )
         {
         }
 
         /// <summary>
         /// Creates the sub folder.
         /// </summary>
-        /// <param name="folderName">The folderName.</param>
+        /// <param name="dirName">The folderName.</param>
         /// <returns></returns>
-        public DirectoryInfo CreateSubDirectory( string folderName )
+        public DirectoryInfo CreateSubDirectory( string dirName )
         {
-            if( !string.IsNullOrEmpty( folderName )
-               && !Directory.Exists( folderName ) )
+            if( !string.IsNullOrEmpty( dirName )
+               && !Directory.Exists( dirName ) )
             {
                 try
                 {
                     return new DirectoryInfo( FullPath )
-                        ?.CreateSubdirectory( folderName );
+                        ?.CreateSubdirectory( dirName );
                 }
                 catch( Exception ex )
                 {
@@ -62,15 +62,15 @@ namespace BudgetExecution
         /// <summary>
         /// Moves the specified folderpath.
         /// </summary>
-        /// <param name="path">The folderpath.</param>
-        public void Move( string path )
+        /// <param name="destination">The folderpath.</param>
+        public void Move( string destination )
         {
-            if( !string.IsNullOrEmpty( path ) )
+            if( !string.IsNullOrEmpty( destination ) )
             {
                 try
                 {
                     var _directory = new DirectoryInfo( FullPath );
-                    _directory.MoveTo( path );
+                    _directory.MoveTo( destination );
                 }
                 catch( Exception ex )
                 {

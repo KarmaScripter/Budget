@@ -43,7 +43,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FileInfo?.MoveTo( filePath );
+                    var _source = new FileInfo( FullPath );
+                    _source.MoveTo( filePath );
                 }
                 catch( IOException ex )
                 {
@@ -63,7 +64,8 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( filePath )
                    && File.Exists( filePath ) )
                 {
-                    FileInfo.CopyTo( filePath );
+                    var _source = new FileInfo( FullPath );
+                    _source.CopyTo( filePath );
                 }
             }
             catch( IOException ex )

@@ -55,14 +55,6 @@ namespace BudgetExecution
         public virtual DateTime Modified { get; set; }
 
         /// <summary>
-        /// Gets the information.
-        /// </summary>
-        /// <value>
-        /// The information.
-        /// </value>
-        public virtual FileInfo FileInfo { get; set; }
-
-        /// <summary>
         /// Gets or sets the extension.
         /// </summary>
         /// <value>
@@ -166,7 +158,6 @@ namespace BudgetExecution
         {
             Buffer = input;
             AbsolutePath = Path.GetFullPath( input );
-            FileInfo = new FileInfo( AbsolutePath );
             Name = new FileInfo( AbsolutePath ).Name;
             FullPath = new FileInfo( AbsolutePath ).FullName;
             Extension = new FileInfo( AbsolutePath ).Extension;

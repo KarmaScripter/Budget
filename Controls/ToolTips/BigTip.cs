@@ -67,18 +67,18 @@ namespace BudgetExecution
             TipInfo = new ToolTipInfo( );
             TipInfo.BackColor = Color.FromArgb( 40, 40, 40 );
             TipInfo.BorderColor = Color.FromArgb( 0, 120, 212 );
-            TipInfo.ForeColor = Color.LightSteelBlue;
+            TipInfo.ForeColor = Color.LightGray;
             TipInfo.Separator = true;
 
             // Header Properties
-            TipInfo.Header.Font = new Font( "Roboto", 14 );
+            TipInfo.Header.Font = new Font( "Roboto", 11 );
             TipInfo.Header.ForeColor = Color.FromArgb( 0, 120, 212 );
             TipInfo.Header.TextAlign = ContentAlignment.MiddleCenter;
             TipInfo.Header.ImageAlign = ContentAlignment.TopLeft;
             TipInfo.Header.ImageScalingSize = new Size( 10, 14 );
 
             // Body Properties
-            TipInfo.Body.Font = new Font( "Roboto", 10 );
+            TipInfo.Body.Font = new Font( "Roboto", 9 );
             TipInfo.Body.ForeColor = Color.LightGray;
             TipInfo.Body.TextAlign = ContentAlignment.MiddleCenter;
 
