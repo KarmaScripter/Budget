@@ -21,6 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class DataGrid : DataGridView, IDataGrid
     {
         /// <summary>
@@ -239,13 +240,17 @@ namespace BudgetExecution
                 }
                 else if( CurrentCell.ValueType == typeof( double ) )
                 {
-                    var _dialog = new CalculationForm( );
-                    _dialog.ShowDialog( );
+                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalculationForm( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calculator.Value.ToDouble( );
                 }
                 else if( CurrentCell.ValueType == typeof( decimal ) )
                 {
-                    var _dialog = new CalculationForm( );
-                    _dialog.ShowDialog( );
+                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalculationForm( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
                 }
             }
             catch( Exception ex )

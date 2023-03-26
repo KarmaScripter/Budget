@@ -17,8 +17,17 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class CalculationForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the initial value.
+        /// </summary>
+        /// <value>
+        /// The initial value.
+        /// </value>
+        public double InitialValue { get; set; }
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CalculationForm"/> class.
@@ -52,7 +61,6 @@ namespace BudgetExecution
             Calculator.UseVerticalAndHorizontalSpacing = true;
             Calculator.ShowDisplayArea = false;
             Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
-            Calculator.ValueCalculated += OnCalculationValueChanged;
 
             // Label Configuration
             ValueLabel.Font = new Font( "Roboto", 14 );
@@ -66,6 +74,18 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalculationForm"/> class.
+        /// </summary>
+        /// <param name="initial">The initial.</param>
+        public CalculationForm( double initial ) 
+            : this( )
+        {
+            InitialValue = initial;
+            Calculator.Value = new CalculatorValue( InitialValue );
+            ValueLabel.Text = Calculator.Value.ToString( );
+        }
+        
         /// <summary>
         /// Called when [calculation value changed].
         /// </summary>
@@ -95,9 +115,17 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
-            Calculator.BorderStyle = Border3DStyle.Adjust;
-            Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
-            CloseButton.HoverText = "Exit Calculator";
+            try
+            {
+                Calculator.ValueCalculated += OnCalculationValueChanged;
+                Calculator.BorderStyle = Border3DStyle.Adjust;
+                Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
+                CloseButton.HoverText = "Exit Calculator";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
