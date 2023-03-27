@@ -41,6 +41,24 @@ namespace BudgetExecution
         public override string EFY { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public string AppropriationCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SubAppropriationCode { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
+        public string AppropriationName { get; set; }
+        
+        /// <summary>
         /// Gets or sets the treasury symbol.
         /// </summary>
         /// <value>
@@ -49,85 +67,36 @@ namespace BudgetExecution
         public string TreasurySymbol { get; set; }
 
         /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public override string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public override string FundName { get; set; }
-
-        /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
         /// <value>
         /// The budget level.
         /// </value>
         public override string BudgetLevel { get; set; }
-
+        
         /// <summary>
-        /// Gets or sets the rpio code.
+        /// Gets or sets the type of the document.
         /// </summary>
         /// <value>
-        /// The rpio code.
+        /// The type of the document.
         /// </value>
-        public override string RpioCode { get; set; }
+        public string DocumentType { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the rpio.
+        /// Gets or sets the document number.
         /// </summary>
         /// <value>
-        /// The name of the rpio.
+        /// The document number.
         /// </value>
-        public override string RpioName { get; set; }
+        public string DocumentNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets the account code.
+        /// Gets or sets the document date.
         /// </summary>
         /// <value>
-        /// The account code.
+        /// The document date.
         /// </value>
-        public override string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public override string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public override string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public override string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public override string ProgramAreaName { get; set; }
-
+        public DateOnly DocumentDate { get; set; }
         /// <summary>
         /// Gets or sets the total authority.
         /// </summary>
@@ -135,22 +104,6 @@ namespace BudgetExecution
         /// The total authority.
         /// </value>
         public double Authority { get; set; }
-
-        /// <summary>
-        /// Gets or sets the total budgetd.
-        /// </summary>
-        /// <value>
-        /// The total budgeted.
-        /// </value>
-        public double Budgeted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the posted amount.
-        /// </summary>
-        /// <value>
-        /// The posted amount.
-        /// </value>
-        public double Posted { get; set; }
 
         /// <summary>
         /// Gets or sets the carry in.
@@ -183,46 +136,6 @@ namespace BudgetExecution
         /// The actual reimbursements.
         /// </value>
         public double Reimbursements { get; set; }
-
-        /// <summary>
-        /// Gets or sets the open commitments.
-        /// </summary>
-        /// <value>
-        /// The open commitments.
-        /// </value>
-        public double OpenCommitments { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public double Obligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
-        public double UnliquidatedObligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expenditures.
-        /// </summary>
-        /// <value>
-        /// The expenditures.
-        /// </value>
-        public double Expenditures { get; set; }
-
-        /// <summary>
-        /// Gets or sets the available.
-        /// </summary>
-        /// <value>
-        /// The available.
-        /// </value>
-        public double Available { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -300,24 +213,17 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
+            DocumentType = Record[ "DocumentType" ].ToString( );
             Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -337,24 +243,17 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
+            DocumentType = Record[ "DocumentType" ].ToString( );
             Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -371,31 +270,24 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "CompassLevel" ].ToString( ) ?? "0" );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
-            RpioCode = dataRow[ "RpioCode" ].ToString( );
-            RpioName = dataRow[ "RpioName" ].ToString( );
-            AccountCode = dataRow[ "AccountCode" ].ToString( );
-            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
+            DocumentType = Record[ "DocumentType" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
     }
 }

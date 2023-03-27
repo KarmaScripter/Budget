@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string  BFY { get; set; }
+        public string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string  EFY { get; set; }
+        public string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fund.
@@ -46,7 +46,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund.
         /// </value>
-        public string  Fund { get; set; }
+        public string Fund { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -54,7 +54,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string  FundCode { get; set; }
+        public string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the document.
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public string  DocumentType { get; set; }
+        public string DocumentType { get; set; }
 
         /// <summary>
         /// Gets or sets the document number.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public string  DocumentNumber { get; set; }
+        public string DocumentNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the document date.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget level.
         /// </value>
-        public string  BudgetLevel { get; set; }
+        public string BudgetLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the budgeting controls.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The budgeting controls.
         /// </value>
-        public string  BudgetingControls { get; set; }
+        public string BudgetingControls { get; set; }
 
         /// <summary>
         /// Gets or sets the posting controls.
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <value>
         /// The posting controls.
         /// </value>
-        public string  PostingControls { get; set; }
+        public string PostingControls { get; set; }
 
         /// <summary>
         /// Gets or sets the pre commitment controls.
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The pre commitment controls.
         /// </value>
-        public string  PreCommitmentControls { get; set; }
+        public string PreCommitmentControls { get; set; }
 
         /// <summary>
         /// Gets or sets the commitment controls.
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <value>
         /// The commitment controls.
         /// </value>
-        public string  CommitmentControls { get; set; }
+        public string CommitmentControls { get; set; }
 
         /// <summary>
         /// Gets or sets the obligation controls.
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligation controls.
         /// </value>
-        public string  ObligationControls { get; set; }
+        public string ObligationControls { get; set; }
 
         /// <summary>
         /// Gets or sets the accrual controls.
@@ -142,7 +142,7 @@ namespace BudgetExecution
         /// <value>
         /// The accrual controls.
         /// </value>
-        public string  AccrualControls { get; set; }
+        public string AccrualControls { get; set; }
 
         /// <summary>
         /// Gets or sets the expenditure controls.
@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// <value>
         /// The expenditure controls.
         /// </value>
-        public string  ExpenditureControls { get; set; }
+        public string ExpenditureControls { get; set; }
 
         /// <summary>
         /// Gets or sets the expense controls.
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// <value>
         /// The expense controls.
         /// </value>
-        public string  ExpenseControls { get; set; }
+        public string ExpenseControls { get; set; }
 
         /// <summary>
         /// Gets or sets the reimbursement controls.
@@ -166,7 +166,7 @@ namespace BudgetExecution
         /// <value>
         /// The reimbursement controls.
         /// </value>
-        public string  ReimbursementControls { get; set; }
+        public string ReimbursementControls { get; set; }
 
         /// <summary>
         /// Gets or sets the reimbursable agreement controls.
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <value>
         /// The reimbursable agreement controls.
         /// </value>
-        public string  ReimbursableAgreementControls { get; set; }
+        public string ReimbursableAgreementControls { get; set; }
 
         /// <summary>
         /// Gets or sets the budgeted.
@@ -326,9 +326,9 @@ namespace BudgetExecution
             ExpenseControls = Record[ "ExpenseControls" ].ToString( );
             ExpenditureControls = Record[ "ExpenditureControls" ].ToString(  );
             ReimbursementControls = Record[ "ReimbursementControls" ].ToString(  );
-            ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString(  );
+            ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString( );
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" ) ;
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
             Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
