@@ -229,10 +229,10 @@ namespace BudgetExecution
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
             Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
@@ -281,7 +281,6 @@ namespace BudgetExecution
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             DocumentType = dataRow[ "DocumentType" ].ToString( );
-            DocumentNumber = dataRow[ "DocumentNumber" ].ToString( );
             DocumentDate = DateOnly.Parse( dataRow[ "DocumentDate" ].ToString( ) ?? "" );
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );

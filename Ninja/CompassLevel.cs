@@ -83,14 +83,6 @@ namespace BudgetExecution
         public string DocumentType { get; set; }
 
         /// <summary>
-        /// Gets or sets the document number.
-        /// </summary>
-        /// <value>
-        /// The document number.
-        /// </value>
-        public string DocumentNumber { get; set; }
-
-        /// <summary>
         /// Gets or sets the document date.
         /// </summary>
         /// <value>
@@ -210,11 +202,11 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCCode" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
@@ -240,11 +232,11 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCCode" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
@@ -270,11 +262,11 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "CompassLevel" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCCode" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
