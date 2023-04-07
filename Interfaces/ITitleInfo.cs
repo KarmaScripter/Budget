@@ -12,14 +12,6 @@ namespace BudgetExecution
     /// </summary>
     public interface ITitleInfo
     {
-        /// <summary> Sets the main title. </summary>
-        /// <returns> </returns>
-        string GetMainText( );
-
-        /// <summary> Sets the axis title. </summary>
-        /// <returns> </returns>
-        string GetAxisText( );
-
         /// <summary> Gets the main title. </summary>
         /// <returns> </returns>
         ChartTitle GetChartMainTitle( );

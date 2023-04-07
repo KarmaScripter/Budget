@@ -30,7 +30,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
-    <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
     <Optimize>True</Optimize>
     <Deterministic>False</Deterministic>
   </PropertyGroup>
@@ -155,8 +155,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Controls\Forms\SuperfundGuidance.cs" />
-    <Compile Update="Controls\Forms\BudgetGuidance.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
@@ -168,10 +166,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="Controls\Calendar\CalendarForm.cs" />
     <Compile Remove="bin\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
-    <Compile Update="Controls\Dialogs\GuidanceDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -202,8 +198,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Controls\TabControl\TabControl.cs~RFa766426.TMP" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\TabControl\" />
   </ItemGroup>
 </Project>

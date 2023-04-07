@@ -23,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The main.
         /// </value>
-        public string Main { get; }
+        public string Main { get; set; }
 
         /// <summary>
         /// Gets the axis.
@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The axis.
         /// </value>
-        public string Axis { get; }
+        public string Axis { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TitleInfo"/> class.
@@ -76,50 +76,6 @@ namespace BudgetExecution
         {
             Main = title[ 0 ] ?? string.Empty;
             Axis = title[ 1 ] ?? string.Empty;
-        }
-
-        /// <summary>
-        /// Sets the main title.
-        /// </summary>
-        /// <returns></returns>
-        public string GetMainText( )
-        {
-            if( !string.IsNullOrEmpty( Main ) )
-            {
-                try
-                {
-                    return Main;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary>
-        /// Sets the axis title.
-        /// </summary>
-        /// <returns></returns>
-        public string GetAxisText( )
-        {
-            if( !string.IsNullOrEmpty( Axis ) )
-            {
-                try
-                {
-                    return Axis;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
         }
 
         /// <summary>

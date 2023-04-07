@@ -257,7 +257,7 @@ namespace BudgetExecution
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
         public Chart( BindingSource bindingSource, string category, IList<string> values, 
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
             STAT = stat;
@@ -278,7 +278,7 @@ namespace BudgetExecution
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
         public Chart( DataTable dataTable, 
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
             STAT = stat;
@@ -299,14 +299,14 @@ namespace BudgetExecution
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
         public Chart( DataTable dataTable, string category, IList<string> values, 
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
             STAT = stat;
             SeriesType = type;
             DataTable = dataTable;
             Data = dataTable.AsEnumerable( );
-            BindingSource.DataSource =  dataTable;
+            BindingSource.DataSource = dataTable;
             BindingModel = new ChartDataBindModel( dataTable );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
             xAxis = category;
@@ -322,7 +322,7 @@ namespace BudgetExecution
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
         public Chart( IEnumerable<DataRow> dataRows, string category, IList<string> values,   
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM  )
+            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
             STAT = stat;
