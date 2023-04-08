@@ -268,9 +268,6 @@
     <Compile Update="Controls\HeaderPanel\HeaderPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\LoadingDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

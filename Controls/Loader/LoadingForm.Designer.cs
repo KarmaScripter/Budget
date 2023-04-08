@@ -42,7 +42,8 @@
             // 
             PictureBox.BackColor =  System.Drawing.Color.Transparent ;
             PictureBox.Image =  Properties.Resources.Loading ;
-            PictureBox.Location =  new System.Drawing.Point( 265, 68 ) ;
+            PictureBox.Location =  new System.Drawing.Point( 309, 68 ) ;
+            PictureBox.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
             PictureBox.Size =  new System.Drawing.Size( 800, 600 ) ;
             PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.AutoSize ;
@@ -73,7 +74,8 @@
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 1186, 691 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 1384, 691 ) ;
+            CloseButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Black ;
             CloseButton.NormalColor =  System.Drawing.Color.Black ;
@@ -82,7 +84,7 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 163, 40 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  1 ;
@@ -93,7 +95,7 @@
             // 
             // LoadingForm
             // 
-            AutoScaleDimensions =  new System.Drawing.SizeF( 6F, 14F ) ;
+            AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
             BackColor =  System.Drawing.Color.Black ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
@@ -103,18 +105,21 @@
             CaptionButtonHoverColor =  System.Drawing.Color.Black ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.Black ;
-            ClientSize =  new System.Drawing.Size( 1345, 745 ) ;
+            ClientSize =  new System.Drawing.Size( 1569, 745 ) ;
             Controls.Add( CloseButton );
             Controls.Add( PictureBox );
-            Font =  new System.Drawing.Font( "Roboto Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.Black ;
             FormBorderStyle =  System.Windows.Forms.FormBorderStyle.None ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
-            MaximumSize =  new System.Drawing.Size( 1345, 745 ) ;
+            Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
+            MaximizeBox =  false ;
+            MaximumSize =  new System.Drawing.Size( 1569, 745 ) ;
             MetroColor =  System.Drawing.Color.Black ;
-            MinimumSize =  new System.Drawing.Size( 1345, 745 ) ;
+            MinimumSize =  new System.Drawing.Size( 1569, 745 ) ;
             Name =  "LoadingForm" ;
             ShowIcon =  false ;
+            SizeGripStyle =  System.Windows.Forms.SizeGripStyle.Hide ;
             StartPosition =  System.Windows.Forms.FormStartPosition.CenterParent ;
             Text =  "LoadingForm" ;
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
