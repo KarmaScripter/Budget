@@ -31,8 +31,8 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var spreadsheetCopyPaste2 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
-            var formulaRangeSelectionController2 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
+            var spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
+            var formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelForm ) );
             Ribbon =  new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon( ) ;
             Spreadsheet =  new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet( ) ;
@@ -125,9 +125,9 @@
             Spreadsheet.AllowTabItemContextMenu =  true ;
             Spreadsheet.AllowZooming =  true ;
             Spreadsheet.BaseThemeName =  "" ;
-            spreadsheetCopyPaste2.AllowPasteOptionPopup =  true ;
-            spreadsheetCopyPaste2.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
-            Spreadsheet.CopyPaste =  spreadsheetCopyPaste2 ;
+            spreadsheetCopyPaste1.AllowPasteOptionPopup =  true ;
+            spreadsheetCopyPaste1.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
+            Spreadsheet.CopyPaste =  spreadsheetCopyPaste1 ;
             Spreadsheet.DefaultColumnCount =  101 ;
             Spreadsheet.DefaultRowCount =  101 ;
             Spreadsheet.DisplayAlerts =  true ;
@@ -136,9 +136,9 @@
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
-            formulaRangeSelectionController2.AllowMouseSelection =  true ;
-            formulaRangeSelectionController2.AllowSelectionOnEditing =  true ;
-            Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController2 ;
+            formulaRangeSelectionController1.AllowMouseSelection =  true ;
+            formulaRangeSelectionController1.AllowSelectionOnEditing =  true ;
+            Spreadsheet.FormulaRangeSelectionController =  formulaRangeSelectionController1 ;
             Spreadsheet.IsCustomTabItemContextMenuEnabled =  false ;
             Spreadsheet.Location =  new System.Drawing.Point( 0, 184 ) ;
             Spreadsheet.Name =  "Spreadsheet" ;
@@ -299,7 +299,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 204, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 202, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -383,7 +383,7 @@
             UploadButton.Field =  Field.AccountCode ;
             UploadButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             UploadButton.ForeColor =  System.Drawing.Color.LightGray ;
-            UploadButton.HoverText =  "Excel Upload" ;
+            UploadButton.HoverText =  "Upload Local File" ;
             UploadButton.Image =  Properties.Resources.UploadButton ;
             UploadButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
             UploadButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;

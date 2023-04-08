@@ -143,7 +143,7 @@ namespace BudgetExecution
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
+            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.ImageSize = new Size( 16, 16 );
             ToolStrip.ImageScalingSize = new Size( 16, 16 );
@@ -170,6 +170,7 @@ namespace BudgetExecution
             RemoveFiltersButton.Click += null;
             TableButton.Click += null;
             LookupButton.Click += null;
+            UploadButton.Click += null;
             MenuButton.Click += null;
             RemoveFiltersButton.Click += null;
         }
@@ -246,6 +247,7 @@ namespace BudgetExecution
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 LookupButton.Click += OnLookupButtonClicked;
                 MenuButton.Click += OnMenuButtonClicked;
+                UploadButton.Click += OnUploadButtonClicked;
                 Spreadsheet.MouseClick += OnRightClick;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
@@ -459,6 +461,27 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [upload button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnUploadButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.UploadButton )
+                {
+                    var _dialog = new LoadingDialog( Status.Waiting );
+                    _dialog.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

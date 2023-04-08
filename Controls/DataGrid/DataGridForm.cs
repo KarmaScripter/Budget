@@ -239,7 +239,7 @@ namespace BudgetExecution
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
+            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.ImageSize = new Size( 16, 16 );
             ToolStrip.ImageScalingSize = new Size( 16, 16 );

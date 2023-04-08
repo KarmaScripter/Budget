@@ -238,6 +238,7 @@ namespace BudgetExecution
                         case ToolType.AddColumnButton:
                         case ToolType.ExcelExportButton:
                         case ToolType.ChartButton:
+                        case ToolType.UploadButton:
                         {
                             break;
                         }
@@ -321,7 +322,6 @@ namespace BudgetExecution
                         case ToolType.TransferInButton:
                         case ToolType.TransferOutButton:
                         case ToolType.TrashButton:
-                        case ToolType.UploadButton:
                         case ToolType.UploadDataButton:
                         case ToolType.UndoButton:
                         case ToolType.WordButton:
