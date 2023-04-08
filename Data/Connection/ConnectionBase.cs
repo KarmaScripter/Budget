@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="provider">The provider.</param>
-        protected ConnectionBase( string fullPath, Provider provider )
+        protected ConnectionBase( string fullPath, Provider provider = Provider.Access )
             : this( )
         {
             Source = Source.External;
@@ -176,6 +176,7 @@ namespace BudgetExecution
                 {
                     return provider switch
                     {
+                        Provider.NS => DbClientPath[ "ACCDB" ],
                         Provider.Access => DbClientPath[ "ACCDB" ],
                         Provider.SQLite => DbClientPath[ "DB" ],
                         Provider.SqlCe => DbClientPath[ "SDF" ],
@@ -206,14 +207,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _file = Path.GetExtension( filePath )?.Replace( ".", "" );
+                    var _file = Path.GetExtension( filePath )
+                        ?.Replace( ".", "" )
+                        ?.ToUpper( );
+                    
                     if( !string.IsNullOrEmpty( _file ) )
                     {
-                        var _ext = (EXT)Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
+                        var _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
                         var _names = Enum.GetNames( typeof( EXT ) );
-                        if( _names?.Contains( _ext.ToString( ) ) == true )
+                        if( _extension != EXT.NS 
+                           && _names?.Contains( _extension.ToString( ) ) == true )
                         {
-                            var _clientPath = DbClientPath[ $"{ _ext }" ];
+                            var _clientPath = DbClientPath[ $"{_extension}" ];
                             return !string.IsNullOrEmpty( _clientPath )
                                 ? _clientPath
                                 : string.Empty;

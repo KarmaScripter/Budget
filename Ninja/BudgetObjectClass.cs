@@ -83,6 +83,11 @@ namespace BudgetExecution
         public override string Name { get; set; }
 
         /// <summary>
+        /// The value
+        /// </summary>
+        public override object Value { get; set; }
+
+        /// <summary>
         /// Gets the arguments.
         /// </summary>
         /// <value>
@@ -231,7 +236,7 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public double GetValue( IProgramResultsCode prc )
+        public double GetAmount( IProgramResultsCode prc )
         {
             try
             {
@@ -263,7 +268,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Code" ] = code
+                    };
                 }
                 catch( Exception ex )
                 {
@@ -277,7 +285,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Name" ] = code };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Name" ] = code
+                    };
                 }
                 catch( Exception ex )
                 {
@@ -321,6 +332,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the amount.
+        /// </summary>
+        /// <returns></returns>
+        public double GetAmount( )
+        {
+            try
+            {
+                return Value != null
+                    ? double.Parse( Value?.ToString( ) ?? "0.0" )
+                    : 0.0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+        
+        /// <summary>
         /// Gets the budget object class category.
         /// </summary>
         /// <returns>
@@ -334,7 +364,7 @@ namespace BudgetExecution
                         ? (BOC)Enum.Parse( typeof( BOC ), Name )
                         : BOC.NS;
             }
-            catch( SystemException ex )
+            catch( Exception ex )
             {
                 Fail( ex );
                 return default;

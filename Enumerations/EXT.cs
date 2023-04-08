@@ -10,6 +10,11 @@ namespace BudgetExecution
     public enum EXT
     {
         /// <summary>
+        /// Identifies the default Extension
+        /// </summary>
+        NS = -1,
+        
+        /// <summary>
         /// Defines the DB on SQLite database files.
         /// </summary>
         DB,
@@ -45,7 +50,7 @@ namespace BudgetExecution
         XLSX,
 
         /// <summary>
-        /// Defines the CSV on Comma Seperated Value files.
+        /// Defines the CSV on Comma Separated Value files.
         /// </summary>
         CSV,
 
@@ -75,7 +80,7 @@ namespace BudgetExecution
         SQL,
 
         /// <summary>
-        /// Identififes .resx file extension for resource files
+        /// Identifies .resx file extension for resource files
         /// </summary>
         RESX,
 
@@ -100,7 +105,7 @@ namespace BudgetExecution
         PNG,
 
         /// <summary>
-        /// Identifies the .gif file extension for gifs
+        /// Identifies the .gif file extension for gif images
         /// </summary>
         GIF
     }

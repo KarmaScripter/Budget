@@ -169,6 +169,9 @@ namespace BudgetExecution
             Load += OnLoad;
             RemoveFiltersButton.Click += null;
             TableButton.Click += null;
+            LookupButton.Click += null;
+            MenuButton.Click += null;
+            RemoveFiltersButton.Click += null;
         }
 
         /// <summary>
@@ -240,8 +243,9 @@ namespace BudgetExecution
                 Header.TextAlign = ContentAlignment.TopCenter;
                 Header.MouseClick += OnRightClick;
                 PictureBox.MouseClick += OnRightClick;
-                BackButton.Click += OnBackButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                LookupButton.Click += OnLookupButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 Spreadsheet.MouseClick += OnRightClick;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
@@ -357,37 +361,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [back button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnBackButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.BackButton )
-                {
-                    if( Owner?.Visible == false )
-                    {
-                        Owner.Visible = true;
-                        Close( );
-                    }
-                    else
-                    {
-                        var _main = new MainForm( );
-                        _main.Show( );
-                        Close( );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -419,7 +392,8 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.LookupButton )
                 {
-                    var _dialog = new FilterDialog( BindingSource );
+                    var _dialog = new FilterDialog( );
+                    _dialog.TabControl.SelectedIndex = 0;
                     _dialog.ShowDialog( this );
                 }
             }
@@ -442,7 +416,41 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.RemoveFiltersButton )
                 {
                     var _filter = new FilterDialog( Source, Provider );
+                    _filter.TabControl.SelectedIndex = 1;
                     _filter.ShowDialog( this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.MenuButton )
+                {
+                    if( Parent != null
+                       && Parent.Name == "MainForm"
+                       && Parent.Visible == false )
+                    {
+                        Parent.Visible = true;
+                        Close( );
+                    }
+                    else
+                    {
+                        var _form = new MainForm( );
+                        _form.Show( );
+                        Close( );
+                    }
                 }
             }
             catch( Exception ex )

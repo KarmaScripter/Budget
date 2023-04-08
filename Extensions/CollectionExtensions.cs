@@ -7,12 +7,14 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class CollectionExtensions
     {
         /// <summary>Adds if.</summary>
@@ -30,13 +32,11 @@ namespace BudgetExecution
                 try
                 {
                     collection.Add( value );
-
                     return true;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return false;
                 }
             }
@@ -55,14 +55,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    for( var i = 0; i < values.Length; i++ )
+                    for( var i = 0; i < values.Length; i++ ) 
                     {
-                        var _value = values[ i ];
-
-                        if( _value != null )
-                        {
-                            collection.Add( _value );
-                        }
+                        collection.Add( values[ i ] );
                     }
                 }
                 catch( Exception ex )
@@ -87,7 +82,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return false;
             }
         }
@@ -145,7 +139,6 @@ namespace BudgetExecution
                 try
                 {
                     var _list = collection?.Where( child => predicate( child ) )?.ToList( );
-
                     if( _list?.Any( ) == true )
                     {
                         _list.ForEach( t => collection.Remove( t ) );
@@ -172,9 +165,40 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Converts to bindinglist.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection">The collection.</param>
+        /// <returns></returns>
+        public static BindingList<T> ToBindingList<T>( this ICollection<T> collection )
+        {
+            if( collection?.Count > 0 )
+            {
+                try
+                {
+                    var _list = new BindingList<T>( );
+                    foreach( var item in collection )
+                    {
+                        _list.Add( item );
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( BindingList<T> );
+                }
+            }
+
+            return default( BindingList<T> );
         }
 
         /// <summary>Fails the specified ex.</summary>

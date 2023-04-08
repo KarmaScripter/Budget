@@ -17,6 +17,9 @@ namespace BudgetExecution
     using BudgetExecution;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class DictionaryExtensions
     {
         /// <summary> Adds the or update. </summary>
@@ -38,7 +41,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -62,11 +64,9 @@ namespace BudgetExecution
                 try
                 {
                     var _criteria = "";
-
                     if( dict.HasPrimaryKey( ) )
                     {
                         var _key = dict.GetPrimaryKey( );
-
                         if( !string.IsNullOrEmpty( _key.Key )
                            & int.Parse( _key.Value.ToString( ) ) > -1 )
                         {
@@ -77,7 +77,6 @@ namespace BudgetExecution
 
                             var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
                             _sql += $" WHERE {_key.Key} = {int.Parse( _key.Value.ToString( ) )};";
-
                             return !string.IsNullOrEmpty( _sql )
                                 ? _sql
                                 : string.Empty;
@@ -91,7 +90,6 @@ namespace BudgetExecution
                         }
 
                         var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
-
                         return !string.IsNullOrEmpty( _sql )
                             ? _sql
                             : string.Empty;
@@ -100,7 +98,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return string.Empty;
                 }
             }
@@ -113,8 +110,7 @@ namespace BudgetExecution
         /// <typeparam name = "TValue" > The type of the value. </typeparam>
         /// <param name = "nvc" > The this. </param>
         /// <returns> </returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>(
-            this IDictionary<TKey, TValue> nvc )
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>( this IDictionary<TKey, TValue> nvc )
         {
             try
             {
@@ -123,7 +119,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -133,13 +128,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="nvc">The NVC.</param>
         /// <returns></returns>
-        public static BindingList<KeyValuePair<string, object>> ToBindingList(
-            this IDictionary<string, object> nvc )
+        public static BindingList<KeyValuePair<string, object>> ToBindingList( this IDictionary<string, object> nvc )
         {
             try
             {
                 var _bindingList = new BindingList<KeyValuePair<string, object>>( );
-
                 foreach( var kvp in nvc )
                 {
                     _bindingList.Add( kvp );
@@ -152,7 +145,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -162,8 +154,7 @@ namespace BudgetExecution
         /// <typeparam name = "TValue" > The type of the value. </typeparam>
         /// <param name = "dict" > The dictionary. </param>
         /// <returns> </returns>
-        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>(
-            this IDictionary<TKey, TValue> dict )
+        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>( this IDictionary<TKey, TValue> dict )
         {
             try
             {
@@ -172,7 +163,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default;
             }
         }
@@ -181,8 +171,7 @@ namespace BudgetExecution
         /// <param name = "dict" > The dictionary. </param>
         /// <param name = "provider" > The provider. </param>
         /// <returns> </returns>
-        public static IEnumerable<DbParameter> ToSqlDbParameters(
-            this IDictionary<string, object> dict, Provider provider )
+        public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict, Provider provider )
         {
             if( dict?.Keys?.Count > 0
                && Enum.IsDefined( typeof( Provider ), provider ) )
@@ -191,104 +180,95 @@ namespace BudgetExecution
                 {
                     var _columns = dict.Keys.ToArray( );
                     var _values = dict.Values.ToArray( );
-
                     switch( provider )
                     {
                         case Provider.NS:
                         case Provider.SQLite:
-
                         {
                             var _sqlite = new List<SQLiteParameter>( );
-
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new SQLiteParameter( );
-
-                                _parameter.SourceColumn = _columns[ i ];
-                                _parameter.Value = _values[ i ];
+                                var _parameter = new SQLiteParameter
+                                {
+                                    SourceColumn = _columns[ i ],
+                                    Value = _values[ i ]
+                                };
 
                                 _sqlite.Add( _parameter );
                             }
 
                             return _sqlite.Any( )
                                 ? _sqlite.ToArray( )
-                                : default;
+                                : default( List<DbParameter> );
                         }
-
                         case Provider.SqlCe:
-
                         {
                             var _sqlce = new List<SqlCeParameter>( );
-
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new SqlCeParameter( );
-
-                                _parameter.SourceColumn = _columns[ i ];
-                                _parameter.Value = _values[ i ];
+                                var _parameter = new SqlCeParameter 
+                                {
+                                    SourceColumn = _columns[ i ],
+                                    Value = _values[ i ]
+                                };
 
                                 _sqlce.Add( _parameter );
                             }
 
                             return _sqlce.Any( )
                                 ? _sqlce.ToArray( )
-                                : default;
+                                : default( List<DbParameter> );
                         }
-
                         case Provider.OleDb:
                         case Provider.Excel:
                         case Provider.Access:
-
                         {
                             var _oledb = new List<OleDbParameter>( );
-
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new OleDbParameter( );
-
-                                _parameter.SourceColumn = _columns[ i ];
-                                _parameter.Value = _values[ i ];
+                                var _parameter = new OleDbParameter 
+                                { 
+                                    SourceColumn = _columns[ i ],
+                                    Value = _values[ i ]
+                                };
 
                                 _oledb.Add( _parameter );
                             }
 
                             return _oledb.Any( )
                                 ? _oledb.ToArray( )
-                                : default;
+                                : default( List<DbParameter> );
                         }
-
                         case Provider.SqlServer:
-
                         {
                             var _sqlserver = new List<SqlParameter>( );
-
                             for( var i = 0; i < _columns.Length; i++ )
                             {
-                                var _parameter = new SqlParameter( );
-
-                                _parameter.SourceColumn = _columns[ i ];
-                                _parameter.Value = _values[ i ];
+                                var _parameter = new SqlParameter 
+                                { 
+                                    SourceColumn = _columns[ i ],
+                                    Value = _values[ i ]
+                                };
 
                                 _sqlserver.Add( _parameter );
                             }
 
                             return _sqlserver?.Any( ) == true
                                 ? _sqlserver.ToArray( )
-                                : default;
+                                : default( List<DbParameter> );
                         }
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
-                    return default;
+                    return default( List<DbParameter> );
                 }
 
-                return default;
+                return default( List<DbParameter> );
             }
 
-            return default;
+            return default( List<DbParameter> );
         }
 
         /// <summary> Determines whether [has a primary key]. </summary>
@@ -308,11 +288,9 @@ namespace BudgetExecution
                     var _array = dict.Keys?.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
                     var _count = 0;
-
                     for( var i = 1; i < _array.Length; i++ )
                     {
                         var _name = _array[ i ];
-
                         if( _names.Contains( _name ) )
                         {
                             _count++;
@@ -324,7 +302,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
@@ -337,8 +314,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dict">The dictionary.</param>
         /// <returns></returns>
-        public static KeyValuePair<string, object> GetPrimaryKey(
-            this IDictionary<string, object> dict )
+        public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true
                && dict.HasPrimaryKey( ) )
@@ -346,7 +322,6 @@ namespace BudgetExecution
                 try
                 {
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
-
                     foreach( var kvp in dict )
                     {
                         if( _names.Contains( kvp.Key ) )
@@ -358,12 +333,75 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return default;
                 }
             }
 
             return default;
+        }
+        
+        /// <summary>
+        /// Converts to Key bindinglist.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
+        public static BindingList<string> ToKeyBindingList<T>( this IDictionary<string, object> dict )
+        {
+            if( dict?.Any( ) == true )
+            {
+                try
+                {
+                    var _list = new BindingList<string>( );
+                    foreach( var kvp in dict )
+                    {
+                        _list.Add( kvp.Key );
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( BindingList<string> );
+                }
+            }
+
+            return default( BindingList<string> );
+        }
+
+        /// <summary>
+        /// Converts to value bindinglist.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
+        public static BindingList<object> ToValueBindingList<T>( this IDictionary<string, object> dict )
+        {
+            if( dict?.Any( ) == true )
+            {
+                try
+                {
+                    var _list = new BindingList<object>( );
+                    foreach( var kvp in dict )
+                    {
+                        _list.Add( kvp.Value );
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( BindingList<object> );
+                }
+            }
+
+            return default( BindingList<object> );
         }
 
         /// <summary>Fails the specified ex.</summary>

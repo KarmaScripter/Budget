@@ -75,7 +75,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connectionString = ConnectionPath[ $"{ Provider }" ]?.ConnectionString;
+                    var _connectionString = ConnectionPath[ $"{Provider}" ]?.ConnectionString;
                     if( !string.IsNullOrEmpty( _connectionString ) )
                     {
                         switch( Provider )
@@ -92,6 +92,7 @@ namespace BudgetExecution
                             {
                                 return new SqlConnection( _connectionString );
                             }
+                            case Provider.NS:
                             case Provider.Excel:
                             case Provider.CSV:
                             case Provider.Access:

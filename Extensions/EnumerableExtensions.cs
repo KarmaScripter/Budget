@@ -18,6 +18,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public static class EnumerableExtensions
     {
         /// <summary>
@@ -168,6 +169,38 @@ namespace BudgetExecution
             return default;
         }
 
+        /// <summary>
+        /// Converts to bindinglist.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable">The enumerable.</param>
+        /// <returns></returns>
+        public static BindingList<T> ToBindingList<T>( this IEnumerable<T> enumerable )
+        {
+            if( enumerable?.Any( ) == true )
+            {
+                try
+                {
+                    var _list = new BindingList<T>( );
+                    foreach( var item in enumerable )
+                    {
+                        _list.Add( item );
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( BindingList<T> );
+                }
+            }
+
+            return default( BindingList<T> );
+        }
+        
         /// <summary>
         /// Filters the specified columnName.
         /// </summary>

@@ -917,7 +917,8 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
@@ -927,7 +928,8 @@ namespace BudgetExecution
 
                 var _references = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 for( var _i = 0; _i < _references?.Count - 1; _i++ )
                 {
@@ -935,8 +937,10 @@ namespace BudgetExecution
                     ReferenceListBox.Items.Add( name );
                 }
 
-                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.Select( r => r.Field<string>( "TableName" ) )?.ToList( );
+                var _mx = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 for( var _i = 0; _i < _mx?.Count - 1; _i++ )
                 {

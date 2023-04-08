@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class BindingSourceExtensions
     {
         /// <summary>
@@ -22,17 +25,25 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <returns></returns>
-        public static IEnumerable<DataRow> GetRows( this BindingSource bindingSource )
+        public static IEnumerable<DataRow> GetDataRows( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )
             {
-                var _table = bindingSource.DataSource as DataTable;
-                return _table?.Rows?.Count > 0
-                    ? _table.AsEnumerable( )
-                    : default( IEnumerable<DataRow> );
+                try
+                {
+                    var _table = (DataTable)bindingSource.DataSource;
+                    return _table?.Rows?.Count > 0
+                        ? _table.AsEnumerable( )
+                        : default( IEnumerable<DataRow> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IEnumerable<DataRow> );
+                }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -44,13 +55,35 @@ namespace BudgetExecution
         {
             if( bindingSource.DataSource != null )
             {
-                var _table = (DataTable)bindingSource.DataSource;
-                return _table != null && _table.Rows.Count > 0
-                    ? _table
-                    : default( DataTable );
+                try
+                {
+                    var _table = (DataTable)bindingSource.DataSource;
+                    return _table != null 
+                        && _table.Rows.Count > 0
+                            ? _table
+                            : default( DataTable );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataTable );
+                }
             }
 
-            return default;
+            return default( DataTable );
+        }
+        
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private static void Fail( Exception ex )
+        {
+            using var _error = new Error( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
