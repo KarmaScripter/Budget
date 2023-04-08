@@ -473,7 +473,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.UploadButton )
                 {
-                    var _dialog = new LoadingDialog( Status.Waiting );
+                    var _dialog = new LoadingForm( Status.Waiting );
                     _dialog.ShowDialog( this );
                 }
             }

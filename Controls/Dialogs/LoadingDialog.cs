@@ -46,13 +46,14 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Form Properties
-            Size = new Size( 1340, 674 );
-            MaximumSize = new Size( 1340, 674 );
-            MinimumSize = new Size( 1340, 674 );
+            Size = new Size( 1340, 700 );
+            MaximumSize = new Size( 1340, 700 );
+            MinimumSize = new Size( 1340, 700 );
             BackColor = Color.Black;
             CaptionBarColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
+            StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BorderColor = Color.Transparent;
 
