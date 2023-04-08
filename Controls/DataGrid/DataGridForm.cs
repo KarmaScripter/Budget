@@ -1925,7 +1925,8 @@ namespace BudgetExecution
             try
             {
                 if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.RemoveFiltersButton )
+                   && _button.ToolType == ToolType.RemoveFiltersButton
+                   && !string.IsNullOrEmpty( SelectedTable ))
                 {
                     ClearSelections( );
                     ClearCollections( );

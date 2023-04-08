@@ -258,6 +258,7 @@
             WebTile.Title =  textItem16 ;
             WebTile.ToolTip =  ToolTip ;
             WebTile.TurnLiveTileOn =  true ;
+
             // 
             // UtilityTile
             // 

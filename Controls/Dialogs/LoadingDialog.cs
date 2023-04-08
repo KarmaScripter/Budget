@@ -5,21 +5,21 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
-    public partial class LoadingForm : MetroForm
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    public partial class LoadingDialog : MetroForm
     {
-        /// <summary>
-        /// The image path
-        /// </summary>
+        /// <summary> The image path </summary>
         public readonly string LoadingPath =
             @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
@@ -41,19 +41,14 @@ namespace BudgetExecution
         /// <value> The status. </value>
         public Status Status { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "LoadingForm"/>
-        /// class.
-        /// </summary>
-        public LoadingForm( )
+        public LoadingDialog( )
         {
             InitializeComponent( );
 
             // Basic Form Properties
-            Size = new Size( 1345, 745 );
-            MaximumSize = new Size( 1345, 745 );
-            MinimumSize = new Size( 1345, 745 );
+            Size = new Size( 1340, 674 );
+            MaximumSize = new Size( 1340, 674 );
+            MinimumSize = new Size( 1340, 674 );
             BackColor = Color.Black;
             CaptionBarColor = Color.Black;
             MetroColor = Color.Black;
@@ -74,12 +69,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "LoadingForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="LoadingDialog"/> class.
         /// </summary>
-        /// <param name = "status" > The status. </param>
-        public LoadingForm( Status status )
+        /// <param name="status">The status.</param>
+        public LoadingDialog( Status status )
             : this( )
         {
             Status = status;
@@ -125,9 +118,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the image by status.
-        /// </summary>
+        /// <summary> Sets the image by status. </summary>
         public void ShowImage( )
         {
             try

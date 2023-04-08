@@ -120,8 +120,6 @@ partial class FilterDialog
         CommandQueryComboBox =  new ComboBox( ) ;
         ContextMenu =  new ContextMenu( ) ;
         GroupButton =  new Button( ) ;
-        WaitDialog =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
-        picture1 =  new Picture( ) ;
         FirstPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         ThirdPanel.SuspendLayout( );
@@ -165,8 +163,6 @@ partial class FilterDialog
         TextPanel.SuspendLayout( );
         CommandTable.SuspendLayout( );
         CommandPanel.SuspendLayout( );
-        WaitDialog.SuspendLayout( );
-        ( (System.ComponentModel.ISupportInitialize) picture1  ).BeginInit( );
         SuspendLayout( );
         // 
         // FirstPanel
@@ -489,7 +485,6 @@ partial class FilterDialog
         TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
         TabControl.CanOverrideStyle =  true ;
         TabControl.CloseButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TabControl.Controls.Add( WaitDialog );
         TabControl.Controls.Add( TableTabPage );
         TabControl.Controls.Add( FilterTabPage );
         TabControl.Controls.Add( GroupTabPage );
@@ -520,7 +515,6 @@ partial class FilterDialog
         TabControl.ThemeStyle.TabStyle.ActiveForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         TabControl.ThemeStyle.TabStyle.SeparatorColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         TabControl.ToolTip =  null ;
-
         // 
         // TableTabPage
         // 
@@ -2375,37 +2369,6 @@ partial class FilterDialog
         GroupButton.ThemeName =  "Budget Execution" ;
         GroupButton.ToolTip =  null ;
         // 
-        // WaitDialog
-        // 
-        WaitDialog.BackColor =  System.Drawing.Color.Black ;
-        WaitDialog.Controls.Add( picture1 );
-        WaitDialog.Image =  null ;
-        WaitDialog.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-        WaitDialog.Location =  new System.Drawing.Point( 0, 29 ) ;
-        WaitDialog.Name =  "WaitDialog" ;
-        WaitDialog.ShowCloseButton =  true ;
-        WaitDialog.Size =  new System.Drawing.Size( 1328, 515 ) ;
-        WaitDialog.TabIndex =  6 ;
-        WaitDialog.ThemesEnabled =  false ;
-        // 
-        // picture1
-        // 
-        picture1.BackColor =  System.Drawing.Color.Transparent ;
-        picture1.BindingSource =  null ;
-        picture1.DataFilter =  null ;
-        picture1.Field =  Field.AccountCode ;
-        picture1.HoverText =  null ;
-        picture1.Image =  Properties.Resources.Loading ;
-        picture1.ImageList =  null ;
-        picture1.Location =  new System.Drawing.Point( 384, 55 ) ;
-        picture1.Name =  "picture1" ;
-        picture1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        picture1.Size =  new System.Drawing.Size( 574, 392 ) ;
-        picture1.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
-        picture1.TabIndex =  0 ;
-        picture1.TabStop =  false ;
-        picture1.ToolTip =  null ;
-        // 
         // FilterDialog
         // 
         AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -2482,8 +2445,6 @@ partial class FilterDialog
         TextPanel.ResumeLayout( false );
         CommandTable.ResumeLayout( false );
         CommandPanel.ResumeLayout( false );
-        WaitDialog.ResumeLayout( false );
-        ( (System.ComponentModel.ISupportInitialize) picture1  ).EndInit( );
         ResumeLayout( false );
     }
 
@@ -2579,6 +2540,4 @@ partial class FilterDialog
     private Layout EndDatePanel;
     private Layout layout2;
     public Layout StartDatePanel;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv WaitDialog;
-    private Picture picture1;
 }
