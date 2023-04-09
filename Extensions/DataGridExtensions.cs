@@ -16,6 +16,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class DataGridExtensions
     {
         /// <summary>
@@ -153,17 +154,17 @@ namespace BudgetExecution
                         var _table = _view?.ToTable( true, _columns );
                         return _table?.Columns?.Count > 0
                             ? _table
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -200,16 +201,16 @@ namespace BudgetExecution
                     var _table = _view?.ToTable( true, _names );
                     return _table.Columns.Count > 0
                         ? _table
-                        : default;
+                        : default( DataTable );
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataTable );
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary>
@@ -253,16 +254,16 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list.ToArray( )
-                        : default;
+                        : default( string[ ] );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( string[ ] );
                 }
             }
 
-            return default;
+            return default( string[ ] );
         }
 
         /// <summary>
@@ -404,6 +405,18 @@ namespace BudgetExecution
                             else if( _column.DataType == typeof( decimal ) )
                             {
                                 dataGridView.Columns[ _i ].DefaultCellStyle.Format = "C";
+                            }
+                            else if( _column.DataType == typeof( DateTime ) )
+                            {
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "yyyy-MM-dd";
+                            }
+                            else if( _column.DataType == typeof( DateOnly ) )
+                            {
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "yyyy-MM-dd";
+                            }
+                            else if( _column.DataType == typeof( DateTimeOffset ) )
+                            {
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "yyyy-MM-dd";
                             }
                         }
                     }

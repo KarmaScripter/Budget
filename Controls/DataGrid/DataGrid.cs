@@ -223,6 +223,11 @@ namespace BudgetExecution
             return default( DataRow );
         }
 
+        /// <summary>
+        /// Called when [cell enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnCellEnter( object sender, EventArgs e )
         {
             try
@@ -251,6 +256,30 @@ namespace BudgetExecution
                     var _form = new CalculationForm( _cellValue );
                     _form.ShowDialog( );
                     CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
+                }
+                else if( CurrentCell.ValueType == typeof( DateOnly ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarForm( );
+                    _form.Calendar.SelectedDate = _cellValue;
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+                else if( CurrentCell.ValueType == typeof( DateTime ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarForm( );
+                    _form.Calendar.SelectedDate = _cellValue;
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+                else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarForm( );
+                    _form.Calendar.SelectedDate = _cellValue;
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
                 }
             }
             catch( Exception ex )
