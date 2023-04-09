@@ -38,5 +38,5 @@ CREATE TABLE  BudgetControls
 	 FteSpendingControl TEXT(80) NULL DEFAULT NS,
 	 TransactionTypeControl TEXT(80) NULL DEFAULT NS,
 	 AuthorityDistributionControl TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY( BudgetControlsId  AUTOINCREMENT)
+	PRIMARY KEY( BudgetControlsId )
 );

@@ -26,5 +26,5 @@ CREATE TABLE  PayrollAuthority
 	 ProgramAreaName TEXT(80) NULL DEFAULT NS,
 	 NpmCode TEXT(80) NULL DEFAULT NS,
 	 NpmName TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY( PayrollAuthorityId  AUTOINCREMENT)
+	PRIMARY KEY( PayrollAuthorityId )
 );

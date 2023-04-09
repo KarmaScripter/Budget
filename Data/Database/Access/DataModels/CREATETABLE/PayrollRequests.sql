@@ -13,5 +13,5 @@ CREATE TABLE  PayrollRequests
 	 Comments TEXT(80) NULL DEFAULT NS,
 	 RequestDocument TEXT(80) NULL DEFAULT NS,
 	 Duration INTEGER DEFAULT 0,
-	PRIMARY KEY( PayrollRequestsId  AUTOINCREMENT)
+	PRIMARY KEY( PayrollRequestsId )
 );

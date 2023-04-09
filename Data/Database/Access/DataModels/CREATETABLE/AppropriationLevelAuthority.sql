@@ -14,5 +14,5 @@ CREATE TABLE  AppropriationLevelAuthority
 	 TotalReimbursements DOUBLE NULL DEFAULT 0.0,
 	 TotalRecoveries DOUBLE NULL DEFAULT 0.0,
 	 TotalAuthority DOUBLE NULL DEFAULT 0.0,
-	PRIMARY KEY( AppropriationLevelAuthorityId  AUTOINCREMENT)
+	PRIMARY KEY( AppropriationLevelAuthorityId )
 );
