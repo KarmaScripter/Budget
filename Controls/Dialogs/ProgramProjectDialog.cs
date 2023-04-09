@@ -6,19 +6,21 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using System.Data;
+    using System.Net;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     public partial class ProgramProjectDialog : MetroForm
     {
         /// <summary>
@@ -243,6 +245,13 @@ namespace BudgetExecution
         {
             try
             {
+                var _uri = "http://www.google.com/search";
+                var _keyWords = "Test Keyword";
+                var _query = new NameValueCollection( );
+                _query.Add( "q", _keyWords );
+                var _webClient = new WebClient( );
+                _webClient.QueryString.Add( _query );
+                var _results = _webClient.DownloadString( _uri );
             }
             catch( Exception ex )
             {

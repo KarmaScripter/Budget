@@ -10,18 +10,16 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
-    using OfficeOpenXml.Drawing.Chart;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using Syncfusion.Windows.Forms.Spreadsheet;
-    using Syncfusion.Windows.Forms.Spreadsheet.Helpers;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
 
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class ExcelDataForm : MetroForm
     {
@@ -103,6 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
+        /// 
         public DataBuilder DataModel { get; set; }
 
         /// <summary>

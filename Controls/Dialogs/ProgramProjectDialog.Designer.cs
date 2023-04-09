@@ -42,8 +42,6 @@ partial class ProgramProjectDialog
         ProgramDescriptionTextBox =  new RichTextBox( ) ;
         ProgramAreaNameTextBox =  new RichTextBox( ) ;
         ProgramProjectNameTextBox =  new RichTextBox( ) ;
-        PreviousButton =  new Button( ) ;
-        NextButton =  new Button( ) ;
         SearchButton =  new Button( ) ;
         DescriptionTable =  new HeaderPanel( ) ;
         StatuteTable =  new HeaderPanel( ) ;
@@ -219,72 +217,6 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.ThemeName =  "Budget Execution" ;
         ProgramProjectNameTextBox.ToolTip =  null ;
         ProgramProjectNameTextBox.WordWrap =  true ;
-        // 
-        // PreviousButton
-        // 
-        PreviousButton.BindingSource =  null ;
-        PreviousButton.DataFilter =  null ;
-        PreviousButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        PreviousButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        PreviousButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        PreviousButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        PreviousButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        PreviousButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        PreviousButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        PreviousButton.HoverText =  null ;
-        PreviousButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
-        PreviousButton.IsDerivedStyle =  true ;
-        PreviousButton.Location =  new System.Drawing.Point( 277, 562 ) ;
-        PreviousButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
-        PreviousButton.Name =  "PreviousButton" ;
-        PreviousButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
-        PreviousButton.NormalColor =  System.Drawing.Color.Transparent ;
-        PreviousButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        PreviousButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        PreviousButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        PreviousButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        PreviousButton.PressTextColor =  System.Drawing.Color.White ;
-        PreviousButton.Size =  new System.Drawing.Size( 103, 29 ) ;
-        PreviousButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-        PreviousButton.StyleManager =  null ;
-        PreviousButton.TabIndex =  9 ;
-        PreviousButton.Text =  "Previous" ;
-        PreviousButton.ThemeAuthor =  "Terry D. Eppler" ;
-        PreviousButton.ThemeName =  "Budget Execution" ;
-        PreviousButton.ToolTip =  null ;
-        // 
-        // NextButton
-        // 
-        NextButton.BindingSource =  null ;
-        NextButton.DataFilter =  null ;
-        NextButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        NextButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        NextButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        NextButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        NextButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        NextButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        NextButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        NextButton.HoverText =  null ;
-        NextButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
-        NextButton.IsDerivedStyle =  true ;
-        NextButton.Location =  new System.Drawing.Point( 532, 562 ) ;
-        NextButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
-        NextButton.Name =  "NextButton" ;
-        NextButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
-        NextButton.NormalColor =  System.Drawing.Color.Transparent ;
-        NextButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        NextButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        NextButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        NextButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        NextButton.PressTextColor =  System.Drawing.Color.White ;
-        NextButton.Size =  new System.Drawing.Size( 103, 29 ) ;
-        NextButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-        NextButton.StyleManager =  null ;
-        NextButton.TabIndex =  10 ;
-        NextButton.Text =  "Next" ;
-        NextButton.ThemeAuthor =  "Terry D. Eppler" ;
-        NextButton.ThemeName =  "Budget Execution" ;
-        NextButton.ToolTip =  null ;
         // 
         // SearchButton
         // 
@@ -494,8 +426,6 @@ partial class ProgramProjectDialog
         Controls.Add( StatuteTable );
         Controls.Add( DescriptionTable );
         Controls.Add( SearchButton );
-        Controls.Add( NextButton );
-        Controls.Add( PreviousButton );
         Controls.Add( CloseButton );
         Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ForeColor =  System.Drawing.Color.LightGray ;
@@ -521,8 +451,6 @@ partial class ProgramProjectDialog
 
     #endregion
     public System.Windows.Forms.BindingSource BindingSource;
-    public Button PreviousButton;
-    public Button NextButton;
     public Button SearchButton;
     public RichTextBox ProgramDescriptionTextBox;
     public Button CloseButton;
