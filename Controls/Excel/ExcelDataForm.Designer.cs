@@ -115,6 +115,7 @@
             Ribbon.ThemeStyle.MoreCommandsStyle.PropertyGridViewBorderColor =  System.Drawing.Color.FromArgb(   171  ,   171  ,   171   ) ;
             Ribbon.TitleColor =  System.Drawing.Color.White ;
             Ribbon.TitleFont =  new System.Drawing.Font( "Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+
             // 
             // Spreadsheet
             // 
@@ -125,14 +126,15 @@
             Spreadsheet.AllowTabItemContextMenu =  true ;
             Spreadsheet.AllowZooming =  true ;
             Spreadsheet.BaseThemeName =  "" ;
+            Spreadsheet.CanOverrideStyle =  true ;
             spreadsheetCopyPaste1.AllowPasteOptionPopup =  true ;
             spreadsheetCopyPaste1.DefaultPasteOption =  Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste ;
             Spreadsheet.CopyPaste =  spreadsheetCopyPaste1 ;
-            Spreadsheet.DefaultColumnCount =  101 ;
-            Spreadsheet.DefaultRowCount =  101 ;
+            Spreadsheet.DefaultColumnCount =  50 ;
+            Spreadsheet.DefaultRowCount =  100 ;
             Spreadsheet.DisplayAlerts =  true ;
             Spreadsheet.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            Spreadsheet.FileName =  "Book1" ;
+            Spreadsheet.FileName =  "Book3" ;
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
@@ -142,6 +144,7 @@
             Spreadsheet.IsCustomTabItemContextMenuEnabled =  false ;
             Spreadsheet.Location =  new System.Drawing.Point( 0, 184 ) ;
             Spreadsheet.Name =  "Spreadsheet" ;
+            Spreadsheet.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             Spreadsheet.SelectedTabIndex =  0 ;
             Spreadsheet.SelectedTabItem =  null ;
             Spreadsheet.ShowBusyIndicator =  true ;
@@ -299,7 +302,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 202, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 176, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 

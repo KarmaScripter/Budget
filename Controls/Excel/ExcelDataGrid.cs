@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// Opens the file.
         /// </summary>
         /// <param name="file">The file.</param>
-        public virtual void OpenFile( Stream file )
+        public void OpenFile( Stream file )
         {
         }
 

@@ -10,8 +10,11 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
+    using OfficeOpenXml.Drawing.Chart;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using Syncfusion.Windows.Forms.Spreadsheet;
+    using Syncfusion.Windows.Forms.Spreadsheet.Helpers;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
 
@@ -19,6 +22,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -126,7 +130,7 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             ShowMouseOver = false;
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
@@ -151,19 +155,6 @@ namespace BudgetExecution
             ToolStripTextBox.ForeColor = Color.LightSteelBlue;
             ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-
-            // Spreadsheet Properties
-            Spreadsheet.AllowCellContextMenu = true;
-            Spreadsheet.CanApplyTheme = true;
-            Spreadsheet.CanOverrideStyle = true;
-            Spreadsheet.Margin = new Padding( 1 );
-            Spreadsheet.Padding = new Padding( 1 );
-            Spreadsheet.Font = new Font( "Roboto", 8, FontStyle.Regular );
-            Spreadsheet.ForeColor = Color.Black;
-            Spreadsheet.DefaultColumnCount = 40;
-            Spreadsheet.DefaultRowCount = 60;
-            Spreadsheet.AllowZooming = true;
-            Spreadsheet.AllowFiltering = true;
 
             // Event Wiring
             Load += OnLoad;
@@ -252,6 +243,8 @@ namespace BudgetExecution
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
                 SetTableProperties( DataTable );
+                SetWorksheetProperties( );
+                SetActiveGridProperties( );
             }
             catch( Exception ex )
             {
@@ -272,39 +265,82 @@ namespace BudgetExecution
                     Spreadsheet?.SetActiveSheet( "Sheet1" );
                     Spreadsheet?.RenameSheet( "Sheet1", "Data" );
                     Spreadsheet?.SetZoomFactor( "Data", 100 );
-                    Spreadsheet?.ActiveSheet?.ImportDataTable( DataTable, true, 1, 1 );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
                     Spreadsheet?.SetGridLinesVisibility( false );
+                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                    var _usedRange = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
+                    _usedRange.CellStyle.Font.FontName = "Roboto";
+                    _usedRange.CellStyle.Font.Size = 10;
+                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
                     RowCount = DataTable.Rows.Count;
                     ColCount = DataTable.Columns.Count;
                     ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
-                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                    var _name = table.TableName ?? "DataTable";
-                    var _usedRange = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( _name, _usedRange );
-                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
-                    if( _topRow != null )
-                    {
-                        _topRow.AutofitColumns( );
-                        _topRow.FreezePanes( );
-                    }
-
-                    var _activeGrid = Spreadsheet?.ActiveGrid;
-                    if( _activeGrid != null )
-                    {
-                        _activeGrid.FrozenRows = 2;
-                    }
-
-                    if( _table != null )
-                    {
-                        _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    }
-
+                    _topRow?.FreezePanes( );
+                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
                     Spreadsheet?.ActiveGrid?.InvalidateCells( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
+        private void SetWorksheetProperties( )
+        {
+            try
+            {
+                Spreadsheet.DisplayAlerts = false;
+                Spreadsheet.Font = new Font( "Roboto", 10 );
+                Spreadsheet.AllowCellContextMenu = true;
+                Spreadsheet.CanApplyTheme = true;
+                Spreadsheet.CanOverrideStyle = true;
+                Spreadsheet.Margin = new Padding( 1 );
+                Spreadsheet.Padding = new Padding( 1 );
+                Spreadsheet.ForeColor = Color.Black;
+                Spreadsheet.DefaultColumnCount = 50;
+                Spreadsheet.DefaultRowCount = 100;
+                Spreadsheet.AllowZooming = true;
+                Spreadsheet.AllowFiltering = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Sets the active grid properties.
+        /// </summary>
+        private void SetActiveGridProperties( )
+        {
+            try
+            {
+                Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
+                Spreadsheet.ActiveGrid.FrozenRows = 2;
+                Spreadsheet.ActiveGrid.AllowSelection = true;
+                Spreadsheet.ActiveGrid.CanOverrideStyle = true;
+                Spreadsheet.ActiveGrid.CanApplyTheme = true;
+                Spreadsheet.ActiveGrid.Office2016ScrollBars = true;
+                Spreadsheet.ActiveGrid.Office2016ScrollBarsColorScheme = ScrollBarOffice2016ColorScheme.Black;
+                Spreadsheet.ActiveGrid.BackColor = Color.LightGray;
+                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                Spreadsheet.ActiveGrid.ForeColor = Color.Black;
+                Spreadsheet.ActiveGrid.ColumnCount = ColCount;
+                Spreadsheet.ActiveGrid.RowCount = RowCount;
+                Spreadsheet.ActiveGrid.DefaultColumnWidth = 110;
+                Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
+                Spreadsheet.ActiveGrid.CellClick += OnCellClick;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -481,7 +517,71 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Called when [cell enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnCellClick( object sender, GridCellClickEventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
+                {
+                    if( Spreadsheet.CurrentCellValue?.Length >= 6
+                       && Spreadsheet.CurrentCellValue.Length <= 9 )
+                    {
+                        var _code = Spreadsheet.CurrentCellValue.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                }
+                else if( double.TryParse( Spreadsheet.CurrentCellValue, out var value ) )
+                {
+                    var _form = new CalculationForm( value );
+                    _form.ShowDialog( );
+                    var _value = _form.Calculator.Value.ToDouble( );
+                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, _value.ToString( "N" ) );
+                }
+                else if( decimal.TryParse( Spreadsheet.CurrentCellValue, out var current ) )
+                {
+                    var _current = (double)current;
+                    var _form = new CalculationForm( _current );
+                    _form.ShowDialog( );
+                    var _calculation = _form.Calculator.Value.ToDouble( );
+                    var _cellValue = _calculation.ToString( "N" );
+                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue );
+                }
+                else if( DateOnly.TryParse( Spreadsheet.CurrentCellValue, out var _ ) )
+                {
+                    var _cellValue = DateTime.Parse( Spreadsheet.CurrentCellValue );
+                    var _form = new CalendarForm( );
+                    _form.Calendar.SelectedDate = _cellValue;
+                    _form.ShowDialog( );
+                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue.ToString( ) );
+                }
+                else if( DateTime.TryParse( Spreadsheet.CurrentCellValue, out var dateTime ) )
+                {
+                    var _form = new CalendarForm( );
+                    _form.Calendar.SelectedDate = dateTime;
+                    _form.ShowDialog( );
+                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, dateTime.ToString( ) );
+                }
+                else if( DateTimeOffset.TryParse( Spreadsheet.CurrentCellValue, out var offSet ) )
+                {
+                    var _form = new CalendarForm( );
+                    _form.Calendar.SelectedDate = offSet.DateTime;
+                    _form.ShowDialog( );
+                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, offSet.ToString( ) );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
