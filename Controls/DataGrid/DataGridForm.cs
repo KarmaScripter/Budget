@@ -1999,7 +1999,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ExcelExportButton )
                 {
-                    var _excelForm = new ExcelForm( BindingSource );
+                    var _excelForm = new ExcelDataForm( BindingSource );
                     _excelForm.Show( );
                     Close( );
                 }

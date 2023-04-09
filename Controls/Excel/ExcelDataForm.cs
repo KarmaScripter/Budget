@@ -19,7 +19,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    public partial class ExcelForm : MetroForm
+    public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the file path.
@@ -104,7 +104,7 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        public ExcelForm( )
+        public ExcelDataForm( )
         {
             InitializeComponent( );
 
@@ -176,10 +176,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelForm"/> class.
+        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public ExcelForm( string filePath )
+        public ExcelDataForm( string filePath )
             : this( )
         {
             Spreadsheet.Open( filePath );
@@ -189,10 +189,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExcelForm"/> class.
+        /// <see cref="ExcelDataForm"/> class.
         /// </summary>
         /// <param name="fileStream">The file.</param>
-        public ExcelForm( Stream fileStream )
+        public ExcelDataForm( Stream fileStream )
             : this( )
         {
             Spreadsheet.Open( fileStream );
@@ -200,10 +200,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExcelForm"/> class.
+        /// <see cref="ExcelDataForm"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public ExcelForm( BindingSource bindingSource )
+        public ExcelDataForm( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
@@ -214,10 +214,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance
-        /// of the <see cref="ExcelForm"/> class.
+        /// of the <see cref="ExcelDataForm"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public ExcelForm( DataTable dataTable )
+        public ExcelDataForm( DataTable dataTable )
             : this( )
         {
             DataTable = dataTable;
@@ -248,7 +248,6 @@ namespace BudgetExecution
                 LookupButton.Click += OnLookupButtonClicked;
                 MenuButton.Click += OnMenuButtonClicked;
                 UploadButton.Click += OnUploadButtonClicked;
-                Spreadsheet.MouseClick += OnRightClick;
                 ToolStrip.Office12Mode = true;
                 ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
@@ -473,7 +472,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.UploadButton )
                 {
-                    var _dialog = new LoadingForm( Status.Loading );
+                    var _dialog = new LoadingForm( Status.Waiting );
                     _dialog.ShowDialog( this );
                 }
             }

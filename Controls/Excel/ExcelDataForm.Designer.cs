@@ -2,7 +2,7 @@
 {
 
 
-    partial class ExcelForm
+    partial class ExcelDataForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             components =  new System.ComponentModel.Container( ) ;
             var spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
             var formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelForm ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelDataForm ) );
             Ribbon =  new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon( ) ;
             Spreadsheet =  new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet( ) ;
             BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
@@ -634,7 +634,7 @@
             LabelSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             LabelSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // ExcelForm
+            // ExcelDataForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
@@ -660,7 +660,7 @@
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
             MinimumSize =  new System.Drawing.Size( 1350, 750 ) ;
-            Name =  "ExcelForm" ;
+            Name =  "ExcelDataForm" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;
             ShowMinimizeBox =  false ;

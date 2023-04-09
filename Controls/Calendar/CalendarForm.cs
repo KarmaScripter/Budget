@@ -44,7 +44,7 @@ namespace BudgetExecution
             // Close Button
             CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
             CloseButton.HoverTextColor = Color.White;
-            CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 ); 
+            CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.Text = "Close";
             CloseButton.HoverText = "Close Calendar";
 

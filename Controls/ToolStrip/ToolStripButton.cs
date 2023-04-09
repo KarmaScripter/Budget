@@ -257,7 +257,7 @@ namespace BudgetExecution
                             var _excel =
                                 @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
 
-                            using var _excelForm = new ExcelForm( _excel );
+                            using var _excelForm = new ExcelDataForm( _excel );
                             _excelForm?.ShowDialog( );
                             break;
                         }

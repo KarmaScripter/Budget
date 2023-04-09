@@ -31,18 +31,22 @@
             ToolTip =  new SmallTip( ) ;
             BindingSource =  new BindingSource( components ) ;
             CloseButton =  new Button( ) ;
+            Header =  new TableLayoutPanel( ) ;
+            PictureBox =  new PictureBox( ) ;
             ( (ISupportInitialize) BindingSource  ).BeginInit( );
+            Header.SuspendLayout( );
+            ( (ISupportInitialize) PictureBox  ).BeginInit( );
             SuspendLayout( );
             // 
             // Calendar
             // 
             Calendar.CanOverrideStyle =  true ;
             Calendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            Calendar.Location =  new System.Drawing.Point( 32, 51 ) ;
+            Calendar.Location =  new System.Drawing.Point( 34, 78 ) ;
             Calendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             Calendar.Name =  "Calendar" ;
             Calendar.ShowToolTip =  true ;
-            Calendar.Size =  new System.Drawing.Size( 728, 345 ) ;
+            Calendar.Size =  new System.Drawing.Size( 728, 336 ) ;
             Calendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -118,7 +122,7 @@
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 670, 433 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 685, 453 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -127,13 +131,37 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 105, 33 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  1 ;
             CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
             CloseButton.ThemeName =  "Budget Execution" ;
             CloseButton.ToolTip =  null ;
+            // 
+            // Header
+            // 
+            Header.ColumnCount =  2 ;
+            Header.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 5.59085131F ) );
+            Header.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 94.40915F ) );
+            Header.Controls.Add( PictureBox, 0, 0 );
+            Header.Dock =  DockStyle.Top ;
+            Header.Location =  new System.Drawing.Point( 0, 0 ) ;
+            Header.Name =  "Header" ;
+            Header.RowCount =  1 ;
+            Header.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
+            Header.Size =  new System.Drawing.Size( 787, 34 ) ;
+            Header.TabIndex =  2 ;
+            // 
+            // PictureBox
+            // 
+            PictureBox.Image =  Properties.Resources.Calendar ;
+            PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            PictureBox.Name =  "PictureBox" ;
+            PictureBox.Size =  new System.Drawing.Size( 26, 23 ) ;
+            PictureBox.SizeMode =  PictureBoxSizeMode.Zoom ;
+            PictureBox.TabIndex =  0 ;
+            PictureBox.TabStop =  false ;
             // 
             // CalendarForm
             // 
@@ -143,11 +171,13 @@
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CaptionAlign =  HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.Red ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientSize =  new System.Drawing.Size( 787, 469 ) ;
+            ClientSize =  new System.Drawing.Size( 787, 495 ) ;
+            Controls.Add( Header );
             Controls.Add( CloseButton );
             Controls.Add( Calendar );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -162,8 +192,11 @@
             ShowMaximizeBox =  false ;
             ShowMinimizeBox =  false ;
             ShowMouseOver =  true ;
+            SizeGripStyle =  SizeGripStyle.Hide ;
             StartPosition =  FormStartPosition.CenterScreen ;
             ( (ISupportInitialize) BindingSource  ).EndInit( );
+            Header.ResumeLayout( false );
+            ( (ISupportInitialize) PictureBox  ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -171,5 +204,7 @@
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
         public Button CloseButton;
+        public PictureBox PictureBox;
+        public TableLayoutPanel Header;
     }
 }

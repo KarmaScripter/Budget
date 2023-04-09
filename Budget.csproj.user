@@ -121,16 +121,13 @@
     <Compile Update="Controls\Editor\Editor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Excel\ExcelForm.cs">
+    <Compile Update="Controls\Excel\ExcelDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Excel\GridBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Excel\RibbonBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Excel\SpreadsheetBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Forms\BudgetGuidance.cs">
@@ -266,6 +263,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\HeaderPanel\HeaderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Excel\ExcelDataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
