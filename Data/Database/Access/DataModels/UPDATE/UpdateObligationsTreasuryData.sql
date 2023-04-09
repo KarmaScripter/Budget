@@ -1,2 +1,9 @@
-UPDATE Funds 
-SET Funds.TreasuryAccountCode = IIF( Funds.EFY = 'NS', '68X' & Funds.Main, '68' & RIGHT(Funds.BFY, 2) & '/' & RIGHT(Funds.EFY, 2) & Funds.Main);
+UPDATE Obligations 
+INNER JOIN Funds 
+ON (Obligations.BFY = Funds.BFY) 
+AND (Obligations.EFY = Funds.EFY) 
+AND (Obligations.FundCode = Funds.FundCode) 
+SET Obligations.TreasurySymbol = Funds.TreasuryAccountCode, 
+Obligations.BudgetAccountCode = Funds.BudgetAccountCode, 
+Obligations.BudgetAccountName = Funds.BudgetAccountName, 
+Obligations.ApportionmentAccountCode = Funds.ApportionmentAccountCode;
