@@ -362,7 +362,7 @@
             dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   50  ,   50  ,   50   ) ;
             dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightGray ;
-            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             dataGridViewCellStyle1.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle1 ;
             DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
@@ -371,10 +371,10 @@
             DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
             DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
             dataGridViewCellStyle2.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.SteelBlue ;
+            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             dataGridViewCellStyle2.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle2.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
             DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
@@ -384,15 +384,14 @@
             dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             dataGridViewCellStyle3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle3.ForeColor =  System.Drawing.Color.LightGray ;
-            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
             DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
-            DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
             DataGrid.HoverText =  null ;
-            DataGrid.Location =  new System.Drawing.Point( 29, 26 ) ;
+            DataGrid.Location =  new System.Drawing.Point( 34, 26 ) ;
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
@@ -409,7 +408,7 @@
             dataGridViewCellStyle5.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             dataGridViewCellStyle5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle5.ForeColor =  System.Drawing.Color.LightGray ;
-            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
@@ -1563,7 +1562,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 130, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 122, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  ToolTip ;
             // 

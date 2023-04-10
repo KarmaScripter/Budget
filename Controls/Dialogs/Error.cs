@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class Error : MetroForm
     {
         /// <summary>
@@ -63,7 +63,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             Padding = new Padding( 1 );
             Text = string.Empty;
-            
+
             // Header Label Properties
             HeaderLabel.ForeColor = Color.Red;
 
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Error"/> class.
         /// </summary>
         /// <param name="ext">The ext.</param>
-        public Error( Exception ext ) 
+        public Error( Exception ext )
             : this( )
         {
             Exception = ext;
@@ -100,7 +100,7 @@ namespace BudgetExecution
             Exception = null;
             TextBox.Text = message;
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -114,7 +114,7 @@ namespace BudgetExecution
                 HeaderLabel.ForeColor = Color.Red;
                 if( Exception != null )
                 {
-                    var _message = Exception.Message ;
+                    var _message = Exception.Message;
                     TextBox.Text = Exception.ToLogString( _message );
                 }
             }
@@ -123,7 +123,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the text.
         /// </summary>
@@ -183,7 +183,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

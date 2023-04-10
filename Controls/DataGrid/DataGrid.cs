@@ -86,18 +86,18 @@ namespace BudgetExecution
             // Default Cell Style
             DefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             DefaultCellStyle.ForeColor = Color.LightGray;
-            DefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
+            DefaultCellStyle.SelectionBackColor = Color.FromArgb( 50, 93, 129 );
             DefaultCellStyle.SelectionForeColor = Color.White;
             DefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
 
             // Column SeriesConfiguration
-            ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ColumnHeadersHeight = 22;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
             ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
+            ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb( 50, 93, 129 );
             ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             ColumnHeadersDefaultCellStyle.Font = new Font( "Roboto", 9, FontStyle.Regular );
 
@@ -114,13 +114,13 @@ namespace BudgetExecution
             RowsDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             RowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             RowsDefaultCellStyle.ForeColor = Color.LightGray;
-            RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
+            RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 50, 93, 129 );
             RowsDefaultCellStyle.SelectionForeColor = Color.White;
             RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb( 50, 50, 50 );
             AlternatingRowsDefaultCellStyle.ForeColor = Color.LightGray;
             AlternatingRowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
-            AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 17, 53, 84 );
+            AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 50, 93, 129 );
             AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             // Epilog

@@ -75,7 +75,7 @@ partial class ProgramProjectDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 770, 562 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 565, 562 ) ;
         CloseButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -232,7 +232,7 @@ partial class ProgramProjectDialog
         SearchButton.HoverText =  null ;
         SearchButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SearchButton.IsDerivedStyle =  true ;
-        SearchButton.Location =  new System.Drawing.Point( 30, 562 ) ;
+        SearchButton.Location =  new System.Drawing.Point( 252, 562 ) ;
         SearchButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
         SearchButton.Name =  "SearchButton" ;
         SearchButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -365,7 +365,7 @@ partial class ProgramProjectDialog
         HeaderTable.Name =  "HeaderTable" ;
         HeaderTable.RowCount =  1 ;
         HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.Size =  new System.Drawing.Size( 896, 38 ) ;
+        HeaderTable.Size =  new System.Drawing.Size( 896, 28 ) ;
         HeaderTable.TabIndex =  18 ;
         // 
         // pictureBox1
@@ -373,7 +373,7 @@ partial class ProgramProjectDialog
         pictureBox1.Image =  Properties.Resources.AppropriationTile ;
         pictureBox1.Location =  new System.Drawing.Point( 3, 3 ) ;
         pictureBox1.Name =  "pictureBox1" ;
-        pictureBox1.Size =  new System.Drawing.Size( 31, 32 ) ;
+        pictureBox1.Size =  new System.Drawing.Size( 31, 22 ) ;
         pictureBox1.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.Zoom ;
         pictureBox1.TabIndex =  0 ;
         pictureBox1.TabStop =  false ;
@@ -391,7 +391,7 @@ partial class ProgramProjectDialog
         Header.Margin =  new System.Windows.Forms.Padding( 3 ) ;
         Header.Name =  "Header" ;
         Header.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        Header.Size =  new System.Drawing.Size( 853, 32 ) ;
+        Header.Size =  new System.Drawing.Size( 853, 22 ) ;
         Header.Style =  MetroSet_UI.Enums.Style.Custom ;
         Header.StyleManager =  null ;
         Header.TabIndex =  1 ;

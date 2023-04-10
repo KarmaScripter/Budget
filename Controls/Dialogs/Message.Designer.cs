@@ -21,7 +21,7 @@ namespace BudgetExecution
         {
             if( disposing && ( components != null ) )
             {
-                components.Dispose();
+                components.Dispose( );
             }
 
             base.Dispose( disposing );
@@ -29,277 +29,273 @@ namespace BudgetExecution
 
         #region Windows Form Designer generated code
 
-            /// <summary>
-            /// Required method for Designer support - do not modify
-            /// the contents of this method with the code editor.
-            /// </summary>
-            private void InitializeComponent()
-            {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Message));
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.OpenButton = new BudgetExecution.Button();
-            this.ToolTip = new BudgetExecution.SmallTip();
-            this.CloseButton = new BudgetExecution.Button();
-            this.Label = new BudgetExecution.Label();
-            this.Picture = new BudgetExecution.Picture();
-            this.Header = new BudgetExecution.Label();
-            this.BackPanel = new BudgetExecution.Layout();
-            this.TextBox = new BudgetExecution.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
-            this.BackPanel.SuspendLayout();
-            this.SuspendLayout();
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent( )
+        {
+            components =  new Container( ) ;
+            var resources = new ComponentResourceManager( typeof( Message ) );
+            BindingSource =  new BindingSource( components ) ;
+            OpenButton =  new Button( ) ;
+            ToolTip =  new SmallTip( ) ;
+            CloseButton =  new Button( ) ;
+            Label =  new Label( ) ;
+            Picture =  new Picture( ) ;
+            Header =  new Label( ) ;
+            BackPanel =  new Layout( ) ;
+            TextBox =  new RichTextBox( ) ;
+            ( (ISupportInitialize) BindingSource  ).BeginInit( );
+            ( (ISupportInitialize) Picture  ).BeginInit( );
+            BackPanel.SuspendLayout( );
+            SuspendLayout( );
             // 
             // OpenButton
             // 
-            this.OpenButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenButton.BackColor = System.Drawing.Color.Transparent;
-            this.OpenButton.BindingSource = null;
-            this.OpenButton.DataFilter = null;
-            this.OpenButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.OpenButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.OpenButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.OpenButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OpenButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.OpenButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.OpenButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.OpenButton.HoverText = null;
-            this.OpenButton.HoverTextColor = System.Drawing.Color.White;
-            this.OpenButton.IsDerivedStyle = true;
-            this.OpenButton.Location = new System.Drawing.Point(70, 327);
-            this.OpenButton.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenButton.Name = "OpenButton";
-            this.OpenButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.OpenButton.NormalColor = System.Drawing.Color.Transparent;
-            this.OpenButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.OpenButton.Padding = new System.Windows.Forms.Padding(1);
-            this.OpenButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.OpenButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.OpenButton.PressTextColor = System.Drawing.Color.White;
-            this.OpenButton.Size = new System.Drawing.Size(124, 57);
-            this.OpenButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.OpenButton.StyleManager = null;
-            this.OpenButton.TabIndex = 9;
-            this.OpenButton.Text = "Open";
-            this.OpenButton.ThemeAuthor = "Terry D. Eppler";
-            this.OpenButton.ThemeName = "Budget Execution";
-            this.OpenButton.ToolTip = this.ToolTip;
+            OpenButton.Anchor =     AnchorStyles.Bottom  |  AnchorStyles.Left   |  AnchorStyles.Right   ;
+            OpenButton.BackColor =  System.Drawing.Color.Transparent ;
+            OpenButton.BindingSource =  null ;
+            OpenButton.DataFilter =  null ;
+            OpenButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            OpenButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            OpenButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            OpenButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            OpenButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            OpenButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            OpenButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            OpenButton.HoverText =  null ;
+            OpenButton.HoverTextColor =  System.Drawing.Color.White ;
+            OpenButton.IsDerivedStyle =  true ;
+            OpenButton.Location =  new System.Drawing.Point( 79, 355 ) ;
+            OpenButton.Margin =  new Padding( 0 ) ;
+            OpenButton.Name =  "OpenButton" ;
+            OpenButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            OpenButton.NormalColor =  System.Drawing.Color.Transparent ;
+            OpenButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            OpenButton.Padding =  new Padding( 1 ) ;
+            OpenButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            OpenButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            OpenButton.PressTextColor =  System.Drawing.Color.White ;
+            OpenButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            OpenButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            OpenButton.StyleManager =  null ;
+            OpenButton.TabIndex =  9 ;
+            OpenButton.Text =  "Open" ;
+            OpenButton.ThemeAuthor =  "Terry D. Eppler" ;
+            OpenButton.ThemeName =  "Budget Execution" ;
+            OpenButton.ToolTip =  ToolTip ;
             // 
             // ToolTip
             // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = null;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = null;
-            this.ToolTip.TipTitle = null;
+            ToolTip.AutoPopDelay =  5000 ;
+            ToolTip.BackColor =  System.Drawing.Color.FromArgb(   5  ,   5  ,   5   ) ;
+            ToolTip.BindingSource =  null ;
+            ToolTip.BorderColor =  System.Drawing.SystemColors.Highlight ;
+            ToolTip.ForeColor =  System.Drawing.Color.White ;
+            ToolTip.InitialDelay =  500 ;
+            ToolTip.IsDerivedStyle =  true ;
+            ToolTip.Name =  null ;
+            ToolTip.OwnerDraw =  true ;
+            ToolTip.ReshowDelay =  100 ;
+            ToolTip.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ToolTip.StyleManager =  null ;
+            ToolTip.ThemeAuthor =  "Terry D. Eppler" ;
+            ToolTip.ThemeName =  "Budget Execution" ;
+            ToolTip.TipIcon =  ToolTipIcon.Info ;
+            ToolTip.TipText =  null ;
+            ToolTip.TipTitle =  null ;
             // 
             // CloseButton
             // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.BindingSource = null;
-            this.CloseButton.DataFilter = null;
-            this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverText = null;
-            this.CloseButton.HoverTextColor = System.Drawing.Color.White;
-            this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(485, 327);
-            this.CloseButton.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(127, 57);
-            this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CloseButton.StyleManager = null;
-            this.CloseButton.TabIndex = 10;
-            this.CloseButton.Text = "Close";
-            this.CloseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloseButton.ThemeName = "Budget Execution";
-            this.CloseButton.ToolTip = this.ToolTip;
+            CloseButton.Anchor =     AnchorStyles.Bottom  |  AnchorStyles.Left   |  AnchorStyles.Right   ;
+            CloseButton.BackColor =  System.Drawing.Color.Transparent ;
+            CloseButton.BindingSource =  null ;
+            CloseButton.DataFilter =  null ;
+            CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            CloseButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverText =  null ;
+            CloseButton.HoverTextColor =  System.Drawing.Color.White ;
+            CloseButton.IsDerivedStyle =  true ;
+            CloseButton.Location =  new System.Drawing.Point( 494, 355 ) ;
+            CloseButton.Margin =  new Padding( 0 ) ;
+            CloseButton.Name =  "CloseButton" ;
+            CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
+            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.Padding =  new Padding( 1 ) ;
+            CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.PressTextColor =  System.Drawing.Color.White ;
+            CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            CloseButton.StyleManager =  null ;
+            CloseButton.TabIndex =  10 ;
+            CloseButton.Text =  "Close" ;
+            CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
+            CloseButton.ThemeName =  "Budget Execution" ;
+            CloseButton.ToolTip =  ToolTip ;
             // 
             // Label
             // 
-            this.Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label.BindingSource = null;
-            this.Label.DataFilter = null;
-            this.Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Label.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Label.HoverText = null;
-            this.Label.IsDerivedStyle = true;
-            this.Label.Location = new System.Drawing.Point(86, 67);
-            this.Label.Margin = new System.Windows.Forms.Padding(3);
-            this.Label.Name = "Label";
-            this.Label.Padding = new System.Windows.Forms.Padding(1);
-            this.Label.Size = new System.Drawing.Size(526, 23);
-            this.Label.Style = MetroSet_UI.Enums.Style.Custom;
-            this.Label.StyleManager = null;
-            this.Label.TabIndex = 12;
-            this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Label.ThemeAuthor = "Terry D. Eppler";
-            this.Label.ThemeName = "BudgetExecution";
-            this.Label.ToolTip = null;
+            Label.Anchor =     AnchorStyles.Top  |  AnchorStyles.Left   |  AnchorStyles.Right   ;
+            Label.BindingSource =  null ;
+            Label.DataFilter =  null ;
+            Label.FlatStyle =  FlatStyle.Flat ;
+            Label.Font =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            Label.HoverText =  null ;
+            Label.IsDerivedStyle =  true ;
+            Label.Location =  new System.Drawing.Point( 86, 67 ) ;
+            Label.Margin =  new Padding( 3 ) ;
+            Label.Name =  "Label" ;
+            Label.Padding =  new Padding( 1 ) ;
+            Label.Size =  new System.Drawing.Size( 526, 23 ) ;
+            Label.Style =  MetroSet_UI.Enums.Style.Custom ;
+            Label.StyleManager =  null ;
+            Label.TabIndex =  12 ;
+            Label.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+            Label.ThemeAuthor =  "Terry D. Eppler" ;
+            Label.ThemeName =  "BudgetExecution" ;
+            Label.ToolTip =  null ;
             // 
             // Picture
             // 
-            this.Picture.BackColor = System.Drawing.Color.Transparent;
-            this.Picture.BindingSource = null;
-            this.Picture.DataFilter = null;
-            this.Picture.Field = BudgetExecution.Field.RpioActivityCode;
-            this.Picture.HoverText = null;
-            this.Picture.Image = global::BudgetExecution.Properties.Resources.Message;
-            this.Picture.ImageList = null;
-            this.Picture.Location = new System.Drawing.Point(0, 3);
-            this.Picture.Name = "Picture";
-            this.Picture.Padding = new System.Windows.Forms.Padding(1);
-            this.Picture.Size = new System.Drawing.Size(16, 18);
-            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Picture.TabIndex = 13;
-            this.Picture.TabStop = false;
-            this.Picture.ToolTip = null;
+            Picture.BackColor =  System.Drawing.Color.Transparent ;
+            Picture.BindingSource =  null ;
+            Picture.DataFilter =  null ;
+            Picture.Field =  Field.RpioActivityCode ;
+            Picture.HoverText =  null ;
+            Picture.Image =  Properties.Resources.Message ;
+            Picture.ImageList =  null ;
+            Picture.Location =  new System.Drawing.Point( 0, 3 ) ;
+            Picture.Name =  "Picture" ;
+            Picture.Padding =  new Padding( 1 ) ;
+            Picture.Size =  new System.Drawing.Size( 16, 18 ) ;
+            Picture.SizeMode =  PictureBoxSizeMode.Zoom ;
+            Picture.TabIndex =  13 ;
+            Picture.TabStop =  false ;
+            Picture.ToolTip =  null ;
             // 
             // Header
             // 
-            this.Header.BindingSource = null;
-            this.Header.DataFilter = null;
-            this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Header.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Header.HoverText = null;
-            this.Header.IsDerivedStyle = true;
-            this.Header.Location = new System.Drawing.Point(86, 11);
-            this.Header.Margin = new System.Windows.Forms.Padding(3);
-            this.Header.Name = "Header";
-            this.Header.Padding = new System.Windows.Forms.Padding(1);
-            this.Header.Size = new System.Drawing.Size(526, 23);
-            this.Header.Style = MetroSet_UI.Enums.Style.Custom;
-            this.Header.StyleManager = null;
-            this.Header.TabIndex = 14;
-            this.Header.Text = "Budget Execution Message";
-            this.Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Header.ThemeAuthor = "Terry D. Eppler";
-            this.Header.ThemeName = "BudgetExecution";
-            this.Header.ToolTip = null;
+            Header.BindingSource =  null ;
+            Header.DataFilter =  null ;
+            Header.FlatStyle =  FlatStyle.Flat ;
+            Header.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
+            Header.HoverText =  null ;
+            Header.IsDerivedStyle =  true ;
+            Header.Location =  new System.Drawing.Point( 86, 11 ) ;
+            Header.Margin =  new Padding( 3 ) ;
+            Header.Name =  "Header" ;
+            Header.Padding =  new Padding( 1 ) ;
+            Header.Size =  new System.Drawing.Size( 526, 23 ) ;
+            Header.Style =  MetroSet_UI.Enums.Style.Custom ;
+            Header.StyleManager =  null ;
+            Header.TabIndex =  14 ;
+            Header.Text =  "Budget Execution Message" ;
+            Header.TextAlign =  System.Drawing.ContentAlignment.MiddleCenter ;
+            Header.ThemeAuthor =  "Terry D. Eppler" ;
+            Header.ThemeName =  "BudgetExecution" ;
+            Header.ToolTip =  null ;
             // 
             // BackPanel
             // 
-            this.BackPanel.BackColor = System.Drawing.Color.Transparent;
-            this.BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BackPanel.BindingSource = null;
-            this.BackPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.BackPanel.BorderThickness = 1;
-            this.BackPanel.Children = null;
-            this.BackPanel.Controls.Add(this.TextBox);
-            this.BackPanel.DataFilter = null;
-            this.BackPanel.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BackPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.BackPanel.HoverText = null;
-            this.BackPanel.IsDerivedStyle = true;
-            this.BackPanel.Location = new System.Drawing.Point(70, 77);
-            this.BackPanel.Name = "BackPanel";
-            this.BackPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.BackPanel.Size = new System.Drawing.Size(542, 229);
-            this.BackPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.BackPanel.StyleManager = null;
-            this.BackPanel.TabIndex = 15;
-            this.BackPanel.ThemeAuthor = "Terry D. Eppler";
-            this.BackPanel.ThemeName = "BudgetExecution";
-            this.BackPanel.ToolTip = null;
+            BackPanel.BackColor =  System.Drawing.Color.Transparent ;
+            BackPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            BackPanel.BindingSource =  null ;
+            BackPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            BackPanel.BorderThickness =  1 ;
+            BackPanel.Children =  null ;
+            BackPanel.Controls.Add( TextBox );
+            BackPanel.DataFilter =  null ;
+            BackPanel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            BackPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            BackPanel.HoverText =  null ;
+            BackPanel.IsDerivedStyle =  true ;
+            BackPanel.Location =  new System.Drawing.Point( 70, 77 ) ;
+            BackPanel.Name =  "BackPanel" ;
+            BackPanel.Padding =  new Padding( 1 ) ;
+            BackPanel.Size =  new System.Drawing.Size( 542, 229 ) ;
+            BackPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            BackPanel.StyleManager =  null ;
+            BackPanel.TabIndex =  15 ;
+            BackPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            BackPanel.ThemeName =  "BudgetExecution" ;
+            BackPanel.ToolTip =  null ;
             // 
             // TextBox
             // 
-            this.TextBox.AutoWordSelection = false;
-            this.TextBox.BindingSource = null;
-            this.TextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.TextBox.DataFilter = null;
-            this.TextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TextBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.TextBox.HoverText = null;
-            this.TextBox.IsDerivedStyle = true;
-            this.TextBox.Lines = null;
-            this.TextBox.Location = new System.Drawing.Point(33, 24);
-            this.TextBox.MaxLength = 32767;
-            this.TextBox.Name = "TextBox";
-            this.TextBox.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBox.ReadOnly = false;
-            this.TextBox.Size = new System.Drawing.Size(478, 175);
-            this.TextBox.Style = MetroSet_UI.Enums.Style.Custom;
-            this.TextBox.StyleManager = null;
-            this.TextBox.TabIndex = 0;
-            this.TextBox.Text = " ";
-            this.TextBox.ThemeAuthor = "Terry D. Eppler";
-            this.TextBox.ThemeName = "Budget Execution";
-            this.TextBox.ToolTip = this.ToolTip;
-            this.TextBox.WordWrap = true;
+            TextBox.AutoWordSelection =  false ;
+            TextBox.BindingSource =  null ;
+            TextBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            TextBox.DataFilter =  null ;
+            TextBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TextBox.DisabledBorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TextBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            TextBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            TextBox.HoverColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            TextBox.HoverText =  null ;
+            TextBox.IsDerivedStyle =  true ;
+            TextBox.Lines =  null ;
+            TextBox.Location =  new System.Drawing.Point( 33, 24 ) ;
+            TextBox.MaxLength =  32767 ;
+            TextBox.Name =  "TextBox" ;
+            TextBox.Padding =  new Padding( 1 ) ;
+            TextBox.ReadOnly =  false ;
+            TextBox.Size =  new System.Drawing.Size( 478, 175 ) ;
+            TextBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            TextBox.StyleManager =  null ;
+            TextBox.TabIndex =  0 ;
+            TextBox.Text =  " " ;
+            TextBox.ThemeAuthor =  "Terry D. Eppler" ;
+            TextBox.ThemeName =  "Budget Execution" ;
+            TextBox.ToolTip =  ToolTip ;
+            TextBox.WordWrap =  true ;
             // 
             // Message
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BorderColor = System.Drawing.Color.SteelBlue;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionBarHeight = 1;
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionFont = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ClientSize = new System.Drawing.Size(688, 393);
-            this.Controls.Add(this.BackPanel);
-            this.Controls.Add(this.Header);
-            this.Controls.Add(this.Picture);
-            this.Controls.Add(this.Label);
-            this.Controls.Add(this.CloseButton);
-            this.Controls.Add(this.OpenButton);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.MinimizeBox = false;
-            this.Name = "Message";
-            this.ShowIcon = false;
-            this.ShowMaximizeBox = false;
-            this.ShowMinimizeBox = false;
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
-            this.BackPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleMode =  AutoScaleMode.Inherit ;
+            AutoSize =  true ;
+            BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            BorderColor =  System.Drawing.Color.SteelBlue ;
+            CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarHeight =  1 ;
+            CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionFont =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ClientSize =  new System.Drawing.Size( 688, 393 ) ;
+            Controls.Add( BackPanel );
+            Controls.Add( Header );
+            Controls.Add( Picture );
+            Controls.Add( Label );
+            Controls.Add( CloseButton );
+            Controls.Add( OpenButton );
+            DoubleBuffered =  true ;
+            Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            FormBorderStyle =  FormBorderStyle.FixedSingle ;
+            Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
+            MaximizeBox =  false ;
+            MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            MinimizeBox =  false ;
+            Name =  "Message" ;
+            ShowIcon =  false ;
+            ShowMaximizeBox =  false ;
+            ShowMinimizeBox =  false ;
+            SizeGripStyle =  SizeGripStyle.Hide ;
+            ( (ISupportInitialize) BindingSource  ).EndInit( );
+            ( (ISupportInitialize) Picture  ).EndInit( );
+            BackPanel.ResumeLayout( false );
+            ResumeLayout( false );
+        }
 
-            }
-
-            #endregion
+        #endregion
         public Button OpenButton;
         public SmallTip ToolTip;
         public Button CloseButton;
@@ -310,5 +306,5 @@ namespace BudgetExecution
         private Layout BackPanel;
         private RichTextBox TextBox;
     }
-    
+
 }

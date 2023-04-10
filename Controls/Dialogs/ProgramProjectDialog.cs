@@ -6,21 +6,21 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using System.Data;
-    using System.Net;
+    using System.Linq;
+    using System.Text;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
         /// <summary>
@@ -96,6 +96,14 @@ namespace BudgetExecution
         public DataRow Current { get; set; }
 
         /// <summary>
+        /// Gets or sets the program codes.
+        /// </summary>
+        /// <value>
+        /// The program codes.
+        /// </value>
+        public IEnumerable<string> ProgramCodes { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ProgramProjectDialog"/> class.
         /// </summary>
         public ProgramProjectDialog( )
@@ -132,6 +140,7 @@ namespace BudgetExecution
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             BindingSource.CurrentChanged += UpdateHeaderTitle;
+            SearchButton.Click += OnSearchButtonClicked;
             MouseClick += OnRightClick;
         }
 
@@ -168,7 +177,22 @@ namespace BudgetExecution
                     BindingSource.Filter = FormFilter.ToCriteria( );
                 }
 
+                DescriptionTable.CaptionText = "Program Description";
                 BindData( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ClearHeaderText( )
+        {
+            try
+            {
+                Header.Text = string.Empty;
+                ProgramAreaTable.CaptionText = "Program Area - ";
+                ProgramProjectTable.CaptionText = "Program Project - ";
             }
             catch( Exception ex )
             {
@@ -245,13 +269,24 @@ namespace BudgetExecution
         {
             try
             {
-                var _uri = "http://www.google.com/search";
-                var _keyWords = "Test Keyword";
-                var _query = new NameValueCollection( );
-                _query.Add( "q", _keyWords );
-                var _webClient = new WebClient( );
-                _webClient.QueryString.Add( _query );
-                var _results = _webClient.DownloadString( _uri );
+                var _keywords = StatutoryAuthorityTextBox.Text;
+                var _search = new GoogleSearch( _keywords );
+                var _list = _search.GetResults( );
+                ProgramDescriptionTextBox.Text = string.Empty;
+                var _results = new StringBuilder( );
+                foreach( var item in _list )
+                {
+                    _results.Append( "Title : " );
+                    _results.Append( item.Title );
+                    _results.Append( Environment.NewLine );
+                    _results.Append( "Link : " );
+                    _results.Append( item.Link );
+                    _results.Append( Environment.NewLine );
+                    _results.Append( Environment.NewLine );
+                }
+
+                DescriptionTable.CaptionText = "Web Search Results";
+                ProgramDescriptionTextBox.Text = _results.ToString( );
             }
             catch( Exception ex )
             {

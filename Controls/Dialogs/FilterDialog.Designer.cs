@@ -373,7 +373,7 @@ partial class FilterDialog
         ClearButton.HoverText =  null ;
         ClearButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         ClearButton.IsDerivedStyle =  true ;
-        ClearButton.Location =  new System.Drawing.Point( 105, 567 ) ;
+        ClearButton.Location =  new System.Drawing.Point( 106, 588 ) ;
         ClearButton.Name =  "ClearButton" ;
         ClearButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         ClearButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -382,7 +382,7 @@ partial class FilterDialog
         ClearButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.PressTextColor =  System.Drawing.Color.White ;
-        ClearButton.Size =  new System.Drawing.Size( 122, 35 ) ;
+        ClearButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         ClearButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         ClearButton.StyleManager =  null ;
         ClearButton.TabIndex =  9 ;
@@ -405,7 +405,7 @@ partial class FilterDialog
         SelectButton.HoverText =  null ;
         SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SelectButton.IsDerivedStyle =  true ;
-        SelectButton.Location =  new System.Drawing.Point( 789, 567 ) ;
+        SelectButton.Location =  new System.Drawing.Point( 790, 588 ) ;
         SelectButton.Name =  "SelectButton" ;
         SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -414,7 +414,7 @@ partial class FilterDialog
         SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SelectButton.PressTextColor =  System.Drawing.Color.White ;
-        SelectButton.Size =  new System.Drawing.Size( 122, 35 ) ;
+        SelectButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SelectButton.StyleManager =  null ;
         SelectButton.TabIndex =  10 ;
@@ -437,7 +437,7 @@ partial class FilterDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 1137, 567 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 1138, 588 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -446,7 +446,7 @@ partial class FilterDialog
         CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressTextColor =  System.Drawing.Color.White ;
-        CloseButton.Size =  new System.Drawing.Size( 111, 35 ) ;
+        CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         CloseButton.StyleManager =  null ;
         CloseButton.TabIndex =  11 ;
@@ -2351,7 +2351,7 @@ partial class FilterDialog
         GroupButton.HoverText =  null ;
         GroupButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         GroupButton.IsDerivedStyle =  true ;
-        GroupButton.Location =  new System.Drawing.Point( 442, 567 ) ;
+        GroupButton.Location =  new System.Drawing.Point( 443, 588 ) ;
         GroupButton.Name =  "GroupButton" ;
         GroupButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
         GroupButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -2360,7 +2360,7 @@ partial class FilterDialog
         GroupButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         GroupButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         GroupButton.PressTextColor =  System.Drawing.Color.White ;
-        GroupButton.Size =  new System.Drawing.Size( 131, 35 ) ;
+        GroupButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         GroupButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         GroupButton.StyleManager =  null ;
         GroupButton.TabIndex =  14 ;

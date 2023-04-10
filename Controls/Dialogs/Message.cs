@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class Message : MetroForm
     {
         /// <summary>
@@ -37,7 +37,7 @@ namespace BudgetExecution
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             StartPosition = FormStartPosition.CenterScreen;
             CloseButton.Focus( );
-            
+
             //Event Wiring
             CloseButton.Click += OnCloseButtonClick;
             OpenButton.Click += OnOpenButtonClick;
@@ -84,7 +84,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>

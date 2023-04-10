@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class LookupDialog : EditBase
     {
         /// <summary>
@@ -47,7 +47,7 @@ namespace BudgetExecution
         public LookupDialog( )
         {
             InitializeComponent( );
-            
+
             // Basic Properties
             Size = new Size( 1310, 646 );
             Panels = GetPanels( );
@@ -76,12 +76,8 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
-                TablePanelLabel.ForeColor = Color.LightGray;
-                ColumnPanelLabel.ForeColor = Color.LightGray;
-                ProviderPanelLabel.ForeColor = Color.LightGray;
-                ValuePanelLabel.ForeColor = Color.LightGray;
-                TablePanelLabel.Text = TablePrefix + TableListBox.Items.Count;
-                ColumnPanelLabel.Text = ColumnPrefix;
+                SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
+                ColumnTable.CaptionText = ColumnPrefix;
             }
             catch( Exception ex )
             {
@@ -98,12 +94,12 @@ namespace BudgetExecution
             {
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData(  );
+                var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.ToList(  );
-                
+                    ?.ToList( );
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
@@ -127,8 +123,8 @@ namespace BudgetExecution
                 FormFilter.Clear( );
                 ColumnListBox.Items.Clear( );
                 ValueListBox.Items.Clear( );
-                ColumnPanelLabel.Text = string.Empty;
-                ValuePanelLabel.Text = string.Empty;
+                ColumnTable.CaptionText = string.Empty;
+                ValueTable.CaptionText = string.Empty;
                 var _listBox = sender as ListBox;
                 var _value = _listBox?.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _value ) )
@@ -141,9 +137,9 @@ namespace BudgetExecution
                     {
                         ColumnListBox.Items.Add( col.ColumnName );
                     }
-                    
-                    ColumnPanelLabel.Text = ColumnPrefix + ColumnListBox.Items.Count;
-                    ValuePanelLabel.Text = ValuePrefix;
+
+                    ColumnTable.CaptionText = ColumnPrefix + ColumnListBox.Items.Count;
+                    ValueTable.CaptionText = ValuePrefix;
                 }
             }
             catch( Exception ex )
@@ -171,8 +167,8 @@ namespace BudgetExecution
                         ValueListBox.Items.Add( item );
                     }
                 }
-                
-                ValuePanelLabel.Text = ValuePrefix + ValueListBox.Items.Count;
+
+                ValueTable.CaptionText = ValuePrefix + ValueListBox.Items.Count;
             }
             catch( Exception ex )
             {

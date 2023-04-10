@@ -39,9 +39,9 @@ namespace BudgetExecution
                     var _values = new List<int>( );
                     if( _columns?.Count > 0 )
                     {
-                        foreach( DataColumn _dataColumn in _columns )
+                        foreach( DataColumn _column in _columns )
                         {
-                            _values?.Add( _dataColumn.Ordinal );
+                            _values?.Add( _column.Ordinal );
                         }
                     }
 

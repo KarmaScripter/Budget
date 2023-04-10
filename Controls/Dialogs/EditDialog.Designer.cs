@@ -1224,7 +1224,7 @@
             SelectButton.HoverText =  "Not Yet Implemented!" ;
             SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
             SelectButton.IsDerivedStyle =  true ;
-            SelectButton.Location =  new System.Drawing.Point( 17, 541 ) ;
+            SelectButton.Location =  new System.Drawing.Point( 604, 593 ) ;
             SelectButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
             SelectButton.Name =  "SelectButton" ;
             SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -1234,7 +1234,7 @@
             SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressTextColor =  System.Drawing.Color.White ;
-            SelectButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+            SelectButton.Size =  new System.Drawing.Size( 103, 29 ) ;
             SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             SelectButton.StyleManager =  null ;
             SelectButton.TabIndex =  7 ;
@@ -1259,7 +1259,7 @@
             RefreshButton.HoverText =  "Not Yet Implemented!" ;
             RefreshButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
             RefreshButton.IsDerivedStyle =  true ;
-            RefreshButton.Location =  new System.Drawing.Point( 597, 541 ) ;
+            RefreshButton.Location =  new System.Drawing.Point( 82, 593 ) ;
             RefreshButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
             RefreshButton.Name =  "RefreshButton" ;
             RefreshButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -1269,7 +1269,7 @@
             RefreshButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.PressTextColor =  System.Drawing.Color.White ;
-            RefreshButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+            RefreshButton.Size =  new System.Drawing.Size( 103, 29 ) ;
             RefreshButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             RefreshButton.StyleManager =  null ;
             RefreshButton.TabIndex =  5 ;
@@ -1294,7 +1294,7 @@
             CloseButton.HoverText =  "Close Window" ;
             CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 1128, 541 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 1138, 593 ) ;
             CloseButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -1304,7 +1304,7 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  6 ;

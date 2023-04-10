@@ -111,13 +111,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="FileBrowser"/> class.
         /// </summary>
         /// <param name="extension">The extension.</param>
-        public FileBrowser( EXT extension ) 
+        public FileBrowser( EXT extension )
             : this( )
         {
             Extension = extension;
             FileExtension = Extension.ToString( ).ToLower( );
         }
-        
+
         /// <summary>
         /// Called when [browser loaded].
         /// </summary>

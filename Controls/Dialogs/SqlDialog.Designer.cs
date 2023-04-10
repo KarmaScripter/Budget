@@ -38,14 +38,10 @@ partial class SqlDialog
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlDialog ) );
         TabControl =  new Syncfusion.Windows.Forms.Tools.TabControlAdv( ) ;
         TabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
-        SqlCommandTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-        CommandTable =  new HeaderPanel( ) ;
-        ThirdPanel =  new Layout( ) ;
-        SqlComboBox =  new ComboBox( ) ;
-        SqlStatementTable =  new HeaderPanel( ) ;
-        TextPanel =  new Layout( ) ;
-        SqlListBox =  new ListBox( ) ;
+        EditorTable =  new HeaderPanel( ) ;
         EditorPanel =  new Layout( ) ;
+        SqlEditor =  new Editor( ) ;
+        SqlCommandTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
         ProviderTable =  new HeaderPanel( ) ;
         SecondPanel =  new Layout( ) ;
         SqlServerRadioButton =  new RadioButton( ) ;
@@ -53,27 +49,31 @@ partial class SqlDialog
         ToollTip =  new SmallTip( ) ;
         SQLiteRadioButton =  new RadioButton( ) ;
         SqlCeRadioButton =  new RadioButton( ) ;
-        SqlEditor =  new Editor( ) ;
+        CommandTable =  new HeaderPanel( ) ;
+        ThirdPanel =  new Layout( ) ;
+        SqlComboBox =  new ComboBox( ) ;
+        SqlStatementTable =  new HeaderPanel( ) ;
+        TextPanel =  new Layout( ) ;
+        SqlListBox =  new ListBox( ) ;
         FirstButton =  new Button( ) ;
         SecondButton =  new Button( ) ;
         ThirdButton =  new Button( ) ;
         BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
         ContextMenu =  new ContextMenu( ) ;
-        EditorTable =  new HeaderPanel( ) ;
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
         TabControl.SuspendLayout( );
         TabPage.SuspendLayout( );
+        EditorTable.SuspendLayout( );
+        EditorPanel.SuspendLayout( );
+        ( (System.ComponentModel.ISupportInitialize) SqlEditor  ).BeginInit( );
         SqlCommandTable.SuspendLayout( );
+        ProviderTable.SuspendLayout( );
+        SecondPanel.SuspendLayout( );
         CommandTable.SuspendLayout( );
         ThirdPanel.SuspendLayout( );
         SqlStatementTable.SuspendLayout( );
         TextPanel.SuspendLayout( );
-        EditorPanel.SuspendLayout( );
-        ProviderTable.SuspendLayout( );
-        SecondPanel.SuspendLayout( );
-        ( (System.ComponentModel.ISupportInitialize) SqlEditor  ).BeginInit( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
-        EditorTable.SuspendLayout( );
         SuspendLayout( );
         // 
         // TabControl
@@ -133,181 +133,23 @@ partial class SqlDialog
         TabPage.TabIndex =  8 ;
         TabPage.ThemesEnabled =  false ;
         // 
-        // SqlCommandTable
+        // EditorTable
         // 
-        SqlCommandTable.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
-        SqlCommandTable.ColumnCount =  1 ;
-        SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-        SqlCommandTable.Controls.Add( ProviderTable, 0, 0 );
-        SqlCommandTable.Controls.Add( CommandTable, 0, 1 );
-        SqlCommandTable.Controls.Add( SqlStatementTable, 0, 2 );
-        SqlCommandTable.Location =  new System.Drawing.Point( 923, 21 ) ;
-        SqlCommandTable.Name =  "SqlCommandTable" ;
-        SqlCommandTable.RowCount =  3 ;
-        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 104F ) );
-        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 299F ) );
-        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-        SqlCommandTable.Size =  new System.Drawing.Size( 352, 509 ) ;
-        SqlCommandTable.TabIndex =  4 ;
-        // 
-        // CommandTable
-        // 
-        CommandTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        CommandTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        CommandTable.CaptionText =  "Commands" ;
-        CommandTable.ColumnCount =  1 ;
-        CommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        CommandTable.Controls.Add( ThirdPanel, 0, 1 );
-        CommandTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        CommandTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        CommandTable.Location =  new System.Drawing.Point( 3, 109 ) ;
-        CommandTable.Name =  "CommandTable" ;
-        CommandTable.RowCount =  2 ;
-        CommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-        CommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 90F ) );
-        CommandTable.Size =  new System.Drawing.Size( 346, 96 ) ;
-        CommandTable.TabIndex =  1 ;
-        // 
-        // ThirdPanel
-        // 
-        ThirdPanel.BackColor =  System.Drawing.Color.Transparent ;
-        ThirdPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        ThirdPanel.BindingSource =  null ;
-        ThirdPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        ThirdPanel.BorderThickness =  1 ;
-        ThirdPanel.Children =  null ;
-        ThirdPanel.Controls.Add( SqlComboBox );
-        ThirdPanel.DataFilter =  null ;
-        ThirdPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        ThirdPanel.ForeColor =  System.Drawing.Color.Transparent ;
-        ThirdPanel.HoverText =  null ;
-        ThirdPanel.IsDerivedStyle =  true ;
-        ThirdPanel.Location =  new System.Drawing.Point( 3, 27 ) ;
-        ThirdPanel.Name =  "ThirdPanel" ;
-        ThirdPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        ThirdPanel.Size =  new System.Drawing.Size( 340, 66 ) ;
-        ThirdPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        ThirdPanel.StyleManager =  null ;
-        ThirdPanel.TabIndex =  2 ;
-        ThirdPanel.ThemeAuthor =  "Terry D. Eppler" ;
-        ThirdPanel.ThemeName =  "Budget Execution" ;
-        ThirdPanel.ToolTip =  null ;
-        // 
-        // SqlComboBox
-        // 
-        SqlComboBox.AllowDrop =  true ;
-        SqlComboBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-        SqlComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlComboBox.BackColor =  System.Drawing.Color.Transparent ;
-        SqlComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-        SqlComboBox.BindingSource =  null ;
-        SqlComboBox.BorderColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
-        SqlComboBox.CausesValidation =  false ;
-        SqlComboBox.DataFilter =  null ;
-        SqlComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        SqlComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        SqlComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        SqlComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
-        SqlComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-        SqlComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        SqlComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SqlComboBox.FormattingEnabled =  true ;
-        SqlComboBox.HoverText =  null ;
-        SqlComboBox.IsDerivedStyle =  true ;
-        SqlComboBox.ItemHeight =  24 ;
-        SqlComboBox.Location =  new System.Drawing.Point( 46, 16 ) ;
-        SqlComboBox.Name =  "SqlComboBox" ;
-        SqlComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
-        SqlComboBox.Size =  new System.Drawing.Size( 252, 30 ) ;
-        SqlComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        SqlComboBox.StyleManager =  null ;
-        SqlComboBox.TabIndex =  0 ;
-        SqlComboBox.ThemeAuthor =  "Terry D. Eppler" ;
-        SqlComboBox.ThemeName =  "Budget Execution" ;
-        SqlComboBox.ToolTip =  null ;
-        // 
-        // SqlStatementTable
-        // 
-        SqlStatementTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SqlStatementTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        SqlStatementTable.CaptionText =  "SQL Statements" ;
-        SqlStatementTable.ColumnCount =  1 ;
-        SqlStatementTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        SqlStatementTable.Controls.Add( TextPanel, 0, 1 );
-        SqlStatementTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        SqlStatementTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SqlStatementTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        SqlStatementTable.Location =  new System.Drawing.Point( 3, 213 ) ;
-        SqlStatementTable.Name =  "SqlStatementTable" ;
-        SqlStatementTable.RowCount =  2 ;
-        SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.58422947F ) );
-        SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.41577F ) );
-        SqlStatementTable.Size =  new System.Drawing.Size( 346, 293 ) ;
-        SqlStatementTable.TabIndex =  1 ;
-        // 
-        // TextPanel
-        // 
-        TextPanel.BackColor =  System.Drawing.Color.Transparent ;
-        TextPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TextPanel.BindingSource =  null ;
-        TextPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        TextPanel.BorderThickness =  1 ;
-        TextPanel.Children =  null ;
-        TextPanel.Controls.Add( SqlListBox );
-        TextPanel.DataFilter =  null ;
-        TextPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TextPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TextPanel.ForeColor =  System.Drawing.Color.Transparent ;
-        TextPanel.HoverText =  null ;
-        TextPanel.IsDerivedStyle =  true ;
-        TextPanel.Location =  new System.Drawing.Point( 3, 28 ) ;
-        TextPanel.Name =  "TextPanel" ;
-        TextPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TextPanel.Size =  new System.Drawing.Size( 340, 262 ) ;
-        TextPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TextPanel.StyleManager =  null ;
-        TextPanel.TabIndex =  1 ;
-        TextPanel.ThemeAuthor =  "Terry D. Eppler" ;
-        TextPanel.ThemeName =  "Budget Execution" ;
-        TextPanel.ToolTip =  null ;
-        // 
-        // SqlListBox
-        // 
-        SqlListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-        SqlListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        SqlListBox.BindingSource =  null ;
-        SqlListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        SqlListBox.DataFilter =  null ;
-        SqlListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SqlListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        SqlListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SqlListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        SqlListBox.HoveredItemColor =  System.Drawing.Color.White ;
-        SqlListBox.HoverText =  null ;
-        SqlListBox.IsDerivedStyle =  true ;
-        SqlListBox.ItemHeight =  28 ;
-        SqlListBox.Location =  new System.Drawing.Point( 15, 23 ) ;
-        SqlListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        SqlListBox.MultiSelect =  true ;
-        SqlListBox.Name =  "SqlListBox" ;
-        SqlListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        SqlListBox.SelectedIndex =  -1 ;
-        SqlListBox.SelectedItem =  null ;
-        SqlListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlListBox.SelectedItemColor =  System.Drawing.Color.White ;
-        SqlListBox.SelectedText =  null ;
-        SqlListBox.SelectedValue =  null ;
-        SqlListBox.ShowBorder =  false ;
-        SqlListBox.ShowScrollBar =  false ;
-        SqlListBox.Size =  new System.Drawing.Size( 311, 221 ) ;
-        SqlListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-        SqlListBox.StyleManager =  null ;
-        SqlListBox.TabIndex =  0 ;
-        SqlListBox.ThemeAuthor =  "Terry D. Eppler" ;
-        SqlListBox.ThemeName =  "Budget Execution" ;
-        SqlListBox.ToolTip =  null ;
+        EditorTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        EditorTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        EditorTable.CaptionText =  "SQL Text Editor" ;
+        EditorTable.ColumnCount =  1 ;
+        EditorTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        EditorTable.Controls.Add( EditorPanel, 0, 1 );
+        EditorTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        EditorTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        EditorTable.Location =  new System.Drawing.Point( 30, 21 ) ;
+        EditorTable.Name =  "EditorTable" ;
+        EditorTable.RowCount =  2 ;
+        EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
+        EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.84736F ) );
+        EditorTable.Size =  new System.Drawing.Size( 887, 509 ) ;
+        EditorTable.TabIndex =  5 ;
         // 
         // EditorPanel
         // 
@@ -334,6 +176,87 @@ partial class SqlDialog
         EditorPanel.ThemeAuthor =  "Terry D. Eppler" ;
         EditorPanel.ThemeName =  "BudgetExecution" ;
         EditorPanel.ToolTip =  null ;
+        // 
+        // SqlEditor
+        // 
+        SqlEditor.AllowZoom =  false ;
+        SqlEditor.AlwaysShowScrollers =  true ;
+        SqlEditor.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
+        SqlEditor.BackColor =  System.Drawing.SystemColors.ControlLight ;
+        SqlEditor.BookmarkTooltipBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlEditor.BorderStyle =  System.Windows.Forms.BorderStyle.FixedSingle ;
+        SqlEditor.CanOverrideStyle =  true ;
+        SqlEditor.ChangedLinesMarkingLineColor =  System.Drawing.Color.FromArgb(   255  ,   238  ,   98   ) ;
+        SqlEditor.CodeSnipptSize =  new System.Drawing.Size( 100, 100 ) ;
+        SqlEditor.ColumnGuidesMeasuringFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SqlEditor.Configurator =  config1 ;
+        SqlEditor.ContextChoiceBackColor =  System.Drawing.SystemColors.ControlLight ;
+        SqlEditor.ContextChoiceBorderColor =  System.Drawing.Color.FromArgb(   233  ,   166  ,   50   ) ;
+        SqlEditor.ContextPromptBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlEditor.ContextTooltipBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlEditor.CurrentLineHighlightColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlEditor.EndOfLineBackColor =  System.Drawing.SystemColors.ControlLight ;
+        SqlEditor.EndOfLineForeColor =  System.Drawing.SystemColors.ControlLight ;
+        SqlEditor.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SqlEditor.ForeColor =  System.Drawing.Color.Black ;
+        SqlEditor.HighlightCurrentLine =  true ;
+        SqlEditor.IndentationBlockBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlEditor.IndentBlockHighlightingColor =  System.Drawing.SystemColors.ActiveCaption ;
+        SqlEditor.IndentLineColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlEditor.IndicatorMarginBackColor =  System.Drawing.SystemColors.ControlLight ;
+        SqlEditor.LineNumbersColor =  System.Drawing.Color.Black ;
+        SqlEditor.LineNumbersFont =  new System.Drawing.Font( "Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
+        SqlEditor.Location =  new System.Drawing.Point( 17, 14 ) ;
+        SqlEditor.Name =  "SqlEditor" ;
+        SqlEditor.RenderRightToLeft =  false ;
+        SqlEditor.ScrollColorScheme =  Syncfusion.Windows.Forms.Office2007ColorScheme.Black ;
+        SqlEditor.ScrollPosition =  new System.Drawing.Point( 0, 0 ) ;
+        SqlEditor.ScrollVisualStyle =  Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016 ;
+        SqlEditor.SelectionMarginBackgroundColor =  System.Drawing.SystemColors.ActiveCaption ;
+        SqlEditor.SelectionTextColor =  System.Drawing.Color.White ;
+        SqlEditor.ShowEndOfLine =  false ;
+        SqlEditor.Size =  new System.Drawing.Size( 851, 448 ) ;
+        SqlEditor.StatusBarSettings.CoordsPanel.Width =  150 ;
+        SqlEditor.StatusBarSettings.EncodingPanel.Width =  100 ;
+        SqlEditor.StatusBarSettings.FileNamePanel.Width =  100 ;
+        SqlEditor.StatusBarSettings.InsertPanel.Width =  33 ;
+        SqlEditor.StatusBarSettings.Offcie2007ColorScheme =  Syncfusion.Windows.Forms.Office2007Theme.Blue ;
+        SqlEditor.StatusBarSettings.Offcie2010ColorScheme =  Syncfusion.Windows.Forms.Office2010Theme.Blue ;
+        SqlEditor.StatusBarSettings.StatusPanel.Width =  70 ;
+        SqlEditor.StatusBarSettings.TextPanel.Width =  214 ;
+        SqlEditor.StatusBarSettings.VisualStyle =  Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black ;
+        SqlEditor.Style =  Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black ;
+        SqlEditor.TabIndex =  0 ;
+        SqlEditor.TabSize =  4 ;
+        SqlEditor.Text =  "" ;
+        SqlEditor.TextAreaWidth =  400 ;
+        SqlEditor.ThemeName =  "Office2016Black" ;
+        SqlEditor.UserMarginTextColor =  System.Drawing.Color.DimGray ;
+        SqlEditor.UseXPStyle =  false ;
+        SqlEditor.UseXPStyleBorder =  true ;
+        SqlEditor.VisualColumn =  1 ;
+        SqlEditor.VScrollMode =  Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate ;
+        SqlEditor.WordWrap =  true ;
+        SqlEditor.WordWrapColumn =  80 ;
+        SqlEditor.ZoomFactor =  1F ;
+        // 
+        // SqlCommandTable
+        // 
+        SqlCommandTable.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
+        SqlCommandTable.ColumnCount =  1 ;
+        SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+        SqlCommandTable.Controls.Add( ProviderTable, 0, 0 );
+        SqlCommandTable.Controls.Add( CommandTable, 0, 1 );
+        SqlCommandTable.Controls.Add( SqlStatementTable, 0, 2 );
+        SqlCommandTable.Location =  new System.Drawing.Point( 923, 21 ) ;
+        SqlCommandTable.Name =  "SqlCommandTable" ;
+        SqlCommandTable.RowCount =  3 ;
+        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 104F ) );
+        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 299F ) );
+        SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
+        SqlCommandTable.Size =  new System.Drawing.Size( 352, 509 ) ;
+        SqlCommandTable.TabIndex =  4 ;
         // 
         // ProviderTable
         // 
@@ -507,68 +430,163 @@ partial class SqlDialog
         SqlCeRadioButton.ThemeName =  "Budget Execution" ;
         SqlCeRadioButton.ToolTip =  null ;
         // 
-        // SqlEditor
+        // CommandTable
         // 
-        SqlEditor.AllowZoom =  false ;
-        SqlEditor.AlwaysShowScrollers =  true ;
-        SqlEditor.AutoSizeMode =  System.Windows.Forms.AutoSizeMode.GrowAndShrink ;
-        SqlEditor.BackColor =  System.Drawing.SystemColors.ControlLight ;
-        SqlEditor.BookmarkTooltipBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlEditor.BorderStyle =  System.Windows.Forms.BorderStyle.FixedSingle ;
-        SqlEditor.CanOverrideStyle =  true ;
-        SqlEditor.ChangedLinesMarkingLineColor =  System.Drawing.Color.FromArgb(   255  ,   238  ,   98   ) ;
-        SqlEditor.CodeSnipptSize =  new System.Drawing.Size( 100, 100 ) ;
-        SqlEditor.ColumnGuidesMeasuringFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SqlEditor.Configurator =  config1 ;
-        SqlEditor.ContextChoiceBackColor =  System.Drawing.SystemColors.ControlLight ;
-        SqlEditor.ContextChoiceBorderColor =  System.Drawing.Color.FromArgb(   233  ,   166  ,   50   ) ;
-        SqlEditor.ContextPromptBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlEditor.ContextTooltipBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlEditor.CurrentLineHighlightColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlEditor.EndOfLineBackColor =  System.Drawing.SystemColors.ControlLight ;
-        SqlEditor.EndOfLineForeColor =  System.Drawing.SystemColors.ControlLight ;
-        SqlEditor.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SqlEditor.ForeColor =  System.Drawing.Color.Black ;
-        SqlEditor.HighlightCurrentLine =  true ;
-        SqlEditor.IndentationBlockBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlEditor.IndentBlockHighlightingColor =  System.Drawing.SystemColors.ActiveCaption ;
-        SqlEditor.IndentLineColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SqlEditor.IndicatorMarginBackColor =  System.Drawing.SystemColors.ControlLight ;
-        SqlEditor.LineNumbersColor =  System.Drawing.Color.Black ;
-        SqlEditor.LineNumbersFont =  new System.Drawing.Font( "Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
-        SqlEditor.Location =  new System.Drawing.Point( 17, 14 ) ;
-        SqlEditor.Name =  "SqlEditor" ;
-        SqlEditor.RenderRightToLeft =  false ;
-        SqlEditor.ScrollColorScheme =  Syncfusion.Windows.Forms.Office2007ColorScheme.Black ;
-        SqlEditor.ScrollPosition =  new System.Drawing.Point( 0, 0 ) ;
-        SqlEditor.ScrollVisualStyle =  Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016 ;
-        SqlEditor.SelectionMarginBackgroundColor =  System.Drawing.SystemColors.ActiveCaption ;
-        SqlEditor.SelectionTextColor =  System.Drawing.Color.White ;
-        SqlEditor.ShowEndOfLine =  false ;
-        SqlEditor.Size =  new System.Drawing.Size( 851, 448 ) ;
-        SqlEditor.StatusBarSettings.CoordsPanel.Width =  150 ;
-        SqlEditor.StatusBarSettings.EncodingPanel.Width =  100 ;
-        SqlEditor.StatusBarSettings.FileNamePanel.Width =  100 ;
-        SqlEditor.StatusBarSettings.InsertPanel.Width =  33 ;
-        SqlEditor.StatusBarSettings.Offcie2007ColorScheme =  Syncfusion.Windows.Forms.Office2007Theme.Blue ;
-        SqlEditor.StatusBarSettings.Offcie2010ColorScheme =  Syncfusion.Windows.Forms.Office2010Theme.Blue ;
-        SqlEditor.StatusBarSettings.StatusPanel.Width =  70 ;
-        SqlEditor.StatusBarSettings.TextPanel.Width =  214 ;
-        SqlEditor.StatusBarSettings.VisualStyle =  Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black ;
-        SqlEditor.Style =  Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black ;
-        SqlEditor.TabIndex =  0 ;
-        SqlEditor.TabSize =  4 ;
-        SqlEditor.Text =  "" ;
-        SqlEditor.TextAreaWidth =  400 ;
-        SqlEditor.ThemeName =  "Office2016Black" ;
-        SqlEditor.UserMarginTextColor =  System.Drawing.Color.DimGray ;
-        SqlEditor.UseXPStyle =  false ;
-        SqlEditor.UseXPStyleBorder =  true ;
-        SqlEditor.VisualColumn =  1 ;
-        SqlEditor.VScrollMode =  Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate ;
-        SqlEditor.WordWrap =  true ;
-        SqlEditor.WordWrapColumn =  80 ;
-        SqlEditor.ZoomFactor =  1F ;
+        CommandTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CommandTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        CommandTable.CaptionText =  "Commands" ;
+        CommandTable.ColumnCount =  1 ;
+        CommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        CommandTable.Controls.Add( ThirdPanel, 0, 1 );
+        CommandTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        CommandTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        CommandTable.Location =  new System.Drawing.Point( 3, 109 ) ;
+        CommandTable.Name =  "CommandTable" ;
+        CommandTable.RowCount =  2 ;
+        CommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
+        CommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 90F ) );
+        CommandTable.Size =  new System.Drawing.Size( 346, 96 ) ;
+        CommandTable.TabIndex =  1 ;
+        // 
+        // ThirdPanel
+        // 
+        ThirdPanel.BackColor =  System.Drawing.Color.Transparent ;
+        ThirdPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        ThirdPanel.BindingSource =  null ;
+        ThirdPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        ThirdPanel.BorderThickness =  1 ;
+        ThirdPanel.Children =  null ;
+        ThirdPanel.Controls.Add( SqlComboBox );
+        ThirdPanel.DataFilter =  null ;
+        ThirdPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ThirdPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        ThirdPanel.HoverText =  null ;
+        ThirdPanel.IsDerivedStyle =  true ;
+        ThirdPanel.Location =  new System.Drawing.Point( 3, 27 ) ;
+        ThirdPanel.Name =  "ThirdPanel" ;
+        ThirdPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        ThirdPanel.Size =  new System.Drawing.Size( 340, 66 ) ;
+        ThirdPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ThirdPanel.StyleManager =  null ;
+        ThirdPanel.TabIndex =  2 ;
+        ThirdPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        ThirdPanel.ThemeName =  "Budget Execution" ;
+        ThirdPanel.ToolTip =  null ;
+        // 
+        // SqlComboBox
+        // 
+        SqlComboBox.AllowDrop =  true ;
+        SqlComboBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+        SqlComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlComboBox.BackColor =  System.Drawing.Color.Transparent ;
+        SqlComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+        SqlComboBox.BindingSource =  null ;
+        SqlComboBox.BorderColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+        SqlComboBox.CausesValidation =  false ;
+        SqlComboBox.DataFilter =  null ;
+        SqlComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        SqlComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        SqlComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        SqlComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
+        SqlComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
+        SqlComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        SqlComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SqlComboBox.FormattingEnabled =  true ;
+        SqlComboBox.HoverText =  null ;
+        SqlComboBox.IsDerivedStyle =  true ;
+        SqlComboBox.ItemHeight =  24 ;
+        SqlComboBox.Location =  new System.Drawing.Point( 46, 16 ) ;
+        SqlComboBox.Name =  "SqlComboBox" ;
+        SqlComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
+        SqlComboBox.Size =  new System.Drawing.Size( 252, 30 ) ;
+        SqlComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SqlComboBox.StyleManager =  null ;
+        SqlComboBox.TabIndex =  0 ;
+        SqlComboBox.ThemeAuthor =  "Terry D. Eppler" ;
+        SqlComboBox.ThemeName =  "Budget Execution" ;
+        SqlComboBox.ToolTip =  null ;
+        // 
+        // SqlStatementTable
+        // 
+        SqlStatementTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SqlStatementTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        SqlStatementTable.CaptionText =  "SQL Statements" ;
+        SqlStatementTable.ColumnCount =  1 ;
+        SqlStatementTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        SqlStatementTable.Controls.Add( TextPanel, 0, 1 );
+        SqlStatementTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        SqlStatementTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SqlStatementTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        SqlStatementTable.Location =  new System.Drawing.Point( 3, 213 ) ;
+        SqlStatementTable.Name =  "SqlStatementTable" ;
+        SqlStatementTable.RowCount =  2 ;
+        SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.58422947F ) );
+        SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.41577F ) );
+        SqlStatementTable.Size =  new System.Drawing.Size( 346, 293 ) ;
+        SqlStatementTable.TabIndex =  1 ;
+        // 
+        // TextPanel
+        // 
+        TextPanel.BackColor =  System.Drawing.Color.Transparent ;
+        TextPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        TextPanel.BindingSource =  null ;
+        TextPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        TextPanel.BorderThickness =  1 ;
+        TextPanel.Children =  null ;
+        TextPanel.Controls.Add( SqlListBox );
+        TextPanel.DataFilter =  null ;
+        TextPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        TextPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        TextPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        TextPanel.HoverText =  null ;
+        TextPanel.IsDerivedStyle =  true ;
+        TextPanel.Location =  new System.Drawing.Point( 3, 28 ) ;
+        TextPanel.Name =  "TextPanel" ;
+        TextPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        TextPanel.Size =  new System.Drawing.Size( 340, 262 ) ;
+        TextPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        TextPanel.StyleManager =  null ;
+        TextPanel.TabIndex =  1 ;
+        TextPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        TextPanel.ThemeName =  "Budget Execution" ;
+        TextPanel.ToolTip =  null ;
+        // 
+        // SqlListBox
+        // 
+        SqlListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+        SqlListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+        SqlListBox.BindingSource =  null ;
+        SqlListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+        SqlListBox.DataFilter =  null ;
+        SqlListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SqlListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        SqlListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SqlListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SqlListBox.HoveredItemColor =  System.Drawing.Color.White ;
+        SqlListBox.HoverText =  null ;
+        SqlListBox.IsDerivedStyle =  true ;
+        SqlListBox.ItemHeight =  28 ;
+        SqlListBox.Location =  new System.Drawing.Point( 15, 23 ) ;
+        SqlListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+        SqlListBox.MultiSelect =  true ;
+        SqlListBox.Name =  "SqlListBox" ;
+        SqlListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SqlListBox.SelectedIndex =  -1 ;
+        SqlListBox.SelectedItem =  null ;
+        SqlListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SqlListBox.SelectedItemColor =  System.Drawing.Color.White ;
+        SqlListBox.SelectedText =  null ;
+        SqlListBox.SelectedValue =  null ;
+        SqlListBox.ShowBorder =  false ;
+        SqlListBox.ShowScrollBar =  false ;
+        SqlListBox.Size =  new System.Drawing.Size( 311, 221 ) ;
+        SqlListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SqlListBox.StyleManager =  null ;
+        SqlListBox.TabIndex =  0 ;
+        SqlListBox.ThemeAuthor =  "Terry D. Eppler" ;
+        SqlListBox.ThemeName =  "Budget Execution" ;
+        SqlListBox.ToolTip =  null ;
         // 
         // FirstButton
         // 
@@ -585,7 +603,7 @@ partial class SqlDialog
         FirstButton.HoverText =  "Not Yet Implemented!" ;
         FirstButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         FirstButton.IsDerivedStyle =  true ;
-        FirstButton.Location =  new System.Drawing.Point( 30, 588 ) ;
+        FirstButton.Location =  new System.Drawing.Point( 604, 600 ) ;
         FirstButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
         FirstButton.Name =  "FirstButton" ;
         FirstButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -595,7 +613,7 @@ partial class SqlDialog
         FirstButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         FirstButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         FirstButton.PressTextColor =  System.Drawing.Color.White ;
-        FirstButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        FirstButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         FirstButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         FirstButton.StyleManager =  null ;
         FirstButton.TabIndex =  12 ;
@@ -619,7 +637,7 @@ partial class SqlDialog
         SecondButton.HoverText =  "Not Yet Implemented!" ;
         SecondButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SecondButton.IsDerivedStyle =  true ;
-        SecondButton.Location =  new System.Drawing.Point( 587, 588 ) ;
+        SecondButton.Location =  new System.Drawing.Point( 157, 600 ) ;
         SecondButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
         SecondButton.Name =  "SecondButton" ;
         SecondButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -629,7 +647,7 @@ partial class SqlDialog
         SecondButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SecondButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SecondButton.PressTextColor =  System.Drawing.Color.White ;
-        SecondButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        SecondButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         SecondButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SecondButton.StyleManager =  null ;
         SecondButton.TabIndex =  10 ;
@@ -654,7 +672,7 @@ partial class SqlDialog
         ThirdButton.HoverText =  "Close Window" ;
         ThirdButton.HoverTextColor =  System.Drawing.Color.White ;
         ThirdButton.IsDerivedStyle =  true ;
-        ThirdButton.Location =  new System.Drawing.Point( 1057, 588 ) ;
+        ThirdButton.Location =  new System.Drawing.Point( 1099, 600 ) ;
         ThirdButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
         ThirdButton.Name =  "ThirdButton" ;
         ThirdButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -664,7 +682,7 @@ partial class SqlDialog
         ThirdButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ThirdButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ThirdButton.PressTextColor =  System.Drawing.Color.White ;
-        ThirdButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+        ThirdButton.Size =  new System.Drawing.Size( 103, 29 ) ;
         ThirdButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         ThirdButton.StyleManager =  null ;
         ThirdButton.TabIndex =  11 ;
@@ -687,24 +705,6 @@ partial class SqlDialog
         ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
         ContextMenu.ThemeName =  "Budget Execution" ;
         // 
-        // EditorTable
-        // 
-        EditorTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        EditorTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        EditorTable.CaptionText =  "SQL Text Editor" ;
-        EditorTable.ColumnCount =  1 ;
-        EditorTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        EditorTable.Controls.Add( EditorPanel, 0, 1 );
-        EditorTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        EditorTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        EditorTable.Location =  new System.Drawing.Point( 30, 21 ) ;
-        EditorTable.Name =  "EditorTable" ;
-        EditorTable.RowCount =  2 ;
-        EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
-        EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.84736F ) );
-        EditorTable.Size =  new System.Drawing.Size( 887, 509 ) ;
-        EditorTable.TabIndex =  5 ;
-        // 
         // SqlDialog
         // 
         AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
@@ -726,17 +726,17 @@ partial class SqlDialog
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
         TabControl.ResumeLayout( false );
         TabPage.ResumeLayout( false );
+        EditorTable.ResumeLayout( false );
+        EditorPanel.ResumeLayout( false );
+        ( (System.ComponentModel.ISupportInitialize) SqlEditor  ).EndInit( );
         SqlCommandTable.ResumeLayout( false );
+        ProviderTable.ResumeLayout( false );
+        SecondPanel.ResumeLayout( false );
         CommandTable.ResumeLayout( false );
         ThirdPanel.ResumeLayout( false );
         SqlStatementTable.ResumeLayout( false );
         TextPanel.ResumeLayout( false );
-        EditorPanel.ResumeLayout( false );
-        ProviderTable.ResumeLayout( false );
-        SecondPanel.ResumeLayout( false );
-        ( (System.ComponentModel.ISupportInitialize) SqlEditor  ).EndInit( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
-        EditorTable.ResumeLayout( false );
         ResumeLayout( false );
     }
 

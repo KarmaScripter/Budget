@@ -10,7 +10,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using BudgetExecution;
-    using Microsoft.VisualBasic;
 
     /// <summary>
     /// 
@@ -174,8 +173,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
         {
-            if( dataRows?.Any( ) == true
-               && dataRows?.HasPrimaryKey( ) == true )
+            if( dataRows?.HasPrimaryKey( ) == true )
             {
                 try
                 {
@@ -336,6 +334,7 @@ namespace BudgetExecution
 
             return default( IList<int> );
         }
+        
         /// <summary>
         /// Compresses the specified column names.
         /// </summary>
@@ -372,6 +371,14 @@ namespace BudgetExecution
                                     && col.DataType != typeof( DateTimeOffset ) )
                             {
                                 _numerics.Add( col.ColumnName );
+                            }
+                            else if( col.ColumnName == name
+                                    && col.Ordinal > 0
+                                    && col.DataType == typeof( DateTime )
+                                    || col.DataType != typeof( DateOnly )
+                                    || col.DataType != typeof( DateTimeOffset ) )
+                            {
+                                _dates.Add( col.ColumnName );
                             }
                         }
                     }

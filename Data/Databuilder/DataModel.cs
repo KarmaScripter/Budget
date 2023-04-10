@@ -49,13 +49,13 @@ namespace BudgetExecution
             DataTable = GetDataTable( );
             DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
+            DataElements = CreateSeries( DataTable );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
             Keys = GetKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
         }
@@ -74,6 +74,7 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, where );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
+            DataElements = CreateSeries( DataTable );
             DataSetName = DataSet.DataSetName;
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
