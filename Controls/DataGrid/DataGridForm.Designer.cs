@@ -378,7 +378,7 @@
             dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
             DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
-            DataGrid.ColumnHeadersHeightSizeMode =  System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize ;
+            DataGrid.ColumnHeadersHeight =  22 ;
             DataGrid.DataFilter =  null ;
             dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
             dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
@@ -388,6 +388,7 @@
             dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
             DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
+            DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
             DataGrid.HoverText =  null ;
@@ -1562,7 +1563,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 122, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 116, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  ToolTip ;
             // 
