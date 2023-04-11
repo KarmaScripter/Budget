@@ -177,25 +177,9 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
-            ToolStripTextBox.Font = new Font( "Roboto", 8 );
-            ToolStripTextBox.ForeColor = Color.White;
 
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
-
-            // ToolStrip Properties
-            ToolStrip.Visible = true;
-            ToolStrip.Text = string.Empty;
-            ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-            ToolStrip.LauncherStyle = LauncherStyle.Office12;
-            ToolStrip.ImageSize = new Size( 16, 16 );
-            ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            ToolStripTextBox.Size = new Size( 190, 28 );
-            ToolStripTextBox.ForeColor = Color.LightSteelBlue;
-            ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-            ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
 
             // Event Wiring
             Load += OnLoad;
@@ -280,12 +264,37 @@ namespace BudgetExecution
                 LookupButton.Click += OnLookupButtonClicked;
                 MenuButton.Click += OnMenuButtonClicked;
                 UploadButton.Click += OnUploadButtonClicked;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
                 Ribbon.Spreadsheet = Spreadsheet;
+                SetToolStripProperties( );
                 SetTableProperties( DataTable );
                 SetWorksheetProperties( );
                 SetActiveGridProperties( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void SetToolStripProperties( )
+        {
+            try
+            {
+                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.Size = new Size( 190, 28 );
+                ToolStripTextBox.ForeColor = Color.LightSteelBlue;
+                ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.ForeColor = Color.White;
+                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
             }
             catch( Exception ex )
             {
@@ -338,7 +347,7 @@ namespace BudgetExecution
             try
             {
                 Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 10 );
+                Spreadsheet.Font = new Font( "Roboto", 9 );
                 Spreadsheet.AllowCellContextMenu = true;
                 Spreadsheet.CanApplyTheme = true;
                 Spreadsheet.CanOverrideStyle = true;
@@ -371,7 +380,8 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.BackColor = Color.LightGray;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = Color.DimGray;
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = Color.FromArgb( 20, 20,
+                    20 );
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
                     Color.FromArgb( 17, 69, 97 );
 
@@ -386,7 +396,7 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed
                     = Color.FromArgb( 17, 69, 97 );
 
-                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 9 );
                 Spreadsheet.ActiveGrid.ForeColor = Color.Black;
                 Spreadsheet.ActiveGrid.ColumnCount = ColCount;
                 Spreadsheet.ActiveGrid.RowCount = RowCount;
@@ -585,48 +595,47 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
                 {
-                    if( Spreadsheet.CurrentCellValue?.Length >= 6 )
+                    var _chars = Spreadsheet.CurrentCellValue.ToCharArray( );
+                    var _split = Spreadsheet.CurrentCellValue.Split( " " );
+                    if( Spreadsheet.CurrentCellValue?.Length >= 6
+                       && Spreadsheet.CurrentCellValue.Length <= 9 )
                     {
-                        if( Spreadsheet.CurrentCellValue.Substring( 0, 3 ) == "000"
-                           && Spreadsheet.CurrentCellValue.Length <= 9 )
+                        if( Spreadsheet.CurrentCellValue.Substring( 0, 3 ) == "000" )
                         {
                             var _code = Spreadsheet.CurrentCellValue.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );
                             _dialog.ShowDialog( );
                         }
-                        else if( double.TryParse( Spreadsheet.CurrentCellValue, out var value ) )
+                        else if( _chars.All( c => char.IsNumber( c ) ) )
                         {
-                            var _form = new CalculationForm( value );
+                            var _value = double.Parse( Spreadsheet.CurrentCellValue );
+                            var _form = new CalculationForm( _value );
                             _form.ShowDialog( );
-                            var _value = _form.Calculator.Value.ToDouble( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, _value.ToString( "N" ) );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
+                                _value.ToString( "N" ) );
                         }
-                        else if( decimal.TryParse( Spreadsheet.CurrentCellValue, out var current ) )
+                        else if( _split[ 0 ].Length <= 10 
+                                && _split[ 0 ].Contains( "-" ) )
                         {
-                            var _current = (double)current;
-                            var _form = new CalculationForm( _current );
-                            _form.ShowDialog( );
-                            var _calculation = _form.Calculator.Value.ToDouble( );
-                            var _cellValue = _calculation.ToString( "N" );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue );
+                            var _date = DateTime.Parse( _split[ 0 ] );
+                            var _calendar = new CalendarForm( );
+                            _calendar.ShowDialog( );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                _date.ToShortDateString( ) );
                         }
-                        else if( Spreadsheet.CurrentCellValue.Length == 10
-                                && Spreadsheet.CurrentCellValue.Contains( "-" ) )
+                        else if( _split[ 0 ].Length <= 10 
+                                && _split[ 0 ].Contains( "/" ) )
                         {
-                            var _year = Spreadsheet.CurrentCellValue
-                                ?.Substring( 0, 4 )?.ToCharArray( );
-                            if( _year?.All( c => char.IsNumber( c ) ) == true )
-                            {
-                                var _date = DateTime.Parse( Spreadsheet.CurrentCellValue );
-                                var _calendar = new CalendarForm( );
-                                _calendar.ShowDialog( );
-                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                    _date.ToShortDateString( ) );
-                            }
+                            var _date = DateTime.Parse( _split[ 0 ] );
+                            var _calendar = new CalendarForm( );
+                            _calendar.ShowDialog( );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                _date.ToShortDateString( ) );
                         }
-                        else if( Spreadsheet.CurrentCellValue.Contains( @"/" ) )
+                        else if( Spreadsheet.CurrentCellValue.EndsWith( "AM" )
+                                || Spreadsheet.CurrentCellValue.EndsWith( "PM" ) ) 
                         {
-                            var _date = DateTime.Parse( Spreadsheet.CurrentCellValue );
+                            var _date = DateTime.Parse( _split[ 0 ] );
                             var _calendar = new CalendarForm( );
                             _calendar.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange,

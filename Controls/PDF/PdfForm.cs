@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class PdfForm : MetroForm
     {
         /// <summary>
@@ -63,7 +63,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             Size = new Size( 1400, 800 );
             MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1400, 750  );
+            MinimumSize = new Size( 1400, 750 );
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
@@ -85,7 +85,7 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ToolStrip.Text = string.Empty;
-            
+
             // Event Wiring
             Load += OnLoad;
             ToolStrip.DropDown.SelectedIndexChanged += OnDropDownItemSelected;
@@ -96,7 +96,7 @@ namespace BudgetExecution
         /// instance of the <see cref="PdfForm"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public PdfForm( string filePath ) 
+        public PdfForm( string filePath )
             : this( )
         {
             FilePath = filePath;
@@ -124,9 +124,9 @@ namespace BudgetExecution
                 var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
-                LoadDocuments(  );
+                LoadDocuments( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -153,12 +153,12 @@ namespace BudgetExecution
                         if( !string.IsNullOrEmpty( _name )
                            && _name != "ApplicationLandingDocument" )
                         {
-                            ToolStrip.DropDown.Items.Add( _name.SplitPascal(  ) );
+                            ToolStrip.DropDown.Items.Add( _name.SplitPascal( ) );
                         }
                     }
                 }
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -173,7 +173,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button 
+                if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.BackButton )
                 {
                     if( Owner != null
@@ -182,7 +182,7 @@ namespace BudgetExecution
                         Owner.Visible = true;
                     }
 
-                    Close(  );
+                    Close( );
                 }
             }
             catch( Exception ex )
@@ -203,13 +203,13 @@ namespace BudgetExecution
                 var _index = ToolStrip.DropDown.SelectedIndex;
                 var _item = ToolStrip.DropDown.Items[ _index ].ToString( );
                 var _name = _item?.Replace( " ", "" );
-                var _path = DirectoryPath + $"\\{ _name }" + ".pdf";
+                var _path = DirectoryPath + $"\\{_name}" + ".pdf";
                 var _fileName = Path.GetFileNameWithoutExtension( _path );
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
-                Text = _fileName.SplitPascal(  );
+                Text = _fileName.SplitPascal( );
             }
-            catch ( Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }

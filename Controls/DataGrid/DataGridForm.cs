@@ -234,16 +234,6 @@ namespace BudgetExecution
             FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
             GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
 
-            // ToolStrip Properties
-            ToolStrip.Visible = true;
-            ToolStrip.Text = string.Empty;
-            ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-            ToolStrip.LauncherStyle = LauncherStyle.Office12;
-            ToolStrip.ImageSize = new Size( 16, 16 );
-            ToolStrip.ImageScalingSize = new Size( 16, 16 );
-
             // Table Layout Properties
             FirstTable.Visible = false;
             SecondTable.Visible = false;
@@ -256,35 +246,6 @@ namespace BudgetExecution
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            HeaderLabel.MouseClick += OnRightClick;
-            TabControl.MouseClick += OnRightClick;
-            TablePanel.MouseClick += OnRightClick;
-            TableTabPage.MouseClick += OnRightClick;
-            FilterTabPage.MouseClick += OnRightClick;
-            FilterTable.MouseClick += OnRightClick;
-            GroupTabPage.MouseClick += OnRightClick;
-            FieldsTable.MouseClick += OnRightClick;
-            FieldPanel.MouseClick += OnRightClick;
-            NumericsTable.MouseClick += OnRightClick;
-            NumericPanel.MouseClick += OnRightClick;
-            CalendarTabPage.MouseClick += OnRightClick;
-            FirstCalendarPanel.MouseClick += OnRightClick;
-            SecondCalendarPanel.MouseClick += OnRightClick;
             GridPanel.MouseClick += OnRightClick;
             ExcelExportButton.Click += null;
             ExitButton.Click += null;
@@ -371,10 +332,40 @@ namespace BudgetExecution
                 ClearLabelText( );
                 InitRadioButtons( );
                 SetProviderImage( );
+                SetToolStripProperties( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
+                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+                TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+                HeaderLabel.MouseClick += OnRightClick;
+                TabControl.MouseClick += OnRightClick;
+                TablePanel.MouseClick += OnRightClick;
+                TableTabPage.MouseClick += OnRightClick;
+                FilterTabPage.MouseClick += OnRightClick;
+                FilterTable.MouseClick += OnRightClick;
+                GroupTabPage.MouseClick += OnRightClick;
+                FieldsTable.MouseClick += OnRightClick;
+                FieldPanel.MouseClick += OnRightClick;
+                NumericsTable.MouseClick += OnRightClick;
+                NumericPanel.MouseClick += OnRightClick;
+                CalendarTabPage.MouseClick += OnRightClick;
+                FirstCalendarPanel.MouseClick += OnRightClick;
+                SecondCalendarPanel.MouseClick += OnRightClick;
                 ExcelExportButton.Click += OnExcelExportButtonClicked;
                 ChartButton.Click += OnChartButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
@@ -794,6 +785,28 @@ namespace BudgetExecution
             {
                 Fail( ex );
                 return default( IEnumerable<RadioButton> );
+            }
+        }
+
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void SetToolStripProperties( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
