@@ -33,20 +33,25 @@
             CloseButton =  new Button( ) ;
             Header =  new TableLayoutPanel( ) ;
             PictureBox =  new PictureBox( ) ;
+            HeaderLabel =  new Label( ) ;
+            CalendarPanel =  new Layout( ) ;
+            SelectButton =  new Button( ) ;
             ( (ISupportInitialize) BindingSource  ).BeginInit( );
             Header.SuspendLayout( );
             ( (ISupportInitialize) PictureBox  ).BeginInit( );
+            CalendarPanel.SuspendLayout( );
             SuspendLayout( );
             // 
             // Calendar
             // 
+            Calendar.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right   ;
             Calendar.CanOverrideStyle =  true ;
             Calendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            Calendar.Location =  new System.Drawing.Point( 34, 78 ) ;
+            Calendar.Location =  new System.Drawing.Point( 20, 29 ) ;
             Calendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             Calendar.Name =  "Calendar" ;
             Calendar.ShowToolTip =  true ;
-            Calendar.Size =  new System.Drawing.Size( 728, 336 ) ;
+            Calendar.Size =  new System.Drawing.Size( 490, 252 ) ;
             Calendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -122,7 +127,7 @@
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 685, 453 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 387, 394 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -145,12 +150,13 @@
             Header.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 5.59085131F ) );
             Header.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 94.40915F ) );
             Header.Controls.Add( PictureBox, 0, 0 );
+            Header.Controls.Add( HeaderLabel, 1, 0 );
             Header.Dock =  DockStyle.Top ;
             Header.Location =  new System.Drawing.Point( 0, 0 ) ;
             Header.Name =  "Header" ;
             Header.RowCount =  1 ;
             Header.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            Header.Size =  new System.Drawing.Size( 787, 34 ) ;
+            Header.Size =  new System.Drawing.Size( 602, 34 ) ;
             Header.TabIndex =  2 ;
             // 
             // PictureBox
@@ -162,6 +168,87 @@
             PictureBox.SizeMode =  PictureBoxSizeMode.Zoom ;
             PictureBox.TabIndex =  0 ;
             PictureBox.TabStop =  false ;
+            // 
+            // HeaderLabel
+            // 
+            HeaderLabel.BindingSource =  null ;
+            HeaderLabel.DataFilter =  null ;
+            HeaderLabel.Dock =  DockStyle.Fill ;
+            HeaderLabel.FlatStyle =  FlatStyle.Flat ;
+            HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            HeaderLabel.HoverText =  null ;
+            HeaderLabel.IsDerivedStyle =  true ;
+            HeaderLabel.Location =  new System.Drawing.Point( 36, 3 ) ;
+            HeaderLabel.Margin =  new Padding( 3 ) ;
+            HeaderLabel.Name =  "HeaderLabel" ;
+            HeaderLabel.Padding =  new Padding( 1 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 563, 28 ) ;
+            HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            HeaderLabel.StyleManager =  null ;
+            HeaderLabel.TabIndex =  1 ;
+            HeaderLabel.Text =  "Budget Calendar" ;
+            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleCenter ;
+            HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            HeaderLabel.ThemeName =  "Budget Execution" ;
+            HeaderLabel.ToolTip =  null ;
+
+            // 
+            // CalendarPanel
+            // 
+            CalendarPanel.BackColor =  System.Drawing.Color.Transparent ;
+            CalendarPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CalendarPanel.BindingSource =  null ;
+            CalendarPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            CalendarPanel.BorderThickness =  1 ;
+            CalendarPanel.Children =  null ;
+            CalendarPanel.Controls.Add( Calendar );
+            CalendarPanel.DataFilter =  null ;
+            CalendarPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            CalendarPanel.HoverText =  null ;
+            CalendarPanel.IsDerivedStyle =  true ;
+            CalendarPanel.Location =  new System.Drawing.Point( 36, 56 ) ;
+            CalendarPanel.Name =  "CalendarPanel" ;
+            CalendarPanel.Padding =  new Padding( 1 ) ;
+            CalendarPanel.Size =  new System.Drawing.Size( 527, 316 ) ;
+            CalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            CalendarPanel.StyleManager =  null ;
+            CalendarPanel.TabIndex =  3 ;
+            CalendarPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            CalendarPanel.ThemeName =  "Budget Execution" ;
+            CalendarPanel.ToolTip =  null ;
+            // 
+            // SelectButton
+            // 
+            SelectButton.BindingSource =  null ;
+            SelectButton.DataFilter =  null ;
+            SelectButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            SelectButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            SelectButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            SelectButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SelectButton.ForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SelectButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            SelectButton.HoverText =  null ;
+            SelectButton.HoverTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SelectButton.IsDerivedStyle =  true ;
+            SelectButton.Location =  new System.Drawing.Point( 161, 394 ) ;
+            SelectButton.Name =  "SelectButton" ;
+            SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
+            SelectButton.NormalTextColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SelectButton.Padding =  new Padding( 1 ) ;
+            SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SelectButton.PressTextColor =  System.Drawing.Color.White ;
+            SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SelectButton.StyleManager =  null ;
+            SelectButton.TabIndex =  4 ;
+            SelectButton.Text =  "Select" ;
+            SelectButton.ThemeAuthor =  "Terry D. Eppler" ;
+            SelectButton.ThemeName =  "Budget Execution" ;
+            SelectButton.ToolTip =  null ;
             // 
             // CalendarForm
             // 
@@ -176,17 +263,20 @@
             CaptionButtonHoverColor =  System.Drawing.Color.Red ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientSize =  new System.Drawing.Size( 787, 495 ) ;
+            ClientSize =  new System.Drawing.Size( 602, 439 ) ;
+            Controls.Add( SelectButton );
             Controls.Add( Header );
             Controls.Add( CloseButton );
-            Controls.Add( Calendar );
+            Controls.Add( CalendarPanel );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightSteelBlue ;
             FormBorderStyle =  FormBorderStyle.FixedSingle ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             MaximizeBox =  false ;
+            MaximumSize =  new System.Drawing.Size( 614, 450 ) ;
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
+            MinimumSize =  new System.Drawing.Size( 614, 450 ) ;
             Name =  "CalendarForm" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;
@@ -197,6 +287,7 @@
             ( (ISupportInitialize) BindingSource  ).EndInit( );
             Header.ResumeLayout( false );
             ( (ISupportInitialize) PictureBox  ).EndInit( );
+            CalendarPanel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -206,5 +297,8 @@
         public Button CloseButton;
         public PictureBox PictureBox;
         public TableLayoutPanel Header;
+        public Layout CalendarPanel;
+        public Label HeaderLabel;
+        public Button SelectButton;
     }
 }

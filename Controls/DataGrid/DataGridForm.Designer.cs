@@ -371,7 +371,7 @@
             dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   50  ,   50  ,   50   ) ;
             dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightGray ;
-            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   26  ,   79  ,   125   ) ;
             dataGridViewCellStyle1.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.AlternatingRowsDefaultCellStyle =  dataGridViewCellStyle1 ;
             DataGrid.BackgroundColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
@@ -380,10 +380,10 @@
             DataGrid.CellBorderStyle =  System.Windows.Forms.DataGridViewCellBorderStyle.None ;
             DataGrid.ColumnHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
             dataGridViewCellStyle2.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter ;
-            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle2.BackColor =  System.Drawing.Color.SteelBlue ;
             dataGridViewCellStyle2.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle2.ForeColor =  System.Drawing.Color.White ;
-            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle2.SelectionBackColor =  System.Drawing.Color.FromArgb(   26  ,   79  ,   125   ) ;
             dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
             DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
@@ -393,7 +393,7 @@
             dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             dataGridViewCellStyle3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle3.ForeColor =  System.Drawing.Color.LightGray ;
-            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle3.SelectionBackColor =  System.Drawing.Color.FromArgb(   26  ,   79  ,   125   ) ;
             dataGridViewCellStyle3.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle3.WrapMode =  System.Windows.Forms.DataGridViewTriState.False ;
             DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
@@ -401,7 +401,7 @@
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
             DataGrid.HoverText =  null ;
-            DataGrid.Location =  new System.Drawing.Point( 34, 26 ) ;
+            DataGrid.Location =  new System.Drawing.Point( 20, 26 ) ;
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
@@ -418,11 +418,11 @@
             dataGridViewCellStyle5.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
             dataGridViewCellStyle5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle5.ForeColor =  System.Drawing.Color.LightGray ;
-            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            dataGridViewCellStyle5.SelectionBackColor =  System.Drawing.Color.FromArgb(   26  ,   79  ,   125   ) ;
             dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
-            DataGrid.Size =  new System.Drawing.Size( 906, 512 ) ;
+            DataGrid.Size =  new System.Drawing.Size( 923, 512 ) ;
             DataGrid.TabIndex =  0 ;
             DataGrid.ToolTip =  null ;
             // 
@@ -1232,7 +1232,7 @@
             TableListBox.SelectedText =  null ;
             TableListBox.SelectedValue =  null ;
             TableListBox.ShowBorder =  false ;
-            TableListBox.ShowScrollBar =  false ;
+            TableListBox.ShowScrollBar =  true ;
             TableListBox.Size =  new System.Drawing.Size( 218, 450 ) ;
             TableListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             TableListBox.StyleManager =  null ;
@@ -2131,7 +2131,7 @@
             MenuButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             MenuButton.Name =  "MenuButton" ;
             MenuButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            MenuButton.Size =  new System.Drawing.Size( 23, 22 ) ;
+            MenuButton.Size =  new System.Drawing.Size( 23, 28 ) ;
             MenuButton.Text =  "toolStripButton2" ;
             MenuButton.ToolTip =  ToolTip ;
             MenuButton.ToolType =  ToolType.MenuButton ;
@@ -2160,7 +2160,7 @@
             ExitButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ExitButton.Name =  "ExitButton" ;
             ExitButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ExitButton.Size =  new System.Drawing.Size( 23, 22 ) ;
+            ExitButton.Size =  new System.Drawing.Size( 23, 28 ) ;
             ExitButton.Text =  "toolStripButton1" ;
             ExitButton.ToolTip =  ToolTip ;
             ExitButton.ToolType =  ToolType.ExitButton ;
@@ -2285,9 +2285,9 @@
             FilterLabel.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             FilterLabel.Name =  "FilterLabel" ;
             FilterLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FilterLabel.Size =  new System.Drawing.Size( 44, 28 ) ;
+            FilterLabel.Size =  new System.Drawing.Size( 40, 28 ) ;
             FilterLabel.Tag =  "" ;
-            FilterLabel.Text =  "     Filters:" ;
+            FilterLabel.Text =  "   Filters:" ;
             FilterLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleRight ;
             FilterLabel.ToolTip =  ToolTip ;
             // 
@@ -2329,9 +2329,9 @@
             CommandLabel.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             CommandLabel.Name =  "CommandLabel" ;
             CommandLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            CommandLabel.Size =  new System.Drawing.Size( 84, 28 ) ;
+            CommandLabel.Size =  new System.Drawing.Size( 76, 28 ) ;
             CommandLabel.Tag =  "" ;
-            CommandLabel.Text =  "              Commands:" ;
+            CommandLabel.Text =  "          Commands:" ;
             CommandLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleRight ;
             CommandLabel.ToolTip =  ToolTip ;
             // 
@@ -2372,9 +2372,9 @@
             FunctionalityLabel.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             FunctionalityLabel.Name =  "FunctionalityLabel" ;
             FunctionalityLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FunctionalityLabel.Size =  new System.Drawing.Size( 71, 28 ) ;
+            FunctionalityLabel.Size =  new System.Drawing.Size( 63, 28 ) ;
             FunctionalityLabel.Tag =  "" ;
-            FunctionalityLabel.Text =  "           Functions:" ;
+            FunctionalityLabel.Text =  "       Functions:" ;
             FunctionalityLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleRight ;
             FunctionalityLabel.ToolTip =  ToolTip ;
             // 
@@ -2399,8 +2399,8 @@
             LabelSpacer.BackColor =  System.Drawing.Color.Transparent ;
             LabelSpacer.ForeColor =  System.Drawing.Color.Transparent ;
             LabelSpacer.Name =  "LabelSpacer" ;
-            LabelSpacer.Size =  new System.Drawing.Size( 131, 27 ) ;
-            LabelSpacer.Text =  "this is a lable for space" ;
+            LabelSpacer.Size =  new System.Drawing.Size( 113, 27 ) ;
+            LabelSpacer.Text =  "this is a lable space" ;
             // 
             // ApplicationLabel
             // 
@@ -2414,9 +2414,9 @@
             ApplicationLabel.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ApplicationLabel.Name =  "ApplicationLabel" ;
             ApplicationLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ApplicationLabel.Size =  new System.Drawing.Size( 74, 28 ) ;
+            ApplicationLabel.Size =  new System.Drawing.Size( 66, 28 ) ;
             ApplicationLabel.Tag =  "" ;
-            ApplicationLabel.Text =  "          Application:" ;
+            ApplicationLabel.Text =  "      Application:" ;
             ApplicationLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleRight ;
             ApplicationLabel.ToolTip =  ToolTip ;
             // 
@@ -2823,7 +2823,6 @@
         private ToolSeparator LabelSpaceSeparator;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt LabelSpacer;
         public ToolSeparator ExitSeparator;
-        public DataGrid DataGrid;
         public ToolStripLabel SchemaLabel;
         public ToolSeparator NavigationSeparator;
         public ToolStripLabel FilterLabel;
@@ -2836,5 +2835,6 @@
         public ToolStripLabel NavigationSpacer;
         public ToolStripLabel CommandSpacer;
         public ToolStripLabel FunctionSpacer;
+        public DataGrid DataGrid;
     }
 }

@@ -115,7 +115,6 @@
             Ribbon.ThemeStyle.MoreCommandsStyle.PropertyGridViewBorderColor =  System.Drawing.Color.FromArgb(   171  ,   171  ,   171   ) ;
             Ribbon.TitleColor =  System.Drawing.Color.White ;
             Ribbon.TitleFont =  new System.Drawing.Font( "Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-
             // 
             // Spreadsheet
             // 
@@ -134,7 +133,7 @@
             Spreadsheet.DefaultRowCount =  100 ;
             Spreadsheet.DisplayAlerts =  true ;
             Spreadsheet.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            Spreadsheet.FileName =  "Book3" ;
+            Spreadsheet.FileName =  "Book1" ;
             Spreadsheet.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Spreadsheet.ForeColor =  System.Drawing.Color.Black ;
             Spreadsheet.FormulaBarVisibility =  true ;
@@ -211,6 +210,7 @@
             ToolStrip.ShowCaption =  true ;
             ToolStrip.ShowLauncher =  true ;
             ToolStrip.Size =  new System.Drawing.Size( 1338, 46 ) ;
+            ToolStrip.Stretch =  true ;
             ToolStrip.TabIndex =  2 ;
             ToolStrip.TextBox =  null ;
             ToolStrip.ThemeName =  "Office2016DarkGray" ;
@@ -302,7 +302,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 176, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 174, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -328,15 +328,16 @@
             FunctionLabel.BindingSource =  null ;
             FunctionLabel.DataFilter =  null ;
             FunctionLabel.Field =  Field.AccountCode ;
-            FunctionLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FunctionLabel.Font =  new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FunctionLabel.ForeColor =  System.Drawing.Color.Black ;
             FunctionLabel.HoverText =  null ;
             FunctionLabel.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             FunctionLabel.Name =  "FunctionLabel" ;
             FunctionLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FunctionLabel.Size =  new System.Drawing.Size( 82, 28 ) ;
+            FunctionLabel.Size =  new System.Drawing.Size( 71, 28 ) ;
             FunctionLabel.Tag =  "" ;
-            FunctionLabel.Text =  "Functions:       " ;
+            FunctionLabel.Text =  "    Functions:       " ;
+            FunctionLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleRight ;
             FunctionLabel.ToolTip =  null ;
             // 
             // Separator5
@@ -446,11 +447,12 @@
             // FilterLabel
             // 
             FilterLabel.BackColor =  System.Drawing.Color.Transparent ;
-            FilterLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FilterLabel.Font =  new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FilterLabel.ForeColor =  System.Drawing.Color.Black ;
             FilterLabel.Name =  "FilterLabel" ;
-            FilterLabel.Size =  new System.Drawing.Size( 60, 27 ) ;
-            FilterLabel.Text =  "Filters:      " ;
+            FilterLabel.Size =  new System.Drawing.Size( 52, 27 ) ;
+            FilterLabel.Text =  "    Filters:      " ;
+            FilterLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleRight ;
             // 
             // DataSourceSeparator
             // 
@@ -692,7 +694,6 @@
         public ToolStripButton RefreshButton;
         public ToolStripButton ChartButton;
         public ToolStripButton MenuButton;
-        private ToolStrip ToolStrip;
         private SmallTip ToolTip;
         public ToolStripButton RefreshDataButton;
         public ToolSeparator Separator6;
@@ -728,5 +729,6 @@
         public ToolStripLabel LastLabel;
         public ToolStripLabel FunctionLabel;
         private ToolStripLabel toolStripLabel2;
+        public ToolStrip ToolStrip;
     }
 }

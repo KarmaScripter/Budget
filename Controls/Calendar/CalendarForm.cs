@@ -24,6 +24,9 @@ namespace BudgetExecution
 
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Size = new Size( 614, 450 );
+            MinimumSize = new Size( 614, 450 );
+            MaximumSize = new Size( 614, 450 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
@@ -47,7 +50,12 @@ namespace BudgetExecution
             CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.Text = "Close";
             CloseButton.HoverText = "Close Calendar";
-
+            
+            // HeaderLabel Settings
+            HeaderLabel.Font = new Font( "Roboto", 11 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            
             // Event Wiring
             Load += OnLoad;
         }

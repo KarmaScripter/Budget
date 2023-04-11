@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
@@ -20,8 +21,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -79,7 +80,7 @@ namespace BudgetExecution
         /// The selected numerics.
         /// </value>
         public IList<string> SelectedNumerics { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the row count.
         /// </summary>
@@ -187,7 +188,7 @@ namespace BudgetExecution
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.ImageSize = new Size( 16, 16 );
             ToolStrip.ImageScalingSize = new Size( 16, 16 );
@@ -354,7 +355,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the active grid properties.
         /// </summary>
@@ -569,51 +570,58 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
                 {
-                    if( Spreadsheet.CurrentCellValue?.Length >= 6
-                       && Spreadsheet.CurrentCellValue.Length <= 9 )
+                    if( Spreadsheet.CurrentCellValue?.Length >= 6 )
                     {
-                        var _code = Spreadsheet.CurrentCellValue.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
+                        if( Spreadsheet.CurrentCellValue.Substring( 0, 3 ) == "000"
+                           && Spreadsheet.CurrentCellValue.Length <= 9 )
+                        {
+                            var _code = Spreadsheet.CurrentCellValue.Substring( 4, 2 );
+                            var _dialog = new ProgramProjectDialog( _code );
+                            _dialog.ShowDialog( );
+                        }
+                        else if( double.TryParse( Spreadsheet.CurrentCellValue, out var value ) )
+                        {
+                            var _form = new CalculationForm( value );
+                            _form.ShowDialog( );
+                            var _value = _form.Calculator.Value.ToDouble( );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, _value.ToString( "N" ) );
+                        }
+                        else if( decimal.TryParse( Spreadsheet.CurrentCellValue, out var current ) )
+                        {
+                            var _current = (double)current;
+                            var _form = new CalculationForm( _current );
+                            _form.ShowDialog( );
+                            var _calculation = _form.Calculator.Value.ToDouble( );
+                            var _cellValue = _calculation.ToString( "N" );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue );
+                        }
+                        else if( Spreadsheet.CurrentCellValue.Length == 10 
+                                && Spreadsheet.CurrentCellValue.Contains( "-" ) )
+                        {
+                            var _date = Spreadsheet.CurrentCellValue
+                                ?.Substring( 0, 4 )?.ToCharArray( );
+                            if( _date?.All( c => char.IsNumber( c ) ) == true )
+                            {
+                                var _cellValue = DateTime.Parse( Spreadsheet.CurrentCellValue );
+                                var _form = new CalendarForm( );
+                                _form.Calendar.SelectedDate = _cellValue;
+                                _form.ShowDialog( );
+                                var _selection = _form.Calendar.SelectedDate;
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _selection?.ToShortDateString( ) );
+                            }
+                        }
+                        else if( Spreadsheet.CurrentCellValue.Contains( @"/" ) )
+                        {
+                            var _cellValue = DateTime.Parse( Spreadsheet.CurrentCellValue );
+                            var _form = new CalendarForm( );
+                            _form.Calendar.SelectedDate = _cellValue;
+                            _form.ShowDialog( );
+                            var _selection = _form.Calendar.SelectedDate;
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
+                                _selection?.ToShortDateString( ) );
+                        }
                     }
-                }
-                else if( double.TryParse( Spreadsheet.CurrentCellValue, out var value ) )
-                {
-                    var _form = new CalculationForm( value );
-                    _form.ShowDialog( );
-                    var _value = _form.Calculator.Value.ToDouble( );
-                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, _value.ToString( "N" ) );
-                }
-                else if( decimal.TryParse( Spreadsheet.CurrentCellValue, out var current ) )
-                {
-                    var _current = (double)current;
-                    var _form = new CalculationForm( _current );
-                    _form.ShowDialog( );
-                    var _calculation = _form.Calculator.Value.ToDouble( );
-                    var _cellValue = _calculation.ToString( "N" );
-                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue );
-                }
-                else if( DateOnly.TryParse( Spreadsheet.CurrentCellValue, out var _ ) )
-                {
-                    var _cellValue = DateTime.Parse( Spreadsheet.CurrentCellValue );
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = _cellValue;
-                    _form.ShowDialog( );
-                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue.ToString( ) );
-                }
-                else if( DateTime.TryParse( Spreadsheet.CurrentCellValue, out var dateTime ) )
-                {
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = dateTime;
-                    _form.ShowDialog( );
-                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, dateTime.ToString( ) );
-                }
-                else if( DateTimeOffset.TryParse( Spreadsheet.CurrentCellValue, out var offSet ) )
-                {
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = offSet.DateTime;
-                    _form.ShowDialog( );
-                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, offSet.ToString( ) );
                 }
             }
             catch( Exception ex )
