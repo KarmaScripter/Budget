@@ -276,6 +276,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
         private void SetToolStripProperties( )
         {
             try
@@ -377,7 +380,7 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.AllowSelection = true;
                 Spreadsheet.ActiveGrid.CanOverrideStyle = true;
                 Spreadsheet.ActiveGrid.CanApplyTheme = true;
-                Spreadsheet.ActiveGrid.BackColor = Color.LightGray;
+                Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
                 Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = Color.FromArgb( 20, 20,
@@ -595,48 +598,49 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
                 {
+                    var _cell = Spreadsheet.CurrentCellValue;
                     var _chars = Spreadsheet.CurrentCellValue.ToCharArray( );
-                    var _split = Spreadsheet.CurrentCellValue.Split( " " );
-                    if( Spreadsheet.CurrentCellValue?.Length >= 6
-                       && Spreadsheet.CurrentCellValue.Length <= 9 )
+                    if( _cell.Length >= 6
+                       && _cell.Length <= 9 )
                     {
-                        if( Spreadsheet.CurrentCellValue.Substring( 0, 3 ) == "000" )
+                        if( _cell.Substring( 0, 3 ) == "000" )
                         {
-                            var _code = Spreadsheet.CurrentCellValue.Substring( 4, 2 );
+                            var _code = _cell.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );
                             _dialog.ShowDialog( );
                         }
                         else if( _chars.All( c => char.IsNumber( c ) ) )
                         {
-                            var _value = double.Parse( Spreadsheet.CurrentCellValue );
+                            var _value = double.Parse( _cell );
                             var _form = new CalculationForm( _value );
                             _form.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
                                 _value.ToString( "N" ) );
                         }
-                        else if( _split[ 0 ].Length <= 10 
-                                && _split[ 0 ].Contains( "-" ) )
+                        else if( _cell.EndsWith( "AM" )
+                                || _cell.EndsWith( "PM" ) )
                         {
-                            var _date = DateTime.Parse( _split[ 0 ] );
+                            var _date = DateTime.Parse( _cell );
                             var _calendar = new CalendarForm( );
+                            _calendar.Calendar.SelectedDate = _date;
                             _calendar.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange,
                                 _date.ToShortDateString( ) );
                         }
-                        else if( _split[ 0 ].Length <= 10 
-                                && _split[ 0 ].Contains( "/" ) )
+                        else if( _cell.Contains( "-" ) )
                         {
-                            var _date = DateTime.Parse( _split[ 0 ] );
+                            var _date = DateTime.Parse( _cell );
                             var _calendar = new CalendarForm( );
+                            _calendar.Calendar.SelectedDate = _date;
                             _calendar.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange,
                                 _date.ToShortDateString( ) );
                         }
-                        else if( Spreadsheet.CurrentCellValue.EndsWith( "AM" )
-                                || Spreadsheet.CurrentCellValue.EndsWith( "PM" ) ) 
+                        else if( _cell.Contains( "/" ) )
                         {
-                            var _date = DateTime.Parse( _split[ 0 ] );
+                            var _date = DateTime.Parse( _cell );
                             var _calendar = new CalendarForm( );
+                            _calendar.Calendar.SelectedDate = _date;
                             _calendar.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange,
                                 _date.ToShortDateString( ) );
