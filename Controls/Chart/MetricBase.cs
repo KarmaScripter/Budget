@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class MetricBase
     {
         /// <summary>
@@ -207,12 +208,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _columns = dataRow.CopyToDataTable( ).GetColumnNames( );
-
+                    var _columns = dataRow
+                        ?.CopyToDataTable( )
+                        ?.GetColumnNames( );
+                    
                     if( _columns?.Contains( dataMember ) == true )
                     {
-                        var _query = dataRow?.Select( p => p.Field<string>( dataMember ) )
-                            ?.Distinct( )?.ToArray( );
+                        var _query = dataRow
+                            ?.Select( p => p.Field<string>( dataMember ) )
+                            ?.Distinct( )
+                            ?.ToArray( );
 
                         return _query?.Any( ) == true
                             ? _query
@@ -241,7 +246,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _select = dataRow?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
+                    var _select = dataRow
+                        ?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
                         ?.Select( p => p );
 
                     return _select?.Any( ) == true

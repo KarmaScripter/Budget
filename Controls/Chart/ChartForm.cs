@@ -233,38 +233,13 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
-
-            // ToolStrip Properties
-            ToolStrip.Visible = true;
-            ToolStrip.Text = string.Empty;
-            ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
-            ToolStrip.LauncherStyle = LauncherStyle.Office12;
-            ToolStrip.ImageSize = new Size( 16, 16 );
-            ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            ToolStripTextBox.Size = new Size( 190, 28 );
-            ToolStripTextBox.ForeColor = Color.LightSteelBlue;
-            ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-            ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-
+            
             // Event Wiring
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
             FilterButton.Click += null;
             TableButton.Click += null;
-            ChartTable.MouseClick += OnRightClick;
-            FirstTable.MouseClick += OnRightClick;
-            FirstListBoxPanel.MouseClick += OnRightClick;
-            SecondTable.MouseClick += OnRightClick;
-            SecondListBoxPanel.MouseClick += OnRightClick;
-            ExitButton.Click += OnExitButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            FilterButton.Click += OnRemoveFilterButtonClicked;
-            FilterButton.Click += OnRemoveFilterButtonClicked;
-            TableButton.Click += OnTableButtonClick;
             MouseClick += OnRightClick;
             Load += OnLoad;
         }
@@ -355,6 +330,17 @@ namespace BudgetExecution
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
+                ChartTable.MouseClick += OnRightClick;
+                FirstTable.MouseClick += OnRightClick;
+                FirstListBoxPanel.MouseClick += OnRightClick;
+                SecondTable.MouseClick += OnRightClick;
+                SecondListBoxPanel.MouseClick += OnRightClick;
+                ExitButton.Click += OnExitButtonClicked;
+                BackButton.Click += OnBackButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                FilterButton.Click += OnRemoveFilterButtonClicked;
+                FilterButton.Click += OnRemoveFilterButtonClicked;
+                TableButton.Click += OnTableButtonClick;
                 FilterButton.Click += OnRemoveFilterButtonClicked;
                 PopulateToolBarDropDownItems( );
             }
@@ -631,10 +617,11 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the label text.
         /// </summary>
-        private void SetLabelText( )
+        private void ResetLabelText( )
         {
             try
             {
+                Text = $"{Provider} Database ";
                 FirstHeaderLabel.Text = "Source :  ";
                 SecondHeaderLabel.Text = "Records : ";
                 ThirdHeaderLabel.Text = "Fields : ";
@@ -753,7 +740,7 @@ namespace BudgetExecution
             }
         }
 
-        private void OpenFilterDialog( )
+        private void ShowFilterDialog( )
         {
             try
             {
@@ -764,7 +751,7 @@ namespace BudgetExecution
             }
         }
 
-        private void OpenGroupDialog( )
+        private void ShowGroupDialog( )
         {
             try
             {
@@ -775,7 +762,7 @@ namespace BudgetExecution
             }
         }
 
-        private void OpenTableDialog( )
+        private void ShowTableDialog( )
         {
             try
             {
@@ -787,6 +774,28 @@ namespace BudgetExecution
             }
         }
 
+        private void OpenExcelDataForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenDataGridForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Populates the field ListBox.
         /// </summary>

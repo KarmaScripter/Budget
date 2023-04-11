@@ -654,6 +654,62 @@ namespace BudgetExecution
             }
         }
 
+        private void ShowFilterDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowGroupDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowTableDialog( )
+        {
+            try
+            {
+                var _form = new FilterDialog( BindingSource );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenChartDataForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenDataGridForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

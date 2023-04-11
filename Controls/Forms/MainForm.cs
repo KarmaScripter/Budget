@@ -184,67 +184,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [database tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnDatabaseTileClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                ShowDatabaseForm( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the database form.
-        /// </summary>
-        private void ShowDatabaseForm( )
-        {
-            try
-            {
-                var _dataGridForm = new DataGridForm( );
-                _dataGridForm.Owner = this;
-                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
-                _dataGridForm.Show( );
-                Visible = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        /// <summary>
-        /// Called when [reporting tile clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnReportingTileClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                ShowChartForm( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Shows the chart form.
         /// </summary>
-        private void ShowChartForm( )
+        private void OpenChartDataForm( )
         {
             try
             {
@@ -269,6 +211,73 @@ namespace BudgetExecution
             {
                 var _minion = new MinionSelector( );
                 _minion.ShowDialog( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenExcelDataForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenDataGridForm( )
+        {
+            try
+            {
+                var _dataGridForm = new DataGridForm( );
+                _dataGridForm.Owner = this;
+                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
+                _dataGridForm.Show( );
+                Visible = false;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [database tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnDatabaseTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenDataGridForm( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [reporting tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnReportingTileClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenChartDataForm( );
             }
             catch( Exception ex )
             {

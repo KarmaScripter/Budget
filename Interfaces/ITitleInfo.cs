@@ -14,22 +14,22 @@ namespace BudgetExecution
     {
         /// <summary> Gets the main title. </summary>
         /// <returns> </returns>
-        ChartTitle GetChartMainTitle( );
+        ChartTitle CreateMainTitle( );
 
         /// <summary> Gets the axis title. </summary>
         /// <returns> </returns>
-        ChartTitle GetChartAxisTitle( );
+        ChartTitle CreateAxisTitle( );
 
         /// <summary> Gets the main title. </summary>
         /// <param name = "color" > The color. </param>
         /// <param name = "font" > The font. </param>
         /// <returns> </returns>
-        ChartTitle GetChartMainTitle( Color color, Font font );
+        ChartTitle CreateMainTitle( Color color, Font font );
 
         /// <summary> Gets the axis title. </summary>
         /// <param name = "color" > The color. </param>
         /// <param name = "font" > The font. </param>
         /// <returns> </returns>
-        ChartTitle GetChartAxisTitle( Color color, Font font );
+        ChartTitle CreateAxisTitle( Color color, Font font );
     }
 }

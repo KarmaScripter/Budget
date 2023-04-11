@@ -32,6 +32,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
     [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -329,7 +330,7 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                ClearLabelText( );
+                ResetLabelText( );
                 InitRadioButtons( );
                 SetProviderImage( );
                 SetToolStripProperties( );
@@ -690,7 +691,8 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " 
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -813,7 +815,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the label text.
         /// </summary>
-        private void ClearLabelText( )
+        private void ResetLabelText( )
         {
             try
             {
@@ -1187,6 +1189,62 @@ namespace BudgetExecution
             }
         }
 
+        private void ShowFilterDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowGroupDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowTableDialog( )
+        {
+            try
+            {
+                var _form = new FilterDialog( BindingSource );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenExcelDataForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenChartDataForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [table ListBox item selected].
         /// </summary>
@@ -1216,7 +1274,7 @@ namespace BudgetExecution
                         TabControl.SelectedIndex = 1;
                     }
 
-                    ClearLabelText( );
+                    ResetLabelText( );
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
@@ -1343,7 +1401,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    ClearLabelText( );
+                    ResetLabelText( );
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = GetSqlText( FormFilter );
@@ -1419,7 +1477,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    ClearLabelText( );
+                    ResetLabelText( );
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = GetSqlText( FormFilter );
@@ -1494,7 +1552,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    ClearLabelText( );
+                    ResetLabelText( );
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = GetSqlText( FormFilter );
@@ -1825,7 +1883,7 @@ namespace BudgetExecution
                     DataGrid.DataSource = null;
                     ClearSelections( );
                     ClearCollections( );
-                    ClearLabelText( );
+                    ResetLabelText( );
                     TabControl.SelectedIndex = 0;
                 }
             }
@@ -1925,7 +1983,7 @@ namespace BudgetExecution
                 {
                     ClearSelections( );
                     ClearCollections( );
-                    ClearLabelText( );
+                    ResetLabelText( );
                     DataGrid.DataSource = null;
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;

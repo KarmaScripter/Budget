@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// Gets the main title.
         /// </summary>
         /// <returns></returns>
-        public ChartTitle GetChartMainTitle( )
+        public ChartTitle CreateMainTitle( )
         {
             if( !string.IsNullOrEmpty( Main ) )
             {
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// Gets the axis title.
         /// </summary>
         /// <returns></returns>
-        public ChartTitle GetChartAxisTitle( )
+        public ChartTitle CreateAxisTitle( )
         {
             if( !string.IsNullOrEmpty( Axis ) )
             {
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         /// <param name="font">The font.</param>
         /// <returns></returns>
-        public ChartTitle GetChartMainTitle( Color color, Font font )
+        public ChartTitle CreateMainTitle( Color color, Font font )
         {
             if( !color.IsEmpty
                && font != null )
@@ -171,7 +171,7 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         /// <param name="font">The font.</param>
         /// <returns></returns>
-        public ChartTitle GetChartAxisTitle( Color color, Font font )
+        public ChartTitle CreateAxisTitle( Color color, Font font )
         {
             if( !color.IsEmpty
                && font != null )
