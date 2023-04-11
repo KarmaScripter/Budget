@@ -243,10 +243,6 @@ namespace BudgetExecution
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.ImageSize = new Size( 16, 16 );
             ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            ToolStripTextBox.Size = new Size( 190, 28 );
-            ToolStripTextBox.ForeColor = Color.DarkGray;
-            ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-            ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
 
             // Table Layout Properties
             FirstTable.Visible = false;
@@ -409,7 +405,6 @@ namespace BudgetExecution
         {
             try
             {
-                PopulateToolStripComboBoxItems( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;
@@ -836,6 +831,7 @@ namespace BudgetExecution
                 {
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows.Count.ToString( "#,###" ) ?? "0";
+                    var _columns = DataTable.Columns.Count.ToString( ) ?? "--";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
                     HeaderLabel.Text = $"{_table} ";
@@ -852,13 +848,13 @@ namespace BudgetExecution
                 {
                     HeaderLabel.Text = $"{Provider} Database ";
                     FirstGridLabel.Text = $"Provider :  {Provider}";
-                    SecondGridLabel.Text = "Records : ";
-                    ThirdGridLabel.Text = "Fields : ";
-                    FourthGridLabel.Text = "Measures : ";
-                    FieldsTable.CaptionText = "Fields : ";
-                    NumericsTable.CaptionText = "Measures : ";
-                    FirstCalendarTable.CaptionText = "Start Date : ";
-                    SecondCalendarTable.CaptionText = "End Date : ";
+                    SecondGridLabel.Text = "Records : --";
+                    ThirdGridLabel.Text = "Fields : --";
+                    FourthGridLabel.Text = "Measures : --";
+                    FieldsTable.CaptionText = "Fields : --";
+                    NumericsTable.CaptionText = "Measures : --";
+                    FirstCalendarTable.CaptionText = "Start Date : --";
+                    SecondCalendarTable.CaptionText = "End Date : --";
                 }
             }
             catch( Exception ex )
@@ -936,29 +932,6 @@ namespace BudgetExecution
                 if( SelectedNumerics?.Any( ) == true )
                 {
                     SelectedNumerics.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the tool strip ComboBox items.
-        /// </summary>
-        public void PopulateToolStripComboBoxItems( )
-        {
-            try
-            {
-                var _names = Enum.GetNames( typeof( SQL ) );
-                for( var _i = 0; _i < _names.Length; _i++ )
-                {
-                    var name = _names[ _i ];
-                    if( name != "NS" )
-                    {
-                        ComboBox.Items.Add( name );
-                    }
                 }
             }
             catch( Exception ex )
@@ -1977,6 +1950,7 @@ namespace BudgetExecution
                     _chart.SelectedColumns = SelectedColumns;
                     _chart.SelectedFields = SelectedFields;
                     _chart.SelectedNumerics = SelectedNumerics;
+                    _chart.FormFilter = FormFilter;
                     _chart.Show( );
                     Close( );
                 }
@@ -2000,6 +1974,11 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ExcelExportButton )
                 {
                     var _excelForm = new ExcelDataForm( BindingSource );
+                    _excelForm.SelectedTable = SelectedTable;
+                    _excelForm.SelectedColumns = SelectedColumns;
+                    _excelForm.SelectedFields = SelectedFields;
+                    _excelForm.SelectedNumerics = SelectedNumerics;
+                    _excelForm.FormFilter = FormFilter;
                     _excelForm.Show( );
                     Close( );
                 }

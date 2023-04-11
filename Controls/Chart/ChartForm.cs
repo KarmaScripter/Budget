@@ -279,11 +279,6 @@ namespace BudgetExecution
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
             BindingSource.DataSource = bindingSource.DataSource;
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-            DataModel = new DataBuilder( Source, Provider );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
         }
 
         /// <summary>

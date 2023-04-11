@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -39,6 +40,46 @@ namespace BudgetExecution
         /// </value>
         public string FileName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
+        public string SelectedTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> FormFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
+        
         /// <summary>
         /// Gets or sets the row count.
         /// </summary>
