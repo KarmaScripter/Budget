@@ -49,9 +49,11 @@ namespace BudgetExecution
             BorderThickness = 1;
             BorderColor = Color.Red;
             Size = new Size( 700, 450 );
+            MaximumSize = new Size( 700, 450 );
+            MinimumSize = new Size( 700, 450 );
             Font = new Font( "Roboto", 9 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 26;
+            CaptionBarHeight = 5;
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Left;

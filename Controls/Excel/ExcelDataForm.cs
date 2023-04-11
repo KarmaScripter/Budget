@@ -188,7 +188,7 @@ namespace BudgetExecution
             ToolStrip.Text = string.Empty;
             ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
             ToolStrip.Office12Mode = true;
-            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Blue;
+            ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
             ToolStrip.LauncherStyle = LauncherStyle.Office12;
             ToolStrip.ImageSize = new Size( 16, 16 );
             ToolStrip.ImageScalingSize = new Size( 16, 16 );
@@ -368,9 +368,24 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.AllowSelection = true;
                 Spreadsheet.ActiveGrid.CanOverrideStyle = true;
                 Spreadsheet.ActiveGrid.CanApplyTheme = true;
-                Spreadsheet.ActiveGrid.Office2016ScrollBars = true;
-                Spreadsheet.ActiveGrid.Office2016ScrollBarsColorScheme = ScrollBarOffice2016ColorScheme.Black;
                 Spreadsheet.ActiveGrid.BackColor = Color.LightGray;
+                Spreadsheet.ActiveGrid.MetroScrollBars = true;
+                Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = Color.DimGray;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
+                    Color.FromArgb( 17, 69, 97 );
+
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor
+                    = Color.LightSteelBlue;
+
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal
+                    = Color.FromArgb( 17, 69, 97 );
+
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed
+                    = Color.FromArgb( 17, 69, 97 );
+
                 Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
                 Spreadsheet.ActiveGrid.ForeColor = Color.Black;
                 Spreadsheet.ActiveGrid.ColumnCount = ColCount;
@@ -595,31 +610,27 @@ namespace BudgetExecution
                             var _cellValue = _calculation.ToString( "N" );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange, _cellValue );
                         }
-                        else if( Spreadsheet.CurrentCellValue.Length == 10 
+                        else if( Spreadsheet.CurrentCellValue.Length == 10
                                 && Spreadsheet.CurrentCellValue.Contains( "-" ) )
                         {
-                            var _date = Spreadsheet.CurrentCellValue
+                            var _year = Spreadsheet.CurrentCellValue
                                 ?.Substring( 0, 4 )?.ToCharArray( );
-                            if( _date?.All( c => char.IsNumber( c ) ) == true )
+                            if( _year?.All( c => char.IsNumber( c ) ) == true )
                             {
-                                var _cellValue = DateTime.Parse( Spreadsheet.CurrentCellValue );
-                                var _form = new CalendarForm( );
-                                _form.Calendar.SelectedDate = _cellValue;
-                                _form.ShowDialog( );
-                                var _selection = _form.Calendar.SelectedDate;
+                                var _date = DateTime.Parse( Spreadsheet.CurrentCellValue );
+                                var _calendar = new CalendarForm( );
+                                _calendar.ShowDialog( );
                                 Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                    _selection?.ToShortDateString( ) );
+                                    _date.ToShortDateString( ) );
                             }
                         }
                         else if( Spreadsheet.CurrentCellValue.Contains( @"/" ) )
                         {
-                            var _cellValue = DateTime.Parse( Spreadsheet.CurrentCellValue );
-                            var _form = new CalendarForm( );
-                            _form.Calendar.SelectedDate = _cellValue;
-                            _form.ShowDialog( );
-                            var _selection = _form.Calendar.SelectedDate;
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
-                                _selection?.ToShortDateString( ) );
+                            var _date = DateTime.Parse( Spreadsheet.CurrentCellValue );
+                            var _calendar = new CalendarForm( );
+                            _calendar.ShowDialog( );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                _date.ToShortDateString( ) );
                         }
                     }
                 }

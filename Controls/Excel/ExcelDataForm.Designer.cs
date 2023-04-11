@@ -198,7 +198,7 @@
             ToolStrip.Name =  "ToolStrip" ;
             ToolStrip.NextButton =  null ;
             ToolStrip.Office12Mode =  false ;
-            ToolStrip.OfficeColorScheme =  Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Blue ;
+            ToolStrip.OfficeColorScheme =  Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black ;
             ToolStrip.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStrip.PreviousButton =  null ;
             ToolStrip.ProgressBar =  null ;
@@ -302,7 +302,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 174, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 172, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
