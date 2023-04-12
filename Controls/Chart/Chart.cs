@@ -172,11 +172,11 @@ namespace BudgetExecution
             // Legend Properties
             Legend.Font = new Font( "Roboto", 8 );
             Legend.ItemsSize = new Size( 10, 10 );
-            Legend.VisibleCheckBox = true;
             Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             Legend.ItemsAlignment = StringAlignment.Center;
             Legend.ItemsTextAligment = VerticalAlignment.Center;
             Legend.Orientation = ChartOrientation.Vertical;
+            Legend.VisibleCheckBox = true;
             Legend.FloatingAutoSize = true;
             Legend.ShowSymbol = true;
             Legend.ShowItemsShadow = true;
@@ -203,14 +203,13 @@ namespace BudgetExecution
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
-                Color.FromArgb( 65, 65, 65 ) );
-
             Depth = 250;
             ElementsSpacing = 10;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
             ColumnFixedWidth = 20;
             ShowLegend = true;
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
+                Color.FromArgb( 65, 65, 65 ) );
 
             //Chart Appearance Setting
             Palette = ChartColorPalette.Metro;
