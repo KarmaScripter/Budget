@@ -290,6 +290,7 @@ namespace BudgetExecution
                 ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ShowCaption = false;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
                 ToolStripTextBox.Size = new Size( 190, 28 );
@@ -383,8 +384,8 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = Color.FromArgb( 20, 20,
-                    20 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
+                    SystemColors.ControlDarkDark;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
                     Color.FromArgb( 17, 69, 97 );
 
@@ -406,6 +407,62 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.DefaultColumnWidth = 110;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
                 Spreadsheet.ActiveGrid.CellClick += OnCellClick;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowFilterDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowGroupDialog( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ShowTableDialog( )
+        {
+            try
+            {
+                var _form = new FilterDialog( BindingSource );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenChartDataForm( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OpenDataGridForm( )
+        {
+            try
+            {
             }
             catch( Exception ex )
             {
@@ -598,52 +655,117 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
                 {
-                    var _cell = Spreadsheet.CurrentCellValue;
+                    DateOnly _do;
+                    DateTime _dt;
+                    DateTimeOffset _dto;
+                    double _numeric;
+                    var _contents = Spreadsheet.CurrentCellValue;
                     var _chars = Spreadsheet.CurrentCellValue.ToCharArray( );
-                    if( _cell.Length >= 6
-                       && _cell.Length <= 9 )
+                    if( _contents.Length >= 6
+                       && _contents.Length <= 9 )
                     {
-                        if( _cell.Substring( 0, 3 ) == "000" )
+                        if( _contents.Substring( 0, 3 ) == "000" )
                         {
-                            var _code = _cell.Substring( 4, 2 );
+                            var _code = _contents.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );
                             _dialog.ShowDialog( );
                         }
                         else if( _chars.All( c => char.IsNumber( c ) ) )
                         {
-                            var _value = double.Parse( _cell );
-                            var _form = new CalculationForm( _value );
-                            _form.ShowDialog( );
+                            var _value = double.TryParse( _contents, out _numeric );
+                            var _calculator = new CalculationForm( _numeric );
+                            _calculator.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
-                                _value.ToString( "N" ) );
+                                _numeric.ToString( "N" ) );
                         }
-                        else if( _cell.EndsWith( "AM" )
-                                || _cell.EndsWith( "PM" ) )
+                        else if( _contents.Length <= 20 
+                                && ( _contents.EndsWith( "AM" )
+                                    || _contents.EndsWith( "PM" ) ) )
                         {
-                            var _date = DateTime.Parse( _cell );
-                            var _calendar = new CalendarForm( );
-                            _calendar.Calendar.SelectedDate = _date;
-                            _calendar.ShowDialog( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                _date.ToShortDateString( ) );
+                            if( DateTime.TryParse( _contents, out _dt ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                _calendar.Calendar.SelectedDate = _dt;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
+                                    _dt.ToShortDateString( ) );
+                            }
+                            else if( DateTimeOffset.TryParse( _contents, out _dto ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                _calendar.Calendar.SelectedDate = _dto.DateTime;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _dto.DateTime.ToShortDateString( ) );
+                            }
+                            else if( DateOnly.TryParse( _contents, out _do ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                var _tm = new DateTime( _do.Year, _do.Month, _do.Day );
+                                _calendar.Calendar.SelectedDate = _tm;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _tm.ToShortDateString( ) );
+                            }
                         }
-                        else if( _cell.Contains( "-" ) )
+                        else if( _contents.Contains( "-" ) 
+                                && _contents.Length >= 8 
+                                && _contents.Length <= 10 )
                         {
-                            var _date = DateTime.Parse( _cell );
-                            var _calendar = new CalendarForm( );
-                            _calendar.Calendar.SelectedDate = _date;
-                            _calendar.ShowDialog( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                _date.ToShortDateString( ) );
+                            if( DateTime.TryParse( _contents, out _dt ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                _calendar.Calendar.SelectedDate = _dt;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _dt.ToShortDateString( ) );
+                            }
+                            else if( DateTimeOffset.TryParse( _contents, out _dto ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                _calendar.Calendar.SelectedDate = _dto.DateTime;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _dto.DateTime.ToShortDateString( ) );
+                            }
+                            else if( DateOnly.TryParse( _contents, out _do ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                var _tm = new DateTime( _do.Year, _do.Month, _do.Day );
+                                _calendar.Calendar.SelectedDate = _tm;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _tm.ToShortDateString( ) );
+                            }
                         }
-                        else if( _cell.Contains( "/" ) )
+                        else if( _contents.Contains( "//" ) 
+                                && _contents.Length <= 20 )
                         {
-                            var _date = DateTime.Parse( _cell );
-                            var _calendar = new CalendarForm( );
-                            _calendar.Calendar.SelectedDate = _date;
-                            _calendar.ShowDialog( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                _date.ToShortDateString( ) );
+                            if( DateTime.TryParse( _contents, out _dt ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                _calendar.Calendar.SelectedDate = _dt;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _dt.ToShortDateString( ) );
+                            }
+                            else if( DateTimeOffset.TryParse( _contents, out _dto ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                _calendar.Calendar.SelectedDate = _dto.DateTime;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _dto.DateTime.ToShortDateString( ) );
+                            }
+                            else if( DateOnly.TryParse( _contents, out _do ) )
+                            {
+                                var _calendar = new CalendarForm( );
+                                var _tm = new DateTime( _do.Year, _do.Month, _do.Day );
+                                _calendar.Calendar.SelectedDate = _tm;
+                                _calendar.ShowDialog( );
+                                Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                    _tm.ToShortDateString( ) );
+                            }
                         }
                     }
                 }
@@ -654,62 +776,6 @@ namespace BudgetExecution
             }
         }
 
-        private void ShowFilterDialog( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        private void ShowGroupDialog( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        private void ShowTableDialog( )
-        {
-            try
-            {
-                var _form = new FilterDialog( BindingSource );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        private void OpenChartDataForm( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        private void OpenDataGridForm( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

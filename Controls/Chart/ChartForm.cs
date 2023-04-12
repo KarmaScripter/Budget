@@ -740,6 +740,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the filter dialog.
+        /// </summary>
         private void ShowFilterDialog( )
         {
             try
@@ -751,6 +754,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the group dialog.
+        /// </summary>
         private void ShowGroupDialog( )
         {
             try
@@ -762,6 +768,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
         private void ShowTableDialog( )
         {
             try
@@ -774,6 +783,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the excel data form.
+        /// </summary>
         private void OpenExcelDataForm( )
         {
             try
@@ -785,6 +797,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
         private void OpenDataGridForm( )
         {
             try

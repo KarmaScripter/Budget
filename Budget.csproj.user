@@ -43,6 +43,9 @@
     <Compile Update="Controls\Chart\ChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Chart\Legend.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\CheckBox\CheckBox.cs">
       <SubType>Component</SubType>
     </Compile>

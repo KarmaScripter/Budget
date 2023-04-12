@@ -5,15 +5,27 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.CellGrid.Helpers;
+    using Syncfusion.WinForms.Input;
 
     /// <summary>
     /// 
     /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class CalendarForm : MetroForm
     {
+        /// <summary>
+        /// Gets or sets the selected date.
+        /// </summary>
+        /// <value>
+        /// The selected date.
+        /// </value>
+        public string DateSelected { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CalendarForm"/> class.
@@ -24,9 +36,9 @@ namespace BudgetExecution
 
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 614, 450 );
-            MinimumSize = new Size( 614, 450 );
-            MaximumSize = new Size( 614, 450 );
+            Size = new Size( 584, 406 );
+            MinimumSize = new Size( 584, 406 );
+            MaximumSize = new Size( 584, 406 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
@@ -61,6 +73,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="CalendarForm"/> class.
+        /// </summary>
+        /// <param name="dateTime">The date time.</param>
+        public CalendarForm( DateTime dateTime )
+            : this( )
+        {
+            DateSelected = dateTime.ToString( );
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -71,6 +94,7 @@ namespace BudgetExecution
             {
                 CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
                 CloseButton.Click += OnCloseButtonClicked;
+                Calendar.SelectionChanged += OnSelectionChanged;
             }
             catch( Exception ex )
             {
@@ -87,6 +111,28 @@ namespace BudgetExecution
         {
             try
             {
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [selection changed].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.</param>
+        /// <param name="e">The
+        /// <see cref="SelectionChangedEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                var _date = Calendar.SelectedDate;
+                DateSelected = _date.ToString( );
                 Close( );
             }
             catch( Exception ex )

@@ -51,7 +51,7 @@ partial class FilterDialog
         TableTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         SourceHeader =  new Label( ) ;
         MaintenanceTable =  new HeaderPanel( ) ;
-        layout1 =  new Layout( ) ;
+        MaintenancePanel =  new Layout( ) ;
         MaintenanceListBox =  new ListBox( ) ;
         ReferenceTable =  new HeaderPanel( ) ;
         ReferencePanel =  new Layout( ) ;
@@ -70,7 +70,6 @@ partial class FilterDialog
         FourthTable =  new HeaderPanel( ) ;
         FourthPanel =  new Layout( ) ;
         FourthListBox =  new ListBox( ) ;
-        listBox1 =  new ListBox( ) ;
         FourthComboBox =  new ComboBox( ) ;
         ThirdTable =  new HeaderPanel( ) ;
         SecondTable =  new HeaderPanel( ) ;
@@ -99,14 +98,6 @@ partial class FilterDialog
         SecondCalendarTable =  new HeaderPanel( ) ;
         SeondCalendar =  new Syncfusion.WinForms.Input.SfCalendar( ) ;
         SecondCalendarLabel =  new Label( ) ;
-        layout2 =  new Layout( ) ;
-        TimeLabelTable =  new HeaderPanel( ) ;
-        TimeSpanLabel6 =  new Label( ) ;
-        TimeSpanLabel1 =  new Label( ) ;
-        TimeSpanLabel2 =  new Label( ) ;
-        TimeSpanLabel3 =  new Label( ) ;
-        TimeSpanLabel4 =  new Label( ) ;
-        TimeSpanLabel5 =  new Label( ) ;
         SqlTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         EditorTable =  new HeaderPanel( ) ;
         EditorPanel =  new Layout( ) ;
@@ -127,7 +118,7 @@ partial class FilterDialog
         TabControl.SuspendLayout( );
         TableTabPage.SuspendLayout( );
         MaintenanceTable.SuspendLayout( );
-        layout1.SuspendLayout( );
+        MaintenancePanel.SuspendLayout( );
         ReferenceTable.SuspendLayout( );
         ReferencePanel.SuspendLayout( );
         SourceTable.SuspendLayout( );
@@ -152,8 +143,6 @@ partial class FilterDialog
         FirstCalendarTable.SuspendLayout( );
         EndDatePanel.SuspendLayout( );
         SecondCalendarTable.SuspendLayout( );
-        layout2.SuspendLayout( );
-        TimeLabelTable.SuspendLayout( );
         SqlTabPage.SuspendLayout( );
         EditorTable.SuspendLayout( );
         EditorPanel.SuspendLayout( );
@@ -564,7 +553,7 @@ partial class FilterDialog
         MaintenanceTable.CaptionText =  "Maintenance Tables" ;
         MaintenanceTable.ColumnCount =  1 ;
         MaintenanceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        MaintenanceTable.Controls.Add( layout1, 0, 0 );
+        MaintenanceTable.Controls.Add( MaintenancePanel, 0, 0 );
         MaintenanceTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         MaintenanceTable.ForeColor =  System.Drawing.Color.DarkGray ;
         MaintenanceTable.Location =  new System.Drawing.Point( 1010, 73 ) ;
@@ -574,31 +563,31 @@ partial class FilterDialog
         MaintenanceTable.Size =  new System.Drawing.Size( 278, 357 ) ;
         MaintenanceTable.TabIndex =  14 ;
         // 
-        // layout1
+        // MaintenancePanel
         // 
-        layout1.BackColor =  System.Drawing.Color.Transparent ;
-        layout1.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        layout1.BindingSource =  null ;
-        layout1.BorderColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
-        layout1.BorderThickness =  1 ;
-        layout1.Children =  null ;
-        layout1.Controls.Add( MaintenanceListBox );
-        layout1.DataFilter =  null ;
-        layout1.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        layout1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        layout1.ForeColor =  System.Drawing.Color.Transparent ;
-        layout1.HoverText =  null ;
-        layout1.IsDerivedStyle =  true ;
-        layout1.Location =  new System.Drawing.Point( 3, 19 ) ;
-        layout1.Name =  "layout1" ;
-        layout1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        layout1.Size =  new System.Drawing.Size( 272, 335 ) ;
-        layout1.Style =  MetroSet_UI.Enums.Style.Custom ;
-        layout1.StyleManager =  null ;
-        layout1.TabIndex =  2 ;
-        layout1.ThemeAuthor =  "Terry D. Eppler" ;
-        layout1.ThemeName =  "Budget Execution" ;
-        layout1.ToolTip =  null ;
+        MaintenancePanel.BackColor =  System.Drawing.Color.Transparent ;
+        MaintenancePanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        MaintenancePanel.BindingSource =  null ;
+        MaintenancePanel.BorderColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+        MaintenancePanel.BorderThickness =  1 ;
+        MaintenancePanel.Children =  null ;
+        MaintenancePanel.Controls.Add( MaintenanceListBox );
+        MaintenancePanel.DataFilter =  null ;
+        MaintenancePanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        MaintenancePanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        MaintenancePanel.ForeColor =  System.Drawing.Color.Transparent ;
+        MaintenancePanel.HoverText =  null ;
+        MaintenancePanel.IsDerivedStyle =  true ;
+        MaintenancePanel.Location =  new System.Drawing.Point( 3, 19 ) ;
+        MaintenancePanel.Name =  "MaintenancePanel" ;
+        MaintenancePanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        MaintenancePanel.Size =  new System.Drawing.Size( 272, 335 ) ;
+        MaintenancePanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        MaintenancePanel.StyleManager =  null ;
+        MaintenancePanel.TabIndex =  2 ;
+        MaintenancePanel.ThemeAuthor =  "Terry D. Eppler" ;
+        MaintenancePanel.ThemeName =  "Budget Execution" ;
+        MaintenancePanel.ToolTip =  null ;
         // 
         // MaintenanceListBox
         // 
@@ -1007,7 +996,6 @@ partial class FilterDialog
         FourthPanel.BorderThickness =  1 ;
         FourthPanel.Children =  null ;
         FourthPanel.Controls.Add( FourthListBox );
-        FourthPanel.Controls.Add( listBox1 );
         FourthPanel.DataFilter =  null ;
         FourthPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
         FourthPanel.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -1060,42 +1048,6 @@ partial class FilterDialog
         FourthListBox.ThemeAuthor =  "Terry D. Eppler" ;
         FourthListBox.ThemeName =  "BudgetExecution" ;
         FourthListBox.ToolTip =  null ;
-        // 
-        // listBox1
-        // 
-        listBox1.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-        listBox1.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-        listBox1.BindingSource =  null ;
-        listBox1.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-        listBox1.DataFilter =  null ;
-        listBox1.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        listBox1.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        listBox1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        listBox1.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        listBox1.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
-        listBox1.HoverText =  null ;
-        listBox1.IsDerivedStyle =  true ;
-        listBox1.ItemHeight =  28 ;
-        listBox1.Location =  new System.Drawing.Point( 18, 19 ) ;
-        listBox1.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-        listBox1.MultiSelect =  false ;
-        listBox1.Name =  "listBox1" ;
-        listBox1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        listBox1.SelectedIndex =  -1 ;
-        listBox1.SelectedItem =  null ;
-        listBox1.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        listBox1.SelectedItemColor =  System.Drawing.Color.White ;
-        listBox1.SelectedText =  null ;
-        listBox1.SelectedValue =  null ;
-        listBox1.ShowBorder =  false ;
-        listBox1.ShowScrollBar =  false ;
-        listBox1.Size =  new System.Drawing.Size( 0, 139 ) ;
-        listBox1.Style =  MetroSet_UI.Enums.Style.Custom ;
-        listBox1.StyleManager =  null ;
-        listBox1.TabIndex =  0 ;
-        listBox1.ThemeAuthor =  "Terry D. Eppler" ;
-        listBox1.ThemeName =  "BudgetExecution" ;
-        listBox1.ToolTip =  null ;
         // 
         // FourthComboBox
         // 
@@ -1567,7 +1519,6 @@ partial class FilterDialog
         CalendarTabPage.Controls.Add( FirstCalendarTable );
         CalendarTabPage.Controls.Add( StartDatePanel );
         CalendarTabPage.Controls.Add( EndDatePanel );
-        CalendarTabPage.Controls.Add( layout2 );
         CalendarTabPage.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CalendarTabPage.Image =  null ;
         CalendarTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
@@ -1834,195 +1785,6 @@ partial class FilterDialog
         SecondCalendarLabel.ThemeAuthor =  "Terry D. Eppler" ;
         SecondCalendarLabel.ThemeName =  "Budget Execution" ;
         SecondCalendarLabel.ToolTip =  null ;
-        // 
-        // layout2
-        // 
-        layout2.BackColor =  System.Drawing.Color.Transparent ;
-        layout2.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        layout2.BindingSource =  null ;
-        layout2.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-        layout2.BorderThickness =  1 ;
-        layout2.Children =  null ;
-        layout2.Controls.Add( TimeLabelTable );
-        layout2.DataFilter =  null ;
-        layout2.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        layout2.ForeColor =  System.Drawing.Color.Transparent ;
-        layout2.HoverText =  null ;
-        layout2.IsDerivedStyle =  true ;
-        layout2.Location =  new System.Drawing.Point( 901, 51 ) ;
-        layout2.Name =  "layout2" ;
-        layout2.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        layout2.Size =  new System.Drawing.Size( 391, 362 ) ;
-        layout2.Style =  MetroSet_UI.Enums.Style.Custom ;
-        layout2.StyleManager =  null ;
-        layout2.TabIndex =  21 ;
-        layout2.ThemeAuthor =  "Terry D. Eppler" ;
-        layout2.ThemeName =  "Budget Execution" ;
-        layout2.ToolTip =  null ;
-        // 
-        // TimeLabelTable
-        // 
-        TimeLabelTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-        TimeLabelTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-        TimeLabelTable.CaptionText =  "Time Span Data" ;
-        TimeLabelTable.ColumnCount =  1 ;
-        TimeLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-        TimeLabelTable.Controls.Add( TimeSpanLabel6, 0, 6 );
-        TimeLabelTable.Controls.Add( TimeSpanLabel1, 0, 1 );
-        TimeLabelTable.Controls.Add( TimeSpanLabel2, 0, 2 );
-        TimeLabelTable.Controls.Add( TimeSpanLabel3, 0, 3 );
-        TimeLabelTable.Controls.Add( TimeSpanLabel4, 0, 4 );
-        TimeLabelTable.Controls.Add( TimeSpanLabel5, 0, 5 );
-        TimeLabelTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeLabelTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        TimeLabelTable.Location =  new System.Drawing.Point( 21, 23 ) ;
-        TimeLabelTable.Name =  "TimeLabelTable" ;
-        TimeLabelTable.RowCount =  7 ;
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 32F ) );
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 45F ) );
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 43F ) );
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 44F ) );
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 48F ) );
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 42F ) );
-        TimeLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 25F ) );
-        TimeLabelTable.Size =  new System.Drawing.Size( 348, 319 ) ;
-        TimeLabelTable.TabIndex =  17 ;
-        // 
-        // TimeSpanLabel6
-        // 
-        TimeSpanLabel6.BindingSource =  null ;
-        TimeSpanLabel6.DataFilter =  null ;
-        TimeSpanLabel6.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TimeSpanLabel6.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        TimeSpanLabel6.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeSpanLabel6.HoverText =  null ;
-        TimeSpanLabel6.IsDerivedStyle =  true ;
-        TimeSpanLabel6.Location =  new System.Drawing.Point( 3, 273 ) ;
-        TimeSpanLabel6.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        TimeSpanLabel6.Name =  "TimeSpanLabel6" ;
-        TimeSpanLabel6.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TimeSpanLabel6.Size =  new System.Drawing.Size( 342, 43 ) ;
-        TimeSpanLabel6.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TimeSpanLabel6.StyleManager =  null ;
-        TimeSpanLabel6.TabIndex =  7 ;
-        TimeSpanLabel6.Text =  " " ;
-        TimeSpanLabel6.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-        TimeSpanLabel6.ThemeAuthor =  "Terry D. Eppler" ;
-        TimeSpanLabel6.ThemeName =  "Budget Execution" ;
-        TimeSpanLabel6.ToolTip =  null ;
-        // 
-        // TimeSpanLabel1
-        // 
-        TimeSpanLabel1.BindingSource =  null ;
-        TimeSpanLabel1.DataFilter =  null ;
-        TimeSpanLabel1.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TimeSpanLabel1.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        TimeSpanLabel1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeSpanLabel1.HoverText =  null ;
-        TimeSpanLabel1.IsDerivedStyle =  true ;
-        TimeSpanLabel1.Location =  new System.Drawing.Point( 3, 51 ) ;
-        TimeSpanLabel1.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        TimeSpanLabel1.Name =  "TimeSpanLabel1" ;
-        TimeSpanLabel1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TimeSpanLabel1.Size =  new System.Drawing.Size( 342, 39 ) ;
-        TimeSpanLabel1.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TimeSpanLabel1.StyleManager =  null ;
-        TimeSpanLabel1.TabIndex =  2 ;
-        TimeSpanLabel1.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-        TimeSpanLabel1.ThemeAuthor =  "Terry D. Eppler" ;
-        TimeSpanLabel1.ThemeName =  "Budget Execution" ;
-        TimeSpanLabel1.ToolTip =  null ;
-        // 
-        // TimeSpanLabel2
-        // 
-        TimeSpanLabel2.BindingSource =  null ;
-        TimeSpanLabel2.DataFilter =  null ;
-        TimeSpanLabel2.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TimeSpanLabel2.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        TimeSpanLabel2.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeSpanLabel2.HoverText =  null ;
-        TimeSpanLabel2.IsDerivedStyle =  true ;
-        TimeSpanLabel2.Location =  new System.Drawing.Point( 3, 96 ) ;
-        TimeSpanLabel2.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        TimeSpanLabel2.Name =  "TimeSpanLabel2" ;
-        TimeSpanLabel2.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TimeSpanLabel2.Size =  new System.Drawing.Size( 342, 37 ) ;
-        TimeSpanLabel2.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TimeSpanLabel2.StyleManager =  null ;
-        TimeSpanLabel2.TabIndex =  4 ;
-        TimeSpanLabel2.Text =  " " ;
-        TimeSpanLabel2.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-        TimeSpanLabel2.ThemeAuthor =  "Terry D. Eppler" ;
-        TimeSpanLabel2.ThemeName =  "Budget Execution" ;
-        TimeSpanLabel2.ToolTip =  null ;
-        // 
-        // TimeSpanLabel3
-        // 
-        TimeSpanLabel3.BindingSource =  null ;
-        TimeSpanLabel3.DataFilter =  null ;
-        TimeSpanLabel3.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TimeSpanLabel3.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        TimeSpanLabel3.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeSpanLabel3.HoverText =  null ;
-        TimeSpanLabel3.IsDerivedStyle =  true ;
-        TimeSpanLabel3.Location =  new System.Drawing.Point( 3, 139 ) ;
-        TimeSpanLabel3.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        TimeSpanLabel3.Name =  "TimeSpanLabel3" ;
-        TimeSpanLabel3.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TimeSpanLabel3.Size =  new System.Drawing.Size( 342, 38 ) ;
-        TimeSpanLabel3.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TimeSpanLabel3.StyleManager =  null ;
-        TimeSpanLabel3.TabIndex =  5 ;
-        TimeSpanLabel3.Text =  " " ;
-        TimeSpanLabel3.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-        TimeSpanLabel3.ThemeAuthor =  "Terry D. Eppler" ;
-        TimeSpanLabel3.ThemeName =  "Budget Execution" ;
-        TimeSpanLabel3.ToolTip =  null ;
-        // 
-        // TimeSpanLabel4
-        // 
-        TimeSpanLabel4.BindingSource =  null ;
-        TimeSpanLabel4.DataFilter =  null ;
-        TimeSpanLabel4.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TimeSpanLabel4.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        TimeSpanLabel4.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeSpanLabel4.HoverText =  null ;
-        TimeSpanLabel4.IsDerivedStyle =  true ;
-        TimeSpanLabel4.Location =  new System.Drawing.Point( 3, 183 ) ;
-        TimeSpanLabel4.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        TimeSpanLabel4.Name =  "TimeSpanLabel4" ;
-        TimeSpanLabel4.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TimeSpanLabel4.Size =  new System.Drawing.Size( 342, 42 ) ;
-        TimeSpanLabel4.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TimeSpanLabel4.StyleManager =  null ;
-        TimeSpanLabel4.TabIndex =  1 ;
-        TimeSpanLabel4.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-        TimeSpanLabel4.ThemeAuthor =  "Terry D. Eppler" ;
-        TimeSpanLabel4.ThemeName =  "Budget Execution" ;
-        TimeSpanLabel4.ToolTip =  null ;
-        // 
-        // TimeSpanLabel5
-        // 
-        TimeSpanLabel5.BindingSource =  null ;
-        TimeSpanLabel5.DataFilter =  null ;
-        TimeSpanLabel5.Dock =  System.Windows.Forms.DockStyle.Fill ;
-        TimeSpanLabel5.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-        TimeSpanLabel5.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        TimeSpanLabel5.HoverText =  null ;
-        TimeSpanLabel5.IsDerivedStyle =  true ;
-        TimeSpanLabel5.Location =  new System.Drawing.Point( 3, 231 ) ;
-        TimeSpanLabel5.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-        TimeSpanLabel5.Name =  "TimeSpanLabel5" ;
-        TimeSpanLabel5.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        TimeSpanLabel5.Size =  new System.Drawing.Size( 342, 36 ) ;
-        TimeSpanLabel5.Style =  MetroSet_UI.Enums.Style.Custom ;
-        TimeSpanLabel5.StyleManager =  null ;
-        TimeSpanLabel5.TabIndex =  6 ;
-        TimeSpanLabel5.Text =  " " ;
-        TimeSpanLabel5.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-        TimeSpanLabel5.ThemeAuthor =  "Terry D. Eppler" ;
-        TimeSpanLabel5.ThemeName =  "Budget Execution" ;
-        TimeSpanLabel5.ToolTip =  null ;
         // 
         // SqlTabPage
         // 
@@ -2409,7 +2171,7 @@ partial class FilterDialog
         TabControl.ResumeLayout( false );
         TableTabPage.ResumeLayout( false );
         MaintenanceTable.ResumeLayout( false );
-        layout1.ResumeLayout( false );
+        MaintenancePanel.ResumeLayout( false );
         ReferenceTable.ResumeLayout( false );
         ReferencePanel.ResumeLayout( false );
         SourceTable.ResumeLayout( false );
@@ -2434,8 +2196,6 @@ partial class FilterDialog
         FirstCalendarTable.ResumeLayout( false );
         EndDatePanel.ResumeLayout( false );
         SecondCalendarTable.ResumeLayout( false );
-        layout2.ResumeLayout( false );
-        TimeLabelTable.ResumeLayout( false );
         SqlTabPage.ResumeLayout( false );
         EditorTable.ResumeLayout( false );
         EditorPanel.ResumeLayout( false );
@@ -2474,11 +2234,6 @@ partial class FilterDialog
     public Syncfusion.WinForms.Input.SfCalendar SeondCalendar;
     private Layout TablePanel;
     public Label TableLabel1;
-    public Label TimeSpanLabel4;
-    public Label TimeSpanLabel1;
-    public Label TimeSpanLabel2;
-    public Label TimeSpanLabel3;
-    public Label TimeSpanLabel5;
     public ComboBox FourthComboBox;
     public ComboBox SecondComboBox;
     public Layout SecondPanel;
@@ -2488,8 +2243,7 @@ partial class FilterDialog
     public ListBox ReferenceListBox;
     public Layout FourthPanel;
     public ListBox FourthListBox;
-    public ListBox listBox1;
-    private Layout layout1;
+    private Layout MaintenancePanel;
     public ListBox MaintenanceListBox;
     public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
     public HeaderPanel NumericTable;
@@ -2516,10 +2270,8 @@ partial class FilterDialog
     public Label SourceHeader;
     public Label GroupHeader;
     public Label FilterHeader;
-    public HeaderPanel TimeLabelTable;
     public HeaderPanel FirstCalendarTable;
     public HeaderPanel SecondCalendarTable;
-    public Label TimeSpanLabel6;
     public Label TimeSpanHeader;
     public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTabPage;
     private HeaderPanel EditorTable;
@@ -2538,6 +2290,5 @@ partial class FilterDialog
     public Layout TextPanel;
     public ListBox CommandQueryListBox;
     private Layout EndDatePanel;
-    private Layout layout2;
     public Layout StartDatePanel;
 }

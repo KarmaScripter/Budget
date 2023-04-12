@@ -44,14 +44,14 @@
             // 
             // Calendar
             // 
-            Calendar.Anchor =      AnchorStyles.Top  |  AnchorStyles.Bottom   |  AnchorStyles.Left   |  AnchorStyles.Right   ;
             Calendar.CanOverrideStyle =  true ;
+            Calendar.Dock =  DockStyle.Fill ;
             Calendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            Calendar.Location =  new System.Drawing.Point( 20, 29 ) ;
+            Calendar.Location =  new System.Drawing.Point( 1, 1 ) ;
             Calendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             Calendar.Name =  "Calendar" ;
             Calendar.ShowToolTip =  true ;
-            Calendar.Size =  new System.Drawing.Size( 490, 252 ) ;
+            Calendar.Size =  new System.Drawing.Size( 490, 273 ) ;
             Calendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -127,7 +127,7 @@
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 487, 398 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 441, 358 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -136,7 +136,7 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 90, 25 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  1 ;
@@ -156,7 +156,7 @@
             Header.Name =  "Header" ;
             Header.RowCount =  1 ;
             Header.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            Header.Size =  new System.Drawing.Size( 602, 34 ) ;
+            Header.Size =  new System.Drawing.Size( 572, 34 ) ;
             Header.TabIndex =  2 ;
             // 
             // PictureBox
@@ -164,7 +164,7 @@
             PictureBox.Image =  Properties.Resources.Calendar ;
             PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
-            PictureBox.Size =  new System.Drawing.Size( 26, 23 ) ;
+            PictureBox.Size =  new System.Drawing.Size( 25, 23 ) ;
             PictureBox.SizeMode =  PictureBoxSizeMode.Zoom ;
             PictureBox.TabIndex =  0 ;
             PictureBox.TabStop =  false ;
@@ -178,11 +178,11 @@
             HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             HeaderLabel.HoverText =  null ;
             HeaderLabel.IsDerivedStyle =  true ;
-            HeaderLabel.Location =  new System.Drawing.Point( 36, 3 ) ;
+            HeaderLabel.Location =  new System.Drawing.Point( 34, 3 ) ;
             HeaderLabel.Margin =  new Padding( 3 ) ;
             HeaderLabel.Name =  "HeaderLabel" ;
             HeaderLabel.Padding =  new Padding( 1 ) ;
-            HeaderLabel.Size =  new System.Drawing.Size( 563, 28 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 535, 28 ) ;
             HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             HeaderLabel.StyleManager =  null ;
             HeaderLabel.TabIndex =  1 ;
@@ -209,7 +209,7 @@
             CalendarPanel.Location =  new System.Drawing.Point( 36, 56 ) ;
             CalendarPanel.Name =  "CalendarPanel" ;
             CalendarPanel.Padding =  new Padding( 1 ) ;
-            CalendarPanel.Size =  new System.Drawing.Size( 527, 316 ) ;
+            CalendarPanel.Size =  new System.Drawing.Size( 495, 275 ) ;
             CalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             CalendarPanel.StyleManager =  null ;
             CalendarPanel.TabIndex =  3 ;
@@ -262,7 +262,7 @@
             CaptionButtonHoverColor =  System.Drawing.Color.Red ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientSize =  new System.Drawing.Size( 602, 439 ) ;
+            ClientSize =  new System.Drawing.Size( 572, 395 ) ;
             Controls.Add( SelectButton );
             Controls.Add( Header );
             Controls.Add( CloseButton );
@@ -275,7 +275,6 @@
             MaximumSize =  new System.Drawing.Size( 614, 450 ) ;
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
-            MinimumSize =  new System.Drawing.Size( 614, 450 ) ;
             Name =  "CalendarForm" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;
