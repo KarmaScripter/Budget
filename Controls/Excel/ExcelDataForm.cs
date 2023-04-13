@@ -182,13 +182,13 @@ namespace BudgetExecution
             Ribbon.Spreadsheet = Spreadsheet;
 
             // Event Wiring
-            Load += OnLoad;
             RemoveFiltersButton.Click += null;
             TableButton.Click += null;
             LookupButton.Click += null;
             UploadButton.Click += null;
             MenuButton.Click += null;
             RemoveFiltersButton.Click += null;
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.RowCount = RowCount;
                 Spreadsheet.ActiveGrid.DefaultColumnWidth = 110;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
-                Spreadsheet.ActiveGrid.CellClick += OnCellClick;
+                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellClick;
             }
             catch( Exception ex )
             {
@@ -649,125 +649,54 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnCellClick( object sender, GridCellClickEventArgs e )
+        public void OnCellClick( object sender, EventArgs e )
         {
             try
             {
-                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
+                var _value = Spreadsheet?.CurrentCellValue;
+                if( !string.IsNullOrEmpty( _value ) )
                 {
-                    var _contents = Spreadsheet.CurrentCellValue;
-                    var _chars = Spreadsheet.CurrentCellValue.ToCharArray( );
-                    if( _contents.Length >= 6
-                       && _contents.Length <= 9 )
+                    var _chars = _value.ToCharArray( );
+                    if( _value.Length >= 6
+                       && _value.Length <= 9 )
                     {
-                        if( _contents.Substring( 0, 3 ) == "000" )
+                        if( _value.Substring( 0, 3 ) == "000" )
                         {
-                            var _code = _contents.Substring( 4, 2 );
+                            var _code = _value.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );
                             _dialog.ShowDialog( );
                         }
-                        else if( _chars.All( c => char.IsNumber( c ) ) )
+                        else if( _chars.All( c => char.IsDigit( c ) ) )
                         {
-                            var _ = double.TryParse( _contents, out var _numeric );
+                            var _numeric = double.Parse( _value );
                             var _calculator = new CalculationForm( _numeric );
                             _calculator.ShowDialog( );
                             Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
                                 _numeric.ToString( "N" ) );
                         }
-                        else
+                        else if( _value.Length <= 22 
+                                && _value.Length >= 8 
+                                && ( _value.EndsWith( "AM" ) 
+                                    || _value.EndsWith( "PM" ) ) )
                         {
-                            DateOnly _do;
-                            DateTime _dt;
-                            DateTimeOffset _dto;
-                            if( _contents.Length <= 20 
-                               && ( _contents.EndsWith( "AM" )
-                                   || _contents.EndsWith( "PM" ) ) )
-                            {
-                                if( DateTime.TryParse( _contents, out _dt ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    _calendar.Calendar.SelectedDate = _dt;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
-                                        _dt.ToShortDateString( ) );
-                                }
-                                else if( DateTimeOffset.TryParse( _contents, out _dto ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    _calendar.Calendar.SelectedDate = _dto.DateTime;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _dto.DateTime.ToShortDateString( ) );
-                                }
-                                else if( DateOnly.TryParse( _contents, out _do ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    var _tm = new DateTime( _do.Year, _do.Month, _do.Day );
-                                    _calendar.Calendar.SelectedDate = _tm;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _tm.ToShortDateString( ) );
-                                }
-                            }
-                            else if( _contents.Contains( "-" ) 
-                                    && _contents.Length >= 8 
-                                    && _contents.Length <= 10 )
-                            {
-                                if( DateTime.TryParse( _contents, out _dt ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    _calendar.Calendar.SelectedDate = _dt;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _dt.ToShortDateString( ) );
-                                }
-                                else if( DateTimeOffset.TryParse( _contents, out _dto ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    _calendar.Calendar.SelectedDate = _dto.DateTime;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _dto.DateTime.ToShortDateString( ) );
-                                }
-                                else if( DateOnly.TryParse( _contents, out _do ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    var _tm = new DateTime( _do.Year, _do.Month, _do.Day );
-                                    _calendar.Calendar.SelectedDate = _tm;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _tm.ToShortDateString( ) );
-                                }
-                            }
-                            else if( _contents.Contains( "//" ) 
-                                    && _contents.Length <= 20 )
-                            {
-                                if( DateTime.TryParse( _contents, out _dt ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    _calendar.Calendar.SelectedDate = _dt;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _dt.ToShortDateString( ) );
-                                }
-                                else if( DateTimeOffset.TryParse( _contents, out _dto ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    _calendar.Calendar.SelectedDate = _dto.DateTime;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _dto.DateTime.ToShortDateString( ) );
-                                }
-                                else if( DateOnly.TryParse( _contents, out _do ) )
-                                {
-                                    var _calendar = new CalendarForm( );
-                                    var _tm = new DateTime( _do.Year, _do.Month, _do.Day );
-                                    _calendar.Calendar.SelectedDate = _tm;
-                                    _calendar.ShowDialog( );
-                                    Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                        _tm.ToShortDateString( ) );
-                                }
-                            }
+                            var _dt = DateTime.Parse( _value );
+                            var _form = new CalendarForm( );
+                            _form.Calendar.SelectedDate = _dt;
+                            _form.ShowDialog( );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
+                                _dt.ToShortDateString( ) );
+                        }
+                        else if( _value.Contains( "-" ) 
+                                || _value.Contains( "/" ) 
+                                && _value.Length >= 8 
+                                && _value.Length <= 22 )
+                        {
+                            var _dt = DateTime.Parse( _value );
+                            var _form = new CalendarForm( );
+                            _form.Calendar.SelectedDate = _dt;
+                            _form.ShowDialog( );
+                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
+                                _dt.ToShortDateString( ) );
                         }
                     }
                 }
