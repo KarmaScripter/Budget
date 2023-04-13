@@ -258,7 +258,6 @@
             WebTile.Title =  textItem16 ;
             WebTile.ToolTip =  ToolTip ;
             WebTile.TurnLiveTileOn =  true ;
-
             // 
             // UtilityTile
             // 
@@ -367,7 +366,7 @@
             TestButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             TestButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             TestButton.PressTextColor =  System.Drawing.Color.White ;
-            TestButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+            TestButton.Size =  new System.Drawing.Size( 103, 29 ) ;
             TestButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             TestButton.StyleManager =  null ;
             TestButton.TabIndex =  6 ;
@@ -390,7 +389,7 @@
             ExitButton.HoverText =  null ;
             ExitButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
             ExitButton.IsDerivedStyle =  true ;
-            ExitButton.Location =  new System.Drawing.Point( 1163, 661 ) ;
+            ExitButton.Location =  new System.Drawing.Point( 1187, 672 ) ;
             ExitButton.Name =  "ExitButton" ;
             ExitButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             ExitButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -399,7 +398,7 @@
             ExitButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressTextColor =  System.Drawing.Color.White ;
-            ExitButton.Size =  new System.Drawing.Size( 140, 40 ) ;
+            ExitButton.Size =  new System.Drawing.Size( 103, 29 ) ;
             ExitButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             ExitButton.StyleManager =  null ;
             ExitButton.TabIndex =  7 ;

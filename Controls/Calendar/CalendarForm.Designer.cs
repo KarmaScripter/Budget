@@ -34,24 +34,21 @@
             Header =  new TableLayoutPanel( ) ;
             PictureBox =  new PictureBox( ) ;
             HeaderLabel =  new Label( ) ;
-            CalendarPanel =  new Layout( ) ;
             SelectButton =  new Button( ) ;
             ( (ISupportInitialize) BindingSource  ).BeginInit( );
             Header.SuspendLayout( );
             ( (ISupportInitialize) PictureBox  ).BeginInit( );
-            CalendarPanel.SuspendLayout( );
             SuspendLayout( );
             // 
             // Calendar
             // 
             Calendar.CanOverrideStyle =  true ;
-            Calendar.Dock =  DockStyle.Fill ;
             Calendar.FirstDayOfWeek =  System.DayOfWeek.Monday ;
-            Calendar.Location =  new System.Drawing.Point( 1, 1 ) ;
+            Calendar.Location =  new System.Drawing.Point( 34, 52 ) ;
             Calendar.MinimumSize =  new System.Drawing.Size( 196, 196 ) ;
             Calendar.Name =  "Calendar" ;
             Calendar.ShowToolTip =  true ;
-            Calendar.Size =  new System.Drawing.Size( 490, 273 ) ;
+            Calendar.Size =  new System.Drawing.Size( 511, 270 ) ;
             Calendar.Style.BorderColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             Calendar.Style.Cell.BlackoutDatesFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -192,31 +189,6 @@
             HeaderLabel.ThemeName =  "Budget Execution" ;
             HeaderLabel.ToolTip =  null ;
             // 
-            // CalendarPanel
-            // 
-            CalendarPanel.BackColor =  System.Drawing.Color.Transparent ;
-            CalendarPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            CalendarPanel.BindingSource =  null ;
-            CalendarPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            CalendarPanel.BorderThickness =  1 ;
-            CalendarPanel.Children =  null ;
-            CalendarPanel.Controls.Add( Calendar );
-            CalendarPanel.DataFilter =  null ;
-            CalendarPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            CalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            CalendarPanel.HoverText =  null ;
-            CalendarPanel.IsDerivedStyle =  true ;
-            CalendarPanel.Location =  new System.Drawing.Point( 36, 56 ) ;
-            CalendarPanel.Name =  "CalendarPanel" ;
-            CalendarPanel.Padding =  new Padding( 1 ) ;
-            CalendarPanel.Size =  new System.Drawing.Size( 495, 275 ) ;
-            CalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            CalendarPanel.StyleManager =  null ;
-            CalendarPanel.TabIndex =  3 ;
-            CalendarPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            CalendarPanel.ThemeName =  "Budget Execution" ;
-            CalendarPanel.ToolTip =  null ;
-            // 
             // SelectButton
             // 
             SelectButton.BindingSource =  null ;
@@ -263,10 +235,10 @@
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClientSize =  new System.Drawing.Size( 572, 395 ) ;
+            Controls.Add( Calendar );
             Controls.Add( SelectButton );
             Controls.Add( Header );
             Controls.Add( CloseButton );
-            Controls.Add( CalendarPanel );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
             FormBorderStyle =  FormBorderStyle.FixedSingle ;
@@ -285,7 +257,6 @@
             ( (ISupportInitialize) BindingSource  ).EndInit( );
             Header.ResumeLayout( false );
             ( (ISupportInitialize) PictureBox  ).EndInit( );
-            CalendarPanel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -295,7 +266,6 @@
         public Button CloseButton;
         public PictureBox PictureBox;
         public TableLayoutPanel Header;
-        public Layout CalendarPanel;
         public Label HeaderLabel;
         public Button SelectButton;
     }

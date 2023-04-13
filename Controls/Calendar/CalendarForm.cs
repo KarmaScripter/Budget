@@ -5,17 +5,18 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
-    using Syncfusion.WinForms.Input;
 
     /// <summary>
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public partial class CalendarForm : MetroForm
     {
         /// <summary>
@@ -25,6 +26,39 @@ namespace BudgetExecution
         /// The selected date.
         /// </value>
         public string DateSelected { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataSet Data { get; set; }
+
+        /// <summary>
+        /// Gets or sets the holidays.
+        /// </summary>
+        /// <value>
+        /// The holidays.
+        /// </value>
+        public DataTable Holidays { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fiscal years.
+        /// </summary>
+        /// <value>
+        /// The fiscal years.
+        /// </value>
+        public DataTable FiscalYears { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        /// 
+        public DataBuilder DataModel { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -99,6 +133,48 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the federal holidays.
+        /// </summary>
+        /// <returns></returns>
+        private DataTable GetFederalHolidays( )
+        {
+            try
+            {
+                var _data = new DataBuilder( Source.FederalHolidays, Provider.Access );
+                var _table = _data.DataTable;
+                return _table.Rows.Count > 0
+                    ? _table
+                    : default( DataTable );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( DataTable );
+            }
+        }
+
+        /// <summary>
+        /// Gets the fiscal years.
+        /// </summary>
+        /// <returns></returns>
+        private DataTable GetFiscalYears( )
+        {
+            try
+            {
+                var _data = new DataBuilder( Source.FiscalYears, Provider.Access );
+                var _table = _data.DataTable;
+                return _table.Rows.Count > 0
+                    ? _table
+                    : default( DataTable );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( DataTable );
             }
         }
 

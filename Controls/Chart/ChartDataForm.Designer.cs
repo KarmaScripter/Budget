@@ -2,7 +2,7 @@
 {
 
 
-    partial class ChartForm
+    partial class ChartDataForm
     {
 
         /// <summary>
@@ -53,6 +53,8 @@
             NextSeparator =  new ToolSeparator( ) ;
             LastButton =  new ToolStripButton( ) ;
             LastSeparator =  new ToolSeparator( ) ;
+            NavigationSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
+            NavigationSeparator =  new ToolSeparator( ) ;
             FilterButton =  new ToolStripButton( ) ;
             RemoveFiltersSeparator =  new ToolSeparator( ) ;
             EditSqlSeparator =  new ToolSeparator( ) ;
@@ -66,6 +68,7 @@
             MenuButton =  new ToolStripButton( ) ;
             MenuSeparator =  new ToolSeparator( ) ;
             ExitButton =  new ToolStripButton( ) ;
+            ExitSeparator =  new ToolSeparator( ) ;
             ExcelSeparator =  new ToolSeparator( ) ;
             RefreshDataSeparator =  new ToolSeparator( ) ;
             GroupSeparator =  new ToolSeparator( ) ;
@@ -78,9 +81,6 @@
             SecondListBoxPanel =  new Layout( ) ;
             SecondListBox =  new ListBox( ) ;
             SecondComboBox =  new ComboBox( ) ;
-            NavigationSpacer =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( ) ;
-            ExitSeparator =  new ToolSeparator( ) ;
-            NavigationSeparator =  new ToolSeparator( ) ;
             ChartTable.SuspendLayout( );
             ChartPanel.SuspendLayout( );
             ChartLabelTable.SuspendLayout( );
@@ -540,7 +540,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 178, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 176, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -646,6 +646,22 @@
             LastSeparator.Name =  "LastSeparator" ;
             LastSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             LastSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
+            // 
+            // NavigationSpacer
+            // 
+            NavigationSpacer.BackColor =  System.Drawing.Color.Transparent ;
+            NavigationSpacer.ForeColor =  System.Drawing.Color.Transparent ;
+            NavigationSpacer.Name =  "NavigationSpacer" ;
+            NavigationSpacer.Size =  new System.Drawing.Size( 106, 27 ) ;
+            NavigationSpacer.Text =  "toolStripLabelExt1" ;
+            // 
+            // NavigationSeparator
+            // 
+            NavigationSeparator.ForeColor =  System.Drawing.Color.Black ;
+            NavigationSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            NavigationSeparator.Name =  "NavigationSeparator" ;
+            NavigationSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            NavigationSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // FilterButton
             // 
@@ -824,6 +840,14 @@
             ExitButton.Text =  "toolStripButton1" ;
             ExitButton.ToolTip =  null ;
             ExitButton.ToolType =  ToolType.ExitButton ;
+            // 
+            // ExitSeparator
+            // 
+            ExitSeparator.ForeColor =  System.Drawing.Color.Black ;
+            ExitSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            ExitSeparator.Name =  "ExitSeparator" ;
+            ExitSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ExitSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
             // ExcelSeparator
             // 
@@ -1087,31 +1111,7 @@
             SecondComboBox.ThemeName =  "Budget Execution" ;
             SecondComboBox.ToolTip =  null ;
             // 
-            // NavigationSpacer
-            // 
-            NavigationSpacer.BackColor =  System.Drawing.Color.Transparent ;
-            NavigationSpacer.ForeColor =  System.Drawing.Color.Transparent ;
-            NavigationSpacer.Name =  "NavigationSpacer" ;
-            NavigationSpacer.Size =  new System.Drawing.Size( 106, 27 ) ;
-            NavigationSpacer.Text =  "toolStripLabelExt1" ;
-            // 
-            // ExitSeparator
-            // 
-            ExitSeparator.ForeColor =  System.Drawing.Color.Black ;
-            ExitSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ExitSeparator.Name =  "ExitSeparator" ;
-            ExitSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ExitSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // NavigationSeparator
-            // 
-            NavigationSeparator.ForeColor =  System.Drawing.Color.Black ;
-            NavigationSeparator.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            NavigationSeparator.Name =  "NavigationSeparator" ;
-            NavigationSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            NavigationSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
-            // 
-            // ChartForm
+            // ChartDataForm
             // 
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
@@ -1133,7 +1133,7 @@
             MaximumSize =  new System.Drawing.Size( 1350, 750 ) ;
             MinimizeBox =  false ;
             MinimumSize =  new System.Drawing.Size( 1350, 750 ) ;
-            Name =  "ChartForm" ;
+            Name =  "ChartDataForm" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;
             ShowMinimizeBox =  false ;

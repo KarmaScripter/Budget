@@ -28,6 +28,22 @@ namespace BudgetExecution
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
+        /// Gets or sets the row count.
+        /// </summary>
+        /// <value>
+        /// The row count.
+        /// </value>
+        public int RowCount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the col count.
+        /// </summary>
+        /// <value>
+        /// The col count.
+        /// </value>
+        public int ColCount { get; set; }
+
+        /// <summary>
         /// Gets or sets the file path.
         /// </summary>
         /// <value>
@@ -82,22 +98,6 @@ namespace BudgetExecution
         /// The selected numerics.
         /// </value>
         public IList<string> SelectedNumerics { get; set; }
-
-        /// <summary>
-        /// Gets or sets the row count.
-        /// </summary>
-        /// <value>
-        /// The row count.
-        /// </value>
-        public int RowCount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the col count.
-        /// </summary>
-        /// <value>
-        /// The col count.
-        /// </value>
-        public int ColCount { get; set; }
 
         /// <summary>
         /// Gets or sets the grid.
@@ -412,6 +412,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
+        private void ShowTableDialog( )
+        {
+            try
+            {
+                var _form = new FilterDialog( BindingSource );
+                _form.ShowDialog( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Shows the filter dialog.
         /// </summary>
         private void ShowFilterDialog( )
@@ -440,14 +456,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Shows the table dialog.
+        /// Opens the data grid form.
         /// </summary>
-        private void ShowTableDialog( )
+        private void OpenDataGridForm( )
         {
             try
             {
-                var _form = new FilterDialog( BindingSource );
-                _form.ShowDialog( this );
+                var _data = new DataGridForm( BindingSource );
+                _data.Owner = this;
+                _data.Show( );
             }
             catch( Exception ex )
             {
@@ -462,22 +479,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _chart = new ChartForm( BindingSource );
+                var _chart = new ChartDataForm( BindingSource );
+                _chart.Owner = this;
                 _chart.Show( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the data grid form.
-        /// </summary>
-        private void OpenDataGridForm( )
-        {
-            try
-            {
             }
             catch( Exception ex )
             {
@@ -514,7 +518,7 @@ namespace BudgetExecution
             try
             {
                 if( Owner?.Name.Equals( "DataGridForm" ) == true
-                   || Owner?.Name.Equals( "ChartForm" ) == true )
+                   || Owner?.Name.Equals( "ChartDataForm" ) == true )
                 {
                     Owner.Visible = true;
                     Visible = false;
@@ -546,7 +550,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ChartButton )
                 {
-                    var _chart = new ChartForm( BindingSource );
+                    var _chart = new ChartDataForm( BindingSource );
                     _chart.Show( );
                     Close( );
                 }
@@ -687,11 +691,12 @@ namespace BudgetExecution
         {
             try
             {
-                var _value = Spreadsheet.CurrentCellValue;
-                if( !string.IsNullOrEmpty( _value ) )
+                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
                 {
+                    var _value = Spreadsheet.CurrentCellRange.DisplayText;
                     var _chars = _value.ToCharArray( );
-                    if( ( _value.Length >= 6 && _value.Length <= 9 )
+                    if( ( _value.Length >= 6 
+                           && _value.Length <= 9 )
                        && ( _chars.Any( c => char.IsLetterOrDigit( c ) )
                            && _value.Substring( 0, 3 ) == "000" ) )
                     {
@@ -699,23 +704,24 @@ namespace BudgetExecution
                         var _dialog = new ProgramProjectDialog( _code );
                         _dialog.ShowDialog( );
                     }
-                    else if( _chars.All( c => char.IsNumber( c ) ) )
+                    else if( _chars?.All( c => char.IsNumber( c ) ) == true )
                     {
-                        var _numeric = double.Parse( _chars?.ToString( ) );
+                        var _numeric = double.Parse( _value ?? "0.0" );
                         var _calculator = new CalculationForm( _numeric );
                         _calculator.ShowDialog( );
                     }
                     else if( _value.Length <= 22
                             && _value.Length >= 8
-                            && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
+                            && ( _value.EndsWith( "AM" )
+                                || _value.EndsWith( "PM" ) ) )
                     {
                         var _dateTime = DateTime.Parse( _value );
                         var _form = new CalendarForm( _dateTime );
                         _form.ShowDialog( );
                     }
                     else if( ( _value.Contains( "-" )
-                                || _value.Contains( "/" ) ) 
-                            && ( _value.Length >= 8
+                                || _value.Contains( "/" ) )
+                            && ( _value.Length >= 8 
                                 && _value.Length <= 22 ) )
                     {
                         var _dt = DateTime.Parse( _value );

@@ -1184,6 +1184,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the filter dialog.
+        /// </summary>
         private void ShowFilterDialog( )
         {
             try
@@ -1195,6 +1198,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the group dialog.
+        /// </summary>
         private void ShowGroupDialog( )
         {
             try
@@ -1206,6 +1212,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
         private void ShowTableDialog( )
         {
             try
@@ -1218,6 +1227,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the excel data form.
+        /// </summary>
         private void OpenExcelDataForm( )
         {
             try
@@ -1229,10 +1241,16 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the chart data form.
+        /// </summary>
         private void OpenChartDataForm( )
         {
             try
             {
+                var _chart = new ChartDataForm( BindingSource );
+                _chart.Owner = this;
+                _chart.Show( );
             }
             catch( Exception ex )
             {
@@ -2011,7 +2029,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ChartButton )
                 {
-                    var _chart = new ChartForm( BindingSource );
+                    var _chart = new ChartDataForm( BindingSource );
                     _chart.SelectedTable = SelectedTable;
                     _chart.SelectedColumns = SelectedColumns;
                     _chart.SelectedFields = SelectedFields;

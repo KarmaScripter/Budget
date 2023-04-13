@@ -104,9 +104,9 @@ namespace BudgetExecution
             try
             {
                 var _tiles = new List<Tile>( );
-                for( var _index = 0; _index < Controls.Count; _index++ )
+                for( var i = 0; i < Controls.Count; i++ )
                 {
-                    var control = Controls[ _index ];
+                    var control = Controls[ i ];
                     if( control.GetType( ) == typeof( Tile ) )
                     {
                         var _tile = control as Tile;
@@ -190,7 +190,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _chartForm = new ChartForm( );
+                var _chartForm = new ChartDataForm( );
                 _chartForm.Owner = this;
                 _chartForm.StartPosition = FormStartPosition.CenterScreen;
                 _chartForm.Show( );

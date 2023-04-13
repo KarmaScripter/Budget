@@ -19,11 +19,11 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    public partial class ChartForm : MetroForm
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    public partial class ChartDataForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the selected table.
@@ -202,9 +202,9 @@ namespace BudgetExecution
         public Provider Provider { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the <see cref="ChartDataForm"/> class.
         /// </summary>
-        public ChartForm( )
+        public ChartDataForm( )
         {
             InitializeComponent( );
 
@@ -233,7 +233,7 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
-            
+
             // Event Wiring
             ExitButton.Click += null;
             BackButton.Click += null;
@@ -245,10 +245,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the <see cref="ChartDataForm"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        public ChartForm( BindingSource bindingSource )
+        public ChartDataForm( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
@@ -257,11 +257,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the <see cref="ChartDataForm"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        public ChartForm( Source source, Provider provider )
+        public ChartDataForm( Source source, Provider provider )
             : this( )
         {
             Source = source;
@@ -275,12 +275,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChartForm"/> class.
+        /// Initializes a new instance of the <see cref="ChartDataForm"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        public ChartForm( Source source, Provider provider, IDictionary<string, object> where )
+        public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
             Source = source;
@@ -355,21 +355,20 @@ namespace BudgetExecution
         /// </summary>
         private void SetToolStripProperties( )
         {
-            if( ToolStrip.TextBox != null )
+            try
             {
-                try
-                {
-                    ToolStrip.Visible = true;
-                    ToolStrip.Text = string.Empty;
-                    ToolStrip.Office12Mode = true;
-                    ToolStrip.TextBox.ForeColor = Color.LightSteelBlue;
-                    ToolStrip.TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                    ToolStrip.TextBox.Text = DateTime.Today.ToShortDateString( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -502,7 +501,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " 
+                    return $"SELECT * FROM {Source} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
@@ -810,7 +809,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the field ListBox.
         /// </summary>
@@ -914,6 +913,87 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    foreach( var name in fields )
+                    {
+                        _cols += $"{name}, ";
+                    }
+
+                    foreach( var metric in numerics )
+                    {
+                        _aggr += $"SUM({metric}) AS {metric}, ";
+                    }
+
+                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    var _criteria = where.ToCriteria( );
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
+               && !string.IsNullOrEmpty( SelectedTable ) )
+            {
+                try
+                {
+                    var _cols = string.Empty;
+                    foreach( var name in columns )
+                    {
+                        _cols += $"{name}, ";
+                    }
+
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names} ;";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -1286,7 +1366,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable )
                    && ( Owner?.Name.Equals( "DataGridForm" ) == true
-                       || Owner?.Name.Equals( "ChartForm" ) == true ) )
+                       || Owner?.Name.Equals( "ChartDataForm" ) == true ) )
                 {
                     Owner.Visible = true;
                     Visible = false;

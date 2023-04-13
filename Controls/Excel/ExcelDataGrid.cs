@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -9,10 +8,12 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using System.Windows.Forms;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ExcelDataGrid : Spreadsheet, ISpreadsheet
     {
         /// <summary>
@@ -97,54 +98,41 @@ namespace BudgetExecution
         {
             try
             {
-                var _range = CurrentCellRange;
                 if( !string.IsNullOrEmpty( CurrentCellValue ) )
                 {
-                    if( CurrentCellValue?.Length >= 6
-                       && CurrentCellValue.Length <= 9 )
+                    var _value = CurrentCellRange.DisplayText;
+                    var _chars = _value.ToCharArray( );
+                    if( _value.Length >= 6
+                       && _value.Length <= 9
+                       && _chars.Any( c => char.IsLetterOrDigit( c ) )
+                       && _value.Substring( 0, 3 ) == "000" )
                     {
-                        var _code = CurrentCellValue.Substring( 4, 2 );
+                        var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
                         _dialog.ShowDialog( );
                     }
-                }
-                else if( double.TryParse( CurrentCellValue, out var value ) )
-                {
-                    var _form = new CalculationForm( value );
-                    _form.ShowDialog( );
-                    var _value = _form.Calculator.Value.ToDouble( );
-                    Grid.SetCellValue( CurrentCellRange, _value.ToString( "N" ) );
-                }
-                else if( decimal.TryParse( CurrentCellValue, out var current ) )
-                {
-                    var _current = (double)current;
-                    var _form = new CalculationForm( _current );
-                    _form.ShowDialog( );
-                    var _calculation = _form.Calculator.Value.ToDouble( );
-                    var _cellValue = _calculation.ToString( "N" );
-                    Grid.SetCellValue( CurrentCellRange, _cellValue );
-                }
-                else if( DateOnly.TryParse( CurrentCellValue, out var cellDate ) ) 
-                {
-                    var _cellValue = DateTime.Parse( CurrentCellValue );
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = _cellValue;
-                    _form.ShowDialog( );
-                    Grid.SetCellValue( CurrentCellRange, _cellValue.ToString( ) );
-                }
-                else if( DateTime.TryParse( CurrentCellValue, out var dateTime ) ) 
-                {
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = dateTime;
-                    _form.ShowDialog( );
-                    Grid.SetCellValue( CurrentCellRange, dateTime.ToString( ) );
-                }
-                else if( DateTimeOffset.TryParse( CurrentCellValue, out var offSet ) ) 
-                {
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = offSet.DateTime;
-                    _form.ShowDialog( );
-                    Grid.SetCellValue( CurrentCellRange, offSet.ToString( ) );
+                    else if( _chars?.All( c => char.IsNumber( c ) ) == true )
+                    {
+                        var _numeric = double.Parse( _value ?? "0.0" );
+                        var _calculator = new CalculationForm( _numeric );
+                        _calculator.ShowDialog( );
+                    }
+                    else if( _value.Length <= 22
+                            && _value.Length >= 8
+                            && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
+                    {
+                        var _dateTime = DateTime.Parse( _value );
+                        var _form = new CalendarForm( _dateTime );
+                        _form.ShowDialog( );
+                    }
+                    else if( ( _value.Contains( "-" ) || _value.Contains( "/" ) )
+                            && _value.Length >= 8
+                            && _value.Length <= 22 )
+                    {
+                        var _dt = DateTime.Parse( _value );
+                        var _form = new CalendarForm( _dt );
+                        _form.ShowDialog( );
+                    }
                 }
             }
             catch( Exception ex )
@@ -165,4 +153,3 @@ namespace BudgetExecution
         }
     }
 }
-
