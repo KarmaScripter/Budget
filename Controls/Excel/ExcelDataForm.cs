@@ -13,7 +13,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
@@ -21,8 +20,11 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -188,6 +190,7 @@ namespace BudgetExecution
             UploadButton.Click += null;
             MenuButton.Click += null;
             RemoveFiltersButton.Click += null;
+            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
             Load += OnLoad;
         }
 
@@ -266,9 +269,6 @@ namespace BudgetExecution
                 UploadButton.Click += OnUploadButtonClicked;
                 Ribbon.Spreadsheet = Spreadsheet;
                 SetToolStripProperties( );
-                SetTableProperties( DataTable );
-                SetWorksheetProperties( );
-                SetActiveGridProperties( );
             }
             catch( Exception ex )
             {
@@ -351,15 +351,15 @@ namespace BudgetExecution
             try
             {
                 Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 9 );
+                Spreadsheet.Font = new Font( "Roboto", 10 );
                 Spreadsheet.AllowCellContextMenu = true;
                 Spreadsheet.CanApplyTheme = true;
                 Spreadsheet.CanOverrideStyle = true;
                 Spreadsheet.Margin = new Padding( 1 );
                 Spreadsheet.Padding = new Padding( 1 );
                 Spreadsheet.ForeColor = Color.Black;
-                Spreadsheet.DefaultColumnCount = 50;
-                Spreadsheet.DefaultRowCount = 100;
+                Spreadsheet.DefaultColumnCount = RowCount;
+                Spreadsheet.DefaultRowCount = ColCount;
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
             }
@@ -377,7 +377,7 @@ namespace BudgetExecution
             try
             {
                 Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
-                Spreadsheet.ActiveGrid.FrozenRows = 2;
+                Spreadsheet.ActiveGrid.FrozenRows = 3;
                 Spreadsheet.ActiveGrid.AllowSelection = true;
                 Spreadsheet.ActiveGrid.CanOverrideStyle = true;
                 Spreadsheet.ActiveGrid.CanApplyTheme = true;
@@ -386,25 +386,22 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
                 Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
                     SystemColors.ControlDarkDark;
+
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
                     Color.FromArgb( 17, 69, 97 );
 
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor
-                    = Color.LightSteelBlue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
+                    Color.LightSteelBlue;
 
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal
-                    = Color.FromArgb( 17, 69, 97 );
-
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed
-                    = Color.FromArgb( 17, 69, 97 );
-
-                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 9 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
                 Spreadsheet.ActiveGrid.ForeColor = Color.Black;
                 Spreadsheet.ActiveGrid.ColumnCount = ColCount;
                 Spreadsheet.ActiveGrid.RowCount = RowCount;
-                Spreadsheet.ActiveGrid.DefaultColumnWidth = 110;
+                Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
                 Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellClick;
             }
@@ -414,6 +411,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the filter dialog.
+        /// </summary>
         private void ShowFilterDialog( )
         {
             try
@@ -425,6 +425,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the group dialog.
+        /// </summary>
         private void ShowGroupDialog( )
         {
             try
@@ -436,11 +439,15 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
         private void ShowTableDialog( )
         {
             try
             {
                 var _form = new FilterDialog( BindingSource );
+                _form.ShowDialog( this );
             }
             catch( Exception ex )
             {
@@ -448,10 +455,15 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the chart data form.
+        /// </summary>
         private void OpenChartDataForm( )
         {
             try
             {
+                var _chart = new ChartForm( BindingSource );
+                _chart.Show( );
             }
             catch( Exception ex )
             {
@@ -459,10 +471,32 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
         private void OpenDataGridForm( )
         {
             try
             {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [work book loaded].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnWorkBookLoaded( object sender, EventArgs e )
+        {
+            try
+            {
+                SetTableProperties( DataTable );
+                SetActiveGridProperties( );
+                SetWorksheetProperties( );
             }
             catch( Exception ex )
             {
@@ -653,51 +687,40 @@ namespace BudgetExecution
         {
             try
             {
-                var _value = Spreadsheet?.CurrentCellValue;
+                var _value = Spreadsheet.CurrentCellValue;
                 if( !string.IsNullOrEmpty( _value ) )
                 {
                     var _chars = _value.ToCharArray( );
-                    if( _value.Length >= 6
-                       && _value.Length <= 9 )
+                    if( ( _value.Length >= 6 && _value.Length <= 9 )
+                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) )
+                           && _value.Substring( 0, 3 ) == "000" ) )
                     {
-                        if( _value.Substring( 0, 3 ) == "000" )
-                        {
-                            var _code = _value.Substring( 4, 2 );
-                            var _dialog = new ProgramProjectDialog( _code );
-                            _dialog.ShowDialog( );
-                        }
-                        else if( _chars.All( c => char.IsDigit( c ) ) )
-                        {
-                            var _numeric = double.Parse( _value );
-                            var _calculator = new CalculationForm( _numeric );
-                            _calculator.ShowDialog( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
-                                _numeric.ToString( "N" ) );
-                        }
-                        else if( _value.Length <= 22 
-                                && _value.Length >= 8 
-                                && ( _value.EndsWith( "AM" ) 
-                                    || _value.EndsWith( "PM" ) ) )
-                        {
-                            var _dt = DateTime.Parse( _value );
-                            var _form = new CalendarForm( );
-                            _form.Calendar.SelectedDate = _dt;
-                            _form.ShowDialog( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange, 
-                                _dt.ToShortDateString( ) );
-                        }
-                        else if( _value.Contains( "-" ) 
-                                || _value.Contains( "/" ) 
-                                && _value.Length >= 8 
-                                && _value.Length <= 22 )
-                        {
-                            var _dt = DateTime.Parse( _value );
-                            var _form = new CalendarForm( );
-                            _form.Calendar.SelectedDate = _dt;
-                            _form.ShowDialog( );
-                            Grid.SetCellValue( Spreadsheet.CurrentCellRange,
-                                _dt.ToShortDateString( ) );
-                        }
+                        var _code = _value.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                    else if( _chars.All( c => char.IsNumber( c ) ) )
+                    {
+                        var _numeric = double.Parse( _chars?.ToString( ) );
+                        var _calculator = new CalculationForm( _numeric );
+                        _calculator.ShowDialog( );
+                    }
+                    else if( _value.Length <= 22
+                            && _value.Length >= 8
+                            && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
+                    {
+                        var _dateTime = DateTime.Parse( _value );
+                        var _form = new CalendarForm( _dateTime );
+                        _form.ShowDialog( );
+                    }
+                    else if( ( _value.Contains( "-" )
+                                || _value.Contains( "/" ) ) 
+                            && ( _value.Length >= 8
+                                && _value.Length <= 22 ) )
+                    {
+                        var _dt = DateTime.Parse( _value );
+                        var _form = new CalendarForm( _dt );
+                        _form.ShowDialog( );
                     }
                 }
             }
