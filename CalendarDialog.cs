@@ -11,14 +11,13 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
-    using Syncfusion.WinForms.Input;
 
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public partial class CalendarForm : MetroForm
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    public partial class CalendarDialog : MetroForm
     {
         /// <summary>
         /// Gets or sets the selected date.
@@ -27,7 +26,7 @@ namespace BudgetExecution
         /// The selected date.
         /// </value>
         public string DateSelected { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -51,7 +50,7 @@ namespace BudgetExecution
         /// The fiscal years.
         /// </value>
         public DataTable FiscalYears { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the data model.
         /// </summary>
@@ -65,7 +64,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="CalendarForm"/> class.
         /// </summary>
-        public CalendarForm( )
+        public CalendarDialog( )
         {
             InitializeComponent( );
 
@@ -112,7 +111,7 @@ namespace BudgetExecution
         /// of the <see cref="CalendarForm"/> class.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
-        public CalendarForm( DateTime dateTime )
+        public CalendarDialog( DateTime dateTime )
             : this( )
         {
             DateSelected = dateTime.ToString( );

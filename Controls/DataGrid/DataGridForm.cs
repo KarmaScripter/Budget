@@ -1234,6 +1234,10 @@ namespace BudgetExecution
         {
             try
             {
+                var _excel = new ExcelDataForm( BindingSource );
+                _excel.Owner = Owner;
+                _excel.Show( );
+                Close( );
             }
             catch( Exception ex )
             {
@@ -1249,8 +1253,9 @@ namespace BudgetExecution
             try
             {
                 var _chart = new ChartDataForm( BindingSource );
-                _chart.Owner = this;
+                _chart.Owner = Owner;
                 _chart.Show( );
+                Close( );
             }
             catch( Exception ex )
             {

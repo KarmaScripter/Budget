@@ -789,6 +789,10 @@ namespace BudgetExecution
         {
             try
             {
+                var _excel = new ExcelDataForm( BindingSource );
+                _excel.Owner = Owner;
+                _excel.Show( );
+                Close( );
             }
             catch( Exception ex )
             {
@@ -803,6 +807,10 @@ namespace BudgetExecution
         {
             try
             {
+                var _data = new DataGridForm( BindingSource );
+                _data.Owner = Owner;
+                _data.Show( );
+                Close( );
             }
             catch( Exception ex )
             {

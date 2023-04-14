@@ -159,6 +159,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CalendarDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>

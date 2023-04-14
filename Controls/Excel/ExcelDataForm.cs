@@ -25,6 +25,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -463,8 +464,9 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataGridForm( BindingSource );
-                _data.Owner = this;
+                _data.Owner = Owner;
                 _data.Show( );
+                Close( );
             }
             catch( Exception ex )
             {
@@ -480,8 +482,9 @@ namespace BudgetExecution
             try
             {
                 var _chart = new ChartDataForm( BindingSource );
-                _chart.Owner = this;
+                _chart.Owner = Owner;
                 _chart.Show( );
+                Close( );
             }
             catch( Exception ex )
             {
