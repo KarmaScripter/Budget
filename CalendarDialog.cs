@@ -223,9 +223,12 @@ namespace BudgetExecution
         {
             try
             {
-                var _date = Calendar.Value;
-                HeaderLabel.Text = _date.ToLongDateString( );
-                DateSelected = _date.ToString( );
+                if( sender is DateControl _calendar )
+                {
+                    var _date = _calendar.Value;
+                    HeaderLabel.Text = _date.ToLongDateString( );
+                    DateSelected = _date.ToString( );
+                }
             }
             catch( Exception ex )
             {
