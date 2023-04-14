@@ -90,17 +90,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
-            // Close Button
-            CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
-            CloseButton.HoverTextColor = Color.White;
-            CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
-            CloseButton.Text = "Close";
-            CloseButton.HoverText = "Close Calendar";
-
             // HeaderLabel Settings
             HeaderLabel.Font = new Font( "Roboto", 11 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.TopLeft;
+            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
 
             // Event Wiring
             Load += OnLoad;
@@ -127,9 +120,8 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
-                CloseButton.Click += OnCloseButtonClicked;
-                Calendar.SelectionChanged += OnSelectionChanged;
+                Calendar.NoneButton.Click += OnCloseButtonClicked;
+                Calendar.TodayButton.Click += OnSelectionChanged;
             }
             catch( Exception ex )
             {
