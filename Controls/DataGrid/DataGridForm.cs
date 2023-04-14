@@ -1215,11 +1215,12 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the table dialog.
         /// </summary>
-        private void ShowTableDialog( )
+        private void ShowSourceDialog( )
         {
             try
             {
                 var _form = new FilterDialog( BindingSource );
+                _form.ShowDialog( this );
             }
             catch( Exception ex )
             {

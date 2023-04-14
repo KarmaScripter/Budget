@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BudgetExecution.Actual" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class MonthlyActual : Actual
     {
         /// <summary>
