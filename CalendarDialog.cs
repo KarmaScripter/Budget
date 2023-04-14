@@ -91,9 +91,10 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // HeaderLabel Settings
-            HeaderLabel.Font = new Font( "Roboto", 11 );
+            HeaderLabel.Font = new Font( "Roboto", 11, FontStyle.Bold );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            HeaderLabel.Text = "Budget Calendar";
 
             // Event Wiring
             Load += OnLoad;
@@ -120,32 +121,14 @@ namespace BudgetExecution
         {
             try
             {
-                Calendar.NoneButton.Click += OnCloseButtonClicked;
-                Calendar.TodayButton.Click += OnSelectionChanged;
+                HeaderLabel.Text = Calendar.Value.ToLongDateString( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-
-        private void SetCalendarProperties( )
-        {
-            try
-            {
-                Calendar.Border3DStyle = Border3DStyle.Flat;
-                Calendar.GridBackColor = Color.DarkGray;
-                Calendar.FirstDayOfWeek = Day.Monday;
-                Calendar.HeaderFont = new Font( "Roboto", 10 );
-                Calendar.HeaderStartColor = SystemColors.ActiveCaption;
-                Calendar.HeaderEndColor = SystemColors.ActiveCaption;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the federal holidays.
         /// </summary>
@@ -197,7 +180,30 @@ namespace BudgetExecution
         {
             try
             {
+                var _calendar = sender as DateControl;
                 Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [selection changed].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.</param>
+        /// <param name="e">The
+        /// <see cref="SelectionChangedEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTodayButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _date = Calendar.Value;
+                HeaderLabel.Text = _date.ToLongDateString( );
+                DateSelected = _date.ToString( );
             }
             catch( Exception ex )
             {
@@ -218,8 +224,8 @@ namespace BudgetExecution
             try
             {
                 var _date = Calendar.Value;
+                HeaderLabel.Text = _date.ToLongDateString( );
                 DateSelected = _date.ToString( );
-                Close( );
             }
             catch( Exception ex )
             {
