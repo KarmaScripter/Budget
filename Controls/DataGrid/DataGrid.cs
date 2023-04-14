@@ -260,26 +260,23 @@ namespace BudgetExecution
                 else if( CurrentCell.ValueType == typeof( DateOnly ) )
                 {
                     var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = _cellValue;
+                    var _form = new CalendarDialog( _cellValue );
                     _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                    CurrentCell.Value = _form.Calendar.Value;
                 }
                 else if( CurrentCell.ValueType == typeof( DateTime ) )
                 {
                     var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = _cellValue;
+                    var _form = new CalendarDialog( _cellValue );
                     _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                    CurrentCell.Value = _form.Calendar.Value;
                 }
                 else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
                 {
                     var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarForm( );
-                    _form.Calendar.SelectedDate = _cellValue;
+                    var _form = new CalendarDialog( _cellValue );
                     _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                    CurrentCell.Value = _form.Calendar.Value;
                 }
             }
             catch( Exception ex )

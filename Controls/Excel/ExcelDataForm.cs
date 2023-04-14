@@ -719,7 +719,7 @@ namespace BudgetExecution
                                 || _value.EndsWith( "PM" ) ) )
                     {
                         var _dateTime = DateTime.Parse( _value );
-                        var _form = new CalendarForm( _dateTime );
+                        var _form = new CalendarDialog( _dateTime );
                         _form.ShowDialog( );
                     }
                     else if( ( _value.Contains( "-" )
@@ -728,7 +728,7 @@ namespace BudgetExecution
                                 && _value.Length <= 22 ) )
                     {
                         var _dt = DateTime.Parse( _value );
-                        var _form = new CalendarForm( _dt );
+                        var _form = new CalendarDialog( _dt );
                         _form.ShowDialog( );
                     }
                 }

@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        public DataSet Data { get; set; }
+        public DataSet AnnualData { get; set; }
 
         /// <summary>
         /// Gets or sets the holidays.
@@ -70,9 +70,9 @@ namespace BudgetExecution
 
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 584, 406 );
-            MinimumSize = new Size( 584, 406 );
-            MaximumSize = new Size( 584, 406 );
+            Size = new Size( 504, 391 );
+            MinimumSize = new Size( 504, 391 );
+            MaximumSize = new Size( 504, 391 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
@@ -100,7 +100,7 @@ namespace BudgetExecution
             // HeaderLabel Settings
             HeaderLabel.Font = new Font( "Roboto", 11 );
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            HeaderLabel.TextAlign = ContentAlignment.TopLeft;
 
             // Event Wiring
             Load += OnLoad;
@@ -114,6 +114,7 @@ namespace BudgetExecution
         public CalendarDialog( DateTime dateTime )
             : this( )
         {
+            Calendar.Value = dateTime;
             DateSelected = dateTime.ToString( );
         }
 
@@ -129,6 +130,23 @@ namespace BudgetExecution
                 CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
                 CloseButton.Click += OnCloseButtonClicked;
                 Calendar.SelectionChanged += OnSelectionChanged;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void SetCalendarProperties( )
+        {
+            try
+            {
+                Calendar.Border3DStyle = Border3DStyle.Flat;
+                Calendar.GridBackColor = Color.DarkGray;
+                Calendar.FirstDayOfWeek = Day.Monday;
+                Calendar.HeaderFont = new Font( "Roboto", 10 );
+                Calendar.HeaderStartColor = SystemColors.ActiveCaption;
+                Calendar.HeaderEndColor = SystemColors.ActiveCaption;
             }
             catch( Exception ex )
             {
@@ -207,7 +225,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _date = Calendar.SelectedDate;
+                var _date = Calendar.Value;
                 DateSelected = _date.ToString( );
                 Close( );
             }
