@@ -71,9 +71,9 @@ namespace BudgetExecution
 
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 481, 373 );
-            MinimumSize = new Size( 481, 373 );
-            MaximumSize = new Size( 481, 373 );
+            Size = new Size( 446, 373 );
+            MinimumSize = new Size( 446, 373 );
+            MaximumSize = new Size( 446, 373 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
@@ -94,7 +94,7 @@ namespace BudgetExecution
             // Close Button
             CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
             CloseButton.HoverTextColor = Color.White;
-            CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
+            CloseButton.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
             CloseButton.Text = "Close";
             CloseButton.HoverText = "Close Calendar";
 

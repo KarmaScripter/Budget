@@ -710,6 +710,7 @@ namespace BudgetExecution
             AutoScaleMode =  AutoScaleMode.Dpi ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionAlign =  HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;

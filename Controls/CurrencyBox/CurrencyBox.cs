@@ -33,7 +33,7 @@ namespace BudgetExecution
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 8 );
+            Font = new Font( "Roboto", 9 );
             ForeColor = Color.White;
             Enabled = true;
             Visible = true;
@@ -64,7 +64,7 @@ namespace BudgetExecution
             ThemeStyle.BorderColor = Color.FromArgb( 41, 41, 41 );
             ThemeStyle.DisabledBackColor = Color.FromArgb( 18, 18, 18 );
             ThemeStyle.DisabledBorderColor = Color.FromArgb( 18, 18, 18 );
-            ThemeStyle.HoverBorderColor = Color.SteelBlue;
+            ThemeStyle.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
             ThemeStyle.FocusedBorderColor = Color.SteelBlue;
             ThemeStyle.PressedBorderColor = Color.SteelBlue;
         }

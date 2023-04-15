@@ -15,8 +15,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" )]
     public partial class LoadingForm : MetroForm
     {
         /// <summary>

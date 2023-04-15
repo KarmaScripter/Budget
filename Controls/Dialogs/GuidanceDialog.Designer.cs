@@ -47,10 +47,10 @@ namespace BudgetExecution
             BrowseButton =  new Button( ) ;
             OpenFileDialog =  new System.Windows.Forms.OpenFileDialog( ) ;
             ToolTip =  new SmallTip( ) ;
-            tableLayoutPanel1 =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
-            tableLayoutPanel1.SuspendLayout( );
+            HeaderTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // ListBox
@@ -196,7 +196,7 @@ namespace BudgetExecution
             Picture.Location =  new System.Drawing.Point( 3, 3 ) ;
             Picture.Name =  "Picture" ;
             Picture.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Picture.Size =  new System.Drawing.Size( 22, 22 ) ;
+            Picture.Size =  new System.Drawing.Size( 24, 22 ) ;
             Picture.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
             Picture.TabIndex =  4 ;
             Picture.TabStop =  false ;
@@ -206,20 +206,21 @@ namespace BudgetExecution
             // 
             HeaderLabel.BindingSource =  null ;
             HeaderLabel.DataFilter =  null ;
+            HeaderLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
             HeaderLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             HeaderLabel.HoverText =  null ;
             HeaderLabel.IsDerivedStyle =  true ;
-            HeaderLabel.Location =  new System.Drawing.Point( 37, 3 ) ;
+            HeaderLabel.Location =  new System.Drawing.Point( 59, 3 ) ;
             HeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             HeaderLabel.Name =  "HeaderLabel" ;
             HeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            HeaderLabel.Size =  new System.Drawing.Size( 447, 23 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 429, 26 ) ;
             HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             HeaderLabel.StyleManager =  null ;
             HeaderLabel.TabIndex =  5 ;
             HeaderLabel.Text =  "Guidance" ;
-            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleCenter ;
+            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
             HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
             HeaderLabel.ThemeName =  "Budget Execution" ;
             HeaderLabel.ToolTip =  null ;
@@ -280,20 +281,21 @@ namespace BudgetExecution
             ToolTip.TipText =  null ;
             ToolTip.TipTitle =  null ;
             // 
-            // tableLayoutPanel1
+            // HeaderTable
             // 
-            tableLayoutPanel1.ColumnCount =  2 ;
-            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 6.92464352F ) );
-            tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 93.0753555F ) );
-            tableLayoutPanel1.Controls.Add( Picture, 0, 0 );
-            tableLayoutPanel1.Controls.Add( HeaderLabel, 1, 0 );
-            tableLayoutPanel1.Dock =  System.Windows.Forms.DockStyle.Top ;
-            tableLayoutPanel1.Location =  new System.Drawing.Point( 0, 0 ) ;
-            tableLayoutPanel1.Name =  "tableLayoutPanel1" ;
-            tableLayoutPanel1.RowCount =  1 ;
-            tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            tableLayoutPanel1.Size =  new System.Drawing.Size( 491, 32 ) ;
-            tableLayoutPanel1.TabIndex =  8 ;
+            HeaderTable.ColumnCount =  3 ;
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 71.0843353F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.9156628F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 434F ) );
+            HeaderTable.Controls.Add( Picture, 0, 0 );
+            HeaderTable.Controls.Add( HeaderLabel, 2, 0 );
+            HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
+            HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
+            HeaderTable.Name =  "HeaderTable" ;
+            HeaderTable.RowCount =  1 ;
+            HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderTable.Size =  new System.Drawing.Size( 491, 32 ) ;
+            HeaderTable.TabIndex =  8 ;
             // 
             // GuidanceDialog
             // 
@@ -301,6 +303,7 @@ namespace BudgetExecution
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionBarHeight =  1 ;
@@ -311,7 +314,7 @@ namespace BudgetExecution
             ClientSize =  new System.Drawing.Size( 491, 417 ) ;
             ControlBox =  false ;
             Controls.Add( BrowseButton );
-            Controls.Add( tableLayoutPanel1 );
+            Controls.Add( HeaderTable );
             Controls.Add( ClearButton );
             Controls.Add( SelectButton );
             Controls.Add( ListBox );
@@ -332,7 +335,7 @@ namespace BudgetExecution
             StartPosition =  System.Windows.Forms.FormStartPosition.CenterScreen ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
-            tableLayoutPanel1.ResumeLayout( false );
+            HeaderTable.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -350,6 +353,6 @@ namespace BudgetExecution
         private Button BrowseButton;
         public System.Windows.Forms.OpenFileDialog OpenFileDialog;
         public Picture Picture;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.TableLayoutPanel HeaderTable;
     }
 }

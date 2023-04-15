@@ -119,7 +119,7 @@ namespace BudgetExecution
             ColumnConfigurationImage.DataFilter =  null ;
             ColumnConfigurationImage.Field =  Field.AccountCode ;
             ColumnConfigurationImage.HoverText =  null ;
-            ColumnConfigurationImage.Image =  Properties.Resources.AddColumn ;
+            ColumnConfigurationImage.Image =  Properties.Resources.ColumnConfiguration ;
             ColumnConfigurationImage.ImageList =  null ;
             ColumnConfigurationImage.Location =  new System.Drawing.Point( 0, 5 ) ;
             ColumnConfigurationImage.Name =  "ColumnConfigurationImage" ;

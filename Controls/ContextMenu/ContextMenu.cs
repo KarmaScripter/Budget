@@ -23,7 +23,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 30, 30, 30 );
             BackgroundColor = Color.FromArgb( 30, 30, 30 );
             ForeColor = Color.White;
-            ArrowColor = Color.FromArgb( 17, 53, 84 );
+            ArrowColor = Color.FromArgb( 50, 93, 129 );
             SeparatorColor = Color.FromArgb( 65, 65, 65 );
             AutoSize = false;
             Size = new Size( 156, 264 );
@@ -32,7 +32,7 @@ namespace BudgetExecution
             Style = Style.Custom;
             ShowCheckMargin = false;
             ShowImageMargin = true;
-            SelectedItemBackColor = Color.FromArgb( 17, 53, 84 );
+            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";

@@ -260,7 +260,8 @@ namespace BudgetExecution
             AutoScaleMode =  AutoScaleMode.Inherit ;
             AutoSize =  true ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            BorderColor =  System.Drawing.Color.SteelBlue ;
+            BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;

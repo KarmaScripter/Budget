@@ -41,11 +41,12 @@ partial class ColorDialog
         BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
         SelectButton =  new Button( ) ;
         ButtonPanel =  new Layout( ) ;
-        tableLayoutPanel1 =  new System.Windows.Forms.TableLayoutPanel( ) ;
+        HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
         Picture =  new System.Windows.Forms.PictureBox( ) ;
         ColorPicker =  new Syncfusion.Windows.Forms.ColorUIControl( ) ;
+        label1 =  new Label( ) ;
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
-        tableLayoutPanel1.SuspendLayout( );
+        HeaderTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
         SuspendLayout( );
         // 
@@ -128,7 +129,7 @@ partial class ColorDialog
         SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SelectButton.StyleManager =  null ;
         SelectButton.TabIndex =  3 ;
-        SelectButton.Text =  "Enter" ;
+        SelectButton.Text =  "Select" ;
         SelectButton.ThemeAuthor =  "Terry D. Eppler" ;
         SelectButton.ThemeName =  "Budget Execution" ;
         SelectButton.ToolTip =  ToolTip ;
@@ -157,40 +158,41 @@ partial class ColorDialog
         ButtonPanel.ThemeName =  "Budget Execution" ;
         ButtonPanel.ToolTip =  null ;
         // 
-        // tableLayoutPanel1
+        // HeaderTable
         // 
-        tableLayoutPanel1.ColumnCount =  2 ;
-        tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 280F ) );
-        tableLayoutPanel1.Controls.Add( Picture, 0, 0 );
-        tableLayoutPanel1.Dock =  System.Windows.Forms.DockStyle.Top ;
-        tableLayoutPanel1.Location =  new System.Drawing.Point( 0, 0 ) ;
-        tableLayoutPanel1.Name =  "tableLayoutPanel1" ;
-        tableLayoutPanel1.RowCount =  1 ;
-        tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        tableLayoutPanel1.Size =  new System.Drawing.Size( 329, 30 ) ;
-        tableLayoutPanel1.TabIndex =  6 ;
+        HeaderTable.ColumnCount =  2 ;
+        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 293F ) );
+        HeaderTable.Controls.Add( Picture, 0, 0 );
+        HeaderTable.Controls.Add( label1, 1, 0 );
+        HeaderTable.Dock =  System.Windows.Forms.DockStyle.Top ;
+        HeaderTable.Location =  new System.Drawing.Point( 0, 0 ) ;
+        HeaderTable.Name =  "HeaderTable" ;
+        HeaderTable.RowCount =  1 ;
+        HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        HeaderTable.Size =  new System.Drawing.Size( 329, 30 ) ;
+        HeaderTable.TabIndex =  6 ;
         // 
         // Picture
         // 
         Picture.Dock =  System.Windows.Forms.DockStyle.Fill ;
         Picture.Location =  new System.Drawing.Point( 3, 3 ) ;
         Picture.Name =  "Picture" ;
-        Picture.Size =  new System.Drawing.Size( 43, 24 ) ;
+        Picture.Size =  new System.Drawing.Size( 30, 24 ) ;
         Picture.TabIndex =  0 ;
         Picture.TabStop =  false ;
         // 
         // ColorPicker
         // 
-        ColorPicker.BeforeTouchSize =  new System.Drawing.Size( 250, 262 ) ;
+        ColorPicker.BeforeTouchSize =  new System.Drawing.Size( 266, 269 ) ;
         ColorPicker.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
-        ColorPicker.ForeColor =  System.Drawing.Color.FromArgb(   150  ,   150  ,   150   ) ;
-        ColorPicker.Location =  new System.Drawing.Point( 46, 60 ) ;
+        ColorPicker.ForeColor =  System.Drawing.Color.LightGray ;
+        ColorPicker.Location =  new System.Drawing.Point( 30, 53 ) ;
         ColorPicker.MetroColor =  System.Drawing.Color.FromArgb(   1  ,   115  ,   199   ) ;
-        ColorPicker.MetroForeColor =  System.Drawing.Color.FromArgb(   68  ,   68  ,   68   ) ;
+        ColorPicker.MetroForeColor =  System.Drawing.Color.LightGray ;
         ColorPicker.Name =  "ColorPicker" ;
         ColorPicker.ScrollMetroColorTable =  metroColorTable1 ;
-        ColorPicker.Size =  new System.Drawing.Size( 250, 262 ) ;
+        ColorPicker.Size =  new System.Drawing.Size( 266, 269 ) ;
         ColorPicker.TabIndex =  0 ;
         ColorPicker.ThemeName =  "Office2016Black" ;
         ColorPicker.ThemeStyle.ColorListStyle.PaletteBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
@@ -200,12 +202,34 @@ partial class ColorDialog
         ColorPicker.ThemeStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ColorPicker.VisualStyle =  Syncfusion.Windows.Forms.ColorUIStyle.Office2016Black ;
         // 
+        // label1
+        // 
+        label1.BindingSource =  null ;
+        label1.DataFilter =  null ;
+        label1.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        label1.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        label1.HoverText =  null ;
+        label1.IsDerivedStyle =  true ;
+        label1.Location =  new System.Drawing.Point( 39, 3 ) ;
+        label1.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        label1.Name =  "label1" ;
+        label1.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        label1.Size =  new System.Drawing.Size( 165, 23 ) ;
+        label1.Style =  MetroSet_UI.Enums.Style.Custom ;
+        label1.StyleManager =  null ;
+        label1.TabIndex =  1 ;
+        label1.Text =  "Color Selection" ;
+        label1.ThemeAuthor =  "Terry D. Eppler" ;
+        label1.ThemeName =  "Budget Execution" ;
+        label1.ToolTip =  null ;
+        // 
         // ColorDialog
         // 
         AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
         AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
         BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        BorderThickness =  2 ;
         CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
         CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
         CaptionBarHeight =  5 ;
@@ -216,7 +240,7 @@ partial class ColorDialog
         Controls.Add( SelectButton );
         Controls.Add( ColorPicker );
         Controls.Add( CloseButton );
-        Controls.Add( tableLayoutPanel1 );
+        Controls.Add( HeaderTable );
         Controls.Add( ButtonPanel );
         Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ForeColor =  System.Drawing.Color.LightGray ;
@@ -227,7 +251,7 @@ partial class ColorDialog
         ShowIcon =  false ;
         Text =  "ColorDialog" ;
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
-        tableLayoutPanel1.ResumeLayout( false );
+        HeaderTable.ResumeLayout( false );
         ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
         ResumeLayout( false );
     }
@@ -238,7 +262,8 @@ partial class ColorDialog
     private Layout ButtonPanel;
     public SmallTip ToolTip;
     public System.Windows.Forms.BindingSource BindingSource;
-    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     public System.Windows.Forms.PictureBox Picture;
     public Syncfusion.Windows.Forms.ColorUIControl ColorPicker;
+    public Label label1;
+    public System.Windows.Forms.TableLayoutPanel HeaderTable;
 }

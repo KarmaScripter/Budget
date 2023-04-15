@@ -26,6 +26,7 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( ChartDataForm ) );
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ChartTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
@@ -540,7 +541,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 176, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 174, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1115,6 +1116,7 @@
             // 
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
@@ -1129,6 +1131,7 @@
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
             FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
+            Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             MaximizeBox =  false ;
             MaximumSize =  new System.Drawing.Size( 1350, 750 ) ;
             MinimizeBox =  false ;

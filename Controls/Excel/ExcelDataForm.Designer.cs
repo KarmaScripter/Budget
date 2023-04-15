@@ -304,7 +304,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 168, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 166, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -671,7 +671,7 @@
             PictureBox.Image =  Properties.Resources.EPA ;
             PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
-            PictureBox.Size =  new System.Drawing.Size( 32, 20 ) ;
+            PictureBox.Size =  new System.Drawing.Size( 38, 20 ) ;
             PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
             PictureBox.TabIndex =  0 ;
             PictureBox.TabStop =  false ;
@@ -690,6 +690,7 @@
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;

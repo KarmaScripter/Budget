@@ -306,9 +306,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
+                OpenFileDialog.ShowDialog( );
+                SelectedPath = OpenFileDialog.SafeFileName;
             }
             catch( Exception ex )
             {

@@ -265,6 +265,9 @@
     <Compile Update="Controls\Excel\ExcelDataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Dialogs\DelayDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\Dialogs\ColorDialog.resx">

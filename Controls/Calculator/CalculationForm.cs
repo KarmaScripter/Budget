@@ -17,7 +17,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     public partial class CalculationForm : MetroForm
     {
         /// <summary>
@@ -27,7 +27,7 @@ namespace BudgetExecution
         /// The initial value.
         /// </value>
         public double InitialValue { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CalculationForm"/> class.
@@ -78,14 +78,14 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="CalculationForm"/> class.
         /// </summary>
         /// <param name="initial">The initial.</param>
-        public CalculationForm( double initial ) 
+        public CalculationForm( double initial )
             : this( )
         {
             InitialValue = initial;
             Calculator.Value = new CalculatorValue( InitialValue );
             ValueLabel.Text = Calculator.Value.ToString( );
         }
-        
+
         /// <summary>
         /// Called when [calculation value changed].
         /// </summary>

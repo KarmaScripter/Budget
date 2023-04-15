@@ -42,11 +42,11 @@
             // 
             PictureBox.BackColor =  System.Drawing.Color.Transparent ;
             PictureBox.Image =  Properties.Resources.Loading ;
-            PictureBox.Location =  new System.Drawing.Point( 309, 68 ) ;
+            PictureBox.Location =  new System.Drawing.Point( 433, 188 ) ;
             PictureBox.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
-            PictureBox.Size =  new System.Drawing.Size( 800, 600 ) ;
-            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.AutoSize ;
+            PictureBox.Size =  new System.Drawing.Size( 577, 353 ) ;
+            PictureBox.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.Zoom ;
             PictureBox.TabIndex =  0 ;
             PictureBox.TabStop =  false ;
             // 
@@ -124,7 +124,6 @@
             Text =  "LoadingForm" ;
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             ResumeLayout( false );
-            PerformLayout( );
         }
 
         #endregion

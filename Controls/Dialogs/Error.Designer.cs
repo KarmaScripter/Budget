@@ -168,6 +168,7 @@
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Inherit ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.Maroon ;
+            BorderThickness =  2 ;
             CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionBarHeight =  5 ;

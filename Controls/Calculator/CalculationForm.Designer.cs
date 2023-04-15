@@ -34,20 +34,20 @@ namespace BudgetExecution
         {
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( CalculationForm ) );
             TopPanel =  new Layout( ) ;
-            Image =  new Picture( ) ;
+            TopTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ValueLabel =  new Label( ) ;
+            Image =  new Picture( ) ;
             CalculatorPanel =  new Layout( ) ;
             Calculator =  new Syncfusion.Windows.Forms.Tools.CalculatorControl( ) ;
             BottomPanel =  new Layout( ) ;
             CloseButton =  new Button( ) ;
             CalculatorTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            TopTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             TopPanel.SuspendLayout( );
+            TopTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) Image  ).BeginInit( );
             CalculatorPanel.SuspendLayout( );
             BottomPanel.SuspendLayout( );
             CalculatorTable.SuspendLayout( );
-            TopTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // TopPanel
@@ -76,23 +76,20 @@ namespace BudgetExecution
             TopPanel.ThemeName =  "Budget Execution" ;
             TopPanel.ToolTip =  null ;
             // 
-            // Image
+            // TopTable
             // 
-            Image.BackColor =  System.Drawing.Color.Transparent ;
-            Image.BindingSource =  null ;
-            Image.DataFilter =  null ;
-            Image.Field =  Field.AccountCode ;
-            Image.HoverText =  null ;
-            Image.Image =  Properties.Resources.Main ;
-            Image.ImageList =  null ;
-            Image.Location =  new System.Drawing.Point( 3, 3 ) ;
-            Image.Name =  "Image" ;
-            Image.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Image.Size =  new System.Drawing.Size( 48, 26 ) ;
-            Image.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
-            Image.TabIndex =  0 ;
-            Image.TabStop =  false ;
-            Image.ToolTip =  null ;
+            TopTable.ColumnCount =  2 ;
+            TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 299F ) );
+            TopTable.Controls.Add( ValueLabel, 1, 0 );
+            TopTable.Controls.Add( Image, 0, 0 );
+            TopTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            TopTable.Location =  new System.Drawing.Point( 1, 1 ) ;
+            TopTable.Name =  "TopTable" ;
+            TopTable.RowCount =  1 ;
+            TopTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            TopTable.Size =  new System.Drawing.Size( 353, 35 ) ;
+            TopTable.TabIndex =  4 ;
             // 
             // ValueLabel
             // 
@@ -116,6 +113,24 @@ namespace BudgetExecution
             ValueLabel.ThemeAuthor =  "Terry D. Eppler" ;
             ValueLabel.ThemeName =  "Budget Execution" ;
             ValueLabel.ToolTip =  null ;
+            // 
+            // Image
+            // 
+            Image.BackColor =  System.Drawing.Color.Transparent ;
+            Image.BindingSource =  null ;
+            Image.DataFilter =  null ;
+            Image.Field =  Field.AccountCode ;
+            Image.HoverText =  null ;
+            Image.Image =  Properties.Resources.Main ;
+            Image.ImageList =  null ;
+            Image.Location =  new System.Drawing.Point( 3, 3 ) ;
+            Image.Name =  "Image" ;
+            Image.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            Image.Size =  new System.Drawing.Size( 48, 26 ) ;
+            Image.SizeMode =  System.Windows.Forms.PictureBoxSizeMode.StretchImage ;
+            Image.TabIndex =  0 ;
+            Image.TabStop =  false ;
+            Image.ToolTip =  null ;
             // 
             // CalculatorPanel
             // 
@@ -243,27 +258,13 @@ namespace BudgetExecution
             CalculatorTable.Size =  new System.Drawing.Size( 361, 440 ) ;
             CalculatorTable.TabIndex =  3 ;
             // 
-            // TopTable
-            // 
-            TopTable.ColumnCount =  2 ;
-            TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 299F ) );
-            TopTable.Controls.Add( ValueLabel, 1, 0 );
-            TopTable.Controls.Add( Image, 0, 0 );
-            TopTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            TopTable.Location =  new System.Drawing.Point( 1, 1 ) ;
-            TopTable.Name =  "TopTable" ;
-            TopTable.RowCount =  1 ;
-            TopTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            TopTable.Size =  new System.Drawing.Size( 353, 35 ) ;
-            TopTable.TabIndex =  4 ;
-            // 
             // CalculationForm
             // 
             AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
@@ -281,11 +282,11 @@ namespace BudgetExecution
             ShowIcon =  false ;
             SizeGripStyle =  System.Windows.Forms.SizeGripStyle.Hide ;
             TopPanel.ResumeLayout( false );
+            TopTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) Image  ).EndInit( );
             CalculatorPanel.ResumeLayout( false );
             BottomPanel.ResumeLayout( false );
             CalculatorTable.ResumeLayout( false );
-            TopTable.ResumeLayout( false );
             ResumeLayout( false );
         }
 

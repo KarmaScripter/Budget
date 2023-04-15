@@ -384,10 +384,10 @@
             ExitButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
             ExitButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ExitButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ExitButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ExitButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             ExitButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             ExitButton.HoverText =  null ;
-            ExitButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            ExitButton.HoverTextColor =  System.Drawing.Color.White ;
             ExitButton.IsDerivedStyle =  true ;
             ExitButton.Location =  new System.Drawing.Point( 1220, 676 ) ;
             ExitButton.Name =  "ExitButton" ;
@@ -398,7 +398,7 @@
             ExitButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressTextColor =  System.Drawing.Color.White ;
-            ExitButton.Size =  new System.Drawing.Size( 95, 25 ) ;
+            ExitButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             ExitButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             ExitButton.StyleManager =  null ;
             ExitButton.TabIndex =  7 ;
@@ -427,6 +427,7 @@
             AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
