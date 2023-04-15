@@ -30,7 +30,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
-    <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
     <Optimize>True</Optimize>
     <Deterministic>False</Deterministic>
   </PropertyGroup>
@@ -159,7 +159,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CalendarDialog.cs">
+    <Compile Update="Controls\Dialogs\CalendarDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

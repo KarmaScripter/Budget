@@ -15,10 +15,10 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref = "MetroForm"/>
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" )]
     public partial class ColumnConfiguration : MetroForm
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex)
+            catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [data grid right click].
         /// </summary>
@@ -214,7 +214,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

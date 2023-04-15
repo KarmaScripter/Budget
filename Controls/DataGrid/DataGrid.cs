@@ -284,12 +284,14 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="DataGridViewCellMouseEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The
+        /// <see cref="DataGridViewCellMouseEventArgs" />
+        /// instance containing the event data.</param>
         public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

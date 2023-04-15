@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
+    using Syncfusion.Windows.Forms.Grid;
 
     /// <summary>
     /// 
@@ -26,6 +27,14 @@ namespace BudgetExecution
         /// The selected date.
         /// </value>
         public string DateSelected { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date value.
+        /// </summary>
+        /// <value>
+        /// The date value.
+        /// </value>
+        public DateTime DateValue { get; set; }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -90,12 +99,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
-            // HeaderLabel Settings
-            HeaderLabel.Font = new Font( "Roboto", 11, FontStyle.Bold );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
-            HeaderLabel.Text = "Budget Calendar";
-
             // Event Wiring
             Load += OnLoad;
         }
@@ -109,6 +112,7 @@ namespace BudgetExecution
             : this( )
         {
             Calendar.Value = dateTime;
+            DateValue = dateTime;
             DateSelected = dateTime.ToString( );
         }
 
@@ -121,14 +125,62 @@ namespace BudgetExecution
         {
             try
             {
-                HeaderLabel.Text = Calendar.Value.ToLongDateString( );
+                InitCalendar( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
+        /// <summary>
+        /// Sets the calendar properties.
+        /// </summary>
+        private void InitCalendar( )
+        {
+            try
+            {
+                Calendar.Border3DStyle = Border3DStyle.Flat;
+                Calendar.GridBackColor = SystemColors.GradientActiveCaption;
+                Calendar.BackColor = Color.FromArgb( 30, 30, 30 );
+                Calendar.FirstDayOfWeek = Day.Monday;
+                Calendar.Font = new Font( "Roboto", 9 );
+                Calendar.HeaderFont = new Font( "Roboto", 10, FontStyle.Bold );
+                Calendar.DaysFont = new Font( "Roboto", 9 );
+                Calendar.DayNamesHeight = 22;
+                Calendar.DayNamesFont = new Font( "Roboto", 9, FontStyle.Bold );
+                Calendar.MetroColor = Color.FromArgb( 0, 120, 212 );
+                Calendar.HeaderHeight = 34;
+                Calendar.HeadForeColor = Color.White;
+                Calendar.HeaderStartColor = Color.FromArgb( 50, 93, 129 );
+                Calendar.HeaderEndColor = Color.FromArgb( 50, 93, 129 );
+                Calendar.DayNamesColor = Color.Black;
+                Calendar.DaysColor = Color.White;
+                Calendar.InactiveMonthColor = Color.Gray;
+                Calendar.TodayButton.Appearance = ButtonAppearance.Metro;
+                Calendar.TodayButton.ForeColor = Color.LightGray;
+                Calendar.TodayButton.Font = new Font( "Roboto", 9 );
+                Calendar.TodayButton.TextAlign = ContentAlignment.MiddleLeft;
+                Calendar.TodayButton.BackColor = Color.FromArgb( 20, 20, 20 );
+                Calendar.TodayButton.Size = new Size( 287, 30 );
+                Calendar.TodayButton.Text = DateValue.ToLongDateString( );
+                Calendar.NoneButton.Appearance = ButtonAppearance.Metro;
+                Calendar.NoneButton.ForeColor = Color.LightGray;
+                Calendar.NoneButton.Font = new Font( "Roboto", 9 );
+                Calendar.NoneButton.Text = "Close";
+                Calendar.NoneButton.BackColor = Color.FromArgb( 20, 20, 20 );
+                Calendar.NoneButton.Size = new Size( 140, 30 );
+                Calendar.HighlightColor = Color.White;
+                Calendar.BottomHeight = 30;
+                Calendar.ForeColor = Color.LightGray;
+                Calendar.GridLines = GridBorderStyle.DashDot;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Gets the federal holidays.
         /// </summary>
@@ -180,7 +232,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _calendar = sender as DateControl;
                 Close( );
             }
             catch( Exception ex )
@@ -223,11 +274,10 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is DateControl _calendar )
+                if( sender is Calendar _calendar )
                 {
-                    var _date = _calendar.Value;
-                    HeaderLabel.Text = _date.ToLongDateString( );
-                    DateSelected = _date.ToString( );
+                    DateSelected = _calendar.Value.ToString( );
+                    HeaderLabel.Text = _calendar.Value.ToLongDateString( );
                 }
             }
             catch( Exception ex )

@@ -14,10 +14,11 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using Syncfusion.Windows.Forms.Tools;
+    using ContentAlignment = System.Drawing.ContentAlignment;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class DateSelector : MonthCalendarAdv
+    public class Calendar : MonthCalendarAdv
     {
         /// <summary>
         /// Gets or sets the date selected.
@@ -52,42 +53,53 @@ namespace BudgetExecution
         public DataTable FiscalYears { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateSelector"/> class.
+        /// Initializes a new instance of the <see cref="Calendar"/> class.
         /// </summary>
-        public DateSelector( )
+        public Calendar( )
         {
             Border3DStyle = Border3DStyle.Flat;
-            GridBackColor = Color.FromArgb( 30, 30, 30 );
+            GridBackColor = SystemColors.GradientActiveCaption;
             BackColor = Color.FromArgb( 30, 30, 30 );
             FirstDayOfWeek = Day.Monday;
             Font = new Font( "Roboto", 9 );
-            HeaderFont = new Font( "Roboto", 10 );
+            HeaderFont = new Font( "Roboto", 10, FontStyle.Bold );
             DaysFont = new Font( "Roboto", 9 );
             DayNamesFont = new Font( "Roboto", 9, FontStyle.Bold );
+            DayNamesHeight = 22;
             MetroColor = Color.FromArgb( 0, 120, 212 );
+            HeaderHeight = 34;
             HeadForeColor = Color.White;
-            HeaderStartColor = Color.SteelBlue;
-            HeaderEndColor = Color.SteelBlue;
+            HeaderStartColor = Color.FromArgb( 50, 93, 129 );
+            HeaderEndColor = Color.FromArgb( 50, 93, 129 );
             DayNamesColor = Color.Black;
-            DaysColor = Color.LightGray;
+            DaysColor = Color.Black;
             InactiveMonthColor = SystemColors.GrayText;
             TodayButton.Appearance = ButtonAppearance.Metro;
+            TodayButton.BackColor = Color.FromArgb( 20, 20, 20 );
             TodayButton.ForeColor = Color.LightGray;
             TodayButton.Font = new Font( "Roboto", 8 );
+            TodayButton.TextAlign = ContentAlignment.MiddleLeft;
+            TodayButton.FlatAppearance.MouseDownBackColor = Color.SteelBlue;
+            TodayButton.FlatAppearance.MouseOverBackColor = Color.FromArgb( 50, 93, 129 );
+            TodayButton.Size = new Size( 287, 30 );
             NoneButton.Appearance = ButtonAppearance.Metro;
+            NoneButton.BackColor = Color.FromArgb( 20, 20, 20 );
             NoneButton.ForeColor = Color.LightGray;
             NoneButton.Font = new Font( "Roboto", 8 );
+            NoneButton.FlatAppearance.MouseDownBackColor = Color.SteelBlue;
+            NoneButton.FlatAppearance.MouseOverBackColor = Color.FromArgb( 50, 93, 129 );
+            NoneButton.Text = "Close";
+            NoneButton.Size = new Size( 140, 30 );
             HighlightColor = Color.White;
             BottomHeight = 30;
-            ClearSelectionOnNone = true;
             SelectionChanged += OnSelectionChanged;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateSelector"/> class.
+        /// Initializes a new instance of the <see cref="Calendar"/> class.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
-        public DateSelector( DateTime dateTime ) 
+        public Calendar( DateTime dateTime ) 
             : this( )
         {
             Value = dateTime;

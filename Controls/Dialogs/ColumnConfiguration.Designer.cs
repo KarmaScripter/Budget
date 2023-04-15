@@ -8,199 +8,198 @@
 
 namespace BudgetExecution
 {
-    
-    
-        using System;
-        using System.ComponentModel;
-        using System.Threading;
-        using System.Windows.Forms;
 
-        public partial class ColumnConfiguration
+
+    using System;
+    using System.ComponentModel;
+    using System.Threading;
+    using System.Windows.Forms;
+
+    public partial class ColumnConfiguration
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <dict name="disposing">true if managed resources should be disposed; otherwise, false.</dict>
+        protected override void Dispose( bool disposing )
         {
-            /// <summary>
-            /// Required designer variable.
-            /// </summary>
-            private IContainer components = null;
-
-            /// <summary>
-            /// Clean up any resources being used.
-            /// </summary>
-            /// <dict name="disposing">true if managed resources should be disposed; otherwise, false.</dict>
-            protected override void Dispose( bool disposing )
+            if( disposing && ( components != null ) )
             {
-                if( disposing && ( components != null ) )
-                {
-                    components.Dispose();
-                }
-
-                base.Dispose( disposing );
+                components.Dispose( );
             }
 
-            #region Windows Form Designer generated code
+            base.Dispose( disposing );
+        }
 
-            /// <summary>
-            /// Required method for Designer support - do not modify
-            /// the contents of this method with the code editor.
-            /// </summary>
-            private void InitializeComponent()
-            {
-            Syncfusion.Windows.Forms.CaptionImage captionImage1 = new Syncfusion.Windows.Forms.CaptionImage();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColumnConfiguration));
-            this.ColumnListBox = new System.Windows.Forms.CheckedListBox();
-            this.ColumnConfigPanel = new System.Windows.Forms.Panel();
-            this.CloseButton = new BudgetExecution.Button();
-            this.ColumnConfigurationImage = new BudgetExecution.Picture();
-            this.HeaderLabel = new BudgetExecution.Label();
-            this.ColumnConfigPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ColumnConfigurationImage)).BeginInit();
-            this.SuspendLayout();
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent( )
+        {
+            var captionImage1 = new Syncfusion.Windows.Forms.CaptionImage( );
+            var resources = new ComponentResourceManager( typeof( ColumnConfiguration ) );
+            ColumnListBox =  new CheckedListBox( ) ;
+            ColumnConfigPanel =  new Panel( ) ;
+            CloseButton =  new Button( ) ;
+            ColumnConfigurationImage =  new Picture( ) ;
+            HeaderLabel =  new Label( ) ;
+            ColumnConfigPanel.SuspendLayout( );
+            ( (ISupportInitialize) ColumnConfigurationImage  ).BeginInit( );
+            SuspendLayout( );
             // 
             // ColumnListBox
             // 
-            this.ColumnListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ColumnListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ColumnListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ColumnListBox.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ColumnListBox.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.ColumnListBox.FormattingEnabled = true;
-            this.ColumnListBox.Location = new System.Drawing.Point(1, 1);
-            this.ColumnListBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.ColumnListBox.Name = "ColumnListBox";
-            this.ColumnListBox.Size = new System.Drawing.Size(212, 246);
-            this.ColumnListBox.TabIndex = 3;
+            ColumnListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ColumnListBox.BorderStyle =  BorderStyle.None ;
+            ColumnListBox.Dock =  DockStyle.Fill ;
+            ColumnListBox.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ColumnListBox.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            ColumnListBox.FormattingEnabled =  true ;
+            ColumnListBox.Location =  new System.Drawing.Point( 1, 1 ) ;
+            ColumnListBox.Margin =  new Padding( 3, 10, 3, 3 ) ;
+            ColumnListBox.Name =  "ColumnListBox" ;
+            ColumnListBox.Size =  new System.Drawing.Size( 212, 246 ) ;
+            ColumnListBox.TabIndex =  3 ;
             // 
             // ColumnConfigPanel
             // 
-            this.ColumnConfigPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ColumnConfigPanel.Controls.Add(this.ColumnListBox);
-            this.ColumnConfigPanel.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.ColumnConfigPanel.Location = new System.Drawing.Point(12, 42);
-            this.ColumnConfigPanel.Name = "ColumnConfigPanel";
-            this.ColumnConfigPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnConfigPanel.Size = new System.Drawing.Size(214, 248);
-            this.ColumnConfigPanel.TabIndex = 5;
+            ColumnConfigPanel.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ColumnConfigPanel.Controls.Add( ColumnListBox );
+            ColumnConfigPanel.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            ColumnConfigPanel.Location =  new System.Drawing.Point( 12, 42 ) ;
+            ColumnConfigPanel.Name =  "ColumnConfigPanel" ;
+            ColumnConfigPanel.Padding =  new Padding( 1 ) ;
+            ColumnConfigPanel.Size =  new System.Drawing.Size( 214, 248 ) ;
+            ColumnConfigPanel.TabIndex =  5 ;
             // 
             // CloseButton
             // 
-            this.CloseButton.BindingSource = null;
-            this.CloseButton.DataFilter = null;
-            this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverText = null;
-            this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(124, 305);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(102, 35);
-            this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CloseButton.StyleManager = null;
-            this.CloseButton.TabIndex = 6;
-            this.CloseButton.Text = "Close";
-            this.CloseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloseButton.ThemeName = "Budget Execution";
-            this.CloseButton.ToolTip = null;
+            CloseButton.BindingSource =  null ;
+            CloseButton.DataFilter =  null ;
+            CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverText =  null ;
+            CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            CloseButton.IsDerivedStyle =  true ;
+            CloseButton.Location =  new System.Drawing.Point( 153, 314 ) ;
+            CloseButton.Name =  "CloseButton" ;
+            CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
+            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.Padding =  new Padding( 1 ) ;
+            CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.PressTextColor =  System.Drawing.Color.White ;
+            CloseButton.Size =  new System.Drawing.Size( 72, 26 ) ;
+            CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            CloseButton.StyleManager =  null ;
+            CloseButton.TabIndex =  6 ;
+            CloseButton.Text =  "Close" ;
+            CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
+            CloseButton.ThemeName =  "Budget Execution" ;
+            CloseButton.ToolTip =  null ;
             // 
             // ColumnConfigurationImage
             // 
-            this.ColumnConfigurationImage.BackColor = System.Drawing.Color.Transparent;
-            this.ColumnConfigurationImage.BindingSource = null;
-            this.ColumnConfigurationImage.DataFilter = null;
-            this.ColumnConfigurationImage.Field = BudgetExecution.Field.AccountCode;
-            this.ColumnConfigurationImage.HoverText = null;
-            this.ColumnConfigurationImage.Image = global::BudgetExecution.Properties.Resources.SettingsTile;
-            this.ColumnConfigurationImage.ImageList = null;
-            this.ColumnConfigurationImage.Location = new System.Drawing.Point(0, 5);
-            this.ColumnConfigurationImage.Name = "ColumnConfigurationImage";
-            this.ColumnConfigurationImage.Padding = new System.Windows.Forms.Padding(1);
-            this.ColumnConfigurationImage.Size = new System.Drawing.Size(22, 24);
-            this.ColumnConfigurationImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ColumnConfigurationImage.TabIndex = 7;
-            this.ColumnConfigurationImage.TabStop = false;
-            this.ColumnConfigurationImage.ToolTip = null;
+            ColumnConfigurationImage.BackColor =  System.Drawing.Color.Transparent ;
+            ColumnConfigurationImage.BindingSource =  null ;
+            ColumnConfigurationImage.DataFilter =  null ;
+            ColumnConfigurationImage.Field =  Field.AccountCode ;
+            ColumnConfigurationImage.HoverText =  null ;
+            ColumnConfigurationImage.Image =  Properties.Resources.AddColumn ;
+            ColumnConfigurationImage.ImageList =  null ;
+            ColumnConfigurationImage.Location =  new System.Drawing.Point( 0, 5 ) ;
+            ColumnConfigurationImage.Name =  "ColumnConfigurationImage" ;
+            ColumnConfigurationImage.Padding =  new Padding( 1 ) ;
+            ColumnConfigurationImage.Size =  new System.Drawing.Size( 22, 24 ) ;
+            ColumnConfigurationImage.SizeMode =  PictureBoxSizeMode.StretchImage ;
+            ColumnConfigurationImage.TabIndex =  7 ;
+            ColumnConfigurationImage.TabStop =  false ;
+            ColumnConfigurationImage.ToolTip =  null ;
             // 
             // HeaderLabel
             // 
-            this.HeaderLabel.BindingSource = null;
-            this.HeaderLabel.DataFilter = null;
-            this.HeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HeaderLabel.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HeaderLabel.HoverText = null;
-            this.HeaderLabel.IsDerivedStyle = true;
-            this.HeaderLabel.Location = new System.Drawing.Point(28, 5);
-            this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.HeaderLabel.Name = "HeaderLabel";
-            this.HeaderLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.HeaderLabel.Size = new System.Drawing.Size(184, 23);
-            this.HeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.HeaderLabel.StyleManager = null;
-            this.HeaderLabel.TabIndex = 8;
-            this.HeaderLabel.Text = "Data Column Configuration";
-            this.HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HeaderLabel.ThemeAuthor = "Terry D. Eppler";
-            this.HeaderLabel.ThemeName = "Budget Execution";
-            this.HeaderLabel.ToolTip = null;
+            HeaderLabel.BindingSource =  null ;
+            HeaderLabel.DataFilter =  null ;
+            HeaderLabel.FlatStyle =  FlatStyle.Flat ;
+            HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            HeaderLabel.HoverText =  null ;
+            HeaderLabel.IsDerivedStyle =  true ;
+            HeaderLabel.Location =  new System.Drawing.Point( 28, 5 ) ;
+            HeaderLabel.Margin =  new Padding( 3 ) ;
+            HeaderLabel.Name =  "HeaderLabel" ;
+            HeaderLabel.Padding =  new Padding( 1 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 184, 23 ) ;
+            HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            HeaderLabel.StyleManager =  null ;
+            HeaderLabel.TabIndex =  8 ;
+            HeaderLabel.Text =  "Data Column Configuration" ;
+            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+            HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
+            HeaderLabel.ThemeName =  "Budget Execution" ;
+            HeaderLabel.ToolTip =  null ;
             // 
             // ColumnConfiguration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionBarHeight = 1;
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.White;
-            this.CaptionFont = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            captionImage1.BackColor = System.Drawing.Color.Transparent;
-            captionImage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            captionImage1.Location = new System.Drawing.Point(10, 5);
-            captionImage1.Name = "Image";
-            captionImage1.Size = new System.Drawing.Size(16, 16);
-            this.CaptionImages.Add(captionImage1);
-            this.ClientSize = new System.Drawing.Size(238, 343);
-            this.Controls.Add(this.HeaderLabel);
-            this.Controls.Add(this.ColumnConfigurationImage);
-            this.Controls.Add(this.CloseButton);
-            this.Controls.Add(this.ColumnConfigPanel);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(250, 350);
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.MinimumSize = new System.Drawing.Size(250, 350);
-            this.Name = "ColumnConfiguration";
-            this.ShowIcon = false;
-            this.ShowMaximizeBox = false;
-            this.ShowMinimizeBox = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "       SELECT COLUMNS";
-            this.ColumnConfigPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ColumnConfigurationImage)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
+            AutoScaleMode =  AutoScaleMode.Font ;
+            BackColor =  System.Drawing.Color.FromArgb(   18  ,   18  ,   18   ) ;
+            BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarHeight =  1 ;
+            CaptionButtonColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            CaptionButtonHoverColor =  System.Drawing.Color.White ;
+            CaptionFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CaptionForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            captionImage1.BackColor =  System.Drawing.Color.Transparent ;
+            captionImage1.ForeColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
+            captionImage1.Location =  new System.Drawing.Point( 10, 5 ) ;
+            captionImage1.Name =  "Image" ;
+            captionImage1.Size =  new System.Drawing.Size( 16, 16 ) ;
+            CaptionImages.Add( captionImage1 );
+            ClientSize =  new System.Drawing.Size( 238, 343 ) ;
+            Controls.Add( HeaderLabel );
+            Controls.Add( ColumnConfigurationImage );
+            Controls.Add( CloseButton );
+            Controls.Add( ColumnConfigPanel );
+            Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
+            MaximumSize =  new System.Drawing.Size( 250, 350 ) ;
+            MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            MinimumSize =  new System.Drawing.Size( 250, 350 ) ;
+            Name =  "ColumnConfiguration" ;
+            ShowIcon =  false ;
+            ShowMaximizeBox =  false ;
+            ShowMinimizeBox =  false ;
+            StartPosition =  FormStartPosition.Manual ;
+            Text =  "       SELECT COLUMNS" ;
+            ColumnConfigPanel.ResumeLayout( false );
+            ( (ISupportInitialize) ColumnConfigurationImage  ).EndInit( );
+            ResumeLayout( false );
+        }
 
-            }
+        #endregion
 
-            #endregion
+        public CheckedListBox ColumnListBox;
 
-            public CheckedListBox ColumnListBox;
-
-            public Panel ColumnConfigPanel;
+        public Panel ColumnConfigPanel;
         public Button CloseButton;
         public Picture ColumnConfigurationImage;
         private Label HeaderLabel;
     }
-    
+
 }
