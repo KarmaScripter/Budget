@@ -187,16 +187,15 @@ namespace BudgetExecution
         /// <param name="name">The field.</param>
         /// <param name="value">The filter.</param>
         /// <returns></returns>
-        public static IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows, string name,
-            string value )
+        public IEnumerable<DataRow> FilterData( string name, string value )
         {
-            if( dataRows?.Any( ) == true
+            if( DataTable != null
                && !string.IsNullOrEmpty( name )
                && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
-                    var _query = dataRows
+                    var _query = DataTable.AsEnumerable( )
                         ?.Where( r => r.Field<string>( name ).Equals( value ) )
                         ?.Select( r => r );
 
@@ -222,7 +221,7 @@ namespace BudgetExecution
         /// <param name="value">The filter.</param>
         /// <returns></returns>
         [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
-        public static IDictionary<string, IEnumerable<string>> CreateSeries( 
+        public IDictionary<string, IEnumerable<string>> CreateSeries( 
             IEnumerable<DataRow> dataRows, string name, string value )
         {
             if( dataRows?.Any( ) == true

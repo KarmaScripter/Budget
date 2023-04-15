@@ -125,6 +125,6 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRows">The Data rows.</param>
         /// <returns></returns>
-        IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows );
+        IEnumerable<int> GetPrimaryIndexes( );
     }
 }

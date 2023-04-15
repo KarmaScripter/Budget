@@ -119,7 +119,6 @@ namespace BudgetExecution
             Image.BackColor =  System.Drawing.Color.Transparent ;
             Image.BindingSource =  null ;
             Image.DataFilter =  null ;
-            Image.Field =  Field.AccountCode ;
             Image.HoverText =  null ;
             Image.Image =  Properties.Resources.Main ;
             Image.ImageList =  null ;

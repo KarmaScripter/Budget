@@ -29,15 +29,7 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public virtual Field Field { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the hover text.
         /// </summary>

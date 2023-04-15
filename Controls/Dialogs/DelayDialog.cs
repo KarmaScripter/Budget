@@ -105,7 +105,6 @@ namespace BudgetExecution
         {
             try
             {
-                ShowImage( );
             }
             catch( Exception ex )
             {
@@ -130,31 +129,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Shows the image.
-        /// </summary>
-        public void ShowImage( )
-        {
-            try
-            {
-                if( Enum.IsDefined( typeof( Status ), Status ) )
-                {
-                    PictureBox.Image = Status switch
-                    {
-                        Status.Loading => Image.FromFile( LoadingPath ),
-                        Status.Processing => Image.FromFile( ProcessingPath ),
-                        Status.Waiting => Image.FromFile( WaitingPath ),
-                        _ => Image.FromFile( LoadingPath )
-                    };
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Raises the Close event.
         /// </summary>

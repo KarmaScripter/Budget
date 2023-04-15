@@ -331,7 +331,8 @@ namespace BudgetExecution
                 {
                     var _query = dataRows
                         ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
+                        ?.Select( v => v.Field<string>( $"{name}" ) )
+                        ?.Distinct( );
 
                     return _query?.Any( ) == true
                         ? _query

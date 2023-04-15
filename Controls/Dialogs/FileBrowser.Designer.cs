@@ -546,7 +546,6 @@ namespace BudgetExecution
             Picture.BindingSource =  BindingSource ;
             Picture.DataFilter =  null ;
             Picture.Dock =  DockStyle.Top ;
-            Picture.Field =  Field.AccountCode ;
             Picture.HoverText =  null ;
             Picture.ImageList =  null ;
             Picture.Location =  new System.Drawing.Point( 3, 3 ) ;

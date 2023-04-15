@@ -117,7 +117,6 @@ namespace BudgetExecution
             ColumnConfigurationImage.BackColor =  System.Drawing.Color.Transparent ;
             ColumnConfigurationImage.BindingSource =  null ;
             ColumnConfigurationImage.DataFilter =  null ;
-            ColumnConfigurationImage.Field =  Field.AccountCode ;
             ColumnConfigurationImage.HoverText =  null ;
             ColumnConfigurationImage.Image =  Properties.Resources.ColumnConfiguration ;
             ColumnConfigurationImage.ImageList =  null ;

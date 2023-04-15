@@ -171,14 +171,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRows">The Data rows.</param>
         /// <returns></returns>
-        public IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> dataRows )
+        public IEnumerable<int> GetPrimaryIndexes( )
         {
-            if( dataRows?.HasPrimaryKey( ) == true )
+            if( DataTable != null 
+               && DataTable?.HasPrimaryKey( ) == true )
             {
                 try
                 {
-                    var _table = dataRows?.CopyToDataTable( );
-                    var _values = _table?.GetPrimaryKeyValues( );
+                    var _values = DataTable.GetPrimaryKeyValues( );
                     return _values?.Any( ) == true
                         ? _values.ToArray( )
                         : default( IEnumerable<int> );

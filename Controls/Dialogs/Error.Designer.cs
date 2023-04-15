@@ -44,7 +44,6 @@
             Picture.BackColor =  System.Drawing.Color.Transparent ;
             Picture.BindingSource =  null ;
             Picture.DataFilter =  null ;
-            Picture.Field =  Field.RpioActivityCode ;
             Picture.HoverText =  null ;
             Picture.Image =  Properties.Resources.Error ;
             Picture.ImageList =  null ;
