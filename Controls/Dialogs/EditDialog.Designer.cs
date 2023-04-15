@@ -1210,19 +1210,18 @@
             // 
             // SelectButton
             // 
-            SelectButton.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
             SelectButton.BackColor =  System.Drawing.Color.Transparent ;
-            SelectButton.BindingSource =  null ;
+            SelectButton.BindingSource =  BindingSource ;
             SelectButton.DataFilter =  null ;
             SelectButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             SelectButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             SelectButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            SelectButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SelectButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SelectButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            SelectButton.HoverText =  "Not Yet Implemented!" ;
-            SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            SelectButton.HoverText =  "Save Changes" ;
+            SelectButton.HoverTextColor =  System.Drawing.Color.White ;
             SelectButton.IsDerivedStyle =  true ;
             SelectButton.Location =  new System.Drawing.Point( 604, 593 ) ;
             SelectButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
@@ -1234,30 +1233,29 @@
             SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressTextColor =  System.Drawing.Color.White ;
-            SelectButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             SelectButton.StyleManager =  null ;
             SelectButton.TabIndex =  7 ;
-            SelectButton.Text =  "Select" ;
+            SelectButton.Text =  "Save" ;
             SelectButton.ThemeAuthor =  "Terry D. Eppler" ;
             SelectButton.ThemeName =  "BudgetExecution" ;
             SelectButton.ToolTip =  ToolTip ;
             // 
             // RefreshButton
             // 
-            RefreshButton.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
             RefreshButton.BackColor =  System.Drawing.Color.Transparent ;
-            RefreshButton.BindingSource =  null ;
+            RefreshButton.BindingSource =  BindingSource ;
             RefreshButton.DataFilter =  null ;
             RefreshButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             RefreshButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             RefreshButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            RefreshButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            RefreshButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             RefreshButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            RefreshButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            RefreshButton.HoverText =  "Not Yet Implemented!" ;
-            RefreshButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            RefreshButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            RefreshButton.HoverText =  "Clear Text" ;
+            RefreshButton.HoverTextColor =  System.Drawing.Color.White ;
             RefreshButton.IsDerivedStyle =  true ;
             RefreshButton.Location =  new System.Drawing.Point( 82, 593 ) ;
             RefreshButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
@@ -1269,7 +1267,7 @@
             RefreshButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.PressTextColor =  System.Drawing.Color.White ;
-            RefreshButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            RefreshButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             RefreshButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             RefreshButton.StyleManager =  null ;
             RefreshButton.TabIndex =  5 ;
@@ -1280,19 +1278,18 @@
             // 
             // CloseButton
             // 
-            CloseButton.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
             CloseButton.BackColor =  System.Drawing.Color.Transparent ;
-            CloseButton.BindingSource =  null ;
+            CloseButton.BindingSource =  BindingSource ;
             CloseButton.DataFilter =  null ;
             CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            CloseButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CloseButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             CloseButton.HoverText =  "Close Window" ;
-            CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
             CloseButton.Location =  new System.Drawing.Point( 1138, 593 ) ;
             CloseButton.Margin =  new System.Windows.Forms.Padding( 0 ) ;
@@ -1304,7 +1301,7 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  6 ;

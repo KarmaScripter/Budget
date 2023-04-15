@@ -262,21 +262,21 @@ namespace BudgetExecution
                     var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                     var _form = new CalendarDialog( _cellValue );
                     _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.Value;
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
                 }
                 else if( CurrentCell.ValueType == typeof( DateTime ) )
                 {
                     var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                     var _form = new CalendarDialog( _cellValue );
                     _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.Value;
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
                 }
                 else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
                 {
                     var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                     var _form = new CalendarDialog( _cellValue );
                     _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.Value;
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
                 }
             }
             catch( Exception ex )

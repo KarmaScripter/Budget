@@ -98,9 +98,9 @@ namespace BudgetExecution
             ClearButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ClearButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClearButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            ClearButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            ClearButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             ClearButton.HoverText =  null ;
-            ClearButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            ClearButton.HoverTextColor =  System.Drawing.Color.White ;
             ClearButton.IsDerivedStyle =  true ;
             ClearButton.Location =  new System.Drawing.Point( 16, 376 ) ;
             ClearButton.Name =  "ClearButton" ;
@@ -111,7 +111,7 @@ namespace BudgetExecution
             ClearButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClearButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClearButton.PressTextColor =  System.Drawing.Color.White ;
-            ClearButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            ClearButton.Size =  new System.Drawing.Size( 90, 29 ) ;
             ClearButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             ClearButton.StyleManager =  null ;
             ClearButton.TabIndex =  1 ;
@@ -130,9 +130,9 @@ namespace BudgetExecution
             SelectButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SelectButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             SelectButton.HoverText =  null ;
-            SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            SelectButton.HoverTextColor =  System.Drawing.Color.White ;
             SelectButton.IsDerivedStyle =  true ;
             SelectButton.Location =  new System.Drawing.Point( 248, 376 ) ;
             SelectButton.Name =  "SelectButton" ;
@@ -143,7 +143,7 @@ namespace BudgetExecution
             SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressTextColor =  System.Drawing.Color.White ;
-            SelectButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            SelectButton.Size =  new System.Drawing.Size( 90, 29 ) ;
             SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             SelectButton.StyleManager =  null ;
             SelectButton.TabIndex =  2 ;
@@ -162,9 +162,9 @@ namespace BudgetExecution
             CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             CloseButton.HoverText =  null ;
-            CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
             CloseButton.Location =  new System.Drawing.Point( 376, 376 ) ;
             CloseButton.Name =  "CloseButton" ;
@@ -175,7 +175,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 90, 29 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  3 ;
@@ -234,9 +234,9 @@ namespace BudgetExecution
             BrowseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             BrowseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             BrowseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            BrowseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            BrowseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             BrowseButton.HoverText =  null ;
-            BrowseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            BrowseButton.HoverTextColor =  System.Drawing.Color.White ;
             BrowseButton.IsDerivedStyle =  true ;
             BrowseButton.Location =  new System.Drawing.Point( 125, 376 ) ;
             BrowseButton.Name =  "BrowseButton" ;
@@ -247,7 +247,7 @@ namespace BudgetExecution
             BrowseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             BrowseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             BrowseButton.PressTextColor =  System.Drawing.Color.White ;
-            BrowseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            BrowseButton.Size =  new System.Drawing.Size( 90, 29 ) ;
             BrowseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             BrowseButton.StyleManager =  null ;
             BrowseButton.TabIndex =  6 ;

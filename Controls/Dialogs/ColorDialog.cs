@@ -37,7 +37,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            
+
             // Color Picker Properties
             ColorPicker.ForeColor = Color.LightGray;
             ColorPicker.Font = new Font( "Roboto", 9 );
@@ -48,7 +48,7 @@ namespace BudgetExecution
             ColorPicker.VisualStyle = ColorUIStyle.Office2016Black;
             ColorPicker.Size = new Size( 246, 284 );
             ColorPicker.Location = new Point( 34, 16 );
-            
+
             // Wire Events
             Load += OnLoad;
         }
@@ -69,7 +69,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
@@ -86,7 +86,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

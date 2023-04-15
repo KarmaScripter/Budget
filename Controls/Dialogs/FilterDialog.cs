@@ -548,7 +548,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source}" 
+                    return $"SELECT * FROM {Source}"
                         + $" WHERE {where.ToCriteria( )}";
                 }
                 catch( Exception ex )

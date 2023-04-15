@@ -33,247 +33,212 @@ partial class ColorDialog
     /// </summary>
     private void InitializeComponent( )
     {
-            this.components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.MetroColorTable metroColorTable2 = new Syncfusion.Windows.Forms.MetroColorTable();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColorDialog));
-            this.ColorPicker = new Syncfusion.Windows.Forms.ColorUIControl();
-            this.CloseButton = new BudgetExecution.Button();
-            this.SelectButton = new BudgetExecution.Button();
-            this.ButtonPanel = new BudgetExecution.Layout();
-            this.TabControl = new BudgetExecution.TabControl();
-            this.ColorTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            this.ToolTip = new BudgetExecution.SmallTip();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ButtonPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
-            this.TabControl.SuspendLayout();
-            this.ColorTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // ColorPicker
-            // 
-            this.ColorPicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ColorPicker.BeforeTouchSize = new System.Drawing.Size(246, 284);
-            this.ColorPicker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ColorPicker.ForeColor = System.Drawing.Color.LightGray;
-            this.ColorPicker.Location = new System.Drawing.Point(34, 16);
-            this.ColorPicker.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ColorPicker.MetroForeColor = System.Drawing.Color.LightGray;
-            this.ColorPicker.Name = "ColorPicker";
-            this.ColorPicker.ScrollMetroColorTable = metroColorTable2;
-            this.ColorPicker.Size = new System.Drawing.Size(246, 284);
-            this.ColorPicker.TabIndex = 0;
-            this.ColorPicker.ThemeName = "Office2016Black";
-            this.ColorPicker.ThemeStyle.ColorListStyle.PaletteBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.ColorPicker.ThemeStyle.ColorListStyle.SelectedItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ColorPicker.ThemeStyle.ColorPaletteStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.ColorPicker.ThemeStyle.ColorPaletteStyle.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(176)))));
-            this.ColorPicker.VisualStyle = Syncfusion.Windows.Forms.ColorUIStyle.Office2016Black;
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.BindingSource = null;
-            this.CloseButton.DataFilter = null;
-            this.CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.CloseButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.CloseButton.HoverText = "Close Window";
-            this.CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.CloseButton.IsDerivedStyle = true;
-            this.CloseButton.Location = new System.Drawing.Point(4, 14);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            this.CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.Padding = new System.Windows.Forms.Padding(1);
-            this.CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CloseButton.PressTextColor = System.Drawing.Color.White;
-            this.CloseButton.Size = new System.Drawing.Size(122, 32);
-            this.CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.CloseButton.StyleManager = null;
-            this.CloseButton.TabIndex = 2;
-            this.CloseButton.Text = "Close ";
-            this.CloseButton.ThemeAuthor = "Terry D. Eppler";
-            this.CloseButton.ThemeName = "Budget Execution";
-            this.CloseButton.ToolTip = this.ToolTip;
-            // 
-            // SelectButton
-            // 
-            this.SelectButton.BindingSource = null;
-            this.SelectButton.DataFilter = null;
-            this.SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            this.SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            this.SelectButton.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SelectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SelectButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(93)))), ((int)(((byte)(129)))));
-            this.SelectButton.HoverText = "Choose Color";
-            this.SelectButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            this.SelectButton.IsDerivedStyle = true;
-            this.SelectButton.Location = new System.Drawing.Point(170, 14);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            this.SelectButton.NormalColor = System.Drawing.Color.Transparent;
-            this.SelectButton.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.Padding = new System.Windows.Forms.Padding(1);
-            this.SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.SelectButton.PressTextColor = System.Drawing.Color.White;
-            this.SelectButton.Size = new System.Drawing.Size(132, 32);
-            this.SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
-            this.SelectButton.StyleManager = null;
-            this.SelectButton.TabIndex = 3;
-            this.SelectButton.Text = "Enter";
-            this.SelectButton.ThemeAuthor = "Terry D. Eppler";
-            this.SelectButton.ThemeName = "Budget Execution";
-            this.SelectButton.ToolTip = this.ToolTip;
-            // 
-            // ButtonPanel
-            // 
-            this.ButtonPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ButtonPanel.BindingSource = null;
-            this.ButtonPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ButtonPanel.BorderThickness = 1;
-            this.ButtonPanel.Children = null;
-            this.ButtonPanel.Controls.Add(this.SelectButton);
-            this.ButtonPanel.Controls.Add(this.CloseButton);
-            this.ButtonPanel.DataFilter = null;
-            this.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonPanel.Font = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ButtonPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.ButtonPanel.HoverText = null;
-            this.ButtonPanel.IsDerivedStyle = true;
-            this.ButtonPanel.Location = new System.Drawing.Point(0, 346);
-            this.ButtonPanel.Name = "ButtonPanel";
-            this.ButtonPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.ButtonPanel.Size = new System.Drawing.Size(314, 50);
-            this.ButtonPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ButtonPanel.StyleManager = null;
-            this.ButtonPanel.TabIndex = 5;
-            this.ButtonPanel.ThemeAuthor = "Terry D. Eppler";
-            this.ButtonPanel.ThemeName = "Budget Execution";
-            this.ButtonPanel.ToolTip = null;
-            // 
-            // TabControl
-            // 
-            this.TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ActiveTabFont = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TabControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.BeforeTouchSize = new System.Drawing.Size(314, 346);
-            this.TabControl.BindingSource = null;
-            this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TabControl.CanOverrideStyle = true;
-            this.TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.Controls.Add(this.ColorTabPage);
-            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControl.FocusOnTabClick = false;
-            this.TabControl.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TabControl.ForeColor = System.Drawing.Color.LightGray;
-            this.TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ItemSize = new System.Drawing.Size(100, 30);
-            this.TabControl.Location = new System.Drawing.Point(0, 0);
-            this.TabControl.Name = "TabControl";
-            this.TabControl.Size = new System.Drawing.Size(314, 346);
-            this.TabControl.TabIndex = 4;
-            this.TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
-            this.TabControl.ThemeName = "TabRendererMetro";
-            this.TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font("Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.DarkGray;
-            this.TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TabControl.ToolTip = null;
-            // 
-            // ColorTabPage
-            // 
-            this.ColorTabPage.Controls.Add(this.ColorPicker);
-            this.ColorTabPage.Image = null;
-            this.ColorTabPage.ImageSize = new System.Drawing.Size(16, 16);
-            this.ColorTabPage.Location = new System.Drawing.Point(0, 29);
-            this.ColorTabPage.Name = "ColorTabPage";
-            this.ColorTabPage.ShowCloseButton = true;
-            this.ColorTabPage.Size = new System.Drawing.Size(314, 317);
-            this.ColorTabPage.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ColorTabPage.TabForeColor = System.Drawing.Color.LightGray;
-            this.ColorTabPage.TabIndex = 1;
-            this.ColorTabPage.Text = "Colors";
-            this.ColorTabPage.ThemesEnabled = false;
-            // 
-            // ToolTip
-            // 
-            this.ToolTip.AutoPopDelay = 5000;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ToolTip.BindingSource = this.BindingSource;
-            this.ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.InitialDelay = 500;
-            this.ToolTip.IsDerivedStyle = true;
-            this.ToolTip.Name = null;
-            this.ToolTip.OwnerDraw = true;
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            this.ToolTip.StyleManager = null;
-            this.ToolTip.ThemeAuthor = "Terry D. Eppler";
-            this.ToolTip.ThemeName = "Budget Execution";
-            this.ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ToolTip.TipText = "";
-            this.ToolTip.TipTitle = null;
-            // 
-            // ColorDialog
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionBarHeight = 5;
-            this.CaptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionButtonHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(314, 396);
-            this.Controls.Add(this.TabControl);
-            this.Controls.Add(this.ButtonPanel);
-            this.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.LightGray;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Name = "ColorDialog";
-            this.ShowIcon = false;
-            this.Text = "ColorDialog";
-            this.ButtonPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
-            this.TabControl.ResumeLayout(false);
-            this.ColorTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
-            this.ResumeLayout(false);
-
+        components =  new System.ComponentModel.Container( ) ;
+        var metroColorTable1 = new Syncfusion.Windows.Forms.MetroColorTable( );
+        var resources = new System.ComponentModel.ComponentResourceManager( typeof( ColorDialog ) );
+        CloseButton =  new Button( ) ;
+        ToolTip =  new SmallTip( ) ;
+        BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
+        SelectButton =  new Button( ) ;
+        ButtonPanel =  new Layout( ) ;
+        tableLayoutPanel1 =  new System.Windows.Forms.TableLayoutPanel( ) ;
+        Picture =  new System.Windows.Forms.PictureBox( ) ;
+        ColorPicker =  new Syncfusion.Windows.Forms.ColorUIControl( ) ;
+        ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+        tableLayoutPanel1.SuspendLayout( );
+        ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
+        SuspendLayout( );
+        // 
+        // CloseButton
+        // 
+        CloseButton.BindingSource =  null ;
+        CloseButton.DataFilter =  null ;
+        CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        CloseButton.HoverText =  "Close Window" ;
+        CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        CloseButton.IsDerivedStyle =  true ;
+        CloseButton.Location =  new System.Drawing.Point( 227, 364 ) ;
+        CloseButton.Name =  "CloseButton" ;
+        CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
+        CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.PressTextColor =  System.Drawing.Color.White ;
+        CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        CloseButton.StyleManager =  null ;
+        CloseButton.TabIndex =  2 ;
+        CloseButton.Text =  "Close " ;
+        CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
+        CloseButton.ThemeName =  "Budget Execution" ;
+        CloseButton.ToolTip =  ToolTip ;
+        // 
+        // ToolTip
+        // 
+        ToolTip.AutoPopDelay =  5000 ;
+        ToolTip.BackColor =  System.Drawing.Color.FromArgb(   5  ,   5  ,   5   ) ;
+        ToolTip.BindingSource =  BindingSource ;
+        ToolTip.BorderColor =  System.Drawing.SystemColors.Highlight ;
+        ToolTip.ForeColor =  System.Drawing.Color.White ;
+        ToolTip.InitialDelay =  500 ;
+        ToolTip.IsDerivedStyle =  true ;
+        ToolTip.Name =  null ;
+        ToolTip.OwnerDraw =  true ;
+        ToolTip.ReshowDelay =  100 ;
+        ToolTip.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ToolTip.StyleManager =  null ;
+        ToolTip.ThemeAuthor =  "Terry D. Eppler" ;
+        ToolTip.ThemeName =  "Budget Execution" ;
+        ToolTip.TipIcon =  System.Windows.Forms.ToolTipIcon.Info ;
+        ToolTip.TipText =  "" ;
+        ToolTip.TipTitle =  null ;
+        // 
+        // SelectButton
+        // 
+        SelectButton.BindingSource =  null ;
+        SelectButton.DataFilter =  null ;
+        SelectButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        SelectButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        SelectButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        SelectButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SelectButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        SelectButton.HoverText =  "Choose Color" ;
+        SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        SelectButton.IsDerivedStyle =  true ;
+        SelectButton.Location =  new System.Drawing.Point( 80, 364 ) ;
+        SelectButton.Name =  "SelectButton" ;
+        SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
+        SelectButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.PressTextColor =  System.Drawing.Color.White ;
+        SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SelectButton.StyleManager =  null ;
+        SelectButton.TabIndex =  3 ;
+        SelectButton.Text =  "Enter" ;
+        SelectButton.ThemeAuthor =  "Terry D. Eppler" ;
+        SelectButton.ThemeName =  "Budget Execution" ;
+        SelectButton.ToolTip =  ToolTip ;
+        // 
+        // ButtonPanel
+        // 
+        ButtonPanel.BackColor =  System.Drawing.Color.Transparent ;
+        ButtonPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        ButtonPanel.BindingSource =  null ;
+        ButtonPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        ButtonPanel.BorderThickness =  1 ;
+        ButtonPanel.Children =  null ;
+        ButtonPanel.DataFilter =  null ;
+        ButtonPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ButtonPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        ButtonPanel.HoverText =  null ;
+        ButtonPanel.IsDerivedStyle =  true ;
+        ButtonPanel.Location =  new System.Drawing.Point( 12, 38 ) ;
+        ButtonPanel.Name =  "ButtonPanel" ;
+        ButtonPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        ButtonPanel.Size =  new System.Drawing.Size( 305, 304 ) ;
+        ButtonPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ButtonPanel.StyleManager =  null ;
+        ButtonPanel.TabIndex =  5 ;
+        ButtonPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        ButtonPanel.ThemeName =  "Budget Execution" ;
+        ButtonPanel.ToolTip =  null ;
+        // 
+        // tableLayoutPanel1
+        // 
+        tableLayoutPanel1.ColumnCount =  2 ;
+        tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 280F ) );
+        tableLayoutPanel1.Controls.Add( Picture, 0, 0 );
+        tableLayoutPanel1.Dock =  System.Windows.Forms.DockStyle.Top ;
+        tableLayoutPanel1.Location =  new System.Drawing.Point( 0, 0 ) ;
+        tableLayoutPanel1.Name =  "tableLayoutPanel1" ;
+        tableLayoutPanel1.RowCount =  1 ;
+        tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        tableLayoutPanel1.Size =  new System.Drawing.Size( 329, 30 ) ;
+        tableLayoutPanel1.TabIndex =  6 ;
+        // 
+        // Picture
+        // 
+        Picture.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        Picture.Location =  new System.Drawing.Point( 3, 3 ) ;
+        Picture.Name =  "Picture" ;
+        Picture.Size =  new System.Drawing.Size( 43, 24 ) ;
+        Picture.TabIndex =  0 ;
+        Picture.TabStop =  false ;
+        // 
+        // ColorPicker
+        // 
+        ColorPicker.BeforeTouchSize =  new System.Drawing.Size( 250, 262 ) ;
+        ColorPicker.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
+        ColorPicker.ForeColor =  System.Drawing.Color.FromArgb(   150  ,   150  ,   150   ) ;
+        ColorPicker.Location =  new System.Drawing.Point( 46, 60 ) ;
+        ColorPicker.MetroColor =  System.Drawing.Color.FromArgb(   1  ,   115  ,   199   ) ;
+        ColorPicker.MetroForeColor =  System.Drawing.Color.FromArgb(   68  ,   68  ,   68   ) ;
+        ColorPicker.Name =  "ColorPicker" ;
+        ColorPicker.ScrollMetroColorTable =  metroColorTable1 ;
+        ColorPicker.Size =  new System.Drawing.Size( 250, 262 ) ;
+        ColorPicker.TabIndex =  0 ;
+        ColorPicker.ThemeName =  "Office2016Black" ;
+        ColorPicker.ThemeStyle.ColorListStyle.PaletteBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ColorPicker.ThemeStyle.ColorListStyle.SelectedItemForeColor =  System.Drawing.Color.FromArgb(   80  ,   80  ,   80   ) ;
+        ColorPicker.ThemeStyle.ColorPaletteStyle.BorderColor =  System.Drawing.Color.FromArgb(   210  ,   210  ,   210   ) ;
+        ColorPicker.ThemeStyle.ColorPaletteStyle.SelectedBorderColor =  System.Drawing.Color.FromArgb(   0  ,   103  ,   176   ) ;
+        ColorPicker.ThemeStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ColorPicker.VisualStyle =  Syncfusion.Windows.Forms.ColorUIStyle.Office2016Black ;
+        // 
+        // ColorDialog
+        // 
+        AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
+        AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
+        BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
+        CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CaptionBarHeight =  5 ;
+        CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        CaptionForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        ClientSize =  new System.Drawing.Size( 329, 396 ) ;
+        Controls.Add( SelectButton );
+        Controls.Add( ColorPicker );
+        Controls.Add( CloseButton );
+        Controls.Add( tableLayoutPanel1 );
+        Controls.Add( ButtonPanel );
+        Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ForeColor =  System.Drawing.Color.LightGray ;
+        FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
+        Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
+        MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        Name =  "ColorDialog" ;
+        ShowIcon =  false ;
+        Text =  "ColorDialog" ;
+        ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+        tableLayoutPanel1.ResumeLayout( false );
+        ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
+        ResumeLayout( false );
     }
 
     #endregion
-
-    public Syncfusion.Windows.Forms.ColorUIControl ColorPicker;
     private Button CloseButton;
     private Button SelectButton;
     private Layout ButtonPanel;
-    public TabControl TabControl;
-    private Syncfusion.Windows.Forms.Tools.TabPageAdv ColorTabPage;
     public SmallTip ToolTip;
     public System.Windows.Forms.BindingSource BindingSource;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+    public System.Windows.Forms.PictureBox Picture;
+    public Syncfusion.Windows.Forms.ColorUIControl ColorPicker;
 }

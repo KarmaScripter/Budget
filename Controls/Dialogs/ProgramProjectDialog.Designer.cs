@@ -71,7 +71,7 @@ partial class ProgramProjectDialog
         CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
@@ -85,7 +85,7 @@ partial class ProgramProjectDialog
         CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressTextColor =  System.Drawing.Color.White ;
-        CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         CloseButton.StyleManager =  null ;
         CloseButton.TabIndex =  0 ;
@@ -228,7 +228,7 @@ partial class ProgramProjectDialog
         SearchButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         SearchButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SearchButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        SearchButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SearchButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
         SearchButton.HoverText =  null ;
         SearchButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SearchButton.IsDerivedStyle =  true ;
@@ -242,7 +242,7 @@ partial class ProgramProjectDialog
         SearchButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SearchButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SearchButton.PressTextColor =  System.Drawing.Color.White ;
-        SearchButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        SearchButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         SearchButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SearchButton.StyleManager =  null ;
         SearchButton.TabIndex =  13 ;

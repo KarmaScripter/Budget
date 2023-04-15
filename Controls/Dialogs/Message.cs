@@ -23,6 +23,8 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             Size = new Size( 700, 400 );
+            MinimumSize = new Size( 700, 400 );
+            MaximumSize = new Size( 700, 400 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;

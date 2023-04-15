@@ -11,7 +11,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
-    using Syncfusion.Windows.Forms.Grid;
+    using Syncfusion.WinForms.Input;
 
     /// <summary>
     /// 
@@ -26,15 +26,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected date.
         /// </value>
-        public string DateSelected { get; set; }
-
-        /// <summary>
-        /// Gets or sets the date value.
-        /// </summary>
-        /// <value>
-        /// The date value.
-        /// </value>
-        public DateTime DateValue { get; set; }
+        public string DateString { get; set; }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -42,7 +34,7 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        public DataSet AnnualData { get; set; }
+        public DataSet Data { get; set; }
 
         /// <summary>
         /// Gets or sets the holidays.
@@ -71,7 +63,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CalendarForm"/> class.
+        /// <see cref="CalendarDialog"/> class.
         /// </summary>
         public CalendarDialog( )
         {
@@ -79,9 +71,9 @@ namespace BudgetExecution
 
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 504, 391 );
-            MinimumSize = new Size( 504, 391 );
-            MaximumSize = new Size( 504, 391 );
+            Size = new Size( 481, 373 );
+            MinimumSize = new Size( 481, 373 );
+            MaximumSize = new Size( 481, 373 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
@@ -99,21 +91,31 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
+            // Close Button
+            CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
+            CloseButton.HoverTextColor = Color.White;
+            CloseButton.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
+            CloseButton.Text = "Close";
+            CloseButton.HoverText = "Close Calendar";
+
+            // HeaderLabel Settings
+            HeaderLabel.Font = new Font( "Roboto", 11 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+
             // Event Wiring
             Load += OnLoad;
         }
 
         /// <summary>
         /// Initializes a new instance
-        /// of the <see cref="CalendarForm"/> class.
+        /// of the <see cref="CalendarDialog"/> class.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         public CalendarDialog( DateTime dateTime )
             : this( )
         {
-            Calendar.Value = dateTime;
-            DateValue = dateTime;
-            DateSelected = dateTime.ToString( );
+            DateString = dateTime.ToString( );
         }
 
         /// <summary>
@@ -125,55 +127,9 @@ namespace BudgetExecution
         {
             try
             {
-                InitCalendar( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the calendar properties.
-        /// </summary>
-        private void InitCalendar( )
-        {
-            try
-            {
-                Calendar.Border3DStyle = Border3DStyle.Flat;
-                Calendar.GridBackColor = SystemColors.GradientActiveCaption;
-                Calendar.BackColor = Color.FromArgb( 30, 30, 30 );
-                Calendar.FirstDayOfWeek = Day.Monday;
-                Calendar.Font = new Font( "Roboto", 9 );
-                Calendar.HeaderFont = new Font( "Roboto", 10, FontStyle.Bold );
-                Calendar.DaysFont = new Font( "Roboto", 9 );
-                Calendar.DayNamesHeight = 22;
-                Calendar.DayNamesFont = new Font( "Roboto", 9, FontStyle.Bold );
-                Calendar.MetroColor = Color.FromArgb( 0, 120, 212 );
-                Calendar.HeaderHeight = 34;
-                Calendar.HeadForeColor = Color.White;
-                Calendar.HeaderStartColor = Color.FromArgb( 50, 93, 129 );
-                Calendar.HeaderEndColor = Color.FromArgb( 50, 93, 129 );
-                Calendar.DayNamesColor = Color.Black;
-                Calendar.DaysColor = Color.White;
-                Calendar.InactiveMonthColor = Color.Gray;
-                Calendar.TodayButton.Appearance = ButtonAppearance.Metro;
-                Calendar.TodayButton.ForeColor = Color.LightGray;
-                Calendar.TodayButton.Font = new Font( "Roboto", 9 );
-                Calendar.TodayButton.TextAlign = ContentAlignment.MiddleLeft;
-                Calendar.TodayButton.BackColor = Color.FromArgb( 20, 20, 20 );
-                Calendar.TodayButton.Size = new Size( 287, 30 );
-                Calendar.TodayButton.Text = DateValue.ToLongDateString( );
-                Calendar.NoneButton.Appearance = ButtonAppearance.Metro;
-                Calendar.NoneButton.ForeColor = Color.LightGray;
-                Calendar.NoneButton.Font = new Font( "Roboto", 9 );
-                Calendar.NoneButton.Text = "Close";
-                Calendar.NoneButton.BackColor = Color.FromArgb( 20, 20, 20 );
-                Calendar.NoneButton.Size = new Size( 140, 30 );
-                Calendar.HighlightColor = Color.White;
-                Calendar.BottomHeight = 30;
-                Calendar.ForeColor = Color.LightGray;
-                Calendar.GridLines = GridBorderStyle.DashDot;
+                CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
+                CloseButton.Click += OnCloseButtonClicked;
+                Calendar.SelectionChanged += OnSelectionChanged;
             }
             catch( Exception ex )
             {
@@ -248,37 +204,13 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="SelectionChangedEventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTodayButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                var _date = Calendar.Value;
-                HeaderLabel.Text = _date.ToLongDateString( );
-                DateSelected = _date.ToString( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [selection changed].
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.</param>
-        /// <param name="e">The
-        /// <see cref="SelectionChangedEventArgs"/>
-        /// instance containing the event data.</param>
         private void OnSelectionChanged( object sender, EventArgs e )
         {
             try
             {
-                if( sender is Calendar _calendar )
-                {
-                    DateSelected = _calendar.Value.ToString( );
-                    HeaderLabel.Text = _calendar.Value.ToLongDateString( );
-                }
+                var _date = Calendar.SelectedDate;
+                DateString = _date.ToString( );
+                Close( );
             }
             catch( Exception ex )
             {

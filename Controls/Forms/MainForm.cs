@@ -194,7 +194,6 @@ namespace BudgetExecution
                 _chartForm.Owner = this;
                 _chartForm.StartPosition = FormStartPosition.CenterScreen;
                 _chartForm.Show( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -218,10 +217,17 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the excel data form.
+        /// </summary>
         private void OpenExcelDataForm( )
         {
             try
             {
+                var _dataGridForm = new ExcelDataForm( );
+                _dataGridForm.Owner = this;
+                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
+                _dataGridForm.Show( );
             }
             catch( Exception ex )
             {
@@ -229,6 +235,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
         private void OpenDataGridForm( )
         {
             try
@@ -237,7 +246,6 @@ namespace BudgetExecution
                 _dataGridForm.Owner = this;
                 _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
                 _dataGridForm.Show( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -258,6 +266,7 @@ namespace BudgetExecution
             try
             {
                 OpenDataGridForm( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -278,6 +287,7 @@ namespace BudgetExecution
             try
             {
                 OpenChartDataForm( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -339,11 +349,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = new BudgetGuidance( );
-                _form.Owner = this;
-                _form.StartPosition = FormStartPosition.CenterScreen;
-                _form.Show( );
-                Visible = false;
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
             }
             catch( Exception ex )
             {

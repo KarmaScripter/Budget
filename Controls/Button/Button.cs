@@ -68,7 +68,7 @@ namespace BudgetExecution
             ForeColor = Color.FromArgb( 0, 120, 212 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
-            Size = new Size( 140, 40 );
+            Size = new Size( 90, 30 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Visible = true;
@@ -80,9 +80,9 @@ namespace BudgetExecution
             NormalTextColor = Color.FromArgb( 0, 120, 212 );
 
             // Hover Color Configuration
-            HoverBorderColor = Color.FromArgb( 17, 53, 84 );
+            HoverBorderColor = Color.FromArgb( 50, 93, 129 );
             HoverColor = Color.FromArgb( 17, 53, 84 );
-            HoverTextColor = Color.LightSteelBlue;
+            HoverTextColor = Color.White;
 
             // Disabled Color Configuration
             DisabledBorderColor = Color.Transparent;

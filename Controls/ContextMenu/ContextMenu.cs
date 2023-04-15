@@ -329,7 +329,7 @@ namespace BudgetExecution
                             }
                             case MenuOption.Calendar:
                             {
-                                var _form = new CalendarForm( );
+                                var _form = new CalendarDialog( );
                                 _form.Location = e.Location;
                                 _form.ShowDialog( );
                                 break;

@@ -44,9 +44,9 @@ partial class FilterDialog
         ThirdPanel =  new Layout( ) ;
         ThirdListBox =  new ListBox( ) ;
         ClearButton =  new Button( ) ;
+        ToolTip =  new SmallTip( ) ;
         SelectButton =  new Button( ) ;
         CloseButton =  new Button( ) ;
-        ToolTip =  new SmallTip( ) ;
         TabControl =  new TabControl( ) ;
         TableTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
         SourceHeader =  new Label( ) ;
@@ -111,6 +111,14 @@ partial class FilterDialog
         CommandQueryComboBox =  new ComboBox( ) ;
         ContextMenu =  new ContextMenu( ) ;
         GroupButton =  new Button( ) ;
+        TimeSpanPanel =  new Layout( ) ;
+        TimeSpanTable =  new HeaderPanel( ) ;
+        TimeSpanLabel =  new Label( ) ;
+        FirstLabel =  new Label( ) ;
+        SecondLabel =  new Label( ) ;
+        ThirdLabel =  new Label( ) ;
+        FourthLabel =  new Label( ) ;
+        FifthLable =  new Label( ) ;
         FirstPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         ThirdPanel.SuspendLayout( );
@@ -141,6 +149,7 @@ partial class FilterDialog
         FieldPanel.SuspendLayout( );
         CalendarTabPage.SuspendLayout( );
         FirstCalendarTable.SuspendLayout( );
+        StartDatePanel.SuspendLayout( );
         EndDatePanel.SuspendLayout( );
         SecondCalendarTable.SuspendLayout( );
         SqlTabPage.SuspendLayout( );
@@ -152,6 +161,8 @@ partial class FilterDialog
         TextPanel.SuspendLayout( );
         CommandTable.SuspendLayout( );
         CommandPanel.SuspendLayout( );
+        TimeSpanPanel.SuspendLayout( );
+        TimeSpanTable.SuspendLayout( );
         SuspendLayout( );
         // 
         // FirstPanel
@@ -358,9 +369,9 @@ partial class FilterDialog
         ClearButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ClearButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        ClearButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        ClearButton.HoverText =  null ;
-        ClearButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        ClearButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        ClearButton.HoverText =  "Clear Selections" ;
+        ClearButton.HoverTextColor =  System.Drawing.Color.White ;
         ClearButton.IsDerivedStyle =  true ;
         ClearButton.Location =  new System.Drawing.Point( 106, 588 ) ;
         ClearButton.Name =  "ClearButton" ;
@@ -371,78 +382,14 @@ partial class FilterDialog
         ClearButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ClearButton.PressTextColor =  System.Drawing.Color.White ;
-        ClearButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        ClearButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         ClearButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         ClearButton.StyleManager =  null ;
         ClearButton.TabIndex =  9 ;
         ClearButton.Text =  "Clear" ;
         ClearButton.ThemeAuthor =  "Terry D. Eppler" ;
         ClearButton.ThemeName =  "BudgetExecution" ;
-        ClearButton.ToolTip =  null ;
-        // 
-        // SelectButton
-        // 
-        SelectButton.BindingSource =  null ;
-        SelectButton.DataFilter =  null ;
-        SelectButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        SelectButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        SelectButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        SelectButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        SelectButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SelectButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        SelectButton.HoverText =  null ;
-        SelectButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
-        SelectButton.IsDerivedStyle =  true ;
-        SelectButton.Location =  new System.Drawing.Point( 790, 588 ) ;
-        SelectButton.Name =  "SelectButton" ;
-        SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
-        SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
-        SelectButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SelectButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SelectButton.PressTextColor =  System.Drawing.Color.White ;
-        SelectButton.Size =  new System.Drawing.Size( 103, 29 ) ;
-        SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-        SelectButton.StyleManager =  null ;
-        SelectButton.TabIndex =  10 ;
-        SelectButton.Text =  "Select" ;
-        SelectButton.ThemeAuthor =  "Terry D. Eppler" ;
-        SelectButton.ThemeName =  "BudgetExecution" ;
-        SelectButton.ToolTip =  null ;
-        // 
-        // CloseButton
-        // 
-        CloseButton.BindingSource =  null ;
-        CloseButton.DataFilter =  null ;
-        CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
-        CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-        CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-        CloseButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        CloseButton.HoverText =  null ;
-        CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
-        CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 1138, 588 ) ;
-        CloseButton.Name =  "CloseButton" ;
-        CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
-        CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
-        CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        CloseButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-        CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        CloseButton.PressTextColor =  System.Drawing.Color.White ;
-        CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
-        CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-        CloseButton.StyleManager =  null ;
-        CloseButton.TabIndex =  11 ;
-        CloseButton.Text =  "Close" ;
-        CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
-        CloseButton.ThemeName =  "BudgetExecution" ;
-        CloseButton.ToolTip =  null ;
+        ClearButton.ToolTip =  ToolTip ;
         // 
         // ToolTip
         // 
@@ -463,6 +410,70 @@ partial class FilterDialog
         ToolTip.TipIcon =  System.Windows.Forms.ToolTipIcon.Info ;
         ToolTip.TipText =  null ;
         ToolTip.TipTitle =  null ;
+        // 
+        // SelectButton
+        // 
+        SelectButton.BindingSource =  null ;
+        SelectButton.DataFilter =  null ;
+        SelectButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        SelectButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        SelectButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        SelectButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SelectButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SelectButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        SelectButton.HoverText =  null ;
+        SelectButton.HoverTextColor =  System.Drawing.Color.White ;
+        SelectButton.IsDerivedStyle =  true ;
+        SelectButton.Location =  new System.Drawing.Point( 790, 588 ) ;
+        SelectButton.Name =  "SelectButton" ;
+        SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        SelectButton.NormalColor =  System.Drawing.Color.Transparent ;
+        SelectButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SelectButton.PressTextColor =  System.Drawing.Color.White ;
+        SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SelectButton.StyleManager =  null ;
+        SelectButton.TabIndex =  10 ;
+        SelectButton.Text =  "Select" ;
+        SelectButton.ThemeAuthor =  "Terry D. Eppler" ;
+        SelectButton.ThemeName =  "BudgetExecution" ;
+        SelectButton.ToolTip =  ToolTip ;
+        // 
+        // CloseButton
+        // 
+        CloseButton.BindingSource =  null ;
+        CloseButton.DataFilter =  null ;
+        CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+        CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+        CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+        CloseButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        CloseButton.HoverText =  "Exit Source Selection" ;
+        CloseButton.HoverTextColor =  System.Drawing.Color.White ;
+        CloseButton.IsDerivedStyle =  true ;
+        CloseButton.Location =  new System.Drawing.Point( 1138, 588 ) ;
+        CloseButton.Name =  "CloseButton" ;
+        CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+        CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
+        CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        CloseButton.PressTextColor =  System.Drawing.Color.White ;
+        CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+        CloseButton.StyleManager =  null ;
+        CloseButton.TabIndex =  11 ;
+        CloseButton.Text =  "Close" ;
+        CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
+        CloseButton.ThemeName =  "BudgetExecution" ;
+        CloseButton.ToolTip =  ToolTip ;
         // 
         // TabControl
         // 
@@ -1515,8 +1526,8 @@ partial class FilterDialog
         // 
         // CalendarTabPage
         // 
+        CalendarTabPage.Controls.Add( TimeSpanPanel );
         CalendarTabPage.Controls.Add( TimeSpanHeader );
-        CalendarTabPage.Controls.Add( FirstCalendarTable );
         CalendarTabPage.Controls.Add( StartDatePanel );
         CalendarTabPage.Controls.Add( EndDatePanel );
         CalendarTabPage.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
@@ -1565,7 +1576,7 @@ partial class FilterDialog
         FirstCalendarTable.Controls.Add( FirstCalendarLabel, 0, 0 );
         FirstCalendarTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         FirstCalendarTable.ForeColor =  System.Drawing.Color.DarkGray ;
-        FirstCalendarTable.Location =  new System.Drawing.Point( 71, 74 ) ;
+        FirstCalendarTable.Location =  new System.Drawing.Point( 20, 23 ) ;
         FirstCalendarTable.Name =  "FirstCalendarTable" ;
         FirstCalendarTable.RowCount =  2 ;
         FirstCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 12.8526649F ) );
@@ -1653,12 +1664,13 @@ partial class FilterDialog
         StartDatePanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
         StartDatePanel.BorderThickness =  1 ;
         StartDatePanel.Children =  null ;
+        StartDatePanel.Controls.Add( FirstCalendarTable );
         StartDatePanel.DataFilter =  null ;
         StartDatePanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         StartDatePanel.ForeColor =  System.Drawing.Color.Transparent ;
         StartDatePanel.HoverText =  null ;
         StartDatePanel.IsDerivedStyle =  true ;
-        StartDatePanel.Location =  new System.Drawing.Point( 49, 51 ) ;
+        StartDatePanel.Location =  new System.Drawing.Point( 28, 51 ) ;
         StartDatePanel.Name =  "StartDatePanel" ;
         StartDatePanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
         StartDatePanel.Size =  new System.Drawing.Size( 391, 362 ) ;
@@ -1683,7 +1695,7 @@ partial class FilterDialog
         EndDatePanel.ForeColor =  System.Drawing.Color.Transparent ;
         EndDatePanel.HoverText =  null ;
         EndDatePanel.IsDerivedStyle =  true ;
-        EndDatePanel.Location =  new System.Drawing.Point( 483, 51 ) ;
+        EndDatePanel.Location =  new System.Drawing.Point( 463, 51 ) ;
         EndDatePanel.Name =  "EndDatePanel" ;
         EndDatePanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
         EndDatePanel.Size =  new System.Drawing.Size( 391, 362 ) ;
@@ -2108,10 +2120,10 @@ partial class FilterDialog
         GroupButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
         GroupButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         GroupButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        GroupButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+        GroupButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
         GroupButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-        GroupButton.HoverText =  null ;
-        GroupButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+        GroupButton.HoverText =  "Aggregate Columns" ;
+        GroupButton.HoverTextColor =  System.Drawing.Color.White ;
         GroupButton.IsDerivedStyle =  true ;
         GroupButton.Location =  new System.Drawing.Point( 443, 588 ) ;
         GroupButton.Name =  "GroupButton" ;
@@ -2122,14 +2134,206 @@ partial class FilterDialog
         GroupButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         GroupButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         GroupButton.PressTextColor =  System.Drawing.Color.White ;
-        GroupButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        GroupButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         GroupButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         GroupButton.StyleManager =  null ;
         GroupButton.TabIndex =  14 ;
         GroupButton.Text =  "Group" ;
         GroupButton.ThemeAuthor =  "Terry D. Eppler" ;
         GroupButton.ThemeName =  "Budget Execution" ;
-        GroupButton.ToolTip =  null ;
+        GroupButton.ToolTip =  ToolTip ;
+        // 
+        // TimeSpanPanel
+        // 
+        TimeSpanPanel.BackColor =  System.Drawing.Color.Transparent ;
+        TimeSpanPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        TimeSpanPanel.BindingSource =  null ;
+        TimeSpanPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+        TimeSpanPanel.BorderThickness =  1 ;
+        TimeSpanPanel.Children =  null ;
+        TimeSpanPanel.Controls.Add( TimeSpanTable );
+        TimeSpanPanel.DataFilter =  null ;
+        TimeSpanPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        TimeSpanPanel.ForeColor =  System.Drawing.Color.Transparent ;
+        TimeSpanPanel.HoverText =  null ;
+        TimeSpanPanel.IsDerivedStyle =  true ;
+        TimeSpanPanel.Location =  new System.Drawing.Point( 897, 51 ) ;
+        TimeSpanPanel.Name =  "TimeSpanPanel" ;
+        TimeSpanPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        TimeSpanPanel.Size =  new System.Drawing.Size( 408, 364 ) ;
+        TimeSpanPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        TimeSpanPanel.StyleManager =  null ;
+        TimeSpanPanel.TabIndex =  21 ;
+        TimeSpanPanel.ThemeAuthor =  "Terry D. Eppler" ;
+        TimeSpanPanel.ThemeName =  "Budget Execution" ;
+        TimeSpanPanel.ToolTip =  null ;
+        // 
+        // TimeSpanTable
+        // 
+        TimeSpanTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+        TimeSpanTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+        TimeSpanTable.CaptionText =  "Time Span Information" ;
+        TimeSpanTable.ColumnCount =  1 ;
+        TimeSpanTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        TimeSpanTable.Controls.Add( TimeSpanLabel, 0, 0 );
+        TimeSpanTable.Controls.Add( FirstLabel, 0, 2 );
+        TimeSpanTable.Controls.Add( SecondLabel, 0, 3 );
+        TimeSpanTable.Controls.Add( ThirdLabel, 0, 4 );
+        TimeSpanTable.Controls.Add( FourthLabel, 0, 5 );
+        TimeSpanTable.Controls.Add( FifthLable, 0, 6 );
+        TimeSpanTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        TimeSpanTable.ForeColor =  System.Drawing.Color.DarkGray ;
+        TimeSpanTable.Location =  new System.Drawing.Point( 25, 23 ) ;
+        TimeSpanTable.Name =  "TimeSpanTable" ;
+        TimeSpanTable.RowCount =  8 ;
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 46.5753441F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 53.4246559F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 39F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 38F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 40F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 38F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 36F ) );
+        TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 45F ) );
+        TimeSpanTable.Size =  new System.Drawing.Size( 360, 319 ) ;
+        TimeSpanTable.TabIndex =  0 ;
+        // 
+        // TimeSpanLabel
+        // 
+        TimeSpanLabel.BindingSource =  BindingSource ;
+        TimeSpanLabel.DataFilter =  null ;
+        TimeSpanLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        TimeSpanLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        TimeSpanLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        TimeSpanLabel.HoverText =  null ;
+        TimeSpanLabel.IsDerivedStyle =  true ;
+        TimeSpanLabel.Location =  new System.Drawing.Point( 3, 19 ) ;
+        TimeSpanLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        TimeSpanLabel.Name =  "TimeSpanLabel" ;
+        TimeSpanLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        TimeSpanLabel.Size =  new System.Drawing.Size( 354, 25 ) ;
+        TimeSpanLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        TimeSpanLabel.StyleManager =  null ;
+        TimeSpanLabel.TabIndex =  0 ;
+        TimeSpanLabel.Text =  "Label" ;
+        TimeSpanLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+        TimeSpanLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        TimeSpanLabel.ThemeName =  "Budget Execution" ;
+        TimeSpanLabel.ToolTip =  null ;
+        // 
+        // FirstLabel
+        // 
+        FirstLabel.BindingSource =  BindingSource ;
+        FirstLabel.DataFilter =  null ;
+        FirstLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        FirstLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        FirstLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FirstLabel.HoverText =  null ;
+        FirstLabel.IsDerivedStyle =  true ;
+        FirstLabel.Location =  new System.Drawing.Point( 3, 85 ) ;
+        FirstLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        FirstLabel.Name =  "FirstLabel" ;
+        FirstLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FirstLabel.Size =  new System.Drawing.Size( 354, 33 ) ;
+        FirstLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FirstLabel.StyleManager =  null ;
+        FirstLabel.TabIndex =  1 ;
+        FirstLabel.Text =  "Label" ;
+        FirstLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+        FirstLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        FirstLabel.ThemeName =  "Budget Execution" ;
+        FirstLabel.ToolTip =  null ;
+        // 
+        // SecondLabel
+        // 
+        SecondLabel.BindingSource =  BindingSource ;
+        SecondLabel.DataFilter =  null ;
+        SecondLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        SecondLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        SecondLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        SecondLabel.HoverText =  null ;
+        SecondLabel.IsDerivedStyle =  true ;
+        SecondLabel.Location =  new System.Drawing.Point( 3, 124 ) ;
+        SecondLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        SecondLabel.Name =  "SecondLabel" ;
+        SecondLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        SecondLabel.Size =  new System.Drawing.Size( 354, 32 ) ;
+        SecondLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        SecondLabel.StyleManager =  null ;
+        SecondLabel.TabIndex =  2 ;
+        SecondLabel.Text =  "Label" ;
+        SecondLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+        SecondLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        SecondLabel.ThemeName =  "Budget Execution" ;
+        SecondLabel.ToolTip =  null ;
+        // 
+        // ThirdLabel
+        // 
+        ThirdLabel.BindingSource =  BindingSource ;
+        ThirdLabel.DataFilter =  null ;
+        ThirdLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        ThirdLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        ThirdLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ThirdLabel.HoverText =  null ;
+        ThirdLabel.IsDerivedStyle =  true ;
+        ThirdLabel.Location =  new System.Drawing.Point( 3, 162 ) ;
+        ThirdLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        ThirdLabel.Name =  "ThirdLabel" ;
+        ThirdLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        ThirdLabel.Size =  new System.Drawing.Size( 354, 34 ) ;
+        ThirdLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        ThirdLabel.StyleManager =  null ;
+        ThirdLabel.TabIndex =  3 ;
+        ThirdLabel.Text =  "Label" ;
+        ThirdLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+        ThirdLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        ThirdLabel.ThemeName =  "Budget Execution" ;
+        ThirdLabel.ToolTip =  null ;
+        // 
+        // FourthLabel
+        // 
+        FourthLabel.BindingSource =  BindingSource ;
+        FourthLabel.DataFilter =  null ;
+        FourthLabel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        FourthLabel.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        FourthLabel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FourthLabel.HoverText =  null ;
+        FourthLabel.IsDerivedStyle =  true ;
+        FourthLabel.Location =  new System.Drawing.Point( 3, 202 ) ;
+        FourthLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        FourthLabel.Name =  "FourthLabel" ;
+        FourthLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FourthLabel.Size =  new System.Drawing.Size( 354, 32 ) ;
+        FourthLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FourthLabel.StyleManager =  null ;
+        FourthLabel.TabIndex =  4 ;
+        FourthLabel.Text =  "Label" ;
+        FourthLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+        FourthLabel.ThemeAuthor =  "Terry D. Eppler" ;
+        FourthLabel.ThemeName =  "Budget Execution" ;
+        FourthLabel.ToolTip =  null ;
+        // 
+        // FifthLable
+        // 
+        FifthLable.BindingSource =  BindingSource ;
+        FifthLable.DataFilter =  null ;
+        FifthLable.Dock =  System.Windows.Forms.DockStyle.Fill ;
+        FifthLable.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+        FifthLable.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        FifthLable.HoverText =  null ;
+        FifthLable.IsDerivedStyle =  true ;
+        FifthLable.Location =  new System.Drawing.Point( 3, 240 ) ;
+        FifthLable.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+        FifthLable.Name =  "FifthLable" ;
+        FifthLable.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+        FifthLable.Size =  new System.Drawing.Size( 354, 30 ) ;
+        FifthLable.Style =  MetroSet_UI.Enums.Style.Custom ;
+        FifthLable.StyleManager =  null ;
+        FifthLable.TabIndex =  5 ;
+        FifthLable.Text =  "Label" ;
+        FifthLable.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
+        FifthLable.ThemeAuthor =  "Terry D. Eppler" ;
+        FifthLable.ThemeName =  "Budget Execution" ;
+        FifthLable.ToolTip =  null ;
         // 
         // FilterDialog
         // 
@@ -2194,6 +2398,7 @@ partial class FilterDialog
         FieldPanel.ResumeLayout( false );
         CalendarTabPage.ResumeLayout( false );
         FirstCalendarTable.ResumeLayout( false );
+        StartDatePanel.ResumeLayout( false );
         EndDatePanel.ResumeLayout( false );
         SecondCalendarTable.ResumeLayout( false );
         SqlTabPage.ResumeLayout( false );
@@ -2205,6 +2410,8 @@ partial class FilterDialog
         TextPanel.ResumeLayout( false );
         CommandTable.ResumeLayout( false );
         CommandPanel.ResumeLayout( false );
+        TimeSpanPanel.ResumeLayout( false );
+        TimeSpanTable.ResumeLayout( false );
         ResumeLayout( false );
     }
 
@@ -2291,4 +2498,12 @@ partial class FilterDialog
     public ListBox CommandQueryListBox;
     private Layout EndDatePanel;
     public Layout StartDatePanel;
+    public Layout TimeSpanPanel;
+    private HeaderPanel TimeSpanTable;
+    public Label TimeSpanLabel;
+    public Label FirstLabel;
+    public Label SecondLabel;
+    public Label ThirdLabel;
+    public Label FourthLabel;
+    public Label FifthLable;
 }

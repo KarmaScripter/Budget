@@ -53,7 +53,6 @@ namespace BudgetExecution
             // 
             // OpenButton
             // 
-            OpenButton.Anchor =     AnchorStyles.Bottom  |  AnchorStyles.Left   |  AnchorStyles.Right   ;
             OpenButton.BackColor =  System.Drawing.Color.Transparent ;
             OpenButton.BindingSource =  null ;
             OpenButton.DataFilter =  null ;
@@ -63,7 +62,7 @@ namespace BudgetExecution
             OpenButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             OpenButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             OpenButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            OpenButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            OpenButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             OpenButton.HoverText =  null ;
             OpenButton.HoverTextColor =  System.Drawing.Color.White ;
             OpenButton.IsDerivedStyle =  true ;
@@ -77,7 +76,7 @@ namespace BudgetExecution
             OpenButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             OpenButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             OpenButton.PressTextColor =  System.Drawing.Color.White ;
-            OpenButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            OpenButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             OpenButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             OpenButton.StyleManager =  null ;
             OpenButton.TabIndex =  9 ;
@@ -108,7 +107,6 @@ namespace BudgetExecution
             // 
             // CloseButton
             // 
-            CloseButton.Anchor =     AnchorStyles.Bottom  |  AnchorStyles.Left   |  AnchorStyles.Right   ;
             CloseButton.BackColor =  System.Drawing.Color.Transparent ;
             CloseButton.BindingSource =  null ;
             CloseButton.DataFilter =  null ;
@@ -118,7 +116,7 @@ namespace BudgetExecution
             CloseButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
@@ -132,7 +130,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  10 ;
@@ -264,12 +262,12 @@ namespace BudgetExecution
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             BorderColor =  System.Drawing.Color.SteelBlue ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            CaptionBarHeight =  1 ;
+            CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientSize =  new System.Drawing.Size( 688, 393 ) ;
+            ClientSize =  new System.Drawing.Size( 688, 389 ) ;
             Controls.Add( BackPanel );
             Controls.Add( Header );
             Controls.Add( Picture );
@@ -282,8 +280,10 @@ namespace BudgetExecution
             FormBorderStyle =  FormBorderStyle.FixedSingle ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             MaximizeBox =  false ;
+            MaximumSize =  new System.Drawing.Size( 700, 400 ) ;
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
+            MinimumSize =  new System.Drawing.Size( 700, 400 ) ;
             Name =  "Message" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;

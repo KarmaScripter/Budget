@@ -598,8 +598,8 @@ partial class SqlDialog
         FirstButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
         FirstButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         FirstButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        FirstButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        FirstButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        FirstButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        FirstButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
         FirstButton.HoverText =  "Not Yet Implemented!" ;
         FirstButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         FirstButton.IsDerivedStyle =  true ;
@@ -613,7 +613,7 @@ partial class SqlDialog
         FirstButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         FirstButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         FirstButton.PressTextColor =  System.Drawing.Color.White ;
-        FirstButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        FirstButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         FirstButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         FirstButton.StyleManager =  null ;
         FirstButton.TabIndex =  12 ;
@@ -632,8 +632,8 @@ partial class SqlDialog
         SecondButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
         SecondButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         SecondButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        SecondButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        SecondButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        SecondButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        SecondButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
         SecondButton.HoverText =  "Not Yet Implemented!" ;
         SecondButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SecondButton.IsDerivedStyle =  true ;
@@ -647,7 +647,7 @@ partial class SqlDialog
         SecondButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SecondButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SecondButton.PressTextColor =  System.Drawing.Color.White ;
-        SecondButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        SecondButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         SecondButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SecondButton.StyleManager =  null ;
         SecondButton.TabIndex =  10 ;
@@ -667,8 +667,8 @@ partial class SqlDialog
         ThirdButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
         ThirdButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
         ThirdButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        ThirdButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-        ThirdButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+        ThirdButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ThirdButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
         ThirdButton.HoverText =  "Close Window" ;
         ThirdButton.HoverTextColor =  System.Drawing.Color.White ;
         ThirdButton.IsDerivedStyle =  true ;
@@ -682,7 +682,7 @@ partial class SqlDialog
         ThirdButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ThirdButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ThirdButton.PressTextColor =  System.Drawing.Color.White ;
-        ThirdButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+        ThirdButton.Size =  new System.Drawing.Size( 90, 30 ) ;
         ThirdButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         ThirdButton.StyleManager =  null ;
         ThirdButton.TabIndex =  11 ;

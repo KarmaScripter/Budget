@@ -384,12 +384,12 @@
             ExitButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
             ExitButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ExitButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ExitButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            ExitButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             ExitButton.HoverText =  null ;
             ExitButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
             ExitButton.IsDerivedStyle =  true ;
-            ExitButton.Location =  new System.Drawing.Point( 1187, 672 ) ;
+            ExitButton.Location =  new System.Drawing.Point( 1220, 676 ) ;
             ExitButton.Name =  "ExitButton" ;
             ExitButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             ExitButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -398,7 +398,7 @@
             ExitButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressTextColor =  System.Drawing.Color.White ;
-            ExitButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            ExitButton.Size =  new System.Drawing.Size( 95, 25 ) ;
             ExitButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             ExitButton.StyleManager =  null ;
             ExitButton.TabIndex =  7 ;
