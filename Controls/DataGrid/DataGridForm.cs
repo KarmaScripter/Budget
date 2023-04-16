@@ -22,17 +22,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -539,8 +539,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -567,10 +566,7 @@ namespace BudgetExecution
                     if( _files?.Any( ) == true )
                     {
                         var _extension = Provider.ToString( );
-                        var _file = _files
-                            ?.Where( f => f.Contains( _extension ) )
-                            ?.First( );
-
+                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -1109,11 +1105,9 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1139,11 +1133,9 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1169,11 +1161,9 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -2041,11 +2031,6 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ChartButton )
                 {
                     var _chart = new ChartDataForm( BindingSource );
-                    _chart.SelectedTable = SelectedTable;
-                    _chart.SelectedColumns = SelectedColumns;
-                    _chart.SelectedFields = SelectedFields;
-                    _chart.SelectedNumerics = SelectedNumerics;
-                    _chart.FormFilter = FormFilter;
                     _chart.Show( );
                     Close( );
                 }
@@ -2069,11 +2054,6 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ExcelExportButton )
                 {
                     var _excelForm = new ExcelDataForm( BindingSource );
-                    _excelForm.SelectedTable = SelectedTable;
-                    _excelForm.SelectedColumns = SelectedColumns;
-                    _excelForm.SelectedFields = SelectedFields;
-                    _excelForm.SelectedNumerics = SelectedNumerics;
-                    _excelForm.FormFilter = FormFilter;
                     _excelForm.Show( );
                     Close( );
                 }

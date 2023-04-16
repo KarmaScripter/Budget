@@ -100,14 +100,6 @@ namespace BudgetExecution
         /// The data table.
         /// </value>
         public DataTable DataTable { get; set; }
-        
-        /// <summary>
-        /// Gets the data series.
-        /// </summary>
-        /// <value>
-        /// The data series.
-        /// </value>
-        public ChartSeries ChartSeries { get; set; }
 
         /// <summary>
         /// Gets or sets the binding model.

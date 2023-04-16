@@ -43,7 +43,7 @@ namespace BudgetExecution
                         item.Border.Color = Color.FromArgb( 55, 55, 55 );
                         item.VisibleCheckBox = true;
                         item.IsChecked = true;
-                        item.Font = new Font( "Roboto", 8 );
+                        item.Font = new Font( "Roboto", 7 );
                         item.TextColor = Color.FromArgb( 0, 120, 212 );
                         item.Type = ChartLegendItemType.Triangle;
                         item.ShowSymbol = true;
@@ -71,7 +71,7 @@ namespace BudgetExecution
                         item.Border.Color = borderColor;
                         item.VisibleCheckBox = checkBox;
                         item.IsChecked = checkBox;
-                        item.Font = new Font( "Roboto", 8 );
+                        item.Font = new Font( "Roboto", 7 );
                         item.TextColor = textColor;
                         item.Type = itemType;
                         item.ShowSymbol = true;

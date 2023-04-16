@@ -172,7 +172,6 @@
             Chart.ChartArea.CursorLocation =  new System.Drawing.Point( 0, 0 ) ;
             Chart.ChartArea.CursorReDraw =  false ;
             Chart.ChartAreaMargins =  new Syncfusion.Windows.Forms.Chart.ChartMargins( 3, 3, 3, 3 ) ;
-            Chart.ChartSeries =  null ;
             Chart.Data =  null ;
             Chart.DataTable =  null ;
             Chart.Depth =  250F ;
@@ -1218,7 +1217,6 @@
         public ListBox SecondListBox;
         public ComboBox SecondComboBox;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt NavigationSpacer;
-        private ToolSeparator NavigatioinSeparator;
         public ToolSeparator ExitSeparator;
         public ToolSeparator NavigationSeparator;
     }

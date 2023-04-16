@@ -251,10 +251,11 @@ namespace BudgetExecution
         public ChartDataForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
             SelectedTable = ( (DataTable)bindingSource.DataSource ).ToString( );
-            BindingSource.DataSource = bindingSource.DataSource;
+            BindingSource.DataSource = DataTable;
+            Chart.BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource.DataSource = DataTable;
         }
 
         /// <summary>
@@ -271,6 +272,8 @@ namespace BudgetExecution
             DataTable = DataModel?.DataTable;
             SelectedTable = DataTable?.TableName;
             BindingSource.DataSource = DataTable;
+            Chart.BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -291,6 +294,8 @@ namespace BudgetExecution
             DataTable = DataModel?.DataTable;
             SelectedTable = DataModel?.DataTable.ToString( );
             BindingSource.DataSource = DataTable;
+            Chart.BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -304,18 +309,15 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.BindingSource = BindingSource;
-                Chart.Title.Text = string.Empty;
                 SetToolStripProperties( );
+                Chart.Title.Text = string.Empty;
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                    Text = $"{SelectedTable.SplitPascal( )}";
-                    Chart.Title.Text = string.Empty;
-                    Chart.ToolBar.Visible = false;
+                    Chart.Title.Text = SelectedTable.SplitPascal( );
+                    Chart.ToolBar.Visible = true;
                     LabelTable.Visible = true;
                     TableButton.Visible = true;
-                    PopulateFirstComboBoxItems( );
                     UpdateLabelText( );
                 }
                 else

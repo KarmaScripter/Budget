@@ -15,6 +15,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="ITitleInfo" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public class TitleInfo : ITitleInfo
     {
         /// <summary>

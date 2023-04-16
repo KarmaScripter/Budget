@@ -75,7 +75,8 @@ namespace BudgetExecution
         public void SetPrimaryAxis( string title, ChartValueType type = ChartValueType.Category,
             ChartOrientation orientation = ChartOrientation.Horizontal )
         {
-            if( !string.IsNullOrEmpty( title ) )
+            if( PrimaryXAxis != null 
+               && !string.IsNullOrEmpty( title ) )
             {
                 try
                 {
@@ -99,17 +100,18 @@ namespace BudgetExecution
         /// Sets the title.
         /// </summary>
         /// <param name="title">The title.</param>
-        /// <param name="showBorders">if set to <c>true</c> [show borders].</param>
-        public void SetTitle( string title, bool showBorders = false )
+        /// <param name="borders">if set to <c>true</c> [show borders].</param>
+        public void SetTitle( string title, bool borders = false )
         {
-            if( !string.IsNullOrEmpty( title ) )
+            if( Title != null 
+               && !string.IsNullOrEmpty( title ) )
             {
                 try
                 {
-                    Title.Visible = !showBorders;
-                    Title.ShowBorder = showBorders;
+                    Title.Visible = !borders;
+                    Title.ShowBorder = borders;
                     Title.Font = new Font( "Roboto", 9 );
-                    Title.AutoSize = !showBorders;
+                    Title.AutoSize = !borders;
                     Title.BackColor = Color.Transparent;
                     Title.ForeColor = Color.FromArgb( 0, 120, 212 );
                     Title.Orientation = ChartOrientation.Horizontal;
@@ -126,19 +128,22 @@ namespace BudgetExecution
         /// </summary>
         protected void SetChartAreaProperties( )
         {
-            try
+            if( ChartArea != null )
             {
-                ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
-                ChartArea.AutoScale = true;
-                ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-                ChartArea.BorderWidth = 1;
-                ChartArea.BorderColor = Color.Transparent;
-                ChartArea.BorderStyle = BorderStyle.None;
-                ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+                    ChartArea.AutoScale = true;
+                    ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+                    ChartArea.BorderWidth = 1;
+                    ChartArea.BorderColor = Color.Transparent;
+                    ChartArea.BorderStyle = BorderStyle.None;
+                    ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
         
@@ -147,18 +152,21 @@ namespace BudgetExecution
         /// </summary>
         protected void SetToolbarProperties( )
         {
-            try
+            if( ToolBar != null )
             {
-                ToolBar.Orientation = ChartOrientation.Horizontal;
-                ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
-                ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-                ToolBar.Position = ChartDock.Floating;
-                ToolBar.ShowGrip = false;
-                ToolBar.ShowBorder = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                try
+                {
+                    ToolBar.Orientation = ChartOrientation.Horizontal;
+                    ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+                    ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+                    ToolBar.Position = ChartDock.Floating;
+                    ToolBar.ShowGrip = false;
+                    ToolBar.ShowBorder = false;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
         
