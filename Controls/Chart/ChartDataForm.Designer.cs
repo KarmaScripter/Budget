@@ -172,6 +172,7 @@
             Chart.ChartArea.CursorLocation =  new System.Drawing.Point( 0, 0 ) ;
             Chart.ChartArea.CursorReDraw =  false ;
             Chart.ChartAreaMargins =  new Syncfusion.Windows.Forms.Chart.ChartMargins( 3, 3, 3, 3 ) ;
+            Chart.ChartSeries =  null ;
             Chart.Data =  null ;
             Chart.DataTable =  null ;
             Chart.Depth =  250F ;
@@ -539,7 +540,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 168, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 166, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 

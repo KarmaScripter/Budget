@@ -481,7 +481,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _chart = new ChartDataForm( BindingSource );
+                var _chart = new ChartDataForm( Source, Provider );
                 _chart.Owner = Owner;
                 _chart.Show( );
                 Close( );
@@ -553,7 +553,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ChartButton )
                 {
-                    var _chart = new ChartDataForm( BindingSource );
+                    var _chart = new ChartDataForm( Source, Provider );
                     _chart.Show( );
                     Close( );
                 }

@@ -244,18 +244,13 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ChartDataForm"/> class.
-        /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
         public ChartDataForm( BindingSource bindingSource )
-            : this( )
         {
             DataTable = (DataTable)bindingSource.DataSource;
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).ToString( );
-            BindingSource.DataSource = DataTable;
-            Chart.BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource.DataSource = DataTable;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
+            ToolStrip.BindingSource = bindingSource;
         }
 
         /// <summary>
@@ -269,11 +264,10 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel?.DataTable;
-            SelectedTable = DataTable?.TableName;
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
-            Chart.BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -290,11 +284,10 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             FormFilter = where;
-            DataModel = new DataBuilder( source, provider, where );
-            DataTable = DataModel?.DataTable;
-            SelectedTable = DataModel?.DataTable.ToString( );
+            DataModel = new DataBuilder( Source, Provider, FormFilter );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
-            Chart.BindingSource.DataSource = DataTable;
             ToolStrip.BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -313,7 +306,6 @@ namespace BudgetExecution
                 Chart.Title.Text = string.Empty;
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     Chart.Title.Text = SelectedTable.SplitPascal( );
                     Chart.ToolBar.Visible = true;
                     LabelTable.Visible = true;
@@ -504,8 +496,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -548,8 +539,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -585,8 +575,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -959,8 +948,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -995,8 +983,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
