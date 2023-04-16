@@ -61,9 +61,9 @@ namespace BudgetExecution
 
             // Basic Properties
             StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size( 1400, 800 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1400, 750 );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
@@ -84,11 +84,9 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
-            ToolStrip.Text = string.Empty;
 
             // Event Wiring
             Load += OnLoad;
-            ToolStrip.DropDown.SelectedIndexChanged += OnDropDownItemSelected;
         }
 
         /// <summary>
@@ -113,13 +111,6 @@ namespace BudgetExecution
         {
             try
             {
-                Text = @"PDF Document";
-                BackButton.Click += OnBackButtonClicked;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.Label.ForeColor = Color.Black;
-                ToolStrip.Label.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.ShowCaption = false;
-                ToolStrip.Label.Text = "Guidance Documents";
                 DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
                 var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
                 Document = new PdfLoadedDocument( _path );
@@ -144,16 +135,13 @@ namespace BudgetExecution
                    && Directory.Exists( DirectoryPath ) )
                 {
                     var _names = Directory.GetFiles( DirectoryPath );
-
-                    for( var _i = 0; _i < _names.Length; _i++ )
+                    for( var i = 0; i < _names.Length; i++ )
                     {
-                        var _file = _names[ _i ];
+                        var _file = _names[ i ];
                         var _name = Path.GetFileNameWithoutExtension( _file );
-
                         if( !string.IsNullOrEmpty( _name )
                            && _name != "ApplicationLandingDocument" )
                         {
-                            ToolStrip.DropDown.Items.Add( _name.SplitPascal( ) );
                         }
                     }
                 }
@@ -169,21 +157,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnBackButtonClicked( object sender, EventArgs e )
+        public void OnListBoxItemSelected( object sender, EventArgs e )
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.BackButton )
-                {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
-                    Close( );
-                }
             }
             catch( Exception ex )
             {
@@ -191,29 +168,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [drop down item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnDropDownItemSelected( object sender, EventArgs e )
-        {
-            try
-            {
-                var _index = ToolStrip.DropDown.SelectedIndex;
-                var _item = ToolStrip.DropDown.Items[ _index ].ToString( );
-                var _name = _item?.Replace( " ", "" );
-                var _path = DirectoryPath + $"\\{_name}" + ".pdf";
-                var _fileName = Path.GetFileNameWithoutExtension( _path );
-                Document = new PdfLoadedDocument( _path );
-                DocViewer.Load( Document );
-                Text = _fileName.SplitPascal( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

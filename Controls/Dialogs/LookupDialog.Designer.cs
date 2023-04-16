@@ -835,7 +835,7 @@
             SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressTextColor =  System.Drawing.Color.White ;
-            SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            SelectButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             SelectButton.StyleManager =  null ;
             SelectButton.TabIndex =  7 ;
@@ -869,7 +869,7 @@
             RefreshButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             RefreshButton.PressTextColor =  System.Drawing.Color.White ;
-            RefreshButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            RefreshButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             RefreshButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             RefreshButton.StyleManager =  null ;
             RefreshButton.TabIndex =  5 ;
@@ -904,7 +904,7 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  6 ;

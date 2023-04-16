@@ -25,18 +25,18 @@ namespace BudgetExecution
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightSteelBlue;
-            Size = new Size( 250, 180 );
+            Size = new Size( 178, 108 );
             MinimumSize = new Size( 100, 100 );
             Font = new Font( "Roboto", 9 );
             Anchor = AnchorStyles.Top & AnchorStyles.Left;
             Dock = DockStyle.None;
             TileType = HubTileType.DefaultTile;
-            Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
+            Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
             Title.TextColor = Color.FromArgb( 0, 120, 212 );
             Body.TextColor = Color.DarkGray;
-            Body.Font = new Font( "Roboto", 10 );
+            Body.Font = new Font( "Roboto", 9 );
             Footer.TextColor = Color.DarkGray;
-            Footer.Font = new Font( "Roboto", 9 );
+            Footer.Font = new Font( "Roboto", 8 );
             SlideTransition = TransitionDirection.RightToLeft;
             ShowBanner = true;
             BannerColor = Color.Transparent;
@@ -107,9 +107,10 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 17, 53, 84 );
-                Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                HoveredBorderColor = Color.FromArgb( 17, 53, 84 );
+                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
                 Title.TextColor = Color.White;
-                Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Body.TextColor = Color.White;
                 Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Footer.TextColor = Color.White;
@@ -133,11 +134,12 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 20, 20, 20 );
-                Title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                HoveredBorderColor = Color.FromArgb( 50, 93, 129 );
+                Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Title.TextColor = Color.FromArgb( 0, 120, 212 );
-                Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Body.TextColor =  Color.DarkGray;
-                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
                 Footer.TextColor = Color.DarkGray;
                 Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
                 Banner.TextColor = Color.DarkGray;

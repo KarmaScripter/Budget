@@ -43,8 +43,8 @@ partial class ColorDialog
         ButtonPanel =  new Layout( ) ;
         HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
         Picture =  new System.Windows.Forms.PictureBox( ) ;
-        ColorPicker =  new Syncfusion.Windows.Forms.ColorUIControl( ) ;
         label1 =  new Label( ) ;
+        ColorPicker =  new Syncfusion.Windows.Forms.ColorUIControl( ) ;
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         HeaderTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
@@ -73,7 +73,7 @@ partial class ColorDialog
         CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressTextColor =  System.Drawing.Color.White ;
-        CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        CloseButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         CloseButton.StyleManager =  null ;
         CloseButton.TabIndex =  2 ;
@@ -125,7 +125,7 @@ partial class ColorDialog
         SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SelectButton.PressTextColor =  System.Drawing.Color.White ;
-        SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        SelectButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SelectButton.StyleManager =  null ;
         SelectButton.TabIndex =  3 ;
@@ -182,26 +182,6 @@ partial class ColorDialog
         Picture.TabIndex =  0 ;
         Picture.TabStop =  false ;
         // 
-        // ColorPicker
-        // 
-        ColorPicker.BeforeTouchSize =  new System.Drawing.Size( 266, 269 ) ;
-        ColorPicker.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
-        ColorPicker.ForeColor =  System.Drawing.Color.LightGray ;
-        ColorPicker.Location =  new System.Drawing.Point( 30, 53 ) ;
-        ColorPicker.MetroColor =  System.Drawing.Color.FromArgb(   1  ,   115  ,   199   ) ;
-        ColorPicker.MetroForeColor =  System.Drawing.Color.LightGray ;
-        ColorPicker.Name =  "ColorPicker" ;
-        ColorPicker.ScrollMetroColorTable =  metroColorTable1 ;
-        ColorPicker.Size =  new System.Drawing.Size( 266, 269 ) ;
-        ColorPicker.TabIndex =  0 ;
-        ColorPicker.ThemeName =  "Office2016Black" ;
-        ColorPicker.ThemeStyle.ColorListStyle.PaletteBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-        ColorPicker.ThemeStyle.ColorListStyle.SelectedItemForeColor =  System.Drawing.Color.FromArgb(   80  ,   80  ,   80   ) ;
-        ColorPicker.ThemeStyle.ColorPaletteStyle.BorderColor =  System.Drawing.Color.FromArgb(   210  ,   210  ,   210   ) ;
-        ColorPicker.ThemeStyle.ColorPaletteStyle.SelectedBorderColor =  System.Drawing.Color.FromArgb(   0  ,   103  ,   176   ) ;
-        ColorPicker.ThemeStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-        ColorPicker.VisualStyle =  Syncfusion.Windows.Forms.ColorUIStyle.Office2016Black ;
-        // 
         // label1
         // 
         label1.BindingSource =  null ;
@@ -218,10 +198,31 @@ partial class ColorDialog
         label1.Style =  MetroSet_UI.Enums.Style.Custom ;
         label1.StyleManager =  null ;
         label1.TabIndex =  1 ;
-        label1.Text =  "Color Selection" ;
+        label1.Text =  "Color Selector" ;
+        label1.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
         label1.ThemeAuthor =  "Terry D. Eppler" ;
         label1.ThemeName =  "Budget Execution" ;
-        label1.ToolTip =  null ;
+        label1.ToolTip =  ToolTip ;
+        // 
+        // ColorPicker
+        // 
+        ColorPicker.BeforeTouchSize =  new System.Drawing.Size( 266, 269 ) ;
+        ColorPicker.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
+        ColorPicker.ForeColor =  System.Drawing.Color.FromArgb(   150  ,   150  ,   150   ) ;
+        ColorPicker.Location =  new System.Drawing.Point( 30, 53 ) ;
+        ColorPicker.MetroColor =  System.Drawing.Color.FromArgb(   1  ,   115  ,   199   ) ;
+        ColorPicker.MetroForeColor =  System.Drawing.Color.FromArgb(   68  ,   68  ,   68   ) ;
+        ColorPicker.Name =  "ColorPicker" ;
+        ColorPicker.ScrollMetroColorTable =  metroColorTable1 ;
+        ColorPicker.Size =  new System.Drawing.Size( 266, 269 ) ;
+        ColorPicker.TabIndex =  0 ;
+        ColorPicker.ThemeName =  "Office2016Black" ;
+        ColorPicker.ThemeStyle.ColorListStyle.PaletteBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+        ColorPicker.ThemeStyle.ColorListStyle.SelectedItemForeColor =  System.Drawing.Color.FromArgb(   80  ,   80  ,   80   ) ;
+        ColorPicker.ThemeStyle.ColorPaletteStyle.BorderColor =  System.Drawing.Color.FromArgb(   210  ,   210  ,   210   ) ;
+        ColorPicker.ThemeStyle.ColorPaletteStyle.SelectedBorderColor =  System.Drawing.Color.FromArgb(   0  ,   103  ,   176   ) ;
+        ColorPicker.ThemeStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+        ColorPicker.VisualStyle =  Syncfusion.Windows.Forms.ColorUIStyle.Office2016Black ;
         // 
         // ColorDialog
         // 
@@ -257,8 +258,6 @@ partial class ColorDialog
     }
 
     #endregion
-    private Button CloseButton;
-    private Button SelectButton;
     private Layout ButtonPanel;
     public SmallTip ToolTip;
     public System.Windows.Forms.BindingSource BindingSource;
@@ -266,4 +265,6 @@ partial class ColorDialog
     public Syncfusion.Windows.Forms.ColorUIControl ColorPicker;
     public Label label1;
     public System.Windows.Forms.TableLayoutPanel HeaderTable;
+    public Button CloseButton;
+    public Button SelectButton;
 }

@@ -338,13 +338,12 @@ namespace BudgetExecution
         /// <summary>
         /// Compresses the specified column names.
         /// </summary>
-        /// <param name="columnNames">The column names.</param>
+        /// <param name="columns">The column names.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public DataTable Compress( IEnumerable<string> columnNames,
-            IDictionary<string, object> where )
+        public DataTable Compress( IEnumerable<string> columns, IDictionary<string, object> where )
         {
-            if( columnNames?.Any( ) == true
+            if( columns?.Any( ) == true
                && where?.Any( ) == true
                && DataTable != null )
             {
@@ -355,7 +354,7 @@ namespace BudgetExecution
                     var _dates = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        foreach( var name in columnNames )
+                        foreach( var name in columns )
                         {
                             if( col.ColumnName == name
                                && col.Ordinal > 0

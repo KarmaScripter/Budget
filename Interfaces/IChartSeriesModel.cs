@@ -18,7 +18,7 @@ namespace BudgetExecution
         /// <value>
         /// The count.
         /// </value>
-        int Count { get; set; }
+        int Count { get; }
 
         /// <summary> Gets the empty. </summary>
         /// <param name = "xIndex" > The xIndex. </param>
@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <summary> Gets the y. </summary>
         /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
-        double GetY( int xIndex );
+        double[] GetY( int xIndex );
 
         /// <summary> Occurs when [changed]. </summary>
         event ListChangedEventHandler Changed;

@@ -32,130 +32,33 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
-            var pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
+            var messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
+            var pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( PdfForm ) );
-            var textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
-            ToolStrip =  new ToolStrip( ) ;
-            DropDown =  new ToolStripDropDown( ) ;
+            var textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
             ToolTip =  new SmallTip( ) ;
-            HomeButton =  new ToolStripButton( ) ;
-            Separator1 =  new ToolSeparator( ) ;
-            Label =  new ToolStripLabel( ) ;
             BindingSource =  new BindingSource( components ) ;
-            Separator2 =  new ToolSeparator( ) ;
-            Separator3 =  new ToolSeparator( ) ;
-            LookupButton =  new ToolStripButton( ) ;
-            Separator6 =  new ToolSeparator( ) ;
-            DatabaseButton =  new ToolStripButton( ) ;
-            Separator4 =  new ToolSeparator( ) ;
-            BackButton =  new ToolStripButton( ) ;
-            toolSeparator7 =  new ToolSeparator( ) ;
-            Separator5 =  new ToolSeparator( ) ;
             toolSeparator1 =  new ToolSeparator( ) ;
             ToolSeparator =  new ToolSeparator( ) ;
             toolSeparator3 =  new ToolSeparator( ) ;
             DocViewer =  new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( ) ;
-            ToolStrip.SuspendLayout( );
+            PdfTable =  new TableLayoutPanel( ) ;
+            ListTable =  new TableLayoutPanel( ) ;
+            First =  new HeaderPanel( ) ;
+            ListBoxPanel =  new Layout( ) ;
+            ListBox =  new ListBox( ) ;
+            ComboBox =  new ComboBox( ) ;
+            ButtonPanel =  new Layout( ) ;
+            CloseButton =  new Button( ) ;
+            DocumentPanel =  new Layout( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+            PdfTable.SuspendLayout( );
+            ListTable.SuspendLayout( );
+            First.SuspendLayout( );
+            ListBoxPanel.SuspendLayout( );
+            ButtonPanel.SuspendLayout( );
+            DocumentPanel.SuspendLayout( );
             SuspendLayout( );
-            // 
-            // ToolStrip
-            // 
-            ToolStrip.AddButton =  null ;
-            ToolStrip.AddColumnButton =  null ;
-            ToolStrip.AddTableButton =  null ;
-            ToolStrip.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStrip.BindingSource =  null ;
-            ToolStrip.BorderStyle =  Syncfusion.Windows.Forms.Tools.ToolStripBorderStyle.StaticEdge ;
-            ToolStrip.CalculatorButton =  null ;
-            ToolStrip.CanOverrideStyle =  true ;
-            ToolStrip.CaptionAlignment =  Syncfusion.Windows.Forms.Tools.CaptionAlignment.Near ;
-            ToolStrip.CaptionFont =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ToolStrip.CaptionStyle =  Syncfusion.Windows.Forms.Tools.CaptionStyle.Top ;
-            ToolStrip.CaptionTextStyle =  Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain ;
-            ToolStrip.ChartButton =  null ;
-            ToolStrip.DataFilter =  null ;
-            ToolStrip.DeleteButton =  null ;
-            ToolStrip.DeleteColumnButton =  null ;
-            ToolStrip.DeleteRecordButton =  null ;
-            ToolStrip.DeleteTableButton =  null ;
-            ToolStrip.Dock =  DockStyle.Bottom ;
-            ToolStrip.DropDown =  DropDown ;
-            ToolStrip.EditButton =  null ;
-            ToolStrip.EditColumnButton =  null ;
-            ToolStrip.EditRecordButton =  null ;
-            ToolStrip.EditSqlButton =  null ;
-            ToolStrip.ExcelButton =  null ;
-            ToolStrip.FilterDataButton =  null ;
-            ToolStrip.FirstButton =  null ;
-            ToolStrip.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ToolStrip.ForeColor =  System.Drawing.Color.MidnightBlue ;
-            ToolStrip.GripStyle =  ToolStripGripStyle.Hidden ;
-            ToolStrip.HomeButton =  HomeButton ;
-            ToolStrip.Image =  null ;
-            ToolStrip.ImageDirectory =  null ;
-            ToolStrip.ImageScalingSize =  new System.Drawing.Size( 20, 20 ) ;
-            ToolStrip.ImageSize =  new System.Drawing.Size( 0, 0 ) ;
-            ToolStrip.Items.AddRange( new ToolStripItem[ ] { Separator1, Label, Separator2, DropDown, Separator3, LookupButton, Separator6, DatabaseButton, Separator4, BackButton, toolSeparator7, HomeButton, Separator5 } );
-            ToolStrip.Label =  Label ;
-            ToolStrip.LastButton =  null ;
-            ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
-            ToolStrip.Location =  new System.Drawing.Point( 0, 664 ) ;
-            ToolStrip.Margin =  new Padding( 1 ) ;
-            ToolStrip.Name =  "ToolStrip" ;
-            ToolStrip.NextButton =  null ;
-            ToolStrip.Office12Mode =  false ;
-            ToolStrip.OfficeColorScheme =  Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black ;
-            ToolStrip.Padding =  new Padding( 1 ) ;
-            ToolStrip.PreviousButton =  null ;
-            ToolStrip.ProgressBar =  null ;
-            ToolStrip.RefreshButton =  null ;
-            ToolStrip.SaveButton =  null ;
-            ToolStrip.SearchCriteriaLabel =  null ;
-            ToolStrip.SearchEngineLabel =  null ;
-            ToolStrip.Separators =  null ;
-            ToolStrip.ShowCaption =  true ;
-            ToolStrip.ShowLauncher =  true ;
-            ToolStrip.Size =  new System.Drawing.Size( 1388, 50 ) ;
-            ToolStrip.TabIndex =  1 ;
-            ToolStrip.Text =  "toolStrip1" ;
-            ToolStrip.TextBox =  null ;
-            ToolStrip.ThemeName =  "Office2016DarkGray" ;
-            ToolStrip.ThemeStyle.ArrowColor =  System.Drawing.Color.SteelBlue ;
-            ToolStrip.ThemeStyle.BackColor =  System.Drawing.Color.Transparent ;
-            ToolStrip.ThemeStyle.BottomToolStripBackColor =  System.Drawing.Color.Transparent ;
-            ToolStrip.ThemeStyle.CaptionBackColor =  System.Drawing.Color.FromArgb(   28  ,   28  ,   28   ) ;
-            ToolStrip.ThemeStyle.CaptionForeColor =  System.Drawing.Color.Black ;
-            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor =  System.Drawing.Color.SteelBlue ;
-            ToolStrip.ThemeStyle.DropDownStyle.BorderColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-            ToolStrip.ThemeStyle.HoverItemBackColor =  System.Drawing.Color.SteelBlue ;
-            ToolStrip.ThemeStyle.HoverItemForeColor =  System.Drawing.Color.White ;
-            ToolStrip.UseWaitCursor =  true ;
-            ToolStrip.VisualStyle =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray ;
-            // 
-            // DropDown
-            // 
-            DropDown.AllowDrop =  true ;
-            DropDown.BindingSource =  null ;
-            DropDown.DataFilter =  null ;
-            DropDown.DropDownStyle =  ComboBoxStyle.DropDownList ;
-            DropDown.Field =  Field.AccountCode ;
-            DropDown.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DropDown.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
-            DropDown.HoverText =  "Select Document" ;
-            DropDown.Margin =  new Padding( 1 ) ;
-            DropDown.MaxDropDownItems =  100 ;
-            DropDown.MaxLength =  32767 ;
-            DropDown.Name =  "DropDown" ;
-            DropDown.Numeric =  Numeric.Accepted ;
-            DropDown.Padding =  new Padding( 1 ) ;
-            DropDown.Size =  new System.Drawing.Size( 352, 32 ) ;
-            DropDown.Style =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black ;
-            DropDown.Tag =  "Make Selection" ;
-            DropDown.ToolTip =  ToolTip ;
-            DropDown.ToolTipText =  "Make Selection" ;
             // 
             // ToolTip
             // 
@@ -176,163 +79,6 @@
             ToolTip.TipIcon =  ToolTipIcon.Info ;
             ToolTip.TipText =  null ;
             ToolTip.TipTitle =  null ;
-            // 
-            // HomeButton
-            // 
-            HomeButton.AutoToolTip =  false ;
-            HomeButton.BackColor =  System.Drawing.Color.Transparent ;
-            HomeButton.BindingSource =  null ;
-            HomeButton.DataFilter =  null ;
-            HomeButton.DisplayStyle =  ToolStripItemDisplayStyle.Image ;
-            HomeButton.Field =  Field.AccountCode ;
-            HomeButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            HomeButton.ForeColor =  System.Drawing.Color.LightGray ;
-            HomeButton.HoverText =  "Main Menu" ;
-            HomeButton.Image =  Properties.Resources.HomeButton ;
-            HomeButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            HomeButton.Margin =  new Padding( 1 ) ;
-            HomeButton.Name =  "HomeButton" ;
-            HomeButton.Padding =  new Padding( 1 ) ;
-            HomeButton.Size =  new System.Drawing.Size( 26, 32 ) ;
-            HomeButton.Text =  "toolStripButton1" ;
-            HomeButton.ToolTip =  null ;
-            HomeButton.ToolType =  ToolType.HomeButton ;
-            // 
-            // Separator1
-            // 
-            Separator1.ForeColor =  System.Drawing.Color.Black ;
-            Separator1.Margin =  new Padding( 1 ) ;
-            Separator1.Name =  "Separator1" ;
-            Separator1.Padding =  new Padding( 1 ) ;
-            Separator1.Size =  new System.Drawing.Size( 6, 32 ) ;
-            // 
-            // Label
-            // 
-            Label.BackColor =  System.Drawing.Color.FromArgb(   45  ,   45  ,   45   ) ;
-            Label.BindingSource =  BindingSource ;
-            Label.DataFilter =  null ;
-            Label.Field =  Field.AccountCode ;
-            Label.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            Label.ForeColor =  System.Drawing.Color.White ;
-            Label.HoverText =  null ;
-            Label.Margin =  new Padding( 1 ) ;
-            Label.Name =  "Label" ;
-            Label.Padding =  new Padding( 1 ) ;
-            Label.Size =  new System.Drawing.Size( 125, 32 ) ;
-            Label.Tag =  "" ;
-            Label.Text =  "Guidance Documents" ;
-            Label.ToolTip =  ToolTip ;
-            // 
-            // Separator2
-            // 
-            Separator2.ForeColor =  System.Drawing.Color.Black ;
-            Separator2.Margin =  new Padding( 1 ) ;
-            Separator2.Name =  "Separator2" ;
-            Separator2.Padding =  new Padding( 1 ) ;
-            Separator2.Size =  new System.Drawing.Size( 6, 32 ) ;
-            // 
-            // Separator3
-            // 
-            Separator3.ForeColor =  System.Drawing.Color.Black ;
-            Separator3.Margin =  new Padding( 1 ) ;
-            Separator3.Name =  "Separator3" ;
-            Separator3.Padding =  new Padding( 1 ) ;
-            Separator3.Size =  new System.Drawing.Size( 6, 32 ) ;
-            // 
-            // LookupButton
-            // 
-            LookupButton.AutoToolTip =  false ;
-            LookupButton.BackColor =  System.Drawing.Color.Transparent ;
-            LookupButton.BindingSource =  null ;
-            LookupButton.DataFilter =  null ;
-            LookupButton.DisplayStyle =  ToolStripItemDisplayStyle.Image ;
-            LookupButton.Field =  Field.AccountCode ;
-            LookupButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            LookupButton.ForeColor =  System.Drawing.Color.LightGray ;
-            LookupButton.HoverText =  "Browse Documents" ;
-            LookupButton.Image =  Properties.Resources.LookupButton ;
-            LookupButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            LookupButton.Margin =  new Padding( 1 ) ;
-            LookupButton.Name =  "LookupButton" ;
-            LookupButton.Padding =  new Padding( 1 ) ;
-            LookupButton.Size =  new System.Drawing.Size( 26, 32 ) ;
-            LookupButton.Text =  "toolStripButton1" ;
-            LookupButton.ToolTip =  null ;
-            LookupButton.ToolType =  ToolType.LookupButton ;
-            // 
-            // Separator6
-            // 
-            Separator6.ForeColor =  System.Drawing.Color.Black ;
-            Separator6.Margin =  new Padding( 1 ) ;
-            Separator6.Name =  "Separator6" ;
-            Separator6.Padding =  new Padding( 1 ) ;
-            Separator6.Size =  new System.Drawing.Size( 6, 32 ) ;
-            // 
-            // DatabaseButton
-            // 
-            DatabaseButton.AutoToolTip =  false ;
-            DatabaseButton.BackColor =  System.Drawing.Color.Transparent ;
-            DatabaseButton.BindingSource =  null ;
-            DatabaseButton.DataFilter =  null ;
-            DatabaseButton.DisplayStyle =  ToolStripItemDisplayStyle.Image ;
-            DatabaseButton.Field =  Field.AccountCode ;
-            DatabaseButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DatabaseButton.ForeColor =  System.Drawing.Color.LightGray ;
-            DatabaseButton.HoverText =  "View Databases" ;
-            DatabaseButton.Image =  Properties.Resources.DatabaseButton ;
-            DatabaseButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            DatabaseButton.Margin =  new Padding( 1 ) ;
-            DatabaseButton.Name =  "DatabaseButton" ;
-            DatabaseButton.Padding =  new Padding( 1 ) ;
-            DatabaseButton.Size =  new System.Drawing.Size( 26, 32 ) ;
-            DatabaseButton.Text =  "toolStripButton1" ;
-            DatabaseButton.ToolTip =  null ;
-            DatabaseButton.ToolType =  ToolType.DatabaseButton ;
-            // 
-            // Separator4
-            // 
-            Separator4.ForeColor =  System.Drawing.Color.Black ;
-            Separator4.Margin =  new Padding( 1 ) ;
-            Separator4.Name =  "Separator4" ;
-            Separator4.Padding =  new Padding( 1 ) ;
-            Separator4.Size =  new System.Drawing.Size( 6, 32 ) ;
-            // 
-            // BackButton
-            // 
-            BackButton.AutoToolTip =  false ;
-            BackButton.BackColor =  System.Drawing.Color.Transparent ;
-            BackButton.BindingSource =  BindingSource ;
-            BackButton.DataFilter =  null ;
-            BackButton.DisplayStyle =  ToolStripItemDisplayStyle.Image ;
-            BackButton.Field =  Field.AccountCode ;
-            BackButton.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            BackButton.ForeColor =  System.Drawing.Color.LightGray ;
-            BackButton.HoverText =  "Go Back" ;
-            BackButton.Image =  Properties.Resources.BackButton ;
-            BackButton.ImageTransparentColor =  System.Drawing.Color.Magenta ;
-            BackButton.Margin =  new Padding( 3 ) ;
-            BackButton.Name =  "BackButton" ;
-            BackButton.Padding =  new Padding( 1 ) ;
-            BackButton.Size =  new System.Drawing.Size( 26, 28 ) ;
-            BackButton.Text =  "toolStripButton1" ;
-            BackButton.ToolTip =  null ;
-            BackButton.ToolType =  ToolType.BackButton ;
-            // 
-            // toolSeparator7
-            // 
-            toolSeparator7.ForeColor =  System.Drawing.Color.Black ;
-            toolSeparator7.Margin =  new Padding( 1 ) ;
-            toolSeparator7.Name =  "toolSeparator7" ;
-            toolSeparator7.Padding =  new Padding( 1 ) ;
-            toolSeparator7.Size =  new System.Drawing.Size( 6, 32 ) ;
-            // 
-            // Separator5
-            // 
-            Separator5.ForeColor =  System.Drawing.Color.Black ;
-            Separator5.Margin =  new Padding( 1 ) ;
-            Separator5.Name =  "Separator5" ;
-            Separator5.Padding =  new Padding( 1 ) ;
-            Separator5.Size =  new System.Drawing.Size( 6, 32 ) ;
             // 
             // toolSeparator1
             // 
@@ -369,37 +115,278 @@
             DocViewer.IsBookmarkEnabled =  true ;
             DocViewer.IsTextSearchEnabled =  true ;
             DocViewer.IsTextSelectionEnabled =  true ;
-            DocViewer.Location =  new System.Drawing.Point( 0, 0 ) ;
-            messageBoxSettings1.EnableNotification =  true ;
-            DocViewer.MessageBoxSettings =  messageBoxSettings1 ;
+            DocViewer.Location =  new System.Drawing.Point( 1, 1 ) ;
+            messageBoxSettings2.EnableNotification =  true ;
+            DocViewer.MessageBoxSettings =  messageBoxSettings2 ;
             DocViewer.MinimumZoomPercentage =  50 ;
             DocViewer.Name =  "DocViewer" ;
             DocViewer.PageBorderThickness =  1 ;
-            pdfViewerPrinterSettings1.Copies =  1 ;
-            pdfViewerPrinterSettings1.PageOrientation =  Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto ;
-            pdfViewerPrinterSettings1.PageSize =  Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize ;
-            pdfViewerPrinterSettings1.PrintLocation =  (System.Drawing.PointF) resources.GetObject( "pdfViewerPrinterSettings1.PrintLocation" )  ;
-            pdfViewerPrinterSettings1.ShowPrintStatusDialog =  true ;
-            DocViewer.PrinterSettings =  pdfViewerPrinterSettings1 ;
+            pdfViewerPrinterSettings2.Copies =  1 ;
+            pdfViewerPrinterSettings2.PageOrientation =  Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto ;
+            pdfViewerPrinterSettings2.PageSize =  Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize ;
+            pdfViewerPrinterSettings2.PrintLocation =  (System.Drawing.PointF) resources.GetObject( "pdfViewerPrinterSettings2.PrintLocation" )  ;
+            pdfViewerPrinterSettings2.ShowPrintStatusDialog =  true ;
+            DocViewer.PrinterSettings =  pdfViewerPrinterSettings2 ;
             DocViewer.ReferencePath =  null ;
             DocViewer.ScrollDisplacementValue =  0 ;
             DocViewer.ShowHorizontalScrollBar =  true ;
             DocViewer.ShowToolBar =  true ;
             DocViewer.ShowVerticalScrollBar =  true ;
-            DocViewer.Size =  new System.Drawing.Size( 1388, 664 ) ;
+            DocViewer.Size =  new System.Drawing.Size( 1010, 731 ) ;
             DocViewer.SpaceBetweenPages =  8 ;
             DocViewer.TabIndex =  2 ;
             DocViewer.Text =  "pdfViewerControl1" ;
-            textSearchSettings1.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
-            textSearchSettings1.HighlightAllInstance =  true ;
-            textSearchSettings1.OtherInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   254  ,   255  ,   0   ) ;
-            DocViewer.TextSearchSettings =  textSearchSettings1 ;
+            textSearchSettings2.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
+            textSearchSettings2.HighlightAllInstance =  true ;
+            textSearchSettings2.OtherInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   254  ,   255  ,   0   ) ;
+            DocViewer.TextSearchSettings =  textSearchSettings2 ;
             DocViewer.ThemeName =  "Office2016Black" ;
             DocViewer.UseWaitCursor =  true ;
             DocViewer.VerticalScrollOffset =  0 ;
             DocViewer.VisualStyle =  Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black ;
             DocViewer.ZoomMode =  Syncfusion.Windows.Forms.PdfViewer.ZoomMode.FitWidth ;
-
+            // 
+            // PdfTable
+            // 
+            PdfTable.ColumnCount =  3 ;
+            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 3.19248819F ) );
+            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 96.80751F ) );
+            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 286F ) );
+            PdfTable.Controls.Add( ListTable, 2, 0 );
+            PdfTable.Controls.Add( DocumentPanel, 1, 0 );
+            PdfTable.Dock =  DockStyle.Fill ;
+            PdfTable.Location =  new System.Drawing.Point( 0, 0 ) ;
+            PdfTable.Name =  "PdfTable" ;
+            PdfTable.RowCount =  1 ;
+            PdfTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
+            PdfTable.Size =  new System.Drawing.Size( 1338, 739 ) ;
+            PdfTable.TabIndex =  3 ;
+            PdfTable.UseWaitCursor =  true ;
+            // 
+            // ListTable
+            // 
+            ListTable.ColumnCount =  3 ;
+            ListTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 100F ) );
+            ListTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 251F ) );
+            ListTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 8F ) );
+            ListTable.Controls.Add( First, 1, 0 );
+            ListTable.Controls.Add( ButtonPanel, 1, 1 );
+            ListTable.Dock =  DockStyle.Fill ;
+            ListTable.Location =  new System.Drawing.Point( 1054, 3 ) ;
+            ListTable.Name =  "ListTable" ;
+            ListTable.RowCount =  2 ;
+            ListTable.RowStyles.Add( new RowStyle( SizeType.Percent, 100F ) );
+            ListTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 50F ) );
+            ListTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 20F ) );
+            ListTable.Size =  new System.Drawing.Size( 281, 733 ) ;
+            ListTable.TabIndex =  3 ;
+            ListTable.UseWaitCursor =  true ;
+            // 
+            // First
+            // 
+            First.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            First.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            First.CaptionText =  "Documents" ;
+            First.ColumnCount =  1 ;
+            First.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
+            First.Controls.Add( ListBoxPanel, 0, 1 );
+            First.Controls.Add( ComboBox, 0, 0 );
+            First.Dock =  DockStyle.Fill ;
+            First.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            First.ForeColor =  System.Drawing.Color.DarkGray ;
+            First.Location =  new System.Drawing.Point( 25, 3 ) ;
+            First.Name =  "First" ;
+            First.RowCount =  2 ;
+            First.RowStyles.Add( new RowStyle( SizeType.Percent, 5.748865F ) );
+            First.RowStyles.Add( new RowStyle( SizeType.Percent, 94.25114F ) );
+            First.Size =  new System.Drawing.Size( 245, 677 ) ;
+            First.TabIndex =  0 ;
+            First.UseWaitCursor =  true ;
+            // 
+            // ListBoxPanel
+            // 
+            ListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
+            ListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBoxPanel.BindingSource =  null ;
+            ListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ListBoxPanel.BorderThickness =  1 ;
+            ListBoxPanel.Children =  null ;
+            ListBoxPanel.Controls.Add( ListBox );
+            ListBoxPanel.DataFilter =  null ;
+            ListBoxPanel.Dock =  DockStyle.Fill ;
+            ListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            ListBoxPanel.HoverText =  null ;
+            ListBoxPanel.IsDerivedStyle =  true ;
+            ListBoxPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
+            ListBoxPanel.Name =  "ListBoxPanel" ;
+            ListBoxPanel.Padding =  new Padding( 1 ) ;
+            ListBoxPanel.Size =  new System.Drawing.Size( 239, 618 ) ;
+            ListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ListBoxPanel.StyleManager =  null ;
+            ListBoxPanel.TabIndex =  0 ;
+            ListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            ListBoxPanel.ThemeName =  "Budget Execution" ;
+            ListBoxPanel.ToolTip =  null ;
+            ListBoxPanel.UseWaitCursor =  true ;
+            // 
+            // ListBox
+            // 
+            ListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ListBox.BindingSource =  null ;
+            ListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            ListBox.DataFilter =  null ;
+            ListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            ListBox.HoveredItemColor =  System.Drawing.Color.White ;
+            ListBox.HoverText =  null ;
+            ListBox.IsDerivedStyle =  true ;
+            ListBox.ItemHeight =  28 ;
+            ListBox.Location =  new System.Drawing.Point( 22, 18 ) ;
+            ListBox.Margin =  new Padding( 1 ) ;
+            ListBox.MultiSelect =  true ;
+            ListBox.Name =  "ListBox" ;
+            ListBox.Padding =  new Padding( 1 ) ;
+            ListBox.SelectedIndex =  -1 ;
+            ListBox.SelectedItem =  null ;
+            ListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ListBox.SelectedItemColor =  System.Drawing.Color.White ;
+            ListBox.SelectedText =  null ;
+            ListBox.SelectedValue =  null ;
+            ListBox.ShowBorder =  false ;
+            ListBox.ShowScrollBar =  false ;
+            ListBox.Size =  new System.Drawing.Size( 196, 582 ) ;
+            ListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ListBox.StyleManager =  null ;
+            ListBox.TabIndex =  0 ;
+            ListBox.ThemeAuthor =  "Terry D. Eppler" ;
+            ListBox.ThemeName =  "Budget Execution" ;
+            ListBox.ToolTip =  null ;
+            ListBox.UseWaitCursor =  true ;
+            // 
+            // ComboBox
+            // 
+            ComboBox.AllowDrop =  true ;
+            ComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ComboBox.BackColor =  System.Drawing.Color.Transparent ;
+            ComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ComboBox.BindingSource =  null ;
+            ComboBox.BorderColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            ComboBox.CausesValidation =  false ;
+            ComboBox.DataFilter =  null ;
+            ComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            ComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            ComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            ComboBox.Dock =  DockStyle.Fill ;
+            ComboBox.DrawMode =  DrawMode.OwnerDrawFixed ;
+            ComboBox.DropDownStyle =  ComboBoxStyle.DropDownList ;
+            ComboBox.FlatStyle =  FlatStyle.Flat ;
+            ComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ComboBox.FormattingEnabled =  true ;
+            ComboBox.HoverText =  null ;
+            ComboBox.IsDerivedStyle =  true ;
+            ComboBox.ItemHeight =  24 ;
+            ComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
+            ComboBox.Name =  "ComboBox" ;
+            ComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
+            ComboBox.Size =  new System.Drawing.Size( 239, 30 ) ;
+            ComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ComboBox.StyleManager =  null ;
+            ComboBox.TabIndex =  1 ;
+            ComboBox.ThemeAuthor =  "Terry D. Eppler" ;
+            ComboBox.ThemeName =  "Budget Execution" ;
+            ComboBox.ToolTip =  null ;
+            ComboBox.UseWaitCursor =  true ;
+            // 
+            // ButtonPanel
+            // 
+            ButtonPanel.BackColor =  System.Drawing.Color.Transparent ;
+            ButtonPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ButtonPanel.BindingSource =  null ;
+            ButtonPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ButtonPanel.BorderThickness =  1 ;
+            ButtonPanel.Children =  null ;
+            ButtonPanel.Controls.Add( CloseButton );
+            ButtonPanel.DataFilter =  null ;
+            ButtonPanel.Dock =  DockStyle.Fill ;
+            ButtonPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ButtonPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            ButtonPanel.HoverText =  null ;
+            ButtonPanel.IsDerivedStyle =  true ;
+            ButtonPanel.Location =  new System.Drawing.Point( 25, 686 ) ;
+            ButtonPanel.Name =  "ButtonPanel" ;
+            ButtonPanel.Padding =  new Padding( 1 ) ;
+            ButtonPanel.Size =  new System.Drawing.Size( 245, 44 ) ;
+            ButtonPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ButtonPanel.StyleManager =  null ;
+            ButtonPanel.TabIndex =  2 ;
+            ButtonPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            ButtonPanel.ThemeName =  "Budget Execution" ;
+            ButtonPanel.ToolTip =  null ;
+            ButtonPanel.UseWaitCursor =  true ;
+            // 
+            // CloseButton
+            // 
+            CloseButton.BindingSource =  BindingSource ;
+            CloseButton.DataFilter =  null ;
+            CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            CloseButton.Dock =  DockStyle.Fill ;
+            CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            CloseButton.HoverText =  null ;
+            CloseButton.HoverTextColor =  System.Drawing.Color.White ;
+            CloseButton.IsDerivedStyle =  true ;
+            CloseButton.Location =  new System.Drawing.Point( 1, 1 ) ;
+            CloseButton.Name =  "CloseButton" ;
+            CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
+            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.Padding =  new Padding( 1 ) ;
+            CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.PressTextColor =  System.Drawing.Color.White ;
+            CloseButton.Size =  new System.Drawing.Size( 243, 42 ) ;
+            CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            CloseButton.StyleManager =  null ;
+            CloseButton.TabIndex =  0 ;
+            CloseButton.Text =  "Close" ;
+            CloseButton.ThemeAuthor =  "Terry D. Eppler" ;
+            CloseButton.ThemeName =  "Budget Execution" ;
+            CloseButton.ToolTip =  null ;
+            CloseButton.UseWaitCursor =  true ;
+            // 
+            // DocumentPanel
+            // 
+            DocumentPanel.BackColor =  System.Drawing.Color.Transparent ;
+            DocumentPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            DocumentPanel.BindingSource =  null ;
+            DocumentPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            DocumentPanel.BorderThickness =  1 ;
+            DocumentPanel.Children =  null ;
+            DocumentPanel.Controls.Add( DocViewer );
+            DocumentPanel.DataFilter =  null ;
+            DocumentPanel.Dock =  DockStyle.Fill ;
+            DocumentPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            DocumentPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            DocumentPanel.HoverText =  null ;
+            DocumentPanel.IsDerivedStyle =  true ;
+            DocumentPanel.Location =  new System.Drawing.Point( 36, 3 ) ;
+            DocumentPanel.Name =  "DocumentPanel" ;
+            DocumentPanel.Padding =  new Padding( 1 ) ;
+            DocumentPanel.Size =  new System.Drawing.Size( 1012, 733 ) ;
+            DocumentPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            DocumentPanel.StyleManager =  null ;
+            DocumentPanel.TabIndex =  4 ;
+            DocumentPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            DocumentPanel.ThemeName =  "Budget Execution" ;
+            DocumentPanel.ToolTip =  null ;
             // 
             // PdfForm
             // 
@@ -407,57 +394,58 @@
             AutoScaleMode =  AutoScaleMode.Font ;
             BackColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BorderThickness =  2 ;
             CaptionAlign =  HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientSize =  new System.Drawing.Size( 1388, 714 ) ;
-            Controls.Add( DocViewer );
-            Controls.Add( ToolStrip );
+            ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
+            Controls.Add( PdfTable );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
+            FormBorderStyle =  FormBorderStyle.FixedSingle ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             MaximizeBox =  false ;
+            MaximumSize =  new System.Drawing.Size( 1350, 750 ) ;
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
+            MinimumSize =  new System.Drawing.Size( 1350, 750 ) ;
             Name =  "PdfForm" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;
             ShowMinimizeBox =  false ;
             ShowMouseOver =  true ;
-            StartPosition =  FormStartPosition.CenterParent ;
+            StartPosition =  FormStartPosition.CenterScreen ;
             Text =  "PDF Document" ;
             UseWaitCursor =  true ;
-            ToolStrip.ResumeLayout( false );
-            ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+            PdfTable.ResumeLayout( false );
+            ListTable.ResumeLayout( false );
+            First.ResumeLayout( false );
+            ListBoxPanel.ResumeLayout( false );
+            ButtonPanel.ResumeLayout( false );
+            DocumentPanel.ResumeLayout( false );
             ResumeLayout( false );
-            PerformLayout( );
         }
 
         #endregion
-        public ToolSeparator Separator1;
-        public ToolStrip ToolStrip;
         public ToolSeparator ToolSeparator;
-        public ToolSeparator Separator2;
-        public ToolStripDropDown DropDown;
-        public ToolSeparator Separator3;
-        public ToolStripLabel Label;
-        public ToolStripButton LookupButton;
         public ToolSeparator toolSeparator3;
-        public ToolSeparator Separator4;
-
-        public ToolStripButton DatabaseButton;
-        private ToolSeparator toolSeparator7;
-        public ToolSeparator Separator6;
-        public ToolSeparator Separator5;
-        public ToolStripButton HomeButton;
         public BindingSource BindingSource;
         public SmallTip ToolTip;
         public Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl DocViewer;
-        public ToolStripButton BackButton;
         private ToolSeparator toolSeparator1;
+        private TableLayoutPanel PdfTable;
+        private TableLayoutPanel ListTable;
+        private HeaderPanel First;
+        private Layout ListBoxPanel;
+        public ListBox ListBox;
+        public ComboBox ComboBox;
+        public Button CloseButton;
+        private Layout DocumentPanel;
+        public Layout ButtonPanel;
     }
 }

@@ -129,7 +129,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Raises the Close event.
         /// </summary>

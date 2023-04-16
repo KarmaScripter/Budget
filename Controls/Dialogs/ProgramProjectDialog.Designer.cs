@@ -75,7 +75,7 @@ partial class ProgramProjectDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 783, 561 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 799, 574 ) ;
         CloseButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -85,7 +85,7 @@ partial class ProgramProjectDialog
         CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         CloseButton.PressTextColor =  System.Drawing.Color.White ;
-        CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        CloseButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         CloseButton.StyleManager =  null ;
         CloseButton.TabIndex =  0 ;
@@ -232,7 +232,7 @@ partial class ProgramProjectDialog
         SearchButton.HoverText =  null ;
         SearchButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SearchButton.IsDerivedStyle =  true ;
-        SearchButton.Location =  new System.Drawing.Point( 418, 561 ) ;
+        SearchButton.Location =  new System.Drawing.Point( 434, 574 ) ;
         SearchButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
         SearchButton.Name =  "SearchButton" ;
         SearchButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -242,7 +242,7 @@ partial class ProgramProjectDialog
         SearchButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SearchButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SearchButton.PressTextColor =  System.Drawing.Color.White ;
-        SearchButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        SearchButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         SearchButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SearchButton.StyleManager =  null ;
         SearchButton.TabIndex =  13 ;

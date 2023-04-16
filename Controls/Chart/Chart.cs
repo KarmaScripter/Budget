@@ -18,7 +18,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class Chart : ChartBase
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class Chart : Graph
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -27,15 +28,7 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public Field Field { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the numeric.
         /// </summary>
@@ -148,7 +141,7 @@ namespace BudgetExecution
             EnableMouseRotation = true;
             Padding = new Padding( 1 );
             Margin = new Padding( 3 );
-            Anchor = AnchorStyles.Top & AnchorStyles.Left;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
             AllowGapForEmptyPoints = false;
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
@@ -159,42 +152,6 @@ namespace BudgetExecution
                 Color.FromArgb( 20, 20, 20 ) );
 
             CalcRegions = true;
-
-            //ChartArea Properties
-            ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
-            ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-            ChartArea.BorderWidth = 1;
-            ChartArea.BorderColor = Color.Transparent;
-            ChartArea.BorderStyle = BorderStyle.None;
-            ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
-
-            // Legend Properties
-            Legend.Font = new Font( "Roboto", 8 );
-            Legend.ItemsSize = new Size( 10, 10 );
-            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-            Legend.ItemsAlignment = StringAlignment.Center;
-            Legend.ItemsTextAligment = VerticalAlignment.Center;
-            Legend.Orientation = ChartOrientation.Vertical;
-            Legend.VisibleCheckBox = true;
-            Legend.FloatingAutoSize = true;
-            Legend.ShowSymbol = true;
-            Legend.ShowItemsShadow = true;
-            Legend.ShowBorder = false;
-            Legend.Visible = true;
-            
-            // Title Properties
-            Title.Font = new Font( "Roboto", 12 );
-            Title.BackColor = Color.FromArgb( 20, 20, 20 );
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-            
-            // Toolbar Properties
-            ToolBar.Orientation = ChartOrientation.Horizontal;
-            ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.Position = ChartDock.Floating;
-            ToolBar.ShowGrip = false;
-            ToolBar.ShowBorder = false;
             
             //ChartSeries Properties
             DropSeriesPoints = false;
@@ -227,26 +184,7 @@ namespace BudgetExecution
             ScrollPrecision = 100;
             RadarStyle = ChartRadarAxisStyle.Polygon;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
-        /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <param name="type">Type of the chart.</param>
-        /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, 
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
-            : this( )
-        {
-            STAT = stat;
-            SeriesType = type;
-            BindingSource = bindingSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            Data = DataTable.AsEnumerable( );
-            BindingModel = new ChartDataBindModel( DataTable );
-            AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
@@ -261,34 +199,18 @@ namespace BudgetExecution
         {
             STAT = stat;
             SeriesType = type;
-            BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
+            BindingSource.DataSource = DataTable;
             Data = DataTable.AsEnumerable( );
             BindingModel = new ChartDataBindModel( DataTable );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             xAxis = category;
             yValues = values;
+            SetToolbarProperties( );
+            SetLegendProperties( );
+            SetChartAreaProperties( );
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Chart"/> class.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="type">Type of the chart.</param>
-        /// <param name="stat">The stat.</param>
-        public Chart( DataTable dataTable, 
-            ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
-            : this( )
-        {
-            STAT = stat;
-            SeriesType = type;
-            DataTable = dataTable;
-            Data = dataTable.AsEnumerable( );
-            BindingSource.DataSource = dataTable;
-            BindingModel = new ChartDataBindModel( dataTable );
-            AxisModel = new ChartDataBindAxisLabelModel( dataTable );
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Chart" /> class.
         /// </summary>
@@ -310,6 +232,9 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
             xAxis = category;
             yValues = values;
+            SetToolbarProperties( );
+            SetLegendProperties( );
+            SetChartAreaProperties( );
         }
 
         /// <summary>
@@ -333,6 +258,9 @@ namespace BudgetExecution
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
             xAxis = category;
             yValues = values;
+            SetToolbarProperties( );
+            SetLegendProperties( );
+            SetChartAreaProperties( );
         }
     }
 }

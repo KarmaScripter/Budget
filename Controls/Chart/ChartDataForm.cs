@@ -253,6 +253,7 @@ namespace BudgetExecution
         {
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).ToString( );
             BindingSource.DataSource = bindingSource.DataSource;
         }
 
@@ -288,6 +289,7 @@ namespace BudgetExecution
             FormFilter = where;
             DataModel = new DataBuilder( source, provider, where );
             DataTable = DataModel?.DataTable;
+            SelectedTable = DataModel?.DataTable.ToString( );
             BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -320,8 +322,8 @@ namespace BudgetExecution
                 {
                     LabelTable.Visible = false;
                     TableButton.Visible = false;
-                    Text = "Budget Execution";
-                    Chart.Title.Text = "Select Data Table";
+                    Text = string.Empty;
+                    Chart.Title.Text = string.Empty;
                     Chart.ToolBar.Visible = false;
                 }
 
@@ -329,7 +331,6 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                Chart.ChartArea.BorderStyle = BorderStyle.None;
                 ChartTable.MouseClick += OnRightClick;
                 FirstTable.MouseClick += OnRightClick;
                 FirstListBoxPanel.MouseClick += OnRightClick;
@@ -338,10 +339,10 @@ namespace BudgetExecution
                 ExitButton.Click += OnExitButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
-                FilterButton.Click += OnRemoveFilterButtonClicked;
-                FilterButton.Click += OnRemoveFilterButtonClicked;
+                FilterButton.Click += OnRemoveFiltersButtonClicked;
+                FilterButton.Click += OnRemoveFiltersButtonClicked;
                 TableButton.Click += OnTableButtonClick;
-                FilterButton.Click += OnRemoveFilterButtonClicked;
+                FilterButton.Click += OnRemoveFiltersButtonClicked;
                 PopulateToolBarDropDownItems( );
             }
             catch( Exception ex )
@@ -359,8 +360,8 @@ namespace BudgetExecution
             {
                 ToolStrip.Visible = true;
                 ToolStrip.Text = string.Empty;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
                 ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
@@ -545,7 +546,8 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -581,7 +583,8 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -675,9 +678,9 @@ namespace BudgetExecution
             {
                 DropDown.Items.Clear( );
                 var _names = Enum.GetNames( typeof( ChartSeriesType ) );
-                for( var _i = 0; _i < _names.Length; _i++ )
+                for( var i = 0; i < _names.Length; i++ )
                 {
-                    var name = _names[ _i ];
+                    var name = _names[ i ];
                     if( name != "NS" )
                     {
                         DropDown.Items.Add( name );
@@ -847,11 +850,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    for( var _i = 0; _i < Numerics.Count; _i++ )
+                    for( var i = 0; i < Numerics.Count; i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ i ] ) )
                         {
-                            SecondListBox.Items.Add( Numerics[ _i ] );
+                            SecondListBox.Items.Add( Numerics[ i ] );
                         }
                     }
                 }
@@ -1063,21 +1066,6 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Called when [field ListBox selected value changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnFieldListBoxSelectedValueChanged( object sender )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 
@@ -1310,7 +1298,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        public void OnRemoveFiltersButtonClicked( object sender, EventArgs e )
         {
             try
             {

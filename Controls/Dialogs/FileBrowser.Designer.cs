@@ -616,7 +616,7 @@ namespace BudgetExecution
             SelectButton.HoverText =  "Select File" ;
             SelectButton.HoverTextColor =  System.Drawing.Color.White ;
             SelectButton.IsDerivedStyle =  true ;
-            SelectButton.Location =  new System.Drawing.Point( 284, 430 ) ;
+            SelectButton.Location =  new System.Drawing.Point( 311, 433 ) ;
             SelectButton.Margin =  new Padding( 0 ) ;
             SelectButton.Name =  "SelectButton" ;
             SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -626,7 +626,7 @@ namespace BudgetExecution
             SelectButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SelectButton.PressTextColor =  System.Drawing.Color.White ;
-            SelectButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            SelectButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             SelectButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             SelectButton.StyleManager =  null ;
             SelectButton.TabIndex =  11 ;
@@ -650,7 +650,7 @@ namespace BudgetExecution
             CloseButton.HoverText =  "Close Window" ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 515, 430 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 603, 433 ) ;
             CloseButton.Margin =  new Padding( 0 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -660,7 +660,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  10 ;
@@ -684,7 +684,7 @@ namespace BudgetExecution
             FindButton.HoverText =  "Select File" ;
             FindButton.HoverTextColor =  System.Drawing.Color.White ;
             FindButton.IsDerivedStyle =  true ;
-            FindButton.Location =  new System.Drawing.Point( 40, 430 ) ;
+            FindButton.Location =  new System.Drawing.Point( 9, 433 ) ;
             FindButton.Margin =  new Padding( 0 ) ;
             FindButton.Name =  "FindButton" ;
             FindButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -694,7 +694,7 @@ namespace BudgetExecution
             FindButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             FindButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             FindButton.PressTextColor =  System.Drawing.Color.White ;
-            FindButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            FindButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             FindButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             FindButton.StyleManager =  null ;
             FindButton.TabIndex =  13 ;

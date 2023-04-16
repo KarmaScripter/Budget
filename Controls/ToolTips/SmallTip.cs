@@ -297,7 +297,6 @@ namespace BudgetExecution
                 {
                     Control parent = item.GetCurrentParent( );
                     var caption = item?.Tag?.ToString( );
-
                     if( !string.IsNullOrEmpty( caption ) )
                     {
                         RemoveAll( );

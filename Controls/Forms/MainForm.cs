@@ -134,10 +134,10 @@ namespace BudgetExecution
             {
                 DatabaseTile.Title.Text = "Data Management";
                 DatabaseTile.Body.Text = string.Empty;
-                DatabaseTile.Banner.Text = "Tables, Schema, Records";
+                DatabaseTile.Banner.Text = "Schema, Records";
                 UtilityTile.Title.Text = "Utilities";
                 UtilityTile.Body.Text = string.Empty;
-                UtilityTile.Banner.Text = "Calculator, Calendar, Web Browser";
+                UtilityTile.Banner.Text = "Calculator, Calendar";
                 ReportingTile.Title.Text = "Reporting";
                 ReportingTile.Body.Text = string.Empty;
                 ReportingTile.Banner.Text = "Charts, Graphs";
@@ -146,10 +146,10 @@ namespace BudgetExecution
                 ClientTile.Banner.Text = "SQLite, SQL Server, Access";
                 GuidanceTile.Title.Text = "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
-                GuidanceTile.Banner.Text = "CFR-31, RMDS 2520, OMB A-11";
+                GuidanceTile.Banner.Text = "RMDS 2520, OMB A-11";
                 WebTile.Title.Text = "Web Resource";
                 WebTile.Body.Text = string.Empty;
-                WebTile.Banner.Text = "Web Clients, Data, Browsers";
+                WebTile.Banner.Text = "Web Clients, Browsers";
             }
             catch( Exception ex )
             {
@@ -168,10 +168,10 @@ namespace BudgetExecution
                 {
                     foreach( var tile in Tiles )
                     {
-                        tile.Size = new Size( 292, 140 );
-                        tile.Title.Font = new Font( "Roboto", 11, FontStyle.Regular );
-                        tile.Body.Font = new Font( "Roboto", 10, FontStyle.Regular );
-                        tile.Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        tile.Size = new Size( 178, 108 );
+                        tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
                         tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
                         tile.TurnLiveTileOn = true;
                     }

@@ -117,7 +117,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashWindow"/> class.
+        /// Initializes a new instance of the <see cref="SplashWindow" /> class.
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="message">The message.</param>
@@ -147,6 +147,7 @@ namespace BudgetExecution
                 }
             }
         }
+        
         /// <summary>
         /// Sets the size.
         /// </summary>

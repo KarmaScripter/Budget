@@ -38,7 +38,6 @@ namespace BudgetExecution
             components =  new Container( ) ;
             var resources = new ComponentResourceManager( typeof( Message ) );
             BindingSource =  new BindingSource( components ) ;
-            OpenButton =  new Button( ) ;
             ToolTip =  new SmallTip( ) ;
             CloseButton =  new Button( ) ;
             Label =  new Label( ) ;
@@ -50,40 +49,6 @@ namespace BudgetExecution
             ( (ISupportInitialize) Picture  ).BeginInit( );
             BackPanel.SuspendLayout( );
             SuspendLayout( );
-            // 
-            // OpenButton
-            // 
-            OpenButton.BackColor =  System.Drawing.Color.Transparent ;
-            OpenButton.BindingSource =  null ;
-            OpenButton.DataFilter =  null ;
-            OpenButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
-            OpenButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-            OpenButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            OpenButton.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            OpenButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            OpenButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            OpenButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            OpenButton.HoverText =  null ;
-            OpenButton.HoverTextColor =  System.Drawing.Color.White ;
-            OpenButton.IsDerivedStyle =  true ;
-            OpenButton.Location =  new System.Drawing.Point( 79, 355 ) ;
-            OpenButton.Margin =  new Padding( 0 ) ;
-            OpenButton.Name =  "OpenButton" ;
-            OpenButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
-            OpenButton.NormalColor =  System.Drawing.Color.Transparent ;
-            OpenButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            OpenButton.Padding =  new Padding( 1 ) ;
-            OpenButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            OpenButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            OpenButton.PressTextColor =  System.Drawing.Color.White ;
-            OpenButton.Size =  new System.Drawing.Size( 90, 30 ) ;
-            OpenButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            OpenButton.StyleManager =  null ;
-            OpenButton.TabIndex =  9 ;
-            OpenButton.Text =  "Open" ;
-            OpenButton.ThemeAuthor =  "Terry D. Eppler" ;
-            OpenButton.ThemeName =  "Budget Execution" ;
-            OpenButton.ToolTip =  ToolTip ;
             // 
             // ToolTip
             // 
@@ -120,7 +85,7 @@ namespace BudgetExecution
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 494, 355 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 601, 354 ) ;
             CloseButton.Margin =  new Padding( 0 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -130,7 +95,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  10 ;
@@ -273,7 +238,6 @@ namespace BudgetExecution
             Controls.Add( Picture );
             Controls.Add( Label );
             Controls.Add( CloseButton );
-            Controls.Add( OpenButton );
             DoubleBuffered =  true ;
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightSteelBlue ;
@@ -296,7 +260,6 @@ namespace BudgetExecution
         }
 
         #endregion
-        public Button OpenButton;
         public SmallTip ToolTip;
         public Button CloseButton;
         public Label Label;

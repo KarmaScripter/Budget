@@ -613,7 +613,7 @@ partial class SqlDialog
         FirstButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         FirstButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         FirstButton.PressTextColor =  System.Drawing.Color.White ;
-        FirstButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        FirstButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         FirstButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         FirstButton.StyleManager =  null ;
         FirstButton.TabIndex =  12 ;
@@ -647,7 +647,7 @@ partial class SqlDialog
         SecondButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SecondButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         SecondButton.PressTextColor =  System.Drawing.Color.White ;
-        SecondButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        SecondButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         SecondButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         SecondButton.StyleManager =  null ;
         SecondButton.TabIndex =  10 ;
@@ -682,7 +682,7 @@ partial class SqlDialog
         ThirdButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ThirdButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
         ThirdButton.PressTextColor =  System.Drawing.Color.White ;
-        ThirdButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+        ThirdButton.Size =  new System.Drawing.Size( 78, 26 ) ;
         ThirdButton.Style =  MetroSet_UI.Enums.Style.Custom ;
         ThirdButton.StyleManager =  null ;
         ThirdButton.TabIndex =  11 ;

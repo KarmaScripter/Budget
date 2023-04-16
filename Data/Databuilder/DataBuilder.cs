@@ -160,7 +160,7 @@ namespace BudgetExecution
         public IEnumerable<DataRow> FilterData( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
-               && DataTable?.Rows?.Count > 0 )
+               && DataTable != null )
             {
                 try
                 {
@@ -221,19 +221,18 @@ namespace BudgetExecution
         /// <param name="value">The filter.</param>
         /// <returns></returns>
         [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
-        public IDictionary<string, IEnumerable<string>> CreateSeries( 
-            IEnumerable<DataRow> dataRows, string name, string value )
+        public IDictionary<string, IEnumerable<string>> GetSeries( string name, string value )
         {
-            if( dataRows?.Any( ) == true
+            if( DataTable != null
                && !string.IsNullOrEmpty( name )
                && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
-                    var _dataTable = dataRows.CopyToDataTable( );
-                    var _columns = _dataTable?.Columns;
+                    var _columns = DataTable.Columns;
+                    var _rows = DataTable.AsEnumerable( );
                     var _dictionary = new Dictionary<string, IEnumerable<string>>( );
-                    var _values = GetValues( dataRows, name, value );
+                    var _values = GetValues( _rows, name, value );
                     if( _values?.Any( ) == true )
                     {
                         for( var i = 0; i < _columns?.Count; i++ )

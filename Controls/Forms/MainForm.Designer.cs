@@ -98,13 +98,13 @@
             DatabaseTile.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             DatabaseTile.HoveredBorderColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             DatabaseTile.HoverText =  null ;
-            DatabaseTile.Location =  new System.Drawing.Point( 160, 110 ) ;
+            DatabaseTile.Location =  new System.Drawing.Point( 160, 100 ) ;
             DatabaseTile.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             DatabaseTile.MinimumSize =  new System.Drawing.Size( 100, 100 ) ;
             DatabaseTile.Name =  "DatabaseTile" ;
             DatabaseTile.ShowBanner =  true ;
             DatabaseTile.ShowBannerIcon =  true ;
-            DatabaseTile.Size =  new System.Drawing.Size( 250, 180 ) ;
+            DatabaseTile.Size =  new System.Drawing.Size( 178, 108 ) ;
             DatabaseTile.TabIndex =  0 ;
             textItem4.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             textItem4.HubTile =  DatabaseTile ;
@@ -166,7 +166,7 @@
             ReportingTile.Name =  "ReportingTile" ;
             ReportingTile.ShowBanner =  true ;
             ReportingTile.ShowBannerIcon =  true ;
-            ReportingTile.Size =  new System.Drawing.Size( 250, 180 ) ;
+            ReportingTile.Size =  new System.Drawing.Size( 178, 108 ) ;
             ReportingTile.TabIndex =  1 ;
             textItem8.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             textItem8.HubTile =  ReportingTile ;
@@ -208,7 +208,7 @@
             GuidanceTile.Name =  "GuidanceTile" ;
             GuidanceTile.ShowBanner =  true ;
             GuidanceTile.ShowBannerIcon =  true ;
-            GuidanceTile.Size =  new System.Drawing.Size( 250, 180 ) ;
+            GuidanceTile.Size =  new System.Drawing.Size( 178, 108 ) ;
             GuidanceTile.TabIndex =  2 ;
             textItem12.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             textItem12.HubTile =  GuidanceTile ;
@@ -250,7 +250,7 @@
             WebTile.Name =  "WebTile" ;
             WebTile.ShowBanner =  true ;
             WebTile.ShowBannerIcon =  true ;
-            WebTile.Size =  new System.Drawing.Size( 250, 180 ) ;
+            WebTile.Size =  new System.Drawing.Size( 178, 108 ) ;
             WebTile.TabIndex =  3 ;
             textItem16.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             textItem16.HubTile =  WebTile ;
@@ -292,7 +292,7 @@
             UtilityTile.Name =  "UtilityTile" ;
             UtilityTile.ShowBanner =  true ;
             UtilityTile.ShowBannerIcon =  true ;
-            UtilityTile.Size =  new System.Drawing.Size( 250, 180 ) ;
+            UtilityTile.Size =  new System.Drawing.Size( 178, 108 ) ;
             UtilityTile.TabIndex =  4 ;
             textItem20.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             textItem20.HubTile =  UtilityTile ;
@@ -334,7 +334,7 @@
             ClientTile.Name =  "ClientTile" ;
             ClientTile.ShowBanner =  true ;
             ClientTile.ShowBannerIcon =  true ;
-            ClientTile.Size =  new System.Drawing.Size( 250, 180 ) ;
+            ClientTile.Size =  new System.Drawing.Size( 178, 108 ) ;
             ClientTile.TabIndex =  5 ;
             textItem24.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             textItem24.HubTile =  ClientTile ;
@@ -366,7 +366,7 @@
             TestButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             TestButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             TestButton.PressTextColor =  System.Drawing.Color.White ;
-            TestButton.Size =  new System.Drawing.Size( 103, 29 ) ;
+            TestButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             TestButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             TestButton.StyleManager =  null ;
             TestButton.TabIndex =  6 ;
@@ -398,7 +398,7 @@
             ExitButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ExitButton.PressTextColor =  System.Drawing.Color.White ;
-            ExitButton.Size =  new System.Drawing.Size( 90, 30 ) ;
+            ExitButton.Size =  new System.Drawing.Size( 78, 26 ) ;
             ExitButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             ExitButton.StyleManager =  null ;
             ExitButton.TabIndex =  7 ;

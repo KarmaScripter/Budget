@@ -123,12 +123,12 @@
             ChartTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             ChartTable.Controls.Add( ChartPanel, 0, 1 );
             ChartTable.Controls.Add( ChartLabelTable, 0, 0 );
-            ChartTable.Location =  new System.Drawing.Point( 49, 76 ) ;
+            ChartTable.Location =  new System.Drawing.Point( 49, 29 ) ;
             ChartTable.Name =  "ChartTable" ;
             ChartTable.RowCount =  2 ;
             ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 32F ) );
             ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            ChartTable.Size =  new System.Drawing.Size( 970, 590 ) ;
+            ChartTable.Size =  new System.Drawing.Size( 970, 637 ) ;
             ChartTable.TabIndex =  38 ;
             // 
             // ChartPanel
@@ -149,7 +149,7 @@
             ChartPanel.Location =  new System.Drawing.Point( 3, 35 ) ;
             ChartPanel.Name =  "ChartPanel" ;
             ChartPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ChartPanel.Size =  new System.Drawing.Size( 964, 552 ) ;
+            ChartPanel.Size =  new System.Drawing.Size( 964, 599 ) ;
             ChartPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             ChartPanel.StyleManager =  null ;
             ChartPanel.TabIndex =  47 ;
@@ -179,7 +179,6 @@
             Chart.DisplayChartContextMenu =  false ;
             Chart.DisplaySeriesContextMenu =  false ;
             Chart.EnableMouseRotation =  true ;
-            Chart.Field =  Field.AccountCode ;
             Chart.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Chart.IsWindowLess =  false ;
             // 
@@ -193,7 +192,7 @@
             Chart.Legend.ShowSymbol =  true ;
             Chart.Legend.VisibleCheckBox =  true ;
             Chart.Localize =  null ;
-            Chart.Location =  new System.Drawing.Point( 18, 38 ) ;
+            Chart.Location =  new System.Drawing.Point( 18, 49 ) ;
             Chart.Name =  "Chart" ;
             Chart.Numeric =  Numeric.Accepted ;
             Chart.Padding =  new System.Windows.Forms.Padding( 1 ) ;
@@ -210,7 +209,7 @@
             Chart.ShowScrollBars =  false ;
             Chart.ShowToolbar =  true ;
             Chart.ShowToolTips =  true ;
-            Chart.Size =  new System.Drawing.Size( 928, 486 ) ;
+            Chart.Size =  new System.Drawing.Size( 928, 529 ) ;
             Chart.Source =  Source.External ;
             Chart.Spacing =  5F ;
             Chart.SpacingBetweenPoints =  5F ;
@@ -242,9 +241,9 @@
             // ChartLabelTable
             // 
             ChartLabelTable.ColumnCount =  4 ;
-            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 71.65533F ) );
-            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 28.34467F ) );
-            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 59.25926F ) );
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 40.74074F ) );
+            ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 151F ) );
             ChartLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 411F ) );
             ChartLabelTable.Controls.Add( SecondHeaderLabel, 1, 0 );
             ChartLabelTable.Controls.Add( FourthHeaderLabel, 3, 0 );
@@ -267,11 +266,11 @@
             SecondHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondHeaderLabel.HoverText =  null ;
             SecondHeaderLabel.IsDerivedStyle =  true ;
-            SecondHeaderLabel.Location =  new System.Drawing.Point( 313, 3 ) ;
+            SecondHeaderLabel.Location =  new System.Drawing.Point( 241, 3 ) ;
             SecondHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             SecondHeaderLabel.Name =  "SecondHeaderLabel" ;
             SecondHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondHeaderLabel.Size =  new System.Drawing.Size( 116, 20 ) ;
+            SecondHeaderLabel.Size =  new System.Drawing.Size( 157, 20 ) ;
             SecondHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondHeaderLabel.StyleManager =  null ;
             SecondHeaderLabel.TabIndex =  44 ;
@@ -317,7 +316,7 @@
             FirstHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             FirstHeaderLabel.Name =  "FirstHeaderLabel" ;
             FirstHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstHeaderLabel.Size =  new System.Drawing.Size( 304, 20 ) ;
+            FirstHeaderLabel.Size =  new System.Drawing.Size( 232, 20 ) ;
             FirstHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstHeaderLabel.StyleManager =  null ;
             FirstHeaderLabel.TabIndex =  33 ;
@@ -336,11 +335,11 @@
             ThirdHeaderLabel.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ThirdHeaderLabel.HoverText =  null ;
             ThirdHeaderLabel.IsDerivedStyle =  true ;
-            ThirdHeaderLabel.Location =  new System.Drawing.Point( 435, 3 ) ;
+            ThirdHeaderLabel.Location =  new System.Drawing.Point( 404, 3 ) ;
             ThirdHeaderLabel.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             ThirdHeaderLabel.Name =  "ThirdHeaderLabel" ;
             ThirdHeaderLabel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdHeaderLabel.Size =  new System.Drawing.Size( 114, 20 ) ;
+            ThirdHeaderLabel.Size =  new System.Drawing.Size( 145, 20 ) ;
             ThirdHeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             ThirdHeaderLabel.StyleManager =  null ;
             ThirdHeaderLabel.TabIndex =  43 ;
@@ -541,7 +540,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 174, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 168, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -892,18 +891,19 @@
             // 
             FirstTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             FirstTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            FirstTable.CaptionText =  "First" ;
             FirstTable.ColumnCount =  1 ;
             FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             FirstTable.Controls.Add( FirstComboBox, 0, 0 );
             FirstTable.Controls.Add( FirstListBoxPanel, 0, 1 );
             FirstTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FirstTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            FirstTable.Location =  new System.Drawing.Point( 1043, 111 ) ;
+            FirstTable.Location =  new System.Drawing.Point( 1043, 64 ) ;
             FirstTable.Name =  "FirstTable" ;
             FirstTable.RowCount =  2 ;
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 13.818182F ) );
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 86.1818161F ) );
-            FirstTable.Size =  new System.Drawing.Size( 258, 275 ) ;
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 14.8854961F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 85.1145F ) );
+            FirstTable.Size =  new System.Drawing.Size( 258, 278 ) ;
             FirstTable.TabIndex =  46 ;
             // 
             // FirstComboBox
@@ -919,6 +919,7 @@
             FirstComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
             FirstComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             FirstComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            FirstComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
             FirstComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
             FirstComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
             FirstComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
@@ -927,7 +928,7 @@
             FirstComboBox.HoverText =  null ;
             FirstComboBox.IsDerivedStyle =  true ;
             FirstComboBox.ItemHeight =  24 ;
-            FirstComboBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            FirstComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
             FirstComboBox.Name =  "FirstComboBox" ;
             FirstComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             FirstComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
@@ -954,10 +955,10 @@
             FirstListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstListBoxPanel.HoverText =  null ;
             FirstListBoxPanel.IsDerivedStyle =  true ;
-            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 41 ) ;
+            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 58 ) ;
             FirstListBoxPanel.Name =  "FirstListBoxPanel" ;
             FirstListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstListBoxPanel.Size =  new System.Drawing.Size( 252, 231 ) ;
+            FirstListBoxPanel.Size =  new System.Drawing.Size( 252, 217 ) ;
             FirstListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBoxPanel.StyleManager =  null ;
             FirstListBoxPanel.TabIndex =  1 ;
@@ -979,7 +980,7 @@
             FirstListBox.HoverText =  null ;
             FirstListBox.IsDerivedStyle =  true ;
             FirstListBox.ItemHeight =  28 ;
-            FirstListBox.Location =  new System.Drawing.Point( 30, 26 ) ;
+            FirstListBox.Location =  new System.Drawing.Point( 17, 16 ) ;
             FirstListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             FirstListBox.MultiSelect =  true ;
             FirstListBox.Name =  "FirstListBox" ;
@@ -991,8 +992,8 @@
             FirstListBox.SelectedText =  null ;
             FirstListBox.SelectedValue =  null ;
             FirstListBox.ShowBorder =  false ;
-            FirstListBox.ShowScrollBar =  false ;
-            FirstListBox.Size =  new System.Drawing.Size( 189, 183 ) ;
+            FirstListBox.ShowScrollBar =  true ;
+            FirstListBox.Size =  new System.Drawing.Size( 219, 177 ) ;
             FirstListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBox.StyleManager =  null ;
             FirstListBox.TabIndex =  0 ;
@@ -1004,18 +1005,19 @@
             // 
             SecondTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             SecondTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            SecondTable.CaptionText =  "Second" ;
             SecondTable.ColumnCount =  1 ;
             SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             SecondTable.Controls.Add( SecondListBoxPanel, 0, 1 );
             SecondTable.Controls.Add( SecondComboBox, 0, 0 );
             SecondTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            SecondTable.Location =  new System.Drawing.Point( 1043, 407 ) ;
+            SecondTable.Location =  new System.Drawing.Point( 1046, 386 ) ;
             SecondTable.Name =  "SecondTable" ;
             SecondTable.RowCount =  2 ;
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 37F ) );
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 10F ) );
-            SecondTable.Size =  new System.Drawing.Size( 258, 259 ) ;
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 36F ) );
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 29F ) );
+            SecondTable.Size =  new System.Drawing.Size( 258, 280 ) ;
             SecondTable.TabIndex =  47 ;
             // 
             // SecondListBoxPanel
@@ -1033,10 +1035,10 @@
             SecondListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondListBoxPanel.HoverText =  null ;
             SecondListBoxPanel.IsDerivedStyle =  true ;
-            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 40 ) ;
+            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 55 ) ;
             SecondListBoxPanel.Name =  "SecondListBoxPanel" ;
             SecondListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondListBoxPanel.Size =  new System.Drawing.Size( 252, 216 ) ;
+            SecondListBoxPanel.Size =  new System.Drawing.Size( 252, 222 ) ;
             SecondListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondListBoxPanel.StyleManager =  null ;
             SecondListBoxPanel.TabIndex =  47 ;
@@ -1058,7 +1060,7 @@
             SecondListBox.HoverText =  null ;
             SecondListBox.IsDerivedStyle =  true ;
             SecondListBox.ItemHeight =  28 ;
-            SecondListBox.Location =  new System.Drawing.Point( 30, 23 ) ;
+            SecondListBox.Location =  new System.Drawing.Point( 17, 14 ) ;
             SecondListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             SecondListBox.MultiSelect =  true ;
             SecondListBox.Name =  "SecondListBox" ;
@@ -1070,8 +1072,8 @@
             SecondListBox.SelectedText =  null ;
             SecondListBox.SelectedValue =  null ;
             SecondListBox.ShowBorder =  false ;
-            SecondListBox.ShowScrollBar =  false ;
-            SecondListBox.Size =  new System.Drawing.Size( 189, 166 ) ;
+            SecondListBox.ShowScrollBar =  true ;
+            SecondListBox.Size =  new System.Drawing.Size( 219, 193 ) ;
             SecondListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondListBox.StyleManager =  null ;
             SecondListBox.TabIndex =  0 ;
@@ -1092,6 +1094,7 @@
             SecondComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
             SecondComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             SecondComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            SecondComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SecondComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
             SecondComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
             SecondComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
@@ -1100,7 +1103,7 @@
             SecondComboBox.HoverText =  null ;
             SecondComboBox.IsDerivedStyle =  true ;
             SecondComboBox.ItemHeight =  24 ;
-            SecondComboBox.Location =  new System.Drawing.Point( 3, 3 ) ;
+            SecondComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
             SecondComboBox.Name =  "SecondComboBox" ;
             SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
@@ -1121,7 +1124,7 @@
             CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            CaptionFont =  new System.Drawing.Font( "Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
             Controls.Add( SecondTable );
@@ -1134,6 +1137,7 @@
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             MaximizeBox =  false ;
             MaximumSize =  new System.Drawing.Size( 1350, 750 ) ;
+            MetroColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             MinimizeBox =  false ;
             MinimumSize =  new System.Drawing.Size( 1350, 750 ) ;
             Name =  "ChartDataForm" ;

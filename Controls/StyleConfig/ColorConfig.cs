@@ -5,83 +5,100 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
 
     /// <summary>
     /// 
     /// </summary>
-    public class ColorConfig
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public struct ColorConfig
     {
         /// <summary>
         /// The border dark
         /// </summary>
-        public static readonly Color DarkBorder = Color.FromArgb( 65, 65, 65 );
+        public Color DarkBorder { get; set; }
 
         /// <summary>
         /// The border blue
         /// </summary>
-        public static readonly Color BlueBorder = Color.FromArgb( 0, 120, 212 );
+        public Color BlueBorder { get; set; }
 
         /// <summary>
         /// The border red
         /// </summary>
-        public static readonly Color RedBorder = Color.FromArgb( 192, 0, 0 );
+        public Color RedBorder { get; set; }
 
         /// <summary>
         /// The form dark back color
         /// </summary>
-        public static readonly Color DarkBackground = Color.FromArgb( 20, 20, 20 );
+        public Color DarkBackground { get; set; }
 
         /// <summary>
         /// The fore red
         /// </summary>
-        public static readonly Color RedForeground = Color.FromArgb( 192, 0, 0 );
+        public Color RedText { get; set; }
 
         /// <summary>
         /// The fore gray
         /// </summary>
-        public static readonly Color GrayForeground = Color.FromArgb( 141, 139, 138 );
+        public Color GrayText { get; set; }
 
         /// <summary>
         /// The fore white
         /// </summary>
-        public static readonly Color WhiteForeground = Color.White;
+        public Color WhiteText { get; set; }
 
         /// <summary>
         /// The fore black
         /// </summary>
-        public static readonly Color BlackForeground = Color.Black;
+        public Color BlackText { get; set; }
 
         /// <summary>
         /// The control interior color
         /// </summary>
-        public static readonly Color DarkInterior = Color.FromArgb( 40, 40, 40 );
+        public Color DarkInterior { get; set; }
 
         /// <summary>
         /// The transparent
         /// </summary>
-        public static readonly Color Transparent = Color.Transparent;
+        public Color Transparent { get; set; }
         
-        /// <summary>
-        /// The hover yellow
-        /// </summary>
-        public static readonly Color HoverYellow = Color.FromArgb( 24, 19, 1 );
-
         /// <summary>
         /// The hover gray
         /// </summary>
-        public static readonly Color HoverGray = Color.FromArgb( 70, 70, 70 );
+        public Color HoverGray { get; set; }
 
         /// <summary>
         /// The hover blue
         /// </summary>
-        public static readonly Color HoverBlue = Color.FromArgb( 50, 93, 129 );
+        public Color HoverBlue { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ColorConfig"/> class.
+        /// The hover blue
+        /// </summary>
+        public Color SteelBlue { get; set; }
+
+        /// <summary>
+        /// Initializes a new
+        /// instance of the <see cref="ColorConfig"/> class.
         /// </summary>
         public ColorConfig( )
         {
+            BlueBorder = Color.FromArgb( 0, 120, 212 );
+            HoverBlue = Color.FromArgb( 50, 93, 129 );
+            Transparent = Color.Transparent;
+            HoverGray = Color.FromArgb( 70, 70, 70 );
+            DarkInterior = Color.FromArgb( 40, 40, 40 );
+            BlackText = Color.Black;
+            WhiteText = Color.White;
+            RedText = Color.FromArgb( 192, 0, 0 );
+            BlueBorder = Color.FromArgb( 0, 120, 212 );
+            RedBorder = Color.FromArgb( 192, 0, 0 );
+            DarkBorder = Color.FromArgb( 65, 65, 65 );
+            DarkBackground = Color.FromArgb( 20, 20, 20 );
+            GrayText = Color.DarkGray;
+            SteelBlue = Color.SteelBlue;
         }
         
         /// <summary>

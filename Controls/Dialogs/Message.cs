@@ -28,10 +28,6 @@ namespace BudgetExecution
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            OpenButton.Text = "Open";
-            OpenButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-            OpenButton.BackColor = Color.FromArgb( 20, 20, 20 );
             CloseButton.Text = "Close";
             CloseButton.ForeColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
@@ -42,7 +38,6 @@ namespace BudgetExecution
 
             //Event Wiring
             CloseButton.Click += OnCloseButtonClick;
-            OpenButton.Click += OnOpenButtonClick;
             Load += OnLoad;
         }
 
@@ -100,26 +95,6 @@ namespace BudgetExecution
                 try
                 {
                     Close( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [open button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public virtual void OnOpenButtonClick( object sender, EventArgs e )
-        {
-            if( sender is Button _button
-               && !string.IsNullOrEmpty( _button?.Name ) )
-            {
-                try
-                {
                 }
                 catch( Exception ex )
                 {
