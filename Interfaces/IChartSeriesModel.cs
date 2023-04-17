@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <summary> Gets the y. </summary>
         /// <param name = "xIndex" > The xIndex. </param>
         /// <returns> </returns>
-        double[] GetY( int xIndex );
+        double[ ] GetY( int xIndex );
 
         /// <summary> Occurs when [changed]. </summary>
         event ListChangedEventHandler Changed;

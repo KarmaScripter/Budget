@@ -631,6 +631,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is ToolStripButton _button
+                   && _button.ToolType == ToolType.BackButton
+                   && ( Owner?.Name.Equals( "MainForm" ) == true
+                       || Owner?.Name.Equals( "ChartDataForm" ) == true
+                       || Owner?.Name.Equals( "ExcelDataForm" ) == true ) )
+                {
+                    if( Owner != null
+                       && Owner.Visible == false )
+                    {
+                        Owner.Visible = true;
+                    }
+
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
