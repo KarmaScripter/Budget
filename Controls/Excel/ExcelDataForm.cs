@@ -20,12 +20,12 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -728,8 +728,7 @@ namespace BudgetExecution
                 {
                     var _value = Spreadsheet.CurrentCellRange.DisplayText;
                     var _chars = _value.ToCharArray( );
-                    if( ( _value.Length >= 6
-                           && _value.Length <= 9 )
+                    if( ( _value.Length >= 6 && _value.Length <= 9 )
                        && ( _chars.Any( c => char.IsLetterOrDigit( c ) )
                            && _value.Substring( 0, 3 ) == "000" ) )
                     {
@@ -745,17 +744,14 @@ namespace BudgetExecution
                     }
                     else if( _value.Length <= 22
                             && _value.Length >= 8
-                            && ( _value.EndsWith( "AM" )
-                                || _value.EndsWith( "PM" ) ) )
+                            && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
                     {
                         var _dateTime = DateTime.Parse( _value );
                         var _form = new CalendarDialog( _dateTime );
                         _form.ShowDialog( );
                     }
-                    else if( ( _value.Contains( "-" )
-                                || _value.Contains( "/" ) )
-                            && ( _value.Length >= 8
-                                && _value.Length <= 22 ) )
+                    else if( ( _value.Contains( "-" ) || _value.Contains( "/" ) )
+                            && ( _value.Length >= 8 && _value.Length <= 22 ) )
                     {
                         var _dt = DateTime.Parse( _value );
                         var _form = new CalendarDialog( _dt );

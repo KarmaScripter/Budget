@@ -12,8 +12,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.InkML;
-    using Syncfusion.Grouping;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -354,7 +352,7 @@ namespace BudgetExecution
                     ResetComboBoxVisibility( );
                     UpdateLabelText( );
                 }
-                
+
                 PopulateToolBarDropDownItems( );
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -621,8 +619,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -665,8 +662,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -701,8 +697,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -788,12 +783,12 @@ namespace BudgetExecution
         {
             try
             {
-                FirstHeaderLabel.Text = "Records : ";
-                SecondHeaderLabel.Text = "Total Fields : ";
-                ThirdHeaderLabel.Text = "Total Measures : ";
-                FourthHeaderLabel.Text = "Filter Items : ";
-                FifthHeaderLabel.Text = "Selected Fields : ";
-                SixthHeaderLabel.Text = "Selected Numerics : ";
+                FirstHeaderLabel.Text = "Data Records - ";
+                SecondHeaderLabel.Text = "Total Fields - ";
+                ThirdHeaderLabel.Text = "Total Measures - ";
+                FourthHeaderLabel.Text = "Active Filters - ";
+                FifthHeaderLabel.Text = "Selected Fields - ";
+                SixthHeaderLabel.Text = "Selected Numerics - ";
             }
             catch( Exception ex )
             {
@@ -817,21 +812,21 @@ namespace BudgetExecution
                     var _numerics = Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    FirstHeaderLabel.Text = $"Records : {_records} ";
-                    SecondHeaderLabel.Text = $"Total Fields : {_fields} ";
-                    ThirdHeaderLabel.Text = $"Total Measures : {_numerics} ";
-                    FourthHeaderLabel.Text = $"Filter Items : {_filters} ";
-                    FifthHeaderLabel.Text = $"Selected Fields : {_selectedFields}";
-                    SixthHeaderLabel.Text = $"Selected Numerics : {_selectedNumerics}";
+                    FirstHeaderLabel.Text = $"Data Records - {_records} ";
+                    SecondHeaderLabel.Text = $"Total Fields - {_fields} ";
+                    ThirdHeaderLabel.Text = $"Total Measures - {_numerics} ";
+                    FourthHeaderLabel.Text = $"Active Filters - {_filters} ";
+                    FifthHeaderLabel.Text = $"Selected Fields - {_selectedFields}";
+                    SixthHeaderLabel.Text = $"Selected Numerics - {_selectedNumerics}";
                 }
                 else
                 {
-                    FirstHeaderLabel.Text = "Records : ";
-                    SecondHeaderLabel.Text = "Total Fields : ";
-                    ThirdHeaderLabel.Text = "Total Measures : ";
-                    FourthHeaderLabel.Text = "Filter Items : ";
-                    FifthHeaderLabel.Text = "Selected Fields : ";
-                    SixthHeaderLabel.Text = "Selected Numerics : ";
+                    FirstHeaderLabel.Text = "Data Records - ";
+                    SecondHeaderLabel.Text = "Total Fields - ";
+                    ThirdHeaderLabel.Text = "Total Measures - ";
+                    FourthHeaderLabel.Text = "Active Filters - ";
+                    FifthHeaderLabel.Text = "Selected Fields - ";
+                    SixthHeaderLabel.Text = "Selected Numerics - ";
                 }
             }
             catch( Exception ex )
@@ -908,7 +903,7 @@ namespace BudgetExecution
                     {
                         foreach( var item in Fields )
                         {
-                            if( !item.Equals( FirstValue ) )
+                            if( !item.Equals( FirstCategory ) )
                             {
                                 SecondComboBox.Items.Add( item );
                             }
@@ -1175,6 +1170,7 @@ namespace BudgetExecution
                 }
             }
         }
+
         /// <summary>
         /// Called when [first ComboBox item selected].
         /// </summary>
@@ -1429,6 +1425,7 @@ namespace BudgetExecution
                 UpdateLabelText( );
                 SqlQuery = CreateSqlText( SelectedColumns, FormFilter );
                 SqlHeader.Text = SqlQuery;
+                BindData( SelectedColumns, FormFilter );
             }
             catch( Exception ex )
             {
@@ -1615,7 +1612,8 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable )
                    && ( Owner?.Name.Equals( "DataGridForm" ) == true
-                       || Owner?.Name.Equals( "ChartDataForm" ) == true ) )
+                       || Owner?.Name.Equals( "ExcelDataForm" ) == true
+                       || Owner?.Name.Equals( "MainForm" ) == true ) )
                 {
                     Owner.Visible = true;
                     Visible = false;

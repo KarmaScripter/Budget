@@ -822,8 +822,8 @@ namespace BudgetExecution
                 ThirdGridLabel.Text = string.Empty;
                 FourthGridLabel.Text = string.Empty;
                 SqlHeader.Text = string.Empty;
-                FieldsTable.CaptionText = "Fields : ";
-                NumericsTable.CaptionText = "Numerics : ";
+                FieldsTable.CaptionText = "Fields: ";
+                NumericsTable.CaptionText = "Numerics: ";
             }
             catch( Exception ex )
             {
@@ -846,26 +846,26 @@ namespace BudgetExecution
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
                     HeaderLabel.Text = $"{_table} ";
-                    FirstGridLabel.Text = $"Data Provider :  {Provider}";
-                    SecondGridLabel.Text = $"Records : {_records} ";
-                    ThirdGridLabel.Text = $"Fields : {_fields} ";
-                    FourthGridLabel.Text = $"Measures : {_numerics} ";
-                    FieldsTable.CaptionText = $"Fields : {_fields} ";
-                    NumericsTable.CaptionText = $"Measures : {_numerics} ";
+                    FirstGridLabel.Text = $"Data Provider: {Provider}";
+                    SecondGridLabel.Text = $"Records: {_records} ";
+                    ThirdGridLabel.Text = $"Fields: {_fields} ";
+                    FourthGridLabel.Text = $"Measures: {_numerics} ";
+                    FieldsTable.CaptionText = $"Fields: {_fields} ";
+                    NumericsTable.CaptionText = $"Measures: {_numerics} ";
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
                     SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
                 else
                 {
                     HeaderLabel.Text = $"{Provider} Database ";
-                    FirstGridLabel.Text = $"Provider :  {Provider}";
-                    SecondGridLabel.Text = "Records : --";
-                    ThirdGridLabel.Text = "Fields : --";
-                    FourthGridLabel.Text = "Measures : --";
-                    FieldsTable.CaptionText = "Fields : --";
-                    NumericsTable.CaptionText = "Measures : --";
-                    FirstCalendarTable.CaptionText = "Start Date : --";
-                    SecondCalendarTable.CaptionText = "End Date : --";
+                    FirstGridLabel.Text = $"Provider:  {Provider}";
+                    SecondGridLabel.Text = "Records: ";
+                    ThirdGridLabel.Text = "Fields: ";
+                    FourthGridLabel.Text = "Measures: ";
+                    FieldsTable.CaptionText = "Fields: ";
+                    NumericsTable.CaptionText = "Measures: ";
+                    FirstCalendarTable.CaptionText = "Start Date: ";
+                    SecondCalendarTable.CaptionText = "End Date: ";
                 }
             }
             catch( Exception ex )
