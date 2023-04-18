@@ -33,11 +33,13 @@
     <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
     <Optimize>True</Optimize>
     <Deterministic>False</Deterministic>
+    <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051</NoWarn>
     <Optimize>False</Optimize>
     <Deterministic>False</Deterministic>
+    <DebugType>full</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />

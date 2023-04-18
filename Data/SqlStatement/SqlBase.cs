@@ -1,5 +1,5 @@
-﻿// <copyright file = "SqlBase.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -120,7 +120,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL ) 
+        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -128,7 +128,7 @@ namespace BudgetExecution
             Source = source;
             TableName = source.ToString( );
             Provider = provider;
-            CommandText = $"SELECT * FROM { source }";
+            CommandText = $"SELECT * FROM {source}";
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace BudgetExecution
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
         protected SqlBase( Source source, Provider provider, string sqlText,
-            SQL commandType ) 
+            SQL commandType )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// <param name = "where"> </param>
         /// <param name = "commandType" > </param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL ) 
+            SQL commandType = SQL.SELECTALL )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -167,7 +167,7 @@ namespace BudgetExecution
             Provider = provider;
             TableName = source.ToString( );
             Criteria = where;
-            CommandText = $"SELECT * FROM { source } WHERE { where.ToCriteria( ) }";
+            CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <param name="where"></param>
         /// <param name="commandType"></param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE ) 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -190,7 +190,7 @@ namespace BudgetExecution
             Updates = updates;
             Criteria = where;
             Fields = updates.Keys.ToList( );
-            CommandText = GetCommandText(  );
+            CommandText = GetCommandText( );
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace BudgetExecution
         /// <param name="where">The dictionary.</param>
         /// <param name="commandType">Type of the command.</param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT ) 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -212,7 +212,7 @@ namespace BudgetExecution
             TableName = source.ToString( );
             Criteria = where;
             Fields = columns.ToList( );
-            CommandText = GetCommandText(  );
+            CommandText = GetCommandText( );
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace BudgetExecution
         /// <param name="commandType"></param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT ) 
+            SQL commandType = SQL.SELECT )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -237,15 +237,15 @@ namespace BudgetExecution
             Criteria = having;
             Fields = fields.ToList( );
             Numerics = numerics.ToList( );
-            CommandText = GetCommandText(  );
+            CommandText = GetCommandText( );
         }
-        
+
         /// <summary>
         /// Gets the command text.
         /// </summary>
         /// <returns>
         /// </returns>
-        public string GetCommandText(  )
+        public string GetCommandText( )
         {
             if( Enum.IsDefined( typeof( SQL ), CommandType ) )
             {
@@ -264,7 +264,7 @@ namespace BudgetExecution
                         }
                         case SQL.UPDATE:
                         {
-                            return GetUpdateStatement(  );
+                            return GetUpdateStatement( );
                         }
                         case SQL.DELETE:
                         {
@@ -272,7 +272,7 @@ namespace BudgetExecution
                         }
                         default:
                         {
-                            return GetSelectStatement(  );
+                            return GetSelectStatement( );
                         }
                     }
                 }
@@ -289,30 +289,31 @@ namespace BudgetExecution
         /// Sets the select statement.
         /// </summary>
         private protected string GetSelectStatement( )
-        { 
+        {
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
                && Numerics?.Any( ) == true )
-            { 
+            {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var name in Fields )
                 {
-                    _cols += $"{ name }, ";
+                    _cols += $"{name}, ";
                 }
 
                 foreach( var metric in Numerics )
                 {
-                    _aggr += $"SUM({ metric }) AS { metric }, ";
+                    _aggr += $"SUM({metric}) AS {metric}, ";
                 }
 
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT { _columns } FROM { Source } "
-                    + $"WHERE { _criteria } "
-                    + $"GROUP BY { _groups };";
+                return $"SELECT {_columns} FROM {Source} " 
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_groups};";
             }
+
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
                && Numerics?.Any( ) == false )
@@ -321,30 +322,30 @@ namespace BudgetExecution
                 var _aggr = string.Empty;
                 foreach( var name in Fields )
                 {
-                    _cols += $"{ name }, ";
+                    _cols += $"{name}, ";
                 }
-                    
+
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT { _columns } FROM { Source } "
-                    + $"WHERE { _criteria } "
-                    + $"GROUP BY { _columns };";
+                return $"SELECT {_columns} FROM {Source} " 
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_columns};";
             }
             else if( Fields?.Any( ) == false
                     && Criteria?.Any( ) == true
-                    && Numerics?.Any( ) == false  )
+                    && Numerics?.Any( ) == false )
             {
                 var _criteria = Criteria.ToCriteria( );
-                return $"SELECT * FROM { Source } WHERE { _criteria };";
+                return $"SELECT * FROM {Source} WHERE {_criteria};";
             }
             else if( Fields?.Any( ) == false
                     && Criteria?.Any( ) == false
-                    && Numerics?.Any( ) == false  )
+                    && Numerics?.Any( ) == false )
             {
-                return $"SELECT * FROM { Source };";
+                return $"SELECT * FROM {Source};";
             }
 
-            return default( string );
+            return default;
         }
 
         /// <summary>
@@ -364,20 +365,20 @@ namespace BudgetExecution
                     {
                         foreach( var kvp in Updates )
                         {
-                            _update += $"{ kvp.Key } = '{ kvp.Value }'";
+                            _update += $"{kvp.Key} = '{kvp.Value}'";
                         }
                     }
                     else if( Updates.Count > 1 )
                     {
                         foreach( var kvp in Updates )
                         {
-                            _update += $"{ kvp.Key } = '{ kvp.Value }', ";
+                            _update += $"{kvp.Key} = '{kvp.Value}', ";
                         }
                     }
 
                     var _criteria = Criteria.ToCriteria( );
                     var _values = _update.TrimEnd( ", ".ToCharArray( ) );
-                    return $"UPDATE { Source } SET { _values } WHERE { _criteria };";
+                    return $"UPDATE {Source} SET {_values} WHERE {_criteria};";
                 }
                 catch( Exception ex )
                 {
@@ -405,23 +406,23 @@ namespace BudgetExecution
                     {
                         foreach( var kvp in Updates )
                         {
-                            _columns += $"{ kvp.Key }";
-                            _values += $"{ kvp.Value }";
+                            _columns += $"{kvp.Key}";
+                            _values += $"{kvp.Value}";
                         }
                     }
                     else if( Updates.Count > 1 )
                     {
                         foreach( var kvp in Updates )
                         {
-                            _columns += $"{ kvp.Key }, ";
-                            _values += $"{ kvp.Value }, ";
+                            _columns += $"{kvp.Key}, ";
+                            _values += $"{kvp.Value}, ";
                         }
                     }
 
-                    var _columnValues = $"({ _columns.TrimEnd( ", ".ToCharArray( ) ) })"
-                        + $" VALUES ({ _values.TrimEnd( ", ".ToCharArray( ) ) })";
+                    var _columnValues = $"({_columns.TrimEnd( ", ".ToCharArray( ) )})"
+                        + $" VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
 
-                    return $"INSERT INTO { Source } { _columnValues };";
+                    return $"INSERT INTO {Source} {_columnValues};";
                 }
                 catch( Exception ex )
                 {
@@ -432,7 +433,7 @@ namespace BudgetExecution
 
             return string.Empty;
         }
-        
+
         /// <summary>
         /// Gets the delete statement.
         /// </summary>
@@ -443,10 +444,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _criteria = Criteria.ToCriteria(  );
+                    var _criteria = Criteria.ToCriteria( );
                     return !string.IsNullOrEmpty( _criteria )
-                        ? $"DELETE FROM { Source } WHERE { _criteria };"
-                        : $"DELETE FROM { Source };";
+                        ? $"DELETE FROM {Source} WHERE {_criteria};"
+                        : $"DELETE FROM {Source};";
                 }
                 catch( Exception ex )
                 {

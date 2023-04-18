@@ -131,7 +131,7 @@ namespace BudgetExecution
         /// <value>
         /// The y axis.
         /// </value>
-        public IEnumerable<string> yAxis { get; set; }
+        public IList<string> yValues { get; set; }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -324,6 +324,7 @@ namespace BudgetExecution
         {
             try
             {
+                ClearLabelText( );
                 SetToolStripProperties( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
@@ -385,7 +386,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _row = BindingSource.GetCurrentDataRow( );
+                var _row = DataTable.Rows[ xIndex ];
                 var _values = new List<double>( );
                 foreach( var num in SelectedNumerics )
                 {
@@ -417,7 +418,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _row = BindingSource.GetCurrentDataRow( );
+                var _row = DataTable.Rows[ xIndex ];
                 var _col = _row[ xIndex ].ToString( );
                 if( !string.IsNullOrEmpty( _col ) )
                 {
@@ -475,140 +476,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="sqlText">The SQL text.</param>
-        private void BindData( string sqlText )
-        {
-            if( !string.IsNullOrEmpty( sqlText ) )
-            {
-                try
-                {
-                    SqlQuery = sqlText;
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    DataTable = DataModel?.DataTable;
-                    BindingSource.DataSource = DataModel?.DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="where">The where.</param>
-        private void BindData( IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="cols">The cols.</param>
-        /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Binds the data source.
-        /// </summary>
-        /// <param name="fields">The fields.</param>
-        /// <param name="numerics">The numerics.</param>
-        /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
-        {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true )
-            {
-                try
-                {
-                    var _sql = CreateSqlText( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = fields.ToList( );
-                    Numerics = numerics.ToList( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
-        private void ClearSelections( )
-        {
-            try
-            {
-                SqlQuery = string.Empty;
-                if( FormFilter.Keys.Count > 0 )
-                {
-                    FormFilter.Clear( );
-                }
-
-                FourthCategory = string.Empty;
-                FourthValue = string.Empty;
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Creates the SQL text.
         /// </summary>
         /// <param name="where">The where.</param>
@@ -619,7 +486,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} "
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -662,7 +530,8 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -711,6 +580,128 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="sqlText">The SQL text.</param>
+        private void ResetData( string sqlText )
+        {
+            if( !string.IsNullOrEmpty( sqlText ) )
+            {
+                try
+                {
+                    SqlQuery = sqlText;
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel?.DataTable;
+                    BindingSource.DataSource = DataModel?.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        private void ResetData( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        private void BindChart( )
+        {
+            if( SelectedFields?.Any( ) == true
+               && SelectedNumerics?.Any( ) == true )
+            {
+                try
+                {
+                    var _bindingModel = new ChartDataBindModel( DataTable );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [active tab changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -723,6 +714,7 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
+                        SelectedTable = string.Empty;
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -765,10 +757,15 @@ namespace BudgetExecution
             try
             {
                 Text = string.Empty;
-                FirstHeaderLabel.Text = string.Empty;
-                SecondHeaderLabel.Text = string.Empty;
-                ThirdHeaderLabel.Text = string.Empty;
-                FourthHeaderLabel.Text = string.Empty;
+                FirstDataLabel.Text = string.Empty;
+                SecondDataLabel.Text = string.Empty;
+                ThirdDataLabel.Text = string.Empty;
+                FourthDataLabel.Text = string.Empty;
+                FifthDataLabel.Text = string.Empty;
+                SixthDataLabel.Text = string.Empty;
+                SeventhDataLabel.Text = string.Empty;
+                EightDataLabel.Text = string.Empty;
+                NinthDataLabel.Text = string.Empty;
             }
             catch( Exception ex )
             {
@@ -783,12 +780,16 @@ namespace BudgetExecution
         {
             try
             {
-                FirstHeaderLabel.Text = "Data Records - ";
-                SecondHeaderLabel.Text = "Total Fields - ";
-                ThirdHeaderLabel.Text = "Total Measures - ";
-                FourthHeaderLabel.Text = "Active Filters - ";
-                FifthHeaderLabel.Text = "Selected Fields - ";
-                SixthHeaderLabel.Text = "Selected Numerics - ";
+                FirstDataLabel.Text = "Data Records: 0.0";
+                SecondDataLabel.Text = "Total Fields: 0.0";
+                ThirdDataLabel.Text = "Total Measures: 0.0";
+                FourthDataLabel.Text = "Active Filters: 0.0";
+                FifthDataLabel.Text = "Selected Fields: 0.0";
+                SixthDataLabel.Text = "Selected Numerics: 0.0";
+                SeventhDataLabel.Text = string.Empty;
+                EightDataLabel.Text = string.Empty;
+                NinthDataLabel.Text = string.Empty;
+                SqlHeader.Text = string.Empty;
             }
             catch( Exception ex )
             {
@@ -812,21 +813,27 @@ namespace BudgetExecution
                     var _numerics = Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    FirstHeaderLabel.Text = $"Data Records - {_records} ";
-                    SecondHeaderLabel.Text = $"Total Fields - {_fields} ";
-                    ThirdHeaderLabel.Text = $"Total Measures - {_numerics} ";
-                    FourthHeaderLabel.Text = $"Active Filters - {_filters} ";
-                    FifthHeaderLabel.Text = $"Selected Fields - {_selectedFields}";
-                    SixthHeaderLabel.Text = $"Selected Numerics - {_selectedNumerics}";
+                    FirstDataLabel.Text = $"Data Records:  {_records} ";
+                    SecondDataLabel.Text = $"Total Fields:  {_fields} ";
+                    ThirdDataLabel.Text = $"Total Measures:  {_numerics} ";
+                    FourthDataLabel.Text = $"Active Filters:  {_filters} ";
+                    FifthDataLabel.Text = $"Selected Fields:  {_selectedFields}";
+                    SixthDataLabel.Text = $"Selected Numerics:  {_selectedNumerics}";
+                    SeventhDataLabel.Text = string.Empty;
+                    EightDataLabel.Text = string.Empty;
+                    NinthDataLabel.Text = string.Empty;
                 }
                 else
                 {
-                    FirstHeaderLabel.Text = "Data Records - ";
-                    SecondHeaderLabel.Text = "Total Fields - ";
-                    ThirdHeaderLabel.Text = "Total Measures - ";
-                    FourthHeaderLabel.Text = "Active Filters - ";
-                    FifthHeaderLabel.Text = "Selected Fields - ";
-                    SixthHeaderLabel.Text = "Selected Numerics - ";
+                    FirstDataLabel.Text = "Data Records: 0.0";
+                    SecondDataLabel.Text = "Total Fields: 0.0";
+                    ThirdDataLabel.Text = "Total Measures: 0.0";
+                    FourthDataLabel.Text = "Active Filters: 0.0";
+                    FifthDataLabel.Text = "Selected Fields: 0.0";
+                    SixthDataLabel.Text = "Selected Numerics: 0.0";
+                    SeventhDataLabel.Text = string.Empty;
+                    EightDataLabel.Text = string.Empty;
+                    NinthDataLabel.Text = string.Empty;
                 }
             }
             catch( Exception ex )
@@ -963,8 +970,7 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1064,6 +1070,33 @@ namespace BudgetExecution
                 _data.Owner = Owner;
                 _data.Show( );
                 Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                if( FormFilter.Keys.Count > 0 )
+                {
+                    FormFilter.Clear( );
+                }
+
+                FourthCategory = string.Empty;
+                FourthValue = string.Empty;
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
             }
             catch( Exception ex )
             {
@@ -1243,7 +1276,7 @@ namespace BudgetExecution
                     }
 
                     ResetLabelText( );
-                    BindData( FormFilter );
+                    ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1318,7 +1351,7 @@ namespace BudgetExecution
                     }
 
                     ResetLabelText( );
-                    BindData( FormFilter );
+                    ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1394,7 +1427,7 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     ResetLabelText( );
-                    BindData( FormFilter );
+                    ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1425,7 +1458,7 @@ namespace BudgetExecution
                 UpdateLabelText( );
                 SqlQuery = CreateSqlText( SelectedColumns, FormFilter );
                 SqlHeader.Text = SqlQuery;
-                BindData( SelectedColumns, FormFilter );
+                ResetData( SelectedColumns, FormFilter );
             }
             catch( Exception ex )
             {
@@ -1451,7 +1484,7 @@ namespace BudgetExecution
                 UpdateLabelText( );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
-                BindData( SelectedFields, SelectedNumerics, FormFilter );
+                ResetData( SelectedFields, SelectedNumerics, FormFilter );
             }
             catch( Exception ex )
             {

@@ -39,15 +39,15 @@ namespace BudgetExecution
             Image =  new Picture( ) ;
             CalculatorPanel =  new Layout( ) ;
             Calculator =  new Syncfusion.Windows.Forms.Tools.CalculatorControl( ) ;
-            BottomPanel =  new Layout( ) ;
             CloseButton =  new Button( ) ;
             CalculatorTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            ButtonTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             TopPanel.SuspendLayout( );
             TopTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) Image  ).BeginInit( );
             CalculatorPanel.SuspendLayout( );
-            BottomPanel.SuspendLayout( );
             CalculatorTable.SuspendLayout( );
+            ButtonTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // TopPanel
@@ -181,32 +181,6 @@ namespace BudgetExecution
             Calculator.UseVerticalAndHorizontalSpacing =  true ;
             Calculator.UseVisualStyle =  true ;
             // 
-            // BottomPanel
-            // 
-            BottomPanel.BackColor =  System.Drawing.Color.Transparent ;
-            BottomPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            BottomPanel.BindingSource =  null ;
-            BottomPanel.BorderColor =  System.Drawing.Color.Transparent ;
-            BottomPanel.BorderThickness =  1 ;
-            BottomPanel.Children =  null ;
-            BottomPanel.Controls.Add( CloseButton );
-            BottomPanel.DataFilter =  null ;
-            BottomPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            BottomPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            BottomPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            BottomPanel.HoverText =  null ;
-            BottomPanel.IsDerivedStyle =  true ;
-            BottomPanel.Location =  new System.Drawing.Point( 3, 396 ) ;
-            BottomPanel.Name =  "BottomPanel" ;
-            BottomPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            BottomPanel.Size =  new System.Drawing.Size( 355, 41 ) ;
-            BottomPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            BottomPanel.StyleManager =  null ;
-            BottomPanel.TabIndex =  2 ;
-            BottomPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            BottomPanel.ThemeName =  "Budget Execution" ;
-            BottomPanel.ToolTip =  null ;
-            // 
             // CloseButton
             // 
             CloseButton.BindingSource =  null ;
@@ -214,24 +188,23 @@ namespace BudgetExecution
             CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            CloseButton.Dock =  System.Windows.Forms.DockStyle.Right ;
             CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             CloseButton.HoverText =  null ;
-            CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
+            CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 235, 1 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 259, 3 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
-            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             CloseButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 119, 39 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 93, 25 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  0 ;
@@ -244,7 +217,7 @@ namespace BudgetExecution
             // 
             CalculatorTable.ColumnCount =  1 ;
             CalculatorTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            CalculatorTable.Controls.Add( BottomPanel, 0, 2 );
+            CalculatorTable.Controls.Add( ButtonTable, 0, 2 );
             CalculatorTable.Controls.Add( CalculatorPanel, 0, 1 );
             CalculatorTable.Controls.Add( TopPanel, 0, 0 );
             CalculatorTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
@@ -256,6 +229,21 @@ namespace BudgetExecution
             CalculatorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 46F ) );
             CalculatorTable.Size =  new System.Drawing.Size( 361, 440 ) ;
             CalculatorTable.TabIndex =  3 ;
+            // 
+            // ButtonTable
+            // 
+            ButtonTable.ColumnCount =  2 ;
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 72.39436F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 27.6056347F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
+            ButtonTable.Controls.Add( CloseButton, 1, 0 );
+            ButtonTable.Dock =  System.Windows.Forms.DockStyle.Bottom ;
+            ButtonTable.Location =  new System.Drawing.Point( 3, 406 ) ;
+            ButtonTable.Name =  "ButtonTable" ;
+            ButtonTable.RowCount =  1 ;
+            ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+            ButtonTable.Size =  new System.Drawing.Size( 355, 31 ) ;
+            ButtonTable.TabIndex =  1 ;
             // 
             // CalculationForm
             // 
@@ -284,8 +272,8 @@ namespace BudgetExecution
             TopTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) Image  ).EndInit( );
             CalculatorPanel.ResumeLayout( false );
-            BottomPanel.ResumeLayout( false );
             CalculatorTable.ResumeLayout( false );
+            ButtonTable.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -296,10 +284,10 @@ namespace BudgetExecution
         private Label ValueLabel;
         private Layout CalculatorPanel;
         public Syncfusion.Windows.Forms.Tools.CalculatorControl Calculator;
-        private Layout BottomPanel;
         public Button CloseButton;
         private System.Windows.Forms.TableLayoutPanel CalculatorTable;
         private System.Windows.Forms.TableLayoutPanel TopTable;
+        private System.Windows.Forms.TableLayoutPanel ButtonTable;
     }
 }
 

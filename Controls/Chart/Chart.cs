@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
@@ -19,6 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public class Chart : Graph
     {
         /// <summary>
@@ -68,23 +70,7 @@ namespace BudgetExecution
         /// The type of the chart.
         /// </value>
         public ChartSeriesType SeriesType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the x label.
-        /// </summary>
-        /// <value>
-        /// The x label.
-        /// </value>
-        public string xAxis { get; set; }
-
-        /// <summary>
-        /// Gets or sets the y value.
-        /// </summary>
-        /// <value>
-        /// The y value.
-        /// </value>
-        public IList<string> yValues { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
@@ -92,6 +78,13 @@ namespace BudgetExecution
         /// The data.
         /// </value>
         public IEnumerable<DataRow> Data { get; set; }
+
+        /// <summary>
+        /// Shortcut method that provides access to the
+        /// <see cref="T:Syncfusion.Windows.Forms.Chart.ChartSeriesCollection" />
+        /// contained in the chart's model.
+        /// </summary>
+        public ChartSeries DataSeries { get; set; }
         
         /// <summary>
         /// Gets or sets the data table.
@@ -185,7 +178,7 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( BindingSource bindingSource, string category, IList<string> values, 
+        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values, 
             ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
@@ -195,9 +188,12 @@ namespace BudgetExecution
             BindingSource.DataSource = DataTable;
             Data = DataTable.AsEnumerable( );
             BindingModel = new ChartDataBindModel( DataTable );
+            BindingModel.XName = DataTable.Columns[ 0 ].ColumnName;
+            BindingModel.YNames = values.ToArray( );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            xAxis = category;
-            yValues = values;
+            AxisModel.LabelName = category;
+            PrimaryXAxis.LabelsImpl = AxisModel;
+            PrimaryXAxis.ValueType = ChartValueType.Category;
             SetToolbarProperties( );
             SetLegendProperties( );
             SetChartAreaProperties( );
@@ -211,7 +207,7 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( DataTable dataTable, string category, IList<string> values, 
+        public Chart( DataTable dataTable, string category, IEnumerable<string> values, 
             ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
@@ -221,9 +217,15 @@ namespace BudgetExecution
             Data = dataTable.AsEnumerable( );
             BindingSource.DataSource = dataTable;
             BindingModel = new ChartDataBindModel( dataTable );
+            BindingModel.XName = DataTable.Columns[ 0 ].ColumnName;
+            BindingModel.YNames = values.ToArray( );
+            DataSeries = new ChartSeries( dataTable.TableName );
+            DataSeries.SeriesIndexedModelImpl = BindingModel;
+            Series.Add( DataSeries );
             AxisModel = new ChartDataBindAxisLabelModel( dataTable );
-            xAxis = category;
-            yValues = values;
+            AxisModel.LabelName = category;
+            PrimaryXAxis.LabelsImpl = AxisModel;
+            PrimaryXAxis.ValueType = ChartValueType.Category;
             SetToolbarProperties( );
             SetLegendProperties( );
             SetChartAreaProperties( );
@@ -237,7 +239,7 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         /// <param name="type">Type of the chart.</param>
         /// <param name="stat">The stat.</param>
-        public Chart( IEnumerable<DataRow> dataRows, string category, IList<string> values,   
+        public Chart( IEnumerable<DataRow> dataRows, string category, IEnumerable<string> values,   
             ChartSeriesType type = ChartSeriesType.Column, STAT stat = STAT.SUM )
             : this( )
         {
@@ -247,9 +249,12 @@ namespace BudgetExecution
             Data = dataRows;
             BindingSource.DataSource = dataRows.CopyToDataTable( );
             BindingModel = new ChartDataBindModel( DataTable );
+            BindingModel.XName = DataTable.Columns[ 0 ].ColumnName;
+            BindingModel.YNames = values.ToArray( );
             AxisModel = new ChartDataBindAxisLabelModel( DataTable );
-            xAxis = category;
-            yValues = values;
+            AxisModel.LabelName = category;
+            PrimaryXAxis.LabelsImpl = AxisModel;
+            PrimaryXAxis.ValueType = ChartValueType.Category;
             SetToolbarProperties( );
             SetLegendProperties( );
             SetChartAreaProperties( );
