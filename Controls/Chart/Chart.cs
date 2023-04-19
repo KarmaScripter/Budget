@@ -137,6 +137,30 @@ namespace BudgetExecution
                 Color.FromArgb( 20, 20, 20 ) );
 
             CalcRegions = true;
+
+            // General Appearance Properties
+            Palette = ChartColorPalette.Metro;
+            Skins = Skins.None;
+            RealMode3D = true;
+            Rotation = 0.1f;
+            Spacing = 5;
+            AutoHighlight = true;
+            SpacingBetweenPoints = 5;
+            SpacingBetweenSeries = 5;
+            Style3D = true;
+            TextAlignment = StringAlignment.Center;
+            TextPosition = ChartTextPosition.Top;
+            Tilt = 5;
+            ScrollPrecision = 100;
+            RadarStyle = ChartRadarAxisStyle.Polygon;
+
+            // Toolbar Properties
+            ToolBar.Orientation = ChartOrientation.Horizontal;
+            ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.Position = ChartDock.Floating;
+            ToolBar.ShowGrip = false;
+            ToolBar.ShowBorder = false;
             
             //ChartSeries Properties
             DropSeriesPoints = false;
@@ -152,22 +176,36 @@ namespace BudgetExecution
             ShowLegend = true;
             ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
                 Color.FromArgb( 65, 65, 65 ) );
+            
+            // PrimaryAxis Properties
+            PrimaryXAxis.IsVisible = true;
+            PrimaryXAxis.AutoSize = true;
+            PrimaryXAxis.ShowAxisLabelTooltip = true;
+            PrimaryXAxis.TitleColor = Color.DarkGray;
+            PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
+            
+            // Legend Properties
+            Legend.Font = new Font( "Roboto", 7 );
+            Legend.ItemsSize = new Size( 10, 10 );
+            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+            Legend.ItemsAlignment = StringAlignment.Center;
+            Legend.ItemsTextAligment = VerticalAlignment.Center;
+            Legend.Orientation = ChartOrientation.Vertical;
+            Legend.VisibleCheckBox = true;
+            Legend.FloatingAutoSize = true;
+            Legend.ShowSymbol = true;
+            Legend.ShowItemsShadow = true;
+            Legend.ShowBorder = false;
+            Legend.Visible = true;
 
-            //Chart Appearance Setting
-            Palette = ChartColorPalette.Metro;
-            Skins = Skins.None;
-            RealMode3D = true;
-            Rotation = 0.1f;
-            Spacing = 5;
-            AutoHighlight = true;
-            SpacingBetweenPoints = 5;
-            SpacingBetweenSeries = 5;
-            Style3D = true;
-            TextAlignment = StringAlignment.Center;
-            TextPosition = ChartTextPosition.Top;
-            Tilt = 5;
-            ScrollPrecision = 100;
-            RadarStyle = ChartRadarAxisStyle.Polygon;
+            // Chart Area Properties
+            ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+            ChartArea.AutoScale = true;
+            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+            ChartArea.BorderWidth = 1;
+            ChartArea.BorderColor = Color.Transparent;
+            ChartArea.BorderStyle = BorderStyle.None;
+            ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
         }
         
         /// <summary>
@@ -194,9 +232,6 @@ namespace BudgetExecution
             AxisModel.LabelName = category;
             PrimaryXAxis.LabelsImpl = AxisModel;
             PrimaryXAxis.ValueType = ChartValueType.Category;
-            SetToolbarProperties( );
-            SetLegendProperties( );
-            SetChartAreaProperties( );
         }
         
         /// <summary>
@@ -226,9 +261,6 @@ namespace BudgetExecution
             AxisModel.LabelName = category;
             PrimaryXAxis.LabelsImpl = AxisModel;
             PrimaryXAxis.ValueType = ChartValueType.Category;
-            SetToolbarProperties( );
-            SetLegendProperties( );
-            SetChartAreaProperties( );
         }
 
         /// <summary>
@@ -255,9 +287,6 @@ namespace BudgetExecution
             AxisModel.LabelName = category;
             PrimaryXAxis.LabelsImpl = AxisModel;
             PrimaryXAxis.ValueType = ChartValueType.Category;
-            SetToolbarProperties( );
-            SetLegendProperties( );
-            SetChartAreaProperties( );
         }
     }
 }

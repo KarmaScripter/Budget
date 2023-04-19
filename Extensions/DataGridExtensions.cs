@@ -382,10 +382,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the numeric column format.
+        /// Sets the column format.
         /// </summary>
         /// <param name="dataGridView">The data grid view.</param>
-        public static void FormatDataColumns( this DataGridView dataGridView )
+        public static void FormatColumns( this DataGridView dataGridView )
         {
             if( dataGridView?.DataSource != null )
             {

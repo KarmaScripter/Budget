@@ -27,6 +27,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
     [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
     [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
     public partial class ChartDataForm : MetroForm, IChartSeriesModel
     {
         /// <summary>
@@ -677,6 +678,17 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                    var _bindingModel = new ChartDataBindModel( DataTable );
+                    var _axisModel = new ChartDataBindAxisLabelModel( DataTable );
+                    _bindingModel.XName = SelectedFields[ 1 ];
+                    _bindingModel.YNames = SelectedNumerics?.ToArray( );
+                    _axisModel.LabelName = SelectedFields.Last( );
+                    var _series = new ChartSeries( DataTable.TableName );
+                    _series.SeriesIndexedModelImpl = _bindingModel;
+                    InitSeries( _series );
+                    Chart.Series.Add( _series );
+                    Chart.PrimaryXAxis.LabelsImpl = _axisModel;
+                    Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
                 }
                 catch( Exception ex )
                 {
@@ -685,6 +697,47 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Initializes the series.
+        /// </summary>
+        /// <param name="series">The series.</param>
+        protected void InitSeries( ChartSeries series )
+        {
+            if( series != null )
+            {
+                try
+                {
+                    // Basic Properties
+                    series.SmartLabels = true;
+                    series.Visible = true;
+                    series.ShowTicks = true;
+                    series.Rotate = true;
+                    series.EnableAreaToolTip = true;
+                    series.EnableStyles = true;
+                    series.OptimizePiePointPositions = true;
+                    series.LegendItemUseSeriesStyle = true;
+                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
+                    series.SmartLabelsBorderWidth = 1;
+
+                    // Call out Properties
+                    series.Style.DisplayText = true;
+                    series.Style.Callout.Enable = true;
+                    series.Style.Callout.Position = LabelPosition.Top;
+                    series.Style.Callout.DisplayTextAndFormat = "{0} : {2}";
+                    series.Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
+                    series.Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
+                    series.Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the chart.
+        /// </summary>
         private void BindChart( )
         {
             if( SelectedFields?.Any( ) == true
@@ -692,7 +745,24 @@ namespace BudgetExecution
             {
                 try
                 {
+                    var _sql = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
                     var _bindingModel = new ChartDataBindModel( DataTable );
+                    var _axisModel = new ChartDataBindAxisLabelModel( DataTable );
+                    _bindingModel.XName = SelectedFields.First( );
+                    _bindingModel.YNames = SelectedNumerics?.ToArray( );
+                    _axisModel.LabelName = SelectedFields.Last( );
+                    var _series = new ChartSeries( DataTable.TableName );
+                    _series.SeriesIndexedModelImpl = _bindingModel;
+                    InitSeries( _series );
+                    Chart.Series.Add( _series );
+                    Chart.PrimaryXAxis.LabelsImpl = _axisModel;
+                    Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
                 }
                 catch( Exception ex )
                 {

@@ -24,48 +24,10 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Graph"/> class.
         /// </summary>
-        protected Graph( )
+        public Graph( )
         {
         }
-
-        /// <summary>
-        /// Initializes the series.
-        /// </summary>
-        /// <param name="series">The series.</param>
-        protected void InitSeries( ChartSeries series )
-        {
-            if( series != null )
-            {
-                try
-                {
-                    // Basic Properties
-                    series.SmartLabels = true;
-                    series.Visible = true;
-                    series.ShowTicks = true;
-                    series.Rotate = true;
-                    series.EnableAreaToolTip = true;
-                    series.EnableStyles = true;
-                    series.OptimizePiePointPositions = true;
-                    series.LegendItemUseSeriesStyle = true;
-                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                    series.SmartLabelsBorderWidth = 1;
-
-                    // Call out Properties
-                    series.Style.DisplayText = true;
-                    series.Style.Callout.Enable = true;
-                    series.Style.Callout.Position = LabelPosition.Top;
-                    series.Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                    series.Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
-                    series.Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
-                    series.Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Sets the primary axis.
         /// </summary>
@@ -120,79 +82,6 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Sets the chart area properties.
-        /// </summary>
-        protected void SetChartAreaProperties( )
-        {
-            if( ChartArea != null )
-            {
-                try
-                {
-                    ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
-                    ChartArea.AutoScale = true;
-                    ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-                    ChartArea.BorderWidth = 1;
-                    ChartArea.BorderColor = Color.Transparent;
-                    ChartArea.BorderStyle = BorderStyle.None;
-                    ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Sets the chart toolbar properties.
-        /// </summary>
-        protected void SetToolbarProperties( )
-        {
-            if( ToolBar != null )
-            {
-                try
-                {
-                    ToolBar.Orientation = ChartOrientation.Horizontal;
-                    ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
-                    ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-                    ToolBar.Position = ChartDock.Floating;
-                    ToolBar.ShowGrip = false;
-                    ToolBar.ShowBorder = false;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Sets the legend properties.
-        /// </summary>
-        protected void SetLegendProperties( )
-        {
-            try
-            {
-                Legend.Font = new Font( "Roboto", 7 );
-                Legend.ItemsSize = new Size( 10, 10 );
-                Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-                Legend.ItemsAlignment = StringAlignment.Center;
-                Legend.ItemsTextAligment = VerticalAlignment.Center;
-                Legend.Orientation = ChartOrientation.Vertical;
-                Legend.VisibleCheckBox = true;
-                Legend.FloatingAutoSize = true;
-                Legend.ShowSymbol = true;
-                Legend.ShowItemsShadow = true;
-                Legend.ShowBorder = false;
-                Legend.Visible = true;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
         

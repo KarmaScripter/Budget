@@ -353,20 +353,6 @@ namespace BudgetExecution
                 SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-                HeaderLabel.MouseClick += OnRightClick;
-                TabControl.MouseClick += OnRightClick;
-                TablePanel.MouseClick += OnRightClick;
-                TableTabPage.MouseClick += OnRightClick;
-                FilterTabPage.MouseClick += OnRightClick;
-                FilterTable.MouseClick += OnRightClick;
-                GroupTabPage.MouseClick += OnRightClick;
-                FieldsTable.MouseClick += OnRightClick;
-                FieldPanel.MouseClick += OnRightClick;
-                NumericsTable.MouseClick += OnRightClick;
-                NumericPanel.MouseClick += OnRightClick;
-                CalendarTabPage.MouseClick += OnRightClick;
-                FirstCalendarPanel.MouseClick += OnRightClick;
-                SecondCalendarPanel.MouseClick += OnRightClick;
                 ExcelExportButton.Click += OnExcelExportButtonClicked;
                 ChartButton.Click += OnChartButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
@@ -421,7 +407,7 @@ namespace BudgetExecution
                 }
 
                 DataGrid.PascalizeHeaders( );
-                DataGrid.FormatDataColumns( );
+                DataGrid.FormatColumns( );
             }
             catch( Exception ex )
             {
@@ -448,7 +434,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatDataColumns( );
+                    DataGrid.FormatColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
@@ -481,7 +467,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatDataColumns( );
+                    DataGrid.FormatColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
@@ -516,7 +502,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatDataColumns( );
+                    DataGrid.FormatColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
@@ -1083,11 +1069,11 @@ namespace BudgetExecution
                         NumericListBox.Items.Clear( );
                     }
 
-                    for( var _i = 0; _i < Numerics.Count; _i++ )
+                    for( var i = 0; i < Numerics.Count; i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
+                            NumericListBox.Items.Add( Numerics[ i ] );
                         }
                     }
                 }
@@ -1290,7 +1276,7 @@ namespace BudgetExecution
                         BindingSource.DataSource = DataModel.DataTable;
                         DataGrid.DataSource = BindingSource;
                         DataGrid.PascalizeHeaders( );
-                        DataGrid.FormatDataColumns( );
+                        DataGrid.FormatColumns( );
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
@@ -2016,7 +2002,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatDataColumns( );
+                    DataGrid.FormatColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
