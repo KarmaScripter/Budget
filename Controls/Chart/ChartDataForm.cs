@@ -12,13 +12,14 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Drawing.Charts;
-    using Syncfusion.Data.Extensions;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
+    using Color = System.Drawing.Color;
     using DataTable = System.Data.DataTable;
     using Size = System.Drawing.Size;
+    using VerticalAlignment = Syncfusion.Windows.Forms.Chart.VerticalAlignment;
 
     /// <summary>
     /// 
@@ -32,7 +33,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
     [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
     public partial class ChartDataForm : MetroForm, IChartSeriesModel
     {
         /// <summary>
@@ -330,6 +331,7 @@ namespace BudgetExecution
         {
             try
             {
+                SetChartProperties( );
                 ClearLabelText( );
                 SetToolStripProperties( );
                 FormFilter = new Dictionary<string, object>( );
@@ -694,7 +696,7 @@ namespace BudgetExecution
                             var _value = DataTable.Rows[ i ][ num ].ToString( );
                             _list.Add( double.Parse( _value ) );
                         }
-                        
+
                         _series.Points.Add( _point );
                         Chart.Series.Add( _series );
                     }
@@ -768,7 +770,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [active tab changed].
         /// </summary>
@@ -1233,6 +1235,105 @@ namespace BudgetExecution
             }
         }
 
+        private void SetChartProperties( )
+        {
+            try
+            {
+                //Basic Control Properties
+                Chart.Size = new Size( 897, 487 );
+                Chart.ShowToolbar = true;
+                Chart.ShowToolTips = true;
+                Chart.ShowScrollBars = false;
+                Chart.Font = new Font( "Roboto", 8 );
+                Chart.EnableMouseRotation = true;
+                Chart.Padding = new Padding( 1 );
+                Chart.Margin = new Padding( 3 );
+                Chart.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                Chart.AllowGapForEmptyPoints = false;
+                Chart.AllowGradientPalette = true;
+                Chart.AllowUserEditStyles = true;
+                Chart.PrintColorMode = ChartPrintColorMode.CheckPrinter;
+                Chart.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+                Chart.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.CalcRegions = true;
+                Chart.ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
+                    Color.FromArgb( 20, 20, 20 ) );
+
+                // General Appearance Properties
+                Chart.Palette = ChartColorPalette.Metro;
+                Chart.Skins = Skins.None;
+                Chart.RealMode3D = true;
+                Chart.Rotation = 0.1f;
+                Chart.Spacing = 5;
+                Chart.AutoHighlight = true;
+                Chart.SpacingBetweenPoints = 5;
+                Chart.SpacingBetweenSeries = 5;
+                Chart.Style3D = true;
+                Chart.TextAlignment = StringAlignment.Center;
+                Chart.TextPosition = ChartTextPosition.Top;
+                Chart.Tilt = 5;
+                Chart.ScrollPrecision = 100;
+                Chart.RadarStyle = ChartRadarAxisStyle.Polygon;
+
+                // Toolbar Properties
+                Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
+                Chart.ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.Position = ChartDock.Floating;
+                Chart.ToolBar.ShowGrip = false;
+                Chart.ToolBar.ShowBorder = false;
+
+                //ChartSeries Properties
+                Chart.DropSeriesPoints = false;
+                Chart.AddRandomSeries = true;
+                Chart.Series3D = true;
+                Chart.SeriesHighlight = true;
+                Chart.SeriesHighlightIndex = -1;
+                Chart.ShadowWidth = 5;
+                Chart.Depth = 250;
+                Chart.ElementsSpacing = 10;
+                Chart.ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
+                Chart.ColumnFixedWidth = 20;
+                Chart.ShowLegend = true;
+                Chart.ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
+                    Color.FromArgb( 65, 65, 65 ) );
+
+                // PrimaryAxis Properties
+                Chart.PrimaryXAxis.IsVisible = true;
+                Chart.PrimaryXAxis.AutoSize = true;
+                Chart.PrimaryXAxis.ShowAxisLabelTooltip = true;
+                Chart.PrimaryXAxis.TitleColor = Color.DarkGray;
+                Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
+
+                // Legend Properties
+                Chart.Legend.Font = new Font( "Roboto", 7 );
+                Chart.Legend.ItemsSize = new Size( 10, 10 );
+                Chart.Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+                Chart.Legend.ItemsAlignment = StringAlignment.Center;
+                Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
+                Chart.Legend.Orientation = ChartOrientation.Vertical;
+                Chart.Legend.VisibleCheckBox = true;
+                Chart.Legend.FloatingAutoSize = true;
+                Chart.Legend.ShowSymbol = true;
+                Chart.Legend.ShowItemsShadow = true;
+                Chart.Legend.ShowBorder = false;
+                Chart.Legend.Visible = true;
+
+                // Chart Area Properties
+                Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+                Chart.ChartArea.AutoScale = true;
+                Chart.ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+                Chart.ChartArea.BorderWidth = 1;
+                Chart.ChartArea.BorderColor = Color.Transparent;
+                Chart.ChartArea.BorderStyle = BorderStyle.None;
+                Chart.ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Called when [table ListBox item selected].
         /// </summary>
@@ -1253,7 +1354,6 @@ namespace BudgetExecution
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
-                        Chart.BindingSource.DataSource = DataModel.DataTable;
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;

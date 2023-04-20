@@ -26,6 +26,16 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
+            var chartToolBarSaveItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSaveItem( );
+            var chartToolBarCopyItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarCopyItem( );
+            var chartToolBarPrintItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintItem( );
+            var chartToolBarPrintPreviewItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintPreviewItem( );
+            var chartToolBarSplitter1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSplitter( );
+            var chartToolBarPaletteItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPaletteItem( );
+            var chartToolBarStyleItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarStyleItem( );
+            var chartToolBarTypeItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarTypeItem( );
+            var chartToolBarSeries3dItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSeries3DItem( );
+            var chartToolBarShowLegendItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarShowLegendItem( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ChartDataForm ) );
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
@@ -116,7 +126,7 @@
             FieldPanel =  new Layout( ) ;
             FieldListBox =  new ListBox( ) ;
             ChartTable =  new HeaderPanel( ) ;
-            Chart =  new Chart( ) ;
+            Chart =  new Syncfusion.Windows.Forms.Chart.ChartControl( ) ;
             ChartPanel.SuspendLayout( );
             DataMetricsTable.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
@@ -456,6 +466,7 @@
             SqlHeader.ThemeAuthor =  "Terry D. Eppler" ;
             SqlHeader.ThemeName =  "Budget Execution" ;
             SqlHeader.ToolTip =  null ;
+
             // 
             // ToolStrip
             // 
@@ -648,7 +659,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 122, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 118, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1827,79 +1838,37 @@
             // 
             // Chart
             // 
-            Chart.AllowGapForEmptyPoints =  false ;
-            Chart.AllowGradientPalette =  true ;
-            Chart.AllowUserEditStyles =  true ;
-            Chart.AutoHighlight =  true ;
-            Chart.AxisModel =  null ;
-            Chart.BindingModel =  null ;
-            Chart.BindingSource =  null ;
-            Chart.ChartArea.AutoScale =  true ;
-            Chart.ChartArea.BorderColor =  System.Drawing.Color.Transparent ;
             Chart.ChartArea.CursorLocation =  new System.Drawing.Point( 0, 0 ) ;
             Chart.ChartArea.CursorReDraw =  false ;
-            Chart.ChartAreaMargins =  new Syncfusion.Windows.Forms.Chart.ChartMargins( 3, 3, 3, 3 ) ;
-            Chart.Data =  null ;
-            Chart.DataSeries =  null ;
-            Chart.DataTable =  null ;
-            Chart.Depth =  250F ;
-            Chart.DisplayChartContextMenu =  false ;
-            Chart.DisplaySeriesContextMenu =  false ;
-            Chart.EnableMouseRotation =  true ;
-            Chart.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Chart.IsWindowLess =  false ;
             // 
             // 
             // 
-            Chart.Legend.Font =  new System.Drawing.Font( "Roboto", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            Chart.Legend.ItemsAlignment =  System.Drawing.StringAlignment.Center ;
-            Chart.Legend.ItemsSize =  new System.Drawing.Size( 10, 10 ) ;
-            Chart.Legend.Location =  new System.Drawing.Point( 842, 68 ) ;
-            Chart.Legend.ShowItemsShadow =  true ;
-            Chart.Legend.ShowSymbol =  true ;
-            Chart.Legend.VisibleCheckBox =  true ;
+            Chart.Legend.Location =  new System.Drawing.Point( 788, 31 ) ;
             Chart.Localize =  null ;
-            Chart.Location =  new System.Drawing.Point( 7, 4 ) ;
+            Chart.Location =  new System.Drawing.Point( 30, 17 ) ;
             Chart.Name =  "Chart" ;
-            Chart.Numeric =  Numeric.Accepted ;
-            Chart.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            Chart.Palette =  Syncfusion.Windows.Forms.Chart.ChartColorPalette.Metro ;
             Chart.PrimaryXAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
             Chart.PrimaryXAxis.Margin =  true ;
-            Chart.PrimaryXAxis.TitleColor =  System.Drawing.Color.DarkGray ;
-            Chart.PrimaryXAxis.TitleFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Chart.PrimaryYAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
             Chart.PrimaryYAxis.Margin =  true ;
-            Chart.RealMode3D =  true ;
-            Chart.Rotation =  0.1F ;
-            Chart.Series3D =  true ;
-            Chart.SeriesHighlight =  true ;
-            Chart.SeriesType =  Syncfusion.Windows.Forms.Chart.ChartSeriesType.Line ;
-            Chart.ShowScrollBars =  false ;
-            Chart.ShowToolbar =  true ;
-            Chart.ShowToolTips =  true ;
-            Chart.Size =  new System.Drawing.Size( 940, 539 ) ;
-            Chart.Source =  Source.External ;
-            Chart.Spacing =  5F ;
-            Chart.SpacingBetweenPoints =  5F ;
-            Chart.SpacingBetweenSeries =  5F ;
-            Chart.Stat =  STAT.NS ;
-            Chart.STAT =  STAT.NS ;
-            Chart.Style3D =  true ;
+            Chart.Size =  new System.Drawing.Size( 897, 487 ) ;
             Chart.TabIndex =  5 ;
-            Chart.Text =  "chart1" ;
-            Chart.Tilt =  5F ;
             // 
             // 
             // 
             Chart.Title.Name =  "Default" ;
-            Chart.Titles.Add( Chart.Title );
-            Chart.ToolBar.ButtonBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            Chart.ToolBar.Location =  new System.Drawing.Point( 0, 0 ) ;
-            Chart.ToolBar.Position =  Syncfusion.Windows.Forms.Chart.ChartDock.Floating ;
-            Chart.ToolBar.ShowBorder =  false ;
-            Chart.ToolBar.ShowGrip =  false ;
-            Chart.ToolBar.Visible =  true ;
+            Chart.ToolBar.EnableDefaultItems =  false ;
+            Chart.ToolBar.Items.Add( chartToolBarSaveItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarCopyItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarPrintItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarPrintPreviewItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarSplitter1 );
+            Chart.ToolBar.Items.Add( chartToolBarPaletteItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarStyleItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarTypeItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarSeries3dItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarShowLegendItem1 );
             Chart.VisualTheme =  "" ;
             // 
             // ChartDataForm
@@ -2053,6 +2022,6 @@
         public Label EightDataLabel;
         public Label NinthDataLabel;
         private Label label3;
-        public Chart Chart;
+        public Syncfusion.Windows.Forms.Chart.ChartControl Chart;
     }
 }
