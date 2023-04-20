@@ -685,21 +685,33 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                    var _data = DataTable.AsEnumerable( );
+                    var _rows = _data.ToArray( );
+                    var _columns = numerics.ToArray( );
                     var _series = new ChartSeries( );
-                    for( var i = 0; i < DataTable.Rows.Count; i++ )
+                    double x = 0;
+                    foreach( var row in _rows )
                     {
-                        var _list = new List<double>( );
-                        var _point = new ChartPoint( );
-                        _point.X = (double)i;
-                        foreach( var num in numerics )
+                        x += 1;
+                        for( var i = 0; i < _columns.Length; i++ )
                         {
-                            var _value = DataTable.Rows[ i ][ num ].ToString( );
-                            _list.Add( double.Parse( _value ) );
+                            var _name = _columns[ i ];
+                            _series.LegendName = _name;
+                            var _col = row[ _name ].ToString( );
+                            var _value = double.Parse( _col );
+                            var y = new double[ ]
+                            {
+                                _value
+                            };
+
+                            var _point = new ChartPoint( x, y );
+                            _series.Points.Add( _point );
                         }
 
-                        _series.Points.Add( _point );
-                        Chart.Series.Add( _series );
+                        InitSeries( _series );
                     }
+
+                    Chart.Series.Add( _series );
                 }
                 catch( Exception ex )
                 {
