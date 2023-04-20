@@ -1,4 +1,3 @@
-BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS "Allocations" 
 (
 	"AllocationsId" INTEGER NOT NULL UNIQUE,
@@ -2127,4 +2126,3 @@ CREATE TABLE IF NOT EXISTS "DeobligationActivity"
 	"Amount" REAL NULL DEFAULT 0.0,
 	PRIMARY KEY("DeobligationActivityId" AUTOINCREMENT)
 );
-COMMIT;
