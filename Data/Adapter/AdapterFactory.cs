@@ -56,33 +56,33 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            return GetSQLiteAdapter(  );
+                            return GetSQLiteAdapter( );
                         }
                         case Provider.SqlCe:
                         {
-                            return GetSqlCeAdapter(  );
+                            return GetSqlCeAdapter( );
                         }
                         case Provider.SqlServer:
                         {
-                            return GetSqlAdapter(  );
+                            return GetSqlAdapter( );
                         }
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Access:
                         case Provider.OleDb:
                         {
-                            return GetOleDbAdapter(  );
+                            return GetOleDbAdapter( );
                         }
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( DbDataAdapter );
+                    return default;
                 }
             }
 
-            return default( DbDataAdapter );
+            return default;
         }
     }
 }

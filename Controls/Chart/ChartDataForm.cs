@@ -12,9 +12,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Drawing.Charts;
+    using Syncfusion.Data.Extensions;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
+    using DataTable = System.Data.DataTable;
+    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -28,6 +32,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
     [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public partial class ChartDataForm : MetroForm, IChartSeriesModel
     {
         /// <summary>
@@ -678,17 +683,21 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    var _bindingModel = new ChartDataBindModel( DataTable );
-                    var _axisModel = new ChartDataBindAxisLabelModel( DataTable );
-                    _bindingModel.XName = SelectedFields[ 1 ];
-                    _bindingModel.YNames = SelectedNumerics?.ToArray( );
-                    _axisModel.LabelName = SelectedFields.Last( );
-                    var _series = new ChartSeries( DataTable.TableName );
-                    _series.SeriesIndexedModelImpl = _bindingModel;
-                    InitSeries( _series );
-                    Chart.Series.Add( _series );
-                    Chart.PrimaryXAxis.LabelsImpl = _axisModel;
-                    Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
+                    var _series = new ChartSeries( );
+                    for( var i = 0; i < DataTable.Rows.Count; i++ )
+                    {
+                        var _list = new List<double>( );
+                        var _point = new ChartPoint( );
+                        _point.X = (double)i;
+                        foreach( var num in numerics )
+                        {
+                            var _value = DataTable.Rows[ i ][ num ].ToString( );
+                            _list.Add( double.Parse( _value ) );
+                        }
+                        
+                        _series.Points.Add( _point );
+                        Chart.Series.Add( _series );
+                    }
                 }
                 catch( Exception ex )
                 {
@@ -752,17 +761,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    var _bindingModel = new ChartDataBindModel( DataTable );
-                    var _axisModel = new ChartDataBindAxisLabelModel( DataTable );
-                    _bindingModel.XName = SelectedFields.First( );
-                    _bindingModel.YNames = SelectedNumerics?.ToArray( );
-                    _axisModel.LabelName = SelectedFields.Last( );
-                    var _series = new ChartSeries( DataTable.TableName );
-                    _series.SeriesIndexedModelImpl = _bindingModel;
-                    InitSeries( _series );
-                    Chart.Series.Add( _series );
-                    Chart.PrimaryXAxis.LabelsImpl = _axisModel;
-                    Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
                 }
                 catch( Exception ex )
                 {
@@ -770,7 +768,7 @@ namespace BudgetExecution
                 }
             }
         }
-
+        
         /// <summary>
         /// Called when [active tab changed].
         /// </summary>

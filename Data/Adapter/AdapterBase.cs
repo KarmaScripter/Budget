@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -102,9 +101,11 @@ namespace BudgetExecution
             Source = commandFactory.Source;
             Provider = commandFactory.Provider;
             CommandFactory = commandFactory;
-            ConnectionFactory = new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
-            DataConnection = ConnectionFactory.GetConnection(  );
-            CommandText = CommandFactory.GetCommand(  ).CommandText;
+            ConnectionFactory =
+                new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
+
+            DataConnection = ConnectionFactory.GetConnection( );
+            CommandText = CommandFactory.GetCommand( ).CommandText;
         }
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace BudgetExecution
             Provider = sqlStatement.Provider;
             SqlStatement = sqlStatement;
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            DataConnection = ConnectionFactory.GetConnection(  );
+            DataConnection = ConnectionFactory.GetConnection( );
             CommandText = sqlStatement.CommandText;
         }
 
@@ -129,7 +130,7 @@ namespace BudgetExecution
         private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
             if( DataConnection != null
-               && !string.IsNullOrEmpty( CommandText )  )
+               && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
                 {
@@ -139,13 +140,13 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" ) 
+                    if( CommandText.StartsWith( "SELECT *" )
                        || CommandText.StartsWith( "SELECT ALL" ) )
                     {
                         var _builder = new SQLiteCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        _adapter.InsertCommand = _builder.GetInsertCommand( );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
                         return _adapter;
                     }
                     else
@@ -159,7 +160,7 @@ namespace BudgetExecution
                     return default( SQLiteDataAdapter );
                 }
             }
-            
+
             return default( SQLiteDataAdapter );
         }
 
@@ -169,8 +170,8 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected SqlDataAdapter GetSqlAdapter( )
         {
-            if( DataConnection != null 
-               && !string.IsNullOrEmpty( CommandText )  )
+            if( DataConnection != null
+               && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
                 {
@@ -180,13 +181,13 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" ) 
+                    if( CommandText.StartsWith( "SELECT *" )
                        || CommandText.StartsWith( "SELECT ALL" ) )
                     {
                         var _builder = new SqlCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        _adapter.InsertCommand = _builder.GetInsertCommand( );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
                         return _adapter;
                     }
                     else
@@ -200,7 +201,7 @@ namespace BudgetExecution
                     return default( SqlDataAdapter );
                 }
             }
-            
+
             return default( SqlDataAdapter );
         }
 
@@ -211,7 +212,7 @@ namespace BudgetExecution
         private protected OleDbDataAdapter GetOleDbAdapter( )
         {
             if( DataConnection != null
-               && !string.IsNullOrEmpty( CommandText )  )
+               && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
                 {
@@ -221,13 +222,13 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" ) 
+                    if( CommandText.StartsWith( "SELECT *" )
                        || CommandText.StartsWith( "SELECT ALL" ) )
                     {
                         var _builder = new OleDbCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        _adapter.InsertCommand = _builder.GetInsertCommand( );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
                         return _adapter;
                     }
                     else
@@ -241,7 +242,7 @@ namespace BudgetExecution
                     return default( OleDbDataAdapter );
                 }
             }
-            
+
             return default( OleDbDataAdapter );
         }
 
@@ -252,7 +253,7 @@ namespace BudgetExecution
         private protected DbDataAdapter GetSqlCeAdapter( )
         {
             if( DataConnection != null
-               && !string.IsNullOrEmpty( CommandText )  )
+               && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
                 {
@@ -262,13 +263,13 @@ namespace BudgetExecution
                     _adapter.AcceptChangesDuringFill = true;
                     _adapter.AcceptChangesDuringUpdate = true;
                     _adapter.ReturnProviderSpecificTypes = true;
-                    if( CommandText.StartsWith( "SELECT *" ) 
+                    if( CommandText.StartsWith( "SELECT *" )
                        || CommandText.StartsWith( "SELECT ALL" ) )
                     {
                         var _builder = new SqlCeCommandBuilder( _adapter );
-                        _adapter.InsertCommand = _builder.GetInsertCommand(  );
-                        _adapter.UpdateCommand = _builder.GetUpdateCommand(  );
-                        _adapter.DeleteCommand = _builder.GetDeleteCommand(  );
+                        _adapter.InsertCommand = _builder.GetInsertCommand( );
+                        _adapter.UpdateCommand = _builder.GetUpdateCommand( );
+                        _adapter.DeleteCommand = _builder.GetDeleteCommand( );
                         return _adapter;
                     }
                     else
@@ -282,10 +283,10 @@ namespace BudgetExecution
                     return default( SqlCeDataAdapter );
                 }
             }
-            
+
             return default( SqlCeDataAdapter );
         }
-        
+
         /// <summary>
         /// Get Error Dialog.
         /// </summary>
@@ -298,4 +299,3 @@ namespace BudgetExecution
         }
     }
 }
-
