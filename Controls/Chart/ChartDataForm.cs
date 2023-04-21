@@ -689,27 +689,28 @@ namespace BudgetExecution
                     var _rows = _data.ToArray( );
                     var _columns = numerics.ToArray( );
                     var _series = new ChartSeries( );
-                    double x = 0;
+                    double _xAxis = 0;
                     foreach( var row in _rows )
                     {
-                        x += 1;
+                        _xAxis += 1;
                         for( var i = 0; i < _columns.Length; i++ )
                         {
                             var _name = _columns[ i ];
                             _series.Text = _name;
                             var _col = row[ _name ].ToString( );
                             var _value = double.Parse( _col );
-                            var y = new double[ ]
+                            var _yValues = new double[ ]
                             {
                                 _value
                             };
 
-                            _series.Points.Add( x, y );
-                            InitSeries( _series );
+                            _series.Points.Add( _xAxis, _yValues );
                         }
+
+                        Chart.Series.Add( _series );
                     }
 
-                    Chart.Series.Add( _series );
+                    InitSeries( );
                 }
                 catch( Exception ex )
                 {
@@ -721,43 +722,39 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the series.
         /// </summary>
-        /// <param name="series">The series.</param>
-        protected void InitSeries( ChartSeries series )
+        protected void InitSeries( )
         {
-            if( series != null )
+            try
             {
-                try
-                {
-                    // Basic Properties
-                    series.Type = ChartSeriesType.Column;
-                    series.SortPoints = true;
-                    series.SmartLabels = true;
-                    series.Visible = true;
-                    series.ShowTicks = true;
-                    series.Rotate = true;
-                    series.EnableAreaToolTip = true;
-                    series.SeriesToolTipFormat = "{0)";
-                    series.EnableStyles = true;
-                    series.OptimizePiePointPositions = true;
-                    series.LegendItemUseSeriesStyle = true;
-                    series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                    series.SmartLabelsBorderWidth = 1;
-                    series.PointsToolTipFormat = "{4}";
-                    series.DrawSeriesNameInDepth = true;
+                // Basic Properties
+                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
+                Chart.Series[ 0 ].SortPoints = true;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].Visible = true;
+                Chart.Series[ 0 ].ShowTicks = true;
+                Chart.Series[ 0 ].Rotate = true;
+                Chart.Series[ 0 ].EnableAreaToolTip = true;
+                Chart.Series[ 0 ].SeriesToolTipFormat = "{0)";
+                Chart.Series[ 0 ].EnableStyles = true;
+                Chart.Series[ 0 ].OptimizePiePointPositions = true;
+                Chart.Series[ 0 ].LegendItemUseSeriesStyle = true;
+                Chart.Series[ 0 ].SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
+                Chart.Series[ 0 ].SmartLabelsBorderWidth = 1;
+                Chart.Series[ 0 ].PointsToolTipFormat = "{3}, {4}";
+                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
 
-                    // Call out Properties
-                    series.Style.DisplayText = true;
-                    series.Style.Callout.Enable = true;
-                    series.Style.Callout.Position = LabelPosition.Top;
-                    series.Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                    series.Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
-                    series.Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
-                    series.Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                // Call out Properties
+                Chart.Series[ 0 ].Style.DisplayText = true;
+                Chart.Series[ 0 ].Style.Callout.Enable = true;
+                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
+                Chart.Series[ 0 ].Style.Callout.DisplayTextAndFormat = "{0} : {2}";
+                Chart.Series[ 0 ].Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
+                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
+                Chart.Series[ 0 ].Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -1324,7 +1321,6 @@ namespace BudgetExecution
 
                 // Legend Properties
                 Chart.Legend.Font = new Font( "Roboto", 8 );
-                Chart.Legend.ItemsSize = new Size( 10, 10 );
                 Chart.Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
                 Chart.Legend.ItemsAlignment = StringAlignment.Center;
                 Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
@@ -1337,8 +1333,10 @@ namespace BudgetExecution
                 Chart.Legend.Visible = true;
 
                 // Chart Area Properties
-                Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+                Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.None;
                 Chart.ChartArea.AutoScale = true;
+                Chart.ChartArea.Series3D = true;
+                Chart.ChartArea.RealSeries3D = true;
                 Chart.ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
                 Chart.ChartArea.BorderWidth = 1;
                 Chart.ChartArea.BorderColor = Color.Transparent;
