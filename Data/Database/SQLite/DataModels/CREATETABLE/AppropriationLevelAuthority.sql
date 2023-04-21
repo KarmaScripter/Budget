@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS AppropriationLevelAuthority
     EFY TEXT(80) NULL DEFAULT NS,
 	FundCode TEXT(80) NULL DEFAULT NS,
 	FundName TEXT(80) NULL DEFAULT NS,
-    BudgetLevel TEXT(80) NULL DEFAULT NS,
+    BUdgetLevel TEXT(80) NULL DEFAULT NS,
     TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
 	Budgeted DOUBLE NULL DEFAULT 0.0,
 	Posted DOUBLE NULL DEFAULT 0.0,
@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS AppropriationLevelAuthority
 	CarryoverIn DOUBLE NULL DEFAULT 0.0,
 	Reimbursements DOUBLE NULL DEFAULT 0.0,
 	Recoveries DOUBLE NULL DEFAULT 0.0,
-	TreasuryAccountName TEXT(80) NULL DEFAULT NS,
 	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
 	BudgetAccountName  TEXT(80) NULL DEFAULT NS,
 	PRIMARY KEY(AppropriationLevelAuthorityId AUTOINCREMENT)

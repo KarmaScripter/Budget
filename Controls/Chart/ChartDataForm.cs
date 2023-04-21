@@ -696,7 +696,7 @@ namespace BudgetExecution
                         for( var i = 0; i < _columns.Length; i++ )
                         {
                             var _name = _columns[ i ];
-                            _series.LegendName = _name;
+                            _series.Text = _name;
                             var _col = row[ _name ].ToString( );
                             var _value = double.Parse( _col );
                             var y = new double[ ]
@@ -704,11 +704,9 @@ namespace BudgetExecution
                                 _value
                             };
 
-                            var _point = new ChartPoint( x, y );
-                            _series.Points.Add( _point );
+                            _series.Points.Add( x, y );
+                            InitSeries( _series );
                         }
-
-                        InitSeries( _series );
                     }
 
                     Chart.Series.Add( _series );
@@ -731,16 +729,21 @@ namespace BudgetExecution
                 try
                 {
                     // Basic Properties
+                    series.Type = ChartSeriesType.Column;
+                    series.SortPoints = true;
                     series.SmartLabels = true;
                     series.Visible = true;
                     series.ShowTicks = true;
                     series.Rotate = true;
                     series.EnableAreaToolTip = true;
+                    series.SeriesToolTipFormat = "{0)";
                     series.EnableStyles = true;
                     series.OptimizePiePointPositions = true;
                     series.LegendItemUseSeriesStyle = true;
                     series.SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
                     series.SmartLabelsBorderWidth = 1;
+                    series.PointsToolTipFormat = "{4}";
+                    series.DrawSeriesNameInDepth = true;
 
                     // Call out Properties
                     series.Style.DisplayText = true;
@@ -1272,6 +1275,7 @@ namespace BudgetExecution
                     Color.FromArgb( 20, 20, 20 ) );
 
                 // General Appearance Properties
+                Chart.Indexed = true;
                 Chart.Palette = ChartColorPalette.Metro;
                 Chart.Skins = Skins.None;
                 Chart.RealMode3D = true;
@@ -1302,10 +1306,10 @@ namespace BudgetExecution
                 Chart.SeriesHighlight = true;
                 Chart.SeriesHighlightIndex = -1;
                 Chart.ShadowWidth = 5;
-                Chart.Depth = 250;
-                Chart.ElementsSpacing = 10;
-                Chart.ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
-                Chart.ColumnFixedWidth = 20;
+                Chart.Depth = 150;
+                Chart.ElementsSpacing = 5;
+                Chart.ColumnDrawMode = ChartColumnDrawMode.ClusteredMode;
+                Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
                 Chart.ShowLegend = true;
                 Chart.ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
                     Color.FromArgb( 65, 65, 65 ) );
@@ -1314,11 +1318,12 @@ namespace BudgetExecution
                 Chart.PrimaryXAxis.IsVisible = true;
                 Chart.PrimaryXAxis.AutoSize = true;
                 Chart.PrimaryXAxis.ShowAxisLabelTooltip = true;
-                Chart.PrimaryXAxis.TitleColor = Color.DarkGray;
+                Chart.PrimaryXAxis.ValueType = ChartValueType.Double;
+                Chart.PrimaryXAxis.TitleColor = Color.FromArgb( 0, 120, 212 );
                 Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
 
                 // Legend Properties
-                Chart.Legend.Font = new Font( "Roboto", 7 );
+                Chart.Legend.Font = new Font( "Roboto", 8 );
                 Chart.Legend.ItemsSize = new Size( 10, 10 );
                 Chart.Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
                 Chart.Legend.ItemsAlignment = StringAlignment.Center;
