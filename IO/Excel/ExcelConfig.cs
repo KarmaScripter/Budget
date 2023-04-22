@@ -6,14 +6,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Spreadsheet;
-    using Syncfusion.XlsIO;
+    using OfficeOpenXml.Style;
     using static System.IO.Path;
 
     /// <summary>
@@ -24,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class ExcelSettings
+    public abstract class ExcelConfig
     {
         /// <summary>
         /// Gets or sets the index.
@@ -90,7 +87,7 @@ namespace BudgetExecution
         /// The center.
         /// </value>
         public ExcelHorizontalAlignment Center { get; set; } =
-            ExcelHorizontalAlignment.CenterMiddle;
+            ExcelHorizontalAlignment.Center;
 
         /// <summary>
         /// Gets or sets the right.
@@ -321,68 +318,6 @@ namespace BudgetExecution
             }
 
             return string.Empty;
-        }
-
-        /// <summary>
-        /// Sets the excel form.
-        /// </summary>
-        /// <param name="spreadSheet">The spread sheet.</param>
-        /// <param name="dataTable">The data table.</param>
-        public void SetExcelForm( Spreadsheet spreadSheet, DataTable dataTable )
-        {
-            if( spreadSheet != null
-               && dataTable?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
-                    spreadSheet.Workbook.ActiveSheet.UsedRange.Clear( true );
-                    spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
-                    var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
-                    var sheet = spreadSheet.Workbook.ActiveSheet;
-                    spreadSheet.ActiveSheet.ImportDataTable( dataTable, true, 1, 1 );
-                    var range = sheet.UsedRange;
-                    var table = sheet.ListObjects.Create( name, range );
-                    table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells( );
-                    spreadSheet.SetZoomFactor( "Sheet1", 110 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the excel form.
-        /// </summary>
-        /// <param name="spreadSheet">The spread sheet.</param>
-        /// <param name="dataGrid">The data grid.</param>
-        public void SetExcelForm( Spreadsheet spreadSheet, DataGridView dataGrid )
-        {
-            if( spreadSheet != null
-               && dataGrid?.DataSource != null )
-            {
-                try
-                {
-                    spreadSheet.Workbook.ActiveSheet.ListObjects.Clear( );
-                    spreadSheet.Workbook.ActiveSheet.StandardWidth = 12.5f;
-                    var name = spreadSheet.Workbook.Worksheets[ 0 ].Name;
-                    var sheet = spreadSheet.Workbook.ActiveSheet;
-                    var _table = (DataTable)dataGrid.DataSource;
-                    spreadSheet.ActiveSheet.ImportDataTable( _table, 1, 1, true, false );
-                    var range = sheet.UsedRange;
-                    var table = sheet.ListObjects.Create( name, range );
-                    table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium2;
-                    spreadSheet.ActiveGrid.InvalidateCells( );
-                    spreadSheet.SetZoomFactor( "Sheet1", 110 );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
         }
 
         /// <summary>

@@ -323,7 +323,7 @@ namespace BudgetExecution
         /// <param name = "style" >
         /// The style.
         /// </param>
-        void SetBorderStyle( Grid grid, ExcelSettings.BorderSide side, ExcelBorderStyle style );
+        void SetBorderStyle( Grid grid, ExcelConfig.BorderSide side, ExcelBorderStyle style );
 
         /// <summary>
         /// Sets the horizontal aligment.

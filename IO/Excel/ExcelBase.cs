@@ -17,11 +17,11 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ExcelSettings" />
+    /// <seealso cref="ExcelConfig" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class ExcelBase : ExcelSettings
+    public abstract class ExcelBase : ExcelConfig
     {
         /// <summary>
         /// Gets or sets the data connection.
@@ -48,14 +48,6 @@ namespace BudgetExecution
         public OleDbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
-        /// Gets or sets the excel package.
-        /// </summary>
-        /// <value>
-        /// The excel package.
-        /// </value>
-        public ExcelPackage ExcelPackage { get; set; }
-
-        /// <summary>
         /// Gets or sets the ext.
         /// </summary>
         /// <value>
@@ -77,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The excel.
         /// </value>
-        public ExcelPackage Excel { get; set; }
+        public ExcelPackage Application { get; set; }
 
         /// <summary>
         /// Gets or sets the workbook.

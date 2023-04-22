@@ -35,7 +35,7 @@ namespace BudgetExecution
         /// <value>
         /// The font.
         /// </value>
-        public Font Font { get; set; } = new ( "Roboto", 8, FontStyle.Regular );
+        public Font Font { get; set; } = new("Roboto", 8, FontStyle.Regular);
 
         /// <summary>
         /// Gets or sets the title font.
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// <value>
         /// The title font.
         /// </value>
-        public Font TitleFont { get; set; } = new ( "Roboto", 10, FontStyle.Bold );
+        public Font TitleFont { get; set; } = new("Roboto", 10, FontStyle.Bold);
 
         /// <summary>
         /// Gets or sets the width of the header image.
@@ -107,10 +107,10 @@ namespace BudgetExecution
         public Workbook( string filePath )
         {
             FileInfo = new FileInfo( filePath );
-            Excel = new ExcelPackage( FileInfo );
-            Workbook = Excel.Workbook;
+            Application = new ExcelPackage( FileInfo );
+            Workbook = Application.Workbook;
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Workbook"/> class.
         /// </summary>
@@ -153,7 +153,7 @@ namespace BudgetExecution
                     {
                         SetFontColor( grid, FontColor );
                         SetBackgroundColor( grid, PrimaryBackColor );
-                        SetHorizontalAlignment( grid, 
+                        SetHorizontalAlignment( grid,
                             OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
                     }
                 }
@@ -182,6 +182,7 @@ namespace BudgetExecution
                     SetBackgroundColor( grid, PrimaryBackColor );
                     SetHorizontalAlignment( grid,
                         OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
+
                     _worksheet.Cells[ _row, _column ].Value = "Account";
                     _worksheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
                     _worksheet.Cells[ _row, _column + 2 ].Value = "Travel";
@@ -214,6 +215,7 @@ namespace BudgetExecution
                     excelRange.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     excelRange.Style.HorizontalAlignment = OfficeOpenXml.Style
                         .ExcelHorizontalAlignment.CenterContinuous;
+
                     excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
                 catch( Exception ex )
@@ -238,8 +240,9 @@ namespace BudgetExecution
                     range.Style.Font.SetFromFont( Font.Name, Font.Size );
                     range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     range.Style.Fill.BackgroundColor.SetColor( Color.White );
-                    range.Style.HorizontalAlignment = OfficeOpenXml.Style
-                        .ExcelHorizontalAlignment.CenterContinuous;
+                    range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment
+                        .CenterContinuous;
+
                     range.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
                 catch( Exception ex )
@@ -263,8 +266,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column,
-                        range.End.Row, range.End.Column ];
+                    var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.End.Row,
+                        range.End.Column ];
+
                     for( var i = range.Start.Row; i < range.End.Row; i++ )
                     {
                         if( i % 2 == 0 )
@@ -305,6 +309,7 @@ namespace BudgetExecution
                     {
                         range.Style.HorizontalAlignment = OfficeOpenXml.Style
                             .ExcelHorizontalAlignment.CenterContinuous;
+
                         range.Style.Numberformat.Format = "#,###";
                     }
                 }
@@ -357,8 +362,10 @@ namespace BudgetExecution
                 {
                     var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column,
                         range.Start.Row, range.Start.Column + 6 ];
+
                     var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1,
                         range.Start.Row, range.Start.Column + 6 ];
+
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;

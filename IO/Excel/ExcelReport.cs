@@ -45,7 +45,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet( );
+                    var _dataSet = new DataSet( );
                     _dataSet?.Tables?.Add( ListToDataTable( data ) );
                     return CreateExcelDocument( _dataSet, path );
                 }
@@ -73,7 +73,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    using var _dataSet = new DataSet( );
+                    var _dataSet = new DataSet( );
                     _dataSet.Tables.Add( dataTable );
                     var _document = CreateExcelDocument( _dataSet, path );
                     _dataSet.Tables.Remove( dataTable );
