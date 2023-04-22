@@ -693,7 +693,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 112, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 110, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1856,7 +1856,7 @@
             // 
             ChartTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             ChartTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-            ChartTable.CaptionText =  "Data Table" ;
+            ChartTable.CaptionText =  "Chart Visualization" ;
             ChartTable.ColumnCount =  1 ;
             ChartTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartTable.Controls.Add( ChartPanel, 0, 1 );

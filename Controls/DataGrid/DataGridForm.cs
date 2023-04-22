@@ -1874,8 +1874,8 @@ namespace BudgetExecution
                 if( Owner != null
                    && Owner.Visible == false )
                 {
-                    Owner.Refresh( );
                     Owner.Visible = true;
+                    Owner.Refresh( );
                     Visible = false;
                 }
             }

@@ -18,6 +18,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using Color = System.Drawing.Color;
     using DataTable = System.Data.DataTable;
+    using MarkerStyle = Syncfusion.Windows.Forms.Chart.MarkerStyle;
     using Size = System.Drawing.Size;
     using VerticalAlignment = Syncfusion.Windows.Forms.Chart.VerticalAlignment;
 
@@ -470,48 +471,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the tool strip properties.
-        /// </summary>
-        private void SetToolStripProperties( )
-        {
-            try
-            {
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the chart title.
-        /// </summary>
-        private void SetChartTitle( )
-        {
-            try
-            {
-                Chart.Titles.Clear( );
-                var _title = new ChartTitle( );
-                _title.Font = new Font( "Roboto", 12, FontStyle.Regular );
-                _title.ForeColor = Color.FromArgb( 0, 120, 212 );
-                _title.Text = DataTable.TableName.SplitPascal( );
-                Chart.Titles.Add( _title );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Creates the SQL text.
         /// </summary>
         /// <param name="where">The where.</param>
@@ -522,8 +481,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -566,8 +524,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -728,7 +685,7 @@ namespace BudgetExecution
                             _series.Text = _columnName;
                             var _col = row[ _columnName ].ToString( );
                             var _value = double.Parse( _col );
-                            var _yvalues = new double[ ]
+                            var _yvalues = new[ ]
                             {
                                 _value
                             };
@@ -736,58 +693,14 @@ namespace BudgetExecution
                             _series.Points.Add( _xaxis, _yvalues );
                         }
                     }
-                    
+
                     Chart.Series.Add( _series );
-                    SetChartSeriesProperties( );
+                    SetSeriesProperties( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Initializes the series.
-        /// </summary>
-        protected void SetChartSeriesProperties( )
-        {
-            try
-            {
-                // Basic Properties
-                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
-                Chart.Series[ 0 ].SortPoints = true;
-                Chart.Series[ 0 ].SmartLabels = true;
-                Chart.Series[ 0 ].Visible = true;
-                Chart.Series[ 0 ].ShowTicks = true;
-                Chart.Series[ 0 ].Rotate = true;
-                Chart.Series[ 0 ].EnableAreaToolTip = false;
-                Chart.Series[ 0 ].EnableStyles = true;
-                Chart.Series[ 0 ].OptimizePiePointPositions = true;
-                Chart.Series[ 0 ].LegendItemUseSeriesStyle = true;
-                Chart.Series[ 0 ].SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                Chart.Series[ 0 ].SmartLabelsBorderWidth = 1;
-                Chart.Series[ 0 ].PointsToolTipFormat = "{3}, {4}";
-                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
-
-                // Call Out Properties
-                Chart.Series[ 0 ].Style.DisplayText = true;
-                Chart.Series[ 0 ].Style.Callout.Enable = true;
-                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
-                Chart.Series[ 0 ].Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                Chart.Series[ 0 ].Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
-                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
-                Chart.Series[ 0 ].Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
-
-                // Tool Tip Properties
-                Chart.Series[ 0 ].FancyToolTip.Font = new Font( "Roboto", 8 );
-                Chart.Series[ 0 ].FancyToolTip.ForeColor = Color.White;
-                Chart.Series[ 0 ].FancyToolTip.BackColor = Color.FromArgb( 55, 55, 55 );
-                Chart.Series[ 0 ].FancyToolTip.Visible = true;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 
@@ -1279,6 +1192,97 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void SetToolStripProperties( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the chart title.
+        /// </summary>
+        private void SetChartTitle( )
+        {
+            try
+            {
+                Chart.Titles.Clear( );
+                var _title = new ChartTitle( );
+                _title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                _title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                _title.Text = DataTable.TableName.SplitPascal( );
+                Chart.Titles.Add( _title );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the series.
+        /// </summary>
+        protected void SetSeriesProperties( )
+        {
+            try
+            {
+                // Basic Properties
+                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
+                Chart.Series[ 0 ].SortPoints = true;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].Visible = true;
+                Chart.Series[ 0 ].ShowTicks = true;
+                Chart.Series[ 0 ].Rotate = true;
+                Chart.Series[ 0 ].EnableAreaToolTip = false;
+                Chart.Series[ 0 ].EnableStyles = true;
+                Chart.Series[ 0 ].OptimizePiePointPositions = true;
+                Chart.Series[ 0 ].LegendItemUseSeriesStyle = true;
+                Chart.Series[ 0 ].SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
+                Chart.Series[ 0 ].SmartLabelsBorderWidth = 1;
+                Chart.Series[ 0 ].PointsToolTipFormat = "{3}, {4}";
+                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
+
+                // Call Out Properties
+                Chart.Series[ 0 ].Style.DisplayText = true;
+                Chart.Series[ 0 ].Style.Callout.Enable = true;
+                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
+                Chart.Series[ 0 ].Style.Callout.DisplayTextAndFormat = "{0} : {2}";
+                Chart.Series[ 0 ].Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
+                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
+                Chart.Series[ 0 ].Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
+
+                // Tool Tip Properties
+                Chart.Series[ 0 ].FancyToolTip.Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].FancyToolTip.ForeColor = Color.White;
+                Chart.Series[ 0 ].FancyToolTip.BackColor = Color.FromArgb( 55, 55, 55 );
+                Chart.Series[ 0 ].FancyToolTip.Symbol = ChartSymbolShape.InvertedTriangle;
+                Chart.Series[ 0 ].FancyToolTip.ToTarget = 25;
+                Chart.Series[ 0 ].FancyToolTip.Spacing = 5;
+                Chart.Series[ 0 ].FancyToolTip.Style = MarkerStyle.SmoothRectangle;
+                Chart.Series[ 0 ].FancyToolTip.SymbolSize = new Size( 14, 14 );
+                Chart.Series[ 0 ].FancyToolTip.Visible = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the chart properties.
         /// </summary>
         private void SetChartProperties( )
@@ -1302,11 +1306,11 @@ namespace BudgetExecution
                 Chart.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
                 Chart.BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.CalcRegions = true;
-                Chart.ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
-                    Color.FromArgb( 20, 20, 20 ) );
+                Chart.ChartInterior = new BrushInfo( GradientStyle.PathRectangle,
+                    Color.FromArgb( 70, 70, 70 ), Color.FromArgb( 20, 20, 20 ) );
 
                 // General Appearance Properties
-                Chart.Indexed = true;
+                Chart.Indexed = false;
                 Chart.Palette = ChartColorPalette.Metro;
                 Chart.Skins = Skins.None;
                 Chart.RealMode3D = true;
@@ -1335,12 +1339,12 @@ namespace BudgetExecution
                 Chart.SeriesHighlight = true;
                 Chart.SeriesHighlightIndex = -1;
                 Chart.ShadowWidth = 5;
-                Chart.Depth = 100;
+                Chart.Depth = 200;
                 Chart.ElementsSpacing = 3;
                 Chart.ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
                 Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
-                Chart.ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
-                    Color.FromArgb( 65, 65, 65 ) );
+                Chart.ShadowColor = new BrushInfo( GradientStyle.PathRectangle,
+                    Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 65, 65, 65 ) );
 
                 // PrimaryAxis Properties
                 Chart.PrimaryXAxis.IsVisible = true;
@@ -1405,7 +1409,7 @@ namespace BudgetExecution
                         Numerics = DataModel.Numerics;
                         TabControl.SelectedIndex = 1;
                     }
-                    
+
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
@@ -1910,8 +1914,8 @@ namespace BudgetExecution
                 if( Owner != null
                    && Owner.Visible == false )
                 {
-                    Owner.Refresh( );
                     Owner.Visible = true;
+                    Owner.Refresh( );
                     Visible = false;
                 }
             }
