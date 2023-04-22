@@ -26,16 +26,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public partial class ChartDataForm : MetroForm, IChartSeriesModel
     {
         /// <summary>
@@ -691,10 +691,10 @@ namespace BudgetExecution
                             };
 
                             _series.Points.Add( _xaxis, _yvalues );
+                            Chart.Series.Add( _series );
                         }
                     }
 
-                    Chart.Series.Add( _series );
                     SetSeriesProperties( );
                 }
                 catch( Exception ex )
@@ -1240,41 +1240,45 @@ namespace BudgetExecution
         {
             try
             {
-                // Basic Properties
-                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
-                Chart.Series[ 0 ].SortPoints = true;
-                Chart.Series[ 0 ].SmartLabels = true;
-                Chart.Series[ 0 ].Visible = true;
-                Chart.Series[ 0 ].ShowTicks = true;
-                Chart.Series[ 0 ].Rotate = true;
-                Chart.Series[ 0 ].EnableAreaToolTip = false;
-                Chart.Series[ 0 ].EnableStyles = true;
-                Chart.Series[ 0 ].OptimizePiePointPositions = true;
-                Chart.Series[ 0 ].LegendItemUseSeriesStyle = true;
-                Chart.Series[ 0 ].SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
-                Chart.Series[ 0 ].SmartLabelsBorderWidth = 1;
-                Chart.Series[ 0 ].PointsToolTipFormat = "{3}, {4}";
-                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
+                var _count = Chart.Series.Count;
+                for( var i = 0; i < _count; i++ )
+                {
+                    // Basic Properties
+                    Chart.Series[ i ].Type = ChartSeriesType.Column;
+                    Chart.Series[ i ].SortPoints = true;
+                    Chart.Series[ i ].SmartLabels = true;
+                    Chart.Series[ i ].Visible = true;
+                    Chart.Series[ i ].ShowTicks = true;
+                    Chart.Series[ i ].Rotate = true;
+                    Chart.Series[ i ].EnableAreaToolTip = false;
+                    Chart.Series[ i ].EnableStyles = true;
+                    Chart.Series[ i ].OptimizePiePointPositions = true;
+                    Chart.Series[ i ].LegendItemUseSeriesStyle = true;
+                    Chart.Series[ i ].SmartLabelsBorderColor = Color.FromArgb( 0, 120, 212 );
+                    Chart.Series[ i ].SmartLabelsBorderWidth = 1;
+                    Chart.Series[ i ].PointsToolTipFormat = "{4}";
+                    Chart.Series[ i ].DrawSeriesNameInDepth = true;
 
-                // Call Out Properties
-                Chart.Series[ 0 ].Style.DisplayText = true;
-                Chart.Series[ 0 ].Style.Callout.Enable = true;
-                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
-                Chart.Series[ 0 ].Style.Callout.DisplayTextAndFormat = "{0} : {2}";
-                Chart.Series[ 0 ].Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
-                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
-                Chart.Series[ 0 ].Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
+                    // Call Out Properties
+                    Chart.Series[ i ].Style.DisplayText = true;
+                    Chart.Series[ i ].Style.Callout.Enable = true;
+                    Chart.Series[ i ].Style.Callout.Position = LabelPosition.Top;
+                    Chart.Series[ i ].Style.Callout.DisplayTextAndFormat = "{0} : {2}";
+                    Chart.Series[ i ].Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
+                    Chart.Series[ i ].Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
+                    Chart.Series[ i ].Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
 
-                // Tool Tip Properties
-                Chart.Series[ 0 ].FancyToolTip.Font = new Font( "Roboto", 8 );
-                Chart.Series[ 0 ].FancyToolTip.ForeColor = Color.White;
-                Chart.Series[ 0 ].FancyToolTip.BackColor = Color.FromArgb( 55, 55, 55 );
-                Chart.Series[ 0 ].FancyToolTip.Symbol = ChartSymbolShape.InvertedTriangle;
-                Chart.Series[ 0 ].FancyToolTip.ToTarget = 25;
-                Chart.Series[ 0 ].FancyToolTip.Spacing = 5;
-                Chart.Series[ 0 ].FancyToolTip.Style = MarkerStyle.SmoothRectangle;
-                Chart.Series[ 0 ].FancyToolTip.SymbolSize = new Size( 14, 14 );
-                Chart.Series[ 0 ].FancyToolTip.Visible = true;
+                    // Tool Tip Properties
+                    Chart.Series[ i ].FancyToolTip.Font = new Font( "Roboto", 8 );
+                    Chart.Series[ i ].FancyToolTip.ForeColor = Color.White;
+                    Chart.Series[ i ].FancyToolTip.BackColor = Color.FromArgb( 55, 55, 55 );
+                    Chart.Series[ i ].FancyToolTip.Symbol = ChartSymbolShape.Diamond;
+                    Chart.Series[ i ].FancyToolTip.ToTarget = 25;
+                    Chart.Series[ i ].FancyToolTip.Spacing = 5;
+                    Chart.Series[ i ].FancyToolTip.Style = MarkerStyle.SmoothRectangle;
+                    Chart.Series[ i ].FancyToolTip.SymbolSize = new Size( 14, 14 );
+                    Chart.Series[ i ].FancyToolTip.Visible = true;
+                }
             }
             catch( Exception ex )
             {
@@ -1344,7 +1348,7 @@ namespace BudgetExecution
                 Chart.ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
                 Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
                 Chart.ShadowColor = new BrushInfo( GradientStyle.PathRectangle,
-                    Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 65, 65, 65 ) );
+                    Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 40, 40, 40 ) );
 
                 // PrimaryAxis Properties
                 Chart.PrimaryXAxis.IsVisible = true;
@@ -1356,17 +1360,18 @@ namespace BudgetExecution
 
                 // Legend Properties
                 Chart.ShowLegend = true;
-                Chart.Legend.Font = new Font( "Roboto", 8 );
-                Chart.Legend.BackInterior = new BrushInfo( Color.Transparent );
-                Chart.Legend.ItemsAlignment = StringAlignment.Near;
-                Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
-                Chart.Legend.Orientation = ChartOrientation.Horizontal;
-                Chart.Legend.VisibleCheckBox = true;
-                Chart.Legend.FloatingAutoSize = true;
-                Chart.Legend.ShowSymbol = true;
-                Chart.Legend.ShowItemsShadow = true;
-                Chart.Legend.ShowBorder = false;
-                Chart.Legend.ColumnsCount = 1;
+                Chart.Legends[ 0 ].Visible = true;
+                Chart.Legends[ 0 ].Font = new Font( "Roboto", 8 );
+                Chart.Legends[ 0 ].BackInterior = new BrushInfo( Color.Transparent );
+                Chart.Legends[ 0 ].ItemsAlignment = StringAlignment.Near;
+                Chart.Legends[ 0 ].ItemsTextAligment = VerticalAlignment.Center;
+                Chart.Legends[ 0 ].Orientation = ChartOrientation.Horizontal;
+                Chart.Legends[ 0 ].VisibleCheckBox = true;
+                Chart.Legends[ 0 ].FloatingAutoSize = true;
+                Chart.Legends[ 0 ].ShowSymbol = true;
+                Chart.Legends[ 0 ].ShowItemsShadow = true;
+                Chart.Legends[ 0 ].ShowBorder = false;
+                Chart.Legends[ 0 ].ColumnsCount = 1;
 
                 // Chart Area Properties
                 Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.None;

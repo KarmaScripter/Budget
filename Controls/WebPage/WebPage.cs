@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class WebPage : MetroForm
     {
         /// <summary>
@@ -43,7 +43,7 @@ namespace BudgetExecution
         /// The folder path.
         /// </value>
         public string FolderPath { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the base address.
         /// </summary>
@@ -51,7 +51,7 @@ namespace BudgetExecution
         /// The base address.
         /// </value>
         public Uri BaseAddress { get; set; }
-        
+
         /// <summary>
         /// Initializes a new
         /// instance of the <see cref="WebPage"/> class.
@@ -62,10 +62,11 @@ namespace BudgetExecution
 
             // Basic Properties
             StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size( 1400, 800 );
-            MaximumSize = new Size( 1400, 800 );
-            MinimumSize = new Size( 1400, 750  );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -76,16 +77,17 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
-            ShowMouseOver = true;
+            CaptionBarHeight = 5;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            
+
             // WebControl Properties
             WebControl = new HTMLUIControl( );
-            
+
             // Event Wiring
             Load += OnLoad;
         }
@@ -109,7 +111,7 @@ namespace BudgetExecution
                 PopulateToolBarDropDownItems( );
                 FilePath = @"C:\Users\terry\source\repos\Budget\Resource\WebPages\index.html";
                 FolderPath = @"C:\Users\terry\source\repos\Budget\Resource\WebPages";
-                WebAddress =  new Uri( @"https://www.google.com/" );
+                WebAddress = new Uri( @"https://www.google.com/" );
                 WebControl.StartupDocument = FilePath;
                 WebControl.StartupFolder = FolderPath;
                 var _stream = File.Open( FilePath, FileMode.Open );
@@ -120,7 +122,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Populates the tool bar drop down items.
         /// </summary>
