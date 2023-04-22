@@ -184,6 +184,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the selection dialog.
+        /// </summary>
+        private void ShowSelectionDialog( )
+        {
+            try
+            {
+                var _minion = new MinionSelector( );
+                _minion.ShowDialog( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Shows the chart form.
         /// </summary>
         private void OpenChartDataForm( )
@@ -194,22 +210,6 @@ namespace BudgetExecution
                 _chartForm.Owner = this;
                 _chartForm.StartPosition = FormStartPosition.CenterScreen;
                 _chartForm.Show( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the selection dialog.
-        /// </summary>
-        private void ShowSelectionDialog( )
-        {
-            try
-            {
-                var _minion = new MinionSelector( );
-                _minion.ShowDialog( this );
             }
             catch( Exception ex )
             {

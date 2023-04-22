@@ -60,6 +60,23 @@ namespace BudgetExecution
         public ColumnConfiguration( )
         {
             InitializeComponent( );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
+            Size = new Size( 250, 350 );
+            MaximumSize = new Size( 250, 350 );
+            MinimumSize = new Size( 250, 350 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
             Enabled = true;
             Visible = true;
         }

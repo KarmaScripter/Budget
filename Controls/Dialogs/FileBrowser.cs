@@ -88,9 +88,13 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Size = new Size( 700, 480 );
+            MaximumSize = new Size( 700, 480 );
+            MinimumSize = new Size( 700, 480 );
             Header.ForeColor = Color.FromArgb( 0, 120, 212 );
             Header.TextAlign = ContentAlignment.TopLeft;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
             BackColor = Color.FromArgb( 20, 20, 20 );
             InitialDirPaths = GetInitialDirPaths( );
             RadioButtons = GetRadioButtons( );
@@ -99,6 +103,14 @@ namespace BudgetExecution
             Picture.Image = GetImage( );
             FilePaths = GetListViewPaths( );
             FileList.BackColor = Color.FromArgb( 40, 40, 40 );
+            CaptionBarHeight = 5;
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
 
             // Event Wiring
             Load += OnLoaded;

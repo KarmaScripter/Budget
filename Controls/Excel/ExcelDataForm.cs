@@ -20,12 +20,12 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
@@ -162,10 +162,11 @@ namespace BudgetExecution
             MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ShowIcon = false;
@@ -174,10 +175,12 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
 
@@ -268,6 +271,7 @@ namespace BudgetExecution
                 LookupButton.Click += OnLookupButtonClicked;
                 MenuButton.Click += OnMenuButtonClicked;
                 UploadButton.Click += OnUploadButtonClicked;
+                BackButton.Click += OnBackButtonClicked;
                 Ribbon.Spreadsheet = Spreadsheet;
                 SetToolStripProperties( );
             }
@@ -466,7 +470,7 @@ namespace BudgetExecution
                 var _data = new DataGridForm( BindingSource );
                 _data.Owner = Owner;
                 _data.Show( );
-                Close( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -481,10 +485,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _chart = new ChartDataForm( Source, Provider );
+                var _chart = new ChartDataForm( BindingSource );
                 _chart.Owner = Owner;
                 _chart.Show( );
-                Close( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -520,8 +524,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Name.Equals( "DataGridForm" ) == true
-                   || Owner?.Name.Equals( "ChartDataForm" ) == true )
+                if( Owner?.Name.Equals( "DataGridForm" ) == true )
                 {
                     Owner.Visible = true;
                     Visible = false;
@@ -531,9 +534,8 @@ namespace BudgetExecution
                     var _dataForm = new DataGridForm( BindingSource );
                     _dataForm.Owner = this;
                     _dataForm.Show( );
+                    Visible = false;
                 }
-
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -550,12 +552,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.ChartButton )
+                if( Owner?.Name.Equals( "ChartDataForm" ) == true )
+                {
+                    Owner.Visible = true;
+                    Visible = false;
+                }
+                else
                 {
                     var _chart = new ChartDataForm( Source, Provider );
+                    _chart.Owner = this;
                     _chart.Show( );
-                    Close( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -639,18 +646,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.BackButton
-                   && ( Owner?.Name.Equals( "MainForm" ) == true
-                       || Owner?.Name.Equals( "ChartDataForm" ) == true
-                       || Owner?.Name.Equals( "ExcelDataForm" ) == true ) )
+                if( Owner != null
+                   && Owner.Visible == false )
                 {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
+                    Owner.Refresh( );
+                    Owner.Visible = true;
                     Visible = false;
                 }
             }
@@ -672,19 +672,9 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.MenuButton )
                 {
-                    if( Parent != null
-                       && Parent.Name == "MainForm"
-                       && Parent.Visible == false )
-                    {
-                        Parent.Visible = true;
-                        Close( );
-                    }
-                    else
-                    {
-                        var _form = new MainForm( );
-                        _form.Show( );
-                        Close( );
-                    }
+                    var _form = new MainForm( );
+                    _form.Show( );
+                    Close( );
                 }
             }
             catch( Exception ex )

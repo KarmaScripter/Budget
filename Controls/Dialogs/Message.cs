@@ -25,17 +25,29 @@ namespace BudgetExecution
             Size = new Size( 700, 400 );
             MinimumSize = new Size( 700, 400 );
             MaximumSize = new Size( 700, 400 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            StartPosition = FormStartPosition.CenterScreen;
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            Enabled = true;
+            Visible = true;
+
+            // Control Properties
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CloseButton.Text = "Close";
             CloseButton.ForeColor = Color.FromArgb( 0, 120, 212 );
             CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            StartPosition = FormStartPosition.CenterScreen;
             CloseButton.Focus( );
-
+            
             //Event Wiring
             CloseButton.Click += OnCloseButtonClick;
             Load += OnLoad;

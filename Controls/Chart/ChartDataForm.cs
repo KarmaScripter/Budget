@@ -34,6 +34,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
     [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
     [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class ChartDataForm : MetroForm, IChartSeriesModel
     {
         /// <summary>
@@ -238,10 +239,11 @@ namespace BudgetExecution
             MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
             ShowMouseOver = false;
@@ -249,9 +251,11 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
             MinimizeBox = false;
             MaximizeBox = false;
 
@@ -338,6 +342,11 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
+                NumericListBox.MultiSelect = true;
+                FieldListBox.MultiSelect = true;
+                Chart.Title.Visible = true;
+                Text = string.Empty;
+                ToolStrip.Visible = true;
                 if( string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 0;
@@ -355,8 +364,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
-                    Chart.Title.Font = new Font( "Roboto", 9 );
-                    Chart.Title.Text = $"{SelectedTable.SplitPascal( )}";
+                    SetChartTitle( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
                     UpdateLabelText( );
@@ -476,6 +484,26 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the chart title.
+        /// </summary>
+        private void SetChartTitle( )
+        {
+            try
+            {
+                Chart.Titles.Clear( );
+                var _title = new ChartTitle( );
+                _title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                _title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                _title.Text = DataTable.TableName.SplitPascal( );
+                Chart.Titles.Add( _title );
             }
             catch( Exception ex )
             {
@@ -687,30 +715,30 @@ namespace BudgetExecution
                     Numerics = DataModel.Numerics;
                     var _data = DataTable.AsEnumerable( );
                     var _rows = _data.ToArray( );
-                    var _columns = numerics.ToArray( );
+                    var _numerics = numerics.ToArray( );
+                    double _xaxis = 0;
                     var _series = new ChartSeries( );
-                    double _xAxis = 0;
                     foreach( var row in _rows )
                     {
-                        _xAxis += 1;
-                        for( var i = 0; i < _columns.Length; i++ )
+                        _xaxis += 1;
+                        for( var i = 0; i < _numerics.Length; i++ )
                         {
-                            var _name = _columns[ i ];
-                            _series.Text = _name;
-                            var _col = row[ _name ].ToString( );
+                            var _columnName = _numerics[ i ];
+                            _series.LegendName = _columnName;
+                            _series.Text = _columnName;
+                            var _col = row[ _columnName ].ToString( );
                             var _value = double.Parse( _col );
-                            var _yValues = new double[ ]
+                            var _yvalues = new double[ ]
                             {
                                 _value
                             };
 
-                            _series.Points.Add( _xAxis, _yValues );
+                            _series.Points.Add( _xaxis, _yvalues );
                         }
-
-                        Chart.Series.Add( _series );
                     }
-
-                    InitSeries( );
+                    
+                    Chart.Series.Add( _series );
+                    SetChartSeriesProperties( );
                 }
                 catch( Exception ex )
                 {
@@ -722,7 +750,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the series.
         /// </summary>
-        protected void InitSeries( )
+        protected void SetChartSeriesProperties( )
         {
             try
             {
@@ -733,8 +761,7 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].Visible = true;
                 Chart.Series[ 0 ].ShowTicks = true;
                 Chart.Series[ 0 ].Rotate = true;
-                Chart.Series[ 0 ].EnableAreaToolTip = true;
-                Chart.Series[ 0 ].SeriesToolTipFormat = "{0)";
+                Chart.Series[ 0 ].EnableAreaToolTip = false;
                 Chart.Series[ 0 ].EnableStyles = true;
                 Chart.Series[ 0 ].OptimizePiePointPositions = true;
                 Chart.Series[ 0 ].LegendItemUseSeriesStyle = true;
@@ -743,7 +770,7 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].PointsToolTipFormat = "{3}, {4}";
                 Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
 
-                // Call out Properties
+                // Call Out Properties
                 Chart.Series[ 0 ].Style.DisplayText = true;
                 Chart.Series[ 0 ].Style.Callout.Enable = true;
                 Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
@@ -751,6 +778,12 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].Style.Callout.Border.Color = Color.FromArgb( 0, 120, 212 );
                 Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 55, 55, 55 );
                 Chart.Series[ 0 ].Style.Callout.TextColor = Color.FromArgb( 0, 120, 212 );
+
+                // Tool Tip Properties
+                Chart.Series[ 0 ].FancyToolTip.Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].FancyToolTip.ForeColor = Color.White;
+                Chart.Series[ 0 ].FancyToolTip.BackColor = Color.FromArgb( 55, 55, 55 );
+                Chart.Series[ 0 ].FancyToolTip.Visible = true;
             }
             catch( Exception ex )
             {
@@ -761,7 +794,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the chart.
         /// </summary>
-        private void BindChart( )
+        private void BindChartData( )
         {
             if( SelectedFields?.Any( ) == true
                && SelectedNumerics?.Any( ) == true )
@@ -817,8 +850,6 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = true;
-                        SelectedFields.Clear( );
-                        SelectedNumerics.Clear( );
                         PopulateFieldListBox( );
                         PopulateNumericListBox( );
                         break;
@@ -838,16 +869,16 @@ namespace BudgetExecution
         {
             try
             {
-                Text = string.Empty;
-                FirstDataLabel.Text = string.Empty;
-                SecondDataLabel.Text = string.Empty;
-                ThirdDataLabel.Text = string.Empty;
-                FourthDataLabel.Text = string.Empty;
-                FifthDataLabel.Text = string.Empty;
-                SixthDataLabel.Text = string.Empty;
+                FirstDataLabel.Text = "Data Records: 0.0";
+                SecondDataLabel.Text = "Total Fields: 0.0";
+                ThirdDataLabel.Text = "Total Measures: 0.0";
+                FourthDataLabel.Text = "Active Filters: 0.0";
+                FifthDataLabel.Text = "Selected Fields: 0.0";
+                SixthDataLabel.Text = "Selected Numerics: 0.0";
                 SeventhDataLabel.Text = string.Empty;
                 EightDataLabel.Text = string.Empty;
                 NinthDataLabel.Text = string.Empty;
+                SqlHeader.Text = string.Empty;
             }
             catch( Exception ex )
             {
@@ -1247,14 +1278,17 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the chart properties.
+        /// </summary>
         private void SetChartProperties( )
         {
             try
             {
                 //Basic Control Properties
-                Chart.Size = new Size( 897, 487 );
+                Chart.Size = new Size( 788, 431 );
                 Chart.ShowToolbar = true;
-                Chart.ShowToolTips = true;
+                Chart.ShowToolTips = false;
                 Chart.ShowScrollBars = false;
                 Chart.Font = new Font( "Roboto", 8 );
                 Chart.EnableMouseRotation = true;
@@ -1276,38 +1310,35 @@ namespace BudgetExecution
                 Chart.Palette = ChartColorPalette.Metro;
                 Chart.Skins = Skins.None;
                 Chart.RealMode3D = true;
+                Chart.Style3D = true;
                 Chart.Rotation = 0.1f;
-                Chart.Spacing = 5;
+                Chart.Spacing = 10;
                 Chart.AutoHighlight = true;
                 Chart.SpacingBetweenPoints = 5;
                 Chart.SpacingBetweenSeries = 5;
-                Chart.Style3D = true;
                 Chart.TextAlignment = StringAlignment.Center;
                 Chart.TextPosition = ChartTextPosition.Top;
                 Chart.Tilt = 5;
                 Chart.ScrollPrecision = 100;
-                Chart.RadarStyle = ChartRadarAxisStyle.Polygon;
 
                 // Toolbar Properties
-                Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
-                Chart.ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.Orientation = ChartOrientation.Vertical;
+                Chart.ToolBar.BackColor = Color.Transparent;
                 Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-                Chart.ToolBar.Position = ChartDock.Floating;
+                Chart.ToolBar.Position = ChartDock.Left;
                 Chart.ToolBar.ShowGrip = false;
                 Chart.ToolBar.ShowBorder = false;
 
                 //ChartSeries Properties
                 Chart.DropSeriesPoints = false;
                 Chart.AddRandomSeries = true;
-                Chart.Series3D = true;
                 Chart.SeriesHighlight = true;
                 Chart.SeriesHighlightIndex = -1;
                 Chart.ShadowWidth = 5;
-                Chart.Depth = 150;
-                Chart.ElementsSpacing = 5;
-                Chart.ColumnDrawMode = ChartColumnDrawMode.ClusteredMode;
+                Chart.Depth = 100;
+                Chart.ElementsSpacing = 3;
+                Chart.ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
                 Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
-                Chart.ShowLegend = true;
                 Chart.ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
                     Color.FromArgb( 65, 65, 65 ) );
 
@@ -1320,17 +1351,18 @@ namespace BudgetExecution
                 Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
 
                 // Legend Properties
+                Chart.ShowLegend = true;
                 Chart.Legend.Font = new Font( "Roboto", 8 );
-                Chart.Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-                Chart.Legend.ItemsAlignment = StringAlignment.Center;
+                Chart.Legend.BackInterior = new BrushInfo( Color.Transparent );
+                Chart.Legend.ItemsAlignment = StringAlignment.Near;
                 Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
-                Chart.Legend.Orientation = ChartOrientation.Vertical;
+                Chart.Legend.Orientation = ChartOrientation.Horizontal;
                 Chart.Legend.VisibleCheckBox = true;
                 Chart.Legend.FloatingAutoSize = true;
                 Chart.Legend.ShowSymbol = true;
                 Chart.Legend.ShowItemsShadow = true;
                 Chart.Legend.ShowBorder = false;
-                Chart.Legend.Visible = true;
+                Chart.Legend.ColumnsCount = 1;
 
                 // Chart Area Properties
                 Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.None;
@@ -1360,7 +1392,6 @@ namespace BudgetExecution
                 try
                 {
                     FormFilter.Clear( );
-                    ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
@@ -1374,8 +1405,7 @@ namespace BudgetExecution
                         Numerics = DataModel.Numerics;
                         TabControl.SelectedIndex = 1;
                     }
-
-                    ResetLabelText( );
+                    
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
@@ -1609,7 +1639,6 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    ResetLabelText( );
                     ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
@@ -1740,7 +1769,7 @@ namespace BudgetExecution
                     BindingSource.DataSource = null;
                     ClearSelections( );
                     ClearCollections( );
-                    ResetLabelText( );
+                    UpdateLabelText( );
                     PopulateExecutionTables( );
                 }
             }
@@ -1789,7 +1818,6 @@ namespace BudgetExecution
                 {
                     ClearSelections( );
                     ClearCollections( );
-                    ResetLabelText( );
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
@@ -1797,6 +1825,7 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     TabControl.SelectedIndex = 1;
+                    UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                 }
             }
@@ -1878,18 +1907,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.BackButton
-                   && ( Owner?.Name.Equals( "DataGridForm" ) == true
-                       || Owner?.Name.Equals( "MainForm" ) == true
-                       || Owner?.Name.Equals( "ExcelDataForm" ) == true ) )
+                if( Owner != null
+                   && Owner.Visible == false )
                 {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
+                    Owner.Refresh( );
+                    Owner.Visible = true;
                     Visible = false;
                 }
             }

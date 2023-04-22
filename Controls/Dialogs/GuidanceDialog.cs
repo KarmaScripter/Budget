@@ -127,12 +127,15 @@ namespace BudgetExecution
 
             // Basic Properties
             Size = new Size( 503, 429 );
+            MaximumSize = new Size( 503, 429 );
+            MinimumSize = new Size( 503, 429 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
@@ -142,6 +145,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;

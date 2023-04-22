@@ -40,6 +40,7 @@
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ChartPanel =  new Layout( ) ;
+            Chart =  new Syncfusion.Windows.Forms.Chart.ChartControl( ) ;
             DataMetricsTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ThirdDataLabel =  new Label( ) ;
             FirstDataLabel =  new Label( ) ;
@@ -126,7 +127,6 @@
             FieldPanel =  new Layout( ) ;
             FieldListBox =  new ListBox( ) ;
             ChartTable =  new HeaderPanel( ) ;
-            Chart =  new Syncfusion.Windows.Forms.Chart.ChartControl( ) ;
             ChartPanel.SuspendLayout( );
             DataMetricsTable.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
@@ -201,6 +201,41 @@
             ChartPanel.ThemeAuthor =  "Terry D. Eppler" ;
             ChartPanel.ThemeName =  "Budget Execution" ;
             ChartPanel.ToolTip =  null ;
+            // 
+            // Chart
+            // 
+            Chart.ChartArea.CursorLocation =  new System.Drawing.Point( 0, 0 ) ;
+            Chart.ChartArea.CursorReDraw =  false ;
+            Chart.IsWindowLess =  false ;
+            // 
+            // 
+            // 
+            Chart.Legend.Location =  new System.Drawing.Point( 679, 31 ) ;
+            Chart.Localize =  null ;
+            Chart.Location =  new System.Drawing.Point( 82, 55 ) ;
+            Chart.Name =  "Chart" ;
+            Chart.PrimaryXAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
+            Chart.PrimaryXAxis.Margin =  true ;
+            Chart.PrimaryYAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
+            Chart.PrimaryYAxis.Margin =  true ;
+            Chart.Size =  new System.Drawing.Size( 788, 431 ) ;
+            Chart.TabIndex =  5 ;
+            // 
+            // 
+            // 
+            Chart.Title.Name =  "Default" ;
+            Chart.ToolBar.EnableDefaultItems =  false ;
+            Chart.ToolBar.Items.Add( chartToolBarSaveItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarCopyItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarPrintItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarPrintPreviewItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarSplitter1 );
+            Chart.ToolBar.Items.Add( chartToolBarPaletteItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarStyleItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarTypeItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarSeries3dItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarShowLegendItem1 );
+            Chart.VisualTheme =  "" ;
             // 
             // DataMetricsTable
             // 
@@ -466,7 +501,6 @@
             SqlHeader.ThemeAuthor =  "Terry D. Eppler" ;
             SqlHeader.ThemeName =  "Budget Execution" ;
             SqlHeader.ToolTip =  null ;
-
             // 
             // ToolStrip
             // 
@@ -659,7 +693,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 118, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 112, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1835,41 +1869,6 @@
             ChartTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
             ChartTable.Size =  new System.Drawing.Size( 960, 651 ) ;
             ChartTable.TabIndex =  49 ;
-            // 
-            // Chart
-            // 
-            Chart.ChartArea.CursorLocation =  new System.Drawing.Point( 0, 0 ) ;
-            Chart.ChartArea.CursorReDraw =  false ;
-            Chart.IsWindowLess =  false ;
-            // 
-            // 
-            // 
-            Chart.Legend.Location =  new System.Drawing.Point( 788, 31 ) ;
-            Chart.Localize =  null ;
-            Chart.Location =  new System.Drawing.Point( 30, 17 ) ;
-            Chart.Name =  "Chart" ;
-            Chart.PrimaryXAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
-            Chart.PrimaryXAxis.Margin =  true ;
-            Chart.PrimaryYAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
-            Chart.PrimaryYAxis.Margin =  true ;
-            Chart.Size =  new System.Drawing.Size( 897, 487 ) ;
-            Chart.TabIndex =  5 ;
-            // 
-            // 
-            // 
-            Chart.Title.Name =  "Default" ;
-            Chart.ToolBar.EnableDefaultItems =  false ;
-            Chart.ToolBar.Items.Add( chartToolBarSaveItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarCopyItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarPrintItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarPrintPreviewItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarSplitter1 );
-            Chart.ToolBar.Items.Add( chartToolBarPaletteItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarStyleItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarTypeItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarSeries3dItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarShowLegendItem1 );
-            Chart.VisualTheme =  "" ;
             // 
             // ChartDataForm
             // 

@@ -305,7 +305,7 @@ namespace BudgetExecution
             BorderThickness =  2 ;
             CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            CaptionBarHeight =  1 ;
+            CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
@@ -324,8 +324,10 @@ namespace BudgetExecution
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
             MaximizeBox =  false ;
+            MaximumSize =  new System.Drawing.Size( 503, 429 ) ;
             MetroColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             MinimizeBox =  false ;
+            MinimumSize =  new System.Drawing.Size( 503, 429 ) ;
             Name =  "GuidanceDialog" ;
             ShowIcon =  false ;
             ShowMaximizeBox =  false ;

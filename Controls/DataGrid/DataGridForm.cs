@@ -22,17 +22,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -192,10 +192,11 @@ namespace BudgetExecution
             MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
@@ -243,11 +244,7 @@ namespace BudgetExecution
             // Initialize Default Provider
             Provider = Provider.Access;
 
-            // Event Wiring
-            Load += OnLoad;
-            Shown += OnShown;
-            MouseClick += OnRightClick;
-            GridPanel.MouseClick += OnRightClick;
+            // Control Event Wiring
             ExcelExportButton.Click += null;
             ExitButton.Click += null;
             BackButton.Click += null;
@@ -258,6 +255,40 @@ namespace BudgetExecution
             RemoveFiltersButton.Click += null;
             GroupButton.Click += null;
             CalendarButton.Click += null;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            GridPanel.MouseClick += OnRightClick;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            ExcelExportButton.Click += OnExcelExportButtonClicked;
+            ChartButton.Click += OnChartButtonClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+            RefreshDataButton.Click += OnRefreshDataButtonClicked;
+            GroupButton.Click += OnGroupButtonClicked;
+            CalendarButton.Click += OnCalendarButtonClicked;
+            FirstCalendar.SelectionChanged += OnStartDateSelected;
+            SecondCalendar.SelectionChanged += OnEndDateSelected;
+            EditSqlButton.Click += OnSqlButtonClick;
+            EditRecordButton.Click += OnEditRecordButtonClicked;
+            EditColumnButton.Click += OnEditColumnButtonClicked;
+
+            // Form Event Wiring
+            Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -338,51 +369,6 @@ namespace BudgetExecution
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
-                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-                TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-                TabControl.SelectedIndexChanged += OnActiveTabChanged;
-                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-                ExcelExportButton.Click += OnExcelExportButtonClicked;
-                ChartButton.Click += OnChartButtonClicked;
-                ExitButton.Click += OnExitButtonClicked;
-                BackButton.Click += OnBackButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                RefreshDataButton.Click += OnRefreshDataButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
-                CalendarButton.Click += OnCalendarButtonClicked;
-                FirstCalendar.SelectionChanged += OnStartDateSelected;
-                SecondCalendar.SelectionChanged += OnEndDateSelected;
-                EditSqlButton.Click += OnSqlButtonClick;
-                EditRecordButton.Click += OnEditRecordButtonClicked;
-                EditColumnButton.Click += OnEditColumnButtonClicked;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 1;
@@ -402,8 +388,7 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     CalendarTabPage.TabVisible = false;
-                    PopulateExecutionTables( );
-                    TableComboBox.SelectedIndex = 0;
+                    TableComboBox.SelectionStart = 0;
                 }
 
                 DataGrid.PascalizeHeaders( );
@@ -628,7 +613,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " 
+                    return $"SELECT * FROM {Source} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
@@ -663,7 +648,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " 
+                    return $"SELECT {_names} FROM {SelectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
@@ -708,7 +693,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " 
+                    return $"SELECT {_columns} FROM {Source} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
@@ -845,13 +830,13 @@ namespace BudgetExecution
                 {
                     HeaderLabel.Text = $"{Provider} Database ";
                     FirstGridLabel.Text = $"Provider:  {Provider}";
-                    SecondGridLabel.Text = "Records: ";
-                    ThirdGridLabel.Text = "Fields: ";
-                    FourthGridLabel.Text = "Measures: ";
-                    FieldsTable.CaptionText = "Fields: ";
-                    NumericsTable.CaptionText = "Measures: ";
-                    FirstCalendarTable.CaptionText = "Start Date: ";
-                    SecondCalendarTable.CaptionText = "End Date: ";
+                    SecondGridLabel.Text = "Records: 0.0";
+                    ThirdGridLabel.Text = "Fields: 0.0";
+                    FourthGridLabel.Text = "Measures: 0.0";
+                    FieldsTable.CaptionText = "Fields: 0.0";
+                    NumericsTable.CaptionText = "Measures: 0.0";
+                    FirstCalendarTable.CaptionText = "Start Date: --";
+                    SecondCalendarTable.CaptionText = "End Date: --";
                 }
             }
             catch( Exception ex )
@@ -1175,50 +1160,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Shows the filter dialog.
-        /// </summary>
-        private void ShowFilterDialog( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the group dialog.
-        /// </summary>
-        private void ShowGroupDialog( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the table dialog.
-        /// </summary>
-        private void ShowSourceDialog( )
-        {
-            try
-            {
-                var _form = new FilterDialog( BindingSource );
-                _form.ShowDialog( this );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Opens the excel data form.
         /// </summary>
         private void OpenExcelDataForm( )
@@ -1226,9 +1167,9 @@ namespace BudgetExecution
             try
             {
                 var _excel = new ExcelDataForm( BindingSource );
-                _excel.Owner = Owner;
+                _excel.Owner = this;
                 _excel.Show( );
-                Close( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1244,9 +1185,9 @@ namespace BudgetExecution
             try
             {
                 var _chart = new ChartDataForm( Source, Provider );
-                _chart.Owner = Owner;
+                _chart.Owner = this;
                 _chart.Show( );
-                Close( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1653,41 +1594,41 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        ProviderTable.Visible = true;
-                        SetProviderImage( );
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        ProviderTable.Visible = true;
+                        SetProviderImage( );
                         PopulateExecutionTables( );
                         break;
                     }
                     case 1:
                     {
-                        ProviderTable.Visible = false;
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        ProviderTable.Visible = false;
                         ResetComboBoxVisibility( );
                         break;
                     }
                     case 2:
                     {
-                        ProviderTable.Visible = false;
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
+                        ProviderTable.Visible = false;
                         break;
                     }
                     case 3:
                     {
-                        ProviderTable.Visible = false;
                         CalendarTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
+                        ProviderTable.Visible = false;
                         break;
                     }
                 }
@@ -1735,9 +1676,7 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.CalendarButton )
                 {
                     TabControl.SelectedIndex = 3;
-                    FirstCalendarTable.CaptionText = string.Empty;
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarTable.CaptionText = string.Empty;
                     SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
             }
@@ -1932,18 +1871,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.BackButton
-                   && ( Owner?.Name.Equals( "MainForm" ) == true
-                       || Owner?.Name.Equals( "ChartDataForm" ) == true
-                       || Owner?.Name.Equals( "ExcelDataForm" ) == true ) )
+                if( Owner != null
+                   && Owner.Visible == false )
                 {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
+                    Owner.Refresh( );
+                    Owner.Visible = true;
                     Visible = false;
                 }
             }
@@ -1995,7 +1927,6 @@ namespace BudgetExecution
                 {
                     ClearSelections( );
                     ClearCollections( );
-                    ResetLabelText( );
                     DataGrid.DataSource = null;
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
@@ -2008,6 +1939,7 @@ namespace BudgetExecution
                     Numerics = DataModel.Numerics;
                     TabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
+                    UpdateLabelText( );
                 }
             }
             catch( Exception ex )
@@ -2028,10 +1960,7 @@ namespace BudgetExecution
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ChartButton )
                 {
-                    var _chart = new ChartDataForm( BindingSource );
-                    _chart.Owner = this;
-                    _chart.Show( );
-                    Visible = false;
+                    OpenChartDataForm( );
                 }
             }
             catch( Exception ex )
@@ -2053,8 +1982,9 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ExcelExportButton )
                 {
                     var _excelForm = new ExcelDataForm( BindingSource );
+                    _excelForm.Owner = this;
                     _excelForm.Show( );
-                    Close( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )

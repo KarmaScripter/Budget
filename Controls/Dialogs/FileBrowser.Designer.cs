@@ -616,7 +616,7 @@ namespace BudgetExecution
             SelectButton.HoverText =  "Select File" ;
             SelectButton.HoverTextColor =  System.Drawing.Color.White ;
             SelectButton.IsDerivedStyle =  true ;
-            SelectButton.Location =  new System.Drawing.Point( 311, 433 ) ;
+            SelectButton.Location =  new System.Drawing.Point( 307, 417 ) ;
             SelectButton.Margin =  new Padding( 0 ) ;
             SelectButton.Name =  "SelectButton" ;
             SelectButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -650,7 +650,7 @@ namespace BudgetExecution
             CloseButton.HoverText =  "Close Window" ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 603, 433 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 601, 417 ) ;
             CloseButton.Margin =  new Padding( 0 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -684,7 +684,7 @@ namespace BudgetExecution
             FindButton.HoverText =  "Select File" ;
             FindButton.HoverTextColor =  System.Drawing.Color.White ;
             FindButton.IsDerivedStyle =  true ;
-            FindButton.Location =  new System.Drawing.Point( 9, 433 ) ;
+            FindButton.Location =  new System.Drawing.Point( 9, 417 ) ;
             FindButton.Margin =  new Padding( 0 ) ;
             FindButton.Name =  "FindButton" ;
             FindButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -712,6 +712,7 @@ namespace BudgetExecution
             BorderThickness =  2 ;
             CaptionAlign =  HorizontalAlignment.Left ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionBarHeight =  5 ;
             CaptionButtonColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
             CaptionButtonHoverColor =  System.Drawing.Color.Red ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;

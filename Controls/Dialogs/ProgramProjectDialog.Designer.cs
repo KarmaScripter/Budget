@@ -75,7 +75,7 @@ partial class ProgramProjectDialog
         CloseButton.HoverText =  null ;
         CloseButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         CloseButton.IsDerivedStyle =  true ;
-        CloseButton.Location =  new System.Drawing.Point( 799, 574 ) ;
+        CloseButton.Location =  new System.Drawing.Point( 799, 565 ) ;
         CloseButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
         CloseButton.Name =  "CloseButton" ;
         CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
@@ -232,7 +232,7 @@ partial class ProgramProjectDialog
         SearchButton.HoverText =  null ;
         SearchButton.HoverTextColor =  System.Drawing.Color.LightSteelBlue ;
         SearchButton.IsDerivedStyle =  true ;
-        SearchButton.Location =  new System.Drawing.Point( 434, 574 ) ;
+        SearchButton.Location =  new System.Drawing.Point( 433, 565 ) ;
         SearchButton.Margin =  new System.Windows.Forms.Padding( 4, 3, 4, 3 ) ;
         SearchButton.Name =  "SearchButton" ;
         SearchButton.NormalBorderColor =  System.Drawing.Color.Transparent ;

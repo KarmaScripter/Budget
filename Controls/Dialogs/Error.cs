@@ -46,7 +46,7 @@ namespace BudgetExecution
 
             // Form Property Values
             BackColor = Color.FromArgb( 20, 20, 20 );
-            BorderThickness = 1;
+            BorderThickness = 2;
             BorderColor = Color.Red;
             Size = new Size( 700, 450 );
             MaximumSize = new Size( 700, 450 );

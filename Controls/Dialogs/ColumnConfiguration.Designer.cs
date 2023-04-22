@@ -94,7 +94,7 @@ namespace BudgetExecution
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 140, 314 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 153, 308 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -103,7 +103,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 95, 29 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 72, 28 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  6 ;
@@ -158,9 +158,9 @@ namespace BudgetExecution
             BackColor =  System.Drawing.Color.FromArgb(   18  ,   18  ,   18   ) ;
             BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CaptionBarColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            CaptionBarHeight =  1 ;
-            CaptionButtonColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
-            CaptionButtonHoverColor =  System.Drawing.Color.White ;
+            CaptionBarHeight =  5 ;
+            CaptionButtonColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            CaptionButtonHoverColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             CaptionFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             captionImage1.BackColor =  System.Drawing.Color.Transparent ;
@@ -169,7 +169,7 @@ namespace BudgetExecution
             captionImage1.Name =  "Image" ;
             captionImage1.Size =  new System.Drawing.Size( 16, 16 ) ;
             CaptionImages.Add( captionImage1 );
-            ClientSize =  new System.Drawing.Size( 238, 343 ) ;
+            ClientSize =  new System.Drawing.Size( 238, 339 ) ;
             Controls.Add( HeaderLabel );
             Controls.Add( ColumnConfigurationImage );
             Controls.Add( CloseButton );

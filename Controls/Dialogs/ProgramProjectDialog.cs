@@ -111,13 +111,16 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Size = new Size( 908, 614 );
+            MaximumSize = new Size( 908, 614 );
+            MinimumSize = new Size( 908, 614 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StartPosition = FormStartPosition.CenterParent;
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
