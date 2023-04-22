@@ -77,7 +77,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 55, 55, 55 );
 
             // Disabled Color Configuration
-            DisabledBackColor = Color.FromArgb( 20, 20, 20 ); 
+            DisabledBackColor = Color.FromArgb( 20, 20, 20 );
             DisabledForeColor = Color.FromArgb( 20, 20, 20 );
 
             // Item Configuration
@@ -114,7 +114,6 @@ namespace BudgetExecution
             : this( )
         {
             Location = location;
-
             if( parent != null )
             {
                 Parent = parent;
@@ -133,7 +132,6 @@ namespace BudgetExecution
             : this( )
         {
             Size = size;
-
             if( parent != null )
             {
                 Parent = parent;

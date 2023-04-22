@@ -271,7 +271,7 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
             SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            ExcelExportButton.Click += OnExcelExportButtonClicked;
+            ExcelExportButton.Click += OnExcelButtonClicked;
             ChartButton.Click += OnChartButtonClicked;
             ExitButton.Click += OnExitButtonClicked;
             BackButton.Click += OnBackButtonClicked;
@@ -1169,7 +1169,6 @@ namespace BudgetExecution
                 var _excel = new ExcelDataForm( BindingSource );
                 _excel.Owner = this;
                 _excel.Show( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1187,7 +1186,6 @@ namespace BudgetExecution
                 var _chart = new ChartDataForm( Source, Provider );
                 _chart.Owner = this;
                 _chart.Show( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1961,6 +1959,7 @@ namespace BudgetExecution
                    && _button.ToolType == ToolType.ChartButton )
                 {
                     OpenChartDataForm( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1974,16 +1973,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnExcelExportButtonClicked( object sender, EventArgs e )
+        public void OnExcelButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 if( sender is ToolStripButton _button
                    && _button.ToolType == ToolType.ExcelExportButton )
                 {
-                    var _excelForm = new ExcelDataForm( BindingSource );
-                    _excelForm.Owner = this;
-                    _excelForm.Show( );
+                    OpenExcelDataForm( );
                     Visible = false;
                 }
             }

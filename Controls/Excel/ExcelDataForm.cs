@@ -229,10 +229,11 @@ namespace BudgetExecution
         public ExcelDataForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource = bindingSource;
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
             DataTable = (DataTable)bindingSource.DataSource;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName; 
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            Header.Text = $"{SelectedTable.SplitPascal( )} ";
         }
 
         /// <summary>
@@ -423,8 +424,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = new FilterDialog( BindingSource );
-                _form.ShowDialog( this );
+                var _form = new DataGridForm( BindingSource );
+                _form.Owner = this;
+                _form.Show( );
             }
             catch( Exception ex )
             {
@@ -468,9 +470,8 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataGridForm( BindingSource );
-                _data.Owner = Owner;
+                _data.Owner = this;
                 _data.Show( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -486,9 +487,8 @@ namespace BudgetExecution
             try
             {
                 var _chart = new ChartDataForm( BindingSource );
-                _chart.Owner = Owner;
+                _chart.Owner = this;
                 _chart.Show( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -524,18 +524,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Name.Equals( "DataGridForm" ) == true )
-                {
-                    Owner.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _dataForm = new DataGridForm( BindingSource );
-                    _dataForm.Owner = this;
-                    _dataForm.Show( );
-                    Visible = false;
-                }
+                OpenDataGridForm( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -552,18 +542,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Name.Equals( "ChartDataForm" ) == true )
-                {
-                    Owner.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _chart = new ChartDataForm( Source, Provider );
-                    _chart.Owner = this;
-                    _chart.Show( );
-                    Visible = false;
-                }
+                OpenChartDataForm( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -600,13 +580,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.LookupButton )
-                {
-                    var _dialog = new FilterDialog( );
-                    _dialog.TabControl.SelectedIndex = 0;
-                    _dialog.ShowDialog( this );
-                }
+                var _dialog = new FilterDialog( );
+                _dialog.TabControl.SelectedIndex = 0;
+                _dialog.ShowDialog( this );
             }
             catch( Exception ex )
             {

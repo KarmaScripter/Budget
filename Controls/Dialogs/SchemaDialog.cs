@@ -159,7 +159,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Updates the header text.
         /// </summary>
@@ -184,7 +184,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [second button clicked].
         /// </summary>

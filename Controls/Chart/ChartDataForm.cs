@@ -267,6 +267,7 @@ namespace BudgetExecution
             ExitButton.Click += null;
             BackButton.Click += null;
             MenuButton.Click += null;
+            ExcelButton.Click += null;
             RemoveFiltersButton.Click += null;
             TableButton.Click += null;
             MouseClick += OnRightClick;
@@ -387,6 +388,8 @@ namespace BudgetExecution
                 MenuButton.Click += OnMainMenuButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
+                ExcelButton.Click += OnExcelExportButtonClicked;
+                TableButton.Click += OnTableButtonClick;
             }
             catch( Exception ex )
             {
@@ -673,8 +676,10 @@ namespace BudgetExecution
                     var _data = DataTable.AsEnumerable( );
                     var _rows = _data.ToArray( );
                     var _numerics = numerics.ToArray( );
+                    var _label = fields.Last( );
                     double _xaxis = 0;
                     var _series = new ChartSeries( );
+                    Chart.PrimaryXAxis.Title = _label.SplitPascal( );
                     foreach( var row in _rows )
                     {
                         _xaxis += 1;
@@ -691,8 +696,9 @@ namespace BudgetExecution
                             };
 
                             _series.Points.Add( _xaxis, _yvalues );
-                            Chart.Series.Add( _series );
                         }
+
+                        Chart.Series.Add( _series );
                     }
 
                     SetSeriesProperties( );
@@ -721,6 +727,35 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                    var _data = DataTable.AsEnumerable( );
+                    var _rows = _data.ToArray( );
+                    var _numerics = SelectedNumerics.ToArray( );
+                    var _label = SelectedFields.Last( );
+                    double _xaxis = 0;
+                    var _series = new ChartSeries( );
+                    Chart.PrimaryXAxis.Title = _label.SplitPascal( );
+                    foreach( var row in _rows )
+                    {
+                        _xaxis += 1;
+                        for( var i = 0; i < _numerics.Length; i++ )
+                        {
+                            var _columnName = _numerics[ i ];
+                            _series.LegendName = _columnName;
+                            _series.Text = _columnName;
+                            var _col = row[ _columnName ].ToString( );
+                            var _value = double.Parse( _col );
+                            var _yvalues = new[ ]
+                            {
+                                _value
+                            };
+
+                            _series.Points.Add( _xaxis, _yvalues );
+                        }
+
+                        Chart.Series.Add( _series );
+                    }
+
+                    SetSeriesProperties( );
                 }
                 catch( Exception ex )
                 {
@@ -996,7 +1031,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1075,9 +1111,8 @@ namespace BudgetExecution
             try
             {
                 var _excel = new ExcelDataForm( BindingSource );
-                _excel.Owner = Owner;
+                _excel.Owner = this;
                 _excel.Show( );
-                Close( );
             }
             catch( Exception ex )
             {
@@ -1093,9 +1128,8 @@ namespace BudgetExecution
             try
             {
                 var _data = new DataGridForm( BindingSource );
-                _data.Owner = Owner;
+                _data.Owner = this;
                 _data.Show( );
-                Close( );
             }
             catch( Exception ex )
             {
@@ -1222,7 +1256,7 @@ namespace BudgetExecution
             {
                 Chart.Titles.Clear( );
                 var _title = new ChartTitle( );
-                _title.Font = new Font( "Roboto", 12, FontStyle.Regular );
+                _title.Font = new Font( "Roboto", 14, FontStyle.Regular );
                 _title.ForeColor = Color.FromArgb( 0, 120, 212 );
                 _title.Text = DataTable.TableName.SplitPascal( );
                 Chart.Titles.Add( _title );
@@ -1322,8 +1356,8 @@ namespace BudgetExecution
                 Chart.Rotation = 0.1f;
                 Chart.Spacing = 10;
                 Chart.AutoHighlight = true;
-                Chart.SpacingBetweenPoints = 5;
-                Chart.SpacingBetweenSeries = 5;
+                Chart.SpacingBetweenPoints = 10;
+                Chart.SpacingBetweenSeries = 10;
                 Chart.TextAlignment = StringAlignment.Center;
                 Chart.TextPosition = ChartTextPosition.Top;
                 Chart.Tilt = 5;
@@ -1343,7 +1377,7 @@ namespace BudgetExecution
                 Chart.SeriesHighlight = true;
                 Chart.SeriesHighlightIndex = -1;
                 Chart.ShadowWidth = 5;
-                Chart.Depth = 200;
+                Chart.Depth = 150;
                 Chart.ElementsSpacing = 3;
                 Chart.ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
                 Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
@@ -1356,7 +1390,7 @@ namespace BudgetExecution
                 Chart.PrimaryXAxis.ShowAxisLabelTooltip = true;
                 Chart.PrimaryXAxis.ValueType = ChartValueType.Double;
                 Chart.PrimaryXAxis.TitleColor = Color.FromArgb( 0, 120, 212 );
-                Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
+                Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 12 );
 
                 // Legend Properties
                 Chart.ShowLegend = true;
@@ -1389,7 +1423,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [table ListBox item selected].
         /// </summary>
@@ -1496,8 +1530,7 @@ namespace BudgetExecution
                     {
                         GroupButton.Visible = true;
                     }
-
-                    ResetLabelText( );
+                    
                     ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
@@ -1571,8 +1604,7 @@ namespace BudgetExecution
                     {
                         ThirdTable.Visible = true;
                     }
-
-                    ResetLabelText( );
+                    
                     ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
@@ -1695,13 +1727,14 @@ namespace BudgetExecution
         {
             try
             {
-                ResetLabelText( );
-                var _selectedItem = NumericListBox.SelectedItem.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem ) )
+                var _listbox = sender as ListBox;
+                var _selectedItem = _listbox?.SelectedText;
+                if( !string.IsNullOrEmpty( _selectedItem ) 
+                   && !SelectedNumerics.Contains( _selectedItem ) )
                 {
                     SelectedNumerics.Add( _selectedItem );
                 }
-
+                    
                 UpdateLabelText( );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
@@ -1844,17 +1877,6 @@ namespace BudgetExecution
             }
         }
 
-        private void OnSourceButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         /// <summary>
         /// Called when [table button click].
         /// </summary>
@@ -1864,21 +1886,25 @@ namespace BudgetExecution
         {
             try
             {
-                if( !string.IsNullOrEmpty( SelectedTable )
-                   && ( Owner?.Name.Equals( "DataGridForm" ) == true
-                       || Owner?.Name.Equals( "ExcelDataForm" ) == true
-                       || Owner?.Name.Equals( "MainForm" ) == true ) )
-                {
-                    Owner.Visible = true;
-                    Visible = false;
-                }
-                else
-                {
-                    var _dataForm = new DataGridForm( BindingSource );
-                    _dataForm.Owner = this;
-                    _dataForm.Show( );
-                }
+                OpenDataGridForm( );
+                Visible = false;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
+        /// <summary>
+        /// Called when [excel export button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnExcelExportButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenExcelDataForm( );
                 Visible = false;
             }
             catch( Exception ex )

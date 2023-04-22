@@ -6,9 +6,9 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Configuration;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using static System.Configuration.ConfigurationManager;
 
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public static class Minion
@@ -20,8 +20,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = ConfigurationManager.AppSettings[ "SQLiteMinion" ];
-                var _args = ConfigurationManager.AppSettings[ "SQLiteArgs" ];
+                var _app = AppSettings[ "SQLiteMinion" ];
+                var _args = AppSettings[ "SQLiteArgs" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )
@@ -49,8 +49,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = ConfigurationManager.AppSettings[ "SqlCeMinion" ];
-                var _args = ConfigurationManager.AppSettings[ "SqlCeArgs" ];
+                var _app = AppSettings[ "SqlCeMinion" ];
+                var _args = AppSettings[ "SqlCeArgs" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )
@@ -78,7 +78,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = ConfigurationManager.AppSettings[ "AccessMinion" ];
+                var _app = AppSettings[ "AccessMinion" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )
@@ -101,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = ConfigurationManager.AppSettings[ "Reports" ];
+                var _app = AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )
@@ -124,7 +124,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = ConfigurationManager.AppSettings[ "Reports" ];
+                var _app = AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )
