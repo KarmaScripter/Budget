@@ -288,6 +288,8 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
             MouseClick += OnRightClick;
         }
 
@@ -1160,6 +1162,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
+                {
+                    Owner.Visible = true;
+                    Visible = false;
+                }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Visible = true;
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
         /// Opens the excel data form.
         /// </summary>
         private void OpenExcelDataForm( )
@@ -1892,24 +1924,14 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.MenuButton )
-                {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
-                    Close( );
-                }
+                OpenMainForm( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [remove filter button clicked].
         /// </summary>
@@ -2011,6 +2033,46 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Add( Name, this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Remove( Name );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

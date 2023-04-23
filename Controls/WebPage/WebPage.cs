@@ -90,6 +90,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
         }
 
         /// <summary>
@@ -175,25 +177,60 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// 
+        /// Called when [main menu button clicked].
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.MenuButton )
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
                 {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
-                    Close( );
+                    Owner.Visible = true;
                 }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Visible = true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception ex )
             {

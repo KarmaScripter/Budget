@@ -35,6 +35,7 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
+            Name = "Main";
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -71,6 +72,7 @@ namespace BudgetExecution
             ExitButton.Click += OnExitButtonClicked;
             TestButton.Click += OnTestButtonClick;
             Load += OnLoad;
+            Shown += OnShown;
             MouseClick += OnRightClick;
         }
 
@@ -432,6 +434,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                Program.Windows.Add( Name, this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Get Error Dialog.
         /// </summary>

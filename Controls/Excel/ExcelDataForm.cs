@@ -196,6 +196,8 @@ namespace BudgetExecution
             RemoveFiltersButton.Click += null;
             Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
             Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
         }
 
         /// <summary>
@@ -270,7 +272,7 @@ namespace BudgetExecution
                 PictureBox.MouseClick += OnRightClick;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 LookupButton.Click += OnLookupButtonClicked;
-                MenuButton.Click += OnMenuButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
                 UploadButton.Click += OnUploadButtonClicked;
                 BackButton.Click += OnBackButtonClicked;
                 Ribbon.Spreadsheet = Spreadsheet;
@@ -637,20 +639,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [menu button clicked].
+        /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnMenuButtonClicked( object sender, EventArgs e )
+        public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.MenuButton )
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
                 {
-                    var _form = new MainForm( );
-                    _form.Show( );
-                    Close( );
+                    Owner.Visible = true;
+                }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Visible = true;
                 }
             }
             catch( Exception ex )
@@ -724,6 +733,38 @@ namespace BudgetExecution
                         _form.ShowDialog( );
                     }
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception ex )
             {

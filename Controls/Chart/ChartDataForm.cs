@@ -272,6 +272,8 @@ namespace BudgetExecution
             TableButton.Click += null;
             MouseClick += OnRightClick;
             Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
         }
 
         public ChartDataForm( BindingSource bindingSource )
@@ -1104,6 +1106,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
+                {
+                    Owner.Visible = true;
+                    Close( );
+                }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Visible = true;
+                    Owner.Close( );
+                    Close( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the excel data form.
         /// </summary>
         private void OpenExcelDataForm( )
@@ -1113,6 +1145,7 @@ namespace BudgetExecution
                 var _excel = new ExcelDataForm( BindingSource );
                 _excel.Owner = this;
                 _excel.Show( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1130,6 +1163,7 @@ namespace BudgetExecution
                 var _data = new DataGridForm( BindingSource );
                 _data.Owner = this;
                 _data.Show( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1776,17 +1810,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.MenuButton )
-                {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
-                    Visible = false;
-                }
+                OpenMainForm( );
             }
             catch( Exception ex )
             {
@@ -1979,6 +2003,38 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

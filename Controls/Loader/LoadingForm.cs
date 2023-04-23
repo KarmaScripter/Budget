@@ -89,7 +89,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            FormClosed += OnClose;
+            Closing += OnClose;
+            Shown += OnShown;
             CloseButton.Click += OnCloseButtonClicked;
         }
 
@@ -173,6 +174,10 @@ namespace BudgetExecution
             try
             {
                 Timer?.Dispose( );
+                if( Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Remove( Name );
+                }
             }
             catch( Exception ex )
             {
@@ -197,6 +202,22 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
