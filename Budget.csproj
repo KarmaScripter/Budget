@@ -53,6 +53,7 @@
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
     <PackageReference Include="Google.Cloud.ServiceUsage.V1" Version="2.1.0" />
     <PackageReference Include="MetroSet_UI" Version="2.0.0" />
+    <PackageReference Include="MSChartExtension" Version="3.9.1" />
     <PackageReference Include="Syncfusion.Licensing" Version="20.4.0.38" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />

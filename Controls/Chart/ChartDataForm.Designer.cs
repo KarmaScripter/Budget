@@ -26,21 +26,15 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var chartToolBarSaveItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSaveItem( );
-            var chartToolBarCopyItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarCopyItem( );
-            var chartToolBarPrintItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintItem( );
-            var chartToolBarPrintPreviewItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintPreviewItem( );
-            var chartToolBarSplitter1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSplitter( );
-            var chartToolBarPaletteItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPaletteItem( );
-            var chartToolBarStyleItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarStyleItem( );
-            var chartToolBarTypeItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarTypeItem( );
-            var chartToolBarSeries3dItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSeries3DItem( );
-            var chartToolBarShowLegendItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarShowLegendItem( );
+            var chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea( );
+            var legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend( );
+            var series1 = new System.Windows.Forms.DataVisualization.Charting.Series( );
+            var title1 = new System.Windows.Forms.DataVisualization.Charting.Title( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ChartDataForm ) );
             GridTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             LabelTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ChartPanel =  new Layout( ) ;
-            Chart =  new Syncfusion.Windows.Forms.Chart.ChartControl( ) ;
+            Chart =  new System.Windows.Forms.DataVisualization.Charting.Chart( ) ;
             DataMetricsTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ThirdDataLabel =  new Label( ) ;
             FirstDataLabel =  new Label( ) ;
@@ -128,6 +122,7 @@
             FieldListBox =  new ListBox( ) ;
             ChartTable =  new HeaderPanel( ) ;
             ChartPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize) Chart  ).BeginInit( );
             DataMetricsTable.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
@@ -204,38 +199,69 @@
             // 
             // Chart
             // 
-            Chart.ChartArea.CursorLocation =  new System.Drawing.Point( 0, 0 ) ;
-            Chart.ChartArea.CursorReDraw =  false ;
-            Chart.IsWindowLess =  false ;
-            // 
-            // 
-            // 
-            Chart.Legend.Location =  new System.Drawing.Point( 679, 31 ) ;
-            Chart.Localize =  null ;
-            Chart.Location =  new System.Drawing.Point( 82, 55 ) ;
+            Chart.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            Chart.BorderlineColor =  System.Drawing.Color.Transparent ;
+            Chart.BorderSkin.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            Chart.BorderSkin.BorderColor =  System.Drawing.Color.Transparent ;
+            Chart.BorderSkin.PageColor =  System.Drawing.Color.Transparent ;
+            chartArea1.Area3DStyle.Enable3D =  true ;
+            chartArea1.AxisX.InterlacedColor =  System.Drawing.Color.Transparent ;
+            chartArea1.AxisX.IsLabelAutoFit =  false ;
+            chartArea1.AxisX.LabelStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            chartArea1.AxisX.LabelStyle.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            chartArea1.AxisX.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisX.MajorGrid.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisX.MajorTickMark.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisX.MinorGrid.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisX.MinorTickMark.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisX.Title =  "Category Axis" ;
+            chartArea1.AxisX.TitleFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            chartArea1.AxisX.TitleForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            chartArea1.AxisY.IsLabelAutoFit =  false ;
+            chartArea1.AxisY.LabelStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            chartArea1.AxisY.LabelStyle.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            chartArea1.AxisY.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisY.MajorGrid.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisY.MajorTickMark.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisY.MinorGrid.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisY.MinorTickMark.LineColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            chartArea1.AxisY.Title =  "Value Axis" ;
+            chartArea1.AxisY.TitleFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            chartArea1.AxisY.TitleForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            chartArea1.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            chartArea1.BackSecondaryColor =  System.Drawing.Color.Transparent ;
+            chartArea1.BorderColor =  System.Drawing.Color.Transparent ;
+            chartArea1.Name =  "ChartArea1" ;
+            Chart.ChartAreas.Add( chartArea1 );
+            Chart.Dock =  System.Windows.Forms.DockStyle.Top ;
+            legend1.BackColor =  System.Drawing.Color.Transparent ;
+            legend1.BorderColor =  System.Drawing.Color.Transparent ;
+            legend1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            legend1.ForeColor =  System.Drawing.Color.LightSteelBlue ;
+            legend1.HeaderSeparatorColor =  System.Drawing.Color.Transparent ;
+            legend1.InterlacedRowsColor =  System.Drawing.Color.Transparent ;
+            legend1.IsTextAutoFit =  false ;
+            legend1.ItemColumnSeparatorColor =  System.Drawing.Color.Transparent ;
+            legend1.Name =  "Legend1" ;
+            legend1.TitleFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            Chart.Legends.Add( legend1 );
+            Chart.Location =  new System.Drawing.Point( 1, 1 ) ;
             Chart.Name =  "Chart" ;
-            Chart.PrimaryXAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
-            Chart.PrimaryXAxis.Margin =  true ;
-            Chart.PrimaryYAxis.LogLabelsDisplayMode =  Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default ;
-            Chart.PrimaryYAxis.Margin =  true ;
-            Chart.Size =  new System.Drawing.Size( 788, 431 ) ;
+            series1.ChartArea =  "ChartArea1" ;
+            series1.Legend =  "Legend1" ;
+            series1.Name =  "Series1" ;
+            Chart.Series.Add( series1 );
+            Chart.Size =  new System.Drawing.Size( 952, 542 ) ;
             Chart.TabIndex =  5 ;
-            // 
-            // 
-            // 
-            Chart.Title.Name =  "Default" ;
-            Chart.ToolBar.EnableDefaultItems =  false ;
-            Chart.ToolBar.Items.Add( chartToolBarSaveItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarCopyItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarPrintItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarPrintPreviewItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarSplitter1 );
-            Chart.ToolBar.Items.Add( chartToolBarPaletteItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarStyleItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarTypeItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarSeries3dItem1 );
-            Chart.ToolBar.Items.Add( chartToolBarShowLegendItem1 );
-            Chart.VisualTheme =  "" ;
+            Chart.Text =  "chart1" ;
+            title1.BackColor =  System.Drawing.Color.Transparent ;
+            title1.BackSecondaryColor =  System.Drawing.Color.Transparent ;
+            title1.BorderColor =  System.Drawing.Color.Transparent ;
+            title1.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            title1.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            title1.Name =  "Title1" ;
+            title1.Text =  "Chart Title" ;
+            Chart.Titles.Add( title1 );
             // 
             // DataMetricsTable
             // 
@@ -693,7 +719,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 110, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 106, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -1900,6 +1926,7 @@
             ShowMinimizeBox =  false ;
             StartPosition =  System.Windows.Forms.FormStartPosition.CenterScreen ;
             ChartPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize) Chart  ).EndInit( );
             DataMetricsTable.ResumeLayout( false );
             ChartSubTable.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
@@ -2021,6 +2048,6 @@
         public Label EightDataLabel;
         public Label NinthDataLabel;
         private Label label3;
-        public Syncfusion.Windows.Forms.Chart.ChartControl Chart;
+        public System.Windows.Forms.DataVisualization.Charting.Chart Chart;
     }
 }
