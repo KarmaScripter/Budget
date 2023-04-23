@@ -219,7 +219,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    var _chartDataForm = new ChartDataForm( );
                     _chartDataForm.Owner = this;
                     _chartDataForm.Show( );
                     Visible = false;
@@ -249,7 +249,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _excelDataForm = new ExcelDataForm( BindingSource );
+                    var _excelDataForm = new ExcelDataForm( );
                     _excelDataForm.Owner = this;
                     _excelDataForm.Show( );
                     Visible = false;
@@ -279,7 +279,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _dataGridForm = new DataGridForm( BindingSource );
+                    var _dataGridForm = new DataGridForm( );
                     _dataGridForm.Owner = this;
                     _dataGridForm.Show( );
                     Visible = false;

@@ -4,7 +4,6 @@
 
 namespace BudgetExecution
 {
-    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
@@ -19,23 +18,5 @@ namespace BudgetExecution
         /// The count.
         /// </value>
         int Count { get; }
-
-        /// <summary> Gets the empty. </summary>
-        /// <param name = "xIndex" > The xIndex. </param>
-        /// <returns> </returns>
-        bool GetEmpty( int xIndex );
-
-        /// <summary> Gets the x. </summary>
-        /// <param name = "xIndex" > The xIndex. </param>
-        /// <returns> </returns>
-        double GetX( int xIndex );
-
-        /// <summary> Gets the y. </summary>
-        /// <param name = "xIndex" > The xIndex. </param>
-        /// <returns> </returns>
-        double[ ] GetY( int xIndex );
-
-        /// <summary> Occurs when [changed]. </summary>
-        event ListChangedEventHandler Changed;
     }
 }

@@ -231,9 +231,8 @@
             chartArea1.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             chartArea1.BackSecondaryColor =  System.Drawing.Color.Transparent ;
             chartArea1.BorderColor =  System.Drawing.Color.Transparent ;
-            chartArea1.Name =  "ChartArea1" ;
+            chartArea1.Name =  "Area" ;
             Chart.ChartAreas.Add( chartArea1 );
-            Chart.Dock =  System.Windows.Forms.DockStyle.Top ;
             legend1.BackColor =  System.Drawing.Color.Transparent ;
             legend1.BorderColor =  System.Drawing.Color.Transparent ;
             legend1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
@@ -245,9 +244,9 @@
             legend1.Name =  "Legend1" ;
             legend1.TitleFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Chart.Legends.Add( legend1 );
-            Chart.Location =  new System.Drawing.Point( 1, 1 ) ;
+            Chart.Location =  new System.Drawing.Point( 62, 32 ) ;
             Chart.Name =  "Chart" ;
-            series1.ChartArea =  "ChartArea1" ;
+            series1.ChartArea =  "Area" ;
             series1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             series1.LabelBackColor =  System.Drawing.Color.Transparent ;
             series1.LabelBorderColor =  System.Drawing.Color.Transparent ;
@@ -255,7 +254,7 @@
             series1.Legend =  "Legend1" ;
             series1.Name =  "Series1" ;
             Chart.Series.Add( series1 );
-            Chart.Size =  new System.Drawing.Size( 952, 542 ) ;
+            Chart.Size =  new System.Drawing.Size( 845, 490 ) ;
             Chart.TabIndex =  5 ;
             Chart.Text =  "chart1" ;
             title1.BackColor =  System.Drawing.Color.Transparent ;
@@ -263,7 +262,7 @@
             title1.BorderColor =  System.Drawing.Color.Transparent ;
             title1.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             title1.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            title1.Name =  "Title1" ;
+            title1.Name =  "Title" ;
             title1.Text =  "Chart Title" ;
             Chart.Titles.Add( title1 );
             // 
@@ -723,7 +722,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 104, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 98, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
