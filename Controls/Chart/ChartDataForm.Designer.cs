@@ -248,6 +248,10 @@
             Chart.Location =  new System.Drawing.Point( 1, 1 ) ;
             Chart.Name =  "Chart" ;
             series1.ChartArea =  "ChartArea1" ;
+            series1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            series1.LabelBackColor =  System.Drawing.Color.Transparent ;
+            series1.LabelBorderColor =  System.Drawing.Color.Transparent ;
+            series1.LabelForeColor =  System.Drawing.Color.LightSteelBlue ;
             series1.Legend =  "Legend1" ;
             series1.Name =  "Series1" ;
             Chart.Series.Add( series1 );
@@ -719,7 +723,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 106, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 104, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 

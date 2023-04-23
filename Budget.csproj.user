@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="ChartControl.cs">
+    <Compile Update="Controls\Chart\ChartControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Binding\BindingBase.cs">
@@ -22,6 +22,9 @@
     <Compile Update="Controls\Calculator\CalculatorBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Chart\ChartDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\DataGrid\GridBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -39,12 +42,6 @@
     </Compile>
     <Compile Update="Controls\Carousel\WebSelector.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Chart\ChartDataForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Chart\Legend.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\CheckBox\CheckBox.cs">
       <SubType>Component</SubType>
