@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.HTMLUI;
@@ -17,7 +18,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class WebPage : MetroForm
     {
         /// <summary>
@@ -148,25 +149,160 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [back button clicked].
+        /// Opens the main form.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnBackButtonClicked( object sender, EventArgs e )
+        private void OpenMainForm( )
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.BackButton )
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
                 {
-                    if( Owner != null
-                       && Owner.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
+                    Owner.Visible = true;
+                    Visible = false;
+                }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
+        private void OpenDataGridForm( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                {
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
+                        ?.First( );
+
+                    _dataGridForm.Visible = true;
+                }
+                else
+                {
+                    var _dataGridForm = new DataGridForm( BindingSource );
+                    _dataGridForm.Owner = this;
+                    _dataGridForm.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the chart data form.
+        /// </summary>
+        private void OpenChartDataForm( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                {
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+
+                    _chartDataForm.Visible = true;
+                }
+                else
+                {
+                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.Owner = this;
+                    _chartDataForm.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the excel data form.
+        /// </summary>
+        private void OpenExcelDataForm( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                {
+                    var _excelDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
+                        ?.First( );
+
+                    _excelDataForm.Visible = true;
+                }
+                else
+                {
+                    var _excelDataForm = new ExcelDataForm( BindingSource );
+                    _excelDataForm.Owner = this;
+                    _excelDataForm.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false )
+                {
+                    Owner.Visible = true;
+                    Owner.Refresh( );
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false )
+                {
+                    Owner.Visible = true;
+                    Owner.Refresh( );
                     Close( );
                 }
             }
@@ -215,6 +351,10 @@ namespace BudgetExecution
         {
             try
             {
+                if( !Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Add( Name, this );
+                }
             }
             catch( Exception ex )
             {
@@ -231,6 +371,10 @@ namespace BudgetExecution
         {
             try
             {
+                if( Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Remove( Name );
+                }
             }
             catch( Exception ex )
             {

@@ -426,9 +426,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = new DataGridForm( BindingSource );
-                _form.Owner = this;
-                _form.Show( );
+                var _group = new FilterDialog( );
+                _group.ShowDialog( this );
             }
             catch( Exception ex )
             {
@@ -443,6 +442,8 @@ namespace BudgetExecution
         {
             try
             {
+                var _group = new FilterDialog( BindingSource );
+                _group.ShowDialog( this );
             }
             catch( Exception ex )
             {
@@ -451,12 +452,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Shows the group dialog.
+        /// Opens the main form.
         /// </summary>
-        private void ShowGroupDialog( )
+        private void OpenMainForm( )
         {
             try
             {
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
+                {
+                    Owner.Visible = true;
+                    Visible = false;
+                }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -471,9 +489,20 @@ namespace BudgetExecution
         {
             try
             {
-                var _data = new DataGridForm( BindingSource );
-                _data.Owner = this;
-                _data.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                {
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )?.First( );
+
+                    _dataGridForm.Visible = true;
+                }
+                else
+                {
+                    var _dataGridForm = new DataGridForm( BindingSource );
+                    _dataGridForm.Owner = this;
+                    _dataGridForm.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -488,9 +517,21 @@ namespace BudgetExecution
         {
             try
             {
-                var _chart = new ChartDataForm( BindingSource );
-                _chart.Owner = this;
-                _chart.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                {
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+
+                    _chartDataForm.Visible = true;
+                }
+                else
+                {
+                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.Owner = this;
+                    _chartDataForm.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -527,7 +568,6 @@ namespace BudgetExecution
             try
             {
                 OpenDataGridForm( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -545,7 +585,6 @@ namespace BudgetExecution
             try
             {
                 OpenChartDataForm( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -582,9 +621,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FilterDialog( );
-                _dialog.TabControl.SelectedIndex = 0;
-                _dialog.ShowDialog( this );
+                ShowTableDialog( );
             }
             catch( Exception ex )
             {
@@ -601,13 +638,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.RemoveFiltersButton )
-                {
-                    var _filter = new FilterDialog( Source, Provider );
-                    _filter.TabControl.SelectedIndex = 1;
-                    _filter.ShowDialog( this );
-                }
+                ShowFilterDialog( );
             }
             catch( Exception ex )
             {
@@ -638,6 +669,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [exit button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnExitButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Application.Exit( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [main menu button clicked].
         /// </summary>
@@ -749,6 +797,10 @@ namespace BudgetExecution
         {
             try
             {
+                if( !Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Add( Name, this );
+                }
             }
             catch( Exception ex )
             {
@@ -762,6 +814,32 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Remove( Name );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnGroupButtonClick( object sender, EventArgs e )
         {
             try
             {

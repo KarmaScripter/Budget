@@ -202,16 +202,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Shows the chart form.
+        /// Opens the chart data form.
         /// </summary>
         private void OpenChartDataForm( )
         {
             try
             {
-                var _chartForm = new ChartDataForm( );
-                _chartForm.Owner = this;
-                _chartForm.StartPosition = FormStartPosition.CenterScreen;
-                _chartForm.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                {
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+
+                    _chartDataForm.Visible = true;
+                }
+                else
+                {
+                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.Owner = this;
+                    _chartDataForm.Show( );
+                    Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -226,10 +238,22 @@ namespace BudgetExecution
         {
             try
             {
-                var _dataGridForm = new ExcelDataForm( );
-                _dataGridForm.Owner = this;
-                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
-                _dataGridForm.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                {
+                    var _excelDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
+                        ?.First( );
+
+                    _excelDataForm.Visible = true;
+                }
+                else
+                {
+                    var _excelDataForm = new ExcelDataForm( BindingSource );
+                    _excelDataForm.Owner = this;
+                    _excelDataForm.Show( );
+                    Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -244,10 +268,22 @@ namespace BudgetExecution
         {
             try
             {
-                var _dataGridForm = new DataGridForm( );
-                _dataGridForm.Owner = this;
-                _dataGridForm.StartPosition = FormStartPosition.CenterScreen;
-                _dataGridForm.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                {
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
+                        ?.First( );
+
+                    _dataGridForm.Visible = true;
+                }
+                else
+                {
+                    var _dataGridForm = new DataGridForm( BindingSource );
+                    _dataGridForm.Owner = this;
+                    _dataGridForm.Show( );
+                    Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -268,7 +304,6 @@ namespace BudgetExecution
             try
             {
                 OpenDataGridForm( );
-                Visible = false;
             }
             catch( Exception ex )
             {
@@ -289,7 +324,6 @@ namespace BudgetExecution
             try
             {
                 OpenChartDataForm( );
-                Visible = false;
             }
             catch( Exception ex )
             {

@@ -1124,6 +1124,7 @@ namespace BudgetExecution
                         && Owner.GetType( ) != typeof( MainForm ) )
                 {
                     var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     Owner.Close( );
                     Close( );
@@ -1142,10 +1143,20 @@ namespace BudgetExecution
         {
             try
             {
-                var _excel = new ExcelDataForm( BindingSource );
-                _excel.Owner = this;
-                _excel.Show( );
-                Visible = false;
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                {
+                    var _excelDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )?.First( );
+
+                    _excelDataForm.Visible = true;
+                }
+                else
+                {
+                    var _excelDataForm = new ExcelDataForm( BindingSource );
+                    _excelDataForm.Owner = this;
+                    _excelDataForm.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -1160,10 +1171,21 @@ namespace BudgetExecution
         {
             try
             {
-                var _data = new DataGridForm( BindingSource );
-                _data.Owner = this;
-                _data.Show( );
-                Visible = false;
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                {
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
+                        ?.First( );
+
+                    _dataGridForm.Visible = true;
+                }
+                else
+                {
+                    var _dataGridForm = new DataGridForm( BindingSource );
+                    _dataGridForm.Owner = this;
+                    _dataGridForm.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -1789,11 +1811,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.ExitButton )
-                {
-                    Close( );
-                }
+                Application.Exit( );
             }
             catch( Exception ex )
             {
@@ -2012,6 +2030,10 @@ namespace BudgetExecution
         {
             try
             {
+                if( !Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Add( Name, this );
+                }
             }
             catch( Exception ex )
             {
@@ -2028,13 +2050,17 @@ namespace BudgetExecution
         {
             try
             {
+                if( Program.Windows.ContainsKey( Name ) )
+                {
+                    Program.Windows.Remove( Name );
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

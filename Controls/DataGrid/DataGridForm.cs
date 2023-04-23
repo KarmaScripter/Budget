@@ -1181,6 +1181,7 @@ namespace BudgetExecution
                 {
                     Owner.Close( );
                     var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     Visible = false;
                 }
@@ -1198,9 +1199,21 @@ namespace BudgetExecution
         {
             try
             {
-                var _excel = new ExcelDataForm( BindingSource );
-                _excel.Owner = this;
-                _excel.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                {
+                    var _excelDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
+                        ?.First( );
+
+                    _excelDataForm.Visible = true;
+                }
+                else
+                {
+                    var _excelDataForm = new ExcelDataForm( BindingSource );
+                    _excelDataForm.Owner = this;
+                    _excelDataForm.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -1215,9 +1228,21 @@ namespace BudgetExecution
         {
             try
             {
-                var _chart = new ChartDataForm( Source, Provider );
-                _chart.Owner = this;
-                _chart.Show( );
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                {
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )
+                        ?.First( );
+
+                    _chartDataForm.Visible = true;
+                }
+                else
+                {
+                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.Owner = this;
+                    _chartDataForm.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -1880,11 +1905,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.ExitButton )
-                {
-                    Owner?.Close( );
-                }
+                Application.Exit( );
             }
             catch( Exception ex )
             {

@@ -32,10 +32,10 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
-            var pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
+            var messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
+            var pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( PdfForm ) );
-            var textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
+            var textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
             ToolTip =  new SmallTip( ) ;
             BindingSource =  new BindingSource( components ) ;
             toolSeparator1 =  new ToolSeparator( ) ;
@@ -48,7 +48,9 @@
             DocumentPanel =  new Layout( ) ;
             ButtonTable =  new TableLayoutPanel( ) ;
             CloseButtonTable =  new TableLayoutPanel( ) ;
+            MenuButton =  new Button( ) ;
             CloseButton =  new Button( ) ;
+            BackButton =  new Button( ) ;
             ComboBoxTable =  new TableLayoutPanel( ) ;
             ListBoxPanel =  new Layout( ) ;
             ListBox =  new ListBox( ) ;
@@ -117,17 +119,17 @@
             DocViewer.IsTextSearchEnabled =  true ;
             DocViewer.IsTextSelectionEnabled =  true ;
             DocViewer.Location =  new System.Drawing.Point( 1, 1 ) ;
-            messageBoxSettings2.EnableNotification =  true ;
-            DocViewer.MessageBoxSettings =  messageBoxSettings2 ;
+            messageBoxSettings1.EnableNotification =  true ;
+            DocViewer.MessageBoxSettings =  messageBoxSettings1 ;
             DocViewer.MinimumZoomPercentage =  50 ;
             DocViewer.Name =  "DocViewer" ;
             DocViewer.PageBorderThickness =  1 ;
-            pdfViewerPrinterSettings2.Copies =  1 ;
-            pdfViewerPrinterSettings2.PageOrientation =  Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto ;
-            pdfViewerPrinterSettings2.PageSize =  Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize ;
-            pdfViewerPrinterSettings2.PrintLocation =  (System.Drawing.PointF) resources.GetObject( "pdfViewerPrinterSettings2.PrintLocation" )  ;
-            pdfViewerPrinterSettings2.ShowPrintStatusDialog =  true ;
-            DocViewer.PrinterSettings =  pdfViewerPrinterSettings2 ;
+            pdfViewerPrinterSettings1.Copies =  1 ;
+            pdfViewerPrinterSettings1.PageOrientation =  Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto ;
+            pdfViewerPrinterSettings1.PageSize =  Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize ;
+            pdfViewerPrinterSettings1.PrintLocation =  (System.Drawing.PointF) resources.GetObject( "pdfViewerPrinterSettings1.PrintLocation" )  ;
+            pdfViewerPrinterSettings1.ShowPrintStatusDialog =  true ;
+            DocViewer.PrinterSettings =  pdfViewerPrinterSettings1 ;
             DocViewer.ReferencePath =  null ;
             DocViewer.ScrollDisplacementValue =  0 ;
             DocViewer.ShowHorizontalScrollBar =  true ;
@@ -137,10 +139,10 @@
             DocViewer.SpaceBetweenPages =  8 ;
             DocViewer.TabIndex =  2 ;
             DocViewer.Text =  "pdfViewerControl1" ;
-            textSearchSettings2.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
-            textSearchSettings2.HighlightAllInstance =  true ;
-            textSearchSettings2.OtherInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   254  ,   255  ,   0   ) ;
-            DocViewer.TextSearchSettings =  textSearchSettings2 ;
+            textSearchSettings1.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
+            textSearchSettings1.HighlightAllInstance =  true ;
+            textSearchSettings1.OtherInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   254  ,   255  ,   0   ) ;
+            DocViewer.TextSearchSettings =  textSearchSettings1 ;
             DocViewer.ThemeName =  "Office2016Black" ;
             DocViewer.UseWaitCursor =  true ;
             DocViewer.VerticalScrollOffset =  0 ;
@@ -259,12 +261,16 @@
             // 
             // CloseButtonTable
             // 
-            CloseButtonTable.ColumnCount =  3 ;
-            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 65.7894745F ) );
-            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 34.2105255F ) );
+            CloseButtonTable.ColumnCount =  4 ;
+            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
+            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
+            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 82F ) );
             CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 11F ) );
+            CloseButtonTable.Controls.Add( MenuButton, 2, 0 );
             CloseButtonTable.Controls.Add( CloseButton, 1, 0 );
+            CloseButtonTable.Controls.Add( BackButton, 0, 0 );
             CloseButtonTable.Dock =  DockStyle.Fill ;
+            CloseButtonTable.GrowStyle =  TableLayoutPanelGrowStyle.FixedSize ;
             CloseButtonTable.Location =  new System.Drawing.Point( 1057, 705 ) ;
             CloseButtonTable.Name =  "CloseButtonTable" ;
             CloseButtonTable.RowCount =  1 ;
@@ -272,6 +278,39 @@
             CloseButtonTable.Size =  new System.Drawing.Size( 278, 31 ) ;
             CloseButtonTable.TabIndex =  8 ;
             CloseButtonTable.UseWaitCursor =  true ;
+            // 
+            // MenuButton
+            // 
+            MenuButton.BindingSource =  null ;
+            MenuButton.DataFilter =  null ;
+            MenuButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            MenuButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            MenuButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            MenuButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            MenuButton.ForeColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            MenuButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            MenuButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            MenuButton.HoverText =  null ;
+            MenuButton.HoverTextColor =  System.Drawing.Color.White ;
+            MenuButton.IsDerivedStyle =  true ;
+            MenuButton.Location =  new System.Drawing.Point( 187, 3 ) ;
+            MenuButton.Name =  "MenuButton" ;
+            MenuButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            MenuButton.NormalColor =  System.Drawing.Color.Transparent ;
+            MenuButton.NormalTextColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            MenuButton.Padding =  new Padding( 1 ) ;
+            MenuButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            MenuButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            MenuButton.PressTextColor =  System.Drawing.Color.White ;
+            MenuButton.Size =  new System.Drawing.Size( 75, 25 ) ;
+            MenuButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            MenuButton.StyleManager =  null ;
+            MenuButton.TabIndex =  5 ;
+            MenuButton.Text =  "Home" ;
+            MenuButton.ThemeAuthor =  "Terry D. Eppler" ;
+            MenuButton.ThemeName =  "Budget Execution" ;
+            MenuButton.ToolTip =  null ;
+            MenuButton.UseWaitCursor =  true ;
             // 
             // CloseButton
             // 
@@ -281,22 +320,22 @@
             CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
             CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             CloseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 178, 3 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 95, 3 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
-            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            CloseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             CloseButton.Padding =  new Padding( 1 ) ;
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 82, 25 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 75, 25 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  3 ;
@@ -305,6 +344,39 @@
             CloseButton.ThemeName =  "Budget Execution" ;
             CloseButton.ToolTip =  null ;
             CloseButton.UseWaitCursor =  true ;
+            // 
+            // BackButton
+            // 
+            BackButton.BindingSource =  null ;
+            BackButton.DataFilter =  null ;
+            BackButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            BackButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            BackButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            BackButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            BackButton.ForeColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            BackButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            BackButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            BackButton.HoverText =  null ;
+            BackButton.HoverTextColor =  System.Drawing.Color.White ;
+            BackButton.IsDerivedStyle =  true ;
+            BackButton.Location =  new System.Drawing.Point( 3, 3 ) ;
+            BackButton.Name =  "BackButton" ;
+            BackButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
+            BackButton.NormalColor =  System.Drawing.Color.Transparent ;
+            BackButton.NormalTextColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            BackButton.Padding =  new Padding( 1 ) ;
+            BackButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BackButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            BackButton.PressTextColor =  System.Drawing.Color.White ;
+            BackButton.Size =  new System.Drawing.Size( 75, 25 ) ;
+            BackButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            BackButton.StyleManager =  null ;
+            BackButton.TabIndex =  4 ;
+            BackButton.Text =  "Back" ;
+            BackButton.ThemeAuthor =  "Terry D. Eppler" ;
+            BackButton.ThemeName =  "Budget Execution" ;
+            BackButton.ToolTip =  null ;
+            BackButton.UseWaitCursor =  true ;
             // 
             // ComboBoxTable
             // 
@@ -362,7 +434,7 @@
             ListBox.HoverText =  null ;
             ListBox.IsDerivedStyle =  true ;
             ListBox.ItemHeight =  28 ;
-            ListBox.Location =  new System.Drawing.Point( 18, 20 ) ;
+            ListBox.Location =  new System.Drawing.Point( 12, 20 ) ;
             ListBox.Margin =  new Padding( 1 ) ;
             ListBox.MultiSelect =  true ;
             ListBox.Name =  "ListBox" ;
@@ -375,7 +447,7 @@
             ListBox.SelectedValue =  null ;
             ListBox.ShowBorder =  false ;
             ListBox.ShowScrollBar =  false ;
-            ListBox.Size =  new System.Drawing.Size( 240, 622 ) ;
+            ListBox.Size =  new System.Drawing.Size( 246, 622 ) ;
             ListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             ListBox.StyleManager =  null ;
             ListBox.TabIndex =  0 ;
@@ -444,5 +516,7 @@
         private TableLayoutPanel ComboBoxTable;
         public Layout ListBoxPanel;
         public ListBox ListBox;
+        public Button MenuButton;
+        public Button BackButton;
     }
 }
