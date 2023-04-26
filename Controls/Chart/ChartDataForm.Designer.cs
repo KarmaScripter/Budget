@@ -241,17 +241,19 @@
             legend1.InterlacedRowsColor =  System.Drawing.Color.Transparent ;
             legend1.IsTextAutoFit =  false ;
             legend1.ItemColumnSeparatorColor =  System.Drawing.Color.Transparent ;
-            legend1.Name =  "Legend1" ;
+            legend1.Name =  "Legend" ;
             legend1.TitleFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             Chart.Legends.Add( legend1 );
             Chart.Location =  new System.Drawing.Point( 62, 32 ) ;
             Chart.Name =  "Chart" ;
             series1.ChartArea =  "Area" ;
             series1.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            series1.IsValueShownAsLabel =  true ;
             series1.LabelBackColor =  System.Drawing.Color.Transparent ;
             series1.LabelBorderColor =  System.Drawing.Color.Transparent ;
             series1.LabelForeColor =  System.Drawing.Color.LightSteelBlue ;
-            series1.Legend =  "Legend1" ;
+            series1.Legend =  "Legend" ;
+            series1.MarkerColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             series1.Name =  "Series1" ;
             Chart.Series.Add( series1 );
             Chart.Size =  new System.Drawing.Size( 845, 490 ) ;
@@ -722,7 +724,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 98, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 94, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 

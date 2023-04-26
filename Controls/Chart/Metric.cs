@@ -10,13 +10,15 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
+    using LinqStatistics;
 
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class MetricBase
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    public class Metric
     {
         /// <summary>
         /// Gets the source.
@@ -65,6 +67,22 @@ namespace BudgetExecution
         public double Average { get; set; }
 
         /// <summary>
+        /// Gets the variance.
+        /// </summary>
+        /// <value>
+        /// The variance.
+        /// </value>
+        public double Variance { get; set; }
+
+        /// <summary>
+        /// Gets the deviation.
+        /// </summary>
+        /// <value>
+        /// The deviation.
+        /// </value>
+        public double Deviation { get; set; }
+        
+        /// <summary>
         /// Gets or sets the categories.
         /// </summary>
         /// <value>
@@ -86,18 +104,26 @@ namespace BudgetExecution
         public IDictionary<string, double> Statistics { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetricBase"/> class.
+        /// Gets or sets the values.
         /// </summary>
-        protected MetricBase( )
+        /// <value>
+        /// The values.
+        /// </value>
+        public IDictionary<string, double> Values { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Metric"/> class.
+        /// </summary>
+        public Metric( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetricBase"/> class.
+        /// Initializes a new instance of the <see cref="Metric"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="numeric">The numeric.</param>
-        protected MetricBase( BindingSource bindingSource, Numeric numeric = Numeric.Amount )
+        public Metric( BindingSource bindingSource, Numeric numeric = Numeric.Amount )
         {
             Data = ( (DataTable)bindingSource.DataSource ).AsEnumerable( );
             TableName = ( (DataTable)bindingSource.DataSource ).TableName;
@@ -109,12 +135,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetricBase"/> class.
+        /// Initializes a new instance of the <see cref="Metric"/> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="where">The dictionary.</param>
         /// <param name="numeric">The numeric.</param>
-        protected MetricBase( BindingSource bindingSource, IDictionary<string, object> where,
+        public Metric( BindingSource bindingSource, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
         {
             Data = ( (DataTable)bindingSource.DataSource ).Select( where.ToCriteria( ) );
@@ -127,11 +153,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetricBase"/> class.
+        /// Initializes a new instance of the <see cref="Metric"/> class.
         /// </summary>
         /// <param name="dataTable">The data row.</param>
         /// <param name="numeric">The numeric.</param>
-        protected MetricBase( DataTable dataTable, Numeric numeric = Numeric.Amount )
+        public Metric( DataTable dataTable, Numeric numeric = Numeric.Amount )
         {
             Data = dataTable.AsEnumerable( );
             TableName = dataTable.TableName;
@@ -143,12 +169,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetricBase"/> class.
+        /// Initializes a new instance of the <see cref="Metric"/> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <param name="where">The dictionary.</param>
         /// <param name="numeric">The numeric.</param>
-        protected MetricBase( DataTable dataTable, IDictionary<string, object> where,
+        public Metric( DataTable dataTable, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
         {
             Data = dataTable.Select( where.ToCriteria( ) );
@@ -161,11 +187,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetricBase"/> class.
+        /// Initializes a new instance of the <see cref="Metric"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         /// <param name="numeric">The numeric.</param>
-        protected MetricBase( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
+        public Metric( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
         {
             Data = dataRow;
             TableName = dataRow.CopyToDataTable( ).TableName;
@@ -182,7 +208,7 @@ namespace BudgetExecution
         /// <param name="dataRow"></param>
         /// <param name="where"></param>
         /// <param name="numeric"></param>
-        protected MetricBase( IEnumerable<DataRow> dataRow, IDictionary<string, object> where,
+        public Metric( IEnumerable<DataRow> dataRow, IDictionary<string, object> where,
             Numeric numeric = Numeric.Amount )
         {
             Numeric = numeric;
@@ -321,7 +347,107 @@ namespace BudgetExecution
 
             return 0.0d;
         }
+        
+        /// <summary>
+        /// Calculates the deviation.
+        /// </summary>
+        /// <param name = "dataRow" >
+        /// The dataRow.
+        /// </param>
+        /// <param name = "numeric" >
+        /// The numeric.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public double CalculateDeviation( IEnumerable<DataRow> dataRow, Numeric numeric )
+        {
+            if( dataRow?.Any( ) == true
+               && dataRow.HasNumeric( )
+               && GetCount( dataRow, numeric ) > 30 )
+            {
+                try
+                {
+                    var _query = dataRow?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
+                        ?.StandardDeviation( p => p.Field<decimal>( $"{numeric}" ) );
 
+                    return _query > 0
+                        ? double.Parse( _query.ToString( ) )
+                        : 0.0d;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return 0.0d;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        /// Calculates the variance.
+        /// </summary>
+        /// <param name = "dataRow" >
+        /// The dataRow.
+        /// </param>
+        /// <param name = "numeric" >
+        /// The numeric.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        public double CalculateVariance( IEnumerable<DataRow> dataRow, Numeric numeric )
+        {
+            if( dataRow?.Any( ) == true
+               && dataRow.HasNumeric( )
+               && GetCount( dataRow, numeric ) > 30 )
+            {
+                var _table = dataRow.CopyToDataTable( );
+                try
+                {
+                    var _query = _table?.AsEnumerable( )
+                        ?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
+                        ?.Variance( p => p.Field<decimal>( $"{numeric}" ) );
+
+                    return _query > 0
+                        ? double.Parse( _query.ToString( ) )
+                        : 0.0d;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return 0.0d;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        /// Calculates the statistics.
+        /// </summary>
+        /// <returns></returns>
+        public IDictionary<string, double> CalculateStatistics( )
+        {
+            try
+            {
+                var _stats = new Dictionary<string, double>
+                {
+                    { "TOTAL", Total },
+                    { "COUNT", Count },
+                    { "AVERAGE", Average }
+                };
+
+                return _stats?.Any( ) == true
+                    ? _stats
+                    : default( IDictionary<string, double> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

@@ -84,14 +84,6 @@ namespace BudgetExecution
         /// The filter.
         /// </value>
         IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the metric.
-        /// </summary>
-        /// <value>
-        /// The metric.
-        /// </value>
-        DataMetric DataMetric { get; set; }
         
         /// <summary>
         /// Sets the points.

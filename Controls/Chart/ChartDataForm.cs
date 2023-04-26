@@ -357,7 +357,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
-                    SetChartTitle( );
+                    SetTitleText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
                     UpdateLabelText( );
@@ -673,7 +673,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the chart.
         /// </summary>
-        private void BindChartData( )
+        private void BindChart( )
         {
             if( SelectedFields?.Any( ) == true
                && SelectedNumerics?.Any( ) == true )
@@ -1240,11 +1240,16 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the chart title.
         /// </summary>
-        private void SetChartTitle( )
+        private void SetTitleText( )
         {
             try
             {
-                Chart.Titles[ 0 ].Text = DataTable.TableName.SplitPascal( );
+                var _text = DataTable?.TableName?.SplitPascal( );
+                if( !string.IsNullOrEmpty( _text ) )
+                {
+                    var _title = new Title( _text );
+                    Chart?.Titles?.Add( _title );
+                }
             }
             catch( Exception ex )
             {
@@ -1253,15 +1258,142 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the series.
+        /// Sets the chart properties.
         /// </summary>
-        protected void SetSeriesProperties( )
+        private void SetChartProperties( )
         {
             try
             {
-                var _count = Chart.Series.Count;
-                for( var i = 0; i < _count; i++ )
+                Chart.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ForeColor = Color.LightSteelBlue;
+                Chart.BorderlineColor = Color.Transparent;
+                Chart.BorderSkin.BackColor = Color.Transparent;
+                Chart.BorderSkin.PageColor = Color.Transparent; 
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the area properties.
+        /// </summary>
+        private void SetAreaProperties( )
+        {
+            try
+            {
+                if( Chart?.ChartAreas?.Count > 0 )
                 {
+                    var _black = Color.FromArgb( 20, 20, 20 );
+                    var _gray = Color.FromArgb( 65, 65, 65 );
+                    var _transparent = Color.Transparent; 
+                    var _blue = Color.FromArgb( 0, 120, 212 );
+                    for( var i = 0; i < Chart.ChartAreas.Count; i++ )
+                    {
+                        // General Area Properties
+                        Chart.ChartAreas[ i ].BackColor = _black;
+                        Chart.ChartAreas[ i ].Area3DStyle.Enable3D = true;
+                        Chart.ChartAreas[ i ].BorderColor = _transparent;
+                        Chart.ChartAreas[ i ].BackSecondaryColor = _transparent;
+                        
+                        // Horizontal Axis Properties
+                        Chart.ChartAreas[ i ].AxisX.InterlacedColor = _transparent;
+                        Chart.ChartAreas[ i ].AxisX.LineColor = _gray;
+                        Chart.ChartAreas[ i ].AxisX.TitleFont = new Font( "Roboto", 10 );
+                        Chart.ChartAreas[ i ].AxisX.TitleForeColor = _blue;
+                        Chart.ChartAreas[ i ].AxisX.LabelStyle.Font = new Font( "Roboto", 8 );
+                        Chart.ChartAreas[ i ].AxisX.LabelStyle.ForeColor = _blue;
+                        Chart.ChartAreas[ i ].AxisX.MajorGrid.LineColor = _gray;
+                        Chart.ChartAreas[ i ].AxisX.MinorGrid.LineColor = _gray;
+                        
+                        // Vertical Axis Properties
+                        Chart.ChartAreas[ i ].AxisY.InterlacedColor = _transparent;
+                        Chart.ChartAreas[ i ].AxisY.LineColor = _gray;
+                        Chart.ChartAreas[ i ].AxisY.TitleFont = new Font( "Roboto", 10 );
+                        Chart.ChartAreas[ i ].AxisY.TitleForeColor = _blue;
+                        Chart.ChartAreas[ i ].AxisY.LabelStyle.Font = new Font( "Roboto", 8 );
+                        Chart.ChartAreas[ i ].AxisY.LabelStyle.ForeColor = _blue;
+                        Chart.ChartAreas[ i ].AxisY.MajorGrid.LineColor = _gray;
+                        Chart.ChartAreas[ i ].AxisY.MinorGrid.LineColor = _gray;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the title properties.
+        /// </summary>
+        private void SetTitleProperties( )
+        {
+            try
+            {
+                if( Chart?.Titles?.Count > 0 )
+                {
+                    for( var i = 0; i < Chart.Titles.Count; i++ )
+                    {
+                        Chart.Titles[ i ].Font = new Font( "Roboto", 12 );
+                        Chart.Titles[ i ].BackColor = Color.Transparent;
+                        Chart.Titles[ i ].BorderColor = Color.Transparent;
+                        Chart.Titles[ i ].ForeColor = Color.FromArgb( 0, 120, 212 );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the legend properties.
+        /// </summary>
+        private void SetLegendProperties( )
+        {
+            try
+            {
+                if( Chart.Legends.Count > 0 )
+                {
+                    for( var i = 0; i < Chart.Legends.Count; i++ )
+                    {
+                        Chart.Legends[ i ].HeaderSeparatorColor = Color.Transparent;
+                        Chart.Legends[ i ].ItemColumnSeparatorColor = Color.Transparent;
+                        Chart.Legends[ i ].BorderColor = Color.Transparent;
+                        Chart.Legends[ i ].TitleFont = new Font( "Roboto", 8 );
+                        Chart.Legends[ i ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
+                        Chart.Legends[ i ].TitleBackColor = Color.Transparent;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Initializes the series.
+        /// </summary>
+        private void SetSeriesProperties( )
+        {
+            try
+            {
+                if( Chart.Series.Count > 0 )
+                {
+                    for( var i = 0; i < Chart.Series.Count; i++ )
+                    {
+                        Chart.Series[ i ].ChartType = SeriesChartType.Column;
+                        Chart.Series[ i ].LabelBorderColor = Color.Transparent;
+                        Chart.Series[ i ].LabelBackColor = Color.Transparent;
+                        Chart.Series[ i ].LabelForeColor = Color.LightSteelBlue;
+                        Chart.Series[ i ].Font = new Font( "Roboto", 8 );
+                        Chart.Series[ i ].XValueType = ChartValueType.Auto;
+                        Chart.Series[ i ].YValueType = ChartValueType.Auto;
+                    }
                 }
             }
             catch( Exception ex )
