@@ -342,6 +342,11 @@ namespace BudgetExecution
                 FieldListBox.MultiSelect = true;
                 Text = string.Empty;
                 ToolStrip.Visible = true;
+                SetChartProperties( );
+                SetAreaProperties( );
+                SetLegendProperties( );
+                SetTitleProperties( );
+                SetSeriesProperties( );
                 if( string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 0;
@@ -1266,9 +1271,9 @@ namespace BudgetExecution
             {
                 Chart.BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.ForeColor = Color.LightSteelBlue;
-                Chart.BorderlineColor = Color.Transparent;
-                Chart.BorderSkin.BackColor = Color.Transparent;
-                Chart.BorderSkin.PageColor = Color.Transparent; 
+                Chart.BorderlineColor = Color.FromArgb( 20, 20, 20 );
+                Chart.BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
             }
             catch( Exception ex )
             {
@@ -1287,7 +1292,7 @@ namespace BudgetExecution
                 {
                     var _black = Color.FromArgb( 20, 20, 20 );
                     var _gray = Color.FromArgb( 65, 65, 65 );
-                    var _transparent = Color.Transparent; 
+                    var _transparent = Color.Transparent;
                     var _blue = Color.FromArgb( 0, 120, 212 );
                     for( var i = 0; i < Chart.ChartAreas.Count; i++ )
                     {
@@ -1296,8 +1301,9 @@ namespace BudgetExecution
                         Chart.ChartAreas[ i ].Area3DStyle.Enable3D = true;
                         Chart.ChartAreas[ i ].BorderColor = _transparent;
                         Chart.ChartAreas[ i ].BackSecondaryColor = _transparent;
-                        
+
                         // Horizontal Axis Properties
+                        Chart.ChartAreas[ i ].AxisX.Name = "Category";
                         Chart.ChartAreas[ i ].AxisX.InterlacedColor = _transparent;
                         Chart.ChartAreas[ i ].AxisX.LineColor = _gray;
                         Chart.ChartAreas[ i ].AxisX.TitleFont = new Font( "Roboto", 10 );
@@ -1306,8 +1312,11 @@ namespace BudgetExecution
                         Chart.ChartAreas[ i ].AxisX.LabelStyle.ForeColor = _blue;
                         Chart.ChartAreas[ i ].AxisX.MajorGrid.LineColor = _gray;
                         Chart.ChartAreas[ i ].AxisX.MinorGrid.LineColor = _gray;
-                        
+                        Chart.ChartAreas[ i ].AxisX.TextOrientation = TextOrientation.Auto;
+                        Chart.ChartAreas[ i ].AxisX.IsLabelAutoFit = true;
+
                         // Vertical Axis Properties
+                        Chart.ChartAreas[ i ].AxisY.Name = "Value";
                         Chart.ChartAreas[ i ].AxisY.InterlacedColor = _transparent;
                         Chart.ChartAreas[ i ].AxisY.LineColor = _gray;
                         Chart.ChartAreas[ i ].AxisY.TitleFont = new Font( "Roboto", 10 );
@@ -1316,6 +1325,8 @@ namespace BudgetExecution
                         Chart.ChartAreas[ i ].AxisY.LabelStyle.ForeColor = _blue;
                         Chart.ChartAreas[ i ].AxisY.MajorGrid.LineColor = _gray;
                         Chart.ChartAreas[ i ].AxisY.MinorGrid.LineColor = _gray;
+                        Chart.ChartAreas[ i ].AxisY.TextOrientation = TextOrientation.Auto;
+                        Chart.ChartAreas[ i ].AxisY.IsLabelAutoFit = true;
                     }
                 }
             }
@@ -1337,8 +1348,8 @@ namespace BudgetExecution
                     for( var i = 0; i < Chart.Titles.Count; i++ )
                     {
                         Chart.Titles[ i ].Font = new Font( "Roboto", 12 );
-                        Chart.Titles[ i ].BackColor = Color.Transparent;
-                        Chart.Titles[ i ].BorderColor = Color.Transparent;
+                        Chart.Titles[ i ].BackColor = Color.FromArgb( 20, 20, 20 );
+                        Chart.Titles[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
                         Chart.Titles[ i ].ForeColor = Color.FromArgb( 0, 120, 212 );
                     }
                 }
@@ -1360,12 +1371,12 @@ namespace BudgetExecution
                 {
                     for( var i = 0; i < Chart.Legends.Count; i++ )
                     {
-                        Chart.Legends[ i ].HeaderSeparatorColor = Color.Transparent;
-                        Chart.Legends[ i ].ItemColumnSeparatorColor = Color.Transparent;
-                        Chart.Legends[ i ].BorderColor = Color.Transparent;
+                        Chart.Legends[ i ].HeaderSeparatorColor = Color.FromArgb( 20, 20, 20 );
+                        Chart.Legends[ i ].ItemColumnSeparatorColor = Color.FromArgb( 20, 20, 20 );
+                        Chart.Legends[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
                         Chart.Legends[ i ].TitleFont = new Font( "Roboto", 8 );
                         Chart.Legends[ i ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
-                        Chart.Legends[ i ].TitleBackColor = Color.Transparent;
+                        Chart.Legends[ i ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
                     }
                 }
             }
@@ -1374,7 +1385,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Initializes the series.
         /// </summary>
@@ -1387,8 +1398,8 @@ namespace BudgetExecution
                     for( var i = 0; i < Chart.Series.Count; i++ )
                     {
                         Chart.Series[ i ].ChartType = SeriesChartType.Column;
-                        Chart.Series[ i ].LabelBorderColor = Color.Transparent;
-                        Chart.Series[ i ].LabelBackColor = Color.Transparent;
+                        Chart.Series[ i ].LabelBorderColor = Color.FromArgb( 20, 20, 20 );
+                        Chart.Series[ i ].LabelBackColor = Color.FromArgb( 20, 20, 20 );
                         Chart.Series[ i ].LabelForeColor = Color.LightSteelBlue;
                         Chart.Series[ i ].Font = new Font( "Roboto", 8 );
                         Chart.Series[ i ].XValueType = ChartValueType.Auto;
