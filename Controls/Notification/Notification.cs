@@ -179,7 +179,7 @@ namespace BudgetExecution
         {
             try
             {
-                Location = new Point( PrimaryScreen.WorkingArea.Width - Width - 5,
+                Location = new System.Drawing.Point( PrimaryScreen.WorkingArea.Width - Width - 5,
                     PrimaryScreen.WorkingArea.Height - Height - 5 );
 
                 FadeIn( );

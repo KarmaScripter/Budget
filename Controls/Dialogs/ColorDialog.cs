@@ -47,7 +47,7 @@ namespace BudgetExecution
             ColorPicker.BackColor = Color.FromArgb( 20, 20, 20 );
             ColorPicker.VisualStyle = ColorUIStyle.Office2016Black;
             ColorPicker.Size = new Size( 246, 284 );
-            ColorPicker.Location = new Point( 34, 16 );
+            ColorPicker.Location = new System.Drawing.Point( 34, 16 );
 
             // Wire Events
             Load += OnLoad;

@@ -49,7 +49,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public ListView( Size size, Point location )
+        public ListView( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public ListView( Size size, Point location, Control parent )
+        public ListView( Size size, System.Drawing.Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         /// <param name="text">The text.</param>
-        public ListView( Size size, Point location, Control parent,
+        public ListView( Size size, System.Drawing.Point location, Control parent,
             string text )
             : this( size, location, parent )
         {
@@ -107,7 +107,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         /// <param name="bindingSource">The binding source.</param>
-        public ListView( Size size, Point location, Control parent,
+        public ListView( Size size, System.Drawing.Point location, Control parent,
             BindingSource bindingSource )
             : this( size, location, parent )
         {

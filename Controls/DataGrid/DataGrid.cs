@@ -137,7 +137,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public DataGrid( Size size, Point location )
+        public DataGrid( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;
@@ -161,7 +161,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public DataGrid( Size size, Point location, Control parent )
+        public DataGrid( Size size, System.Drawing.Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
@@ -299,7 +299,7 @@ namespace BudgetExecution
                 try
                 {
                     var _columnConfiguration = new ColumnConfiguration( this );
-                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
+                    _columnConfiguration.Location = PointToScreen( new System.Drawing.Point( e.X, e.Y ) );
                     _columnConfiguration.ColumnListBox?.Items?.Clear( );
                     for( var _i = 0; _i < Columns.Count; _i++ )
                     {

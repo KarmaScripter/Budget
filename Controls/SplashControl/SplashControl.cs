@@ -86,7 +86,7 @@ namespace BudgetExecution
             AnimationSteps = 3;
             AnimationDirection = AnimationDirection.Default;
             DesktopAlignment = SplashAlignment.Center;
-            DiscreetLocation = new Point( 0, 0 );
+            DiscreetLocation = new System.Drawing.Point( 0, 0 );
             SuspendAutoCloseWhenMouseOver = false;
             TabIndex = 0;
             TimerInterval = 5000;

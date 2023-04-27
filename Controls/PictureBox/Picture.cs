@@ -63,7 +63,7 @@ namespace BudgetExecution
         {
             Size = new Size( 60, 40 );
             Anchor = AnchorStyles.Left | AnchorStyles.Top;
-            Location = new Point( 1, 1 );
+            Location = new System.Drawing.Point( 1, 1 );
             BackColor = Color.Transparent;
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -77,7 +77,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public Picture( Size size, Point location )
+        public Picture( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;

@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public RichTextBox( Size size, Point location )
+        public RichTextBox( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;
@@ -96,7 +96,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public RichTextBox( Point location, Control parent = null )
+        public RichTextBox( System.Drawing.Point location, Control parent = null )
             : this( )
         {
             Location = location;
@@ -135,7 +135,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public RichTextBox( Size size, Point location, Control parent )
+        public RichTextBox( Size size, System.Drawing.Point location, Control parent )
             : this( )
         {
             Size = size;

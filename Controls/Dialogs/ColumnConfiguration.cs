@@ -145,7 +145,7 @@ namespace BudgetExecution
                     var _columnConfiguration = new ColumnConfiguration( Grid );
                     if( Grid != null )
                     {
-                        _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
+                        _columnConfiguration.Location = Grid.PointToScreen( new System.Drawing.Point( e.X, e.Y ) );
                     }
 
                     _columnConfiguration?.ShowDialog( );

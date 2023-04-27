@@ -85,7 +85,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Location = new Point( x, y );
+                    Location = new System.Drawing.Point( x, y );
                 }
                 catch( Exception ex )
                 {

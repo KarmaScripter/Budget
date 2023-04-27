@@ -276,14 +276,14 @@ namespace BudgetExecution
                     {
                         case >= 43:
                         case < 43 and >= 35:
-                            FrameTable.Location = new Point( 12, 25 );
+                            FrameTable.Location = new System.Drawing.Point( 12, 25 );
                             break;
                         case < 35 and >= 28:
                         case < 28 and >= 21:
                         case < 21 and >= 14:
                         case < 14 and > 7:
                         case <= 7:
-                            FrameTable.Location = new Point( 12, 81 );
+                            FrameTable.Location = new System.Drawing.Point( 12, 81 );
                             break;
                     }
                 }

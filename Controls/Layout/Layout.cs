@@ -69,7 +69,7 @@ namespace BudgetExecution
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
             Size = new Size( 700, 428 );
-            Location = new Point( 1, 1 );
+            Location = new System.Drawing.Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public Layout( Size size, Point location )
+        public Layout( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;
@@ -106,7 +106,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public Layout( Size size, Point location, Control parent )
+        public Layout( Size size, System.Drawing.Point location, Control parent )
             : this( size, location )
         {
             Size = new Size( size.Width, size.Height );

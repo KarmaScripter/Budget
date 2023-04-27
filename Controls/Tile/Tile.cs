@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="size">The size.</param>
         /// <param name="type">The type.</param>
-        public Tile( Point location, Size size, HubTileType type = HubTileType.DefaultTile )
+        public Tile( System.Drawing.Point location, Size size, HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
             Size = size;

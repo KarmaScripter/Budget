@@ -106,7 +106,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public Button( Size size, Point location )
+        public Button( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;
@@ -121,7 +121,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public Button( Size size, Point location, Control parent )
+        public Button( Size size, System.Drawing.Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
@@ -136,7 +136,7 @@ namespace BudgetExecution
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
         /// <param name="text">The text.</param>
-        public Button( Size size, Point location, Control parent,
+        public Button( Size size, System.Drawing.Point location, Control parent,
             string text )
             : this( size, location, parent )
         {
@@ -228,7 +228,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Location = new Point( x, y  );
+                    Location = new System.Drawing.Point( x, y  );
                 }
                 catch( Exception ex )
                 {

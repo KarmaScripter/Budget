@@ -96,7 +96,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
-        public ListBox( Size size, Point location )
+        public ListBox( Size size, System.Drawing.Point location )
             : this( )
         {
             Size = size;
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public ListBox( Point location, Control parent = null )
+        public ListBox( System.Drawing.Point location, Control parent = null )
             : this( )
         {
             Location = location;
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         /// <param name="location">The location.</param>
         /// <param name="parent">The parent.</param>
-        public ListBox( Size size, Point location, Control parent )
+        public ListBox( Size size, System.Drawing.Point location, Control parent )
             : this( )
         {
             Size = size;

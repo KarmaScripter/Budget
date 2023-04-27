@@ -647,19 +647,19 @@ namespace BudgetExecution
                     var _rows = _data.ToArray( );
                     var _numerics = numerics.ToArray( );
                     double _xaxis = 0;
-                    foreach( var row in _data )
+                    foreach( var r in _data )
                     {
-                        _xaxis += 1;
                         var _values = new List<double>( );
-                        for( var i = 0; i < _numerics?.Length; i++ )
+                        for( var n = 0; n < _numerics?.Length; n++ )
                         {
-                            var _name = _numerics[ i ];
-                            var _col = row[ _name ].ToString( );
+                            var _name = _numerics[ n ];
+                            var _col = r[ _name ].ToString( );
                             var _val = double.Parse( _col );
                             _values.Add( _val );
                         }
 
                         var _yaxis = _values?.ToArray( );
+                        _xaxis += 1;
                         Chart.Series[ 0 ]?.Points?.AddXY( _xaxis, _yaxis );
                     }
 
@@ -718,7 +718,8 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        SelectedTable = string.Empty;
+                        ClearSelections( );
+                        ClearCollections( );
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1086,7 +1087,8 @@ namespace BudgetExecution
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
                     var _excelDataForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )?.First( );
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
+                        ?.First( );
 
                     _excelDataForm.Visible = true;
                 }
@@ -1111,7 +1113,7 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true ) 
                 {
                     var _dataGridForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
@@ -1143,7 +1145,7 @@ namespace BudgetExecution
                 {
                     FormFilter.Clear( );
                 }
-
+                
                 FourthCategory = string.Empty;
                 FourthValue = string.Empty;
                 ThirdCategory = string.Empty;
@@ -1303,7 +1305,6 @@ namespace BudgetExecution
                         Chart.ChartAreas[ i ].BackSecondaryColor = _transparent;
 
                         // Horizontal Axis Properties
-                        Chart.ChartAreas[ i ].AxisX.Name = "Category";
                         Chart.ChartAreas[ i ].AxisX.InterlacedColor = _transparent;
                         Chart.ChartAreas[ i ].AxisX.LineColor = _gray;
                         Chart.ChartAreas[ i ].AxisX.TitleFont = new Font( "Roboto", 10 );
@@ -1316,7 +1317,6 @@ namespace BudgetExecution
                         Chart.ChartAreas[ i ].AxisX.IsLabelAutoFit = true;
 
                         // Vertical Axis Properties
-                        Chart.ChartAreas[ i ].AxisY.Name = "Value";
                         Chart.ChartAreas[ i ].AxisY.InterlacedColor = _transparent;
                         Chart.ChartAreas[ i ].AxisY.LineColor = _gray;
                         Chart.ChartAreas[ i ].AxisY.TitleFont = new Font( "Roboto", 10 );
@@ -1689,7 +1689,6 @@ namespace BudgetExecution
         {
             try
             {
-                ResetLabelText( );
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -1697,10 +1696,10 @@ namespace BudgetExecution
                     SelectedColumns.Add( _selectedItem );
                 }
 
-                UpdateLabelText( );
                 SqlQuery = CreateSqlText( SelectedColumns, FormFilter );
                 SqlHeader.Text = SqlQuery;
                 ResetData( SelectedColumns, FormFilter );
+                UpdateLabelText( );
             }
             catch( Exception ex )
             {
