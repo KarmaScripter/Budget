@@ -71,7 +71,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        ///     A T extension method to determines whether the object is equal to any of the provided values.
+        ///    
         /// </summary>
         /// <param name = "text" > </param>
         /// <param name="values">The value list to compare with the object.</param>
@@ -213,7 +213,7 @@ namespace BudgetExecution
         /// <returns>
         /// The <see cref = "MemoryStream"/>
         /// </returns>
-        public static MemoryStream GetMemoryStream( this string text )
+        public static MemoryStream ToMemoryStream( this string text )
         {
             try
             {
@@ -266,14 +266,14 @@ namespace BudgetExecution
         /// <summary>
         ///     A string extension method that converts the str to an XmlDocument.
         /// </summary>
-        /// <param name = "text" > </param>
+        /// <param name = "xml" > </param>
         /// <returns>str as an XmlDocument.</returns>
-        public static XmlDocument ToXmlDocument( this string text )
+        public static XmlDocument ToXmlDocument( this string xml )
         {
             try
             {
                 var _document = new XmlDocument( );
-                _document.LoadXml( text );
+                _document.LoadXml( xml );
                 return _document;
             }
             catch( Exception ex )
@@ -359,18 +359,18 @@ namespace BudgetExecution
         /// <param name = "text" >
         /// The complete file path to write to.
         /// </param>
-        /// <param name = "file" >
+        /// <param name = "path" >
         /// A String containing text to be written to the file.
         /// </param>
-        public static void WriteToFile( this string text, string file )
+        public static void WriteToFile( this string text, string path )
         {
             if( !string.IsNullOrEmpty( text )
-               && !string.IsNullOrEmpty( file ) )
+               && !string.IsNullOrEmpty( path ) )
             {
                 try
                 {
                     using var _writer = new StreamWriter( text, false );
-                    _writer.Write( file );
+                    _writer.Write( path );
                 }
                 catch( Exception ex )
                 {

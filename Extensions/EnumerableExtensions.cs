@@ -46,12 +46,9 @@ namespace BudgetExecution
                         {
                             return true;
                         }
-                        else
-                        {
-                            return false;
-                        }
                     }
                     
+                    return false;
                 }
                 catch( Exception ex )
                 {
@@ -111,8 +108,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static IEnumerable<int> GetPrimaryKeyValues( this IEnumerable<DataRow> dataRow )
         {
-            if( dataRow?.Any( ) == true
-               && dataRow.HasPrimaryKey( ) )
+            if( dataRow?.Any( ) == true )
             {
                 try
                 {
@@ -121,7 +117,7 @@ namespace BudgetExecution
                     {
                         if( _row?.ItemArray[ 0 ] != null )
                         {
-                            var _item = _row.ItemArray[ 0 ].ToString( ) ?? string.Empty;
+                            var _item = _row.ItemArray[ 0 ].ToString( );
                             _list?.Add( int.Parse( _item ) );
                         }
                     }

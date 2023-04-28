@@ -236,7 +236,7 @@ namespace BudgetExecution
                         + $" WHERE SchemaTypes.Database = '{ provider }'";
 
                     var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
-                    var _data = _model.DataTable.GetUniqueFieldValues( "TypeName" );
+                    var _data = _model.DataTable.GetUniqueColumnValues( "TypeName" );
                     return _data?.Length > 0
                         ? _data
                         : default( IEnumerable<string> );

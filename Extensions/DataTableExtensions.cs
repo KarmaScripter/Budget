@@ -22,12 +22,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public static class DataTableExtensions
     {
         /// <summary>
         /// The connection string
         /// </summary>
-        public static readonly ConnectionStringSettingsCollection ConnectionString =
+        public static readonly ConnectionStringSettingsCollection Connection =
             ConfigurationManager.ConnectionStrings;
 
         /// <summary>
@@ -145,7 +147,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connectionString = ConnectionString[ "Excel" ].ConnectionString;
+                    var _connectionString = Connection[ "Excel" ].ConnectionString;
                     var _sql = "SELECT * FROM [" + sheetName + "$]";
                     using var _adapter = new OleDbDataAdapter( _sql, _connectionString );
                     var _table = new DataTable( );
@@ -175,18 +177,19 @@ namespace BudgetExecution
         {
             try
             {
-                if( dataTable?.Rows?.Count > 0
-                   && dataTable.Columns?.Count > 0 )
+                if( dataTable?.Rows?.Count > 0 )
                 {
-                    var _names = Enum.GetNames( typeof( Numeric ) );
-                    foreach( DataColumn _column in dataTable.Columns )
+                    foreach( DataColumn col in dataTable.Columns )
                     {
-                        if( !string.IsNullOrEmpty( _column.ColumnName )
-                           && _names?.Contains( _column?.ColumnName ) == true )
+                        if( col?.Ordinal > 0
+                           && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
+                           | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
                         {
                             return true;
                         }
                     }
+                    
+                    return false;
                 }
 
                 return false;
@@ -212,10 +215,10 @@ namespace BudgetExecution
                 if( dataTable?.Rows?.Count > 0
                    && dataTable.Columns?.Count > 0 )
                 {
-                    var _names = Enum.GetNames( typeof( PrimaryKey ) );
-                    foreach( DataColumn _column in dataTable.Columns )
+                    foreach( DataColumn col in dataTable.Columns )
                     {
-                        if( _names?.Contains( _column?.ColumnName ) == true )
+                        if( col.Ordinal == 0 
+                           && col.DataType == typeof( int ) | col.DataType == typeof( double ) )
                         {
                             return true;
                         }
@@ -244,26 +247,26 @@ namespace BudgetExecution
                    && dataTable.Columns?.Count > 0 )
                 {
                     var _list = new List<int>( );
-                    foreach( var _row in dataTable.AsEnumerable( ) )
+                    for( var i = 0; i < dataTable.Rows.Count; i++ )
                     {
-                        if( _row?.HasPrimaryKey( ) == true
-                           && _row[ 0 ] != null )
-                        {
-                            _list.Add( int.Parse( _row[ 0 ].ToString( ) ) );
-                        }
+                        DataRow row = dataTable.Rows[ i ];
+                        var _item = row?.ItemArray[ 0 ];
+                        var _value = _item?.ToString( );
+                        var _index = int.Parse( _value );
+                        _list.Add( _index );
                     }
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( IEnumerable<int> );
                 }
 
-                return default;
+                return default( IEnumerable<int> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<int> );
             }
         }
 
@@ -271,44 +274,44 @@ namespace BudgetExecution
         /// Gets the primary key values.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        /// <param name="dict">The dictionary.</param>
+        /// <param name="where">The dictionary.</param>
         /// <returns></returns>
         public static IEnumerable<int> GetPrimaryKeyValues( this DataTable dataTable,
-            IDictionary<string, object> dict )
+            IDictionary<string, object> where )
         {
             try
             {
                 if( dataTable?.Rows?.Count > 0
-                   && dict?.Any( ) == true )
+                   && where?.Any( ) == true )
                 {
                     var _list = new List<int>( );
-                    var _criteria = dict.ToCriteria( );
+                    var _criteria = where.ToCriteria( );
                     if( !string.IsNullOrEmpty( _criteria ) )
                     {
-                        var _dataRows = dataTable.Select( _criteria );
-                        if( _dataRows?.Any( ) == true )
+                        var _filtered = dataTable.Select( _criteria );
+                        if( _filtered?.Any( ) == true )
                         {
-                            foreach( var row in _dataRows )
+                            foreach( var row in _filtered )
                             {
-                                if( row?.HasPrimaryKey( ) == true )
-                                {
-                                    _list.Add( int.Parse( row[ 0 ].ToString( ) ) );
-                                }
+                                var _item = row?.ItemArray[ 0 ];
+                                var _value = _item?.ToString( );
+                                var _index = int.Parse( _value );
+                                _list.Add( _index );
                             }
                         }
                     }
 
                     return ( _list?.Any( ) == true )
                         ? _list
-                        : default;
+                        : default( IEnumerable<int> );
                 }
 
-                return default;
+                return default( IEnumerable<int> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<int> );
             }
         }
 
@@ -318,29 +321,30 @@ namespace BudgetExecution
         /// <param name="dataTable">The dataTable.</param>
         /// <param name="columnName">The column.</param>
         /// <returns></returns>
-        public static string[ ] GetUniqueFieldValues( this DataTable dataTable, string columnName )
+        public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName )
         {
             if( !string.IsNullOrEmpty( columnName )
                && dataTable?.Columns?.Contains( columnName ) == true )
             {
                 try
                 {
-                    var _enumerable = dataTable?.AsEnumerable( )
+                    var _enumerable = dataTable
+                        ?.AsEnumerable( )
                         ?.Select( p => p.Field<string>( columnName ) )
                         ?.Distinct( );
                     
                     return ( _enumerable?.Any( ) == true )
                         ? _enumerable?.ToArray( )
-                        : default;
+                        : default( string[ ] );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( string[ ] );
                 }
             }
 
-            return default;
+            return default( string[ ] );
         }
 
         /// <summary>
@@ -368,11 +372,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -397,12 +401,12 @@ namespace BudgetExecution
                 
                 return ( _names?.Any( ) == true )
                     ? _names
-                    : default;
+                    : default( string[ ] );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string[ ] );
             }
         }
 
@@ -428,10 +432,34 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, int> );
             }
         }
-
+        
+        /// <summary>
+        /// Removes a DataColumn from the table
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="columnName">The column name.</param>
+        public static void RemoveColumn(this DataTable dataTable, string columnName)
+        {
+            if (dataTable != null 
+                && !string.IsNullOrEmpty(columnName) 
+                && dataTable.Columns.Contains( columnName ) )
+            {
+                try
+                {
+                    int _index = dataTable.Columns.IndexOf( columnName );
+                    dataTable.Columns.RemoveAt( _index );
+                    dataTable.AcceptChanges( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+        
         /// <summary>
         /// Converts to bindinglist.
         /// </summary>
@@ -439,7 +467,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public static BindingList<DataRow> ToBindingList( this DataTable dataTable )
         {
-            if( dataTable?.Columns?.Count > 0 )
+            if( dataTable?.Rows?.Count > 0 )
             {
                 try
                 {
@@ -451,16 +479,16 @@ namespace BudgetExecution
 
                     return ( _bindingList?.Any( ) == true )
                         ? _bindingList
-                        : default;
+                        : default( BindingList<DataRow> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( BindingList<DataRow> );
                 }
             }
 
-            return default;
+            return default( BindingList<DataRow> );
         }
 
         /// <summary>Fails the specified ex.</summary>
