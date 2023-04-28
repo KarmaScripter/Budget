@@ -647,13 +647,13 @@ namespace BudgetExecution
                     var _rows = _data.ToArray( );
                     var _numerics = numerics.ToArray( );
                     double _xaxis = 0;
-                    foreach( var r in _data )
+                    foreach( var row in _data )
                     {
                         var _values = new List<double>( );
                         for( var n = 0; n < _numerics?.Length; n++ )
                         {
                             var _name = _numerics[ n ];
-                            var _col = r[ _name ].ToString( );
+                            var _col = row[ _name ].ToString( );
                             var _val = double.Parse( _col );
                             _values.Add( _val );
                         }
