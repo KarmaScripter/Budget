@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Windows.Forms.DataVisualization.Charting;
     using BudgetExecution;
     using DocumentFormat.OpenXml.Drawing.Diagrams;
     using OfficeOpenXml;
@@ -20,6 +21,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class EnumerableExtensions
     {
         /// <summary>
@@ -379,6 +383,58 @@ namespace BudgetExecution
                     ++_index;
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the chart points.
+        /// </summary>
+        /// <param name="dataRows">The data rows.</param>
+        /// <returns></returns>
+        public static IList<DataPoint> GetChartPoints( this IEnumerable<DataRow> dataRows )
+        {
+            if( dataRows?.Any( ) == true )
+            {
+                try
+                {
+                    var _points = new List<DataPoint>( );
+                    var _numerics = new List<string>( );
+                    var _values = new List<double>( );
+                    var _dataTable = dataRows.CopyToDataTable( );
+                    foreach( DataColumn col in _dataTable.Columns )
+                    {
+                        if( col.DataType == typeof( double )
+                           && col.Ordinal > 0 )
+                        {
+                            _numerics.Add( col.ColumnName );
+                        }
+                    }
+
+                    for( var index = 0; index < _dataTable.Rows.Count; index++ )
+                    {
+                        var _row = _dataTable.Rows[ index ];
+                        var _point = new DataPoint( );
+                        _point.XValue = index;
+                        foreach( var name in _numerics )
+                        {
+                            var _val = double.Parse( _row[ name ]?.ToString( ) );
+                            _values.Add( _val );
+                        }
+
+                        _point.YValues = _values.ToArray( );
+                    }
+
+                    return _points?.Any( ) == true
+                        ? _points
+                        : default( IList<DataPoint> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<DataPoint> );
+                }
+            }
+
+            return default( IList<DataPoint> );
         }
 
         /// <summary>Fails the specified ex.</summary>

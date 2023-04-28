@@ -3,34 +3,68 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Forms.DataVisualization.Charting;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ChartPoint
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class ChartPoint : DataPoint
     {
-        public double Label { get; set; }
-        
-        public double Value { get; set; }
+        /// <summary>
+        /// Gets or sets the label.
+        /// </summary>
+        /// <value>
+        /// The label.
+        /// </value>
+        public double xAxis { get; set; } 
 
-        public IList<double> Values { get; set; }
-        
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        public double yValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the values.
+        /// </summary>
+        /// <value>
+        /// The values.
+        /// </value>
+        public IList<double> Values { get; set; } = new List<double>( );
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartPoint"/> class.
+        /// </summary>
         public ChartPoint( )
         {
-            Values = new List<double>( );
         }
-        
-        public ChartPoint( double label, double value ) 
-            : this( )
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartPoint"/> class.
+        /// </summary>
+        /// <param name="axis">The label.</param>
+        /// <param name="value">The value.</param>
+        public ChartPoint( double axis, double value ) 
+            : base( axis, value )
         {
-            Label = label;
-            Value = value;
+            xAxis = axis;
+            yValue = value;
             Values.Add( value );
         }
-        
-        public ChartPoint( double label, double[ ] values ) 
-            : this( )
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartPoint"/> class.
+        /// </summary>
+        /// <param name = "axis" > </param>
+        /// <param name="values">The values.</param>
+        public ChartPoint( double axis, double[ ] values ) 
+            : base( axis, values )
         {
-            Label = label;
-            Value = values[ 0 ];
+            xAxis = axis;
+            yValue = values[ 0 ];
             Values.AddRange( values );
         }
     }

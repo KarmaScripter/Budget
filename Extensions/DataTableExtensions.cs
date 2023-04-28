@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
+    using System.Windows.Forms.DataVisualization.Charting;
     using System.Xml.Linq;
     using OfficeOpenXml;
 
@@ -24,6 +25,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     public static class DataTableExtensions
     {
         /// <summary>
@@ -411,45 +414,70 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the index of the column name and.
+        /// Gets the chart points.
         /// </summary>
-        /// <param name="dataTable">The dataTable.</param>
+        /// <param name="dataTable">The data table.</param>
         /// <returns></returns>
-        public static IDictionary<string, int> GetColumnNameAndIndex( this DataTable dataTable )
+        public static IList<DataPoint> GetChartPoints( this DataTable dataTable )
         {
-            try
+            if( dataTable?.Rows?.Count > 0 )
             {
-                var _index = new Dictionary<string, int>( );
-                for( var i = 0; i < dataTable?.Columns?.Count; i++ )
+                try
                 {
-                    _index.Add( dataTable.Columns[ i ].ColumnName, i );
-                }
+                    var _points = new List<DataPoint>( );
+                    var _numerics = new List<string>( );
+                    var _values = new List<double>( );
+                    foreach( DataColumn col in dataTable.Columns )
+                    {
+                        if( col.DataType == typeof( double )
+                           && col.Ordinal > 0 )
+                        {
+                            _numerics.Add( col.ColumnName );
+                        }
+                    }
 
-                return ( _index.Count > 0 )
-                    ? _index
-                    : default( IDictionary<string, int> );
+                    for( var index = 0; index < dataTable.Rows.Count; index++ )
+                    {
+                        var _row = dataTable.Rows[ index ];
+                        var _point = new DataPoint( );
+                        _point.XValue = index;
+                        foreach( var name in _numerics )
+                        {
+                            var _val = double.Parse( _row[ name ]?.ToString( ) );
+                            _values.Add( _val );
+                        }
+
+                        _point.YValues = _values.ToArray( );
+                    }
+
+                    return _points?.Any( ) == true
+                        ? _points
+                        : default( IList<DataPoint> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<DataPoint> );
+                }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, int> );
-            }
+            
+            return default( IList<DataPoint> );
         }
-        
+
         /// <summary>
         /// Removes a DataColumn from the table
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <param name="columnName">The column name.</param>
-        public static void RemoveColumn(this DataTable dataTable, string columnName)
+        public static void RemoveColumn( this DataTable dataTable, string columnName )
         {
             if (dataTable != null 
-                && !string.IsNullOrEmpty(columnName) 
+                && !string.IsNullOrEmpty( columnName ) 
                 && dataTable.Columns.Contains( columnName ) )
             {
                 try
                 {
-                    int _index = dataTable.Columns.IndexOf( columnName );
+                    var _index = dataTable.Columns.IndexOf( columnName );
                     dataTable.Columns.RemoveAt( _index );
                     dataTable.AcceptChanges( );
                 }
