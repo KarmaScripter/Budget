@@ -33,12 +33,20 @@ namespace BudgetExecution
         {
             try
             {
-                return ( (DataRowView)bindingSource?.Current )?.Row;
+                if( bindingSource.Current != null )
+                {
+
+                    return ( (DataRowView)bindingSource?.Current )?.Row;
+                }
+                else
+                {
+                    return default( DataRow );
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataRow );
             }
         }
 

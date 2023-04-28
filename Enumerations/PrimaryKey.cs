@@ -35,6 +35,11 @@ namespace BudgetExecution
         AmericanRescuePlanId,
 
         /// <summary>
+        /// ARP Primary Key
+        /// </summary>
+        AmericanRescuePlanCarryoverEstimateId,
+        
+        /// <summary>
         /// The annual carryover estimates identifier
         /// </summary>
         AnnualCarryoverEstimatesId,
@@ -300,6 +305,11 @@ namespace BudgetExecution
         ImagesId,
 
         /// <summary>
+        /// The IRA Carryover Estimates Table Id
+        /// </summary>
+        InflationReductionActCarryoverEstimatesId,
+        
+        /// <summary>
         /// The infrastructure accounts identifier
         /// </summary>
         InfrastructureAccountsId,
@@ -319,6 +329,11 @@ namespace BudgetExecution
         /// </summary>
         MessagesId,
 
+        /// <summary>
+        /// The messages actuals Id
+        /// </summary>
+        MonthlyActualsId,
+        
         /// <summary>
         /// The monthly outlays identifier
         /// </summary>

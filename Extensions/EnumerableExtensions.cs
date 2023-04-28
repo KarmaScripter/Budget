@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using BudgetExecution;
+    using DocumentFormat.OpenXml.Drawing.Diagrams;
     using OfficeOpenXml;
     using TableStyles = OfficeOpenXml.Table.TableStyles;
 
@@ -34,27 +35,28 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _row = dataRow?.First( );
-                    var _dictionary = _row?.ToDictionary( );
-                    var _array = _dictionary?.Keys.ToArray( );
-                    var _names = Enum.GetNames( typeof( Numeric ) );
-                    if( _array != null )
+                    var _table = dataRow?.CopyToDataTable( );
+                    var _columns = _table.Columns;
+                    foreach( DataColumn col in _columns )
                     {
-                        foreach( var k in _array )
+                        if( col.Ordinal > 0
+                           && !col.ColumnName.EndsWith( "Id" )
+                           && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
+                           | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
                         {
-                            if( _names?.Contains( k ) == true )
-                            {
-                                return true;
-                            }
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
                         }
                     }
-
-                    return false;
+                    
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return false;
                 }
             }
 
