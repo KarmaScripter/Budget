@@ -29,7 +29,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public partial class ChartDataForm : MetroForm, IChartSeriesModel
+    public partial class ChartDataForm : MetroForm
     {
         /// <summary>
         /// Gets or sets the count.

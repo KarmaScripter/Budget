@@ -20,28 +20,6 @@ namespace BudgetExecution
     public static class DataGridExtensions
     {
         /// <summary>
-        /// The GetCurrentDataRow
-        /// </summary>
-        /// <param name="bindingSource">The bindingSource
-        /// <see cref="BindingSource" /></param>
-        /// <returns>
-        /// The
-        /// <see cref="DataRow" />
-        /// </returns>
-        public static DataRow GetCurrentDataRow( this BindingSource bindingSource )
-        {
-            try
-            {
-                return ( (DataRowView)bindingSource?.Current )?.Row;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
         /// The GetDataTable
         /// </summary>
         /// <param name="dataGridView">The dataGridView

@@ -178,11 +178,11 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <param name="field">The field.</param>
         /// <returns></returns>
-        public static IEnumerable<byte> GetBytes( this DataRow dataRow, string field )
+        public static IEnumerable<byte> GetBytes( this DataRow dataRow, string columnName )
         {
             try
             {
-                return dataRow[ field ] as byte[ ];
+                return dataRow[ columnName ] as byte[ ];
             }
             catch( Exception ex )
             {
@@ -198,19 +198,18 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <param name="field">The field.</param>
         /// <returns></returns>
-        public static string GetField( this DataRow dataRow, Field field )
+        public static string GetField( this DataRow dataRow, string columnName )
         {
             if( dataRow != null
-               && dataRow.ItemArray.Length > 0
-               && Enum.IsDefined( typeof( Field ), field ) )
+               && dataRow.ItemArray.Length > 0 )
             {
                 var _columns = dataRow.Table?.GetColumnNames( );
                 if( _columns?.Any( ) == true
-                   && _columns.Contains( $"{ field }" ) )
+                   && _columns.Contains( columnName ) )
                 {
                     try
                     {
-                        return dataRow[ $"{ field }" ].ToString( );
+                        return dataRow[ columnName ].ToString( );
                     }
                     catch( Exception ex )
                     {
@@ -230,19 +229,18 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public static double GetNumeric( this DataRow dataRow, Numeric numeric )
+        public static double GetNumeric( this DataRow dataRow, string columnName )
         {
             if( dataRow != null
-               && dataRow.ItemArray.Length > 0
-               && Enum.IsDefined( typeof( Numeric ), numeric ) )
+               && dataRow.ItemArray.Length > 0 )
             {
                 var _columns = dataRow.Table?.GetColumnNames( );
                 if( _columns?.Any( ) == true
-                   && _columns.Contains( $"{ numeric }" ) )
+                   && _columns.Contains( columnName ) )
                 {
                     try
                     {
-                        return double.Parse( dataRow[ $"{ numeric }" ].ToString( ) );
+                        return double.Parse( dataRow[ columnName ].ToString( ) );
                     }
                     catch( Exception ex )
                     {
@@ -262,19 +260,20 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <param name="field">The field.</param>
         /// <returns></returns>
-        public static DateTime GetDate( this DataRow dataRow, Field field )
+        public static DateTime GetDate( this DataRow dataRow, string columnName )
         {
             if( dataRow != null
                && dataRow.ItemArray.Length > 0
-               && Enum.IsDefined( typeof( Field ), field ) )
+               && Enum.IsDefined( typeof( Field ), columnName ) )
             {
                 var _columns = dataRow.Table?.GetColumnNames( );
                 if( _columns != null
-                   && _columns?.Any( ) == true & _columns.Contains( $"{ field }" ) )
+                   && _columns?.Any( ) == true 
+                   && _columns.Contains( columnName ) )
                 {
                     try
                     {
-                        return DateTime.Parse( dataRow[ $"{ field }" ].ToString( ) );
+                        return DateTime.Parse( dataRow[ columnName ].ToString( ) );
                     }
                     catch( Exception ex )
                     {
