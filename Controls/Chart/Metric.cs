@@ -34,11 +34,6 @@ namespace BudgetExecution
         public string TableName { get; set; }
 
         /// <summary>
-        /// The numeric
-        /// </summary>
-        public Numeric Numeric { get; set; }
-
-        /// <summary>
         /// Gets or sets the data member.
         /// </summary>
         /// <value>
@@ -123,13 +118,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="numeric">The numeric.</param>
-        public Metric( BindingSource bindingSource, Numeric numeric = Numeric.Amount )
+        public Metric( BindingSource bindingSource, string numeric )
         {
             Data = ( (DataTable)bindingSource.DataSource ).AsEnumerable( );
             TableName = ( (DataTable)bindingSource.DataSource ).TableName;
             Source = (Source)Enum.Parse( typeof( Source ), TableName );
-            Numeric = numeric;
-            Total = CalculateTotal( Data, numeric );
             Count = GetCount( Data, numeric );
             Average = CalculateAverage( Data, numeric );
         }
@@ -140,13 +133,12 @@ namespace BudgetExecution
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="where">The dictionary.</param>
         /// <param name="numeric">The numeric.</param>
-        public Metric( BindingSource bindingSource, IDictionary<string, object> where,
-            Numeric numeric = Numeric.Amount )
+        public Metric( BindingSource bindingSource, IDictionary<string, object> where, 
+            string numeric )
         {
             Data = ( (DataTable)bindingSource.DataSource ).Select( where.ToCriteria( ) );
             TableName = ( (DataTable)bindingSource.DataSource ).TableName;
             Source = (Source)Enum.Parse( typeof( Source ), TableName );
-            Numeric = numeric;
             Total = CalculateTotal( Data, numeric );
             Count = GetCount( Data, numeric );
             Average = CalculateAverage( Data, numeric );
@@ -157,12 +149,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataTable">The data row.</param>
         /// <param name="numeric">The numeric.</param>
-        public Metric( DataTable dataTable, Numeric numeric = Numeric.Amount )
+        public Metric( DataTable dataTable, string numeric )
         {
             Data = dataTable.AsEnumerable( );
             TableName = dataTable.TableName;
             Source = (Source)Enum.Parse( typeof( Source ), dataTable.TableName );
-            Numeric = numeric;
             Count = Data.Count( );
             Total = CalculateTotal( Data, numeric );
             Average = CalculateAverage( Data, numeric );
@@ -175,12 +166,11 @@ namespace BudgetExecution
         /// <param name="where">The dictionary.</param>
         /// <param name="numeric">The numeric.</param>
         public Metric( DataTable dataTable, IDictionary<string, object> where,
-            Numeric numeric = Numeric.Amount )
+            string numeric )
         {
             Data = dataTable.Select( where.ToCriteria( ) );
             TableName = dataTable.TableName;
             Source = (Source)Enum.Parse( typeof( Source ), dataTable.TableName );
-            Numeric = numeric;
             Count = Data.Count( );
             Total = CalculateTotal( Data, numeric );
             Average = CalculateAverage( Data, numeric );
@@ -191,15 +181,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         /// <param name="numeric">The numeric.</param>
-        public Metric( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
+        public Metric( IEnumerable<DataRow> dataRow, string numeric )
         {
             Data = dataRow;
             TableName = dataRow.CopyToDataTable( ).TableName;
             Source = (Source)Enum.Parse( typeof( Source ), dataRow.CopyToDataTable( ).TableName );
-            Numeric = numeric;
             Count = dataRow.Count( );
-            Total = CalculateTotal( dataRow, numeric );
-            Average = CalculateAverage( dataRow, numeric );
+            Total = CalculateTotal( Data, numeric );
+            Average = CalculateAverage( Data, numeric );
         }
 
         /// <summary>
@@ -209,15 +198,14 @@ namespace BudgetExecution
         /// <param name="where"></param>
         /// <param name="numeric"></param>
         public Metric( IEnumerable<DataRow> dataRow, IDictionary<string, object> where,
-            Numeric numeric = Numeric.Amount )
+            string numeric )
         {
-            Numeric = numeric;
             Data = dataRow.Filter( where );
             TableName = dataRow.CopyToDataTable( ).TableName;
             Source = (Source)Enum.Parse( typeof( Source ), dataRow.CopyToDataTable( ).TableName );
             Count = Data.Count( );
-            Total = CalculateTotal( Data, Numeric );
-            Average = CalculateAverage( Data, Numeric );
+            Total = CalculateTotal( Data, numeric );
+            Average = CalculateAverage( Data, numeric );
         }
 
         /// <summary>
@@ -266,14 +254,14 @@ namespace BudgetExecution
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public int GetCount( IEnumerable<DataRow> dataRow, Numeric numeric = Numeric.Amount )
+        public int GetCount( IEnumerable<DataRow> dataRow, string numeric )
         {
             if( dataRow?.Any( ) == true )
             {
                 try
                 {
                     var _select = dataRow
-                        ?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
+                        ?.Where( p => p.Field<double>( numeric ) != 0 )
                         ?.Select( p => p );
 
                     return _select?.Any( ) == true
@@ -296,16 +284,18 @@ namespace BudgetExecution
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public double CalculateTotal( IEnumerable<DataRow> dataRow,
-            Numeric numeric = Numeric.Amount )
+        public double CalculateTotal( IEnumerable<DataRow> dataRow, string numeric )
         {
             if( dataRow?.Any( ) == true )
             {
                 try
                 {
-                    var _select = dataRow.Select( p => p.Field<decimal>( $"{numeric}" ) ).Sum( );
+                    var _select = dataRow
+                        ?.Select( p => p.Field<double>( numeric ) )
+                        ?.Sum( );
+                    
                     return _select > 0
-                        ? double.Parse( _select.ToString( "N1" ) )
+                        ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -323,16 +313,17 @@ namespace BudgetExecution
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        protected double CalculateAverage( IEnumerable<DataRow> dataRow,
-            Numeric numeric = Numeric.Amount )
+        protected double CalculateAverage( IEnumerable<DataRow> dataRow, string numeric )
         {
             if( dataRow?.Any( ) == true
-               && Enum.IsDefined( typeof( Numeric ), numeric ) )
+               && !string.IsNullOrEmpty( numeric ) )
             {
                 try
                 {
-                    var _query = dataRow.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
-                        ?.Select( p => p.Field<decimal>( $"{numeric}" ) )?.Average( );
+                    var _query = dataRow
+                        ?.Where( p => p.Field<double>( numeric ) != 0 )
+                        ?.Select( p => p.Field<double>( numeric ) )
+                        ?.Average( );
 
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
@@ -359,19 +350,19 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public double CalculateDeviation( IEnumerable<DataRow> dataRow, Numeric numeric )
+        public double CalculateDeviation( IEnumerable<DataRow> dataRow, string numeric )
         {
             if( dataRow?.Any( ) == true
-               && dataRow.HasNumeric( )
                && GetCount( dataRow, numeric ) > 30 )
             {
                 try
                 {
-                    var _query = dataRow?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
-                        ?.StandardDeviation( p => p.Field<decimal>( $"{numeric}" ) );
+                    var _query = dataRow
+                        ?.Where( p => p.Field<double>( numeric ) != 0 )
+                        ?.StandardDeviation( p => p.Field<double>( numeric ) );
 
                     return _query > 0
-                        ? double.Parse( _query.ToString( ) )
+                        ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
@@ -395,21 +386,20 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public double CalculateVariance( IEnumerable<DataRow> dataRow, Numeric numeric )
+        public double CalculateVariance( IEnumerable<DataRow> dataRow, string numeric )
         {
             if( dataRow?.Any( ) == true
-               && dataRow.HasNumeric( )
                && GetCount( dataRow, numeric ) > 30 )
             {
                 var _table = dataRow.CopyToDataTable( );
                 try
                 {
                     var _query = _table?.AsEnumerable( )
-                        ?.Where( p => p.Field<decimal>( $"{numeric}" ) != 0 )
-                        ?.Variance( p => p.Field<decimal>( $"{numeric}" ) );
+                        ?.Where( p => p.Field<double>( numeric ) != 0 )
+                        ?.Variance( p => p.Field<double>( numeric ) );
 
                     return _query > 0
-                        ? double.Parse( _query.ToString( ) )
+                        ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
                 catch( Exception ex )
