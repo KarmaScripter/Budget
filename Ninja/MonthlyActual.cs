@@ -317,6 +317,7 @@ namespace BudgetExecution
         public MonthlyActual( IQuery query ) 
             : base( query )
         {
+            Record = new DataBuilder( query ).Record;
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -360,6 +361,7 @@ namespace BudgetExecution
         public MonthlyActual( IDataModel builder ) 
             : base( builder )
         {
+            Record = builder.Record;
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );

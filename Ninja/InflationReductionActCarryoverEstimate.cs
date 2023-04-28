@@ -8,7 +8,7 @@
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class JobsActCarryoverEstimate : BudgetUnit
+    public class InflationReductionActCarryoverEstimate : BudgetUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -163,23 +163,23 @@
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
         /// </summary>
-        public JobsActCarryoverEstimate( )
+        public InflationReductionActCarryoverEstimate( )
         {
-            Source = Source.JobsActCarryoverEstimates;
+            Source = Source.InflationReductionActCarryoverEstimates;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public JobsActCarryoverEstimate( IQuery query )
+        public InflationReductionActCarryoverEstimate( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -197,16 +197,16 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public JobsActCarryoverEstimate( IDataModel builder )
+        public InflationReductionActCarryoverEstimate( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -224,15 +224,15 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public JobsActCarryoverEstimate( DataRow dataRow )
+        public InflationReductionActCarryoverEstimate( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );

@@ -39,6 +39,8 @@ namespace BudgetExecution
         /// </summary>
         AmericanRescuePlan,
 
+        AmericanRescuePlanCarryoverEstimates,
+        
         /// <summary>
         /// The annual carryover estimates
         /// </summary>
@@ -324,6 +326,8 @@ namespace BudgetExecution
         /// </summary>
         InfrastructureAccounts,
 
+        InflationReductionActCarryoverEstimates,
+        
         /// <summary>
         /// The jobs act carryover estimates
         /// </summary>

@@ -14,24 +14,21 @@ namespace BudgetExecution
     using System.Windows.Forms.DataVisualization.Charting;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
-    using Color = System.Drawing.Color;
-    using DataTable = System.Data.DataTable;
-    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ] 
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public partial class ChartDataForm : MetroForm, IChartSeriesModel
     {
         /// <summary>
@@ -885,7 +882,7 @@ namespace BudgetExecution
 
                     foreach( var item in Fields )
                     {
-                        FirstComboBox.Items.Add( item );
+                        FirstComboBox.Items?.Add( item );
                     }
                 }
                 catch( Exception ex )
@@ -915,7 +912,7 @@ namespace BudgetExecution
                         {
                             if( !item.Equals( FirstCategory ) )
                             {
-                                SecondComboBox.Items.Add( item );
+                                SecondComboBox.Items?.Add( item );
                             }
                         }
                     }
@@ -949,7 +946,7 @@ namespace BudgetExecution
                             if( !item.Equals( FirstCategory )
                                && !item.Equals( SecondCategory ) )
                             {
-                                ThirdComboBox.Items.Add( item );
+                                ThirdComboBox.Items?.Add( item );
                             }
                         }
                     }
