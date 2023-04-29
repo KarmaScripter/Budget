@@ -1329,18 +1329,12 @@ namespace BudgetExecution
         {
             try
             {
-                if( Chart.Legends.Count > 0 )
-                {
-                    for( var i = 0; i < Chart.Legends.Count; i++ )
-                    {
-                        Chart.Legends[ i ].HeaderSeparatorColor = Color.FromArgb( 20, 20, 20 );
-                        Chart.Legends[ i ].ItemColumnSeparatorColor = Color.FromArgb( 20, 20, 20 );
-                        Chart.Legends[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
-                        Chart.Legends[ i ].TitleFont = new Font( "Roboto", 8 );
-                        Chart.Legends[ i ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
-                        Chart.Legends[ i ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
-                    }
-                }
+                Chart.Legends[ 0 ].HeaderSeparatorColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Legends[ 0 ].ItemColumnSeparatorColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Legends[ 0 ].BorderColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Legends[ 0 ].TitleFont = new Font( "Roboto", 8 );
+                Chart.Legends[ 0 ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
+                Chart.Legends[ 0 ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
             }
             catch( Exception ex )
             {
@@ -1355,19 +1349,13 @@ namespace BudgetExecution
         {
             try
             {
-                if( Chart.Series.Count > 0 )
-                {
-                    for( var i = 0; i < Chart.Series.Count; i++ )
-                    {
-                        Chart.Series[ i ].ChartType = SeriesChartType.Column;
-                        Chart.Series[ i ].LabelBorderColor = Color.FromArgb( 20, 20, 20 );
-                        Chart.Series[ i ].LabelBackColor = Color.FromArgb( 20, 20, 20 );
-                        Chart.Series[ i ].LabelForeColor = Color.LightSteelBlue;
-                        Chart.Series[ i ].Font = new Font( "Roboto", 8 );
-                        Chart.Series[ i ].XValueType = ChartValueType.Auto;
-                        Chart.Series[ i ].YValueType = ChartValueType.Auto;
-                    }
-                }
+                Chart.Series[ 0 ].ChartType = SeriesChartType.Column;
+                Chart.Series[ 0 ].LabelBorderColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Series[ 0 ].LabelBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Series[ 0 ].LabelForeColor = Color.LightSteelBlue;
+                Chart.Series[ 0 ].Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].XValueType = ChartValueType.Auto;
+                Chart.Series[ 0 ].YValueType = ChartValueType.Auto;
             }
             catch( Exception ex )
             {
@@ -1739,17 +1727,13 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.RefreshDataButton )
-                {
-                    TabControl.SelectedIndex = 0;
-                    SelectedTable = string.Empty;
-                    BindingSource.DataSource = null;
-                    ClearSelections( );
-                    ClearCollections( );
-                    UpdateLabelText( );
-                    PopulateExecutionTables( );
-                }
+                TabControl.SelectedIndex = 0;
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                ClearSelections( );
+                ClearCollections( );
+                UpdateLabelText( );
+                PopulateExecutionTables( );
             }
             catch( Exception ex )
             {
@@ -1766,9 +1750,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.GroupButton
-                   && FormFilter.Count > 0 )
+                if( FormFilter.Count > 0 )
                 {
                     TabControl.SelectedIndex = 2;
                     PopulateFieldListBox( );
@@ -1790,9 +1772,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.RemoveFiltersButton
-                   && !string.IsNullOrEmpty( SelectedTable ) )
+                if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     ClearSelections( );
                     ClearCollections( );
@@ -1961,7 +1941,7 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         protected static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

@@ -24,6 +24,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class EnumerableExtensions
     {
         /// <summary>
@@ -33,7 +34,7 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if the specified dataRow has numeric; otherwise, <c>false</c>.
         /// </returns>
-        public static bool HasNumeric( this IEnumerable<DataRow> dataRow )
+        public static bool HasNumericColumns( this IEnumerable<DataRow> dataRow )
         {
             if( dataRow?.Any( ) == true )
             {
@@ -44,7 +45,6 @@ namespace BudgetExecution
                     foreach( DataColumn col in _columns )
                     {
                         if( col.Ordinal > 0
-                           && !col.ColumnName.EndsWith( "Id" )
                            && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
                            | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
                         {
@@ -58,47 +58,6 @@ namespace BudgetExecution
                 {
                     Fail( ex );
                     return false;
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Determines whether [has primary key].
-        /// </summary>
-        /// <param name="dataRow">The dataRow.</param>
-        /// <returns>
-        ///   <c>true</c> if [has primary key] [the specified dataRow]; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool HasPrimaryKey( this IEnumerable<DataRow> dataRow )
-        {
-            if( dataRow?.Any( ) == true )
-            {
-                try
-                {
-                    var _row = dataRow?.First( );
-                    var _dict = _row?.ToDictionary( );
-                    var _key = _dict?.Keys.ToArray( );
-                    var _names = Enum.GetNames( typeof( PrimaryKey ) );
-                    if( _key != null )
-                    {
-                        foreach( var k in _key )
-                        {
-                            if( !string.IsNullOrEmpty( k )
-                               && _names?.Contains( k ) == true )
-                            {
-                                return true;
-                            }
-                        }
-                    }
-
-                    return false;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
                 }
             }
 
@@ -128,47 +87,16 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list.ToArray( )
-                        : default;
+                        : default( IEnumerable<int> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<int> );
                 }
             }
 
-            return default;
-        }
-
-        /// <summary>
-        /// Converts IEnumerable to BindingList.
-        /// </summary>
-        /// <param name="dataRows">The IEnumerable</param>
-        /// <returns></returns>
-        public static BindingList<DataRow> ToBindingList( this IEnumerable<DataRow> dataRows )
-        {
-            if( dataRows?.Any( ) == true )
-            {
-                try
-                {
-                    var _list = new BindingList<DataRow>( );
-                    foreach( var item in dataRows )
-                    {
-                        _list.Add( item );
-                    }
-
-                    return _list?.Any( ) == true
-                        ? _list
-                        : default;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
+            return default( IEnumerable<int> );
         }
 
         /// <summary>
@@ -202,6 +130,54 @@ namespace BudgetExecution
 
             return default( BindingList<T> );
         }
+
+        /// <summary>
+        /// Filters a sequence of values based on a given predicate
+        /// and returns those values that don't match the predicate.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <see cref="IEnumerable{T}"/> to filter.</param>
+        /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <returns>Those values that don't match the given predicate.</returns>
+        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source,
+            Func<T, bool> predicate )
+        {
+            try
+            {
+                return source.Where( element => !predicate( element ) );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IEnumerable<T> );
+            }
+        }
+
+        /// <summary>
+        /// Filters a sequence of values based on a predicate
+        /// and returns those values that don't match the given predicate.
+        /// Each element's index is used in the logic of predicate function.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <see cref="IEnumerable{T}"/> to filter.</param>
+        /// <param name="predicate">
+        /// A function to test each element for a condition;
+        /// the second parameter of the functions represents the index of the source element.
+        /// </param>
+        /// <returns>Those values that don't match the given predicate.</returns>
+        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source,
+            Func<T, int, bool> predicate )
+        {
+            try
+            {
+                return source.Where( ( element, index ) => !predicate( element, index ) );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IEnumerable<T> );
+            }
+        }
         
         /// <summary>
         /// Filters the specified columnName.
@@ -230,35 +206,35 @@ namespace BudgetExecution
 
                         return _select?.Any( ) == true
                             ? _select
-                            : default;
+                            : default( IEnumerable<DataRow> );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
         /// Filters the specified dictionary.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        /// <param name="dict">The dictionary.</param>
+        /// <param name="where">The dictionary.</param>
         /// <returns></returns>
         public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow,
-            IDictionary<string, object> dict )
+            IDictionary<string, object> where )
         {
             if( dataRow?.Any( ) == true
-               && dict?.Any( ) == true )
+               && where?.Any( ) == true )
             {
                 try
                 {
                     var _table = dataRow.CopyToDataTable( );
-                    var _rows = _table?.Select( dict.ToCriteria( ) );
+                    var _rows = _table?.Select( where.ToCriteria( ) );
                     return _rows?.Any( ) == true
                         ? _rows
                         : default( IEnumerable<DataRow> );
@@ -266,51 +242,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<DataRow> );
                 }
             }
 
-            return default;
-        }
-
-        /// <summary>
-        /// Filters the specified column.
-        /// </summary>
-        /// <param name="dataRow">The dataRow.</param>
-        /// <param name="column">The column.</param>
-        /// <param name="value">The filter.</param>
-        /// <returns></returns>
-        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow,
-            DataColumn column, string value )
-        {
-            if( dataRow?.Any( ) == true
-               && column != null
-               && !string.IsNullOrEmpty( value ) )
-            {
-                try
-                {
-                    var _row = dataRow?.First( );
-                    var _columns = _row?.Table?.Columns;
-                    if( !string.IsNullOrEmpty( column.ColumnName )
-                       && _columns?.Contains( column.ColumnName ) == true )
-                    {
-                        var _enumerable = dataRow
-                            ?.Where( p => p.Field<string>( column.ColumnName ).Equals( value ) )
-                            ?.Select( p => p );
-
-                        return _enumerable?.Any( ) == true
-                            ? _enumerable.ToArray( )
-                            : default;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
+            return default( IEnumerable<DataRow> );
         }
 
         /// <summary>
@@ -349,10 +285,54 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ExcelPackage );
             }
         }
+        
+        /// <summary>
+        /// Extracts a contiguous count of elements from a sequence at a particular zero-based
+        /// starting index.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements in the source sequence.</typeparam>
+        /// <param name="sequence">The sequence from which to extract elements.</param>
+        /// <param name="startIndex">The zero-based index at which to begin slicing.</param>
+        /// <param name="count">The number of items to slice out of the index.</param>
+        /// <returns>
+        /// A new sequence containing any elements sliced out from the source sequence.</returns>
+        /// <remarks>
+        /// <para>
+        /// If the starting position or count specified result in slice extending past the end of
+        /// the sequence, it will return all elements up to that point. There is no guarantee that
+        /// the resulting sequence will contain the number of elements requested - it may have
+        /// anywhere from 0 to <paramref name="count"/>.</para>
+        /// <para>
+        /// This method is implemented in an optimized manner for any sequence implementing <see
+        /// cref="IList{T}"/>.</para>
+        /// <para>
+        /// The result of <see cref="Slice{T}"/> is identical to:
+        /// <c>sequence.Skip(startIndex).Take(count)</c></para>
+        /// </remarks>
+        public static IEnumerable<T> Slice<T>( this IEnumerable<T> sequence, int startIndex, int count )
+        {
+            return sequence switch
+            {
+                IList<T> list => SliceList( list.Count, i => list[ i ] ),
+                IReadOnlyList<T> list => SliceList( list.Count, i => list[ i ] ),
+                var seq => seq.Skip( startIndex ).Take( count )
+            };
 
+            IEnumerable<T> SliceList(int listCount, Func<int, T> indexer)
+            {
+                var countdown = count;
+                var index = startIndex;
+                while( index < listCount
+                      && countdown-- > 0 )
+                {
+                    yield return indexer( index++ );
+                }
+            }
+        }
+        
         /// <summary>
         /// Slices the specified start.
         /// </summary>
@@ -436,12 +416,65 @@ namespace BudgetExecution
 
             return default( IList<DataPoint> );
         }
+        
+        /// <summary>
+        /// Turns a finite sequence into a circular one, or equivalently,
+        /// repeats the original sequence indefinitely.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">An <see cref="IEnumerable{T}"/> to cycle through.</param>
+        /// <returns>An infinite sequence cycling through the given sequence.</returns>
+        public static IEnumerable<T> Cycle<T>( this IEnumerable<T> source )
+        {
+            try
+            {
+                return CycleIterator( source );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IEnumerable<T> );
+            }
+        }
 
+        /// <summary>
+        /// Cycles the iterator.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
+        private static IEnumerable<T> CycleIterator<T>( IEnumerable<T> source )
+        {
+            var elementBuffer = source is not ICollection<T> collection
+                ? new List<T>( )
+                : new List<T>( collection.Count );
+
+            foreach( var element in source )
+            {
+                yield return element;
+            
+                elementBuffer.Add( element );
+            }
+
+            if( elementBuffer.IsEmpty<T>( ) )
+            {
+                yield break;
+            }
+
+            var index = 0;
+            while( true )
+            {
+                yield return elementBuffer[ index ];
+
+                index = ( index + 1 ) % elementBuffer.Count;
+            }
+        }
+        
         /// <summary>Fails the specified ex.</summary>
         /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

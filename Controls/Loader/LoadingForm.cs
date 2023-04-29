@@ -224,7 +224,7 @@ namespace BudgetExecution
         /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

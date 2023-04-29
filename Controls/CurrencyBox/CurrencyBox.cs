@@ -28,7 +28,7 @@ namespace BudgetExecution
         {
             // Basic Properties
             Size = new Size( 140, 30 );
-            Location = new System.Drawing.Point( 1, 1 );
+            Location = new Point( 1, 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Margin = new Padding( 3 );
@@ -51,22 +51,22 @@ namespace BudgetExecution
             TextBox.BackGroundColor = Color.FromArgb( 30, 30, 30 );
             TextBox.Border3DStyle = Border3DStyle.Flat;
             TextBox.ThemeStyle = CurrencyTextBoxVisualStyle.DefaultStyle;
-            TextBox.BorderColor = Color.FromArgb( 41, 41, 41 );
-            TextBox.BorderStyle = BorderStyle.Fixed3D;
+            TextBox.BorderColor = Color.FromArgb( 65, 65, 65 );
+            TextBox.BorderStyle = BorderStyle.None;
             TextBox.CurrencyDecimalSeparator = ".";
             TextBox.CurrencyGroupSeparator = ",";
-            TextBox.FocusBorderColor = Color.SteelBlue;
+            TextBox.FocusBorderColor = Color.FromArgb( 0, 120, 212 );
             TransferFromCalculator = true;
             TransferToCalculator = true;
 
             // TextBox ThemeStyle Properties
-            ThemeStyle.BackColor = Color.FromArgb( 28, 28, 28 );
-            ThemeStyle.BorderColor = Color.FromArgb( 41, 41, 41 );
-            ThemeStyle.DisabledBackColor = Color.FromArgb( 18, 18, 18 );
-            ThemeStyle.DisabledBorderColor = Color.FromArgb( 18, 18, 18 );
+            ThemeStyle.BackColor = Color.FromArgb( 30, 30, 30 );
+            ThemeStyle.BorderColor = Color.FromArgb( 65, 65, 65 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 20, 20, 20 );
+            ThemeStyle.DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
             ThemeStyle.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
-            ThemeStyle.FocusedBorderColor = Color.SteelBlue;
-            ThemeStyle.PressedBorderColor = Color.SteelBlue;
+            ThemeStyle.FocusedBorderColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.PressedBorderColor = Color.FromArgb( 0, 120, 212 );
         }
     }
 }

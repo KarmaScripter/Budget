@@ -103,12 +103,12 @@ namespace BudgetExecution
         public virtual DateOnly Labor { get; set; }
         
         /// <summary>
-        /// Get Error Dialog.
+        /// Get ErrorDialog Dialog.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
-            using var _error = new Error( ex );
+            using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }
