@@ -259,6 +259,23 @@ namespace BudgetExecution
             ExcelButton.Click += null;
             RemoveFiltersButton.Click += null;
             TableButton.Click += null;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            BackButton.Click += OnBackButtonClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            GroupButton.Click += OnGroupButtonClicked;
+            RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
+            ExcelButton.Click += OnExcelExportButtonClicked;
+            TableButton.Click += OnTableButtonClick;
             MouseClick += OnRightClick;
             Load += OnLoad;
             Shown += OnShown;
@@ -329,7 +346,6 @@ namespace BudgetExecution
         {
             try
             {
-                ClearLabelText( );
                 SetToolStripProperties( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
@@ -366,23 +382,6 @@ namespace BudgetExecution
                 }
 
                 PopulateToolBarDropDownItems( );
-                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-                TabControl.SelectedIndexChanged += OnActiveTabChanged;
-                BackButton.Click += OnBackButtonClicked;
-                ExitButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
-                ExcelButton.Click += OnExcelExportButtonClicked;
-                TableButton.Click += OnTableButtonClick;
             }
             catch( Exception ex )
             {
@@ -727,54 +726,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the label text.
-        /// </summary>
-        private void ClearLabelText( )
-        {
-            try
-            {
-                FirstDataLabel.Text = "Data Records: 0.0";
-                SecondDataLabel.Text = "Total Fields: 0.0";
-                ThirdDataLabel.Text = "Total Measures: 0.0";
-                FourthDataLabel.Text = "Active Filters: 0.0";
-                FifthDataLabel.Text = "Selected Fields: 0.0";
-                SixthDataLabel.Text = "Selected Numerics: 0.0";
-                SeventhDataLabel.Text = string.Empty;
-                EightDataLabel.Text = string.Empty;
-                NinthDataLabel.Text = string.Empty;
-                SqlHeader.Text = string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the label text.
-        /// </summary>
-        private void ResetLabelText( )
-        {
-            try
-            {
-                FirstDataLabel.Text = "Data Records: 0.0";
-                SecondDataLabel.Text = "Total Fields: 0.0";
-                ThirdDataLabel.Text = "Total Measures: 0.0";
-                FourthDataLabel.Text = "Active Filters: 0.0";
-                FifthDataLabel.Text = "Selected Fields: 0.0";
-                SixthDataLabel.Text = "Selected Numerics: 0.0";
-                SeventhDataLabel.Text = string.Empty;
-                EightDataLabel.Text = string.Empty;
-                NinthDataLabel.Text = string.Empty;
-                SqlHeader.Text = string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Updates the label text.
         /// </summary>
         private void UpdateLabelText( )
@@ -945,7 +896,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1673,10 +1625,10 @@ namespace BudgetExecution
                     SelectedNumerics.Add( _selectedItem );
                 }
 
-                UpdateLabelText( );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
                 ResetData( SelectedFields, SelectedNumerics, FormFilter );
+                UpdateLabelText( );
             }
             catch( Exception ex )
             {

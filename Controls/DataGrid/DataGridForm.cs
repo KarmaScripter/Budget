@@ -22,17 +22,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -363,7 +363,6 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                ResetLabelText( );
                 InitRadioButtons( );
                 SetProviderImage( );
                 SetToolStripProperties( );
@@ -379,7 +378,6 @@ namespace BudgetExecution
                     GroupTabPage.TabVisible = false;
                     CalendarTabPage.TabVisible = false;
                     LabelTable.Visible = true;
-                    UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
                 }
@@ -395,6 +393,7 @@ namespace BudgetExecution
 
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
+                UpdateLabelText( );
             }
             catch( Exception ex )
             {
@@ -556,7 +555,10 @@ namespace BudgetExecution
                             case ToolType.EditSqlButton:
                             {
                                 var _tool = type.ToString( );
-                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
+                                var _file = _files
+                                    ?.Where( f => f.Contains( _tool ) )
+                                    ?.First( );
+                                
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {
@@ -615,8 +617,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -634,7 +635,8 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> columns,
+            IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
                && columns?.Any( ) == true
@@ -650,8 +652,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
@@ -695,8 +696,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -782,29 +782,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the label text.
-        /// </summary>
-        private void ResetLabelText( )
-        {
-            try
-            {
-                Text = string.Empty;
-                HeaderLabel.Text = string.Empty;
-                FirstGridLabel.Text = string.Empty;
-                SecondGridLabel.Text = string.Empty;
-                ThirdGridLabel.Text = string.Empty;
-                FourthGridLabel.Text = string.Empty;
-                SqlHeader.Text = string.Empty;
-                FieldsTable.CaptionText = "Fields: ";
-                NumericsTable.CaptionText = "Numerics: ";
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Updates the label text.
         /// </summary>
         private void UpdateLabelText( )
@@ -820,11 +797,11 @@ namespace BudgetExecution
                     var _numerics = Numerics?.Count ?? 0;
                     HeaderLabel.Text = $"{_table} ";
                     FirstGridLabel.Text = $"Data Provider: {Provider}";
-                    SecondGridLabel.Text = $"Records: {_records} ";
-                    ThirdGridLabel.Text = $"Fields: {_fields} ";
-                    FourthGridLabel.Text = $"Measures: {_numerics} ";
-                    FieldsTable.CaptionText = $"Fields: {_fields} ";
-                    NumericsTable.CaptionText = $"Measures: {_numerics} ";
+                    SecondGridLabel.Text = $"Records: {_records}";
+                    ThirdGridLabel.Text = $"Fields: {_fields}";
+                    FourthGridLabel.Text = $"Measures: {_numerics}";
+                    FieldsTable.CaptionText = $"Fields: {_fields}";
+                    NumericsTable.CaptionText = $"Measures: {_numerics}";
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
                     SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
@@ -1081,8 +1058,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1111,8 +1087,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1141,8 +1116,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1191,7 +1165,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Opens the excel data form.
         /// </summary>
@@ -1203,8 +1177,7 @@ namespace BudgetExecution
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
                     var _excelDataForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
-                        ?.First( );
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )?.First( );
 
                     _excelDataForm.Visible = true;
                 }
@@ -1232,8 +1205,7 @@ namespace BudgetExecution
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
                     var _chartDataForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )
-                        ?.First( );
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )?.First( );
 
                     _chartDataForm.Visible = true;
                 }
@@ -1279,7 +1251,6 @@ namespace BudgetExecution
                         TabControl.SelectedIndex = 1;
                     }
 
-                    ResetLabelText( );
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
@@ -1406,12 +1377,10 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    ResetLabelText( );
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
-
-                    //SqlHeader.Text = SqlQuery;
+                    SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -1482,7 +1451,6 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    ResetLabelText( );
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
@@ -1557,7 +1525,6 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    ResetLabelText( );
                     BindData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
@@ -1886,7 +1853,6 @@ namespace BudgetExecution
                     DataGrid.DataSource = null;
                     ClearSelections( );
                     ClearCollections( );
-                    ResetLabelText( );
                     TabControl.SelectedIndex = 0;
                 }
             }
@@ -1952,7 +1918,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [remove filter button clicked].
         /// </summary>
