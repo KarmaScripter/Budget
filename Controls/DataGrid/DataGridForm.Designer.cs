@@ -78,21 +78,26 @@
             Separator25 =  new ToolSeparator( ) ;
             toolSeparator24 =  new ToolSeparator( ) ;
             TabControl =  new TabControl( ) ;
+            FilterTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
+            FilterTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            SecondTable =  new HeaderPanel( ) ;
+            SecondListBoxPanel =  new Layout( ) ;
+            SecondListBox =  new ListBox( ) ;
+            SecondComboBox =  new ComboBox( ) ;
+            ThirdTable =  new HeaderPanel( ) ;
+            ThirdListBoxPanel =  new Layout( ) ;
+            ThirdListBox =  new ListBox( ) ;
+            ThirdComboBox =  new ComboBox( ) ;
             TableTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             SourceTable =  new HeaderPanel( ) ;
             TableComboBox =  new ComboBox( ) ;
             TablePanel =  new Layout( ) ;
             TableListBox =  new ListBox( ) ;
-            FilterTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
-            FilterTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            ThirdTable =  new HeaderPanel( ) ;
-            ThirdListBoxPanel =  new Layout( ) ;
-            ThirdListBox =  new ListBox( ) ;
-            ThirdComboBox =  new ComboBox( ) ;
-            SecondTable =  new HeaderPanel( ) ;
-            SecondListBoxPanel =  new Layout( ) ;
-            SecondListBox =  new ListBox( ) ;
-            SecondComboBox =  new ComboBox( ) ;
+            ProviderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
+            SQLiteRadioButton =  new RadioButton( ) ;
+            SqlServerRadioButton =  new RadioButton( ) ;
+            AccessRadioButton =  new RadioButton( ) ;
+            SqlCeRadioButton =  new RadioButton( ) ;
             GroupTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             CalendarTabPage =  new Syncfusion.Windows.Forms.Tools.TabPageAdv( ) ;
             TimeSpanTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
@@ -159,11 +164,6 @@
             NavigationSeparator =  new ToolSeparator( ) ;
             toolStripMenuItemExt1 =  new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( ) ;
             ContextMenu =  new ContextMenu( ) ;
-            SqlServerRadioButton =  new RadioButton( ) ;
-            AccessRadioButton =  new RadioButton( ) ;
-            SQLiteRadioButton =  new RadioButton( ) ;
-            ProviderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
-            SqlCeRadioButton =  new RadioButton( ) ;
             HeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             HeaderLabel =  new Label( ) ;
             PictureBox =  new System.Windows.Forms.PictureBox( ) ;
@@ -184,20 +184,20 @@
             FirstListBoxPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
             TabControl.SuspendLayout( );
+            FilterTabPage.SuspendLayout( );
+            FilterTable.SuspendLayout( );
+            SecondTable.SuspendLayout( );
+            SecondListBoxPanel.SuspendLayout( );
+            ThirdTable.SuspendLayout( );
+            ThirdListBoxPanel.SuspendLayout( );
             TableTabPage.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
-            FilterTabPage.SuspendLayout( );
-            FilterTable.SuspendLayout( );
-            ThirdTable.SuspendLayout( );
-            ThirdListBoxPanel.SuspendLayout( );
-            SecondTable.SuspendLayout( );
-            SecondListBoxPanel.SuspendLayout( );
+            ProviderTable.SuspendLayout( );
             GroupTabPage.SuspendLayout( );
             CalendarTabPage.SuspendLayout( );
             TimeSpanTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
-            ProviderTable.SuspendLayout( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             SuspendLayout( );
@@ -331,12 +331,12 @@
             GridTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             GridTable.Controls.Add( DataGridPanel, 0, 1 );
             GridTable.Controls.Add( LabelTable, 0, 0 );
-            GridTable.Location =  new System.Drawing.Point( 41, 70 ) ;
+            GridTable.Location =  new System.Drawing.Point( 41, 48 ) ;
             GridTable.Name =  "GridTable" ;
             GridTable.RowCount =  2 ;
             GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 34F ) );
             GridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            GridTable.Size =  new System.Drawing.Size( 970, 602 ) ;
+            GridTable.Size =  new System.Drawing.Size( 970, 628 ) ;
             GridTable.TabIndex =  37 ;
             // 
             // DataGridPanel
@@ -357,7 +357,7 @@
             DataGridPanel.Location =  new System.Drawing.Point( 3, 37 ) ;
             DataGridPanel.Name =  "DataGridPanel" ;
             DataGridPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            DataGridPanel.Size =  new System.Drawing.Size( 964, 562 ) ;
+            DataGridPanel.Size =  new System.Drawing.Size( 964, 588 ) ;
             DataGridPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             DataGridPanel.StyleManager =  null ;
             DataGridPanel.TabIndex =  47 ;
@@ -401,7 +401,7 @@
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
             DataGrid.HoverText =  null ;
-            DataGrid.Location =  new System.Drawing.Point( 20, 26 ) ;
+            DataGrid.Location =  new System.Drawing.Point( 22, 19 ) ;
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
@@ -422,7 +422,7 @@
             dataGridViewCellStyle5.SelectionForeColor =  System.Drawing.Color.White ;
             DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
-            DataGrid.Size =  new System.Drawing.Size( 923, 512 ) ;
+            DataGrid.Size =  new System.Drawing.Size( 923, 542 ) ;
             DataGrid.TabIndex =  0 ;
             DataGrid.ToolTip =  null ;
             // 
@@ -525,12 +525,12 @@
             SecondCalendarTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
             SecondCalendarTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondCalendarTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            SecondCalendarTable.Location =  new System.Drawing.Point( 3, 280 ) ;
+            SecondCalendarTable.Location =  new System.Drawing.Point( 3, 315 ) ;
             SecondCalendarTable.Name =  "SecondCalendarTable" ;
             SecondCalendarTable.RowCount =  2 ;
             SecondCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.296875F ) );
             SecondCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.703125F ) );
-            SecondCalendarTable.Size =  new System.Drawing.Size( 277, 272 ) ;
+            SecondCalendarTable.Size =  new System.Drawing.Size( 277, 306 ) ;
             SecondCalendarTable.TabIndex =  2 ;
             // 
             // SecondCalendarPanel
@@ -548,10 +548,10 @@
             SecondCalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondCalendarPanel.HoverText =  null ;
             SecondCalendarPanel.IsDerivedStyle =  true ;
-            SecondCalendarPanel.Location =  new System.Drawing.Point( 3, 30 ) ;
+            SecondCalendarPanel.Location =  new System.Drawing.Point( 3, 31 ) ;
             SecondCalendarPanel.Name =  "SecondCalendarPanel" ;
             SecondCalendarPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondCalendarPanel.Size =  new System.Drawing.Size( 271, 239 ) ;
+            SecondCalendarPanel.Size =  new System.Drawing.Size( 271, 272 ) ;
             SecondCalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondCalendarPanel.StyleManager =  null ;
             SecondCalendarPanel.TabIndex =  46 ;
@@ -626,7 +626,7 @@
             FirstCalendarTable.RowCount =  2 ;
             FirstCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.31372547F ) );
             FirstCalendarTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.68627F ) );
-            FirstCalendarTable.Size =  new System.Drawing.Size( 277, 271 ) ;
+            FirstCalendarTable.Size =  new System.Drawing.Size( 277, 306 ) ;
             FirstCalendarTable.TabIndex =  1 ;
             // 
             // FirstCalendarPanel
@@ -644,10 +644,10 @@
             FirstCalendarPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstCalendarPanel.HoverText =  null ;
             FirstCalendarPanel.IsDerivedStyle =  true ;
-            FirstCalendarPanel.Location =  new System.Drawing.Point( 3, 30 ) ;
+            FirstCalendarPanel.Location =  new System.Drawing.Point( 3, 31 ) ;
             FirstCalendarPanel.Name =  "FirstCalendarPanel" ;
             FirstCalendarPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstCalendarPanel.Size =  new System.Drawing.Size( 271, 238 ) ;
+            FirstCalendarPanel.Size =  new System.Drawing.Size( 271, 272 ) ;
             FirstCalendarPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstCalendarPanel.StyleManager =  null ;
             FirstCalendarPanel.TabIndex =  45 ;
@@ -872,7 +872,7 @@
             FirstTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
             FirstTable.CaptionText =  "First Filter" ;
             FirstTable.ColumnCount =  1 ;
-            FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             FirstTable.Controls.Add( FirstComboBox, 0, 0 );
             FirstTable.Controls.Add( FirstListBoxPanel, 0, 1 );
             FirstTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
@@ -881,9 +881,9 @@
             FirstTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             FirstTable.Name =  "FirstTable" ;
             FirstTable.RowCount =  2 ;
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 21.6867466F ) );
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 78.3132553F ) );
-            FirstTable.Size =  new System.Drawing.Size( 257, 182 ) ;
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.270834F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.7291641F ) );
+            FirstTable.Size =  new System.Drawing.Size( 257, 208 ) ;
             FirstTable.TabIndex =  1 ;
             // 
             // FirstComboBox
@@ -935,10 +935,10 @@
             FirstListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstListBoxPanel.HoverText =  null ;
             FirstListBoxPanel.IsDerivedStyle =  true ;
-            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 55 ) ;
+            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
             FirstListBoxPanel.Name =  "FirstListBoxPanel" ;
             FirstListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstListBoxPanel.Size =  new System.Drawing.Size( 251, 124 ) ;
+            FirstListBoxPanel.Size =  new System.Drawing.Size( 251, 149 ) ;
             FirstListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBoxPanel.StyleManager =  null ;
             FirstListBoxPanel.TabIndex =  26 ;
@@ -974,7 +974,7 @@
             FirstListBox.SelectedValue =  null ;
             FirstListBox.ShowBorder =  false ;
             FirstListBox.ShowScrollBar =  false ;
-            FirstListBox.Size =  new System.Drawing.Size( 201, 80 ) ;
+            FirstListBox.Size =  new System.Drawing.Size( 201, 105 ) ;
             FirstListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBox.StyleManager =  null ;
             FirstListBox.TabIndex =  0 ;
@@ -1079,7 +1079,7 @@
             TabControl.ActiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.ActiveTabFont =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             TabControl.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            TabControl.BeforeTouchSize =  new System.Drawing.Size( 309, 574 ) ;
+            TabControl.BeforeTouchSize =  new System.Drawing.Size( 309, 643 ) ;
             TabControl.BindingSource =  null ;
             TabControl.BorderStyle =  System.Windows.Forms.BorderStyle.None ;
             TabControl.BorderWidth =  1 ;
@@ -1096,9 +1096,9 @@
             TabControl.InactiveCloseButtonForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.InactiveTabColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.ItemSize =  new System.Drawing.Size( 100, 10 ) ;
-            TabControl.Location =  new System.Drawing.Point( 1014, 105 ) ;
+            TabControl.Location =  new System.Drawing.Point( 1014, 36 ) ;
             TabControl.Name =  "TabControl" ;
-            TabControl.Size =  new System.Drawing.Size( 309, 574 ) ;
+            TabControl.Size =  new System.Drawing.Size( 309, 643 ) ;
             TabControl.TabIndex =  44 ;
             TabControl.TabPanelBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.TabStyle =  typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro ) ;
@@ -1114,15 +1114,279 @@
             TabControl.ThemeStyle.TabStyle.SeparatorColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             TabControl.ToolTip =  ToolTip ;
             // 
+            // FilterTabPage
+            // 
+            FilterTabPage.Controls.Add( FilterTable );
+            FilterTabPage.Image =  null ;
+            FilterTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
+            FilterTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
+            FilterTabPage.Name =  "FilterTabPage" ;
+            FilterTabPage.ShowCloseButton =  true ;
+            FilterTabPage.Size =  new System.Drawing.Size( 309, 634 ) ;
+            FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FilterTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FilterTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
+            FilterTabPage.TabIndex =  1 ;
+            FilterTabPage.ThemesEnabled =  false ;
+            // 
+            // FilterTable
+            // 
+            FilterTable.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            FilterTable.ColumnCount =  1 ;
+            FilterTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+            FilterTable.Controls.Add( SecondTable, 0, 1 );
+            FilterTable.Controls.Add( FirstTable, 0, 0 );
+            FilterTable.Controls.Add( ThirdTable, 0, 2 );
+            FilterTable.Location =  new System.Drawing.Point( 13, 40 ) ;
+            FilterTable.Name =  "FilterTable" ;
+            FilterTable.RowCount =  3 ;
+            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 36.2098122F ) );
+            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 31.9796963F ) );
+            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 31.5286617F ) );
+            FilterTable.Size =  new System.Drawing.Size( 263, 591 ) ;
+            FilterTable.TabIndex =  46 ;
+            // 
+            // SecondTable
+            // 
+            SecondTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            SecondTable.CaptionText =  "Second Filter" ;
+            SecondTable.ColumnCount =  1 ;
+            SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            SecondTable.Controls.Add( SecondListBoxPanel, 0, 1 );
+            SecondTable.Controls.Add( SecondComboBox, 0, 0 );
+            SecondTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SecondTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SecondTable.ForeColor =  System.Drawing.Color.DarkGray ;
+            SecondTable.Location =  new System.Drawing.Point( 3, 217 ) ;
+            SecondTable.Name =  "SecondTable" ;
+            SecondTable.RowCount =  2 ;
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 21.5568867F ) );
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 78.4431152F ) );
+            SecondTable.Size =  new System.Drawing.Size( 257, 183 ) ;
+            SecondTable.TabIndex =  1 ;
+            // 
+            // SecondListBoxPanel
+            // 
+            SecondListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
+            SecondListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondListBoxPanel.BindingSource =  null ;
+            SecondListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            SecondListBoxPanel.BorderThickness =  1 ;
+            SecondListBoxPanel.Children =  null ;
+            SecondListBoxPanel.Controls.Add( SecondListBox );
+            SecondListBoxPanel.DataFilter =  null ;
+            SecondListBoxPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SecondListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SecondListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            SecondListBoxPanel.HoverText =  null ;
+            SecondListBoxPanel.IsDerivedStyle =  true ;
+            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 55 ) ;
+            SecondListBoxPanel.Name =  "SecondListBoxPanel" ;
+            SecondListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            SecondListBoxPanel.Size =  new System.Drawing.Size( 251, 125 ) ;
+            SecondListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SecondListBoxPanel.StyleManager =  null ;
+            SecondListBoxPanel.TabIndex =  27 ;
+            SecondListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            SecondListBoxPanel.ThemeName =  "BudgetExecution" ;
+            SecondListBoxPanel.ToolTip =  null ;
+            // 
+            // SecondListBox
+            // 
+            SecondListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            SecondListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            SecondListBox.BindingSource =  null ;
+            SecondListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            SecondListBox.DataFilter =  null ;
+            SecondListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            SecondListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SecondListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            SecondListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
+            SecondListBox.HoverText =  null ;
+            SecondListBox.IsDerivedStyle =  true ;
+            SecondListBox.ItemHeight =  28 ;
+            SecondListBox.Location =  new System.Drawing.Point( 23, 18 ) ;
+            SecondListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            SecondListBox.MultiSelect =  false ;
+            SecondListBox.Name =  "SecondListBox" ;
+            SecondListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            SecondListBox.SelectedIndex =  -1 ;
+            SecondListBox.SelectedItem =  null ;
+            SecondListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondListBox.SelectedItemColor =  System.Drawing.Color.White ;
+            SecondListBox.SelectedText =  null ;
+            SecondListBox.SelectedValue =  null ;
+            SecondListBox.ShowBorder =  false ;
+            SecondListBox.ShowScrollBar =  false ;
+            SecondListBox.Size =  new System.Drawing.Size( 201, 86 ) ;
+            SecondListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SecondListBox.StyleManager =  null ;
+            SecondListBox.TabIndex =  0 ;
+            SecondListBox.ThemeAuthor =  "Terry D. Eppler" ;
+            SecondListBox.ThemeName =  "BudgetExecution" ;
+            SecondListBox.ToolTip =  null ;
+            // 
+            // SecondComboBox
+            // 
+            SecondComboBox.AllowDrop =  true ;
+            SecondComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondComboBox.BackColor =  System.Drawing.Color.Transparent ;
+            SecondComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            SecondComboBox.BindingSource =  null ;
+            SecondComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            SecondComboBox.CausesValidation =  false ;
+            SecondComboBox.DataFilter =  null ;
+            SecondComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            SecondComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            SecondComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            SecondComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SecondComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
+            SecondComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
+            SecondComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            SecondComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SecondComboBox.FormattingEnabled =  true ;
+            SecondComboBox.HoverText =  null ;
+            SecondComboBox.IsDerivedStyle =  true ;
+            SecondComboBox.ItemHeight =  24 ;
+            SecondComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
+            SecondComboBox.Name =  "SecondComboBox" ;
+            SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
+            SecondComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
+            SecondComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SecondComboBox.StyleManager =  null ;
+            SecondComboBox.TabIndex =  5 ;
+            SecondComboBox.ThemeAuthor =  "Terry D. Eppler" ;
+            SecondComboBox.ThemeName =  "Budget Execution" ;
+            SecondComboBox.ToolTip =  null ;
+            // 
+            // ThirdTable
+            // 
+            ThirdTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ThirdTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            ThirdTable.CaptionText =  "Third Filter" ;
+            ThirdTable.ColumnCount =  1 ;
+            ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ThirdTable.Controls.Add( ThirdListBoxPanel, 0, 1 );
+            ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
+            ThirdTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ThirdTable.ForeColor =  System.Drawing.Color.DarkGray ;
+            ThirdTable.Location =  new System.Drawing.Point( 3, 406 ) ;
+            ThirdTable.Name =  "ThirdTable" ;
+            ThirdTable.RowCount =  2 ;
+            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.289156F ) );
+            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.7108459F ) );
+            ThirdTable.Size =  new System.Drawing.Size( 257, 182 ) ;
+            ThirdTable.TabIndex =  1 ;
+            // 
+            // ThirdListBoxPanel
+            // 
+            ThirdListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
+            ThirdListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ThirdListBoxPanel.BindingSource =  null ;
+            ThirdListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ThirdListBoxPanel.BorderThickness =  1 ;
+            ThirdListBoxPanel.Children =  null ;
+            ThirdListBoxPanel.Controls.Add( ThirdListBox );
+            ThirdListBoxPanel.DataFilter =  null ;
+            ThirdListBoxPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            ThirdListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ThirdListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            ThirdListBoxPanel.HoverText =  null ;
+            ThirdListBoxPanel.IsDerivedStyle =  true ;
+            ThirdListBoxPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
+            ThirdListBoxPanel.Name =  "ThirdListBoxPanel" ;
+            ThirdListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ThirdListBoxPanel.Size =  new System.Drawing.Size( 251, 123 ) ;
+            ThirdListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ThirdListBoxPanel.StyleManager =  null ;
+            ThirdListBoxPanel.TabIndex =  28 ;
+            ThirdListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            ThirdListBoxPanel.ThemeName =  "BudgetExecution" ;
+            ThirdListBoxPanel.ToolTip =  null ;
+            // 
+            // ThirdListBox
+            // 
+            ThirdListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
+            ThirdListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ThirdListBox.BindingSource =  null ;
+            ThirdListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
+            ThirdListBox.DataFilter =  null ;
+            ThirdListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ThirdListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ThirdListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ThirdListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
+            ThirdListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
+            ThirdListBox.HoverText =  null ;
+            ThirdListBox.IsDerivedStyle =  true ;
+            ThirdListBox.ItemHeight =  28 ;
+            ThirdListBox.Location =  new System.Drawing.Point( 23, 14 ) ;
+            ThirdListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
+            ThirdListBox.MultiSelect =  false ;
+            ThirdListBox.Name =  "ThirdListBox" ;
+            ThirdListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            ThirdListBox.SelectedIndex =  -1 ;
+            ThirdListBox.SelectedItem =  null ;
+            ThirdListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ThirdListBox.SelectedItemColor =  System.Drawing.Color.White ;
+            ThirdListBox.SelectedText =  null ;
+            ThirdListBox.SelectedValue =  null ;
+            ThirdListBox.ShowBorder =  false ;
+            ThirdListBox.ShowScrollBar =  false ;
+            ThirdListBox.Size =  new System.Drawing.Size( 201, 89 ) ;
+            ThirdListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ThirdListBox.StyleManager =  null ;
+            ThirdListBox.TabIndex =  0 ;
+            ThirdListBox.ThemeAuthor =  "Terry D. Eppler" ;
+            ThirdListBox.ThemeName =  "BudgetExecution" ;
+            ThirdListBox.ToolTip =  null ;
+            // 
+            // ThirdComboBox
+            // 
+            ThirdComboBox.AllowDrop =  true ;
+            ThirdComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ThirdComboBox.BackColor =  System.Drawing.Color.Transparent ;
+            ThirdComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ThirdComboBox.BindingSource =  null ;
+            ThirdComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ThirdComboBox.CausesValidation =  false ;
+            ThirdComboBox.DataFilter =  null ;
+            ThirdComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
+            ThirdComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
+            ThirdComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            ThirdComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            ThirdComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
+            ThirdComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
+            ThirdComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            ThirdComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ThirdComboBox.FormattingEnabled =  true ;
+            ThirdComboBox.HoverText =  null ;
+            ThirdComboBox.IsDerivedStyle =  true ;
+            ThirdComboBox.ItemHeight =  24 ;
+            ThirdComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
+            ThirdComboBox.Name =  "ThirdComboBox" ;
+            ThirdComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ThirdComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
+            ThirdComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
+            ThirdComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ThirdComboBox.StyleManager =  null ;
+            ThirdComboBox.TabIndex =  5 ;
+            ThirdComboBox.ThemeAuthor =  "Terry D. Eppler" ;
+            ThirdComboBox.ThemeName =  "Budget Execution" ;
+            ThirdComboBox.ToolTip =  null ;
+            // 
             // TableTabPage
             // 
             TableTabPage.Controls.Add( SourceTable );
+            TableTabPage.Controls.Add( ProviderTable );
             TableTabPage.Image =  null ;
             TableTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
             TableTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             TableTabPage.Name =  "TableTabPage" ;
             TableTabPage.ShowCloseButton =  true ;
-            TableTabPage.Size =  new System.Drawing.Size( 309, 565 ) ;
+            TableTabPage.Size =  new System.Drawing.Size( 309, 634 ) ;
             TableTabPage.TabIndex =  5 ;
             TableTabPage.ThemesEnabled =  false ;
             // 
@@ -1137,12 +1401,12 @@
             SourceTable.Controls.Add( TablePanel, 0, 1 );
             SourceTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SourceTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            SourceTable.Location =  new System.Drawing.Point( 13, 0 ) ;
+            SourceTable.Location =  new System.Drawing.Point( 3, 40 ) ;
             SourceTable.Name =  "SourceTable" ;
             SourceTable.RowCount =  2 ;
-            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 7.195572F ) );
-            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 92.80443F ) );
-            SourceTable.Size =  new System.Drawing.Size( 283, 558 ) ;
+            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.47986F ) );
+            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.52014F ) );
+            SourceTable.Size =  new System.Drawing.Size( 283, 591 ) ;
             SourceTable.TabIndex =  54 ;
             // 
             // TableComboBox
@@ -1152,7 +1416,7 @@
             TableComboBox.BackColor =  System.Drawing.Color.Transparent ;
             TableComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
             TableComboBox.BindingSource =  null ;
-            TableComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            TableComboBox.BorderColor =  System.Drawing.Color.FromArgb(   75  ,   75  ,   75   ) ;
             TableComboBox.CausesValidation =  false ;
             TableComboBox.DataFilter =  null ;
             TableComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
@@ -1195,10 +1459,10 @@
             TablePanel.ForeColor =  System.Drawing.Color.Transparent ;
             TablePanel.HoverText =  null ;
             TablePanel.IsDerivedStyle =  true ;
-            TablePanel.Location =  new System.Drawing.Point( 3, 58 ) ;
+            TablePanel.Location =  new System.Drawing.Point( 3, 56 ) ;
             TablePanel.Name =  "TablePanel" ;
             TablePanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            TablePanel.Size =  new System.Drawing.Size( 277, 497 ) ;
+            TablePanel.Size =  new System.Drawing.Size( 277, 532 ) ;
             TablePanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             TablePanel.StyleManager =  null ;
             TablePanel.TabIndex =  0 ;
@@ -1220,7 +1484,7 @@
             TableListBox.HoverText =  null ;
             TableListBox.IsDerivedStyle =  true ;
             TableListBox.ItemHeight =  28 ;
-            TableListBox.Location =  new System.Drawing.Point( 30, 23 ) ;
+            TableListBox.Location =  new System.Drawing.Point( 22, 23 ) ;
             TableListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             TableListBox.MultiSelect =  false ;
             TableListBox.Name =  "TableListBox" ;
@@ -1233,7 +1497,7 @@
             TableListBox.SelectedValue =  null ;
             TableListBox.ShowBorder =  false ;
             TableListBox.ShowScrollBar =  true ;
-            TableListBox.Size =  new System.Drawing.Size( 218, 450 ) ;
+            TableListBox.Size =  new System.Drawing.Size( 231, 482 ) ;
             TableListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             TableListBox.StyleManager =  null ;
             TableListBox.TabIndex =  0 ;
@@ -1241,271 +1505,123 @@
             TableListBox.ThemeName =  "Budget Execution" ;
             TableListBox.ToolTip =  null ;
             // 
-            // FilterTabPage
+            // ProviderTable
             // 
-            FilterTabPage.Controls.Add( FilterTable );
-            FilterTabPage.Image =  null ;
-            FilterTabPage.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            FilterTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
-            FilterTabPage.Name =  "FilterTabPage" ;
-            FilterTabPage.ShowCloseButton =  true ;
-            FilterTabPage.Size =  new System.Drawing.Size( 309, 565 ) ;
-            FilterTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FilterTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FilterTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
-            FilterTabPage.TabIndex =  1 ;
-            FilterTabPage.ThemesEnabled =  false ;
+            ProviderTable.ColumnCount =  4 ;
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 49.25373F ) );
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50.74627F ) );
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 72F ) );
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 77F ) );
+            ProviderTable.Controls.Add( SQLiteRadioButton, 0, 0 );
+            ProviderTable.Controls.Add( SqlServerRadioButton, 2, 0 );
+            ProviderTable.Controls.Add( AccessRadioButton, 1, 0 );
+            ProviderTable.Controls.Add( SqlCeRadioButton, 3, 0 );
+            ProviderTable.Location =  new System.Drawing.Point( 3, 8 ) ;
+            ProviderTable.Name =  "ProviderTable" ;
+            ProviderTable.RowCount =  1 ;
+            ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ProviderTable.Size =  new System.Drawing.Size( 283, 23 ) ;
+            ProviderTable.TabIndex =  51 ;
             // 
-            // FilterTable
+            // SQLiteRadioButton
             // 
-            FilterTable.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            FilterTable.ColumnCount =  1 ;
-            FilterTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            FilterTable.Controls.Add( ThirdTable, 0, 2 );
-            FilterTable.Controls.Add( SecondTable, 0, 1 );
-            FilterTable.Controls.Add( FirstTable, 0, 0 );
-            FilterTable.Location =  new System.Drawing.Point( 13, 3 ) ;
-            FilterTable.Name =  "FilterTable" ;
-            FilterTable.RowCount =  3 ;
-            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33.77704F ) );
-            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33.11148F ) );
-            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33.11148F ) );
-            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            FilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            FilterTable.Size =  new System.Drawing.Size( 263, 559 ) ;
-            FilterTable.TabIndex =  46 ;
+            SQLiteRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            SQLiteRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SQLiteRadioButton.Checked =  false ;
+            SQLiteRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
+            SQLiteRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
+            SQLiteRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            SQLiteRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SQLiteRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SQLiteRadioButton.Group =  0 ;
+            SQLiteRadioButton.HoverText =  "SQLite Data Provider" ;
+            SQLiteRadioButton.IsDerivedStyle =  true ;
+            SQLiteRadioButton.Location =  new System.Drawing.Point( 3, 3 ) ;
+            SQLiteRadioButton.Name =  "SQLiteRadioButton" ;
+            SQLiteRadioButton.Result =  null ;
+            SQLiteRadioButton.Size =  new System.Drawing.Size( 60, 17 ) ;
+            SQLiteRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SQLiteRadioButton.StyleManager =  null ;
+            SQLiteRadioButton.TabIndex =  50 ;
+            SQLiteRadioButton.Text =  "SQLite" ;
+            SQLiteRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
+            SQLiteRadioButton.ThemeName =  "Budget Execution" ;
+            SQLiteRadioButton.ToolTip =  null ;
             // 
-            // ThirdTable
+            // SqlServerRadioButton
             // 
-            ThirdTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ThirdTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-            ThirdTable.CaptionText =  "Third Filter" ;
-            ThirdTable.ColumnCount =  1 ;
-            ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ThirdTable.Controls.Add( ThirdListBoxPanel, 0, 1 );
-            ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
-            ThirdTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            ThirdTable.Location =  new System.Drawing.Point( 3, 376 ) ;
-            ThirdTable.Name =  "ThirdTable" ;
-            ThirdTable.RowCount =  2 ;
-            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.7777786F ) );
-            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.22222F ) );
-            ThirdTable.Size =  new System.Drawing.Size( 257, 180 ) ;
-            ThirdTable.TabIndex =  1 ;
+            SqlServerRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            SqlServerRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SqlServerRadioButton.Checked =  false ;
+            SqlServerRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
+            SqlServerRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
+            SqlServerRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            SqlServerRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SqlServerRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SqlServerRadioButton.Group =  0 ;
+            SqlServerRadioButton.HoverText =  "SQL Server Provider" ;
+            SqlServerRadioButton.IsDerivedStyle =  true ;
+            SqlServerRadioButton.Location =  new System.Drawing.Point( 137, 3 ) ;
+            SqlServerRadioButton.Name =  "SqlServerRadioButton" ;
+            SqlServerRadioButton.Result =  null ;
+            SqlServerRadioButton.Size =  new System.Drawing.Size( 66, 17 ) ;
+            SqlServerRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SqlServerRadioButton.StyleManager =  null ;
+            SqlServerRadioButton.TabIndex =  48 ;
+            SqlServerRadioButton.Text =  "MS SQL" ;
+            SqlServerRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
+            SqlServerRadioButton.ThemeName =  "Budget Execution" ;
+            SqlServerRadioButton.ToolTip =  null ;
             // 
-            // ThirdListBoxPanel
+            // AccessRadioButton
             // 
-            ThirdListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            ThirdListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ThirdListBoxPanel.BindingSource =  null ;
-            ThirdListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            ThirdListBoxPanel.BorderThickness =  1 ;
-            ThirdListBoxPanel.Children =  null ;
-            ThirdListBoxPanel.Controls.Add( ThirdListBox );
-            ThirdListBoxPanel.DataFilter =  null ;
-            ThirdListBoxPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            ThirdListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            ThirdListBoxPanel.HoverText =  null ;
-            ThirdListBoxPanel.IsDerivedStyle =  true ;
-            ThirdListBoxPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
-            ThirdListBoxPanel.Name =  "ThirdListBoxPanel" ;
-            ThirdListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdListBoxPanel.Size =  new System.Drawing.Size( 251, 121 ) ;
-            ThirdListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ThirdListBoxPanel.StyleManager =  null ;
-            ThirdListBoxPanel.TabIndex =  28 ;
-            ThirdListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            ThirdListBoxPanel.ThemeName =  "BudgetExecution" ;
-            ThirdListBoxPanel.ToolTip =  null ;
+            AccessRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            AccessRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            AccessRadioButton.Checked =  false ;
+            AccessRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
+            AccessRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
+            AccessRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            AccessRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            AccessRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            AccessRadioButton.Group =  0 ;
+            AccessRadioButton.HoverText =  "Access Data Provider" ;
+            AccessRadioButton.IsDerivedStyle =  true ;
+            AccessRadioButton.Location =  new System.Drawing.Point( 69, 3 ) ;
+            AccessRadioButton.Name =  "AccessRadioButton" ;
+            AccessRadioButton.Result =  null ;
+            AccessRadioButton.Size =  new System.Drawing.Size( 62, 17 ) ;
+            AccessRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            AccessRadioButton.StyleManager =  null ;
+            AccessRadioButton.TabIndex =  49 ;
+            AccessRadioButton.Text =  "Access" ;
+            AccessRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
+            AccessRadioButton.ThemeName =  "Budget Execution" ;
+            AccessRadioButton.ToolTip =  null ;
             // 
-            // ThirdListBox
+            // SqlCeRadioButton
             // 
-            ThirdListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            ThirdListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-            ThirdListBox.BindingSource =  null ;
-            ThirdListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            ThirdListBox.DataFilter =  null ;
-            ThirdListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ThirdListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ThirdListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            ThirdListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
-            ThirdListBox.HoverText =  null ;
-            ThirdListBox.IsDerivedStyle =  true ;
-            ThirdListBox.ItemHeight =  28 ;
-            ThirdListBox.Location =  new System.Drawing.Point( 23, 23 ) ;
-            ThirdListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdListBox.MultiSelect =  false ;
-            ThirdListBox.Name =  "ThirdListBox" ;
-            ThirdListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ThirdListBox.SelectedIndex =  -1 ;
-            ThirdListBox.SelectedItem =  null ;
-            ThirdListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ThirdListBox.SelectedItemColor =  System.Drawing.Color.White ;
-            ThirdListBox.SelectedText =  null ;
-            ThirdListBox.SelectedValue =  null ;
-            ThirdListBox.ShowBorder =  false ;
-            ThirdListBox.ShowScrollBar =  false ;
-            ThirdListBox.Size =  new System.Drawing.Size( 201, 76 ) ;
-            ThirdListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ThirdListBox.StyleManager =  null ;
-            ThirdListBox.TabIndex =  0 ;
-            ThirdListBox.ThemeAuthor =  "Terry D. Eppler" ;
-            ThirdListBox.ThemeName =  "BudgetExecution" ;
-            ThirdListBox.ToolTip =  null ;
-            // 
-            // ThirdComboBox
-            // 
-            ThirdComboBox.AllowDrop =  true ;
-            ThirdComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ThirdComboBox.BackColor =  System.Drawing.Color.Transparent ;
-            ThirdComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            ThirdComboBox.BindingSource =  null ;
-            ThirdComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            ThirdComboBox.CausesValidation =  false ;
-            ThirdComboBox.DataFilter =  null ;
-            ThirdComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
-            ThirdComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-            ThirdComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            ThirdComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            ThirdComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
-            ThirdComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-            ThirdComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            ThirdComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ThirdComboBox.FormattingEnabled =  true ;
-            ThirdComboBox.HoverText =  null ;
-            ThirdComboBox.IsDerivedStyle =  true ;
-            ThirdComboBox.ItemHeight =  24 ;
-            ThirdComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
-            ThirdComboBox.Name =  "ThirdComboBox" ;
-            ThirdComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ThirdComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
-            ThirdComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
-            ThirdComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ThirdComboBox.StyleManager =  null ;
-            ThirdComboBox.TabIndex =  5 ;
-            ThirdComboBox.ThemeAuthor =  "Terry D. Eppler" ;
-            ThirdComboBox.ThemeName =  "Budget Execution" ;
-            ThirdComboBox.ToolTip =  null ;
-            // 
-            // SecondTable
-            // 
-            SecondTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-            SecondTable.CaptionText =  "Second Filter" ;
-            SecondTable.ColumnCount =  1 ;
-            SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            SecondTable.Controls.Add( SecondListBoxPanel, 0, 1 );
-            SecondTable.Controls.Add( SecondComboBox, 0, 0 );
-            SecondTable.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SecondTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            SecondTable.Location =  new System.Drawing.Point( 3, 191 ) ;
-            SecondTable.Name =  "SecondTable" ;
-            SecondTable.RowCount =  2 ;
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.08589F ) );
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.91411F ) );
-            SecondTable.Size =  new System.Drawing.Size( 257, 179 ) ;
-            SecondTable.TabIndex =  1 ;
-            // 
-            // SecondListBoxPanel
-            // 
-            SecondListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            SecondListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondListBoxPanel.BindingSource =  null ;
-            SecondListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            SecondListBoxPanel.BorderThickness =  1 ;
-            SecondListBoxPanel.Children =  null ;
-            SecondListBoxPanel.Controls.Add( SecondListBox );
-            SecondListBoxPanel.DataFilter =  null ;
-            SecondListBoxPanel.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SecondListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            SecondListBoxPanel.HoverText =  null ;
-            SecondListBoxPanel.IsDerivedStyle =  true ;
-            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 55 ) ;
-            SecondListBoxPanel.Name =  "SecondListBoxPanel" ;
-            SecondListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondListBoxPanel.Size =  new System.Drawing.Size( 251, 121 ) ;
-            SecondListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SecondListBoxPanel.StyleManager =  null ;
-            SecondListBoxPanel.TabIndex =  27 ;
-            SecondListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            SecondListBoxPanel.ThemeName =  "BudgetExecution" ;
-            SecondListBoxPanel.ToolTip =  null ;
-            // 
-            // SecondListBox
-            // 
-            SecondListBox.Anchor =      System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right   ;
-            SecondListBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
-            SecondListBox.BindingSource =  null ;
-            SecondListBox.BorderColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
-            SecondListBox.DataFilter =  null ;
-            SecondListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            SecondListBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            SecondListBox.HoveredItemColor =  System.Drawing.Color.LightSteelBlue ;
-            SecondListBox.HoverText =  null ;
-            SecondListBox.IsDerivedStyle =  true ;
-            SecondListBox.ItemHeight =  28 ;
-            SecondListBox.Location =  new System.Drawing.Point( 23, 23 ) ;
-            SecondListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondListBox.MultiSelect =  false ;
-            SecondListBox.Name =  "SecondListBox" ;
-            SecondListBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondListBox.SelectedIndex =  -1 ;
-            SecondListBox.SelectedItem =  null ;
-            SecondListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondListBox.SelectedItemColor =  System.Drawing.Color.White ;
-            SecondListBox.SelectedText =  null ;
-            SecondListBox.SelectedValue =  null ;
-            SecondListBox.ShowBorder =  false ;
-            SecondListBox.ShowScrollBar =  false ;
-            SecondListBox.Size =  new System.Drawing.Size( 201, 75 ) ;
-            SecondListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SecondListBox.StyleManager =  null ;
-            SecondListBox.TabIndex =  0 ;
-            SecondListBox.ThemeAuthor =  "Terry D. Eppler" ;
-            SecondListBox.ThemeName =  "BudgetExecution" ;
-            SecondListBox.ToolTip =  null ;
-            // 
-            // SecondComboBox
-            // 
-            SecondComboBox.AllowDrop =  true ;
-            SecondComboBox.ArrowColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondComboBox.BackColor =  System.Drawing.Color.Transparent ;
-            SecondComboBox.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SecondComboBox.BindingSource =  null ;
-            SecondComboBox.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            SecondComboBox.CausesValidation =  false ;
-            SecondComboBox.DataFilter =  null ;
-            SecondComboBox.DisabledBackColor =  System.Drawing.Color.Transparent ;
-            SecondComboBox.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-            SecondComboBox.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            SecondComboBox.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SecondComboBox.DrawMode =  System.Windows.Forms.DrawMode.OwnerDrawFixed ;
-            SecondComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-            SecondComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            SecondComboBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SecondComboBox.FormattingEnabled =  true ;
-            SecondComboBox.HoverText =  null ;
-            SecondComboBox.IsDerivedStyle =  true ;
-            SecondComboBox.ItemHeight =  24 ;
-            SecondComboBox.Location =  new System.Drawing.Point( 3, 19 ) ;
-            SecondComboBox.Name =  "SecondComboBox" ;
-            SecondComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SecondComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
-            SecondComboBox.Size =  new System.Drawing.Size( 251, 30 ) ;
-            SecondComboBox.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SecondComboBox.StyleManager =  null ;
-            SecondComboBox.TabIndex =  5 ;
-            SecondComboBox.ThemeAuthor =  "Terry D. Eppler" ;
-            SecondComboBox.ThemeName =  "Budget Execution" ;
-            SecondComboBox.ToolTip =  null ;
+            SqlCeRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            SqlCeRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            SqlCeRadioButton.Checked =  false ;
+            SqlCeRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
+            SqlCeRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
+            SqlCeRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
+            SqlCeRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SqlCeRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SqlCeRadioButton.Group =  0 ;
+            SqlCeRadioButton.HoverText =  "SQL Compact Provider" ;
+            SqlCeRadioButton.IsDerivedStyle =  true ;
+            SqlCeRadioButton.Location =  new System.Drawing.Point( 209, 3 ) ;
+            SqlCeRadioButton.Name =  "SqlCeRadioButton" ;
+            SqlCeRadioButton.Result =  null ;
+            SqlCeRadioButton.Size =  new System.Drawing.Size( 71, 17 ) ;
+            SqlCeRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SqlCeRadioButton.StyleManager =  null ;
+            SqlCeRadioButton.TabIndex =  51 ;
+            SqlCeRadioButton.Text =  "SQL CE" ;
+            SqlCeRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
+            SqlCeRadioButton.ThemeName =  "Budget Execution" ;
+            SqlCeRadioButton.ToolTip =  null ;
             // 
             // GroupTabPage
             // 
@@ -1516,7 +1632,7 @@
             GroupTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             GroupTabPage.Name =  "GroupTabPage" ;
             GroupTabPage.ShowCloseButton =  true ;
-            GroupTabPage.Size =  new System.Drawing.Size( 309, 565 ) ;
+            GroupTabPage.Size =  new System.Drawing.Size( 309, 634 ) ;
             GroupTabPage.TabBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             GroupTabPage.TabFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             GroupTabPage.TabForeColor =  System.Drawing.Color.DarkGray ;
@@ -1531,7 +1647,7 @@
             CalendarTabPage.Location =  new System.Drawing.Point( 0, 9 ) ;
             CalendarTabPage.Name =  "CalendarTabPage" ;
             CalendarTabPage.ShowCloseButton =  true ;
-            CalendarTabPage.Size =  new System.Drawing.Size( 309, 565 ) ;
+            CalendarTabPage.Size =  new System.Drawing.Size( 309, 634 ) ;
             CalendarTabPage.TabIndex =  4 ;
             CalendarTabPage.ThemesEnabled =  false ;
             // 
@@ -1550,7 +1666,7 @@
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             TimeSpanTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            TimeSpanTable.Size =  new System.Drawing.Size( 283, 555 ) ;
+            TimeSpanTable.Size =  new System.Drawing.Size( 283, 624 ) ;
             TimeSpanTable.TabIndex =  0 ;
             // 
             // ToolStripSeparator
@@ -2463,124 +2579,6 @@
             ContextMenu.ThemeAuthor =  "Terry D. Eppler" ;
             ContextMenu.ThemeName =  "Budget Execution" ;
             // 
-            // SqlServerRadioButton
-            // 
-            SqlServerRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SqlServerRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SqlServerRadioButton.Checked =  false ;
-            SqlServerRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
-            SqlServerRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            SqlServerRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
-            SqlServerRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SqlServerRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SqlServerRadioButton.Group =  0 ;
-            SqlServerRadioButton.HoverText =  "SQL Server Provider" ;
-            SqlServerRadioButton.IsDerivedStyle =  true ;
-            SqlServerRadioButton.Location =  new System.Drawing.Point( 137, 3 ) ;
-            SqlServerRadioButton.Name =  "SqlServerRadioButton" ;
-            SqlServerRadioButton.Result =  null ;
-            SqlServerRadioButton.Size =  new System.Drawing.Size( 66, 17 ) ;
-            SqlServerRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SqlServerRadioButton.StyleManager =  null ;
-            SqlServerRadioButton.TabIndex =  48 ;
-            SqlServerRadioButton.Text =  "MS SQL" ;
-            SqlServerRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
-            SqlServerRadioButton.ThemeName =  "Budget Execution" ;
-            SqlServerRadioButton.ToolTip =  null ;
-            // 
-            // AccessRadioButton
-            // 
-            AccessRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            AccessRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            AccessRadioButton.Checked =  false ;
-            AccessRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
-            AccessRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            AccessRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
-            AccessRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            AccessRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            AccessRadioButton.Group =  0 ;
-            AccessRadioButton.HoverText =  "Access Data Provider" ;
-            AccessRadioButton.IsDerivedStyle =  true ;
-            AccessRadioButton.Location =  new System.Drawing.Point( 69, 3 ) ;
-            AccessRadioButton.Name =  "AccessRadioButton" ;
-            AccessRadioButton.Result =  null ;
-            AccessRadioButton.Size =  new System.Drawing.Size( 62, 17 ) ;
-            AccessRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            AccessRadioButton.StyleManager =  null ;
-            AccessRadioButton.TabIndex =  49 ;
-            AccessRadioButton.Text =  "Access" ;
-            AccessRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
-            AccessRadioButton.ThemeName =  "Budget Execution" ;
-            AccessRadioButton.ToolTip =  null ;
-            // 
-            // SQLiteRadioButton
-            // 
-            SQLiteRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SQLiteRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SQLiteRadioButton.Checked =  false ;
-            SQLiteRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
-            SQLiteRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            SQLiteRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
-            SQLiteRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SQLiteRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SQLiteRadioButton.Group =  0 ;
-            SQLiteRadioButton.HoverText =  "SQLite Data Provider" ;
-            SQLiteRadioButton.IsDerivedStyle =  true ;
-            SQLiteRadioButton.Location =  new System.Drawing.Point( 3, 3 ) ;
-            SQLiteRadioButton.Name =  "SQLiteRadioButton" ;
-            SQLiteRadioButton.Result =  null ;
-            SQLiteRadioButton.Size =  new System.Drawing.Size( 60, 17 ) ;
-            SQLiteRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SQLiteRadioButton.StyleManager =  null ;
-            SQLiteRadioButton.TabIndex =  50 ;
-            SQLiteRadioButton.Text =  "SQLite" ;
-            SQLiteRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
-            SQLiteRadioButton.ThemeName =  "Budget Execution" ;
-            SQLiteRadioButton.ToolTip =  null ;
-            // 
-            // ProviderTable
-            // 
-            ProviderTable.ColumnCount =  4 ;
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 49.25373F ) );
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50.74627F ) );
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 72F ) );
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 77F ) );
-            ProviderTable.Controls.Add( SQLiteRadioButton, 0, 0 );
-            ProviderTable.Controls.Add( SqlServerRadioButton, 2, 0 );
-            ProviderTable.Controls.Add( AccessRadioButton, 1, 0 );
-            ProviderTable.Controls.Add( SqlCeRadioButton, 3, 0 );
-            ProviderTable.Location =  new System.Drawing.Point( 1027, 76 ) ;
-            ProviderTable.Name =  "ProviderTable" ;
-            ProviderTable.RowCount =  1 ;
-            ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ProviderTable.Size =  new System.Drawing.Size( 283, 23 ) ;
-            ProviderTable.TabIndex =  51 ;
-            // 
-            // SqlCeRadioButton
-            // 
-            SqlCeRadioButton.BackgroundColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
-            SqlCeRadioButton.BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            SqlCeRadioButton.Checked =  false ;
-            SqlCeRadioButton.CheckSignColor =  System.Drawing.Color.LimeGreen ;
-            SqlCeRadioButton.CheckState =  MetroSet_UI.Enums.CheckState.Unchecked ;
-            SqlCeRadioButton.DisabledBorderColor =  System.Drawing.Color.FromArgb(   205  ,   205  ,   205   ) ;
-            SqlCeRadioButton.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SqlCeRadioButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SqlCeRadioButton.Group =  0 ;
-            SqlCeRadioButton.HoverText =  "SQL Compact Provider" ;
-            SqlCeRadioButton.IsDerivedStyle =  true ;
-            SqlCeRadioButton.Location =  new System.Drawing.Point( 209, 3 ) ;
-            SqlCeRadioButton.Name =  "SqlCeRadioButton" ;
-            SqlCeRadioButton.Result =  null ;
-            SqlCeRadioButton.Size =  new System.Drawing.Size( 71, 17 ) ;
-            SqlCeRadioButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SqlCeRadioButton.StyleManager =  null ;
-            SqlCeRadioButton.TabIndex =  51 ;
-            SqlCeRadioButton.Text =  "SQL CE" ;
-            SqlCeRadioButton.ThemeAuthor =  "Terry D. Eppler" ;
-            SqlCeRadioButton.ThemeName =  "Budget Execution" ;
-            SqlCeRadioButton.ToolTip =  null ;
-            // 
             // HeaderTable
             // 
             HeaderTable.ColumnCount =  2 ;
@@ -2648,7 +2646,6 @@
             Controls.Add( SqlHeader );
             Controls.Add( ToolStrip );
             Controls.Add( GridTable );
-            Controls.Add( ProviderTable );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
             FormBorderStyle =  System.Windows.Forms.FormBorderStyle.FixedSingle ;
@@ -2681,21 +2678,21 @@
             FirstListBoxPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
             TabControl.ResumeLayout( false );
+            FilterTabPage.ResumeLayout( false );
+            FilterTable.ResumeLayout( false );
+            SecondTable.ResumeLayout( false );
+            SecondListBoxPanel.ResumeLayout( false );
+            ThirdTable.ResumeLayout( false );
+            ThirdListBoxPanel.ResumeLayout( false );
             TableTabPage.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
-            FilterTabPage.ResumeLayout( false );
-            FilterTable.ResumeLayout( false );
-            ThirdTable.ResumeLayout( false );
-            ThirdListBoxPanel.ResumeLayout( false );
-            SecondTable.ResumeLayout( false );
-            SecondListBoxPanel.ResumeLayout( false );
+            ProviderTable.ResumeLayout( false );
             GroupTabPage.ResumeLayout( false );
             CalendarTabPage.ResumeLayout( false );
             TimeSpanTable.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
-            ProviderTable.ResumeLayout( false );
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             ResumeLayout( false );

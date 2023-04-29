@@ -429,8 +429,11 @@ namespace BudgetExecution
                     var _values = new List<double>( );
                     foreach( DataColumn col in dataTable.Columns )
                     {
-                        if( col.DataType == typeof( double )
-                           && col.Ordinal > 0 )
+                        if( col.Ordinal > 1
+                           && ( col.DataType == typeof( decimal ) 
+                               | col.DataType == typeof( float )
+                               | col.DataType == typeof( double ) 
+                               | col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
@@ -447,7 +450,9 @@ namespace BudgetExecution
                             _values.Add( _val );
                         }
 
-                        _point.YValues = _values.ToArray( );
+                        var _range = _values.ToArray( );
+                        _point.YValues = _range;
+                        _points.Add( _point );
                     }
 
                     return _points?.Any( ) == true
@@ -519,8 +524,12 @@ namespace BudgetExecution
             return default( BindingList<DataRow> );
         }
 
-        /// <summary>Fails the specified ex.</summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

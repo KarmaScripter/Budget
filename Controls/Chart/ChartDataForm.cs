@@ -14,21 +14,22 @@ namespace BudgetExecution
     using System.Windows.Forms.DataVisualization.Charting;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ] 
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -509,15 +510,14 @@ namespace BudgetExecution
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Titles.Clear( );
+                    Chart.Titles[ 0 ].Text = string.Empty;
                     var _points = DataTable.GetChartPoints( );
                     foreach( var point in _points )
                     {
                         Chart.Series[ 0 ].Points.Add( point );
                     }
-                    
-                    var _title = DataTable.TableName.SplitPascal( );
-                    Chart.Titles?.Add( _title );
+
+                    Chart.Titles[ 0 ].Text = DataTable.TableName.SplitPascal( );
                 }
                 catch( Exception ex )
                 {
@@ -544,15 +544,14 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Titles.Clear( );
+                    Chart.Titles[ 0 ].Text = string.Empty;
                     var _points = DataTable.GetChartPoints( );
                     foreach( var point in _points )
                     {
                         Chart.Series[ 0 ].Points.Add( point );
                     }
 
-                    var _title = DataTable.TableName.SplitPascal( );
-                    Chart.Titles?.Add( _title );
+                    Chart.Titles[ 0 ].Text = DataTable.TableName.SplitPascal( );
                 }
                 catch( Exception ex )
                 {
@@ -581,17 +580,13 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Titles.Clear( );
                     var _points = DataTable.GetChartPoints( );
                     foreach( var point in _points )
                     {
                         Chart.Series[ 0 ].Points.Add( point );
                     }
-                    
-                    var _title = DataTable.TableName.SplitPascal( );
-                    Chart.Titles?.Add( _title );
-                    var _cat = Fields.Last( );
-                    Chart.ChartAreas[ 0 ].AxisX.Title = _cat.SplitPascal( );
+
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                 }
                 catch( Exception ex )
                 {
@@ -610,6 +605,7 @@ namespace BudgetExecution
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
+               && numerics?.Any( ) == true
                && fields?.Any( ) == true )
             {
                 try
@@ -622,17 +618,13 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Titles.Clear( );
                     var _points = DataTable.GetChartPoints( );
                     foreach( var point in _points )
                     {
                         Chart.Series[ 0 ].Points.Add( point );
                     }
 
-                    var _title = DataTable.TableName.SplitPascal( );
-                    Chart.Titles.Add( _title );
-                    var _cat = numerics?.First( );
-                    Chart.ChartAreas[ 0 ].AxisX.Title = _cat.SplitPascal( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                 }
                 catch( Exception ex )
                 {
@@ -659,17 +651,13 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Titles.Clear( );
                     var _points = DataTable.GetChartPoints( );
                     foreach( var point in _points )
                     {
                         Chart.Series[ 0 ].Points.Add( point );
                     }
 
-                    var _title = DataTable.TableName.SplitPascal( );
-                    Chart.Titles.Add( _title );
-                    var _cat = SelectedNumerics?.First( );
-                    Chart.ChartAreas[ 0 ].AxisX.Title = _cat.SplitPascal( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                 }
                 catch( Exception ex )
                 {
@@ -741,10 +729,10 @@ namespace BudgetExecution
                     var _numerics = Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    FirstDataLabel.Text = $"Data Records:  {_records} ";
-                    SecondDataLabel.Text = $"Total Fields:  {_fields} ";
-                    ThirdDataLabel.Text = $"Total Measures:  {_numerics} ";
-                    FourthDataLabel.Text = $"Active Filters:  {_filters} ";
+                    FirstDataLabel.Text = $"Data Records:  {_records}";
+                    SecondDataLabel.Text = $"Total Fields:  {_fields}";
+                    ThirdDataLabel.Text = $"Total Measures:  {_numerics}";
+                    FourthDataLabel.Text = $"Active Filters:  {_filters}";
                     FifthDataLabel.Text = $"Selected Fields:  {_selectedFields}";
                     SixthDataLabel.Text = $"Selected Numerics:  {_selectedNumerics}";
                     SeventhDataLabel.Text = string.Empty;
@@ -1039,7 +1027,7 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true ) 
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
                     var _dataGridForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
@@ -1071,7 +1059,7 @@ namespace BudgetExecution
                 {
                     FormFilter.Clear( );
                 }
-                
+
                 FourthCategory = string.Empty;
                 FourthValue = string.Empty;
                 ThirdCategory = string.Empty;
@@ -1177,11 +1165,11 @@ namespace BudgetExecution
         {
             try
             {
+                Chart.Titles[ 0 ].Text = string.Empty;
                 var _text = DataTable?.TableName?.SplitPascal( );
                 if( !string.IsNullOrEmpty( _text ) )
                 {
-                    var _title = new Title( _text );
-                    Chart?.Titles?.Add( _title );
+                    Chart.Titles[ 0 ].Text = _text;
                 }
             }
             catch( Exception ex )
@@ -1198,10 +1186,13 @@ namespace BudgetExecution
             try
             {
                 Chart.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
                 Chart.ForeColor = Color.LightSteelBlue;
                 Chart.BorderlineColor = Color.FromArgb( 20, 20, 20 );
                 Chart.BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
                 Chart.BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
+                Chart.BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
             }
             catch( Exception ex )
             {
@@ -1223,8 +1214,10 @@ namespace BudgetExecution
                 // General Area Properties
                 Chart.ChartAreas[ 0 ].BackColor = _black;
                 Chart.ChartAreas[ 0 ].Area3DStyle.Enable3D = true;
-                Chart.ChartAreas[ 0 ].BorderColor = _transparent;
-                Chart.ChartAreas[ 0 ].BackSecondaryColor = _transparent;
+                Chart.ChartAreas[ 0 ].BorderColor = _black;
+                Chart.ChartAreas[ 0 ].BackSecondaryColor = _black;
+                Chart.ChartAreas[ 0 ].Area3DStyle.PointDepth = 150;
+                Chart.ChartAreas[ 0 ].Area3DStyle.Inclination = 35;
 
                 // Horizontal Axis Properties
                 Chart.ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
@@ -1302,12 +1295,20 @@ namespace BudgetExecution
             try
             {
                 Chart.Series[ 0 ].ChartType = SeriesChartType.Column;
-                Chart.Series[ 0 ].LabelBorderColor = Color.FromArgb( 20, 20, 20 );
-                Chart.Series[ 0 ].LabelBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Series[ 0 ].IsValueShownAsLabel = true;
+                Chart.Series[ 0 ].IsXValueIndexed = true;
+                Chart.Series[ 0 ].IsVisibleInLegend = true;
+                Chart.Series[ 0 ].LabelBorderColor = Color.Transparent;
+                Chart.Series[ 0 ].LabelBackColor = Color.Transparent;
                 Chart.Series[ 0 ].LabelForeColor = Color.LightSteelBlue;
+                Chart.Series[ 0 ].MarkerColor = Color.Yellow;
+                Chart.Series[ 0 ].MarkerStyle = MarkerStyle.Star4;
                 Chart.Series[ 0 ].Font = new Font( "Roboto", 8 );
                 Chart.Series[ 0 ].XValueType = ChartValueType.Auto;
                 Chart.Series[ 0 ].YValueType = ChartValueType.Auto;
+                Chart.Series[ 0 ].SmartLabelStyle.CalloutBackColor = Color.Transparent;
+                Chart.Series[ 0 ].SmartLabelStyle.CalloutLineColor = Color.FromArgb( 65, 65, 65 );
+                Chart.Series[ 0 ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Underlined;
             }
             catch( Exception ex )
             {
@@ -1617,8 +1618,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _listbox = sender as ListBox;
-                var _selectedItem = _listbox?.SelectedText;
+                var _selectedItem = NumericListBox?.SelectedText;
                 if( !string.IsNullOrEmpty( _selectedItem )
                    && !SelectedNumerics.Contains( _selectedItem ) )
                 {

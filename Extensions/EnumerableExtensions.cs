@@ -382,13 +382,16 @@ namespace BudgetExecution
                     var _dataTable = dataRows.CopyToDataTable( );
                     foreach( DataColumn col in _dataTable.Columns )
                     {
-                        if( col.DataType == typeof( double )
-                           && col.Ordinal > 0 )
+                        if( col.Ordinal > 1
+                           && ( col.DataType == typeof( decimal ) 
+                               | col.DataType == typeof( float )
+                               | col.DataType == typeof( double )
+                               | col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
                     }
-
+                    
                     for( var index = 0; index < _dataTable.Rows.Count; index++ )
                     {
                         var _row = _dataTable.Rows[ index ];
@@ -401,6 +404,7 @@ namespace BudgetExecution
                         }
 
                         _point.YValues = _values.ToArray( );
+                        _points.Add( _point );
                     }
 
                     return _points?.Any( ) == true
