@@ -1220,6 +1220,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].Area3DStyle.Inclination = 35;
 
                 // Horizontal Axis Properties
+                Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisX.LineColor = _gray;
                 Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 10 );
@@ -1232,6 +1233,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
 
                 // Vertical Axis Properties
+                Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisY.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisY.LineColor = _gray;
                 Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 10 );
@@ -1302,7 +1304,7 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].LabelBackColor = Color.Transparent;
                 Chart.Series[ 0 ].LabelForeColor = Color.LightSteelBlue;
                 Chart.Series[ 0 ].MarkerColor = Color.Yellow;
-                Chart.Series[ 0 ].MarkerStyle = MarkerStyle.Star4;
+                Chart.Series[ 0 ].MarkerStyle = MarkerStyle.Triangle;
                 Chart.Series[ 0 ].Font = new Font( "Roboto", 8 );
                 Chart.Series[ 0 ].XValueType = ChartValueType.Auto;
                 Chart.Series[ 0 ].YValueType = ChartValueType.Auto;
