@@ -167,33 +167,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the primary indexes.
-        /// </summary>
-        /// <param name="dataRows">The Data rows.</param>
-        /// <returns></returns>
-        public IEnumerable<int> GetPrimaryIndexes( )
-        {
-            if( DataTable != null 
-               && DataTable?.HasPrimaryKey( ) == true )
-            {
-                try
-                {
-                    var _values = DataTable.GetPrimaryKeyValues( );
-                    return _values?.Any( ) == true
-                        ? _values.ToArray( )
-                        : default( IEnumerable<int> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<int> );
-                }
-            }
-
-            return default( IEnumerable<int> );
-        }
-
-        /// <summary>
         /// Gets the fields.
         /// </summary>
         /// <returns></returns>
@@ -240,9 +213,10 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( !col.ColumnName.EndsWith( "Id" )
-                           && !col.ColumnName.EndsWith( "Date" ) 
-                           && ( col.DataType == typeof( double ) | col.DataType == typeof( decimal )
-                               | col.DataType == typeof( float ) | col.DataType == typeof( int ) ) )
+                           && ( col.DataType == typeof( double ) 
+                               | col.DataType == typeof( decimal )
+                               | col.DataType == typeof( float ) 
+                               | col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
@@ -303,25 +277,15 @@ namespace BudgetExecution
         /// Gets the keys.
         /// </summary>
         /// <returns></returns>
-        private protected IList<int> GetKeys( )
+        private protected IList<int> GetPrimaryKeys( )
         {
             if( DataTable != null )
             {
                 try
                 {
-                    var _keys = new List<int>( );
-                    foreach( DataRow _row in DataTable.Rows )
-                    {
-                        var _data = _row.ItemArray[ 0 ];
-                        if( _data?.GetType( ) == typeof( int ) )
-                        {
-                            var _item = int.Parse( _data?.ToString( ) ?? "0" );
-                            _keys.Add( _item );
-                        }
-                    }
-
-                    return _keys?.Any( ) == true
-                        ? _keys
+                    var _values = DataTable.GetPrimaryKeyValues( );
+                    return _values?.Any( ) == true
+                        ? _values.ToList( )
                         : default( IList<int> );
                 }
                 catch( Exception ex )
@@ -332,75 +296,6 @@ namespace BudgetExecution
             }
 
             return default( IList<int> );
-        }
-        
-        /// <summary>
-        /// Compresses the specified column names.
-        /// </summary>
-        /// <param name="columns">The column names.</param>
-        /// <param name="where">The where.</param>
-        /// <returns></returns>
-        public DataTable Compress( IEnumerable<string> columns, IDictionary<string, object> where )
-        {
-            if( columns?.Any( ) == true
-               && where?.Any( ) == true
-               && DataTable != null )
-            {
-                try
-                {
-                    var _fields = new List<string>( );
-                    var _numerics = new List<string>( );
-                    var _dates = new List<string>( );
-                    foreach( DataColumn col in DataTable.Columns )
-                    {
-                        foreach( var name in columns )
-                        {
-                            if( col.ColumnName == name
-                               && col.Ordinal > 0
-                               && col.DataType == typeof( string ) )
-                            {
-                                _fields.Add( col.ColumnName );
-                            }
-                            else if( col.ColumnName == name
-                                    && col.Ordinal > 0
-                                    && col.DataType != typeof( string )
-                                    && col.DataType != typeof( DateTime )
-                                    && col.DataType != typeof( DateOnly )
-                                    && col.DataType != typeof( DateTimeOffset ) )
-                            {
-                                _numerics.Add( col.ColumnName );
-                            }
-                            else if( col.ColumnName == name
-                                    && col.Ordinal > 0
-                                    && col.DataType == typeof( DateTime )
-                                    || col.DataType != typeof( DateOnly )
-                                    || col.DataType != typeof( DateTimeOffset ) )
-                            {
-                                _dates.Add( col.ColumnName );
-                            }
-                        }
-                    }
-
-                    var _dataSet = new DataSet( "UI" );
-                    var _dataTable = new DataTable( $"{Source}" );
-                    _dataSet.Tables.Add( _dataTable );
-                    var _sqlStatement = new SqlStatement( Source, Provider, _fields, _numerics,
-                        where, SQL.SELECT );
-
-                    var _query = new Query( _sqlStatement );
-                    var _adapter = _query?.DataAdapter;
-                    _adapter?.Fill( _dataSet, _dataTable.TableName );
-                    SetColumnCaptions( _dataTable );
-                    return _dataTable;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
         }
     }
 }

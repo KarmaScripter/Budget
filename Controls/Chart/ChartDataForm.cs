@@ -374,7 +374,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
-                    SetTitleText( );
+                    BindChart( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
                     UpdateLabelText( );
@@ -642,10 +642,10 @@ namespace BudgetExecution
         /// </summary>
         private void BindChart( )
         {
-            if( SelectedFields?.Any( ) == true
-               && SelectedNumerics?.Any( ) == true )
+            try
             {
-                try
+                if( SelectedFields?.Any( ) == true
+                   && SelectedNumerics?.Any( ) == true )
                 {
                     Chart.Series[ 0 ].Points.Clear( );
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
@@ -656,10 +656,22 @@ namespace BudgetExecution
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
                 }
-                catch( Exception ex )
+                else
                 {
-                    Fail( ex );
+                    Chart.Series[ 0 ].Points.Clear( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = DataTable;
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    SetSeriesProperties( );
+                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Update( );
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -793,6 +805,11 @@ namespace BudgetExecution
                         FirstComboBox.Items.Clear( );
                     }
 
+                    if( FirstListBox.Items?.Count > 0 )
+                    {
+                        FirstListBox.Items?.Clear( );
+                    }
+
                     foreach( var item in Fields )
                     {
                         FirstComboBox.Items?.Add( item );
@@ -817,6 +834,11 @@ namespace BudgetExecution
                     if( SecondComboBox.Items?.Count > 0 )
                     {
                         SecondComboBox.Items.Clear( );
+                    }
+
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
                     }
 
                     if( !string.IsNullOrEmpty( FirstValue ) )
@@ -849,6 +871,11 @@ namespace BudgetExecution
                     if( ThirdComboBox.Items?.Count > 0 )
                     {
                         ThirdComboBox.Items.Clear( );
+                    }
+
+                    if( ThirdListBox.Items?.Count > 0 )
+                    {
+                        ThirdListBox.Items?.Clear( );
                     }
 
                     if( !string.IsNullOrEmpty( FirstValue )
@@ -1075,11 +1102,6 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
-                {
-                    FormFilter.Clear( );
-                }
-
                 if( SelectedColumns?.Any( ) == true )
                 {
                     SelectedColumns.Clear( );
@@ -1256,7 +1278,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 8 );
                 Chart.ChartAreas[ 0 ].AxisY.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 8 );
-                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "N0";
+                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "#,";
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
@@ -1637,9 +1659,9 @@ namespace BudgetExecution
         {
             try
             {
+                SelectedNumerics.Clear( );
                 var _selectedItem = NumericListBox?.SelectedText;
-                if( !string.IsNullOrEmpty( _selectedItem )
-                   && !SelectedNumerics.Contains( _selectedItem ) )
+                if( !string.IsNullOrEmpty( _selectedItem ))
                 {
                     SelectedNumerics.Add( _selectedItem );
                 }
@@ -1754,8 +1776,8 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     TabControl.SelectedIndex = 1;
+                    BindChart( );
                     UpdateLabelText( );
-                    PopulateFirstComboBoxItems( );
                 }
             }
             catch( Exception ex )
@@ -1834,6 +1856,9 @@ namespace BudgetExecution
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
+                    ClearSelections( );
+                    ClearCollections( );
+                    SelectedTable = string.Empty;
                     Visible = false;
                 }
             }

@@ -92,7 +92,6 @@ namespace BudgetExecution
                             {
                                 return new SqlConnection( _connectionString );
                             }
-                            case Provider.NS:
                             case Provider.Excel:
                             case Provider.CSV:
                             case Provider.Access:

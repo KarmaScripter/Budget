@@ -79,37 +79,48 @@ namespace BudgetExecution
         public ChartControl( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightSteelBlue;
-            BorderlineColor = Color.Transparent;
-            BorderSkin.BackColor = Color.Transparent;
-            BorderSkin.PageColor = Color.Transparent;
+            BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.White;
+            BorderlineColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
             
             // Chart Area Properties
-            ChartAreas[ 0 ].Name = "Area";
             ChartAreas[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
             ChartAreas[ 0 ].Area3DStyle.Enable3D = true;
             ChartAreas[ 0 ].BorderColor = Color.Transparent;
             ChartAreas[ 0 ].BackSecondaryColor = Color.Transparent;
+            ChartAreas[ 0 ].Area3DStyle.PointDepth = 150;
+            ChartAreas[ 0 ].Area3DStyle.Inclination = 35;
 
             // X-Axis Properties
+            ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
             ChartAreas[ 0 ].AxisX.InterlacedColor = Color.Transparent;
-            ChartAreas[ 0 ].AxisX.LineColor = Color.FromArgb( 65, 65, 65 );
-            ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 10 );
+            ChartAreas[ 0 ].AxisX.LineColor = Color.FromArgb( 24, 47, 66 );
+            ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 8 );
             ChartAreas[ 0 ].AxisX.TitleForeColor = Color.FromArgb( 0, 120, 212 );
             ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 8 );
             ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = Color.FromArgb( 0, 120, 212 );
-            ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = Color.FromArgb( 65, 65, 65 );
+            ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = Color.FromArgb( 24, 47, 66 );
             ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = Color.FromArgb( 65, 65, 65 );
-            ChartAreas[ 0 ].AxisY.LineColor = Color.FromArgb( 65, 65, 65 );
+            ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Horizontal;
+            ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
             
             // Y-Axis Properties
+            ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
             ChartAreas[ 0 ].AxisY.InterlacedColor = Color.Transparent;
-            ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 10 );
+            ChartAreas[ 0 ].AxisY.LineColor = Color.FromArgb( 24, 47, 66 );
+            ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 8 );
             ChartAreas[ 0 ].AxisY.TitleForeColor = Color.FromArgb( 0, 120, 212 );
-            ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = Color.FromArgb( 65, 65, 65 );
-            ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = Color.FromArgb( 65, 65, 65 );
             ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 8 );
+            ChartAreas[ 0 ].AxisY.LabelStyle.Format = "#,";
             ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = Color.FromArgb( 0, 120, 212 );
+            ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = Color.FromArgb( 24, 47, 66 );
+            ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = Color.FromArgb( 65, 65, 65 );
+            ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Horizontal;
+            ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
             
             // Legend Properties
             Legends[ 0 ].HeaderSeparatorColor = Color.Transparent;

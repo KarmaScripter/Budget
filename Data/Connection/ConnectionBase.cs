@@ -176,7 +176,6 @@ namespace BudgetExecution
                 {
                     return provider switch
                     {
-                        Provider.NS => DbClientPath[ "ACCDB" ],
                         Provider.Access => DbClientPath[ "ACCDB" ],
                         Provider.SQLite => DbClientPath[ "DB" ],
                         Provider.SqlCe => DbClientPath[ "SDF" ],
@@ -215,8 +214,7 @@ namespace BudgetExecution
                     {
                         var _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
                         var _names = Enum.GetNames( typeof( EXT ) );
-                        if( _extension != EXT.NS 
-                           && _names?.Contains( _extension.ToString( ) ) == true )
+                        if( _names?.Contains( _extension.ToString( ) ) == true )
                         {
                             var _clientPath = DbClientPath[ $"{_extension}" ];
                             return !string.IsNullOrEmpty( _clientPath )

@@ -205,39 +205,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Determines whether [has primary key].
-        /// </summary>
-        /// <param name="dataTable">The dataTable.</param>
-        /// <returns>
-        ///   <c>true</c> if [has primary key] [the specified dataTable]; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool HasPrimaryKey( this DataTable dataTable )
-        {
-            try
-            {
-                if( dataTable?.Rows?.Count > 0
-                   && dataTable.Columns?.Count > 0 )
-                {
-                    foreach( DataColumn col in dataTable.Columns )
-                    {
-                        if( col.Ordinal == 0 
-                           && col.DataType == typeof( int ) | col.DataType == typeof( double ) )
-                        {
-                            return true;
-                        }
-                    }
-                }
-
-                return false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return false;
-            }
-        }
-
-        /// <summary>
         /// Gets the primary key values.
         /// </summary>
         /// <param name="dataTable">The dataTable.</param>
@@ -246,17 +213,25 @@ namespace BudgetExecution
         {
             try
             {
-                if( dataTable?.Rows?.Count > 0
-                   && dataTable.Columns?.Count > 0 )
+                if( dataTable?.Rows?.Count > 0 )
                 {
                     var _list = new List<int>( );
-                    for( var i = 0; i < dataTable.Rows.Count; i++ )
+                    foreach( DataColumn col in dataTable.Columns )
                     {
-                        DataRow row = dataTable.Rows[ i ];
-                        var _item = row?.ItemArray[ 0 ];
-                        var _value = _item?.ToString( );
-                        var _index = int.Parse( _value );
-                        _list.Add( _index );
+                        for( var i = 0; i < dataTable.Rows.Count; i++ )
+                        {
+                            if( col.DataType == typeof( int )
+                               && col.Ordinal == 0 )
+                            {
+                                var row = dataTable.Rows[ i ];
+                                var _value = row[ col.ColumnName ]?.ToString( );
+                                if( !string.IsNullOrEmpty( _value ) )
+                                {
+                                    var _index = int.Parse( _value );
+                                    _list.Add( _index );
+                                }
+                            }
+                        }
                     }
 
                     return _list?.Any( ) == true
@@ -351,6 +326,41 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the unique column values.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="columnName">Name of the column.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName, 
+            IDictionary<string, object> where )
+        {
+            if( !string.IsNullOrEmpty( columnName )
+               && dataTable?.Columns?.Contains( columnName ) == true
+               && where?.Any( ) == true )
+            {
+                try
+                {
+                    var _criteria = where.ToCriteria( );
+                    var _query = dataTable.Select( _criteria )
+                        ?.Select( p => p.Field<string>( columnName ) )
+                        ?.Distinct( );
+
+                    return ( _query?.Any( ) == true )
+                        ? _query?.ToArray( )
+                        : default( string[ ] );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( string[ ] );
+                }
+            }
+
+            return default( string[ ] );
+        }
+
+        /// <summary>
         /// Filters the specified dictionary.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
@@ -418,57 +428,75 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <returns></returns>
-        public static IList<DataPoint> GetChartPoints( this DataTable dataTable )
+        public static IList<DataColumn> GetNumericColumns( this DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
             {
                 try
                 {
-                    var _points = new List<DataPoint>( );
-                    var _numerics = new List<string>( );
-                    var _values = new List<double>( );
+                    var _columns = new List<DataColumn>( );
                     foreach( DataColumn col in dataTable.Columns )
                     {
-                        if( col.Ordinal > 1
+                        if( !col.ColumnName.EndsWith( "Id" )
                            && ( col.DataType == typeof( decimal ) 
                                | col.DataType == typeof( float )
                                | col.DataType == typeof( double ) 
                                | col.DataType == typeof( int ) ) )
                         {
-                            _numerics.Add( col.ColumnName );
+                            _columns.Add( col );
                         }
                     }
 
-                    for( var index = 0; index < dataTable.Rows.Count; index++ )
-                    {
-                        var _row = dataTable.Rows[ index ];
-                        var _point = new DataPoint( );
-                        _point.XValue = index;
-                        foreach( var name in _numerics )
-                        {
-                            var _val = double.Parse( _row[ name ]?.ToString( ) );
-                            _values.Add( _val );
-                        }
-                        
-                        var _range = _values.ToArray( );
-                        _point.YValues = _range;
-                        _points.Add( _point );
-                    }
-
-                    return _points?.Any( ) == true
-                        ? _points
-                        : default( IList<DataPoint> );
+                    return _columns?.Any( ) == true
+                        ? _columns
+                        : default( IList<DataColumn> );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default( IList<DataPoint> );
+                    return default( IList<DataColumn> );
                 }
             }
             
-            return default( IList<DataPoint> );
+            return default( IList<DataColumn> );
         }
 
+        /// <summary>
+        /// Gets the date columns.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
+        public static IList<DataColumn> GetDateColumns( this DataTable dataTable )
+        {
+            if( dataTable?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    var _columns = new List<DataColumn>( );
+                    foreach( DataColumn col in dataTable.Columns )
+                    {
+                        if( col.ColumnName.EndsWith( "Date" )
+                           || ( col.DataType == typeof( DateTime ) 
+                               | col.DataType == typeof( DateOnly )
+                               | col.DataType == typeof( DateTimeOffset ) ) )
+                        {
+                            _columns.Add( col );
+                        }
+                    }
+
+                    return _columns?.Any( ) == true
+                        ? _columns
+                        : default( IList<DataColumn> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<DataColumn> );
+                }
+            }
+
+            return default( IList<DataColumn> );
+        }
         /// <summary>
         /// Removes a DataColumn from the table
         /// </summary>

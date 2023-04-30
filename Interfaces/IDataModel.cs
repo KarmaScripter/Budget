@@ -119,12 +119,5 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         DataColumnCollection GetTableSchema( );
-
-        /// <summary>
-        /// Gets the primary indexes.
-        /// </summary>
-        /// <param name="dataRows">The Data rows.</param>
-        /// <returns></returns>
-        IEnumerable<int> GetPrimaryIndexes( );
     }
 }

@@ -52,7 +52,7 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -79,7 +79,7 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -109,7 +109,7 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -139,7 +139,7 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -172,7 +172,7 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -198,7 +198,7 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -227,7 +227,7 @@ namespace BudgetExecution
             ColumnNames = GetColumnNames( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Dates = GetDates( );
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
@@ -252,7 +252,7 @@ namespace BudgetExecution
             TableName = DataTable.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
@@ -277,7 +277,7 @@ namespace BudgetExecution
             TableName = SqlStatement.TableName;
             DataColumns = GetDataColumns( );
             ColumnNames = GetColumnNames( );
-            Keys = GetKeys( );
+            Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );

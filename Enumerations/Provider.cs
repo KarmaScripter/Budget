@@ -47,11 +47,6 @@ namespace BudgetExecution
         /// <summary>
         /// The text
         /// </summary>
-        TXT = 7,
-
-        /// <summary>
-        /// The ns
-        /// </summary>
-        NS = 8
+        TXT = 7
     }
 }

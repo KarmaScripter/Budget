@@ -11,7 +11,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using System.Windows.Forms.DataVisualization.Charting;
     using BudgetExecution;
     using DocumentFormat.OpenXml.Drawing.Diagrams;
     using OfficeOpenXml;
@@ -27,78 +26,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class EnumerableExtensions
     {
-        /// <summary>
-        /// Determines whether this instance has numeric.
-        /// </summary>
-        /// <param name="dataRow">The dataRow.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified dataRow has numeric; otherwise, <c>false</c>.c
-        /// </returns>
-        public static bool HasNumericColumns( this IEnumerable<DataRow> dataRow )
-        {
-            if( dataRow?.Any( ) == true )
-            {
-                try
-                {
-                    var _table = dataRow?.CopyToDataTable( );
-                    var _columns = _table.Columns;
-                    foreach( DataColumn col in _columns )
-                    {
-                        if( col.Ordinal > 0
-                           && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
-                           | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
-                        {
-                            return true;
-                        }
-                    }
-                    
-                    return false;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return false;
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Gets the primary key values.
-        /// </summary>
-        /// <param name="dataRow">The dataRow.</param>
-        /// <returns></returns>
-        public static IEnumerable<int> GetPrimaryKeyValues( this IEnumerable<DataRow> dataRow )
-        {
-            if( dataRow?.Any( ) == true )
-            {
-                try
-                {
-                    var _list = new List<int>( );
-                    foreach( var _row in dataRow )
-                    {
-                        if( _row?.ItemArray[ 0 ] != null )
-                        {
-                            var _item = _row.ItemArray[ 0 ].ToString( );
-                            _list?.Add( int.Parse( _item ) );
-                        }
-                    }
-
-                    return _list?.Any( ) == true
-                        ? _list.ToArray( )
-                        : default( IEnumerable<int> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<int> );
-                }
-            }
-
-            return default( IEnumerable<int> );
-        }
-
         /// <summary>
         /// Converts to bindinglist.
         /// </summary>
@@ -365,62 +292,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the chart points.
-        /// </summary>
-        /// <param name="dataRows">The data rows.</param>
-        /// <returns></returns>
-        public static IList<DataPoint> GetChartPoints( this IEnumerable<DataRow> dataRows )
-        {
-            if( dataRows?.Any( ) == true )
-            {
-                try
-                {
-                    var _points = new List<DataPoint>( );
-                    var _numerics = new List<string>( );
-                    var _values = new List<double>( );
-                    var _dataTable = dataRows.CopyToDataTable( );
-                    foreach( DataColumn col in _dataTable.Columns )
-                    {
-                        if( col.Ordinal > 1
-                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float )
-                               | col.DataType == typeof( double )
-                               | col.DataType == typeof( int ) ) )
-                        {
-                            _numerics.Add( col.ColumnName );
-                        }
-                    }
-
-                    for( var index = 0; index < _dataTable.Rows.Count; index++ )
-                    {
-                        var _row = _dataTable.Rows[ index ];
-                        var _point = new DataPoint( );
-                        _point.XValue = index;
-                        foreach( var name in _numerics )
-                        {
-                            var _val = double.Parse( _row[ name ]?.ToString( ) );
-                            _values.Add( _val );
-                        }
-
-                        var _range = _values.ToArray( );
-                        _point.YValues = _range;
-                        _points.Add( _point );
-                    }
-
-                    return _points?.Any( ) == true
-                        ? _points
-                        : default( IList<DataPoint> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IList<DataPoint> );
-                }
-            }
-
-            return default( IList<DataPoint> );
-        }
-        
         /// <summary>
         /// Turns a finite sequence into a circular one, or equivalently,
         /// repeats the original sequence indefinitely.

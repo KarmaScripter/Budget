@@ -208,6 +208,7 @@
             Chart.BorderSkin.PageColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
             chartArea1.Area3DStyle.Enable3D =  true ;
             chartArea1.AxisX.IsLabelAutoFit =  false ;
+            chartArea1.AxisX.LabelAutoFitMaxFontSize =  9 ;
             chartArea1.AxisX.LabelStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             chartArea1.AxisX.LabelStyle.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             chartArea1.AxisX.LineColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
@@ -219,9 +220,10 @@
             chartArea1.AxisX.TitleFont =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             chartArea1.AxisX.TitleForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             chartArea1.AxisY.IsLabelAutoFit =  false ;
+            chartArea1.AxisY.LabelAutoFitMaxFontSize =  9 ;
             chartArea1.AxisY.LabelStyle.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             chartArea1.AxisY.LabelStyle.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            chartArea1.AxisY.LabelStyle.Format =  "N0" ;
+            chartArea1.AxisY.LabelStyle.Format =  "#," ;
             chartArea1.AxisY.LineColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
             chartArea1.AxisY.MajorGrid.LineColor =  System.Drawing.Color.FromArgb(   24  ,   47  ,   66   ) ;
             chartArea1.AxisY.MajorTickMark.LineColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
@@ -727,7 +729,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 48, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 46, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 

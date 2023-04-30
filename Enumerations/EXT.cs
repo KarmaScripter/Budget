@@ -10,11 +10,6 @@ namespace BudgetExecution
     public enum EXT
     {
         /// <summary>
-        /// Identifies the default Extension
-        /// </summary>
-        NS = -1,
-        
-        /// <summary>
         /// Defines the DB on SQLite database files.
         /// </summary>
         DB,

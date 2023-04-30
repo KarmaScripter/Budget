@@ -1264,7 +1264,6 @@
             ForeColor =  System.Drawing.Color.LightSteelBlue ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
             Name =  "DefinitionDialog" ;
-            Provider =  Provider.NS ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
             TabControl.ResumeLayout( false );

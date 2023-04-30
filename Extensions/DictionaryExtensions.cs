@@ -167,7 +167,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to sqldbparameters. </summary>
+        /// <summary> Converts to sql db parameters. </summary>
         /// <param name = "dict" > The dictionary. </param>
         /// <param name = "provider" > The provider. </param>
         /// <returns> </returns>
@@ -182,7 +182,6 @@ namespace BudgetExecution
                     var _values = dict.Values.ToArray( );
                     switch( provider )
                     {
-                        case Provider.NS:
                         case Provider.SQLite:
                         {
                             var _sqlite = new List<SQLiteParameter>( );
