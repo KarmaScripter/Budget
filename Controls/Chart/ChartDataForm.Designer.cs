@@ -45,6 +45,7 @@
             DataGridPanel =  new Layout( ) ;
             DataGrid =  new DataGrid( ) ;
             BindingSource =  new System.Windows.Forms.BindingSource( components ) ;
+            ToolTip =  new SmallTip( ) ;
             ChartAreaPanel =  new Layout( ) ;
             Chart =  new System.Windows.Forms.DataVisualization.Charting.Chart( ) ;
             GridSubTablePanel =  new Layout( ) ;
@@ -60,7 +61,6 @@
             NinthDataLabel =  new Label( ) ;
             ToolStrip =  new ToolStrip( ) ;
             TableButton =  new ToolStripButton( ) ;
-            ToolTip =  new SmallTip( ) ;
             ExcelButton =  new ToolStripButton( ) ;
             FirstButton =  new ToolStripButton( ) ;
             NavigationLabel =  new ToolStripLabel( ) ;
@@ -297,7 +297,7 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns =  true ;
-            dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   25  ,   25  ,   25   ) ;
+            dataGridViewCellStyle1.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
             dataGridViewCellStyle1.Font =  new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             dataGridViewCellStyle1.ForeColor =  System.Drawing.Color.LightSteelBlue ;
             dataGridViewCellStyle1.SelectionBackColor =  System.Drawing.Color.FromArgb(   26  ,   79  ,   125   ) ;
@@ -316,7 +316,7 @@
             dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
             DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
-            DataGrid.ColumnHeadersHeightSizeMode =  System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize ;
+            DataGrid.ColumnHeadersHeight =  12 ;
             DataGrid.DataFilter =  null ;
             dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
             dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   25  ,   25  ,   25   ) ;
@@ -328,9 +328,9 @@
             DataGrid.DefaultCellStyle =  dataGridViewCellStyle3 ;
             DataGrid.EnableHeadersVisualStyles =  false ;
             DataGrid.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            DataGrid.GridColor =  System.Drawing.Color.FromArgb(   141  ,   139  ,   138   ) ;
+            DataGrid.GridColor =  System.Drawing.Color.FromArgb(   55  ,   55  ,   55   ) ;
             DataGrid.HoverText =  null ;
-            DataGrid.Location =  new System.Drawing.Point( 16, 19 ) ;
+            DataGrid.Location =  new System.Drawing.Point( 16, 18 ) ;
             DataGrid.MultiSelect =  false ;
             DataGrid.Name =  "DataGrid" ;
             DataGrid.RowHeadersBorderStyle =  System.Windows.Forms.DataGridViewHeaderBorderStyle.Single ;
@@ -353,9 +353,29 @@
             DataGrid.RowsDefaultCellStyle =  dataGridViewCellStyle5 ;
             DataGrid.ScrollBars =  System.Windows.Forms.ScrollBars.Horizontal ;
             DataGrid.SelectionMode =  System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect ;
-            DataGrid.Size =  new System.Drawing.Size( 442, 474 ) ;
+            DataGrid.Size =  new System.Drawing.Size( 442, 475 ) ;
             DataGrid.TabIndex =  0 ;
-            DataGrid.ToolTip =  null ;
+            DataGrid.ToolTip =  ToolTip ;
+            // 
+            // ToolTip
+            // 
+            ToolTip.AutoPopDelay =  5000 ;
+            ToolTip.BackColor =  System.Drawing.Color.FromArgb(   5  ,   5  ,   5   ) ;
+            ToolTip.BindingSource =  null ;
+            ToolTip.BorderColor =  System.Drawing.SystemColors.Highlight ;
+            ToolTip.ForeColor =  System.Drawing.Color.White ;
+            ToolTip.InitialDelay =  500 ;
+            ToolTip.IsDerivedStyle =  true ;
+            ToolTip.Name =  null ;
+            ToolTip.OwnerDraw =  true ;
+            ToolTip.ReshowDelay =  100 ;
+            ToolTip.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ToolTip.StyleManager =  null ;
+            ToolTip.ThemeAuthor =  "Terry D. Eppler" ;
+            ToolTip.ThemeName =  "Budget Execution" ;
+            ToolTip.TipIcon =  System.Windows.Forms.ToolTipIcon.Info ;
+            ToolTip.TipText =  null ;
+            ToolTip.TipTitle =  null ;
             // 
             // ChartAreaPanel
             // 
@@ -811,26 +831,6 @@
             TableButton.ToolTip =  ToolTip ;
             TableButton.ToolType =  ToolType.TableButton ;
             // 
-            // ToolTip
-            // 
-            ToolTip.AutoPopDelay =  5000 ;
-            ToolTip.BackColor =  System.Drawing.Color.FromArgb(   5  ,   5  ,   5   ) ;
-            ToolTip.BindingSource =  null ;
-            ToolTip.BorderColor =  System.Drawing.SystemColors.Highlight ;
-            ToolTip.ForeColor =  System.Drawing.Color.White ;
-            ToolTip.InitialDelay =  500 ;
-            ToolTip.IsDerivedStyle =  true ;
-            ToolTip.Name =  null ;
-            ToolTip.OwnerDraw =  true ;
-            ToolTip.ReshowDelay =  100 ;
-            ToolTip.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ToolTip.StyleManager =  null ;
-            ToolTip.ThemeAuthor =  "Terry D. Eppler" ;
-            ToolTip.ThemeName =  "Budget Execution" ;
-            ToolTip.TipIcon =  System.Windows.Forms.ToolTipIcon.Info ;
-            ToolTip.TipText =  null ;
-            ToolTip.TipTitle =  null ;
-            // 
             // ExcelButton
             // 
             ExcelButton.AutoToolTip =  false ;
@@ -908,7 +908,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 106, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 100, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
