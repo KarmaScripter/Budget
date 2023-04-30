@@ -32,7 +32,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The dataRow.</param>
         /// <returns>
-        ///   <c>true</c> if the specified dataRow has numeric; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified dataRow has numeric; otherwise, <c>false</c>.c
         /// </returns>
         public static bool HasNumericColumns( this IEnumerable<DataRow> dataRow )
         {
@@ -383,15 +383,14 @@ namespace BudgetExecution
                     foreach( DataColumn col in _dataTable.Columns )
                     {
                         if( col.Ordinal > 1
-                           && ( col.DataType == typeof( decimal ) 
-                               | col.DataType == typeof( float )
+                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float )
                                | col.DataType == typeof( double )
                                | col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
                     }
-                    
+
                     for( var index = 0; index < _dataTable.Rows.Count; index++ )
                     {
                         var _row = _dataTable.Rows[ index ];
@@ -403,7 +402,8 @@ namespace BudgetExecution
                             _values.Add( _val );
                         }
 
-                        _point.YValues = _values.ToArray( );
+                        var _range = _values.ToArray( );
+                        _point.YValues = _range;
                         _points.Add( _point );
                     }
 

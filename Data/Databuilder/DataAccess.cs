@@ -206,8 +206,7 @@ namespace BudgetExecution
                     var _fields = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        if( col.Ordinal > 0
-                           && col.DataType == typeof( string ) )
+                        if( col.DataType == typeof( string ) )
                         {
                             _fields.Add( col.ColumnName );
                         }
@@ -240,10 +239,10 @@ namespace BudgetExecution
                     var _numerics = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        if( col.Ordinal > 0
-                           && !col.ColumnName.EndsWith( "Id" )
-                           && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
-                           | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
+                        if( !col.ColumnName.EndsWith( "Id" )
+                           && !col.ColumnName.EndsWith( "Date" ) 
+                           && ( col.DataType == typeof( double ) | col.DataType == typeof( decimal )
+                               | col.DataType == typeof( float ) | col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }

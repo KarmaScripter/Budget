@@ -449,7 +449,7 @@ namespace BudgetExecution
                             var _val = double.Parse( _row[ name ]?.ToString( ) );
                             _values.Add( _val );
                         }
-
+                        
                         var _range = _values.ToArray( );
                         _point.YValues = _range;
                         _points.Add( _point );
