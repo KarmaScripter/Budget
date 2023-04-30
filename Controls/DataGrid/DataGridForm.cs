@@ -912,9 +912,14 @@ namespace BudgetExecution
                         FirstComboBox.Items.Clear( );
                     }
 
+                    if( FirstListBox.Items?.Count > 0 )
+                    {
+                        FirstListBox.Items?.Clear( );
+                    }
+
                     foreach( var item in Fields )
                     {
-                        FirstComboBox.Items.Add( item );
+                        FirstComboBox.Items?.Add( item );
                     }
                 }
                 catch( Exception ex )
@@ -938,13 +943,18 @@ namespace BudgetExecution
                         SecondComboBox.Items.Clear( );
                     }
 
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
                     if( !string.IsNullOrEmpty( FirstValue ) )
                     {
                         foreach( var item in Fields )
                         {
                             if( !item.Equals( FirstCategory ) )
                             {
-                                SecondComboBox.Items.Add( item );
+                                SecondComboBox.Items?.Add( item );
                             }
                         }
                     }
@@ -970,6 +980,11 @@ namespace BudgetExecution
                         ThirdComboBox.Items.Clear( );
                     }
 
+                    if( ThirdListBox.Items?.Count > 0 )
+                    {
+                        ThirdListBox.Items?.Clear( );
+                    }
+
                     if( !string.IsNullOrEmpty( FirstValue )
                        && !string.IsNullOrEmpty( SecondValue ) )
                     {
@@ -978,7 +993,7 @@ namespace BudgetExecution
                             if( !item.Equals( FirstCategory )
                                && !item.Equals( SecondCategory ) )
                             {
-                                ThirdComboBox.Items.Add( item );
+                                ThirdComboBox.Items?.Add( item );
                             }
                         }
                     }

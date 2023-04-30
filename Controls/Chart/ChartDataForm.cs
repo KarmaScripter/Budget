@@ -291,6 +291,7 @@ namespace BudgetExecution
             SelectedTable = DataTable.TableName;
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
+            DataGrid.DataSource = BindingSource;
             Chart.DataSource = BindingSource.DataSource;
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
@@ -311,6 +312,7 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
+            DataGrid.DataSource = BindingSource;
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -332,6 +334,7 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
+            DataGrid.DataSource = BindingSource;
             ToolStrip.BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -513,7 +516,6 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
@@ -548,7 +550,6 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
@@ -585,7 +586,6 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
@@ -626,7 +626,6 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].XValueMember = Fields.Last( );
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
                 }
@@ -1218,17 +1217,17 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the axis titles.
         /// </summary>
-        /// <param name="xAxis">The xaxis.</param>
-        /// <param name="yAxis">The yaxis.</param>
-        private void SetAxisTitles( string xAxis, string yAxis )
+        /// <param name="xTitle">The xaxis.</param>
+        /// <param name="yTitle">The yaxis.</param>
+        private void SetAxisTitles( string xTitle, string yTitle )
         {
-            if( !string.IsNullOrEmpty( xAxis )
-               && !string.IsNullOrEmpty( yAxis ) )
+            if( !string.IsNullOrEmpty( xTitle )
+               && !string.IsNullOrEmpty( yTitle ) )
             {
                 try
                 {
-                    Chart.ChartAreas[ 0 ].AxisX.Title = xAxis;
-                    Chart.ChartAreas[ 0 ].AxisY.Title = yAxis;
+                    Chart.ChartAreas[ 0 ].AxisX.Title = xTitle;
+                    Chart.ChartAreas[ 0 ].AxisY.Title = yTitle;
                 }
                 catch( Exception ex )
                 {
@@ -1262,9 +1261,9 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisX.LineColor = _shadow;
-                Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 8 );
+                Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisX.TitleForeColor = _blue;
-                Chart.ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 8 );
+                Chart.ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = _gray;
@@ -1275,9 +1274,9 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisY.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisY.LineColor = _shadow;
-                Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 8 );
+                Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisY.TitleForeColor = _blue;
-                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 8 );
+                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "#,";
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _shadow;
@@ -1298,7 +1297,7 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.Titles[ 0 ].Font = new Font( "Roboto", 12 );
+                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10 );
                 Chart.Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Titles[ 0 ].BorderColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );
@@ -1312,16 +1311,17 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the legend properties.
         /// </summary>
-        private void SetLegendProperties( int i = 0 )
+        private void SetLegendProperties( int i = 0, bool enabled = false )
         {
             try
             {
                 Chart.Legends[ i ].HeaderSeparatorColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Legends[ i ].ItemColumnSeparatorColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Legends[ i ].BorderColor = Color.FromArgb( 20, 20, 20 );
-                Chart.Legends[ i ].TitleFont = new Font( "Roboto", 8 );
+                Chart.Legends[ i ].TitleFont = new Font( "Roboto", 7 );
                 Chart.Legends[ i ].TitleForeColor = Color.FromArgb( 0, 120, 212 );
                 Chart.Legends[ i ].TitleBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Legends[ i ].Enabled = enabled;
             }
             catch( Exception ex )
             {
@@ -1345,7 +1345,7 @@ namespace BudgetExecution
                 Chart.Series[ i ].LabelFormat = "N0";
                 Chart.Series[ i ].MarkerColor = Color.Yellow;
                 Chart.Series[ i ].MarkerStyle = MarkerStyle.Triangle;
-                Chart.Series[ i ].Font = new Font( "Roboto", 8 );
+                Chart.Series[ i ].Font = new Font( "Roboto", 7 );
                 Chart.Series[ i ].XValueType = ChartValueType.Auto;
                 Chart.Series[ i ].YValueType = ChartValueType.Auto;
                 Chart.Series[ i ].SmartLabelStyle.CalloutBackColor = Color.Transparent;
@@ -1661,7 +1661,7 @@ namespace BudgetExecution
             {
                 SelectedNumerics.Clear( );
                 var _selectedItem = NumericListBox?.SelectedText;
-                if( !string.IsNullOrEmpty( _selectedItem ))
+                if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedNumerics.Add( _selectedItem );
                 }
