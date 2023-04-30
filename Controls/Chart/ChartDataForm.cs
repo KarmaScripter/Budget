@@ -399,8 +399,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -443,8 +442,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -479,8 +477,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {Source} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {Source} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -510,15 +507,16 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
-                    var _num = Numerics.ToArray( );
-                    var _data = DataTable.GetChartPoints( );
-                    var _points = _data.ToArray( );
-                    Chart.DataSource = DataTable;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = DataTable;
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Update( );
                 }
                 catch( Exception ex )
                 {
@@ -544,15 +542,16 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    var _num = Numerics.ToArray( );
-                    var _data = DataTable.GetChartPoints( );
-                    var _points = _data.ToArray( );
-                    Chart.DataSource = DataTable;
                     Chart.Series[ 0 ].Points.Clear( );
-                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = DataTable;
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Update( );
                 }
                 catch( Exception ex )
                 {
@@ -580,15 +579,16 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    var _num = Numerics.ToArray( );
-                    var _data = DataTable.GetChartPoints( );
-                    var _points = _data.ToArray( );
                     Chart.Series[ 0 ].Points.Clear( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = DataTable;
-                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Update( );
                 }
                 catch( Exception ex )
                 {
@@ -619,15 +619,16 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    var _num = numerics.ToArray( );
-                    var _data = DataTable.GetChartPoints( );
-                    var _points = _data.ToArray( );
                     Chart.Series[ 0 ].Points.Clear( );
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = DataTable;
-                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
+                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Series[ 0 ].LegendText = Numerics.First( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Update( );
                 }
                 catch( Exception ex )
                 {
@@ -646,22 +647,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
                     Chart.Series[ 0 ].Points.Clear( );
-                    var _points = DataTable.GetChartPoints( );
-                    foreach( var point in _points )
-                    {
-                        Chart.Series[ 0 ].Points.Add( point );
-                    }
-
+                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                    Chart.DataSource = DataTable;
+                    Chart.Series[ 0 ].XValueMember = SelectedFields.Last( );
+                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                    Chart.Update( );
                 }
                 catch( Exception ex )
                 {
@@ -738,7 +731,7 @@ namespace BudgetExecution
                     ThirdDataLabel.Text = $"Total Measures:  {_numerics}";
                     FourthDataLabel.Text = $"Active Filters:  {_filters}";
                     FifthDataLabel.Text = $"Selected Fields:  {_selectedFields}";
-                    SixthDataLabel.Text = $"Selected Numerics:  {_selectedNumerics}";
+                    SixthDataLabel.Text = $"Selected Measures:  {_selectedNumerics}";
                     SeventhDataLabel.Text = string.Empty;
                     EightDataLabel.Text = string.Empty;
                     NinthDataLabel.Text = string.Empty;
@@ -750,7 +743,7 @@ namespace BudgetExecution
                     ThirdDataLabel.Text = "Total Measures: 0.0";
                     FourthDataLabel.Text = "Active Filters: 0.0";
                     FifthDataLabel.Text = "Selected Fields: 0.0";
-                    SixthDataLabel.Text = "Selected Numerics: 0.0";
+                    SixthDataLabel.Text = "Selected Measures: 0.0";
                     SeventhDataLabel.Text = string.Empty;
                     EightDataLabel.Text = string.Empty;
                     NinthDataLabel.Text = string.Empty;
@@ -890,8 +883,7 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1188,7 +1180,7 @@ namespace BudgetExecution
             {
                 Chart.BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
-                Chart.ForeColor = Color.LightSteelBlue;
+                Chart.ForeColor = Color.White;
                 Chart.BorderlineColor = Color.FromArgb( 20, 20, 20 );
                 Chart.BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
@@ -1204,17 +1196,17 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the axis titles.
         /// </summary>
-        /// <param name="xaxis">The xaxis.</param>
-        /// <param name="yaxis">The yaxis.</param>
-        private void SetAxisTitles( string xaxis, string yaxis )
+        /// <param name="xAxis">The xaxis.</param>
+        /// <param name="yAxis">The yaxis.</param>
+        private void SetAxisTitles( string xAxis, string yAxis )
         {
-            if( !string.IsNullOrEmpty( xaxis )
-               && !string.IsNullOrEmpty( yaxis ) )
+            if( !string.IsNullOrEmpty( xAxis )
+               && !string.IsNullOrEmpty( yAxis ) )
             {
                 try
                 {
-                    Chart.ChartAreas[ 0 ].AxisX.Title = xaxis;
-                    Chart.ChartAreas[ 0 ].AxisY.Title = yaxis;
+                    Chart.ChartAreas[ 0 ].AxisX.Title = xAxis;
+                    Chart.ChartAreas[ 0 ].AxisY.Title = yAxis;
                 }
                 catch( Exception ex )
                 {
@@ -1234,7 +1226,7 @@ namespace BudgetExecution
                 var _gray = Color.FromArgb( 65, 65, 65 );
                 var _transparent = Color.Transparent;
                 var _blue = Color.FromArgb( 0, 120, 212 );
-                var _shadow = Color.FromArgb( 50, 93, 129 );
+                var _shadow = Color.FromArgb( 24, 47, 66 );
 
                 // General Area Properties
                 Chart.ChartAreas[ 0 ].BackColor = _black;
@@ -1248,26 +1240,27 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisX.LineColor = _shadow;
-                Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 10 );
+                Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 8 );
                 Chart.ChartAreas[ 0 ].AxisX.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 8 );
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = _gray;
-                Chart.ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Auto;
+                Chart.ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Horizontal;
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
 
                 // Vertical Axis Properties
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisY.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisY.LineColor = _shadow;
-                Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 10 );
+                Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 8 );
                 Chart.ChartAreas[ 0 ].AxisY.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 8 );
+                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "N0";
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
-                Chart.ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Auto;
+                Chart.ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Horizontal;
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
             }
             catch( Exception ex )
@@ -1326,7 +1319,8 @@ namespace BudgetExecution
                 Chart.Series[ i ].IsVisibleInLegend = true;
                 Chart.Series[ i ].LabelBorderColor = Color.Transparent;
                 Chart.Series[ i ].LabelBackColor = Color.Transparent;
-                Chart.Series[ i ].LabelForeColor = Color.LightSteelBlue;
+                Chart.Series[ i ].LabelForeColor = Color.White;
+                Chart.Series[ i ].LabelFormat = "N0";
                 Chart.Series[ i ].MarkerColor = Color.Yellow;
                 Chart.Series[ i ].MarkerStyle = MarkerStyle.Triangle;
                 Chart.Series[ i ].Font = new Font( "Roboto", 8 );
