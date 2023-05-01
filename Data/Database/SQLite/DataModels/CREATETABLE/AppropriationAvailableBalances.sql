@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS AppropriationAvailableBalances
 	TreasurySymbol TEXT(80) NULL DEFAULT 'NS',
 	OmbAccountCode TEXT(80) NULL DEFAULT 'NS',
 	Availability TEXT(80) NULL DEFAULT 'NS',
-	TotalAuthority  DECIMAL NULL DEFAULT 0.0,
-	TotalUsed DECIMAL NULL DEFAULT 0.0,
-	Available DECIMAL NULL DEFAULT 0.0,
+	TotalAuthority  DOUBLE NULL DEFAULT 0.0,
+	TotalUsed DOUBLE NULL DEFAULT 0.0,
+	Available DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY(AppropriationAvailableBalancesId AUTOINCREMENT)
 );
 

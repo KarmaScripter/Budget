@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS AppropriationDocuments
 	TreasuryAccountName	TEXT(80) NULL DEFAULT 'NS',
 	BudgetAccountCode	TEXT(80) NULL DEFAULT 'NS',
 	BudgetAccountName	TEXT(80) NULL DEFAULT 'NS',
-	Budgeted	DECIMAL DEFAULT 0.0,
-	Posted	DECIMAL DEFAULT 0.0,
-	CarryoverOut	DECIMAL DEFAULT 0.0,
-	CarryoverIn	DECIMAL DEFAULT 0.0,
-	Reimbursements	DECIMAL DEFAULT 0.0,
-	Recoveries	DECIMAL DEFAULT 0.0,
+	Budgeted	DOUBLE DEFAULT 0.0,
+	Posted	DOUBLE DEFAULT 0.0,
+	CarryoverOut	DOUBLE DEFAULT 0.0,
+	CarryoverIn	DOUBLE DEFAULT 0.0,
+	Reimbursements	DOUBLE DEFAULT 0.0,
+	Recoveries	DOUBLE DEFAULT 0.0,
 	PRIMARY KEY(AppropriationDocumentsId AUTOINCREMENT)
 );
