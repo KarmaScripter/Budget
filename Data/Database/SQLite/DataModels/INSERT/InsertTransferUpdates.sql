@@ -1,6 +1,6 @@
-INSERT INTO TravelObligations
+INSERT INTO Transfers
 SELECT *
-FROM [Data.accdb].ExternalTravelObligations;
+FROM ExternalTransfers;
 
 
 
