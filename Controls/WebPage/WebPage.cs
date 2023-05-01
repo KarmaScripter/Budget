@@ -112,8 +112,8 @@ namespace BudgetExecution
                 ToolStrip.ShowCaption = true;
                 ToolStrip.Text = string.Empty;
                 PopulateToolBarDropDownItems( );
-                FilePath = @"C:\Users\terry\source\repos\Budget\Resource\WebPages\index.html";
-                FolderPath = @"C:\Users\terry\source\repos\Budget\Resource\WebPages";
+                FilePath = @"C:\Users\teppler\source\repos\Budget\Resource\WebPages\index.html";
+                FolderPath = @"C:\Users\teppler\source\repos\Budget\Resource\WebPages";
                 WebAddress = new Uri( @"https://www.google.com/" );
                 WebControl.StartupDocument = FilePath;
                 WebControl.StartupFolder = FolderPath;

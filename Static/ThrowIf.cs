@@ -44,8 +44,8 @@ namespace BudgetExecution
             {
                 if( argument < 0 )
                 {
-                    throw new ArgumentOutOfRangeException( argumentName,
-                        argumentName + " Must Be Greater Than Zero." );
+                    var _message = $"{ argumentName } Must Be Greater Than Zero.";
+                    throw new ArgumentOutOfRangeException( argumentName, _message );
                 }
             }
 
@@ -59,8 +59,8 @@ namespace BudgetExecution
             {
                 if( argument <= 0 )
                 {
-                    throw new ArgumentOutOfRangeException( argumentName,
-                        argumentName + " Must Be Greater Than Zero." );
+                    var _message = $"{ argumentName } Must Be Greater Than Zero.";
+                    throw new ArgumentOutOfRangeException( argumentName, _message );
                 }
             }
         }
