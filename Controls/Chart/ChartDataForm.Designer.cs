@@ -243,7 +243,7 @@
             ChartSubTable.Name =  "ChartSubTable" ;
             ChartSubTable.RowCount =  1 ;
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 43.9393921F ) );
-            ChartSubTable.Size =  new System.Drawing.Size( 507, 64 ) ;
+            ChartSubTable.Size =  new System.Drawing.Size( 507, 67 ) ;
             ChartSubTable.TabIndex =  3 ;
             // 
             // SqlHeader
@@ -259,11 +259,10 @@
             SqlHeader.Margin =  new System.Windows.Forms.Padding( 3 ) ;
             SqlHeader.Name =  "SqlHeader" ;
             SqlHeader.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SqlHeader.Size =  new System.Drawing.Size( 428, 58 ) ;
+            SqlHeader.Size =  new System.Drawing.Size( 428, 61 ) ;
             SqlHeader.Style =  MetroSet_UI.Enums.Style.Custom ;
             SqlHeader.StyleManager =  null ;
             SqlHeader.TabIndex =  2 ;
-            SqlHeader.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
             SqlHeader.ThemeAuthor =  "Terry D. Eppler" ;
             SqlHeader.ThemeName =  "Budget Execution" ;
             SqlHeader.ToolTip =  null ;
@@ -316,7 +315,7 @@
             dataGridViewCellStyle2.SelectionForeColor =  System.Drawing.Color.White ;
             dataGridViewCellStyle2.WrapMode =  System.Windows.Forms.DataGridViewTriState.True ;
             DataGrid.ColumnHeadersDefaultCellStyle =  dataGridViewCellStyle2 ;
-            DataGrid.ColumnHeadersHeight =  12 ;
+            DataGrid.ColumnHeadersHeightSizeMode =  System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize ;
             DataGrid.DataFilter =  null ;
             dataGridViewCellStyle3.Alignment =  System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft ;
             dataGridViewCellStyle3.BackColor =  System.Drawing.Color.FromArgb(   25  ,   25  ,   25   ) ;
@@ -908,7 +907,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 100, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 148, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
@@ -2095,11 +2094,11 @@
             ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 271F ) );
             ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 678F ) );
             ChartHeaderTable.Controls.Add( PictureBox, 0, 0 );
-            ChartHeaderTable.Location =  new System.Drawing.Point( 3, -2 ) ;
+            ChartHeaderTable.Location =  new System.Drawing.Point( 3, 4 ) ;
             ChartHeaderTable.Name =  "ChartHeaderTable" ;
             ChartHeaderTable.RowCount =  1 ;
             ChartHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            ChartHeaderTable.Size =  new System.Drawing.Size( 1075, 29 ) ;
+            ChartHeaderTable.Size =  new System.Drawing.Size( 1075, 23 ) ;
             ChartHeaderTable.TabIndex =  50 ;
             // 
             // PictureBox
