@@ -10,6 +10,7 @@ namespace BudgetExecution
     /// <summary>
     /// Defines the <see cref = "TimeSpanExtensions"/> .
     /// </summary>
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class TimeSpanExtensions
     {
         /// <summary>
@@ -33,7 +34,15 @@ namespace BudgetExecution
         /// </returns>
         public static int GetYears( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays / AvgDaysInAYear );
+            try
+            {
+                return (int)( timeSpan.TotalDays / AvgDaysInAYear );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1;
+            }
         }
 
         /// <summary>
@@ -47,7 +56,15 @@ namespace BudgetExecution
         /// </returns>
         public static double GetTotalYears( this TimeSpan timeSpan )
         {
-            return timeSpan.TotalDays / AvgDaysInAYear;
+            try
+            {
+                return timeSpan.TotalDays / AvgDaysInAYear;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1D;
+            }
         }
 
         /// <summary>
@@ -61,7 +78,15 @@ namespace BudgetExecution
         /// </returns>
         public static int GetMonths( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays % AvgDaysInAYear / AvgDaysInAMonth );
+            try
+            {
+                return (int)( timeSpan.TotalDays % AvgDaysInAYear / AvgDaysInAMonth );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1;
+            }
         }
 
         /// <summary>
@@ -75,7 +100,15 @@ namespace BudgetExecution
         /// </returns>
         public static double GetTotalMonths( this TimeSpan timeSpan )
         {
-            return timeSpan.TotalDays / AvgDaysInAMonth;
+            try
+            {
+                return timeSpan.TotalDays / AvgDaysInAMonth;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1D;
+            }
         }
 
         /// <summary>
@@ -89,7 +122,15 @@ namespace BudgetExecution
         /// </returns>
         public static int GetWeeks( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays % AvgDaysInAYear % AvgDaysInAMonth / 7d );
+            try
+            {
+                return (int)( timeSpan.TotalDays % AvgDaysInAYear % AvgDaysInAMonth / 7d );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1;
+            }
         }
 
         /// <summary>
@@ -103,7 +144,15 @@ namespace BudgetExecution
         /// </returns>
         public static double GetTotalWeeks( this TimeSpan timeSpan )
         {
-            return timeSpan.TotalDays / 7d;
+            try
+            {
+                return timeSpan.TotalDays / 7d;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1D;
+            }
         }
 
         /// <summary>
@@ -117,7 +166,15 @@ namespace BudgetExecution
         /// </returns>
         public static int GetDays( this TimeSpan timeSpan )
         {
-            return (int)( timeSpan.TotalDays % 7d );
+            try
+            {
+                return (int)( timeSpan.TotalDays % 7d );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1;
+            }
         }
 
         /// <summary>
@@ -131,7 +188,15 @@ namespace BudgetExecution
         /// </returns>
         public static double GetMicroseconds( this TimeSpan timeSpan )
         {
-            return timeSpan.Ticks / 10d;
+            try
+            {
+                return timeSpan.Ticks / 10d;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1D;
+            }
         }
 
         /// <summary>
@@ -145,7 +210,15 @@ namespace BudgetExecution
         /// </returns>
         public static double GetNanoseconds( this TimeSpan timeSpan )
         {
-            return timeSpan.Ticks / 100d;
+            try
+            {
+                return timeSpan.Ticks / 100d;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return -1D;
+            }
         }
 
         /// <summary>
@@ -166,9 +239,17 @@ namespace BudgetExecution
         public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan roundinginterval,
             MidpointRounding roundingtype = MidpointRounding.ToEven )
         {
-            return new TimeSpan(
-                Convert.ToInt64( Math.Round( timeSpan.Ticks / (double)roundinginterval.Ticks,
-                    roundingtype ) ) * roundinginterval.Ticks );
+            try
+            {
+                return new TimeSpan(
+                    Convert.ToInt64( Math.Round( timeSpan.Ticks / (double)roundinginterval.Ticks,
+                        roundingtype ) ) * roundinginterval.Ticks );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex  );
+                return default( TimeSpan );
+            }
         }
 
         /// <summary>Fails the specified ex.</summary>
