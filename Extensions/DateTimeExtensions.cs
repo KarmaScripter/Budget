@@ -286,7 +286,7 @@ namespace BudgetExecution
             try
             {
                 // start from a weekday        
-                while( startDate.DayOfWeek.IsWeekEnd( ) )
+                while( startDate.IsWeekEnd( ) )
                 {
                     startDate = startDate.AddDays( 1.0 );
                 }
@@ -294,7 +294,7 @@ namespace BudgetExecution
                 for (int i = 0; i < days; ++i)
                 {
                     startDate = startDate.AddDays(1.0);
-                    while( startDate.DayOfWeek.IsWeekEnd( ) )
+                    while( startDate.IsWeekEnd( ) )
                     {
                         startDate = startDate.AddDays( 1.0 );
                     }

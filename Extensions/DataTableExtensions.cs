@@ -209,7 +209,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataTable">The dataTable.</param>
         /// <returns></returns>
-        public static IEnumerable<int> GetPrimaryKeyValues( this DataTable dataTable )
+        public static IEnumerable<int> GetIndexValues( this DataTable dataTable )
         {
             try
             {
@@ -254,7 +254,7 @@ namespace BudgetExecution
         /// <param name="dataTable">The data table.</param>
         /// <param name="where">The dictionary.</param>
         /// <returns></returns>
-        public static IEnumerable<int> GetPrimaryKeyValues( this DataTable dataTable,
+        public static IEnumerable<int> GetIndexValues( this DataTable dataTable,
             IDictionary<string, object> where )
         {
             try

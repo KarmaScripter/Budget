@@ -445,7 +445,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -480,7 +480,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -510,7 +510,11 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
-                    Chart.Series[ 0 ].Points.Clear( );
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = DataTable;
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
@@ -544,9 +548,14 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    Chart.Series[ 0 ].Points.Clear( );
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    DataGrid.DataSource = BindingSource;
+                    Chart.DataSource = BindingSource;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = DataTable;
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
@@ -580,12 +589,17 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    Chart.Series[ 0 ].Points.Clear( );
+                    DataGrid.DataSource = BindingSource;
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.DataSource = BindingSource;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = DataTable;
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( ); 
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
@@ -619,9 +633,13 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    Chart.Series[ 0 ].Points.Clear( );
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
+                    Chart.DataSource = BindingSource;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = DataTable;
                     SetSeriesProperties( );
                     Chart.Series[ 0 ].XValueMember = Fields.Last( );
                     Chart.Series[ 0 ].IsXValueIndexed = true;
@@ -646,9 +664,13 @@ namespace BudgetExecution
                 if( SelectedFields?.Any( ) == true
                    && SelectedNumerics?.Any( ) == true )
                 {
-                    Chart.Series[ 0 ].Points.Clear( );
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = DataTable;
+                    Chart.DataSource = BindingSource;
                     Chart.Series[ 0 ].XValueMember = SelectedFields.Last( );
                     Chart.Series[ 0 ].YValueMembers = SelectedNumerics.First( );
                     SetSeriesProperties( );
@@ -657,9 +679,13 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    Chart.Series[ 0 ].Points.Clear( );
+                    if( Chart.Series[ 0 ].Points.Count > 0 )
+                    {
+                        Chart.Series[ 0 ].Points.Clear( );
+                    }
+
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = DataTable;
+                    Chart.DataSource = BindingSource;
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
@@ -1268,7 +1294,6 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = _gray;
                 Chart.ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Auto;
-                Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
 
                 // Vertical Axis Properties
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
@@ -1282,7 +1307,6 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
                 Chart.ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Auto;
-                Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
             }
             catch( Exception ex )
             {
@@ -1341,16 +1365,19 @@ namespace BudgetExecution
                 Chart.Series[ i ].IsVisibleInLegend = true;
                 Chart.Series[ i ].LabelBorderColor = Color.Transparent;
                 Chart.Series[ i ].LabelBackColor = Color.Transparent;
-                Chart.Series[ i ].LabelForeColor = Color.White;
+                Chart.Series[ i ].LabelForeColor = Color.LightGray;
                 Chart.Series[ i ].LabelFormat = "N0";
                 Chart.Series[ i ].MarkerColor = Color.Yellow;
                 Chart.Series[ i ].MarkerStyle = MarkerStyle.Triangle;
                 Chart.Series[ i ].Font = new Font( "Roboto", 7 );
                 Chart.Series[ i ].XValueType = ChartValueType.Auto;
                 Chart.Series[ i ].YValueType = ChartValueType.Auto;
-                Chart.Series[ i ].SmartLabelStyle.CalloutBackColor = Color.Transparent;
-                Chart.Series[ i ].SmartLabelStyle.CalloutLineColor = Color.FromArgb( 65, 65, 65 );
-                Chart.Series[ i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Underlined;
+                Chart.Series[ i ].SmartLabelStyle.CalloutBackColor = Color.FromArgb( 50, 50, 50 );
+                Chart.Series[ i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
+                Chart.Series[ i ].SmartLabelStyle.CalloutLineColor = Color.FromArgb( 50, 93, 129 );
+                Chart.Series[ i ].SmartLabelStyle.CalloutLineWidth = 1;
+                Chart.Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle =
+                    LineAnchorCapStyle.Arrow;
             }
             catch( Exception ex )
             {
@@ -1377,6 +1404,7 @@ namespace BudgetExecution
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
+                        DataGrid.DataSource = BindingSource.DataSource;
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
@@ -1641,7 +1669,13 @@ namespace BudgetExecution
                     SelectedColumns.Add( _selectedItem );
                 }
 
-                SqlQuery = CreateSqlText( SelectedColumns, FormFilter );
+                if( SelectedFields.Count >= 2 
+                   && SelectedNumerics.Count >= 1 )
+                {
+                    ResetData( SelectedFields, SelectedNumerics, FormFilter );
+                }
+
+                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
                 UpdateLabelText( );
             }

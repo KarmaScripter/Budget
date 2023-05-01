@@ -214,9 +214,9 @@ namespace BudgetExecution
                     {
                         if( !col.ColumnName.EndsWith( "Id" )
                            && ( col.DataType == typeof( double ) 
-                               | col.DataType == typeof( decimal )
-                               | col.DataType == typeof( float ) 
-                               | col.DataType == typeof( int ) ) )
+                               || col.DataType == typeof( decimal )
+                               || col.DataType == typeof( float ) 
+                               || col.DataType == typeof( int ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
@@ -283,7 +283,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _values = DataTable.GetPrimaryKeyValues( );
+                    var _values = DataTable.GetIndexValues( );
                     return _values?.Any( ) == true
                         ? _values.ToList( )
                         : default( IList<int> );
