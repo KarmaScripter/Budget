@@ -10,6 +10,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class DateTimeExtensions
     {
         /// <summary>
@@ -278,7 +280,35 @@ namespace BudgetExecution
                 return false;
             }
         }
+        
+        public static DateTime AddWorkdays( this DateTime startDate, int days )
+        {
+            try
+            {
+                // start from a weekday        
+                while( startDate.DayOfWeek.IsWeekEnd( ) )
+                {
+                    startDate = startDate.AddDays( 1.0 );
+                }
 
+                for (int i = 0; i < days; ++i)
+                {
+                    startDate = startDate.AddDays(1.0);
+                    while( startDate.DayOfWeek.IsWeekEnd( ) )
+                    {
+                        startDate = startDate.AddDays( 1.0 );
+                    }
+                }
+            
+                return startDate;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( DateTime );
+            }
+        }
+        
         /// <summary>
         /// Counts the number of weekdays between two dates.
         /// </summary>
@@ -295,13 +325,10 @@ namespace BudgetExecution
             try
             {
                 var _timeSpan = endDate - startDate;
-                Console.WriteLine( _timeSpan.Days );
                 var _days = 0;
-
                 for( var i = 0; i < _timeSpan.Days; i++ )
                 {
                     var _dateTime = startDate.AddDays( i );
-
                     if( _dateTime.IsWeekDay( ) )
                     {
                         _days++;
@@ -336,7 +363,6 @@ namespace BudgetExecution
             {
                 var _timeSpan = endDate - startDate;
                 var _weekEnds = 0;
-
                 for( var i = 0; i < _timeSpan.Days; i++ )
                 {
                     var _dateTime = startDate.AddDays( i );

@@ -469,7 +469,8 @@ namespace BudgetExecution
                 return false;
             }
         }
-
+        
+        
         /// <summary>Fails the specified ex.</summary>
         /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
