@@ -1267,7 +1267,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = _gray;
-                Chart.ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Horizontal;
+                Chart.ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Auto;
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
 
                 // Vertical Axis Properties
@@ -1281,7 +1281,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _shadow;
                 Chart.ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
-                Chart.ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Horizontal;
+                Chart.ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Auto;
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
             }
             catch( Exception ex )
