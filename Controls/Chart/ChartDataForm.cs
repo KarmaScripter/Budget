@@ -12,7 +12,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
-    using Google.Protobuf.Collections;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle;
@@ -381,7 +380,7 @@ namespace BudgetExecution
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
                     PopulateFirstComboBoxItems( );
-                    ResetComboBoxVisibility( );
+                    ResetFilterTableVisibility( );
                     ResetData( );
                     UpdateLabelText( );
                 }
@@ -750,39 +749,47 @@ namespace BudgetExecution
         {
             try
             {
-                switch( TabControl.SelectedIndex )
-                {
-                    case 0:
-                    {
-                        TableTabPage.TabVisible = true;
-                        FilterTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
-                        PopulateExecutionTables( );
-                        break;
-                    }
-                    case 1:
-                    {
-                        TableTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = true;
-                        GroupTabPage.TabVisible = false;
-                        PopulateFirstComboBoxItems( );
-                        ResetComboBoxVisibility( );
-                        break;
-                    }
-                    case 2:
-                    {
-                        TableTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = true;
-                        PopulateFieldListBox( );
-                        PopulateNumericListBox( );
-                        break;
-                    }
-                }
+                SetActiveTabControls( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active tab controls.
+        /// </summary>
+        private void SetActiveTabControls( )
+        {
+            switch( TabControl.SelectedIndex )
+            {
+                case 0:
+                {
+                    TableTabPage.TabVisible = true;
+                    FilterTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    PopulateExecutionTables( );
+                    break;
+                }
+                case 1:
+                {
+                    FilterTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    GroupTabPage.TabVisible = false;
+                    PopulateFirstComboBoxItems( );
+                    ResetFilterTableVisibility( );
+                    break;
+                }
+                case 2:
+                {
+                    GroupTabPage.TabVisible = true;
+                    TableTabPage.TabVisible = false;
+                    FilterTabPage.TabVisible = false;
+                    PopulateFieldListBox( );
+                    ResetGroupTableVisibility( );
+                    break;
+                }
             }
         }
 
@@ -1190,7 +1197,7 @@ namespace BudgetExecution
         /// <summary>
         /// Resets the ComboBox visibility.
         /// </summary>
-        private void ResetComboBoxVisibility( )
+        private void ResetFilterTableVisibility( )
         {
             try
             {
@@ -1207,6 +1214,26 @@ namespace BudgetExecution
                 if( ThirdTable?.Visible == true )
                 {
                     ThirdTable.Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void ResetGroupTableVisibility( )
+        {
+            try
+            {
+                if( FieldTable?.Visible == false )
+                {
+                    FieldTable.Visible = true;
+                }
+
+                if( NumericTable?.Visible == true )
+                {
+                    NumericTable.Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1425,6 +1452,37 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the chart palette colors.
+        /// </summary>
+        private void SetChartPaletteColors( )
+        {
+            try
+            {
+                var _blue = Color.FromArgb( 0, 120, 212 );
+                var _lightBlue = Color.FromArgb( 180, 0, 120, 202 );
+                var _maroon = Color.Maroon;
+                var _red = Color.FromArgb( 255, 65, 84 );
+                var _green = Color.FromArgb( 0, 64, 0 );
+                var _darkGreen = Color.FromArgb( 150, 0, 64, 0 );
+                var _palette = new Color[ ]
+                {
+                    _blue,
+                    _lightBlue,
+                    _maroon,
+                    _red,
+                    _green,
+                    _darkGreen,
+                };
+
+                Chart.PaletteCustomColors = _palette;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1451,7 +1509,7 @@ namespace BudgetExecution
                     }
 
                     PopulateFirstComboBoxItems( );
-                    ResetComboBoxVisibility( );
+                    ResetFilterTableVisibility( );
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1700,12 +1758,18 @@ namespace BudgetExecution
             {
                 SqlHeader.Text = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
+                PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedFields.Add( _selectedItem );
                     SelectedColumns.Add( _selectedItem );
                 }
 
+                if( NumericTable.Visible == false )
+                {
+                    NumericTable.Visible = true;
+                }
+                
                 if( SelectedFields.Count >= 2
                    && SelectedNumerics.Count >= 1 )
                 {
@@ -1836,23 +1900,17 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnRemoveFiltersButtonClicked( object sender, EventArgs e )
+        private void OnRemoveFiltersButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 1;
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    DataGrid.DataSource = BindingSource;
-                    Chart.DataSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
                     ClearCollections( );
                     ClearSelections( );
+                    SqlQuery = string.Empty;
+                    ResetData( );
+                    TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                 }
             }

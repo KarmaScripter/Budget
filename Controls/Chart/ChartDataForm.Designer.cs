@@ -48,7 +48,6 @@
             ChartAreaPanel =  new Layout( ) ;
             Chart =  new System.Windows.Forms.DataVisualization.Charting.Chart( ) ;
             GridSubTablePanel =  new Layout( ) ;
-            SqlHeader =  new Label( ) ;
             DataMetricsTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             ThirdDataLabel =  new Label( ) ;
             FirstDataLabel =  new Label( ) ;
@@ -59,6 +58,7 @@
             SeventhDataLabel =  new Label( ) ;
             EightDataLabel =  new Label( ) ;
             NinthDataLabel =  new Label( ) ;
+            SqlHeader =  new Label( ) ;
             ToolStrip =  new ToolStrip( ) ;
             TableButton =  new ToolStripButton( ) ;
             ExcelButton =  new ToolStripButton( ) ;
@@ -483,28 +483,6 @@
             GridSubTablePanel.ThemeName =  "Budget Execution" ;
             GridSubTablePanel.ToolTip =  null ;
             // 
-            // SqlHeader
-            // 
-            SqlHeader.BindingSource =  null ;
-            SqlHeader.DataFilter =  null ;
-            SqlHeader.Dock =  System.Windows.Forms.DockStyle.Fill ;
-            SqlHeader.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
-            SqlHeader.Font =  new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            SqlHeader.HoverText =  null ;
-            SqlHeader.IsDerivedStyle =  true ;
-            SqlHeader.Location =  new System.Drawing.Point( 399, 3 ) ;
-            SqlHeader.Margin =  new System.Windows.Forms.Padding( 3 ) ;
-            SqlHeader.Name =  "SqlHeader" ;
-            SqlHeader.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SqlHeader.Size =  new System.Drawing.Size( 673, 17 ) ;
-            SqlHeader.Style =  MetroSet_UI.Enums.Style.Custom ;
-            SqlHeader.StyleManager =  null ;
-            SqlHeader.TabIndex =  2 ;
-            SqlHeader.TextAlign =  System.Drawing.ContentAlignment.MiddleLeft ;
-            SqlHeader.ThemeAuthor =  "Terry D. Eppler" ;
-            SqlHeader.ThemeName =  "Budget Execution" ;
-            SqlHeader.ToolTip =  null ;
-            // 
             // DataMetricsTable
             // 
             DataMetricsTable.ColumnCount =  3 ;
@@ -736,6 +714,28 @@
             NinthDataLabel.ThemeName =  "Budget Execution" ;
             NinthDataLabel.ToolTip =  null ;
             // 
+            // SqlHeader
+            // 
+            SqlHeader.BindingSource =  null ;
+            SqlHeader.DataFilter =  null ;
+            SqlHeader.Dock =  System.Windows.Forms.DockStyle.Fill ;
+            SqlHeader.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            SqlHeader.Font =  new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            SqlHeader.HoverText =  null ;
+            SqlHeader.IsDerivedStyle =  true ;
+            SqlHeader.Location =  new System.Drawing.Point( 399, 3 ) ;
+            SqlHeader.Margin =  new System.Windows.Forms.Padding( 3 ) ;
+            SqlHeader.Name =  "SqlHeader" ;
+            SqlHeader.Padding =  new System.Windows.Forms.Padding( 1 ) ;
+            SqlHeader.Size =  new System.Drawing.Size( 673, 17 ) ;
+            SqlHeader.Style =  MetroSet_UI.Enums.Style.Custom ;
+            SqlHeader.StyleManager =  null ;
+            SqlHeader.TabIndex =  2 ;
+            SqlHeader.TextAlign =  System.Drawing.ContentAlignment.BottomLeft ;
+            SqlHeader.ThemeAuthor =  "Terry D. Eppler" ;
+            SqlHeader.ThemeName =  "Budget Execution" ;
+            SqlHeader.ToolTip =  null ;
+            // 
             // ToolStrip
             // 
             ToolStrip.AddButton =  null ;
@@ -907,7 +907,7 @@
             ToolStripTextBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ToolStripTextBox.Name =  "ToolStripTextBox" ;
             ToolStripTextBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ToolStripTextBox.Size =  new System.Drawing.Size( 134, 28 ) ;
+            ToolStripTextBox.Size =  new System.Drawing.Size( 130, 28 ) ;
             ToolStripTextBox.Tag =  "" ;
             ToolStripTextBox.ToolTip =  null ;
             // 
