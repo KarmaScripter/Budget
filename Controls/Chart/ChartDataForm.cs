@@ -1698,6 +1698,7 @@ namespace BudgetExecution
         {
             try
             {
+                SqlHeader.Text = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -1715,8 +1716,8 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    ResetData( SelectedFields, Numerics, FormFilter );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    ResetData( Fields, Numerics, FormFilter );
+                    SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
@@ -1736,6 +1737,7 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
+                SqlHeader.Text = string.Empty;
                 var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
