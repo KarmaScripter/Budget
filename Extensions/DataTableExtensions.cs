@@ -361,6 +361,61 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the chart points.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
+        public static IList<DataPoint> GetChartPoints( this DataTable dataTable )
+        {
+            if( dataTable?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    var _points = new List<DataPoint>( );
+                    var _names = new List<string>( );
+                    var _values = new List<double>( );
+                    foreach( DataColumn col in dataTable.Columns )
+                    {
+                        if( col.Ordinal > 1
+                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float )
+                               | col.DataType == typeof( double )
+                               | col.DataType == typeof( int ) ) )
+                        {
+                            _names.Add( col.ColumnName );
+                        }
+                    }
+
+                    for( var index = 0; index < dataTable.Rows.Count; index++ )
+                    {
+                        var _row = dataTable.Rows[ index ];
+                        var _point = new DataPoint( );
+                        _point.XValue = index;
+                        foreach( var name in _names )
+                        {
+                            var _val = double.Parse( _row[ name ]?.ToString( ) );
+                            _values.Add( _val );
+                        }
+
+                        var _range = _values.ToArray( );
+                        _point.YValues = _range;
+                        _points.Add( _point );
+                    }
+
+                    return _points?.Any( ) == true
+                        ? _points
+                        : default( IList<DataPoint> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<DataPoint> );
+                }
+            }
+
+            return default( IList<DataPoint> );
+        }
+
+        /// <summary>
         /// Filters the specified dictionary.
         /// </summary>
         /// <param name="dataTable">The data table.</param>

@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
+    using Google.Protobuf.Collections;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle;
@@ -20,16 +21,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -258,6 +259,7 @@ namespace BudgetExecution
             BackButton.Click += null;
             MenuButton.Click += null;
             ExcelButton.Click += null;
+            RefreshDataButton.Click += null;
             RemoveFiltersButton.Click += null;
             TableButton.Click += null;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
@@ -275,6 +277,7 @@ namespace BudgetExecution
             MenuButton.Click += OnMainMenuButtonClicked;
             GroupButton.Click += OnGroupButtonClicked;
             RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
+            RefreshDataButton.Click += OnRefreshDataButtonClicked;
             ExcelButton.Click += OnExcelExportButtonClicked;
             TableButton.Click += OnTableButtonClick;
             MouseClick += OnRightClick;
@@ -292,7 +295,7 @@ namespace BudgetExecution
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
             DataGrid.DataSource = BindingSource;
-            Chart.DataSource = BindingSource.DataSource;
+            Chart.DataSource = BindingSource;
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -377,9 +380,9 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
-                    BindChart( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
+                    ResetData( );
                     UpdateLabelText( );
                 }
 
@@ -496,6 +499,42 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data source.
         /// </summary>
+        private void ResetData( )
+        {
+            try
+            {
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                BindingSource.DataSource = DataTable;
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel.Fields;
+                Numerics = DataModel.Numerics;
+                SqlQuery = DataModel.Query.SqlStatement.CommandText;
+                SqlHeader.Text = SqlQuery;
+                DataGrid.DataSource = BindingSource;
+                if( Chart.Series[ 0 ].Points.Count > 0 )
+                {
+                    Chart.Series[ 0 ].Points.Clear( );
+                }
+
+                Chart.DataSource = BindingSource;
+                Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
+                SetSeriesProperties( );
+                Chart.Series[ 0 ].XValueMember = Fields.Last( );
+                Chart.Series[ 0 ].IsXValueIndexed = true;
+                Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                Chart.Update( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data source.
+        /// </summary>
         /// <param name="sqlText">The SQL text.</param>
         private void ResetData( string sqlText )
         {
@@ -506,10 +545,11 @@ namespace BudgetExecution
                     SqlQuery = sqlText;
                     DataModel = new DataBuilder( Source, Provider, SqlQuery );
                     DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel?.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
+                    DataGrid.DataSource = BindingSource;
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
@@ -599,7 +639,7 @@ namespace BudgetExecution
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( ); 
+                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
@@ -638,12 +678,13 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
+                    DataGrid.DataSource = BindingSource;
                     Chart.DataSource = BindingSource;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    SetSeriesProperties( );
                     Chart.Series[ 0 ].XValueMember = Fields.Last( );
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
+                    SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
                 }
@@ -713,8 +754,6 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        ClearSelections( );
-                        ClearCollections( );
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
@@ -1372,10 +1411,10 @@ namespace BudgetExecution
                 Chart.Series[ i ].Font = new Font( "Roboto", 7 );
                 Chart.Series[ i ].XValueType = ChartValueType.Auto;
                 Chart.Series[ i ].YValueType = ChartValueType.Auto;
-                Chart.Series[ i ].SmartLabelStyle.CalloutBackColor = Color.FromArgb( 50, 50, 50 );
+                Chart.Series[ i ].SmartLabelStyle.CalloutBackColor = Color.Transparent;
                 Chart.Series[ i ].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
-                Chart.Series[ i ].SmartLabelStyle.CalloutLineColor = Color.FromArgb( 50, 93, 129 );
-                Chart.Series[ i ].SmartLabelStyle.CalloutLineWidth = 1;
+                Chart.Series[ i ].SmartLabelStyle.CalloutLineColor = Color.Transparent;
+                Chart.Series[ i ].SmartLabelStyle.CalloutLineWidth = 0;
                 Chart.Series[ i ].SmartLabelStyle.CalloutLineAnchorCapStyle =
                     LineAnchorCapStyle.Arrow;
             }
@@ -1411,9 +1450,9 @@ namespace BudgetExecution
                         TabControl.SelectedIndex = 1;
                     }
 
-                    UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetComboBoxVisibility( );
+                    UpdateLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -1494,9 +1533,8 @@ namespace BudgetExecution
                     }
 
                     ResetData( FormFilter );
-                    UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    UpdateLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -1568,9 +1606,8 @@ namespace BudgetExecution
                     }
 
                     ResetData( FormFilter );
-                    UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    UpdateLabelText( );
                 }
                 catch( Exception ex )
                 {
@@ -1642,10 +1679,9 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
+                    SqlQuery = CreateSqlText( FormFilter );
                     ResetData( FormFilter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception ex )
                 {
@@ -1669,15 +1705,21 @@ namespace BudgetExecution
                     SelectedColumns.Add( _selectedItem );
                 }
 
-                if( SelectedFields.Count >= 2 
+                if( SelectedFields.Count >= 2
                    && SelectedNumerics.Count >= 1 )
                 {
                     ResetData( SelectedFields, SelectedNumerics, FormFilter );
+                    SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                    SqlHeader.Text = SqlQuery;
+                    UpdateLabelText( );
                 }
-
-                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                SqlHeader.Text = SqlQuery;
-                UpdateLabelText( );
+                else
+                {
+                    ResetData( SelectedFields, Numerics, FormFilter );
+                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlHeader.Text = SqlQuery;
+                    UpdateLabelText( );
+                }
             }
             catch( Exception ex )
             {
@@ -1694,15 +1736,15 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
-                var _selectedItem = NumericListBox?.SelectedText;
+                var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
                     SelectedNumerics.Add( _selectedItem );
                 }
 
+                ResetData( SelectedFields, SelectedNumerics, FormFilter );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
-                ResetData( SelectedFields, SelectedNumerics, FormFilter );
                 UpdateLabelText( );
             }
             catch( Exception ex )
@@ -1757,10 +1799,9 @@ namespace BudgetExecution
                 TabControl.SelectedIndex = 0;
                 SelectedTable = string.Empty;
                 BindingSource.DataSource = null;
-                ClearSelections( );
                 ClearCollections( );
+                ClearSelections( );
                 UpdateLabelText( );
-                PopulateExecutionTables( );
             }
             catch( Exception ex )
             {
@@ -1777,11 +1818,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter.Count > 0 )
+                if( FormFilter?.Count > 0 )
                 {
                     TabControl.SelectedIndex = 2;
-                    PopulateFieldListBox( );
-                    PopulateNumericListBox( );
                 }
             }
             catch( Exception ex )
@@ -1801,16 +1840,17 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    ClearSelections( );
-                    ClearCollections( );
+                    TabControl.SelectedIndex = 1;
                     DataModel = new DataBuilder( Source, Provider );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
                     ToolStrip.BindingSource = BindingSource;
+                    DataGrid.DataSource = BindingSource;
+                    Chart.DataSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    TabControl.SelectedIndex = 1;
-                    BindChart( );
+                    ClearCollections( );
+                    ClearSelections( );
                     UpdateLabelText( );
                 }
             }
