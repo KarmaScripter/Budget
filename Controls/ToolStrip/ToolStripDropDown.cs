@@ -18,6 +18,9 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="BudgetExecution.ToolStripDropDownBase" />
     /// <seealso cref="IToolStripComboBox" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripDropDown : ToolStripDropDownBase, IToolStripComboBox
     {
         /// <summary>
@@ -40,7 +43,7 @@ namespace BudgetExecution
             AllowDrop = true;
             MaxDropDownItems = 100;
             BackColor = Color.FromArgb( 40, 40, 40 );
-            ForeColor = Color.White;
+            ForeColor = Color.FromArgb( 0, 120, 212 );
             Font = new Font( "Roboto", 9 );
             Tag = "Make Selection";
             ToolTipText = Tag.ToString( );
@@ -87,7 +90,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the data source. </summary>
-        /// <param name = "bindingSource" > The bindingsource. </param>
+        /// <param name = "bindingSource" > The binding source. </param>
         public void SetDataSource( BindingSource bindingSource )
         {
             if( bindingSource?.DataSource != null )
@@ -115,7 +118,6 @@ namespace BudgetExecution
             try
             {
                 var _comboBox = sender as ToolStripDropDown;
-
                 if( !string.IsNullOrEmpty( _comboBox?.HoverText ) )
                 {
                     var _text = _comboBox?.HoverText;
@@ -175,7 +177,6 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return null;
                 }
             }

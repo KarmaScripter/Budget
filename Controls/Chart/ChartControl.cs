@@ -154,7 +154,7 @@ namespace BudgetExecution
         /// <param name="type">The type.</param>
         /// <param name="stat">The stat.</param>
         public ChartControl( BindingSource bindingSource, string category, IEnumerable<string> values,
-            SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.SUM )
+            SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
             : this( )
         {
             STAT = stat;

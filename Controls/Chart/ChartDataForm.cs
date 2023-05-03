@@ -849,11 +849,16 @@ namespace BudgetExecution
                 var _names = Enum.GetNames( typeof( SeriesChartType ) );
                 for( var i = 0; i < _names.Length; i++ )
                 {
-                    var name = _names[ i ];
-                    if( name != "NS" )
-                    {
-                        ChartSeriesComboBox.Items.Add( name );
-                    }
+                    var _chart = _names[ i ];
+                    ChartSeriesComboBox.Items.Add( _chart );
+                }
+
+                MetricsComboBox.Items.Clear( );
+                var _metrics = Enum.GetNames( typeof( STAT ) );
+                for( var i = 0; i < _metrics.Length; i++ )
+                {
+                    var _measure = _metrics[ i ];
+                    MetricsComboBox.Items.Add( _measure );
                 }
             }
             catch( Exception ex )
