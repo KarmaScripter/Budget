@@ -364,7 +364,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 InitRadioButtons( );
-                SetProviderImage( );
+                SetFormIcon( );
                 SetToolStripProperties( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
@@ -379,7 +379,7 @@ namespace BudgetExecution
                     CalendarTabPage.TabVisible = false;
                     LabelTable.Visible = true;
                     PopulateFirstComboBoxItems( );
-                    ResetComboBoxVisibility( );
+                    ResetFilterTableVisibility( );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -405,11 +405,9 @@ namespace BudgetExecution
         /// Binds the data source.
         /// </summary>
         /// <param name="where">The where.</param>
-        private void BindData( IDictionary<string, object> where )
+        private void ResetData( IDictionary<string, object> where )
         {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true )
+            if( where?.Any( ) == true )
             {
                 try
                 {
@@ -437,11 +435,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true
+            if( where?.Any( ) == true
                && cols?.Any( ) == true )
             {
                 try
@@ -471,12 +467,10 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( Enum.IsDefined( typeof( Source ), Source )
-               && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true
+            if( where?.Any( ) == true
                && fields?.Any( ) == true )
             {
                 try
@@ -504,7 +498,7 @@ namespace BudgetExecution
         /// Gets the image.
         /// </summary>
         /// <returns></returns>
-        private void SetProviderImage( )
+        private void SetFormIcon( )
         {
             try
             {
@@ -534,7 +528,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the dialog image.
         /// </summary>
-        private void SetDialogImage( ToolType type )
+        private void SetDialogIcon( ToolType type )
         {
             try
             {
@@ -578,7 +572,7 @@ namespace BudgetExecution
         /// <summary>
         /// Resets the ComboBox visibility.
         /// </summary>
-        private void ResetComboBoxVisibility( )
+        private void ResetFilterTableVisibility( )
         {
             try
             {
@@ -792,13 +786,15 @@ namespace BudgetExecution
                     var _columns = DataTable.Columns.Count.ToString( ) ?? "--";
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
+                    var _selectedFields = SelectedFields?.Count ?? 0;
+                    var _selectedNumerics = SelectedNumerics?.Count ?? 0;
                     HeaderLabel.Text = $"{_table} ";
                     FirstGridLabel.Text = $"Data Provider: {Provider}";
                     SecondGridLabel.Text = $"Records: {_records}";
-                    ThirdGridLabel.Text = $"Fields: {_fields}";
-                    FourthGridLabel.Text = $"Measures: {_numerics}";
-                    FieldsTable.CaptionText = $"Fields: {_fields}";
-                    NumericsTable.CaptionText = $"Measures: {_numerics}";
+                    ThirdGridLabel.Text = $"Total Fields: {_fields}";
+                    FourthGridLabel.Text = $"Total Measures: {_numerics}";
+                    FieldsTable.CaptionText = $"Selected Fields: {_selectedFields}";
+                    NumericsTable.CaptionText = $"Selected Measures: {_selectedNumerics}";
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
                     SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
@@ -806,11 +802,11 @@ namespace BudgetExecution
                 {
                     HeaderLabel.Text = $"{Provider} Database ";
                     FirstGridLabel.Text = $"Provider:  {Provider}";
-                    SecondGridLabel.Text = "Records: 0.0";
-                    ThirdGridLabel.Text = "Fields: 0.0";
-                    FourthGridLabel.Text = "Measures: 0.0";
-                    FieldsTable.CaptionText = "Fields: 0.0";
-                    NumericsTable.CaptionText = "Measures: 0.0";
+                    SecondGridLabel.Text = "Total Records: 0.0";
+                    ThirdGridLabel.Text = "Total Fields: 0.0";
+                    FourthGridLabel.Text = "Total Measures: 0.0";
+                    FieldsTable.CaptionText = "Selected Fields: 0.0";
+                    NumericsTable.CaptionText = "Selected Measures: 0.0";
                     FirstCalendarTable.CaptionText = "Start Date: --";
                     SecondCalendarTable.CaptionText = "End Date: --";
                 }
@@ -1072,7 +1068,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1100,7 +1097,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1128,7 +1126,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1262,7 +1261,7 @@ namespace BudgetExecution
 
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
-                    ResetComboBoxVisibility( );
+                    ResetFilterTableVisibility( );
                 }
                 catch( Exception ex )
                 {
@@ -1386,7 +1385,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    BindData( FormFilter );
+                    ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1460,7 +1459,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    BindData( FormFilter );
+                    ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                 }
@@ -1534,7 +1533,7 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    BindData( FormFilter );
+                    ResetData( FormFilter );
                     UpdateLabelText( );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1586,7 +1585,7 @@ namespace BudgetExecution
 
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlHeader.Text = SqlQuery;
-                BindData( SelectedFields, SelectedNumerics, FormFilter );
+                ResetData( SelectedFields, SelectedNumerics, FormFilter );
             }
             catch( Exception ex )
             {
@@ -1630,7 +1629,7 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
                         ProviderTable.Visible = true;
-                        SetProviderImage( );
+                        SetFormIcon( );
                         PopulateExecutionTables( );
                         break;
                     }
@@ -1641,7 +1640,7 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
                         ProviderTable.Visible = false;
-                        ResetComboBoxVisibility( );
+                        ResetFilterTableVisibility( );
                         break;
                     }
                     case 2:
@@ -1679,9 +1678,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.GroupButton
-                   && FormFilter.Count > 0 )
+                if( FormFilter.Count > 0 )
                 {
                     TabControl.SelectedIndex = 2;
                     PopulateFieldListBox( );
@@ -1703,13 +1700,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.CalendarButton )
-                {
-                    TabControl.SelectedIndex = 3;
-                    FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
-                    SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
-                }
+                TabControl.SelectedIndex = 3;
+                FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
+                SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
             }
             catch( Exception ex )
             {
@@ -1724,20 +1717,19 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnEditRecordButtonClicked( object sender, EventArgs e )
         {
-            try
+            if( sender is ToolStripButton button )
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.EditRecordButton )
+                try
                 {
-                    SetDialogImage( _button.ToolType );
-                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
+                    SetDialogIcon( button.ToolType );
+                    var _dialog = new EditDialog( button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
-                    SetProviderImage( );
+                    SetFormIcon( );
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -1748,20 +1740,19 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnEditColumnButtonClicked( object sender, EventArgs e )
         {
-            try
+            if( sender is ToolStripButton button )
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.EditColumnButton )
+                try
                 {
-                    SetDialogImage( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    SetDialogIcon( button.ToolType );
+                    var _dialog = new DefinitionDialog( button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
-                    SetProviderImage( );
+                    SetFormIcon( );
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
@@ -1797,11 +1788,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetDialogImage( _button.ToolType );
+                    SetDialogIcon( _button.ToolType );
                     var _dialog = new SqlDialog( BindingSource );
                     _dialog.SqlEditor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
-                    SetProviderImage( );
+                    SetFormIcon( );
                 }
                 catch( Exception ex )
                 {
@@ -1855,15 +1846,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.RefreshDataButton )
-                {
-                    SelectedTable = string.Empty;
-                    DataGrid.DataSource = null;
-                    ClearSelections( );
-                    ClearCollections( );
-                    TabControl.SelectedIndex = 0;
-                }
+                SelectedTable = string.Empty;
+                DataGrid.DataSource = null;
+                ClearSelections( );
+                ClearCollections( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception ex )
             {
@@ -1937,9 +1924,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.RemoveFiltersButton
-                   && !string.IsNullOrEmpty( SelectedTable ) )
+                if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
                     ClearSelections( );
                     ClearCollections( );
@@ -1973,12 +1958,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.ChartButton )
-                {
-                    OpenChartDataForm( );
-                    Visible = false;
-                }
+                OpenChartDataForm( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -1995,12 +1976,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.ExcelExportButton )
-                {
-                    OpenExcelDataForm( );
-                    Visible = false;
-                }
+                OpenExcelDataForm( );
+                Visible = false;
             }
             catch( Exception ex )
             {
@@ -2022,7 +1999,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
-                        SetProviderImage( );
+                        SetFormIcon( );
                     }
                 }
                 catch( Exception ex )

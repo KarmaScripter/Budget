@@ -1464,7 +1464,7 @@ namespace BudgetExecution
                 var _red = Color.FromArgb( 255, 65, 84 );
                 var _green = Color.FromArgb( 0, 64, 0 );
                 var _darkGreen = Color.FromArgb( 150, 0, 64, 0 );
-                var _palette = new Color[ ]
+                var _palette = new[ ]
                 {
                     _blue,
                     _lightBlue,
@@ -1769,7 +1769,7 @@ namespace BudgetExecution
                 {
                     NumericTable.Visible = true;
                 }
-                
+
                 if( SelectedFields.Count >= 2
                    && SelectedNumerics.Count >= 1 )
                 {

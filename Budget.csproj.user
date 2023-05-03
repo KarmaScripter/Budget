@@ -187,7 +187,7 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\SplashControl\SplashControl.cs">
+    <Compile Update="Controls\SplashControl\SplashMessage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
