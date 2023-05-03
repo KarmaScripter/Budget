@@ -38,16 +38,15 @@ namespace BudgetExecution
         {
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 200, 24 );
+            Size = new Size( 150, 24 );
             DropDownStyle = ComboBoxStyle.DropDownList;
             AllowDrop = true;
             MaxDropDownItems = 100;
             BackColor = Color.FromArgb( 40, 40, 40 );
             ForeColor = Color.FromArgb( 0, 120, 212 );
-            Font = new Font( "Roboto", 9 );
-            Tag = "Make Selection";
-            ToolTipText = Tag.ToString( );
-            HoverText = Tag.ToString( );
+            Font = new Font( "Roboto", 8 );
+            ToolTipText = "Make Selection";
+            HoverText = ToolTipText;
             Visible = true;
             Enabled = true;
             Style = ToolStripExStyle.Office2016Black;

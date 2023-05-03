@@ -90,7 +90,6 @@
             ChartSeriesSpacer =  new ToolStripLabel( ) ;
             ChartSeriesLabel =  new ToolStripLabel( ) ;
             DropDownSeparator =  new ToolSeparator( ) ;
-            ChartSeriesComboBox =  new ToolStripDropDown( ) ;
             ChartSeriesSeparator =  new ToolSeparator( ) ;
             DropDownSpacer =  new ToolStripLabel( ) ;
             MetricsLabel =  new ToolStripLabel( ) ;
@@ -138,6 +137,7 @@
             ChartTable =  new HeaderPanel( ) ;
             ChartHeaderTable =  new System.Windows.Forms.TableLayoutPanel( ) ;
             PictureBox =  new System.Windows.Forms.PictureBox( ) ;
+            ChartSeriesComboBox =  new System.Windows.Forms.ToolStripComboBox( ) ;
             AreaTable.SuspendLayout( );
             ChartSubTablePanel.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
@@ -778,7 +778,7 @@
             ToolStrip.Image =  null ;
             ToolStrip.ImageDirectory =  null ;
             ToolStrip.ImageSize =  new System.Drawing.Size( 16, 16 ) ;
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { TextBoxSeparator, TextBoxLabel, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, NavigationSpacer, FilterLabel, FilterLabelSeparator, RefreshDataButton, NavigationSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, FunctionSpacer, FunctionLabel, FunctionLabelSeparator, ExcelButton, EditSqlSeparator, TableButton, TableSeparator, ChartSeriesSpacer, ChartSeriesLabel, DropDownSeparator, ChartSeriesComboBox, ChartSeriesSeparator, DropDownSpacer, MetricsLabel, MetricsPreSeparator, MetricsComboBox, MetricsPostSeparator, ApplicationSpacer, ApplicationLabel, LabelSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { TextBoxSeparator, TextBoxLabel, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastSeparator, NavigationSpacer, FilterLabel, FilterLabelSeparator, RefreshDataButton, NavigationSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, FunctionSpacer, FunctionLabel, FunctionLabelSeparator, ExcelButton, EditSqlSeparator, TableButton, TableSeparator, ChartSeriesSpacer, ChartSeriesLabel, ChartSeriesComboBox, ChartSeriesSeparator, DropDownSpacer, MetricsLabel, MetricsPreSeparator, MetricsComboBox, MetricsPostSeparator, ApplicationSpacer, ApplicationLabel, LabelSeparator, BackButton, BackSeparator, MenuButton, MenuSeparator, ExitButton, ExitSeparator } );
             ToolStrip.Label =  null ;
             ToolStrip.LastButton =  LastButton ;
             ToolStrip.LauncherStyle =  Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12 ;
@@ -1226,27 +1226,6 @@
             DropDownSeparator.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             DropDownSeparator.Size =  new System.Drawing.Size( 6, 28 ) ;
             // 
-            // ChartSeriesComboBox
-            // 
-            ChartSeriesComboBox.AllowDrop =  true ;
-            ChartSeriesComboBox.BindingSource =  null ;
-            ChartSeriesComboBox.DataFilter =  null ;
-            ChartSeriesComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-            ChartSeriesComboBox.Field =  Field.AccountCode ;
-            ChartSeriesComboBox.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ChartSeriesComboBox.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
-            ChartSeriesComboBox.HoverText =  "Make Selection" ;
-            ChartSeriesComboBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
-            ChartSeriesComboBox.MaxDropDownItems =  100 ;
-            ChartSeriesComboBox.MaxLength =  32767 ;
-            ChartSeriesComboBox.Name =  "ChartSeriesComboBox" ;
-            ChartSeriesComboBox.Numeric =  Numeric.Accepted ;
-            ChartSeriesComboBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ChartSeriesComboBox.Size =  new System.Drawing.Size( 127, 28 ) ;
-            ChartSeriesComboBox.Style =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black ;
-            ChartSeriesComboBox.Tag =  "Make Selection" ;
-            ChartSeriesComboBox.ToolTipText =  "Make Selection" ;
-            // 
             // ChartSeriesSeparator
             // 
             ChartSeriesSeparator.ForeColor =  System.Drawing.Color.Black ;
@@ -1300,23 +1279,22 @@
             // MetricsComboBox
             // 
             MetricsComboBox.AllowDrop =  true ;
-            MetricsComboBox.BindingSource =  null ;
+            MetricsComboBox.BindingSource =  BindingSource ;
             MetricsComboBox.DataFilter =  null ;
             MetricsComboBox.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-            MetricsComboBox.Field =  Field.AccountCode ;
-            MetricsComboBox.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            MetricsComboBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             MetricsComboBox.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
             MetricsComboBox.HoverText =  "Make Selection" ;
             MetricsComboBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             MetricsComboBox.MaxDropDownItems =  100 ;
             MetricsComboBox.MaxLength =  32767 ;
             MetricsComboBox.Name =  "MetricsComboBox" ;
-            MetricsComboBox.Numeric =  Numeric.Accepted ;
             MetricsComboBox.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            MetricsComboBox.Size =  new System.Drawing.Size( 127, 28 ) ;
+            MetricsComboBox.Size =  new System.Drawing.Size( 125, 28 ) ;
             MetricsComboBox.Style =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black ;
-            MetricsComboBox.Tag =  "Make Selection" ;
-            MetricsComboBox.ToolTipText =  "Make Selection" ;
+            MetricsComboBox.Tag =  "" ;
+            MetricsComboBox.ToolTip =  ToolTip ;
+            MetricsComboBox.ToolTipText =  "Choose Metric" ;
             // 
             // MetricsPostSeparator
             // 
@@ -1442,7 +1420,7 @@
             ExitButton.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             ExitButton.Name =  "ExitButton" ;
             ExitButton.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            ExitButton.Size =  new System.Drawing.Size( 23, 28 ) ;
+            ExitButton.Size =  new System.Drawing.Size( 23, 22 ) ;
             ExitButton.Text =  "toolStripButton1" ;
             ExitButton.ToolTip =  ToolTip ;
             ExitButton.ToolType =  ToolType.ExitButton ;
@@ -1759,12 +1737,12 @@
             FirstTable.Controls.Add( FirstListBoxPanel, 0, 1 );
             FirstTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             FirstTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            FirstTable.Location =  new System.Drawing.Point( 3, 8 ) ;
+            FirstTable.Location =  new System.Drawing.Point( 3, 3 ) ;
             FirstTable.Name =  "FirstTable" ;
             FirstTable.RowCount =  2 ;
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.7969551F ) );
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.20305F ) );
-            FirstTable.Size =  new System.Drawing.Size( 242, 218 ) ;
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.2222214F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.77778F ) );
+            FirstTable.Size =  new System.Drawing.Size( 242, 223 ) ;
             FirstTable.TabIndex =  49 ;
             // 
             // FirstComboBox
@@ -1789,7 +1767,7 @@
             FirstComboBox.HoverText =  null ;
             FirstComboBox.IsDerivedStyle =  true ;
             FirstComboBox.ItemHeight =  24 ;
-            FirstComboBox.Location =  new System.Drawing.Point( 3, 22 ) ;
+            FirstComboBox.Location =  new System.Drawing.Point( 3, 29 ) ;
             FirstComboBox.Name =  "FirstComboBox" ;
             FirstComboBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             FirstComboBox.SelectedItemForeColor =  System.Drawing.Color.White ;
@@ -1816,10 +1794,10 @@
             FirstListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             FirstListBoxPanel.HoverText =  null ;
             FirstListBoxPanel.IsDerivedStyle =  true ;
-            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 58 ) ;
+            FirstListBoxPanel.Location =  new System.Drawing.Point( 3, 65 ) ;
             FirstListBoxPanel.Name =  "FirstListBoxPanel" ;
             FirstListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            FirstListBoxPanel.Size =  new System.Drawing.Size( 236, 157 ) ;
+            FirstListBoxPanel.Size =  new System.Drawing.Size( 236, 155 ) ;
             FirstListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             FirstListBoxPanel.StyleManager =  null ;
             FirstListBoxPanel.TabIndex =  1 ;
@@ -1841,7 +1819,7 @@
             FirstListBox.HoverText =  null ;
             FirstListBox.IsDerivedStyle =  true ;
             FirstListBox.ItemHeight =  28 ;
-            FirstListBox.Location =  new System.Drawing.Point( 17, 20 ) ;
+            FirstListBox.Location =  new System.Drawing.Point( 17, 15 ) ;
             FirstListBox.Margin =  new System.Windows.Forms.Padding( 1 ) ;
             FirstListBox.MultiSelect =  true ;
             FirstListBox.Name =  "FirstListBox" ;
@@ -1873,11 +1851,11 @@
             SecondTable.Controls.Add( SecondComboBox, 0, 0 );
             SecondTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             SecondTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            SecondTable.Location =  new System.Drawing.Point( 3, 232 ) ;
+            SecondTable.Location =  new System.Drawing.Point( 3, 229 ) ;
             SecondTable.Name =  "SecondTable" ;
             SecondTable.RowCount =  2 ;
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 39F ) );
-            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 26F ) );
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 37F ) );
+            SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 28F ) );
             SecondTable.Size =  new System.Drawing.Size( 242, 205 ) ;
             SecondTable.TabIndex =  50 ;
             // 
@@ -1896,10 +1874,10 @@
             SecondListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
             SecondListBoxPanel.HoverText =  null ;
             SecondListBoxPanel.IsDerivedStyle =  true ;
-            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 58 ) ;
+            SecondListBoxPanel.Location =  new System.Drawing.Point( 3, 56 ) ;
             SecondListBoxPanel.Name =  "SecondListBoxPanel" ;
             SecondListBoxPanel.Padding =  new System.Windows.Forms.Padding( 1 ) ;
-            SecondListBoxPanel.Size =  new System.Drawing.Size( 236, 144 ) ;
+            SecondListBoxPanel.Size =  new System.Drawing.Size( 236, 146 ) ;
             SecondListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             SecondListBoxPanel.StyleManager =  null ;
             SecondListBoxPanel.TabIndex =  47 ;
@@ -2191,6 +2169,15 @@
             PictureBox.TabIndex =  0 ;
             PictureBox.TabStop =  false ;
             // 
+            // ChartSeriesComboBox
+            // 
+            ChartSeriesComboBox.BackColor =  System.Drawing.Color.FromArgb(   40  ,   40  ,   40   ) ;
+            ChartSeriesComboBox.FlatStyle =  System.Windows.Forms.FlatStyle.Flat ;
+            ChartSeriesComboBox.Font =  new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ChartSeriesComboBox.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ChartSeriesComboBox.Name =  "ChartSeriesComboBox" ;
+            ChartSeriesComboBox.Size =  new System.Drawing.Size( 125, 30 ) ;
+            // 
             // ChartDataForm
             // 
             BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
@@ -2364,7 +2351,7 @@
         public ToolSeparator MetricsPostSeparator;
         public ToolStripLabel ChartSeriesSpacer;
         public ToolStripLabel ApplicationSpacer;
-        public ToolStripDropDown ChartSeriesComboBox;
         public ToolSeparator ChartSeriesSeparator;
+        public System.Windows.Forms.ToolStripComboBox ChartSeriesComboBox;
     }
 }

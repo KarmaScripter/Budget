@@ -295,7 +295,6 @@
             this.DropDown.BindingSource = this.BindingSource;
             this.DropDown.DataFilter = null;
             this.DropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DropDown.Field = BudgetExecution.Field.RpioActivityCode;
             this.DropDown.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.DropDown.HoverText = "Make Selection";
@@ -303,7 +302,6 @@
             this.DropDown.MaxDropDownItems = 100;
             this.DropDown.MaxLength = 32767;
             this.DropDown.Name = "DropDown";
-            this.DropDown.Numeric = BudgetExecution.Numeric.Accepted;
             this.DropDown.Padding = new System.Windows.Forms.Padding(1);
             this.DropDown.Size = new System.Drawing.Size(172, 24);
             this.DropDown.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;

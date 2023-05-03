@@ -27,22 +27,6 @@ namespace BudgetExecution
         public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public virtual Field Field { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numeric.
-        /// </summary>
-        /// <value>
-        /// The numeric.
-        /// </value>
-        public virtual Numeric Numeric { get; set; }
-
-        /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
         /// <value>
@@ -126,9 +110,6 @@ namespace BudgetExecution
         {
             try
             {
-                Field = Enum.IsDefined( typeof( Field ), field )
-                    ? field
-                    : default;
             }
             catch( Exception ex )
             {

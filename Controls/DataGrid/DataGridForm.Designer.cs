@@ -1010,7 +1010,6 @@
             DropDown.BindingSource =  BindingSource ;
             DropDown.DataFilter =  null ;
             DropDown.DropDownStyle =  System.Windows.Forms.ComboBoxStyle.DropDownList ;
-            DropDown.Field =  Field.AccountCode ;
             DropDown.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DropDown.ForeColor =  System.Drawing.Color.FromArgb(   218  ,   218  ,   218   ) ;
             DropDown.HoverText =  "Make Selection" ;
@@ -1018,7 +1017,6 @@
             DropDown.MaxDropDownItems =  100 ;
             DropDown.MaxLength =  32767 ;
             DropDown.Name =  "DropDown" ;
-            DropDown.Numeric =  Numeric.Accepted ;
             DropDown.Padding =  new System.Windows.Forms.Padding( 1 ) ;
             DropDown.Size =  new System.Drawing.Size( 198, 26 ) ;
             DropDown.Style =  Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black ;
