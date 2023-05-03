@@ -31,7 +31,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the table.
         /// </value>
-        public string TableName { get; set; }
+        public DataTable DataTable { get; set; }
 
         /// <summary>
         /// Gets or sets the data member.
@@ -46,6 +46,8 @@ namespace BudgetExecution
         /// </summary>
         public IEnumerable<DataRow> Data { get; set; }
 
+        public IEnumerable<string> Numerics { get; set; }
+        
         /// <summary>
         /// The count
         /// </summary>
@@ -120,11 +122,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         public Metric( BindingSource bindingSource, string numeric )
         {
-            Data = ( (DataTable)bindingSource.DataSource ).AsEnumerable( );
-            TableName = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), TableName );
-            Count = GetCount( Data, numeric );
-            Average = CalculateAverage( Data, numeric );
+            DataTable = (DataTable)bindingSource.DataSource;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName);
         }
 
         /// <summary>
@@ -136,12 +135,8 @@ namespace BudgetExecution
         public Metric( BindingSource bindingSource, IDictionary<string, object> where, 
             string numeric )
         {
-            Data = ( (DataTable)bindingSource.DataSource ).Select( where.ToCriteria( ) );
-            TableName = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), TableName );
-            Total = CalculateTotal( Data, numeric );
-            Count = GetCount( Data, numeric );
-            Average = CalculateAverage( Data, numeric );
+            DataTable = (DataTable)bindingSource.DataSource;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName);
         }
 
         /// <summary>
@@ -151,12 +146,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         public Metric( DataTable dataTable, string numeric )
         {
-            Data = dataTable.AsEnumerable( );
-            TableName = dataTable.TableName;
+            DataTable = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), dataTable.TableName );
-            Count = Data.Count( );
-            Total = CalculateTotal( Data, numeric );
-            Average = CalculateAverage( Data, numeric );
         }
 
         /// <summary>
@@ -168,12 +159,8 @@ namespace BudgetExecution
         public Metric( DataTable dataTable, IDictionary<string, object> where,
             string numeric )
         {
-            Data = dataTable.Select( where.ToCriteria( ) );
-            TableName = dataTable.TableName;
+            DataTable = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), dataTable.TableName );
-            Count = Data.Count( );
-            Total = CalculateTotal( Data, numeric );
-            Average = CalculateAverage( Data, numeric );
         }
 
         /// <summary>
@@ -183,12 +170,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         public Metric( IEnumerable<DataRow> dataRow, string numeric )
         {
-            Data = dataRow;
-            TableName = dataRow.CopyToDataTable( ).TableName;
+            DataTable = dataRow.CopyToDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), dataRow.CopyToDataTable( ).TableName );
-            Count = dataRow.Count( );
-            Total = CalculateTotal( Data, numeric );
-            Average = CalculateAverage( Data, numeric );
         }
 
         /// <summary>
@@ -200,12 +183,8 @@ namespace BudgetExecution
         public Metric( IEnumerable<DataRow> dataRow, IDictionary<string, object> where,
             string numeric )
         {
-            Data = dataRow.Filter( where );
-            TableName = dataRow.CopyToDataTable( ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), dataRow.CopyToDataTable( ).TableName );
-            Count = Data.Count( );
-            Total = CalculateTotal( Data, numeric );
-            Average = CalculateAverage( Data, numeric );
+            DataTable = dataRow.CopyToDataTable( );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
         }
 
         /// <summary>
