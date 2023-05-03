@@ -845,14 +845,14 @@ namespace BudgetExecution
         {
             try
             {
-                DropDown.Items.Clear( );
+                ChartSeriesComboBox.Items.Clear( );
                 var _names = Enum.GetNames( typeof( SeriesChartType ) );
                 for( var i = 0; i < _names.Length; i++ )
                 {
                     var name = _names[ i ];
                     if( name != "NS" )
                     {
-                        DropDown.Items.Add( name );
+                        ChartSeriesComboBox.Items.Add( name );
                     }
                 }
             }
