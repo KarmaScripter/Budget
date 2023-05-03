@@ -186,60 +186,21 @@ namespace BudgetExecution
             DataTable = dataRow.CopyToDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
         }
-
-        /// <summary>
-        /// Gets the codes.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name = "dataMember" > </param>
-        /// <returns></returns>
-        public static IEnumerable<string> GetUniqueValues( IEnumerable<DataRow> dataRow,
-            string dataMember )
-        {
-            if( dataRow?.Any( ) == true
-               && !string.IsNullOrEmpty( dataMember ) )
-            {
-                try
-                {
-                    var _columns = dataRow
-                        ?.CopyToDataTable( )
-                        ?.GetColumnNames( );
-                    
-                    if( _columns?.Contains( dataMember ) == true )
-                    {
-                        var _query = dataRow
-                            ?.Select( p => p.Field<string>( dataMember ) )
-                            ?.Distinct( )
-                            ?.ToArray( );
-
-                        return _query?.Any( ) == true
-                            ? _query
-                            : default( IEnumerable<string> );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
+        
         /// <summary>
         /// Gets the count.
         /// </summary>
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public int GetCount( IEnumerable<DataRow> dataRow, string numeric )
+        public int GetCount( string numeric )
         {
-            if( dataRow?.Any( ) == true )
+            if( DataTable != null 
+               && !string.IsNullOrEmpty( numeric ) )
             {
                 try
                 {
-                    var _select = dataRow
+                    var _select = DataTable.AsEnumerable( )
                         ?.Where( p => p.Field<double>( numeric ) != 0 )
                         ?.Select( p => p );
 
@@ -263,13 +224,14 @@ namespace BudgetExecution
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public double CalculateTotal( IEnumerable<DataRow> dataRow, string numeric )
+        public double CalculateTotal( string numeric )
         {
-            if( dataRow?.Any( ) == true )
+            if( DataTable != null 
+               && !string.IsNullOrEmpty( numeric ) )
             {
                 try
                 {
-                    var _select = dataRow
+                    var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
                     
@@ -292,14 +254,14 @@ namespace BudgetExecution
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        protected double CalculateAverage( IEnumerable<DataRow> dataRow, string numeric )
+        protected double CalculateAverage( string numeric )
         {
-            if( dataRow?.Any( ) == true
+            if( DataTable != null 
                && !string.IsNullOrEmpty( numeric ) )
             {
                 try
                 {
-                    var _query = dataRow
+                    var _query = DataTable.AsEnumerable( )
                         ?.Where( p => p.Field<double>( numeric ) != 0 )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Average( );
@@ -331,8 +293,8 @@ namespace BudgetExecution
         /// </returns>
         public double CalculateDeviation( IEnumerable<DataRow> dataRow, string numeric )
         {
-            if( dataRow?.Any( ) == true
-               && GetCount( dataRow, numeric ) > 30 )
+            if( DataTable != null 
+               && !string.IsNullOrEmpty( numeric ) )
             {
                 try
                 {
@@ -367,8 +329,8 @@ namespace BudgetExecution
         /// </returns>
         public double CalculateVariance( IEnumerable<DataRow> dataRow, string numeric )
         {
-            if( dataRow?.Any( ) == true
-               && GetCount( dataRow, numeric ) > 30 )
+            if( DataTable != null 
+               && !string.IsNullOrEmpty( numeric ) )
             {
                 var _table = dataRow.CopyToDataTable( );
                 try
