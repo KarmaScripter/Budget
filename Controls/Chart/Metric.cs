@@ -46,6 +46,9 @@ namespace BudgetExecution
         /// </summary>
         public IEnumerable<DataRow> Data { get; set; }
 
+        /// <summary>
+        /// The Numerics
+        /// </summary>
         public IEnumerable<string> Numerics { get; set; }
         
         /// <summary>
@@ -156,8 +159,7 @@ namespace BudgetExecution
         /// <param name="dataTable">The data table.</param>
         /// <param name="where">The dictionary.</param>
         /// <param name="numeric">The numeric.</param>
-        public Metric( DataTable dataTable, IDictionary<string, object> where,
-            string numeric )
+        public Metric( DataTable dataTable, IDictionary<string, object> where, string numeric )
         {
             DataTable = dataTable;
             Source = (Source)Enum.Parse( typeof( Source ), dataTable.TableName );
@@ -193,7 +195,37 @@ namespace BudgetExecution
         /// <param name="dataRow">The dataRow.</param>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public int GetCount( string numeric )
+        public int CountValues( string numeric )
+        {
+            if( DataTable != null 
+               && !string.IsNullOrEmpty( numeric ) )
+            {
+                try
+                {
+                    var _select = DataTable.AsEnumerable( )
+                        ?.Select( p => p.Field<double>( numeric ) );
+
+                    return _select?.Any( ) == true
+                        ? _select.Count( )
+                        : -1;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return -1;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// Gets the count.
+        /// </summary>
+        /// <param name="dataRow">The dataRow.</param>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public int CountUniqueValues( string numeric )
         {
             if( DataTable != null 
                && !string.IsNullOrEmpty( numeric ) )
@@ -206,16 +238,16 @@ namespace BudgetExecution
 
                     return _select?.Any( ) == true
                         ? _select.Count( )
-                        : default;
+                        : -1;
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return 0;
+                    return -1;
                 }
             }
 
-            return 0;
+            return -1;
         }
 
         /// <summary>
