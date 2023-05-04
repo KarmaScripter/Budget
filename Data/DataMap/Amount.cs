@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IAmount" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Amount : DataUnit, IAmount
+    public class Amount : IAmount
     {
         /// <summary>
         /// The funding
@@ -210,6 +210,17 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
+        }
+        
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
