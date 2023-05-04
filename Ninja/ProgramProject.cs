@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -18,6 +17,7 @@ namespace BudgetExecution
     [SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ProgramProject : DescriptionBase, ISource
     {
         /// <summary>
@@ -56,14 +56,14 @@ namespace BudgetExecution
         public ProgramProject( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            Definition = Record[ $"{ Field.Definition }" ].ToString( );
-            Laws = Record[ $"{ Field.Laws }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            ProgramAreaName = Record[ $"{ Field.ProgramAreaName }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Definition = Record[ "Definition" ].ToString( );
+            Laws = Record[ "Laws" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -74,14 +74,14 @@ namespace BudgetExecution
         public ProgramProject( IDataModel dataBuilder )
         {
             Record = dataBuilder?.Record;
-            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            Definition = Record[ $"{ Field.Definition }" ].ToString( );
-            Laws = Record[ $"{ Field.Laws }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            ProgramAreaName = Record[ $"{ Field.ProgramAreaName }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Definition = Record[ "Definition" ].ToString( );
+            Laws = Record[ "Laws" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -92,14 +92,14 @@ namespace BudgetExecution
         public ProgramProject( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
-            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
-            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
-            Title = dataRow[ $"{ Field.Title }" ].ToString( );
-            Definition = dataRow[ $"{ Field.Definition }" ].ToString( );
-            Laws = dataRow[ $"{ Field.Laws }" ].ToString( );
-            ProgramAreaCode = dataRow[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            ProgramAreaName = dataRow[ $"{ Field.ProgramAreaName }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Definition = Record[ "Definition" ].ToString( );
+            Laws = Record[ "Laws" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 
@@ -110,14 +110,14 @@ namespace BudgetExecution
         public ProgramProject( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ProgramProjectsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
-            Title = Record[ $"{ Field.Title }" ].ToString( );
-            Definition = Record[ $"{ Field.Definition }" ].ToString( );
-            Laws = Record[ $"{ Field.Laws }" ].ToString( );
-            ProgramAreaCode = Record[ $"{ Field.ProgramAreaCode }" ].ToString( );
-            ProgramAreaName = Record[ $"{ Field.ProgramAreaName }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Definition = Record[ "Definition" ].ToString( );
+            Laws = Record[ "Laws" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -145,25 +145,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary>
         /// Gets the identifier.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
@@ -174,27 +155,6 @@ namespace BudgetExecution
             {
                 return dataRow != null
                     ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
-        public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString( ) ?? string.Empty )
                     : -1;
             }
             catch( Exception ex )

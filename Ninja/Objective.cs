@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -76,7 +75,7 @@ namespace BudgetExecution
         public Objective( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ObjectivesId );
+            ID = int.Parse( Record[ "ObjectivesId" ].ToString( ) );
             Name = Record[ "Name" ].ToString(  );
             Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -91,7 +90,7 @@ namespace BudgetExecution
         public Objective( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.ObjectivesId );
+            ID = int.Parse( Record[ "ObjectivesId" ].ToString( ) );
             Name = Record[ "Name" ].ToString(  );
             Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -107,7 +106,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = GetId( dataRow, PrimaryKey.ObjectivesId );
+            ID = int.Parse( Record[ "ObjectivesId" ].ToString( ) );
             Name = dataRow[ "Name" ].ToString(  );
             Code = dataRow[ "Code" ].ToString(  );
             Data = dataRow?.ToDictionary( );
@@ -122,7 +121,7 @@ namespace BudgetExecution
         public Objective( string code )
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ObjectivesId );
+            ID = int.Parse( Record[ "ObjectivesId" ].ToString( ) );
             Name = Record[ "Field.Name" ].ToString(  );
             Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -152,26 +151,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         /// <summary>

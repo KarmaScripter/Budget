@@ -23,112 +23,12 @@ namespace BudgetExecution
     public class Account : PRC, IAccount 
     {
         /// <summary>
-        /// </summary>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the activity code.
-        /// </summary>
-        /// <value>
-        /// The activity code.
-        /// </value>
-        public override string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public override string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public override string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public override string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the activity.
-        /// </summary>
-        /// <value>
-        /// The name of the activity.
-        /// </value>
-        public override string ActivityName { get; set; }
-
-        /// <summary>
         /// Gets or sets the agency activity.
         /// </summary>
         /// <value>
         /// The agency activity.
         /// </value>
         public string AgencyActivity { get; set; }
-
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// Gets the goal code.
-        /// </summary>
-        public override string GoalCode { get; set; }
-
-        /// <summary>
-        /// Gets the objective code.
-        /// </summary>
-        public override string ObjectiveCode { get; set; }
-
-        /// <summary>
-        /// Gets the national program code.
-        /// </summary>
-        public override string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public override string NpmName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        public override Source Source { get; set; } 
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public override Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Account"/> class.
@@ -168,13 +68,18 @@ namespace BudgetExecution
             Source = Source.Accounts;
             Record = dataBuilder?.Record;
             ID = int.Parse( Record?[ "AccountsId" ]?.ToString(  ) );
-            NpmCode = Record?[ "NpmCode" ].ToString( );
-            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
-            ActivityCode = Record?[ "ActivityCode" ].ToString( );
-            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
             GoalCode = Record?[ "GoalCode" ].ToString( );
+            GoalName = Record?[ "GoalName" ].ToString( );
             ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record?[ "ObjectiveName" ].ToString( );
+            NpmCode = Record?[ "NpmCode" ].ToString( );
+            NpmName = Record?[ "NpmName" ].ToString( );
+            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record?[ "ProgramProjectName" ].ToString( );
             ActivityCode = Record?[ "ActivityCode" ].ToString( );
+            ActivityName = Record?[ "ActivityName" ].ToString( );
+            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record?[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -187,13 +92,18 @@ namespace BudgetExecution
             Source = Source.Accounts;
             Record = dataRow;
             ID = int.Parse( Record[ "AccountsId" ]?.ToString(  ) );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            GoalCode = dataRow[ "GoalCode" ].ToString( );
+            GoalName = dataRow[ "GoalName" ].ToString( );
+            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            ActivityCode = dataRow[ "ActivityCode" ].ToString( );
+            ActivityName = dataRow[ "ActivityName" ].ToString( );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -205,14 +115,36 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = int.Parse( Record[ "AccountsId" ]?.ToString(  ) );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            GoalCode = Record?[ "GoalCode" ].ToString( );
+            GoalName = Record?[ "GoalName" ].ToString( );
+            ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record?[ "ObjectiveName" ].ToString( );
+            NpmCode = Record?[ "NpmCode" ].ToString( );
+            NpmName = Record?[ "NpmName" ].ToString( );
+            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record?[ "ProgramProjectName" ].ToString( );
+            ActivityCode = Record?[ "ActivityCode" ].ToString( );
+            ActivityName = Record?[ "ActivityName" ].ToString( );
+            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record?[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
+        }
+
+        public Account( IAccount account )
+        {
+            ID = account.ID;
+            GoalCode = account.GoalCode;
+            GoalName = account.GoalName;
+            ObjectiveCode = account.ObjectiveCode;
+            ObjectiveName = account.ObjectiveName;
+            NpmCode = account.NpmCode;
+            NpmName = account.NpmName;
+            ProgramProjectCode = account.ProgramProjectCode;
+            ProgramProjectName = account.ProgramProjectName;
+            ActivityCode = account.ActivityCode;
+            ActivityName = account.ActivityName;
+            ProgramAreaCode = account.ProgramProjectCode;
+            ProgramAreaName = account.ProgramAreaName;
         }
 
         /// <summary>

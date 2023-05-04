@@ -5,7 +5,11 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class BudgetUnit : DataUnit
     {
         /// <summary>
@@ -41,6 +45,22 @@ namespace BudgetExecution
         public virtual string FundName { get; set; }
 
         /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        public virtual string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
+        public virtual string TreasuryAccountName { get; set; }
+        
+        /// <summary>
         /// Gets or sets the budget account code.
         /// </summary>
         /// <value>
@@ -56,20 +76,5 @@ namespace BudgetExecution
         /// </value>
         public virtual string BudgetAccountName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public virtual string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
-        public virtual string TreasuryAccountName { get; set; }
     }
 }

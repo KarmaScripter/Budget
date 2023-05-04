@@ -14,12 +14,13 @@ namespace BudgetExecution
     /// <seealso cref="IAmount" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Amount : IAmount
     {
         /// <summary>
         /// The funding
         /// </summary>
-        public double Funding { get; set; }
+        public double Value { get; set; }
 
         /// <summary>
         /// The initial
@@ -32,7 +33,7 @@ namespace BudgetExecution
         public double Delta { get; set; }
 
         /// <summary>
-        /// The numeric
+        /// The numeric column name
         /// </summary>
         public string Numeric { get; set; }
 
@@ -49,22 +50,27 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <param name="value">The value.</param>
-        public Amount( double value  ) 
+        public Amount( double value = 0.0  ) 
             : this( )
         {
-            Funding = value;
-            Initial = value;
-            Delta = Initial - Funding;
+            Value = value;
+            Delta = Initial - Value;
         }
 
         public Amount( DataRow dataRow, string numeric )
         {
             Numeric = numeric;
-            Funding = double.Parse( dataRow[ numeric ].ToString( ) );
-            Initial = Funding;
-            Delta = Initial - Funding;
+            Value = double.Parse( dataRow[ numeric ].ToString( ) );
+            Delta = Initial - Value;
         }
 
+        public Amount( IAmount amount )
+        {
+            Numeric = amount.Numeric;
+            Value = amount.Value;
+            Delta = 0.0;
+        }
+        
         /// <summary>
         /// Increases the specified amount.
         /// </summary>
@@ -74,7 +80,7 @@ namespace BudgetExecution
             try
             {
                 Delta = increment;
-                Funding += increment;
+                Value += increment;
             }
             catch( Exception ex )
             {
@@ -91,7 +97,7 @@ namespace BudgetExecution
             try
             {
                 Delta = decrement;
-                Funding -= decrement;
+                Value -= decrement;
             }
             catch( Exception ex )
             {
@@ -112,7 +118,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return ( amount?.Funding == Funding 
+                    return ( amount?.Value == Value 
                         && amount?.Numeric?.Equals( Numeric ) == true );
                 }
                 catch( Exception ex )
@@ -141,7 +147,7 @@ namespace BudgetExecution
                 try
                 {
                     return ( first?.Numeric == second?.Numeric 
-                        && first.Funding == second.Funding );
+                        && first.Value == second.Value );
                 }
                 catch( Exception ex )
                 {
@@ -171,6 +177,24 @@ namespace BudgetExecution
             }
         }
         
+        /// <summary>
+        /// Called to get the Amount
+        /// </summary>
+        public IAmount GetAmount( )
+        {
+            try
+            {
+                return new Amount( Value );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IAmount );
+            }
+            
+            return default( IAmount );
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

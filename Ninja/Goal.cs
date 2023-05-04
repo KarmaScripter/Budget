@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -84,7 +83,7 @@ namespace BudgetExecution
         public Goal( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.GoalsId );
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -100,7 +99,7 @@ namespace BudgetExecution
         public Goal( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.GoalsId );
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -116,7 +115,7 @@ namespace BudgetExecution
         public Goal( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.GoalsId );
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -131,30 +130,10 @@ namespace BudgetExecution
         public Goal( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.GoalsId );
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         /// <summary>
@@ -198,7 +177,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Code" ] = goal.ToString( )
+                    };
                 }
                 catch( SystemException ex )
                 {

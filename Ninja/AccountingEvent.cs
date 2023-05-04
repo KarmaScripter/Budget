@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AccountingEvent : DataUnit
+    public class AccountingEvent : DataUnit, IAccountingEvent
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -107,6 +107,13 @@ namespace BudgetExecution
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             Data = dataRow.ToDictionary( );
+        }
+
+        public AccountingEvent( IAccountingEvent accountingEvent )
+        {
+            ID = accountingEvent.ID;
+            Code = accountingEvent.Code;
+            Name = accountingEvent.Name;
         }
     }
 }

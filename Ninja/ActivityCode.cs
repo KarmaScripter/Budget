@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -130,6 +129,14 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
         
+        public ActivityCode( IActivityCode activityCode )
+            : this( )
+        {
+            ID = activityCode.ID;
+            Code = activityCode.Code;
+            Name = activityCode.Name;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -157,35 +164,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public virtual IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the activity.
-        /// </summary>
-        /// <returns></returns>
-        public ActivityCode GetActivity( )
-        {
-            return MemberwiseClone(  ) as ActivityCode;
         }
     }
 }

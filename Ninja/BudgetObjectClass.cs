@@ -121,7 +121,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( boc ) )?.Record;
-            ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
+            ID = int.Parse( Record[ "BudgetObjectClassesId" ].ToString( ) );
             Name = Record[ "BocName" ].ToString( );
             Code = Record[ "BocCode" ].ToString( );
             Category = boc;
@@ -138,7 +138,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.BudgetObjectClassesId );
+            ID = int.Parse( Record[ "BudgetObjectClassesId" ].ToString( ) );
             Name = Record[ "BocName" ].ToString( );
             Code = Record[ "BocCode" ].ToString( );
             Data = Record?.ToDictionary( );

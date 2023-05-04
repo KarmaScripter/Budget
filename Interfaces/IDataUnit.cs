@@ -6,7 +6,6 @@ namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
-    using BudgetExecution;
 
     /// <summary>
     /// 
@@ -16,7 +15,7 @@ namespace BudgetExecution
         /// <summary>
         ///  
         /// </summary>
-        int ID { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets the field.
@@ -39,7 +38,7 @@ namespace BudgetExecution
         /// <value>
         /// 
         /// </value>
-        DataRow Record { get; set; }
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Determines whether the specified element is match.
@@ -58,14 +57,6 @@ namespace BudgetExecution
         ///   <c>true</c> if the specified dictionary is match; otherwise, <c>false</c>.
         /// </returns>
         bool IsMatch( IDictionary<string, object> dict );
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
-        int GetId( DataRow dataRow, PrimaryKey primaryKey );
     }
 }
 

@@ -10,10 +10,24 @@ namespace BudgetExecution
     public interface IActivityCode
     {
         /// <summary>
-        /// Gets the activity.
+        /// Gets or sets the identifier.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        ActivityCode GetActivity( );
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public int ID { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Name { get; set; }
     }
 }

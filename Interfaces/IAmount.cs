@@ -13,12 +13,18 @@ namespace BudgetExecution
         /// Gets the funding.
         /// </summary>
         /// <returns></returns>
-        double Funding { get; set; }
+        double Value { get; set; }
         
         /// <summary>
         /// Gets the numeric column.
         /// </summary>
         /// <returns></returns>
         string Numeric { get; set; }
+
+        /// <summary>
+        /// Gets the IAmount
+        /// </summary>
+        /// <returns></returns>
+        public IAmount GetAmount( );
     }
 }

@@ -77,9 +77,9 @@ namespace BudgetExecution
         public ProgramArea( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ProgramAreasId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -92,9 +92,9 @@ namespace BudgetExecution
         public ProgramArea( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.ProgramAreasId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -108,9 +108,9 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = GetId( dataRow, PrimaryKey.ProgramAreasId );
-            Name = dataRow[ $"{ Field.Name }" ].ToString( );
-            Code = dataRow[ $"{ Field.Code }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 
@@ -123,9 +123,9 @@ namespace BudgetExecution
         public ProgramArea( string code )
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ProgramAreasId );
-            Name = Record[ $"{ Field.Name }" ].ToString( );
-            Code = Record[ $"{ Field.Code }" ].ToString( );
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 

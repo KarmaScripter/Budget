@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -69,7 +68,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -83,7 +82,7 @@ namespace BudgetExecution
         public ResponsibilityCenter( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -98,7 +97,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -112,7 +111,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ResponsibilityCentersId );
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -139,25 +138,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         /// <summary>

@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -84,7 +83,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -100,7 +99,7 @@ namespace BudgetExecution
         public ResourcePlanningOffice( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -117,7 +116,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -134,7 +133,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.Record;
-            ID = GetId( Record, PrimaryKey.ResourcePlanningOfficesId );
+            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString(  );
             Code = Record[ $"{ Field.Code }" ].ToString(  );
             Data = Record?.ToDictionary( );
@@ -167,26 +166,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary>
         /// Gets the resource planning office.
         /// </summary>
         /// <returns>
@@ -207,27 +186,6 @@ namespace BudgetExecution
             {
                 return dataRow != null
                     ? int.Parse( dataRow[ 0 ].ToString(  ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
-        public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
                     : -1;
             }
             catch( Exception ex )

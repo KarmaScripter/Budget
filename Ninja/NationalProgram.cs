@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -105,11 +104,11 @@ namespace BudgetExecution
         public NationalProgram( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.NationalProgramsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
-            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
-            Title = Record[ $"{ Field.Title }" ].ToString(  );
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            Title = Record[ "Title" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -123,11 +122,11 @@ namespace BudgetExecution
         public NationalProgram( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.NationalProgramsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
-            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
-            Title = Record[ $"{ Field.Title }" ].ToString(  );
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            Title = Record[ "Title" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -141,11 +140,11 @@ namespace BudgetExecution
         public NationalProgram( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.NationalProgramsId );
-            Name = dataRow[ $"{ Field.Name }" ].ToString(  );
-            Code = dataRow[ $"{ Field.Code }" ].ToString(  );
-            RpioCode = dataRow[ $"{ Field.RpioCode }" ].ToString(  );
-            Title = dataRow[ $"{ Field.Title }" ].ToString(  );
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            Title = Record[ "Title" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -159,11 +158,11 @@ namespace BudgetExecution
         public NationalProgram( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = GetId( Record, PrimaryKey.NationalProgramsId );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
-            RpioCode = Record[ $"{ Field.RpioCode }" ].ToString(  );
-            Title = Record[ $"{ Field.Title }" ].ToString(  );
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            Title = Record[ "Title" ].ToString(  );
             Data = Record?.ToDictionary( );
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
@@ -192,26 +191,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-        
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         /// <summary>

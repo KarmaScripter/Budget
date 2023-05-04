@@ -310,7 +310,6 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -335,6 +334,7 @@ namespace BudgetExecution
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -347,7 +347,6 @@ namespace BudgetExecution
             : this( dataBuilder.Query )
         {
             Record = dataBuilder.Record;
-            Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -372,6 +371,7 @@ namespace BudgetExecution
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -384,7 +384,6 @@ namespace BudgetExecution
         public ProgramResultsCode( DataRow dataRow )
         {
             Record = dataRow;
-            Data = Record.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -409,6 +408,7 @@ namespace BudgetExecution
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            Data = dataRow.ToDictionary( );
         }
 
         /// <summary>
@@ -419,7 +419,6 @@ namespace BudgetExecution
         public ProgramResultsCode( IDictionary<string, object> dict )
         {
             Record = new DataBuilder( Source, dict )?.Record;
-            ID = GetId( Record, PrimaryKey.StatusOfFundsId );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -444,6 +443,7 @@ namespace BudgetExecution
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            Data = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -458,28 +458,6 @@ namespace BudgetExecution
                 return dataRow != null
                     ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <param name="primaryKey"></param>
-        /// <returns></returns>
-        public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey )
-                    && dataRow != null
-                        ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
-                        : -1;
             }
             catch( Exception ex )
             {

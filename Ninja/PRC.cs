@@ -18,16 +18,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public abstract class PRC : BudgetUnit
+    public abstract class PRC : BudgetUnit, IAccount
     {
-        /// <summary>
-        /// Gets or sets the ID.
-        /// </summary>
-        /// <value>
-        /// The ID.
-        /// </value>
-        public override int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
@@ -419,46 +411,21 @@ namespace BudgetExecution
 
             return default;
         }
-
+        
         /// <summary>
         /// Gets the numeric.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         /// <param name="field">The field.</param>
         /// <returns></returns>
-        public virtual double GetNumeric( DataRow dataRow, string field )
+        public virtual double GetAmount( DataRow dataRow, string numeric )
         {
             if( dataRow != null
-               && !string.IsNullOrEmpty( field ) )
+               && !string.IsNullOrEmpty( numeric ) )
             {
                 try
                 {
-                    return double.Parse( dataRow[ field ]?.ToString( ) ?? string.Empty );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary>
-        /// Gets the numeric.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="field">The field.</param>
-        /// <returns></returns>
-        public virtual double GetNumeric( DataRow dataRow, Field field )
-        {
-            if( dataRow != null
-               && Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    return double.Parse( dataRow[ $"{field}" ]?.ToString( ) ?? string.Empty );
+                    return double.Parse( dataRow[ numeric ]?.ToString( ) );
                 }
                 catch( Exception ex )
                 {

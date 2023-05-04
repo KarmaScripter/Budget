@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.PRC" />
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Actual : PRC
+    public class Actual : PRC, IActual
     {
         /// <summary>
         /// </summary>
@@ -460,6 +460,46 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        public Actual( IActual actual )
+        {
+
+            ID = actual.ID;
+            BFY = actual.BFY;
+            EFY = actual.EFY;
+            FundCode = actual.FundCode;
+            FundName = actual.FundName;
+            RpioCode = actual.RpioCode;
+            RpioName = actual.RpioName;
+            AhCode = actual.AhCode;
+            AhName = actual.AhName;
+            AppropriationCode = actual.AppropriationCode;
+            AppropriationName = actual.AppropriationName;
+            SubAppropriationCode = actual.SubAppropriationCode;
+            SubAppropriationName = actual.SubAppropriationName;
+            OrgCode = actual.OrgCode;
+            OrgName = actual.OrgName;
+            AccountCode = actual.AccountCode;
+            BocCode = actual.BocCode;
+            BocName = actual.BocName;
+            RpioActivityCode = actual.RpioActivityCode;
+            RpioActivityName = actual.RpioActivityName;
+            ProgramProjectCode = actual.ProgramProjectCode;
+            ProgramProjectName = actual.ProgramProjectName;
+            ULO = actual.ULO;
+            Obligations = actual.Obligations;
+            Balance = actual.Balance;
+            ProgramAreaCode = actual.ProgramAreaCode;
+            ProgramAreaName = actual.ProgramAreaName;
+            GoalCode = actual.GoalCode;
+            GoalName = actual.GoalName;
+            ObjectiveCode = actual.ObjectiveCode;
+            ObjectiveName = actual.ObjectiveName;
+            TreasuryAccountCode = actual.TreasuryAccountCode;
+            TreasuryAccountName = actual.TreasuryAccountName;
+            BudgetAccountCode = actual.BudgetAccountCode;
+            BudgetAccountName = actual.BudgetAccountName;
         }
     }
 }

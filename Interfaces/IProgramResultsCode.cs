@@ -13,12 +13,6 @@ namespace BudgetExecution
     public interface IProgramResultsCode : ISource
     {
         /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <returns></returns>
-        int GetId( DataRow dataRow, PrimaryKey primaryKey );
-
-        /// <summary>
         /// Gets the budget level.
         /// </summary>
         /// <returns>

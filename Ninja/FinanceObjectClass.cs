@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -104,7 +103,7 @@ namespace BudgetExecution
         public FinanceObjectClass( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId );
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -117,7 +116,7 @@ namespace BudgetExecution
         public FinanceObjectClass( IDataModel builder )
         {
             Record = builder?.Record;
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId );
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -130,7 +129,7 @@ namespace BudgetExecution
         public FinanceObjectClass( DataRow dataRow )
         {
             Record = dataRow;
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId );
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
             Name = dataRow[ $"{ Field.Name }" ].ToString( );
             Code = dataRow[ $"{ Field.Code }" ].ToString( );
             Data = dataRow?.ToDictionary( );
@@ -143,7 +142,7 @@ namespace BudgetExecution
         public FinanceObjectClass( string focCode )
         {
             Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
-            ID = GetId( Record, PrimaryKey.FinanceObjectClassesId );
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
             Name = Record[ $"{ Field.Name }" ].ToString( );
             Code = Record[ $"{ Field.Code }" ].ToString( );
             Data = Record?.ToDictionary( );
@@ -170,25 +169,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         /// <summary>

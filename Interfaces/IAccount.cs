@@ -7,35 +7,107 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IAccount
+    public interface IAccount  : IDataUnit
     {
         /// <summary>
-        /// Gets the goal code.
+        /// Gets or sets the NPM code.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        string GoalCode { get; set; }
+        /// <value>
+        /// The NPM code.
+        /// </value>
+        public string NpmCode { get; set; }
 
         /// <summary>
-        /// Gets the objective code.
+        /// Gets or sets the name of the NPM.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        string ObjectiveCode { get; set; }
+        /// <value>
+        /// The name of the NPM.
+        /// </value>
+        public string NpmName { get; set; }
 
         /// <summary>
-        /// Gets the national program code.
+        /// Gets or sets the goal code.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        string NpmCode { get; set; }
+        /// <value>
+        /// The goal code.
+        /// </value>
+        public string GoalCode { get; set; }
 
         /// <summary>
-        /// Gets the program project code.
+        /// Gets or sets the name of the goal.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        string ProgramProjectCode { get; set; }
+        /// <value>
+        /// The name of the goal.
+        /// </value>
+        public string GoalName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the objective code.
+        /// </summary>
+        /// <value>
+        /// The objective code.
+        /// </value>
+        public string ObjectiveCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the objective.
+        /// </summary>
+        /// <value>
+        /// The name of the objective.
+        /// </value>
+        public string ObjectiveName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
+        public string ProgramProjectCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
+        public string ProgramProjectName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
+        public string ProgramAreaCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
+        public string ProgramAreaName { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the agency activity.
+        /// </summary>
+        /// <value>
+        /// The agency activity.
+        /// </value>
+        public string ActivityCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the activity.
+        /// </summary>
+        /// <value>
+        /// The name of the activity.
+        /// </value>
+        public string ActivityName { get; set; }
+
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        public string Code { get; set; }
     }
 }

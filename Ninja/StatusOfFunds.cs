@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class StatusOfFunds : PRC
+    public class StatusOfFunds : PRC, IStatusOfFunds
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -25,166 +25,6 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget level.
-        /// </summary>
-        /// <value>
-        /// The budget level.
-        /// </value>
-        public override string BudgetLevel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public override string RpioCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public override string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ah code.
-        /// </summary>
-        /// <value>
-        /// The ah code.
-        /// </value>
-        public override string AhCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
-        public override string AhName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public override string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public override string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the org code.
-        /// </summary>
-        /// <value>
-        /// The org code.
-        /// </value>
-        public override string OrgCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the org.
-        /// </summary>
-        /// <value>
-        /// The name of the org.
-        /// </value>
-        public override string OrgName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public override string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
-        public override string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        public override string BocName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public override string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public override string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public override string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public override string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rc code.
-        /// </summary>
-        /// <value>
-        /// The rc code.
-        /// </value>
-        public override string RcCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rc.
-        /// </summary>
-        /// <value>
-        /// The name of the rc.
-        /// </value>
-        public override string RcName { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -531,6 +371,44 @@ namespace BudgetExecution
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        public StatusOfFunds( IStatusOfFunds status )
+        {
+            ID = status.ID;
+            BudgetLevel = status.BudgetLevel;
+            BFY = status.BFY;
+            EFY = status.EFY;
+            FundCode = status.FundCode;
+            FundName = status.FundName;
+            RpioCode = status.RpioCode;
+            RpioName = status.RpioName;
+            AhCode = status.AhCode;
+            AhName = status.AhName;
+            OrgCode = status.OrgCode;
+            OrgName = status.OrgName;
+            AccountCode = status.AccountCode;
+            BocCode = status.BocCode;
+            BocName = status.BocName;
+            Amount = status.Amount;
+            Budgeted = status.Budgeted;
+            Posted = status.Posted;
+            OpenCommitments = status.OpenCommitments;
+            ULO = status.ULO;
+            Obligations = status.Obligations;
+            Expenditures = status.Expenditures;
+            Used = status.Used;
+            Available = status.Available;
+            ProgramProjectCode = status.ProgramProjectCode;
+            ProgramProjectName = status.ProgramProjectName;
+            ProgramAreaCode = status.ProgramAreaCode;
+            ProgramAreaName = status.ProgramAreaName;
+            NpmCode = status.NpmCode;
+            NpmName = status.NpmName;
+            TreasuryAccountCode = status.TreasuryAccountCode;
+            TreasuryAccountName = status.TreasuryAccountName;
+            BudgetAccountCode = status.BudgetAccountCode;
+            BudgetAccountName = status.BudgetAccountName;
         }
     }
 }

@@ -664,26 +664,5 @@ namespace BudgetExecution
                 return default;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <param name="primaryKey"></param>
-        /// <returns></returns>
-        public override int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
     }
 }
