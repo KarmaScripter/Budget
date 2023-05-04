@@ -113,7 +113,7 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Event Wiring
-            Load += OnLoaded;
+            Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             FileList.SelectedValueChanged += OnPathSelected;
             FindButton.Click += OnFindButtonClicked;
@@ -135,7 +135,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoaded( object sender, EventArgs e )
+        public void OnLoad( object sender, EventArgs e )
         {
             if( FilePaths?.Any( ) == true )
             {
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// Gets the image.
         /// </summary>
         /// <returns></returns>
-        public Image GetImage( )
+        private protected Image GetImage( )
         {
             if( !string.IsNullOrEmpty( FileExtension ) )
             {
@@ -194,7 +194,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the check boxes.
         /// </summary>
-        public void ClearRadioButtons( )
+        private protected void ClearRadioButtons( )
         {
             try
             {
@@ -213,7 +213,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the RadioButton events.
         /// </summary>
-        public void SetRadioButtonEvents( )
+        private protected void SetRadioButtonEvents( )
         {
             try
             {
@@ -232,7 +232,7 @@ namespace BudgetExecution
         /// Gets the ListView file paths.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<string> GetListViewPaths( )
+        private protected IEnumerable<string> GetListViewPaths( )
         {
             if( InitialDirPaths?.Any( ) == true )
             {
@@ -301,7 +301,7 @@ namespace BudgetExecution
         /// Called when [selection].
         /// </summary>
         /// <param name="sender">The sender instance containing the event data.</param>
-        public virtual void OnRadioButtonSelected( object sender )
+        private protected virtual void OnRadioButtonSelected( object sender )
         {
             if( sender is RadioButton _radioButton
                && !string.IsNullOrEmpty( _radioButton.Tag?.ToString( ) ) )
@@ -333,7 +333,7 @@ namespace BudgetExecution
         /// Gets the check boxex.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<RadioButton> GetRadioButtons( )
+        private protected virtual IEnumerable<RadioButton> GetRadioButtons( )
         {
             try
             {
@@ -368,7 +368,7 @@ namespace BudgetExecution
         /// Gets the initial paths.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<string> GetInitialDirPaths( )
+        private protected virtual IEnumerable<string> GetInitialDirPaths( )
         {
             try
             {
@@ -396,7 +396,7 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the ListView.
         /// </summary>
-        public virtual void PopulateListBox( )
+        private protected virtual void PopulateListBox( )
         {
             if( FilePaths?.Any( ) == true )
             {
@@ -446,7 +446,7 @@ namespace BudgetExecution
         /// Called when [path selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        public virtual void OnPathSelected( object sender )
+        private protected virtual void OnPathSelected( object sender )
         {
             if( sender is ListBox listBox
                && !string.IsNullOrEmpty( listBox.SelectedItem?.ToString( ) ) )
@@ -468,7 +468,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public virtual void OnFindButtonClicked( object sender, EventArgs e )
+        private protected virtual void OnFindButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {
@@ -501,7 +501,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public virtual void OnCloseButtonClicked( object sender, EventArgs e )
+        private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {

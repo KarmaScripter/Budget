@@ -135,7 +135,7 @@
             DocViewer.ShowHorizontalScrollBar =  true ;
             DocViewer.ShowToolBar =  true ;
             DocViewer.ShowVerticalScrollBar =  true ;
-            DocViewer.Size =  new System.Drawing.Size( 982, 661 ) ;
+            DocViewer.Size =  new System.Drawing.Size( 984, 661 ) ;
             DocViewer.SpaceBetweenPages =  8 ;
             DocViewer.TabIndex =  2 ;
             DocViewer.Text =  "pdfViewerControl1" ;
@@ -154,7 +154,7 @@
             PdfTable.ColumnCount =  4 ;
             PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 78.125F ) );
             PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 21.875F ) );
-            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 990F ) );
+            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 992F ) );
             PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 283F ) );
             PdfTable.Controls.Add( PictureBox, 0, 0 );
             PdfTable.Controls.Add( HeaderLabel, 2, 0 );
@@ -175,11 +175,11 @@
             // 
             // PictureBox
             // 
-            PictureBox.Dock =  DockStyle.Fill ;
+            PictureBox.Dock =  DockStyle.Left ;
             PictureBox.Image =  Properties.Resources.EPA ;
             PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
-            PictureBox.Size =  new System.Drawing.Size( 44, 27 ) ;
+            PictureBox.Size =  new System.Drawing.Size( 36, 27 ) ;
             PictureBox.SizeMode =  PictureBoxSizeMode.Zoom ;
             PictureBox.TabIndex =  5 ;
             PictureBox.TabStop =  false ;
@@ -194,11 +194,11 @@
             HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             HeaderLabel.HoverText =  null ;
             HeaderLabel.IsDerivedStyle =  true ;
-            HeaderLabel.Location =  new System.Drawing.Point( 67, 3 ) ;
+            HeaderLabel.Location =  new System.Drawing.Point( 65, 3 ) ;
             HeaderLabel.Margin =  new Padding( 3 ) ;
             HeaderLabel.Name =  "HeaderLabel" ;
             HeaderLabel.Padding =  new Padding( 1 ) ;
-            HeaderLabel.Size =  new System.Drawing.Size( 984, 27 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 986, 27 ) ;
             HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             HeaderLabel.StyleManager =  null ;
             HeaderLabel.TabIndex =  7 ;
@@ -224,10 +224,10 @@
             DocumentPanel.ForeColor =  System.Drawing.Color.Transparent ;
             DocumentPanel.HoverText =  null ;
             DocumentPanel.IsDerivedStyle =  true ;
-            DocumentPanel.Location =  new System.Drawing.Point( 67, 36 ) ;
+            DocumentPanel.Location =  new System.Drawing.Point( 65, 36 ) ;
             DocumentPanel.Name =  "DocumentPanel" ;
             DocumentPanel.Padding =  new Padding( 1 ) ;
-            DocumentPanel.Size =  new System.Drawing.Size( 984, 663 ) ;
+            DocumentPanel.Size =  new System.Drawing.Size( 986, 663 ) ;
             DocumentPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             DocumentPanel.StyleManager =  null ;
             DocumentPanel.TabIndex =  4 ;
@@ -251,11 +251,11 @@
             ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
             ButtonTable.Dock =  DockStyle.Fill ;
             ButtonTable.GrowStyle =  TableLayoutPanelGrowStyle.FixedSize ;
-            ButtonTable.Location =  new System.Drawing.Point( 67, 705 ) ;
+            ButtonTable.Location =  new System.Drawing.Point( 65, 705 ) ;
             ButtonTable.Name =  "ButtonTable" ;
             ButtonTable.RowCount =  1 ;
             ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 100F ) );
-            ButtonTable.Size =  new System.Drawing.Size( 984, 31 ) ;
+            ButtonTable.Size =  new System.Drawing.Size( 986, 31 ) ;
             ButtonTable.TabIndex =  6 ;
             ButtonTable.UseWaitCursor =  true ;
             // 
@@ -434,7 +434,7 @@
             ListBox.HoverText =  null ;
             ListBox.IsDerivedStyle =  true ;
             ListBox.ItemHeight =  28 ;
-            ListBox.Location =  new System.Drawing.Point( 12, 20 ) ;
+            ListBox.Location =  new System.Drawing.Point( 24, 25 ) ;
             ListBox.Margin =  new Padding( 1 ) ;
             ListBox.MultiSelect =  true ;
             ListBox.Name =  "ListBox" ;
@@ -447,7 +447,7 @@
             ListBox.SelectedValue =  null ;
             ListBox.ShowBorder =  false ;
             ListBox.ShowScrollBar =  false ;
-            ListBox.Size =  new System.Drawing.Size( 246, 622 ) ;
+            ListBox.Size =  new System.Drawing.Size( 222, 608 ) ;
             ListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
             ListBox.StyleManager =  null ;
             ListBox.TabIndex =  0 ;

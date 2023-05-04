@@ -1,7 +1,6 @@
 ﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -14,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.Actual" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class MonthlyActual : Actual
     {
@@ -24,7 +23,7 @@ namespace BudgetExecution
         /// <value>
         /// The obligations.
         /// </value>
-        public  double Obligations { get; set; }
+        public double Obligations { get; set; }
 
         /// <summary>
         /// Gets or sets the balance.
@@ -54,7 +53,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public MonthlyActual( IQuery query ) 
+        public MonthlyActual( IQuery query )
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
@@ -98,7 +97,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
         /// <param name="builder"></param>
-        public MonthlyActual( IDataModel builder ) 
+        public MonthlyActual( IDataModel builder )
             : base( builder )
         {
             Record = builder.Record;
@@ -180,10 +179,13 @@ namespace BudgetExecution
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
+        /// </summary>
+        /// <param name="actual">The actual.</param>
         public MonthlyActual( IActual actual )
         {
-
             ID = actual.ID;
             BFY = actual.BFY;
             EFY = actual.EFY;

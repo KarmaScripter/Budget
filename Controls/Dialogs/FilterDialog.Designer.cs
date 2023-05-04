@@ -2485,11 +2485,8 @@ partial class FilterDialog
     public Layout EditorPanel;
     public Editor SqlEditor;
     public System.Windows.Forms.TableLayoutPanel SqlCommandTable;
-    public HeaderPanel headerPanel2;
-    public RadioButton radioButton1;
     public RadioButton SqlEditorAccessRadioButton;
     public RadioButton SqlEditorSQLiteRadioButton;
-    public RadioButton radioButton4;
     public HeaderPanel CommandTable;
     public Layout CommandPanel;
     public ComboBox CommandQueryComboBox;
