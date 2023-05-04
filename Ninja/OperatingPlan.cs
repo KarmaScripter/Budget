@@ -18,277 +18,9 @@ namespace BudgetExecution
     public class OperatingPlan : Allocation
     {
         /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public override string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public override string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public override string RpioCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public override string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ah code.
-        /// </summary>
-        /// <value>
-        /// The ah code.
-        /// </value>
-        public override string AhCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
-        public override string AhName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
-        public override string AppropriationCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
-        public override string AppropriationName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the org code.
-        /// </summary>
-        /// <value>
-        /// The org code.
-        /// </value>
-        public override string OrgCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the org.
-        /// </summary>
-        /// <value>
-        /// The name of the org.
-        /// </value>
-        public override string OrgName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public override string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public override string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public override string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio activity code.
-        /// </summary>
-        /// <value>
-        /// The rpio activity code.
-        /// </value>
-        public override string RpioActivityCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio activity.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio activity.
-        /// </value>
-        public override string RpioActivityName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
-        public override string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        public override string BocName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
-        public override double Amount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public override string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public override string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public override string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the goal code.
-        /// </summary>
-        /// <value>
-        /// The goal code.
-        /// </value>
-        public override string GoalCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the goal.
-        /// </summary>
-        /// <value>
-        /// The name of the goal.
-        /// </value>
-        public override string GoalName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the objective code.
-        /// </summary>
-        /// <value>
-        /// The objective code.
-        /// </value>
-        public override string ObjectiveCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the objective.
-        /// </summary>
-        /// <value>
-        /// The name of the objective.
-        /// </value>
-        public override string ObjectiveName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury agency code.
-        /// </summary>
-        /// <value>
-        /// The treasury agency code.
-        /// </value>
-        public override string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public override string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public override string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="OperatingPlan"/> class.
         /// </summary>
-        public OperatingPlan( )
+        public OperatingPlan( ) 
         {
         }
 
@@ -407,6 +139,36 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+        
+        public OperatingPlan( IAllocation allocation )
+        {
+            ID = allocation.ID;
+            BudgetLevel = allocation.BudgetLevel;
+            BFY = allocation.BFY;
+            EFY = allocation.EFY;
+            FundCode = allocation.FundCode;
+            FundName = allocation.FundName;
+            RpioCode = allocation.RpioCode;
+            RpioName = allocation.RpioName;
+            AhCode = allocation.AhCode;
+            AhName = allocation.AhName;
+            OrgCode = allocation.OrgCode;
+            OrgName = allocation.OrgName;
+            AccountCode = allocation.AccountCode;
+            BocCode = allocation.BocCode;
+            BocName = allocation.BocName;
+            Amount = allocation.Amount;
+            ProgramProjectCode = allocation.ProgramProjectCode;
+            ProgramProjectName = allocation.ProgramProjectName;
+            ProgramAreaCode = allocation.ProgramAreaCode;
+            ProgramAreaName = allocation.ProgramAreaName;
+            NpmCode = allocation.NpmCode;
+            NpmName = allocation.NpmName;
+            TreasuryAccountCode = allocation.TreasuryAccountCode;
+            TreasuryAccountName = allocation.TreasuryAccountName;
+            BudgetAccountCode = allocation.BudgetAccountCode;
+            BudgetAccountName = allocation.BudgetAccountName;
         }
     }
 }
