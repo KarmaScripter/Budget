@@ -100,7 +100,8 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
         
-        public SupplementalCarryoverEstimate( ICarryoverEstimate carryover )
+        public SupplementalCarryoverEstimate( ICarryoverEstimate carryover ) 
+            : this( )
         {
             ID = carryover.ID;
             BFY = carryover.BFY;
