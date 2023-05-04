@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualCarryoverEstimate : BudgetUnit
+    public class AnnualCarryoverEstimate : BudgetUnit, ICarryoverEstimate
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -251,6 +251,26 @@ namespace BudgetExecution
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        public AnnualCarryoverEstimate( ICarryoverEstimate carryover ) 
+            : this( )
+        {
+            ID = carryover.ID;
+            BFY = carryover.BFY;
+            EFY = carryover.EFY;
+            FundCode = carryover.FundCode;
+            FundName = carryover.FundName;
+            RpioCode = carryover.RpioCode;
+            RpioName = carryover.RpioName;
+            Amount = carryover.Amount;
+            OpenCommitments = carryover.OpenCommitments;
+            Obligations = carryover.Obligations;
+            Available = carryover.Available;
+            TreasuryAccountCode = carryover.TreasuryAccountCode;
+            TreasuryAccountName = carryover.TreasuryAccountName;
+            BudgetAccountCode = carryover.BudgetAccountCode;
+            BudgetAccountName = carryover.BudgetAccountName;
         }
     }
 }

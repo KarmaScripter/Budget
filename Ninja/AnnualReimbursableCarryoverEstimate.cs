@@ -1,4 +1,8 @@
-﻿namespace BudgetExecution
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
+// </copyright>
+
+namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
@@ -8,31 +12,31 @@
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate, 
-                                                          ICarryoverEstimate
+    public class AnnualReimbursableCarryoverEstimate : AnnualCarryoverEstimate, ICarryoverEstimate
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="AnnualReimbursableCarryoverEstimate"/> class.
         /// </summary>
-        public InflationReductionActCarryoverEstimate( )
+        public AnnualReimbursableCarryoverEstimate( )
         {
-            Source = Source.InflationReductionActCarryoverEstimates;
+            Source = Source.AnnualReimbursableEstimates;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="AnnualReimbursableCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public InflationReductionActCarryoverEstimate( IQuery query )
+        public AnnualReimbursableCarryoverEstimate( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
@@ -46,20 +50,20 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="AnnualReimbursableCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public InflationReductionActCarryoverEstimate( IDataModel builder )
+        public AnnualReimbursableCarryoverEstimate( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
             RpioName = Record[ "RpioName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
@@ -73,19 +77,20 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the <see cref="AnnualReimbursableCarryoverEstimate"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public InflationReductionActCarryoverEstimate( DataRow dataRow )
+        public AnnualReimbursableCarryoverEstimate( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
             RpioName = dataRow[ "RpioName" ].ToString( );
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
@@ -98,7 +103,7 @@
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
         
-        public InflationReductionActCarryoverEstimate( ICarryoverEstimate carryover ) 
+        public AnnualReimbursableCarryoverEstimate( ICarryoverEstimate carryover ) 
             : this( )
         {
             ID = carryover.ID;
