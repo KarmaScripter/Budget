@@ -13,6 +13,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="IAmount" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class Amount : IAmount
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace BudgetExecution
         /// </summary>
         public Amount( )
         {
+            Numeric = "Amount";
         }
 
         /// <summary>
@@ -47,66 +49,32 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <param name="value">The value.</param>
-        public Amount( string numeric, double value = 0.0 )
+        public Amount( double value  ) 
+            : this( )
         {
             Funding = value;
-            Numeric = numeric;
-            Initial = Funding;
+            Initial = value;
             Delta = Initial - Funding;
         }
 
-        /// <summary>
-        /// Gets the original.
-        /// </summary>
-        /// <returns></returns>
-        public double GetOriginal( )
+        public Amount( DataRow dataRow, string numeric )
         {
-            try
-            {
-                return Initial > 0.0
-                    ? Initial
-                    : 0.0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return 0.0;
-            }
-        }
-
-        /// <summary>
-        /// Gets the delta.
-        /// </summary>
-        /// <returns></returns>
-        public double GetDelta( )
-        {
-            try
-            {
-                return Delta != 0
-                    ? Delta
-                    : 0.0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return 0.0;
-            }
+            Numeric = numeric;
+            Funding = double.Parse( dataRow[ numeric ].ToString( ) );
+            Initial = Funding;
+            Delta = Initial - Funding;
         }
 
         /// <summary>
         /// Increases the specified amount.
         /// </summary>
         /// <param name="increment">The amount.</param>
-        public void Increase( double increment = 0.0d )
+        public void Increase( int increment )
         {
             try
             {
                 Delta = increment;
-                Funding += Delta;
-                if( Initial != Funding )
-                {
-                    //unfinished
-                }
+                Funding += increment;
             }
             catch( Exception ex )
             {
@@ -118,20 +86,12 @@ namespace BudgetExecution
         /// Decreases the specified amount.
         /// </summary>
         /// <param name="decrement">The amount.</param>
-        public void Decrease( double decrement = 0d )
+        public void Decrease( int decrement )
         {
             try
             {
                 Delta = decrement;
-                if( Funding > decrement )
-                {
-                    Funding -= decrement;
-                }
-
-                if( Initial != Funding )
-                {
-                    // Unfinished
-                }
+                Funding -= decrement;
             }
             catch( Exception ex )
             {
@@ -148,15 +108,12 @@ namespace BudgetExecution
         /// </returns>
         public bool IsEqual( IAmount amount )
         {
-            if( amount?.Funding != 0.0 )
+            if( amount != null )
             {
                 try
                 {
-                    if( amount?.Funding == Funding
-                       && amount?.Numeric?.Equals( Numeric ) == true )
-                    {
-                        return true;
-                    }
+                    return ( amount?.Funding == Funding 
+                        && amount?.Numeric?.Equals( Numeric ) == true );
                 }
                 catch( Exception ex )
                 {
@@ -178,11 +135,13 @@ namespace BudgetExecution
         /// </returns>
         public static bool IsEqual( IAmount first, IAmount second )
         {
-            if( first?.Funding == second?.Funding )
+            if( first != null 
+               && second != null )
             {
                 try
                 {
-                    return first?.Numeric == second?.Numeric;
+                    return ( first?.Numeric == second?.Numeric 
+                        && first.Funding == second.Funding );
                 }
                 catch( Exception ex )
                 {
