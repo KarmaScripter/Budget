@@ -14,11 +14,11 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         double Funding { get; set; }
-
+        
         /// <summary>
-        /// Gets the numeric.
+        /// Gets the numeric column.
         /// </summary>
         /// <returns></returns>
-        Numeric Numeric { get; set; }
+        string Numeric { get; set; }
     }
 }
