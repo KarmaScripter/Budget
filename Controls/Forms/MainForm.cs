@@ -261,6 +261,33 @@ namespace BudgetExecution
             }
         }
 
+        private void OpenPdfForm( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( PdfForm ) ) == true )
+                {
+                    var _form = _forms
+                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
+                        ?.First( );
+
+                    _form.Visible = true;
+                }
+                else
+                {
+                    var _pdfForm = new PdfForm( );
+                    _pdfForm.Owner = this;
+                    _pdfForm.Show( );
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Opens the data grid form.
         /// </summary>
@@ -385,9 +412,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
+                OpenPdfForm( );
             }
             catch( Exception ex )
             {
@@ -439,14 +464,8 @@ namespace BudgetExecution
         {
             try
             {
-                //var _loader = new LoadingForm( Status.Processing );
-                //_loader.ShowDialog( );
-                var _pdf = new PdfForm( );
-                _pdf.Owner = this;
-                _pdf.StartPosition = FormStartPosition.CenterScreen;
-                _pdf.Show( );
-                Visible = false;
-                _pdf.Show( );
+                var _loader = new LoadingForm( Status.Processing );
+                _loader.ShowDialog( );
             }
             catch( Exception ex )
             {

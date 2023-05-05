@@ -74,7 +74,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.Sizable;
+            StartPosition = FormStartPosition.CenterScreen;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Dock = DockStyle.None;
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -176,8 +176,7 @@ namespace BudgetExecution
                 var _buttons = CreateButtons( );
                 foreach( var btn in _buttons )
                 {
-                    ListView.ItemHeight = btn.Height;
-                    ListView.Controls.Add( btn );
+                    FlowPanel.Controls.Add( btn );
                 }
             }
             catch( Exception ex )
@@ -492,6 +491,7 @@ namespace BudgetExecution
                 try
                 {
                     var _path = button.Tag.ToString( );
+                    HeaderLabel.Text = _path;
                     Document = new PdfLoadedDocument( _path );
                     DocViewer.Load( Document );
                 }
