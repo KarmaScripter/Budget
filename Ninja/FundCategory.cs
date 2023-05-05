@@ -116,5 +116,13 @@ namespace BudgetExecution
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
         }
+        
+        public FundCategory( IFundCategory fundCategory )
+        {
+            ID = fundCategory.ID;
+            Code = fundCategory.Code;
+            Name = fundCategory.Name;
+            ShortName = fundCategory.ShortName;
+        }
     }
 }

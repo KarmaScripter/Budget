@@ -48,6 +48,12 @@ namespace BudgetExecution
         /// </value>
         string BudgetLevel { get; set; }
 
+        string AppropriationCode { get; set; }
+        
+        string AppropriationName { get; set; }
+        
+        string SubAppropriationCode { get; set; }
+        
         /// <summary>
         /// Gets or sets the fund code.
         /// </summary>
@@ -119,7 +125,6 @@ namespace BudgetExecution
         /// The name of the program area.
         /// </value>
         string ProgramAreaName { get; set; }
-        
         
         /// <summary>
         /// Gets or sets the total authority.

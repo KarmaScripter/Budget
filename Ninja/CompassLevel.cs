@@ -205,12 +205,15 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
+            TreasurySymbol = Record[ "TreasurySymbol" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
             SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
-            DocumentType = Record[ "DocumentType" ].ToString( );
             Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
             CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
@@ -235,12 +238,15 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
+            TreasurySymbol = Record[ "TreasurySymbol" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
             SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
-            DocumentType = Record[ "DocumentType" ].ToString( );
             Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
             CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
             CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
@@ -262,24 +268,55 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "0" );
-            DocumentType = Record[ "DocumentType" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
-            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ID = int.Parse( dataRow[ "CompassLevelsId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            TreasurySymbol = dataRow[ "TreasurySymbol" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            AppropriationCode = dataRow[ "AppropriationCode" ].ToString( );
+            SubAppropriationCode = dataRow[ "SubAppropriationCode" ].ToString( );
+            AppropriationName = dataRow[ "AppropriationName" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
+            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+        
+        public CompassLevel(  ICompassLevel compassLevel )
+        {
+            ID = compassLevel.ID;
+            BFY = compassLevel.BFY;
+            EFY = compassLevel.EFY;
+            AppropriationCode = compassLevel.AppropriationCode;
+            SubAppropriationCode = compassLevel.SubAppropriationCode;
+            AppropriationName = compassLevel.AppropriationName;
+            FundCode = compassLevel.FundCode;
+            FundName = compassLevel.FundName;
+            RpioCode = compassLevel.RpioCode;
+            RpioName = compassLevel.RpioName;
+            AccountCode = compassLevel.AccountCode;
+            ProgramProjectCode = compassLevel.ProgramProjectCode;
+            ProgramAreaCode = compassLevel.ProgramAreaCode;
+            ProgramAreaName = compassLevel.ProgramAreaName;
+            BudgetLevel = compassLevel.BudgetLevel;
+            Authority = compassLevel.Authority;
+            CarryoverOut = compassLevel.CarryoverOut;
+            CarryoverIn = compassLevel.CarryoverIn;
+            Recoveries = compassLevel.Recoveries;
+            Reimbursements = compassLevel.Reimbursements;
+            TreasuryAccountCode = compassLevel.TreasuryAccountCode;
+            TreasuryAccountName = compassLevel.TreasuryAccountName;
+            BudgetAccountCode = compassLevel.BudgetAccountName;
+            BudgetAccountName = compassLevel.BudgetAccountName;
         }
     }
 }
