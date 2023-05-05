@@ -465,6 +465,7 @@ namespace BudgetExecution
             try
             {
                 var _loader = new LoadingForm( Status.Processing );
+                _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( );
             }
             catch( Exception ex )

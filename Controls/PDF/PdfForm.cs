@@ -97,7 +97,7 @@ namespace BudgetExecution
             BackButton.Click += OnBackButtonClicked;
             Load += OnLoad;
             Shown += OnShown;
-            Closing += OnClose;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -124,6 +124,8 @@ namespace BudgetExecution
             {
                 DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
                 var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
+                HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+                HeaderLabel.Text = "Budget Guidance";
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
                 LoadDocuments( );
@@ -143,7 +145,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _data = GetDocumentData( );
+                var _data = GetDocuments( );
                 var _buttons = new List<Button>( );
                 foreach( var kvp in _data )
                 {
@@ -190,7 +192,7 @@ namespace BudgetExecution
         /// Gets the document data.
         /// </summary>
         /// <returns></returns>
-        private IDictionary<string, string> GetDocumentData( )
+        private IDictionary<string, string> GetDocuments( )
         {
             try
             {
@@ -461,7 +463,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnClose( object sender, EventArgs e )
+        private void OnClosing( object sender, EventArgs e )
         {
             try
             {
@@ -491,7 +493,7 @@ namespace BudgetExecution
                 try
                 {
                     var _path = button.Tag.ToString( );
-                    HeaderLabel.Text = _path;
+                    HeaderLabel.Text = button.Text;
                     Document = new PdfLoadedDocument( _path );
                     DocViewer.Load( Document );
                 }

@@ -32,10 +32,10 @@
         private void InitializeComponent( )
         {
             components =  new System.ComponentModel.Container( ) ;
-            var messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
-            var pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
+            var messageBoxSettings4 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
+            var pdfViewerPrinterSettings4 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( PdfForm ) );
-            var textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
+            var textSearchSettings4 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
             ToolTip =  new SmallTip( ) ;
             BindingSource =  new BindingSource( components ) ;
             toolSeparator1 =  new ToolSeparator( ) ;
@@ -47,7 +47,6 @@
             HeaderLabel =  new Label( ) ;
             DocumentPanel =  new Layout( ) ;
             ButtonTable =  new TableLayoutPanel( ) ;
-            BrowseButton =  new Button( ) ;
             CloseButtonTable =  new TableLayoutPanel( ) ;
             MenuButton =  new Button( ) ;
             CloseButton =  new Button( ) ;
@@ -60,7 +59,6 @@
             PdfTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             DocumentPanel.SuspendLayout( );
-            ButtonTable.SuspendLayout( );
             CloseButtonTable.SuspendLayout( );
             ComboBoxTable.SuspendLayout( );
             ListBoxPanel.SuspendLayout( );
@@ -122,17 +120,17 @@
             DocViewer.IsTextSearchEnabled =  true ;
             DocViewer.IsTextSelectionEnabled =  true ;
             DocViewer.Location =  new System.Drawing.Point( 19, 14 ) ;
-            messageBoxSettings1.EnableNotification =  true ;
-            DocViewer.MessageBoxSettings =  messageBoxSettings1 ;
+            messageBoxSettings4.EnableNotification =  true ;
+            DocViewer.MessageBoxSettings =  messageBoxSettings4 ;
             DocViewer.MinimumZoomPercentage =  50 ;
             DocViewer.Name =  "DocViewer" ;
             DocViewer.PageBorderThickness =  1 ;
-            pdfViewerPrinterSettings1.Copies =  1 ;
-            pdfViewerPrinterSettings1.PageOrientation =  Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto ;
-            pdfViewerPrinterSettings1.PageSize =  Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize ;
-            pdfViewerPrinterSettings1.PrintLocation =  (System.Drawing.PointF) resources.GetObject( "pdfViewerPrinterSettings1.PrintLocation" )  ;
-            pdfViewerPrinterSettings1.ShowPrintStatusDialog =  true ;
-            DocViewer.PrinterSettings =  pdfViewerPrinterSettings1 ;
+            pdfViewerPrinterSettings4.Copies =  1 ;
+            pdfViewerPrinterSettings4.PageOrientation =  Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto ;
+            pdfViewerPrinterSettings4.PageSize =  Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize ;
+            pdfViewerPrinterSettings4.PrintLocation =  (System.Drawing.PointF) resources.GetObject( "pdfViewerPrinterSettings4.PrintLocation" )  ;
+            pdfViewerPrinterSettings4.ShowPrintStatusDialog =  true ;
+            DocViewer.PrinterSettings =  pdfViewerPrinterSettings4 ;
             DocViewer.ReferencePath =  null ;
             DocViewer.ScrollDisplacementValue =  0 ;
             DocViewer.ShowHorizontalScrollBar =  true ;
@@ -141,11 +139,10 @@
             DocViewer.Size =  new System.Drawing.Size( 946, 636 ) ;
             DocViewer.SpaceBetweenPages =  8 ;
             DocViewer.TabIndex =  2 ;
-            DocViewer.Text =  "pdfViewerControl1" ;
-            textSearchSettings1.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
-            textSearchSettings1.HighlightAllInstance =  true ;
-            textSearchSettings1.OtherInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   254  ,   255  ,   0   ) ;
-            DocViewer.TextSearchSettings =  textSearchSettings1 ;
+            textSearchSettings4.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
+            textSearchSettings4.HighlightAllInstance =  true ;
+            textSearchSettings4.OtherInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   254  ,   255  ,   0   ) ;
+            DocViewer.TextSearchSettings =  textSearchSettings4 ;
             DocViewer.ThemeName =  "Office2016Black" ;
             DocViewer.UseWaitCursor =  true ;
             DocViewer.VerticalScrollOffset =  0 ;
@@ -178,7 +175,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Dock =  DockStyle.Left ;
+            PictureBox.Dock =  DockStyle.Fill ;
             PictureBox.Image =  Properties.Resources.EPA ;
             PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
@@ -206,7 +203,7 @@
             HeaderLabel.StyleManager =  null ;
             HeaderLabel.TabIndex =  7 ;
             HeaderLabel.Text =  "Title" ;
-            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.TopCenter ;
+            HeaderLabel.TextAlign =  System.Drawing.ContentAlignment.MiddleCenter ;
             HeaderLabel.ThemeAuthor =  "Terry D. Eppler" ;
             HeaderLabel.ThemeName =  "Budget Execution" ;
             HeaderLabel.ToolTip =  null ;
@@ -252,7 +249,6 @@
             ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
             ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
             ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.Controls.Add( BrowseButton, 0, 0 );
             ButtonTable.Dock =  DockStyle.Fill ;
             ButtonTable.GrowStyle =  TableLayoutPanelGrowStyle.FixedSize ;
             ButtonTable.Location =  new System.Drawing.Point( 52, 705 ) ;
@@ -262,39 +258,6 @@
             ButtonTable.Size =  new System.Drawing.Size( 984, 31 ) ;
             ButtonTable.TabIndex =  6 ;
             ButtonTable.UseWaitCursor =  true ;
-            // 
-            // BrowseButton
-            // 
-            BrowseButton.BindingSource =  null ;
-            BrowseButton.DataFilter =  null ;
-            BrowseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
-            BrowseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
-            BrowseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
-            BrowseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            BrowseButton.ForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            BrowseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            BrowseButton.HoverColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
-            BrowseButton.HoverText =  null ;
-            BrowseButton.HoverTextColor =  System.Drawing.Color.White ;
-            BrowseButton.IsDerivedStyle =  true ;
-            BrowseButton.Location =  new System.Drawing.Point( 3, 3 ) ;
-            BrowseButton.Name =  "BrowseButton" ;
-            BrowseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
-            BrowseButton.NormalColor =  System.Drawing.Color.Transparent ;
-            BrowseButton.NormalTextColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
-            BrowseButton.Padding =  new Padding( 1 ) ;
-            BrowseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            BrowseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            BrowseButton.PressTextColor =  System.Drawing.Color.White ;
-            BrowseButton.Size =  new System.Drawing.Size( 90, 25 ) ;
-            BrowseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
-            BrowseButton.StyleManager =  null ;
-            BrowseButton.TabIndex =  0 ;
-            BrowseButton.Text =  "Open" ;
-            BrowseButton.ThemeAuthor =  "Terry D. Eppler" ;
-            BrowseButton.ThemeName =  "Budget Execution" ;
-            BrowseButton.ToolTip =  null ;
-            BrowseButton.UseWaitCursor =  true ;
             // 
             // CloseButtonTable
             // 
@@ -465,15 +428,14 @@
             DocumentTable.ColumnCount =  1 ;
             DocumentTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
             DocumentTable.Controls.Add( FlowPanel, 0, 1 );
-            DocumentTable.Dock =  DockStyle.Fill ;
             DocumentTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DocumentTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            DocumentTable.Location =  new System.Drawing.Point( 1, 1 ) ;
+            DocumentTable.Location =  new System.Drawing.Point( 15, 11 ) ;
             DocumentTable.Name =  "DocumentTable" ;
             DocumentTable.RowCount =  2 ;
             DocumentTable.RowStyles.Add( new RowStyle( SizeType.Percent, 1.42095912F ) );
             DocumentTable.RowStyles.Add( new RowStyle( SizeType.Percent, 98.57904F ) );
-            DocumentTable.Size =  new System.Drawing.Size( 285, 655 ) ;
+            DocumentTable.Size =  new System.Drawing.Size( 260, 636 ) ;
             DocumentTable.TabIndex =  1 ;
             DocumentTable.UseWaitCursor =  true ;
             // 
@@ -481,10 +443,10 @@
             // 
             FlowPanel.Dock =  DockStyle.Fill ;
             FlowPanel.FlowDirection =  FlowDirection.TopDown ;
-            FlowPanel.Location =  new System.Drawing.Point( 3, 28 ) ;
+            FlowPanel.Location =  new System.Drawing.Point( 3, 27 ) ;
             FlowPanel.Name =  "FlowPanel" ;
             FlowPanel.Padding =  new Padding( 3 ) ;
-            FlowPanel.Size =  new System.Drawing.Size( 279, 624 ) ;
+            FlowPanel.Size =  new System.Drawing.Size( 254, 606 ) ;
             FlowPanel.TabIndex =  0 ;
             FlowPanel.UseWaitCursor =  true ;
             // 
@@ -525,7 +487,6 @@
             PdfTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             DocumentPanel.ResumeLayout( false );
-            ButtonTable.ResumeLayout( false );
             CloseButtonTable.ResumeLayout( false );
             ComboBoxTable.ResumeLayout( false );
             ListBoxPanel.ResumeLayout( false );
@@ -551,7 +512,6 @@
         public Layout ListBoxPanel;
         public Button MenuButton;
         public Button BackButton;
-        public Button BrowseButton;
         public HeaderPanel DocumentTable;
         public FlowLayoutPanel FlowPanel;
     }
