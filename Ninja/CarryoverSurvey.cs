@@ -1,4 +1,4 @@
-﻿// <copyright file = "AnnualCarryoverSurvey.cs" company = "Terry D. Eppler">
+﻿// <copyright file = "CarryoverSurvey.cs" company = "Terry D. Eppler">
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualCarryoverSurvey : DataUnit
+    public class CarryoverSurvey : DataUnit, ICarryoverSurvey
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -95,18 +95,18 @@ namespace BudgetExecution
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnnualCarryoverSurvey"/> class.
+        /// Initializes a new instance of the <see cref="CarryoverSurvey"/> class.
         /// </summary>
-        public AnnualCarryoverSurvey( )
+        public CarryoverSurvey( )
         {
             Source = Source.AnnualCarryoverSurvey;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnnualCarryoverSurvey"/> class.
+        /// Initializes a new instance of the <see cref="CarryoverSurvey"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public AnnualCarryoverSurvey( IQuery query )
+        public CarryoverSurvey( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
@@ -121,10 +121,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnnualCarryoverSurvey"/> class.
+        /// Initializes a new instance of the <see cref="CarryoverSurvey"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public AnnualCarryoverSurvey( IDataModel builder )
+        public CarryoverSurvey( IDataModel builder )
             : this( )
         {
             Record = builder.Record;
@@ -139,10 +139,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnnualCarryoverSurvey"/> class.
+        /// Initializes a new instance of the <see cref="CarryoverSurvey"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public AnnualCarryoverSurvey( DataRow dataRow )
+        public CarryoverSurvey( DataRow dataRow )
             : this( )
         {
             Record = dataRow;

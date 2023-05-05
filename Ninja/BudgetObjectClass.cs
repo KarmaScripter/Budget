@@ -208,6 +208,15 @@ namespace BudgetExecution
             }
         }
 
+        public BudgetObjectClass( IBudgetObjectClass boc )
+        {
+            ID = boc.ID;
+            Code = boc.Code;
+            Name = boc.Name;
+            Value = boc.Value;
+            Category = boc.Category;
+        }
+        
         /// <summary>
         /// Converts to dictionary.
         /// </summary>

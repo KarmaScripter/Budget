@@ -7,13 +7,21 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public interface IGoal : IDataUnit
+    public interface IGoal 
     {
         /// <summary>
-        /// Gets the goal.
+        /// Gets/sets the ID
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IGoal GetGoal( );
+        int ID { get; set; }
+        
+        /// <summary>
+        /// Gets/sets the Code
+        /// </summary>
+        string Code { get; set; }
+        
+        /// <summary>
+        /// Gets/sets the Name
+        /// </summary>
+        string Name { get; set; }
     }
 }

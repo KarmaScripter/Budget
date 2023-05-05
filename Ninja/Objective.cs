@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Objective : DataUnit, IObjective, ISource
+    public class Objective : DataUnit, IObjective
     {
         /// <summary>
         /// The source
@@ -127,6 +127,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        public Objective( IObjective objective )
+        {
+            ID = objective.ID;
+            Code = objective.Code;
+            Name = objective.Name;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>

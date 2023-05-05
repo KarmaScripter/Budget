@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "Performance", "CA1822:Mark members as static" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class NationalProgram : DataUnit, INationalProgram, ISource
+    public class NationalProgram : DataUnit, INationalProgram
     {
         /// <summary>
         /// The source
@@ -167,6 +167,16 @@ namespace BudgetExecution
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
+        public NationalProgram( INationalProgram npm )
+        {
+            ID = npm.ID;
+            Code = npm.Code;
+            Name = npm.Name;
+            NPM = npm.NPM;
+            Title = npm.Title;
+            RpioCode = npm.RpioCode;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>

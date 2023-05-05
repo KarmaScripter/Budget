@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -17,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class ProgramArea : DataUnit, IProgramArea, ISource
+    public class ProgramArea : DataUnit, IProgramArea
     {
         /// <summary>
         /// Gets the dataRow.
@@ -129,6 +128,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        public ProgramArea( IProgramArea area )
+        {
+            ID = area.ID;
+            Code = area.Code;
+            Name = area.Name;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -153,26 +159,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class ResponsibilityCenter : DataUnit, IResponsibilityCenter, ISource
+    public class ResponsibilityCenter : DataUnit, IResponsibilityCenter
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -69,8 +69,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -83,8 +83,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -98,8 +98,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -112,8 +112,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -128,7 +128,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{ Field.Code }" ] = code };
+                    return new Dictionary<string, object> { [ "Code" ] = code };
                 }
                 catch( Exception ex )
                 {
@@ -138,23 +138,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Gets the responsibility center.
-        /// </summary>
-        /// <returns></returns>
-        public IResponsibilityCenter GetResponsibilityCenter( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as IResponsibilityCenter;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IResponsibilityCenter );
-            }
         }
     }
 }

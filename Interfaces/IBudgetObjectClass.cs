@@ -1,26 +1,44 @@
-﻿// <copyright file = "IBudgetObjectClass.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public interface IBudgetObjectClass 
+    
+    public interface IBudgetObjectClass
     {
         /// <summary>
-        /// Gets the budget object class.
+        /// Gets or sets the identifier.
         /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        int ID { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
         string Code { get; set; }
 
         /// <summary>
-        /// Gets the budget object class category.
+        /// Gets or sets the name.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        BOC GetCategory( );
+        /// <value>
+        /// The name.
+        /// </value>
+        string Name { get; set; }
+
+        /// <summary>
+        /// The value
+        /// </summary>
+        object Value { get; set; }
+
+        /// <summary>
+        /// Gets the category.
+        /// </summary>
+        /// <value>
+        /// The category.
+        /// </value>
+        BOC Category { get; set; }
     }
 }

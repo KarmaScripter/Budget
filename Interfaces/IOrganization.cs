@@ -1,19 +1,30 @@
-﻿// <copyright file = "IOrganization.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public interface IOrganization  
+    public interface IOrganization
     {
         /// <summary>
-        /// Gets the organization.
+        /// Gets the identifier.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IOrganization GetOrganization();
+        /// <value>
+        /// The identifier.
+        /// </value>
+        int ID { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        string Name { get; set; }
     }
 }

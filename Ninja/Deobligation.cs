@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Deobligation : Obligation
+    public class Deobligation : Obligation, IDeobligation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -256,14 +256,6 @@ namespace BudgetExecution
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -304,14 +296,6 @@ namespace BudgetExecution
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -352,14 +336,6 @@ namespace BudgetExecution
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
             Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
@@ -374,6 +350,39 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        public Deobligation( IDeobligation deobligation )
+        {
+            ID = deobligation.ID;
+            BFY = deobligation.BFY;
+            EFY = deobligation.EFY;
+            FundCode = deobligation.FundCode;
+            FundName = deobligation.FundName;
+            RpioCode = deobligation.RpioCode;
+            RpioName = deobligation.RpioName;
+            AhCode = deobligation.AhCode;
+            AhName = deobligation.AhName;
+            OrgCode = deobligation.OrgCode;
+            OrgName = deobligation.OrgName;
+            AccountCode = deobligation.AccountCode;
+            BocCode = deobligation.BocCode;
+            BocName = deobligation.BocName;
+            Amount = deobligation.Amount;
+            ProgramProjectCode = deobligation.ProgramProjectCode;
+            ProgramProjectName = deobligation.ProgramProjectName;
+            ProgramAreaCode = deobligation.ProgramAreaCode;
+            ProgramAreaName = deobligation.ProgramAreaName;
+            NpmCode = deobligation.NpmCode;
+            NpmName = deobligation.NpmName;
+            GoalCode = deobligation.GoalCode;
+            GoalName = deobligation.GoalName;
+            ObjectiveCode = deobligation.ObjectiveCode;
+            ObjectiveName = deobligation.ObjectiveName;
+            TreasuryAccountCode = deobligation.TreasuryAccountCode;
+            TreasuryAccountName = deobligation.TreasuryAccountName;
+            BudgetAccountCode = deobligation.BudgetAccountCode;
+            BudgetAccountName = deobligation.BudgetAccountName;
         }
     }
 }

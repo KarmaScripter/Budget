@@ -21,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Goal : DataUnit, IGoal, ISource
+    public class Goal : DataUnit, IGoal 
     {
         /// <summary>
         /// The source
@@ -136,6 +136,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        public Goal( IGoal goal )
+        {
+            ID = goal.ID;
+            Code = goal.Code;
+            Name = goal.Name;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>

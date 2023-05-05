@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice,  ISource
+    public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice
     {
         /// <summary>
         /// The source
@@ -84,8 +84,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -100,8 +100,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -117,8 +117,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
@@ -134,11 +134,18 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( rpioCode ) )?.Record;
             ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) );
-            Name = Record[ $"{ Field.Name }" ].ToString(  );
-            Code = Record[ $"{ Field.Code }" ].ToString(  );
+            Name = Record[ "Name" ].ToString(  );
+            Code = Record[ "Code" ].ToString(  );
             Data = Record?.ToDictionary( );
         }
 
+        public ResourcePlanningOffice( IResourcePlanningOffice rpio )
+        {
+            ID = rpio.ID;
+            Code = rpio.Code;
+            Name = rpio.Name;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>

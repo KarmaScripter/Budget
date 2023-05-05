@@ -21,7 +21,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class FinanceObjectClass : DataUnit, IFinanceObjectClass, ISource
+    public class FinanceObjectClass : DataUnit, IFinanceObjectClass
     {
         /// <summary>
         /// Gets the source.
@@ -148,6 +148,16 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        public FinanceObjectClass( IFinanceObjectClass foc )
+        {
+            ID = foc.ID;
+            Code = foc.Code;
+            Name = foc.Name;
+            Category = foc.Category;
+            BocCode = foc.BocCode;
+            BocName = foc.BocName;
+        }
+        
         /// <summary>
         /// Gets the arguments.
         /// </summary>

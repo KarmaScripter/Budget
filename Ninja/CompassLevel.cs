@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassLevel : PRC
+    public class CompassLevel : PRC, ICompassLevel
     {
         /// <summary>
         /// Gets or sets the identifier.

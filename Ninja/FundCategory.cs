@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FundCategory : DataUnit
+    public class FundCategory : DataUnit, IFundCategory
     {
         /// <summary>
         /// Gets or sets the identifier.

@@ -16,110 +16,6 @@ namespace BudgetExecution
     public class FundSymbol : Fund
     {
         /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public override string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public override string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
-        public override string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public override string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public override string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the apportionment account code.
-        /// </summary>
-        /// <value>
-        /// The apportionment account code.
-        /// </value>
-        public override string ApportionmentAccountCode { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="FundSymbol"/> class.
         /// </summary>
         public FundSymbol( )
@@ -258,6 +154,44 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+        }
+
+        public FundSymbol( IFund fund )
+        {
+            ID = fund.ID;
+            BFY = fund.BFY;
+            EFY = fund.EFY;
+            Code = fund.Code;
+            Name = fund.Name;
+            ShortName = fund.ShortName;
+            Status = fund.Status;
+            StartDate = fund.StartDate;
+            EndDate = fund.EndDate;
+            SubLevelPrefix = fund.SubLevelPrefix;
+            AllocationTransferAgency = fund.AllocationTransferAgency;
+            AgencyIdentifier = fund.AgencyIdentifier;
+            BeginningPeriodOfAvailability = fund.BeginningPeriodOfAvailability;
+            EndingPeriodOfAvailability = fund.EndingPeriodOfAvailability;
+            MultiYearIndicator = fund.MultiYearIndicator;
+            MainAccount = fund.MainAccount;
+            SubAccount = fund.SubAccount;
+            FundCategory = fund.FundCategory;
+            AppropriationCode = fund.AppropriationCode;
+            SubAppropriationCode = fund.SubAppropriationCode;
+            FundGroup = fund.FundCategory;
+            NoYear = fund.NoYear;
+            Carryover = fund.Carryover;
+            CancelledYearSpendingAccount = fund.CancelledYearSpendingAccount;
+            ApplyAtAllLevels = fund.ApplyAtAllLevels;
+            BatsFund = fund.BatsFund;
+            BatsEndDate = fund.BatsEndDate;
+            BatsOptionId = fund.BatsOptionId;
+            SecurityOrg = fund.SecurityOrg;
+            TreasuryAccountCode = fund.TreasuryAccountCode;
+            TreasuryAccountName = fund.TreasuryAccountName;
+            BudgetAccountCode = fund.BudgetAccountCode;
+            BudgetAccountName = fund.BudgetAccountName;
+            ApportionmentAccountCode = fund.ApportionmentAccountCode;
         }
     }
 }

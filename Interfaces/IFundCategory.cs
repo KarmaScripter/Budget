@@ -4,9 +4,8 @@
 
 namespace BudgetExecution
 {
-    
 
-    public interface IFinanceObjectClass
+    public interface IFundCategory
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -17,37 +16,28 @@ namespace BudgetExecution
         int ID { get; set; }
 
         /// <summary>
-        /// Gets the field.
+        /// 
+        /// Gets or sets the code.
         /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
         string Code { get; set; }
 
         /// <summary>
-        /// The name
+        /// Gets or sets the name.
         /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the boc code.
+        /// Gets or sets the short name.
         /// </summary>
         /// <value>
-        /// The boc code.
+        /// The short name.
         /// </value>
-        string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        string BocName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the category.
-        /// </summary>
-        /// <value>
-        /// The category.
-        /// </value>
-        BOC Category { get; set; }
+        string ShortName { get; set; }
     }
 }

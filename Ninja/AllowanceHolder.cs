@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// Generally, an organized set of activities directed toward a common purpose or
@@ -48,7 +47,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class AllowanceHolder : DataUnit, IAllowanceHolder 
+    public class AllowanceHolder : DataUnit, IAllowanceHolder
     {
         /// <summary>
         /// The source
@@ -169,6 +168,13 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        public AllowanceHolder( IAllowanceHolder allowanceHolder )
+        {
+            ID = allowanceHolder.ID;
+            Name = allowanceHolder.Name;
+            Code = allowanceHolder.Code;
+        }
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -193,26 +199,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
         }
 
         public AllowanceHolder GetAllowanceHolder( )

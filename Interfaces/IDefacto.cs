@@ -4,173 +4,11 @@
 
 namespace BudgetExecution
 {
-
-    using System.Collections.Generic;
-    using System.Data;
-
-    public interface IStatusOfFunds
+    public interface IDefacto
     {
         /// <summary>
-        /// Gets or sets the identifier.
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        string BudgetLevel { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
-        public double Amount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budgeted.
-        /// </summary>
-        /// <value>
-        /// The budgeted.
-        /// </value>
-        public double Budgeted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the posted.
-        /// </summary>
-        /// <value>
-        /// The posted.
-        /// </value>
-        public double Posted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the open commitments.
-        /// </summary>
-        /// <value>
-        /// The open commitments.
-        /// </value>
-        public double OpenCommitments { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
-        public double ULO { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expenditures.
-        /// </summary>
-        /// <value>
-        /// The expenditures.
-        /// </value>
-        public double Expenditures { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public double Obligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the used.
-        /// </summary>
-        /// <value>
-        /// The used.
-        /// </value>
-        public double Used { get; set; }
-
-        /// <summary>
-        /// Gets or sets the available.
-        /// </summary>
-        /// <value>
-        /// The available.
-        /// </value>
-        public double Available { get; set; }
-
-        /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public string NpmName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury agency code.
-        /// </summary>
-        /// <value>
-        /// The treasury agency code.
-        /// </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Provider.
-        /// </summary>
-        /// <value>
-        /// The name of the Provider.
-        /// </value>
-        Provider Provider { get; set; }
+        int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -203,6 +41,46 @@ namespace BudgetExecution
         /// The name of the fund.
         /// </value>
         string FundName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
+        string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
+        string BudgetLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -277,20 +155,52 @@ namespace BudgetExecution
         string BocName { get; set; }
 
         /// <summary>
-        /// Gets or sets the rc code.
+        /// Gets or sets the NPM code.
         /// </summary>
         /// <value>
-        /// The rc code.
+        /// The NPM code.
         /// </value>
-        string RcCode { get; set; }
+        string NpmCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the rc.
+        /// Gets or sets the name of the NPM.
         /// </summary>
         /// <value>
-        /// The name of the rc.
+        /// The name of the NPM.
         /// </value>
-        string RcName { get; set; }
+        string NpmName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the goal code.
+        /// </summary>
+        /// <value>
+        /// The goal code.
+        /// </value>
+        string GoalCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the goal.
+        /// </summary>
+        /// <value>
+        /// The name of the goal.
+        /// </value>
+        string GoalName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the objective code.
+        /// </summary>
+        /// <value>
+        /// The objective code.
+        /// </value>
+        string ObjectiveCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the objective.
+        /// </summary>
+        /// <value>
+        /// The name of the objective.
+        /// </value>
+        string ObjectiveName { get; set; }
 
         /// <summary>
         /// Gets or sets the program project code.

@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class ApportionmentData : DataUnit
+    public class ApportionmentData : DataUnit, IApportionment
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -235,6 +235,24 @@ namespace BudgetExecution
             LineNumber = dataRow[ "LineNumber" ].ToString(  );
             LineName = dataRow[ "LineName" ].ToString(  );
             Amount = double.Parse( dataRow[ "Amount" ].ToString(  ) ?? "0" );
+        }
+
+        public ApportionmentData( IApportionment omb )
+        {
+            ID = omb.ID;
+            FiscalYear = omb.FiscalYear;
+            BFY = omb.BFY;
+            EFY = omb.EFY;
+            BudgetAccountCode = omb.BudgetAccountCode;
+            BudgetAccountName = omb.BudgetAccountName;
+            TreasuryAccountCode = omb.TreasuryAccountCode;
+            TreasuryAccountName = omb.TreasuryAccountName;
+            ApportionmentAccountCode = omb.ApportionmentAccountCode;
+            ApportionmentAccountName = omb.ApportionmentAccountName;
+            AvailabilityType = omb.AvailabilityType;
+            LineNumber = omb.LineNumber;
+            LineName = omb.LineName;
+            Amount = omb.Amount;
         }
     }
 }

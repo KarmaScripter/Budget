@@ -8,7 +8,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <summary>
     /// 
@@ -543,26 +542,44 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IDictionary<string, object> ToDictionary( )
+        public Fund( IFund fund )
         {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
+            ID = fund.ID;
+            BFY = fund.BFY;
+            EFY = fund.EFY;
+            Code = fund.Code;
+            Name = fund.Name;
+            ShortName = fund.ShortName;
+            Status = fund.Status;
+            StartDate = fund.StartDate;
+            EndDate = fund.EndDate;
+            SubLevelPrefix = fund.SubLevelPrefix;
+            AllocationTransferAgency = fund.AllocationTransferAgency;
+            AgencyIdentifier = fund.AgencyIdentifier;
+            BeginningPeriodOfAvailability = fund.BeginningPeriodOfAvailability;
+            EndingPeriodOfAvailability = fund.EndingPeriodOfAvailability;
+            MultiYearIndicator = fund.MultiYearIndicator;
+            MainAccount = fund.MainAccount;
+            SubAccount = fund.SubAccount;
+            FundCategory = fund.FundCategory;
+            AppropriationCode = fund.AppropriationCode;
+            SubAppropriationCode = fund.SubAppropriationCode;
+            FundGroup = fund.FundCategory;
+            NoYear = fund.NoYear;
+            Carryover = fund.Carryover;
+            CancelledYearSpendingAccount = fund.CancelledYearSpendingAccount;
+            ApplyAtAllLevels = fund.ApplyAtAllLevels;
+            BatsFund = fund.BatsFund;
+            BatsEndDate = fund.BatsEndDate;
+            BatsOptionId = fund.BatsOptionId;
+            SecurityOrg = fund.SecurityOrg;
+            TreasuryAccountCode = fund.TreasuryAccountCode;
+            TreasuryAccountName = fund.TreasuryAccountName;
+            BudgetAccountCode = fund.BudgetAccountCode;
+            BudgetAccountName = fund.BudgetAccountName;
+            ApportionmentAccountCode = fund.ApportionmentAccountCode;
         }
-
+        
         /// <summary>
         /// Sets the arguments.
         /// </summary>
@@ -621,44 +638,6 @@ namespace BudgetExecution
                     : default;
             }
             catch( SystemException ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fund.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public IFund GetFund( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Fund;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRow"></param>
-        /// <returns></returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
             {
                 Fail( ex );
                 return default;

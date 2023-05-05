@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualReimbursableSurvey : DataUnit
+    public class AnnualReimbursableSurvey : DataUnit, ICarryoverSurvey
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -154,6 +154,15 @@ namespace BudgetExecution
             FundName = dataRow[ "FundName" ].ToString( );
             TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        public AnnualReimbursableSurvey( ICarryoverSurvey survey )
+        {
+            ID = survey.ID;
+            BFY = survey.BFY;
+            EFY = survey.EFY;
+            FundCode = survey.FundCode;
+            FundName = survey.FundName;
         }
     }
 }

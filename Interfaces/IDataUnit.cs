@@ -30,7 +30,7 @@ namespace BudgetExecution
         /// <summary>
         /// The value
         /// </summary>
-        object Value { get; set; }
+        public object Value { get; set; }
 
         /// <summary>
         /// 

@@ -1,20 +1,31 @@
-﻿// <copyright file = "IResourcePlanningOffice.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.IDataUnit" />
-    public interface IResourcePlanningOffice : IDataUnit
+    
+    public interface IResourcePlanningOffice
     {
         /// <summary>
-        /// Gets the resource planning office.
+        /// Gets or sets the identifier.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        IResourcePlanningOffice GetResourcePlanningOffice();
+        /// <value>
+        /// The identifier.
+        /// </value>
+        int ID { get; set; }
+
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
+        string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        string Name { get; set; }
     }
 }
