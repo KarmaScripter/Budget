@@ -439,8 +439,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _loader = new LoadingForm( Status.Processing );
-                _loader.ShowDialog( );
+                //var _loader = new LoadingForm( Status.Processing );
+                //_loader.ShowDialog( );
+                var _pdf = new PdfForm( );
+                _pdf.Owner = this;
+                _pdf.StartPosition = FormStartPosition.CenterScreen;
+                _pdf.Show( );
+                Visible = false;
+                _pdf.Show( );
             }
             catch( Exception ex )
             {

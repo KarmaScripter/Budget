@@ -77,7 +77,7 @@ namespace BudgetExecution
             // Normal Color Configuration
             NormalColor = Color.Transparent;
             NormalBorderColor = Color.Transparent;
-            NormalTextColor = Color.FromArgb( 0, 120, 212 );
+            NormalTextColor = Color.FromArgb( 50, 93, 129 );
 
             // Hover Color Configuration
             HoverBorderColor = Color.FromArgb( 50, 93, 129 );

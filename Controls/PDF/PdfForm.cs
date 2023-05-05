@@ -5,7 +5,9 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
@@ -19,6 +21,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
     public partial class PdfForm : MetroForm
     {
         /// <summary>
@@ -88,6 +92,9 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Event Wiring
+            CloseButton.Click += OnCloseButtonClick;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
             Load += OnLoad;
             Shown += OnShown;
             Closing += OnClose;
@@ -115,16 +122,110 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.Click += OnCloseButtonClick;
                 DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
                 var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
                 LoadDocuments( );
+                PopulateTableButtons( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Creates the buttons.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<Button> CreateButtons( )
+        {
+            try
+            {
+                var _data = GetDocumentData( );
+                var _buttons = new List<Button>( );
+                foreach( var kvp in _data )
+                {
+                    var _btn = new Button( );
+                    _btn.Size = new Size( 234, 45 );
+                    _btn.Text = kvp.Key;
+                    _btn.Tag = kvp.Value;
+                    _btn.Click += OnButtonClick;
+                    _buttons.Add( _btn );
+                }
+
+                return _buttons?.Any( ) == true
+                    ? _buttons
+                    : default( IEnumerable<Button> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IEnumerable<Button> );
+            }
+        }
+
+        /// <summary>
+        /// Populates the table buttons.
+        /// </summary>
+        private void PopulateTableButtons( )
+        {
+            try
+            {
+                var _buttons = CreateButtons( );
+                foreach( var btn in _buttons )
+                {
+                    ListView.ItemHeight = btn.Height;
+                    ListView.Controls.Add( btn );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                ;
+            }
+        }
+
+        /// <summary>
+        /// Gets the document data.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, string> GetDocumentData( )
+        {
+            try
+            {
+                var _table = new DataBuilder( Source.Resources, Provider.Access );
+                var _dataRows = _table.DataTable.AsEnumerable( );
+                var _names = _dataRows
+                    ?.Where( dr => dr.Field<string>( "FileExtension" ).Equals( "PDF" ) )
+                    ?.Select( dr => dr.Field<string>( "Caption" ) );
+
+                var _paths = _dataRows
+                    ?.Where( dr => dr.Field<string>( "FileExtension" ).Equals( "PDF" ) )
+                    ?.Select( dr => dr.Field<string>( "Location" ) );
+
+                var _data = new Dictionary<string, string>( );
+                foreach( var name in _names )
+                {
+                    foreach( var file in _paths )
+                    {
+                        var _path = @$"C:\users\terry\source\repos\Budget\" + file;
+                        if( !_data.ContainsKey( name ) )
+                        {
+                            _data.Add( name, _path );
+                        }
+                    }
+                }
+
+                return _data?.Any( ) == true
+                    ? _data
+                    : default( IDictionary<string, string> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, string> );
             }
         }
 
@@ -337,22 +438,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [back button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnListBoxItemSelected( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [shown].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -389,6 +474,31 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button button
+               && button.Tag != null )
+            {
+                try
+                {
+                    var _path = button.Tag.ToString( );
+                    Document = new PdfLoadedDocument( _path );
+                    DocViewer.Load( Document );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
             }
         }
 
