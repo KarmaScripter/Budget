@@ -167,5 +167,35 @@ namespace BudgetExecution
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
+        
+        public Expenditure( IStatusOfFunds status )
+        {
+            ID = status.ID;
+            BudgetLevel = status.BudgetLevel;
+            BFY = status.BFY;
+            EFY = status.EFY;
+            FundCode = status.FundCode;
+            FundName = status.FundName;
+            RpioCode = status.RpioCode;
+            RpioName = status.RpioName;
+            AhCode = status.AhCode;
+            AhName = status.AhName;
+            OrgCode = status.OrgCode;
+            OrgName = status.OrgName;
+            AccountCode = status.AccountCode;
+            BocCode = status.BocCode;
+            BocName = status.BocName;
+            Expenditures = status.Expenditures;
+            ProgramProjectCode = status.ProgramProjectCode;
+            ProgramProjectName = status.ProgramProjectName;
+            ProgramAreaCode = status.ProgramAreaCode;
+            ProgramAreaName = status.ProgramAreaName;
+            NpmCode = status.NpmCode;
+            NpmName = status.NpmName;
+            TreasuryAccountCode = status.TreasuryAccountCode;
+            TreasuryAccountName = status.TreasuryAccountName;
+            BudgetAccountCode = status.BudgetAccountCode;
+            BudgetAccountName = status.BudgetAccountName;
+        }
     }
 }

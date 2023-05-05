@@ -169,5 +169,35 @@ namespace BudgetExecution
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
         }
+        
+        public Defacto( IStatusOfFunds defacto )
+        {
+            ID = defacto.ID;
+            BudgetLevel = defacto.BudgetLevel;
+            BFY = defacto.BFY;
+            EFY = defacto.EFY;
+            FundCode = defacto.FundCode;
+            FundName = defacto.FundName;
+            RpioCode = defacto.RpioCode;
+            RpioName = defacto.RpioName;
+            AhCode = defacto.AhCode;
+            AhName = defacto.AhName;
+            OrgCode = defacto.OrgCode;
+            OrgName = defacto.OrgName;
+            AccountCode = defacto.AccountCode;
+            BocCode = defacto.BocCode;
+            BocName = defacto.BocName;
+            Available = defacto.Available;
+            ProgramProjectCode = defacto.ProgramProjectCode;
+            ProgramProjectName = defacto.ProgramProjectName;
+            ProgramAreaCode = defacto.ProgramAreaCode;
+            ProgramAreaName = defacto.ProgramAreaName;
+            NpmCode = defacto.NpmCode;
+            NpmName = defacto.NpmName;
+            TreasuryAccountCode = defacto.TreasuryAccountCode;
+            TreasuryAccountName = defacto.TreasuryAccountName;
+            BudgetAccountCode = defacto.BudgetAccountCode;
+            BudgetAccountName = defacto.BudgetAccountName;
+        }
     }
 }
