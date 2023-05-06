@@ -1,11 +1,10 @@
-﻿// <copyright file = "Obligation.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -17,136 +16,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Obligation : StatusOfFunds
+    public class Obligation : StatusOfFunds, IObligation
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public override string RpioCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public override string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ah code.
-        /// </summary>
-        /// <value>
-        /// The ah code.
-        /// </value>
-        public override string AhCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
-        public override string AhName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public override string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public override string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the org code.
-        /// </summary>
-        /// <value>
-        /// The org code.
-        /// </value>
-        public override string OrgCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the org.
-        /// </summary>
-        /// <value>
-        /// The name of the org.
-        /// </value>
-        public override string OrgName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public override string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public override string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public override string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rc code.
-        /// </summary>
-        /// <value>
-        /// The rc code.
-        /// </value>
-        public override string RcCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rc.
-        /// </summary>
-        /// <value>
-        /// The name of the rc.
-        /// </value>
-        public override string RcName { get; set; }
-
         /// <summary>
         /// Gets or sets the type of the document.
         /// </summary>
@@ -204,22 +75,6 @@ namespace BudgetExecution
         public virtual int Age { get; set; }
 
         /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
-        public override string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        public override string BocName { get; set; }
-
-        /// <summary>
         /// Gets or sets the foc code.
         /// </summary>
         /// <value>
@@ -266,95 +121,7 @@ namespace BudgetExecution
         /// The name of the vendor.
         /// </value>
         public virtual string VendorName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the open commitments.
-        /// </summary>
-        /// <value>
-        /// The open commitments.
-        /// </value>
-        public override double OpenCommitments { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public override double Obligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
-        public override double ULO { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expenditures.
-        /// </summary>
-        /// <value>
-        /// The expenditures.
-        /// </value>
-        public override double Expenditures { get; set; }
         
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury agency code.
-        /// </summary>
-        /// <value>
-        /// The treasury agency code.
-        /// </value>
-        public override string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public override string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public override string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
@@ -367,13 +134,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Obligation( IQuery query ) 
+        public Obligation( IQuery query )
             : base( query )
         {
             Source = Source.Obligations;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -386,15 +153,15 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
-            Used = double.Parse( Record[ "Used" ].ToString( ) );
-            Available = double.Parse( Record[ "Available" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? string.Empty );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? string.Empty );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? string.Empty );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? string.Empty );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? string.Empty );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? string.Empty );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? string.Empty );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? string.Empty );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -415,13 +182,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Obligation( IDataModel builder ) 
+        public Obligation( IDataModel builder )
             : base( builder )
         {
             Source = Source.Obligations;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -434,15 +201,15 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
-            Used = double.Parse( Record[ "Used" ].ToString( ) );
-            Available = double.Parse( Record[ "Available" ].ToString( ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? string.Empty );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? string.Empty );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? string.Empty );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? string.Empty );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? string.Empty );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? string.Empty );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? string.Empty );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? string.Empty );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -463,7 +230,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Obligation( DataRow dataRow ) 
+        public Obligation( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.Obligations;
@@ -482,15 +249,15 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString( ) );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) );
-            Used = double.Parse( dataRow[ "Used" ].ToString( ) );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? string.Empty );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? string.Empty );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? string.Empty );
+            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? string.Empty );
+            ULO = double.Parse( dataRow[ "ULO" ].ToString( ) ?? string.Empty );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? string.Empty );
+            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? string.Empty );
+            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? string.Empty );
+            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? string.Empty );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
@@ -505,6 +272,50 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Obligation"/> class.
+        /// </summary>
+        /// <param name="obligation">The obligation.</param>
+        public Obligation( IObligation obligation )
+        {
+            BFY = obligation.BFY;
+            EFY = obligation.EFY;
+            FundCode = obligation.FundCode;
+            FundName = obligation.FundName;
+            RpioCode = obligation.RpioCode;
+            RpioName = obligation.RpioName;
+            AhCode = obligation.AhCode;
+            AhName = obligation.AhName;
+            OrgCode = obligation.OrgCode;
+            OrgName = obligation.OrgName;
+            AccountCode = obligation.AccountCode;
+            BocCode = obligation.BocCode;
+            BocName = obligation.BocName;
+            Amount = obligation.Amount;
+            Budgeted = obligation.Budgeted;
+            Posted = obligation.Posted;
+            OpenCommitments = obligation.OpenCommitments;
+            ULO = obligation.ULO;
+            Obligations = obligation.Obligations;
+            Expenditures = obligation.Expenditures;
+            Used = obligation.Used;
+            Available = obligation.Available;
+            ProgramProjectCode = obligation.ProgramProjectCode;
+            ProgramProjectName = obligation.ProgramProjectName;
+            ProgramAreaCode = obligation.ProgramAreaCode;
+            ProgramAreaName = obligation.ProgramAreaName;
+            NpmCode = obligation.NpmCode;
+            NpmName = obligation.NpmName;
+            GoalCode = obligation.GoalCode;
+            GoalName = obligation.GoalName;
+            ObjectiveCode = obligation.ObjectiveCode;
+            ObjectiveName = obligation.ObjectiveName;
+            TreasuryAccountCode = obligation.TreasuryAccountCode;
+            TreasuryAccountName = obligation.TreasuryAccountName;
+            BudgetAccountCode = obligation.BudgetAccountCode;
+            BudgetAccountName = obligation.BudgetAccountName;
         }
     }
 }

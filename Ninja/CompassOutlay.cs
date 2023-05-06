@@ -1,5 +1,5 @@
-﻿// <copyright file = "CompassOutlay.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassOutlay : DataUnit
+    public class CompassOutlay : DataUnit, IOutlay
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -111,7 +111,7 @@ namespace BudgetExecution
         /// The name of the budget account.
         /// </value>
         public string BudgetAccountName { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the month processed.
         /// </summary>
@@ -143,7 +143,7 @@ namespace BudgetExecution
         /// The obligations paid.
         /// </value>
         public double ObligationsPaid { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -158,7 +158,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public  override Provider Provider { get; set; }
+        public override Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the Record property.
@@ -188,26 +188,26 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public CompassOutlay( IQuery query ) 
+        public CompassOutlay( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
             TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -219,21 +219,21 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
             TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
         }
 
         /// <summary>
@@ -245,21 +245,45 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             AppropriationCode = Record[ "AppropriationCode" ].ToString( );
             AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
             TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString(  ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString(  ) ?? "0" );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="CompassOutlay"/> class.
+        /// </summary>
+        /// <param name="outlay">The outlay.</param>
+        public CompassOutlay( IOutlay outlay )
+        {
+            ID = outlay.ID;
+            BFY = outlay.BFY;
+            EFY = outlay.EFY;
+            FundCode = outlay.FundCode;
+            FundName = outlay.FundName;
+            AppropriationCode = outlay.AppropriationCode;
+            AppropriationName = outlay.AppropriationName;
+            TreasuryAccountCode = outlay.TreasuryAccountCode;
+            TreasuryAccountName = outlay.TreasuryAccountName;
+            BudgetAccountCode = outlay.BudgetAccountCode;
+            BudgetAccountName = outlay.BudgetAccountName;
+            MonthProcessed = outlay.MonthProcessed;
+            TotalObligations = outlay.TotalObligations;
+            ObligationsPaid = outlay.ObligationsPaid;
+            UnliquidatedObligations = outlay.UnliquidatedObligations;
         }
     }
 }

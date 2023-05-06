@@ -213,10 +213,14 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( !col.ColumnName.EndsWith( "Id" )
-                           && ( col.DataType == typeof( double ) 
+                           && col.DataType != typeof( int )
+                           && col.DataType != typeof( string )
+                           && col.DataType != typeof( DateTime )
+                           && col.DataType != typeof( DateOnly )
+                           && col.DataType != typeof( DateTimeOffset )
+                           && ( col.DataType == typeof( double )
                                || col.DataType == typeof( decimal )
-                               || col.DataType == typeof( float ) 
-                               || col.DataType == typeof( int ) ) )
+                               || col.DataType == typeof( float ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }

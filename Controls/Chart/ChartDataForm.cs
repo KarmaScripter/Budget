@@ -293,9 +293,6 @@ namespace BudgetExecution
             SelectedTable = DataTable.TableName;
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
-            DataGrid.DataSource = BindingSource;
-            DataGrid.PascalizeHeaders( );
-            DataGrid.FormatColumns( );
             Chart.DataSource = BindingSource;
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
@@ -316,9 +313,6 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
-            DataGrid.DataSource = BindingSource;
-            DataGrid.PascalizeHeaders( );
-            DataGrid.FormatColumns( );
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -340,9 +334,6 @@ namespace BudgetExecution
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
-            DataGrid.DataSource = BindingSource;
-            DataGrid.PascalizeHeaders( );
-            DataGrid.FormatColumns( );
             ToolStrip.BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -520,9 +511,6 @@ namespace BudgetExecution
                 Numerics = DataModel.Numerics;
                 SqlQuery = DataModel.Query.SqlStatement.CommandText;
                 SqlHeader.Text = SqlQuery;
-                DataGrid.DataSource = BindingSource;
-                DataGrid.PascalizeHeaders( );
-                DataGrid.FormatColumns( );
                 if( Chart.Series[ 0 ].Points.Count > 0 )
                 {
                     Chart.Series[ 0 ].Points.Clear( );
@@ -535,6 +523,7 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].IsXValueIndexed = true;
                 Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                 Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
+                Chart.ChartAreas[ 0 ].AxisX.Title = string.Empty;
                 Chart.Update( );
             }
             catch( Exception ex )
@@ -560,9 +549,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
@@ -601,9 +587,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
@@ -645,9 +628,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
@@ -692,9 +672,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
@@ -739,7 +716,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].YValueMembers = SelectedNumerics?.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Update( );
+                    Chart.Refresh( );
                 }
                 else
                 {
@@ -755,7 +732,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Update( );
+                    Chart.Refresh( );
                 }
             }
             catch( Exception ex )
@@ -839,9 +816,6 @@ namespace BudgetExecution
                     FourthDataLabel.Text = $"Active Filters:  {_filters}";
                     FifthDataLabel.Text = $"Selected Fields:  {_selectedFields}";
                     SixthDataLabel.Text = $"Selected Measures:  {_selectedNumerics}";
-                    SeventhDataLabel.Text = string.Empty;
-                    EightDataLabel.Text = string.Empty;
-                    NinthDataLabel.Text = string.Empty;
                 }
                 else
                 {
@@ -851,9 +825,6 @@ namespace BudgetExecution
                     FourthDataLabel.Text = "Active Filters: 0.0";
                     FifthDataLabel.Text = "Selected Fields: 0.0";
                     SixthDataLabel.Text = "Selected Measures: 0.0";
-                    SeventhDataLabel.Text = string.Empty;
-                    EightDataLabel.Text = string.Empty;
-                    NinthDataLabel.Text = string.Empty;
                 }
             }
             catch( Exception ex )
@@ -1351,24 +1322,25 @@ namespace BudgetExecution
                 {
                     var _keys = filter.Keys.ToArray( );
                     var _values = filter.Values.ToArray( );
-                    var _title = _keys.First( ) + "-" + _values?.First( ).ToString( );
+                    var _title = _keys.First( ) + " - " + _values?.First( );
+                    _title += "   ";
                     for( var i = 1; i < _values.Length; i++ )
                     {
                         var _split = _keys[ i ].SplitPascal( );
                         if( _split.EndsWith( "Name" ) )
                         {
-                            var _key = _split.Replace( "Name", "" );
-                            _title += _key + "-" + _values[ i ];
-                            _title += "  ";
+                            var _key = _split.Replace( "Name", "" ).Trim( );
+                            _title += _key + " - " + _values[ i ];
+                            _title += "   ";
                         }
                         else if( _split.EndsWith( "Code" ) )
                         {
-                            var _key = _split.Replace( "Code", "" );
-                            _title += _key + "-" + _values[ i ];
-                            _title += "  ";
+                            var _key = _split.Replace( "Code", "" ).Trim( );
+                            _title += _key + " - " + _values[ i ];
+                            _title += "   ";
                         }
                     }
-                     
+
                     Chart.ChartAreas[ 0 ].AxisX.Title = _title;
                 }
                 catch( Exception ex )
@@ -1551,7 +1523,6 @@ namespace BudgetExecution
                         DataModel = new DataBuilder( Source, Provider );
                         DataTable = DataModel.DataTable;
                         BindingSource.DataSource = DataModel.DataTable;
-                        DataGrid.DataSource = BindingSource.DataSource;
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
