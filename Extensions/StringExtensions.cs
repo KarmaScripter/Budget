@@ -34,9 +34,59 @@ namespace BudgetExecution
         {
             try
             {
-                return string.IsNullOrEmpty( text ) || text.Length < 5
-                    ? text
-                    : Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled ).Trim( );
+                if( !string.IsNullOrEmpty( text )
+                   && text.Length > 4 )
+                {
+                    var _pascal = Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled )
+                        ?.Trim( );
+
+                    if( _pascal.StartsWith( "Rpio " ) )
+                    {
+                        return _pascal?.Replace( "Rpio ", "RPIO " );
+                    }
+                    else if( _pascal.StartsWith( "Npm " ) )
+                    {
+                        return _pascal?.Replace( "Npm ", "NPM " );
+                    }
+                    else if( _pascal.StartsWith( "Boc " ) )
+                    {
+                        return _pascal?.Replace( "Boc ", "BOC " );
+                    }
+                    else if( _pascal.StartsWith( "Foc " ) )
+                    {
+                        return _pascal?.Replace( "Foc ", "FOC " );
+                    }
+                    else if( _pascal.StartsWith( "Org " ) )
+                    {
+                        return _pascal?.Replace( "Org ", "ORG " );
+                    }
+                    else if( _pascal.StartsWith( "Omb " ) )
+                    {
+                        return _pascal?.Replace( "Omb ", "OMB " );
+                    }
+                    else if( _pascal.StartsWith( "Prc " ) )
+                    {
+                        return _pascal?.Replace( "Prc ", "PRC " );
+                    }
+                    else if( _pascal.StartsWith( "Ah " ) )
+                    {
+                        return _pascal?.Replace( "Ah ", "AH " );
+                    }
+                    else if( _pascal.StartsWith( "Rc " ) )
+                    {
+                        return _pascal?.Replace( "Rc ", "RC " );
+                    }
+                    else if( _pascal.EndsWith( " Id" ) )
+                    {
+                        return _pascal?.Replace( " Id", " ID" );
+                    }
+                    else
+                    {
+                        return _pascal;
+                    }
+                }
+
+                return text;
             }
             catch( Exception ex )
             {
@@ -228,42 +278,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        ///     A string extension method that converts the str to a file information.
-        /// </summary>
-        /// <param name = "text" > </param>
-        /// <returns>str as a FileInfo.</returns>
-        public static FileInfo ToFileInfo( this string text )
-        {
-            try
-            {
-                return new FileInfo( text );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
-        ///     A string extension method that converts the str to a directory information.
-        /// </summary>
-        /// <param name = "text" > </param>
-        /// <returns>str as a DirectoryInfo.</returns>
-        public static DirectoryInfo ToDirectoryInfo( this string text )
-        {
-            try
-            {
-                return new DirectoryInfo( text );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary>
         ///     A string extension method that converts the str to an XmlDocument.
         /// </summary>
         /// <param name = "xml" > </param>
@@ -328,31 +342,7 @@ namespace BudgetExecution
 
             return _count;
         }
-
-        /// <summary>
-        /// Read a text file and obtain it'text contents.
-        /// </summary>
-        /// <param name = "text" >
-        /// The complete file path to write to.
-        /// </param>
-        /// <returns>
-        /// String containing the content of the file.
-        /// </returns>
-        public static StreamReader GetStreamReader( this string text )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( text )
-                    ? new StreamReader( text )
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
+        
         /// <summary>
         /// Writes out a text to a file.
         /// </summary>
@@ -469,8 +459,7 @@ namespace BudgetExecution
                 return false;
             }
         }
-        
-        
+
         /// <summary>Fails the specified ex.</summary>
         /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )

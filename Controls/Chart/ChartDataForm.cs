@@ -20,16 +20,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -411,7 +411,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} " 
+                    return $"SELECT * FROM {SelectedTable} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
@@ -434,7 +434,7 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( SelectedTable ) 
+            if( !string.IsNullOrEmpty( SelectedTable )
                && where?.Any( ) == true
                && fields?.Any( ) == true
                && numerics?.Any( ) == true )
@@ -615,6 +615,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
+                    SetAxisTitle( where );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
@@ -658,6 +659,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
+                    SetAxisTitle( where );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
@@ -704,6 +706,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].IsXValueIndexed = false;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
+                    SetAxisTitle( where );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
@@ -1337,19 +1340,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the axis titles.
+        /// Sets the axis title.
         /// </summary>
-        /// <param name="xTitle">The xaxis.</param>
-        /// <param name="yTitle">The yaxis.</param>
-        private void SetAxisTitles( string xTitle, string yTitle )
+        /// <param name="filter">The filter.</param>
+        private void SetAxisTitle( IDictionary<string, object> filter )
         {
-            if( !string.IsNullOrEmpty( xTitle )
-               && !string.IsNullOrEmpty( yTitle ) )
+            if( filter?.Any( ) == true )
             {
                 try
                 {
-                    Chart.ChartAreas[ 0 ].AxisX.Title = xTitle;
-                    Chart.ChartAreas[ 0 ].AxisY.Title = yTitle;
+                    var _keys = filter.Keys.ToArray( );
+                    var _values = filter.Values.ToArray( );
+                    var _title = _keys.First( ) + "-" + _values?.First( ).ToString( );
+                    for( var i = 1; i < _values.Length; i++ )
+                    {
+                        var _split = _keys[ i ].SplitPascal( );
+                        if( _split.EndsWith( "Name" ) )
+                        {
+                            var _key = _split.Replace( "Name", "" );
+                            _title += _key + "-" + _values[ i ];
+                            _title += "  ";
+                        }
+                        else if( _split.EndsWith( "Code" ) )
+                        {
+                            var _key = _split.Replace( "Code", "" );
+                            _title += _key + "-" + _values[ i ];
+                            _title += "  ";
+                        }
+                    }
+                     
+                    Chart.ChartAreas[ 0 ].AxisX.Title = _title;
                 }
                 catch( Exception ex )
                 {
@@ -1383,7 +1403,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisX.LineColor = _darkBlue;
-                Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 7 );
+                Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 8 );
                 Chart.ChartAreas[ 0 ].AxisX.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = _blue;
@@ -1395,7 +1415,7 @@ namespace BudgetExecution
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisY.InterlacedColor = _transparent;
                 Chart.ChartAreas[ 0 ].AxisY.LineColor = _darkBlue;
-                Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 7 );
+                Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 8 );
                 Chart.ChartAreas[ 0 ].AxisY.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "N0";
@@ -1417,7 +1437,7 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10 );
+                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Bold );
                 Chart.Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Titles[ 0 ].BorderColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );

@@ -111,45 +111,6 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataGridView">The dataGridView
         /// <see cref="DataGridView" /></param>
-        /// <param name="fields">The fields
-        /// <see /></param>
-        /// <returns>
-        /// The
-        /// <see cref="DataTable" />
-        /// </returns>
-        public static DataTable SetColumns( this DataGridView dataGridView, Field[ ] fields )
-        {
-            if( dataGridView?.DataSource != null
-               && fields?.Length > 0 )
-            {
-                try
-                {
-                    using var _dataTable = dataGridView.GetDataTable( );
-                    using var _view = new System.Data.DataView( _dataTable );
-                    if( _dataTable?.Columns?.Count > 0 )
-                    {
-                        var _columns = fields?.Select( f => f.ToString( ) )?.ToArray( );
-                        var _table = _view?.ToTable( true, _columns );
-                        return _table?.Columns?.Count > 0
-                            ? _table
-                            : default( DataTable );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
-        }
-
-        /// <summary>
-        /// The SetColumns
-        /// </summary>
-        /// <param name="dataGridView">The dataGridView
-        /// <see cref="DataGridView" /></param>
         /// <param name="index">The index
         /// <see /></param>
         /// <returns>
@@ -378,16 +339,16 @@ namespace BudgetExecution
                             if( _column.DataType == typeof( int ) 
                                || _column.ColumnName.EndsWith( "Id" ) )
                             {
-                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N0";
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "G0";
                             }
                             else if( _column.DataType == typeof( double )  
                                     || _column.DataType == typeof( float ) )
                             {
-                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N";
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N2";
                             }
                             else if( _column.DataType == typeof( decimal ) )
                             {
-                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "C";
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "C0";
                             }
                             else if( _column.DataType == typeof( DateTime ) )
                             {
