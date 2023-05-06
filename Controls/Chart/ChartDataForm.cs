@@ -294,6 +294,8 @@ namespace BudgetExecution
             DataModel = new DataBuilder( Source, Provider );
             BindingSource.DataSource = DataModel.DataTable;
             DataGrid.DataSource = BindingSource;
+            DataGrid.PascalizeHeaders( );
+            DataGrid.FormatColumns( );
             Chart.DataSource = BindingSource;
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
@@ -315,6 +317,8 @@ namespace BudgetExecution
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
             DataGrid.DataSource = BindingSource;
+            DataGrid.PascalizeHeaders( );
+            DataGrid.FormatColumns( );
             ToolStrip.BindingSource = BindingSource;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -337,6 +341,8 @@ namespace BudgetExecution
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
             DataGrid.DataSource = BindingSource;
+            DataGrid.PascalizeHeaders( );
+            DataGrid.FormatColumns( );
             ToolStrip.BindingSource.DataSource = DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
@@ -400,11 +406,13 @@ namespace BudgetExecution
         /// <returns></returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            if( !string.IsNullOrEmpty( SelectedTable )
+               && where?.Any( ) == true )
             {
                 try
                 {
-                    return $"SELECT * FROM {SelectedTable} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {SelectedTable} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -426,7 +434,8 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
+            if( !string.IsNullOrEmpty( SelectedTable ) 
+               && where?.Any( ) == true
                && fields?.Any( ) == true
                && numerics?.Any( ) == true )
             {
@@ -469,7 +478,8 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
+            if( !string.IsNullOrEmpty( SelectedTable )
+               && where?.Any( ) == true
                && columns?.Any( ) == true )
             {
                 try
@@ -511,6 +521,8 @@ namespace BudgetExecution
                 SqlQuery = DataModel.Query.SqlStatement.CommandText;
                 SqlHeader.Text = SqlQuery;
                 DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
                 if( Chart.Series[ 0 ].Points.Count > 0 )
                 {
                     Chart.Series[ 0 ].Points.Clear( );
@@ -549,13 +561,15 @@ namespace BudgetExecution
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
                     DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = DataTable;
+                    Chart.DataSource = BindingSource;
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
                     Chart.Series[ 0 ].IsXValueIndexed = true;
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
@@ -587,12 +601,14 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    DataGrid.DataSource = BindingSource;
                     Chart.DataSource = BindingSource;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
@@ -600,7 +616,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Update( );
+                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -629,6 +645,8 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
@@ -641,7 +659,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Update( );
+                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -672,12 +690,14 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    DataGrid.DataSource = BindingSource;
                     Chart.DataSource = BindingSource;
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.Series[ 0 ].XValueMember = Fields.Last( );
@@ -685,7 +705,7 @@ namespace BudgetExecution
                     Chart.Series[ 0 ].YValueMembers = Numerics.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                    Chart.Update( );
+                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -711,8 +731,9 @@ namespace BudgetExecution
 
                     Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
                     Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = SelectedFields.Last( );
-                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics.First( );
+                    Chart.Series[ 0 ].XValueMember = SelectedFields?.Last( );
+                    Chart.Series[ 0 ].IsXValueIndexed = false;
+                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics?.First( );
                     SetSeriesProperties( );
                     Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Update( );
@@ -984,9 +1005,11 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1099,7 +1122,8 @@ namespace BudgetExecution
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
                     var _excelDataForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )?.First( );
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
+                        ?.First( );
 
                     _excelDataForm.Visible = true;
                 }
@@ -1127,7 +1151,8 @@ namespace BudgetExecution
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
                     var _dataGridForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )?.First( );
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
+                        ?.First( );
 
                     _dataGridForm.Visible = true;
                 }
@@ -1344,12 +1369,12 @@ namespace BudgetExecution
                 var _gray = Color.FromArgb( 65, 65, 65 );
                 var _transparent = Color.Transparent;
                 var _blue = Color.FromArgb( 0, 120, 212 );
-                var _shadow = Color.FromArgb( 24, 47, 66 );
+                var _darkBlue = Color.FromArgb( 24, 47, 66 );
 
                 // General Area Properties
                 Chart.ChartAreas[ 0 ].BackColor = _black;
                 Chart.ChartAreas[ 0 ].Area3DStyle.Enable3D = true;
-                Chart.ChartAreas[ 0 ].BorderColor = _shadow;
+                Chart.ChartAreas[ 0 ].BorderColor = _darkBlue;
                 Chart.ChartAreas[ 0 ].BackSecondaryColor = _black;
                 Chart.ChartAreas[ 0 ].Area3DStyle.PointDepth = 150;
                 Chart.ChartAreas[ 0 ].Area3DStyle.Inclination = 35;
@@ -1357,25 +1382,25 @@ namespace BudgetExecution
                 // Horizontal Axis Properties
                 Chart.ChartAreas[ 0 ].AxisX.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisX.InterlacedColor = _transparent;
-                Chart.ChartAreas[ 0 ].AxisX.LineColor = _shadow;
+                Chart.ChartAreas[ 0 ].AxisX.LineColor = _darkBlue;
                 Chart.ChartAreas[ 0 ].AxisX.TitleFont = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisX.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.Font = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisX.LabelStyle.ForeColor = _blue;
-                Chart.ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _shadow;
+                Chart.ChartAreas[ 0 ].AxisX.MajorGrid.LineColor = _darkBlue;
                 Chart.ChartAreas[ 0 ].AxisX.MinorGrid.LineColor = _gray;
                 Chart.ChartAreas[ 0 ].AxisX.TextOrientation = TextOrientation.Auto;
 
                 // Vertical Axis Properties
                 Chart.ChartAreas[ 0 ].AxisY.IsLabelAutoFit = true;
                 Chart.ChartAreas[ 0 ].AxisY.InterlacedColor = _transparent;
-                Chart.ChartAreas[ 0 ].AxisY.LineColor = _shadow;
+                Chart.ChartAreas[ 0 ].AxisY.LineColor = _darkBlue;
                 Chart.ChartAreas[ 0 ].AxisY.TitleFont = new Font( "Roboto", 7 );
                 Chart.ChartAreas[ 0 ].AxisY.TitleForeColor = _blue;
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Font = new Font( "Roboto", 7 );
-                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "#,";
+                Chart.ChartAreas[ 0 ].AxisY.LabelStyle.Format = "N0";
                 Chart.ChartAreas[ 0 ].AxisY.LabelStyle.ForeColor = _blue;
-                Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _shadow;
+                Chart.ChartAreas[ 0 ].AxisY.MajorGrid.LineColor = _darkBlue;
                 Chart.ChartAreas[ 0 ].AxisY.MinorGrid.LineColor = _gray;
                 Chart.ChartAreas[ 0 ].AxisY.TextOrientation = TextOrientation.Auto;
             }
@@ -1597,6 +1622,7 @@ namespace BudgetExecution
 
                     ResetData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
+                    SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1670,6 +1696,7 @@ namespace BudgetExecution
 
                     ResetData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
+                    SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1742,8 +1769,9 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     FormFilter.Add( SecondCategory, SecondValue );
                     FormFilter.Add( ThirdCategory, ThirdValue );
-                    SqlQuery = CreateSqlText( FormFilter );
                     ResetData( FormFilter );
+                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )

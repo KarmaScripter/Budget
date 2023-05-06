@@ -375,8 +375,13 @@ namespace BudgetExecution
                         for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
                         {
                             var _column = _table.Columns[ _i ];
-                            if( _column.DataType == typeof( double )  
-                               || _column.DataType == typeof( float ) )
+                            if( _column.DataType == typeof( int ) 
+                               || _column.ColumnName.EndsWith( "Id" ) )
+                            {
+                                dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N0";
+                            }
+                            else if( _column.DataType == typeof( double )  
+                                    || _column.DataType == typeof( float ) )
                             {
                                 dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N";
                             }

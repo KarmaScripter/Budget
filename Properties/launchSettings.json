@@ -2,7 +2,7 @@
   "profiles": {
     "Budget": {
       "commandName": "Project",
-      "nativeDebugging": true
+      "nativeDebugging": false
     }
   }
 }
