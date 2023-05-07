@@ -112,7 +112,7 @@ namespace BudgetExecution
                 try
                 {
                     item.BackColor = Color.FromArgb( 30, 30, 30 );
-                    item.ForeColor =  Color.White;
+                    item.ForeColor = Color.White;
                 }
                 catch( Exception ex )
                 {

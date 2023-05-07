@@ -20,16 +20,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -218,6 +218,22 @@ namespace BudgetExecution
         public Provider Provider { get; set; }
 
         /// <summary>
+        /// Gets or sets the type of the chart.
+        /// </summary>
+        /// <value>
+        /// The type of the chart.
+        /// </value>
+        public SeriesChartType ChartType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the measure.
+        /// </summary>
+        /// <value>
+        /// The measure.
+        /// </value>
+        public STAT Metric { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ChartDataForm"/> class.
         /// </summary>
         public ChartDataForm( )
@@ -252,6 +268,8 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
+            Metric = STAT.Total;
+            ChartType = SeriesChartType.Column;
 
             // Event Wiring
             ExitButton.Click += null;
@@ -279,6 +297,8 @@ namespace BudgetExecution
             RefreshDataButton.Click += OnRefreshDataButtonClicked;
             ExcelButton.Click += OnExcelExportButtonClicked;
             TableButton.Click += OnTableButtonClick;
+            ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
+            MetricsComboBox.SelectedIndexChanged += OnMeasureSelected;
             MouseClick += OnRightClick;
             Load += OnLoad;
             Shown += OnShown;
@@ -1245,6 +1265,53 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the type of the chart.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        private void SetChartType( string type )
+        {
+            if( !string.IsNullOrEmpty( type ) )
+            {
+                try
+                {
+                    var _types = Enum.GetNames( typeof( SeriesChartType ) );
+                    if( _types?.Contains( type ) == true )
+                    {
+                        ChartType =
+                            (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the measure.
+        /// </summary>
+        /// <param name="stat">The stat.</param>
+        private void SetMeasure( string stat )
+        {
+            if( !string.IsNullOrEmpty( stat ) )
+            {
+                try
+                {
+                    var _measures = Enum.GetNames( typeof( STAT ) );
+                    if( _measures?.Contains( stat ) == true )
+                    {
+                        Metric = (STAT)Enum.Parse( typeof( STAT ), stat );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Sets the tool strip properties.
         /// </summary>
         private void SetToolStripProperties( )
@@ -1442,11 +1509,12 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the series.
         /// </summary>
-        private void SetSeriesProperties( int i = 0 )
+        private void SetSeriesProperties( int i = 0,
+            SeriesChartType type = SeriesChartType.Column )
         {
             try
             {
-                Chart.Series[ i ].ChartType = SeriesChartType.Column;
+                Chart.Series[ i ].ChartType = type;
                 Chart.Series[ i ].IsValueShownAsLabel = true;
                 Chart.Series[ i ].IsVisibleInLegend = true;
                 Chart.Series[ i ].LabelBorderColor = Color.Transparent;
@@ -2025,6 +2093,64 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [chart type selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnChartTypeSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _selectedItem = ChartSeriesComboBox.ComboBox.SelectedItem;
+                var _selection = _selectedItem.ToString( );
+                var _names = Enum.GetNames( typeof( SeriesChartType ) );
+                var _message = $"Chart Type Changed To {_selection}";
+                var _notify = new Notification( _message );
+                if( !string.IsNullOrEmpty( _selection )
+                   && _names.Contains( _selection ) )
+                {
+                    ChartType =
+                        (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), _selection );
+
+                    _notify.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [measure selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnMeasureSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _selectedItem = MetricsComboBox.ComboBox.SelectedItem;
+                var _selection = _selectedItem.ToString( );
+                var _names = Enum.GetNames( typeof( STAT ) );
+                var _message = $"Selected Metric Changed To {_selection}";
+                var _notify = new Notification( _message );
+                if( !string.IsNullOrEmpty( _selection )
+                   && _names.Contains( _selection ) )
+                {
+                    Metric =
+                        (STAT)Enum.Parse( typeof( STAT ), _selection );
+
+                    _notify.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [binding source changed].
         /// </summary>
         /// <param name="sender">The sender.
@@ -2038,7 +2164,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _curIndex = bindingSource.CurrencyManager.Position;
+                    var _position = bindingSource.CurrencyManager.Position;
                 }
                 catch( Exception ex )
                 {

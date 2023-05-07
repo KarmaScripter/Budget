@@ -337,22 +337,8 @@ namespace BudgetExecution
                             }
                             case MenuOption.Guidance:
                             {
-                                var _forms = Program.Windows.Values;
-                                if( _forms?.Any( f => f.GetType( ) == typeof( PdfForm ) ) == true )
-                                {
-                                    var _form = _forms
-                                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
-                                        ?.First( );
-
-                                    _form.Visible = true;
-                                    Close( );
-                                }
-                                else
-                                {
-                                    var _pdfForm = new PdfForm( );
-                                    _pdfForm.ShowDialog( );
-                                }
-                                
+                                var _pdfForm = new PdfForm( );
+                                _pdfForm.Show( );
                                 break;
                             }
                             case MenuOption.Save:
