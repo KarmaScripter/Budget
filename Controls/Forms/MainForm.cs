@@ -17,6 +17,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -503,7 +504,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows.Add( Name, this );
+                Program.Windows.Add( "MainForm", this );
             }
             catch( Exception ex )
             {

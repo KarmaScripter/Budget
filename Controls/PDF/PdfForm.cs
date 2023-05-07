@@ -103,6 +103,9 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
             MenuButton.Click += OnMainMenuButtonClicked;
             BackButton.Click += OnBackButtonClicked;
+            DataGridButton.Click += OnDataGridButtonClick;
+            ChartButton.Click += OnChartButtonClick;
+            ExcelButton.Click += OnExcelButtonClick;
             ListBox.SelectedValueChanged += OnListBoxItemSelected;
             Load += OnLoad;
             Shown += OnShown;
@@ -186,7 +189,7 @@ namespace BudgetExecution
                         && Owner.Visible == false
                         && Owner.GetType( ) != typeof( MainForm ) )
                 {
-                    var _mainForm = Program.Windows[ "Main" ];
+                    var _mainForm = Program.Windows[ "MainForm" ];
                     _mainForm.Visible = true;
                     Owner.Close( );
                     Close( );
@@ -213,12 +216,14 @@ namespace BudgetExecution
                         ?.First( );
 
                     _excelDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _excelDataForm = new ExcelDataForm( BindingSource );
                     _excelDataForm.Owner = this;
                     _excelDataForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -242,12 +247,14 @@ namespace BudgetExecution
                         ?.First( );
 
                     _dataGridForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
-                    var _dataGridForm = new DataGridForm( BindingSource );
+                    var _dataGridForm = new DataGridForm( );
                     _dataGridForm.Owner = this;
                     _dataGridForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -271,12 +278,14 @@ namespace BudgetExecution
                         ?.First( );
 
                     _chartDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _chartDataForm = new ChartDataForm( BindingSource );
                     _chartDataForm.Owner = this;
                     _chartDataForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -284,7 +293,48 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+        
+        /// <summary>
+        /// Called when [data grid button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnDataGridButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenDataGridForm( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
+        private void OnExcelButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenExcelDataForm( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void OnChartButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenChartDataForm( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [close button click].
         /// </summary>
@@ -299,6 +349,10 @@ namespace BudgetExecution
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
+                    Close( );
+                }
+                else
+                {
                     Close( );
                 }
             }
@@ -322,6 +376,10 @@ namespace BudgetExecution
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
+                    Visible = false;
+                }
+                else
+                {
                     Visible = false;
                 }
             }
@@ -357,9 +415,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( !Program.Windows.ContainsKey( Name ) )
+                if( !Program.Windows.ContainsKey( "PdfForm" ) )
                 {
-                    Program.Windows.Add( Name, this );
+                    Program.Windows.Add( "PdfForm", this );
                 }
             }
             catch( Exception ex )
@@ -377,9 +435,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Program.Windows.ContainsKey( Name ) )
+                if( Program.Windows.ContainsKey( "PdfForm" ) )
                 {
-                    Program.Windows.Remove( Name );
+                    Program.Windows.Remove( "PdfForm" );
                 }
             }
             catch( Exception ex )

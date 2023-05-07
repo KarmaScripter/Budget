@@ -567,7 +567,11 @@ namespace BudgetExecution
         {
             try
             {
-                OpenDataGridForm( );
+                if( BindingSource.DataSource != null )
+                {
+                    OpenDataGridForm( );
+                    Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -584,7 +588,11 @@ namespace BudgetExecution
         {
             try
             {
-                OpenChartDataForm( );
+                if( BindingSource.DataSource != null )
+                {
+                    OpenChartDataForm( );
+                    Visible = false;
+                }
             }
             catch( Exception ex )
             {
@@ -797,9 +805,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( !Program.Windows.ContainsKey( Name ) )
+                if( !Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
-                    Program.Windows.Add( Name, this );
+                    Program.Windows.Add( "ExcelDataForm", this );
                 }
             }
             catch( Exception ex )
@@ -817,9 +825,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Program.Windows.ContainsKey( Name ) )
+                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
-                    Program.Windows.Remove( Name );
+                    Program.Windows.Remove( "ExcelDataForm" );
                 }
             }
             catch( Exception ex )

@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
     using MetroSet_UI.Child;
     using MetroSet_UI.Enums;
@@ -34,7 +35,7 @@ namespace BudgetExecution
             ShowImageMargin = true;
             SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
             SelectedItemColor = Color.White;
-            ThemeAuthor = "Terry D. Eppler";
+            ThemeAuthor = "Terry Eppler";
             ThemeName = "Budget Execution";
 
             // Menu Items
@@ -336,9 +337,22 @@ namespace BudgetExecution
                             }
                             case MenuOption.Guidance:
                             {
-                                var _dialog = new GuidanceDialog( );
-                                _dialog.Location = e.Location;
-                                _dialog.ShowDialog( );
+                                var _forms = Program.Windows.Values;
+                                if( _forms?.Any( f => f.GetType( ) == typeof( PdfForm ) ) == true )
+                                {
+                                    var _form = _forms
+                                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
+                                        ?.First( );
+
+                                    _form.Visible = true;
+                                    Close( );
+                                }
+                                else
+                                {
+                                    var _pdfForm = new PdfForm( );
+                                    _pdfForm.ShowDialog( );
+                                }
+                                
                                 break;
                             }
                             case MenuOption.Save:
