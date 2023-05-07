@@ -164,7 +164,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Opens the main form.
         /// </summary>
@@ -280,7 +280,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [close button click].
         /// </summary>

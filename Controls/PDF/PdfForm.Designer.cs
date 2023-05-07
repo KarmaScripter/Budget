@@ -40,6 +40,9 @@
             BindingSource =  new BindingSource( components ) ;
             DocViewer =  new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( ) ;
             PdfTable =  new TableLayoutPanel( ) ;
+            ListBoxPanel =  new Layout( ) ;
+            ListBoxTable =  new HeaderPanel( ) ;
+            FlowPanel =  new FlowLayoutPanel( ) ;
             PictureBox =  new PictureBox( ) ;
             HeaderLabel =  new Label( ) ;
             DocumentPanel =  new Layout( ) ;
@@ -48,16 +51,15 @@
             MenuButton =  new Button( ) ;
             CloseButton =  new Button( ) ;
             BackButton =  new Button( ) ;
-            ListBoxTable =  new HeaderPanel( ) ;
-            ListBoxPanel =  new Layout( ) ;
-            FlowPanel =  new FlowLayoutPanel( ) ;
+            FlowLayout =  new Layout( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             PdfTable.SuspendLayout( );
+            ListBoxPanel.SuspendLayout( );
+            ListBoxTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             DocumentPanel.SuspendLayout( );
             CloseButtonTable.SuspendLayout( );
-            ListBoxTable.SuspendLayout( );
-            ListBoxPanel.SuspendLayout( );
+            FlowLayout.SuspendLayout( );
             SuspendLayout( );
             // 
             // ToolTip
@@ -127,12 +129,12 @@
             PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 21.875F ) );
             PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 990F ) );
             PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 298F ) );
+            PdfTable.Controls.Add( ListBoxPanel, 3, 1 );
             PdfTable.Controls.Add( PictureBox, 0, 0 );
             PdfTable.Controls.Add( HeaderLabel, 2, 0 );
             PdfTable.Controls.Add( DocumentPanel, 2, 1 );
             PdfTable.Controls.Add( ButtonTable, 2, 2 );
             PdfTable.Controls.Add( CloseButtonTable, 3, 2 );
-            PdfTable.Controls.Add( ListBoxTable, 3, 1 );
             PdfTable.Dock =  DockStyle.Fill ;
             PdfTable.Location =  new System.Drawing.Point( 0, 0 ) ;
             PdfTable.Name =  "PdfTable" ;
@@ -143,6 +145,62 @@
             PdfTable.Size =  new System.Drawing.Size( 1338, 739 ) ;
             PdfTable.TabIndex =  3 ;
             PdfTable.UseWaitCursor =  true ;
+            // 
+            // ListBoxPanel
+            // 
+            ListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
+            ListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBoxPanel.BindingSource =  null ;
+            ListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ListBoxPanel.BorderThickness =  1 ;
+            ListBoxPanel.Children =  null ;
+            ListBoxPanel.Controls.Add( ListBoxTable );
+            ListBoxPanel.DataFilter =  null ;
+            ListBoxPanel.Dock =  DockStyle.Fill ;
+            ListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            ListBoxPanel.HoverText =  null ;
+            ListBoxPanel.IsDerivedStyle =  true ;
+            ListBoxPanel.Location =  new System.Drawing.Point( 1042, 36 ) ;
+            ListBoxPanel.Name =  "ListBoxPanel" ;
+            ListBoxPanel.Padding =  new Padding( 1 ) ;
+            ListBoxPanel.Size =  new System.Drawing.Size( 293, 663 ) ;
+            ListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ListBoxPanel.StyleManager =  null ;
+            ListBoxPanel.TabIndex =  3 ;
+            ListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            ListBoxPanel.ThemeName =  "Budget Execution" ;
+            ListBoxPanel.ToolTip =  null ;
+            ListBoxPanel.UseWaitCursor =  true ;
+            // 
+            // ListBoxTable
+            // 
+            ListBoxTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBoxTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
+            ListBoxTable.CaptionText =  "Documentation" ;
+            ListBoxTable.ColumnCount =  1 ;
+            ListBoxTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
+            ListBoxTable.Controls.Add( FlowLayout, 0, 1 );
+            ListBoxTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ListBoxTable.ForeColor =  System.Drawing.Color.DarkGray ;
+            ListBoxTable.Location =  new System.Drawing.Point( 4, 4 ) ;
+            ListBoxTable.Name =  "ListBoxTable" ;
+            ListBoxTable.RowCount =  2 ;
+            ListBoxTable.RowStyles.Add( new RowStyle( SizeType.Percent, 1.23647606F ) );
+            ListBoxTable.RowStyles.Add( new RowStyle( SizeType.Percent, 98.76353F ) );
+            ListBoxTable.Size =  new System.Drawing.Size( 285, 655 ) ;
+            ListBoxTable.TabIndex =  9 ;
+            ListBoxTable.UseWaitCursor =  true ;
+            // 
+            // FlowPanel
+            // 
+            FlowPanel.FlowDirection =  FlowDirection.TopDown ;
+            FlowPanel.Location =  new System.Drawing.Point( 4, 49 ) ;
+            FlowPanel.Name =  "FlowPanel" ;
+            FlowPanel.Size =  new System.Drawing.Size( 271, 527 ) ;
+            FlowPanel.TabIndex =  0 ;
+            FlowPanel.UseWaitCursor =  true ;
+            FlowPanel.WrapContents =  false ;
             // 
             // PictureBox
             // 
@@ -348,61 +406,31 @@
             BackButton.ToolTip =  null ;
             BackButton.UseWaitCursor =  true ;
             // 
-            // ListBoxTable
+            // FlowLayout
             // 
-            ListBoxTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ListBoxTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-            ListBoxTable.CaptionText =  "Documentation" ;
-            ListBoxTable.ColumnCount =  1 ;
-            ListBoxTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
-            ListBoxTable.Controls.Add( ListBoxPanel, 0, 1 );
-            ListBoxTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ListBoxTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            ListBoxTable.Location =  new System.Drawing.Point( 1042, 36 ) ;
-            ListBoxTable.Name =  "ListBoxTable" ;
-            ListBoxTable.RowCount =  2 ;
-            ListBoxTable.RowStyles.Add( new RowStyle( SizeType.Percent, 1.23647606F ) );
-            ListBoxTable.RowStyles.Add( new RowStyle( SizeType.Percent, 98.76353F ) );
-            ListBoxTable.Size =  new System.Drawing.Size( 293, 663 ) ;
-            ListBoxTable.TabIndex =  9 ;
-            ListBoxTable.UseWaitCursor =  true ;
-            // 
-            // ListBoxPanel
-            // 
-            ListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            ListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ListBoxPanel.BindingSource =  null ;
-            ListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            ListBoxPanel.BorderThickness =  1 ;
-            ListBoxPanel.Children =  null ;
-            ListBoxPanel.Controls.Add( FlowPanel );
-            ListBoxPanel.DataFilter =  null ;
-            ListBoxPanel.Dock =  DockStyle.Fill ;
-            ListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            ListBoxPanel.HoverText =  null ;
-            ListBoxPanel.IsDerivedStyle =  true ;
-            ListBoxPanel.Location =  new System.Drawing.Point( 3, 27 ) ;
-            ListBoxPanel.Name =  "ListBoxPanel" ;
-            ListBoxPanel.Padding =  new Padding( 1 ) ;
-            ListBoxPanel.Size =  new System.Drawing.Size( 287, 633 ) ;
-            ListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ListBoxPanel.StyleManager =  null ;
-            ListBoxPanel.TabIndex =  3 ;
-            ListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            ListBoxPanel.ThemeName =  "Budget Execution" ;
-            ListBoxPanel.ToolTip =  null ;
-            ListBoxPanel.UseWaitCursor =  true ;
-            // 
-            // FlowPanel
-            // 
-            FlowPanel.Dock =  DockStyle.Fill ;
-            FlowPanel.FlowDirection =  FlowDirection.TopDown ;
-            FlowPanel.Location =  new System.Drawing.Point( 1, 1 ) ;
-            FlowPanel.Name =  "FlowPanel" ;
-            FlowPanel.Size =  new System.Drawing.Size( 285, 631 ) ;
-            FlowPanel.TabIndex =  0 ;
-            FlowPanel.WrapContents =  false ;
+            FlowLayout.BackColor =  System.Drawing.Color.Transparent ;
+            FlowLayout.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            FlowLayout.BindingSource =  null ;
+            FlowLayout.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            FlowLayout.BorderThickness =  1 ;
+            FlowLayout.Children =  null ;
+            FlowLayout.Controls.Add( FlowPanel );
+            FlowLayout.DataFilter =  null ;
+            FlowLayout.Dock =  DockStyle.Fill ;
+            FlowLayout.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            FlowLayout.ForeColor =  System.Drawing.Color.Transparent ;
+            FlowLayout.HoverText =  null ;
+            FlowLayout.IsDerivedStyle =  true ;
+            FlowLayout.Location =  new System.Drawing.Point( 3, 26 ) ;
+            FlowLayout.Name =  "FlowLayout" ;
+            FlowLayout.Padding =  new Padding( 1 ) ;
+            FlowLayout.Size =  new System.Drawing.Size( 279, 626 ) ;
+            FlowLayout.Style =  MetroSet_UI.Enums.Style.Custom ;
+            FlowLayout.StyleManager =  null ;
+            FlowLayout.TabIndex =  0 ;
+            FlowLayout.ThemeAuthor =  "Terry D. Eppler" ;
+            FlowLayout.ThemeName =  "Budget Execution" ;
+            FlowLayout.ToolTip =  null ;
             // 
             // PdfForm
             // 
@@ -439,11 +467,12 @@
             UseWaitCursor =  true ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             PdfTable.ResumeLayout( false );
+            ListBoxPanel.ResumeLayout( false );
+            ListBoxTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             DocumentPanel.ResumeLayout( false );
             CloseButtonTable.ResumeLayout( false );
-            ListBoxTable.ResumeLayout( false );
-            ListBoxPanel.ResumeLayout( false );
+            FlowLayout.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -464,5 +493,6 @@
         public HeaderPanel ListBoxTable;
         private ListView listView1;
         public FlowLayoutPanel FlowPanel;
+        public Layout FlowLayout;
     }
 }
