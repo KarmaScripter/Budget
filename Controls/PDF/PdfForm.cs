@@ -128,108 +128,43 @@ namespace BudgetExecution
                 HeaderLabel.Text = "Budget Guidance";
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
-                LoadDocuments( );
-                PopulateTableButtons( );
+                PopulateItems( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Creates the buttons.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<Button> CreateButtons( )
-        {
-            try
-            {
-                var _data = GetDocuments( );
-                var _buttons = new List<Button>( );
-                foreach( var kvp in _data )
-                {
-                    var _btn = new Button( );
-                    _btn.Size = new Size( 234, 45 );
-                    _btn.Text = kvp.Key;
-                    _btn.Tag = kvp.Value;
-                    _btn.Click += OnButtonClick;
-                    _buttons.Add( _btn );
-                }
-
-                return _buttons?.Any( ) == true
-                    ? _buttons
-                    : default( IEnumerable<Button> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<Button> );
             }
         }
 
         /// <summary>
         /// Populates the table buttons.
         /// </summary>
-        private void PopulateTableButtons( )
+        private void PopulateItems( )
         {
             try
             {
-                var _buttons = CreateButtons( );
-                foreach( var btn in _buttons )
-                {
-                    FlowPanel.Controls.Add( btn );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                ;
-            }
-        }
-
-        /// <summary>
-        /// Gets the document data.
-        /// </summary>
-        /// <returns></returns>
-        private IDictionary<string, string> GetDocuments( )
-        {
-            try
-            {
+                var _criteria = new Dictionary<string, object>( );
+                _criteria.Add( "FileExtension", "PDF" );
                 var _table = new DataBuilder( Source.Resources, Provider.Access );
-                var _dataRows = _table.DataTable.AsEnumerable( );
-                var _names = _dataRows
-                    ?.Where( dr => dr.Field<string>( "FileExtension" ).Equals( "PDF" ) )
-                    ?.Select( dr => dr.Field<string>( "Caption" ) );
-
-                var _paths = _dataRows
-                    ?.Where( dr => dr.Field<string>( "FileExtension" ).Equals( "PDF" ) )
-                    ?.Select( dr => dr.Field<string>( "Location" ) );
-
-                var _data = new Dictionary<string, string>( );
-                foreach( var name in _names )
+                var _dataRows = _table.DataTable.Filter( _criteria );
+                FlowPanel.AutoScroll = true;
+                foreach( var row in _dataRows )
                 {
-                    foreach( var file in _paths )
-                    {
-                        var _path = @$"C:\users\terry\source\repos\Budget\" + file;
-                        if( !_data.ContainsKey( name ) )
-                        {
-                            _data.Add( name, _path );
-                        }
-                    }
+                    var _prefix = @"C:\Users\terry\source\repos\Budget\";
+                    var _btn = new Button( );
+                    _btn.Size = new Size( 250, 45 );
+                    _btn.Text = row[ "Caption" ].ToString( );
+                    _btn.Tag = _prefix + row[ "Location" ];
+                    _btn.Click += OnButtonClick;
+                    FlowPanel.Controls.Add( _btn );
                 }
-
-                return _data?.Any( ) == true
-                    ? _data
-                    : default( IDictionary<string, string> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IDictionary<string, string> );
             }
         }
-
+        
         /// <summary>
         /// Opens the main form.
         /// </summary>
@@ -345,36 +280,7 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-
-        /// <summary>
-        /// Gets the document name list.
-        /// </summary>
-        /// <returns></returns>
-        private void LoadDocuments( )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( DirectoryPath )
-                   && Directory.Exists( DirectoryPath ) )
-                {
-                    var _names = Directory.GetFiles( DirectoryPath );
-                    for( var i = 0; i < _names.Length; i++ )
-                    {
-                        var _file = _names[ i ];
-                        var _name = Path.GetFileNameWithoutExtension( _file );
-                        if( !string.IsNullOrEmpty( _name )
-                           && _name != "ApplicationLandingDocument" )
-                        {
-                        }
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Called when [close button click].
         /// </summary>

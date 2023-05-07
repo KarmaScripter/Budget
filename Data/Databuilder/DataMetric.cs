@@ -30,67 +30,10 @@ namespace BudgetExecution
         public DataTable DataTable { get; set; }
 
         /// <summary>
-        /// Gets or sets the data member.
-        /// </summary>
-        /// <value>
-        /// The data member.
-        /// </value>
-        public string DataMember { get; set; }
-
-        /// <summary>
-        /// The dataRow
-        /// </summary>
-        public IEnumerable<DataRow> Data { get; set; }
-
-        /// <summary>
         /// The Numerics
         /// </summary>
         public IEnumerable<string> Numerics { get; set; }
-
-        /// <summary>
-        /// The count
-        /// </summary>
-        public int Count { get; set; }
-
-        /// <summary>
-        /// The total
-        /// </summary>
-        public double Total { get; set; }
-
-        /// <summary>
-        /// The average
-        /// </summary>
-        public double Average { get; set; }
-
-        /// <summary>
-        /// Gets the variance.
-        /// </summary>
-        /// <value>
-        /// The variance.
-        /// </value>
-        public double Variance { get; set; }
-
-        /// <summary>
-        /// Gets the deviation.
-        /// </summary>
-        /// <value>
-        /// The deviation.
-        /// </value>
-        public double Deviation { get; set; }
-
-        /// <summary>
-        /// Gets or sets the amounts.
-        /// </summary>
-        /// <value>
-        /// The amounts.
-        /// </value>
-        public IDictionary<string, double> Amounts { get; set; }
-
-        /// <summary>
-        /// The statistics
-        /// </summary>
-        public IDictionary<string, double> Statistics { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the values.
         /// </summary>
@@ -183,6 +126,38 @@ namespace BudgetExecution
                 try
                 {
                     var _select = DataTable.AsEnumerable( )
+                        ?.Select( p => p.Field<double>( numeric ) );
+
+                    return _select?.Any( ) == true
+                        ? _select.Count( )
+                        : -1;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return -1;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// Gets the count.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public int CountValues( string numeric, IDictionary<string, object> where )
+        {
+            if( DataTable != null
+               && Numerics?.Any( ) == true
+               && where?.Any( ) == true
+               && !string.IsNullOrEmpty( numeric )
+               && Numerics.Contains( numeric ) )
+            {
+                try
+                {
+                    var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) );
 
                     return _select?.Any( ) == true
@@ -313,6 +288,37 @@ namespace BudgetExecution
             }
 
             return 0.0d;
+        }
+
+        /// <summary>
+        /// Calculates the percentage.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public double CalculatePercentage( string numeric )
+        {
+            if( DataTable != null
+               && Numerics?.Any( ) == true
+               && !string.IsNullOrEmpty( numeric )
+               && Numerics.Contains( numeric ) )
+            {
+                try
+                {
+                    var _select = DataTable.AsEnumerable( )
+                        ?.Select( p => p.Field<double>( numeric ) )
+                        ?.Sum( );
+
+                    return _select > 0
+                        ? double.Parse( _select?.ToString( "N1" ) )
+                        : 0.0d;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+
+            return default;
         }
 
         /// <summary>
