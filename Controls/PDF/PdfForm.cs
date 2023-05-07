@@ -58,6 +58,14 @@ namespace BudgetExecution
         public PdfLoadedDocument Document { get; set; }
 
         /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="PdfForm"/> class.
         /// </summary>
         public PdfForm( )
@@ -95,6 +103,7 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClick;
             MenuButton.Click += OnMainMenuButtonClicked;
             BackButton.Click += OnBackButtonClicked;
+            ListBox.SelectedValueChanged += OnListBoxItemSelected;
             Load += OnLoad;
             Shown += OnShown;
             Closing += OnClosing;
@@ -126,6 +135,7 @@ namespace BudgetExecution
                 var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
                 HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
                 HeaderLabel.Text = "Budget Guidance";
+                DataTable = new DataBuilder( Source.Resources, Provider.Access ).DataTable;
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
                 PopulateItems( );
@@ -145,18 +155,11 @@ namespace BudgetExecution
             {
                 var _criteria = new Dictionary<string, object>( );
                 _criteria.Add( "FileExtension", "PDF" );
-                var _table = new DataBuilder( Source.Resources, Provider.Access );
-                var _dataRows = _table.DataTable.Filter( _criteria );
-                FlowPanel.AutoScroll = true;
+                var _dataRows = DataTable.Filter( _criteria );
                 foreach( var row in _dataRows )
                 {
-                    var _prefix = @"C:\Users\terry\source\repos\Budget\";
-                    var _btn = new Button( );
-                    _btn.Size = new Size( 250, 45 );
-                    _btn.Text = row[ "Caption" ].ToString( );
-                    _btn.Tag = _prefix + row[ "Location" ];
-                    _btn.Click += OnButtonClick;
-                    FlowPanel.Controls.Add( _btn );
+                    var _name = row[ "Caption" ].ToString( );
+                    ListBox.Items.Add( _name );
                 }
             }
             catch( Exception ex )
@@ -264,7 +267,8 @@ namespace BudgetExecution
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
                     var _chartDataForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )?.First( );
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
 
                     _chartDataForm.Visible = true;
                 }
@@ -391,15 +395,23 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnButtonClick( object sender, EventArgs e )
+        private void OnListBoxItemSelected( object sender )
         {
-            if( sender is Button button
-               && button.Tag != null )
+            if( sender is ListBox listBox
+               && DataTable != null )
             {
                 try
                 {
-                    var _path = button.Tag.ToString( );
-                    HeaderLabel.Text = button.Text;
+                    var _data = DataTable.AsEnumerable( );
+                    var _caption = listBox.SelectedValue.ToString( );
+                    var _file = _data
+                        ?.Where( p => p.Field<string>( "Caption" ).Equals( _caption ) )
+                        ?.Select( p => p.Field<string>( "Location" ) )
+                        ?.Single( );
+
+                    var _prefix = @"C:\Users\terry\source\repos\Budget\";
+                    HeaderLabel.Text = _caption;
+                    var _path = _prefix + _file;
                     Document = new PdfLoadedDocument( _path );
                     DocViewer.Load( Document );
                 }

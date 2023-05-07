@@ -39,27 +39,26 @@
             ToolTip =  new SmallTip( ) ;
             BindingSource =  new BindingSource( components ) ;
             DocViewer =  new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( ) ;
-            PdfTable =  new TableLayoutPanel( ) ;
-            ListBoxPanel =  new Layout( ) ;
-            ListBoxTable =  new HeaderPanel( ) ;
-            FlowPanel =  new FlowLayoutPanel( ) ;
+            LeftTable =  new TableLayoutPanel( ) ;
             PictureBox =  new PictureBox( ) ;
             HeaderLabel =  new Label( ) ;
             DocumentPanel =  new Layout( ) ;
-            ButtonTable =  new TableLayoutPanel( ) ;
+            ListBoxPanel =  new Layout( ) ;
+            ListBox =  new ListBox( ) ;
             CloseButtonTable =  new TableLayoutPanel( ) ;
             MenuButton =  new Button( ) ;
             CloseButton =  new Button( ) ;
             BackButton =  new Button( ) ;
-            FlowLayout =  new Layout( ) ;
+            RightTable =  new TableLayoutPanel( ) ;
+            layout1 =  new Layout( ) ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
-            PdfTable.SuspendLayout( );
-            ListBoxPanel.SuspendLayout( );
-            ListBoxTable.SuspendLayout( );
+            LeftTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
             DocumentPanel.SuspendLayout( );
+            ListBoxPanel.SuspendLayout( );
             CloseButtonTable.SuspendLayout( );
-            FlowLayout.SuspendLayout( );
+            RightTable.SuspendLayout( );
+            layout1.SuspendLayout( );
             SuspendLayout( );
             // 
             // ToolTip
@@ -92,7 +91,7 @@
             DocViewer.IsBookmarkEnabled =  true ;
             DocViewer.IsTextSearchEnabled =  true ;
             DocViewer.IsTextSelectionEnabled =  true ;
-            DocViewer.Location =  new System.Drawing.Point( 19, 14 ) ;
+            DocViewer.Location =  new System.Drawing.Point( 9, 12 ) ;
             messageBoxSettings1.EnableNotification =  true ;
             DocViewer.MessageBoxSettings =  messageBoxSettings1 ;
             DocViewer.MinimumZoomPercentage =  50 ;
@@ -109,7 +108,7 @@
             DocViewer.ShowHorizontalScrollBar =  true ;
             DocViewer.ShowToolBar =  true ;
             DocViewer.ShowVerticalScrollBar =  true ;
-            DocViewer.Size =  new System.Drawing.Size( 946, 636 ) ;
+            DocViewer.Size =  new System.Drawing.Size( 1025, 677 ) ;
             DocViewer.SpaceBetweenPages =  8 ;
             DocViewer.TabIndex =  2 ;
             textSearchSettings1.CurrentInstanceColor =  System.Drawing.Color.FromArgb(   127  ,   255  ,   171  ,   64   ) ;
@@ -122,92 +121,30 @@
             DocViewer.VisualStyle =  Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black ;
             DocViewer.ZoomMode =  Syncfusion.Windows.Forms.PdfViewer.ZoomMode.FitWidth ;
             // 
-            // PdfTable
+            // LeftTable
             // 
-            PdfTable.ColumnCount =  4 ;
-            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 78.125F ) );
-            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 21.875F ) );
-            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 990F ) );
-            PdfTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 298F ) );
-            PdfTable.Controls.Add( ListBoxPanel, 3, 1 );
-            PdfTable.Controls.Add( PictureBox, 0, 0 );
-            PdfTable.Controls.Add( HeaderLabel, 2, 0 );
-            PdfTable.Controls.Add( DocumentPanel, 2, 1 );
-            PdfTable.Controls.Add( ButtonTable, 2, 2 );
-            PdfTable.Controls.Add( CloseButtonTable, 3, 2 );
-            PdfTable.Dock =  DockStyle.Fill ;
-            PdfTable.Location =  new System.Drawing.Point( 0, 0 ) ;
-            PdfTable.Name =  "PdfTable" ;
-            PdfTable.RowCount =  3 ;
-            PdfTable.RowStyles.Add( new RowStyle( SizeType.Percent, 4.700855F ) );
-            PdfTable.RowStyles.Add( new RowStyle( SizeType.Percent, 95.29915F ) );
-            PdfTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 36F ) );
-            PdfTable.Size =  new System.Drawing.Size( 1338, 739 ) ;
-            PdfTable.TabIndex =  3 ;
-            PdfTable.UseWaitCursor =  true ;
-            // 
-            // ListBoxPanel
-            // 
-            ListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
-            ListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ListBoxPanel.BindingSource =  null ;
-            ListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            ListBoxPanel.BorderThickness =  1 ;
-            ListBoxPanel.Children =  null ;
-            ListBoxPanel.Controls.Add( ListBoxTable );
-            ListBoxPanel.DataFilter =  null ;
-            ListBoxPanel.Dock =  DockStyle.Fill ;
-            ListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
-            ListBoxPanel.HoverText =  null ;
-            ListBoxPanel.IsDerivedStyle =  true ;
-            ListBoxPanel.Location =  new System.Drawing.Point( 1042, 36 ) ;
-            ListBoxPanel.Name =  "ListBoxPanel" ;
-            ListBoxPanel.Padding =  new Padding( 1 ) ;
-            ListBoxPanel.Size =  new System.Drawing.Size( 293, 663 ) ;
-            ListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
-            ListBoxPanel.StyleManager =  null ;
-            ListBoxPanel.TabIndex =  3 ;
-            ListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
-            ListBoxPanel.ThemeName =  "Budget Execution" ;
-            ListBoxPanel.ToolTip =  null ;
-            ListBoxPanel.UseWaitCursor =  true ;
-            // 
-            // ListBoxTable
-            // 
-            ListBoxTable.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            ListBoxTable.CaptionStyle =  CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle ;
-            ListBoxTable.CaptionText =  "Documentation" ;
-            ListBoxTable.ColumnCount =  1 ;
-            ListBoxTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
-            ListBoxTable.Controls.Add( FlowLayout, 0, 1 );
-            ListBoxTable.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ListBoxTable.ForeColor =  System.Drawing.Color.DarkGray ;
-            ListBoxTable.Location =  new System.Drawing.Point( 4, 4 ) ;
-            ListBoxTable.Name =  "ListBoxTable" ;
-            ListBoxTable.RowCount =  2 ;
-            ListBoxTable.RowStyles.Add( new RowStyle( SizeType.Percent, 1.23647606F ) );
-            ListBoxTable.RowStyles.Add( new RowStyle( SizeType.Percent, 98.76353F ) );
-            ListBoxTable.Size =  new System.Drawing.Size( 285, 655 ) ;
-            ListBoxTable.TabIndex =  9 ;
-            ListBoxTable.UseWaitCursor =  true ;
-            // 
-            // FlowPanel
-            // 
-            FlowPanel.FlowDirection =  FlowDirection.TopDown ;
-            FlowPanel.Location =  new System.Drawing.Point( 4, 49 ) ;
-            FlowPanel.Name =  "FlowPanel" ;
-            FlowPanel.Size =  new System.Drawing.Size( 271, 527 ) ;
-            FlowPanel.TabIndex =  0 ;
-            FlowPanel.UseWaitCursor =  true ;
-            FlowPanel.WrapContents =  false ;
+            LeftTable.ColumnCount =  3 ;
+            LeftTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 6.12855F ) );
+            LeftTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 77.13004F ) );
+            LeftTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 16.6666641F ) );
+            LeftTable.Controls.Add( PictureBox, 0, 0 );
+            LeftTable.Controls.Add( HeaderLabel, 1, 0 );
+            LeftTable.Dock =  DockStyle.Top ;
+            LeftTable.Location =  new System.Drawing.Point( 0, 0 ) ;
+            LeftTable.Name =  "LeftTable" ;
+            LeftTable.RowCount =  1 ;
+            LeftTable.RowStyles.Add( new RowStyle( SizeType.Percent, 5.12820435F ) );
+            LeftTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 20F ) );
+            LeftTable.Size =  new System.Drawing.Size( 1338, 32 ) ;
+            LeftTable.TabIndex =  3 ;
+            LeftTable.UseWaitCursor =  true ;
             // 
             // PictureBox
             // 
             PictureBox.Image =  Properties.Resources.EPA ;
             PictureBox.Location =  new System.Drawing.Point( 3, 3 ) ;
             PictureBox.Name =  "PictureBox" ;
-            PictureBox.Size =  new System.Drawing.Size( 33, 17 ) ;
+            PictureBox.Size =  new System.Drawing.Size( 43, 22 ) ;
             PictureBox.SizeMode =  PictureBoxSizeMode.StretchImage ;
             PictureBox.TabIndex =  5 ;
             PictureBox.TabStop =  false ;
@@ -222,11 +159,11 @@
             HeaderLabel.Font =  new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             HeaderLabel.HoverText =  null ;
             HeaderLabel.IsDerivedStyle =  true ;
-            HeaderLabel.Location =  new System.Drawing.Point( 52, 3 ) ;
+            HeaderLabel.Location =  new System.Drawing.Point( 85, 3 ) ;
             HeaderLabel.Margin =  new Padding( 3 ) ;
             HeaderLabel.Name =  "HeaderLabel" ;
             HeaderLabel.Padding =  new Padding( 1 ) ;
-            HeaderLabel.Size =  new System.Drawing.Size( 984, 27 ) ;
+            HeaderLabel.Size =  new System.Drawing.Size( 1026, 26 ) ;
             HeaderLabel.Style =  MetroSet_UI.Enums.Style.Custom ;
             HeaderLabel.StyleManager =  null ;
             HeaderLabel.TabIndex =  7 ;
@@ -247,15 +184,14 @@
             DocumentPanel.Children =  null ;
             DocumentPanel.Controls.Add( DocViewer );
             DocumentPanel.DataFilter =  null ;
-            DocumentPanel.Dock =  DockStyle.Fill ;
             DocumentPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             DocumentPanel.ForeColor =  System.Drawing.Color.Transparent ;
             DocumentPanel.HoverText =  null ;
             DocumentPanel.IsDerivedStyle =  true ;
-            DocumentPanel.Location =  new System.Drawing.Point( 52, 36 ) ;
+            DocumentPanel.Location =  new System.Drawing.Point( 3, 38 ) ;
             DocumentPanel.Name =  "DocumentPanel" ;
             DocumentPanel.Padding =  new Padding( 1 ) ;
-            DocumentPanel.Size =  new System.Drawing.Size( 984, 663 ) ;
+            DocumentPanel.Size =  new System.Drawing.Size( 1046, 701 ) ;
             DocumentPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
             DocumentPanel.StyleManager =  null ;
             DocumentPanel.TabIndex =  4 ;
@@ -264,46 +200,86 @@
             DocumentPanel.ToolTip =  null ;
             DocumentPanel.UseWaitCursor =  true ;
             // 
-            // ButtonTable
+            // ListBoxPanel
             // 
-            ButtonTable.ColumnCount =  10 ;
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 10F ) );
-            ButtonTable.Dock =  DockStyle.Fill ;
-            ButtonTable.GrowStyle =  TableLayoutPanelGrowStyle.FixedSize ;
-            ButtonTable.Location =  new System.Drawing.Point( 52, 705 ) ;
-            ButtonTable.Name =  "ButtonTable" ;
-            ButtonTable.RowCount =  1 ;
-            ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 100F ) );
-            ButtonTable.Size =  new System.Drawing.Size( 984, 31 ) ;
-            ButtonTable.TabIndex =  6 ;
-            ButtonTable.UseWaitCursor =  true ;
+            ListBoxPanel.BackColor =  System.Drawing.Color.Transparent ;
+            ListBoxPanel.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBoxPanel.BindingSource =  null ;
+            ListBoxPanel.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            ListBoxPanel.BorderThickness =  1 ;
+            ListBoxPanel.Children =  null ;
+            ListBoxPanel.Controls.Add( ListBox );
+            ListBoxPanel.DataFilter =  null ;
+            ListBoxPanel.Dock =  DockStyle.Fill ;
+            ListBoxPanel.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ListBoxPanel.ForeColor =  System.Drawing.Color.Transparent ;
+            ListBoxPanel.HoverText =  null ;
+            ListBoxPanel.IsDerivedStyle =  true ;
+            ListBoxPanel.Location =  new System.Drawing.Point( 3, 38 ) ;
+            ListBoxPanel.Name =  "ListBoxPanel" ;
+            ListBoxPanel.Padding =  new Padding( 1 ) ;
+            ListBoxPanel.Size =  new System.Drawing.Size( 277, 651 ) ;
+            ListBoxPanel.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ListBoxPanel.StyleManager =  null ;
+            ListBoxPanel.TabIndex =  3 ;
+            ListBoxPanel.ThemeAuthor =  "Terry D. Eppler" ;
+            ListBoxPanel.ThemeName =  "Budget Execution" ;
+            ListBoxPanel.ToolTip =  null ;
+            ListBoxPanel.UseWaitCursor =  true ;
+            // 
+            // ListBox
+            // 
+            ListBox.BackColor =  System.Drawing.Color.FromArgb(   30  ,   30  ,   30   ) ;
+            ListBox.BindingSource =  null ;
+            ListBox.BorderColor =  System.Drawing.Color.FromArgb(   64  ,   64  ,   64   ) ;
+            ListBox.DataFilter =  null ;
+            ListBox.DisabledBackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBox.DisabledForeColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            ListBox.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            ListBox.HoveredItemBackColor =  System.Drawing.Color.FromArgb(   17  ,   53  ,   84   ) ;
+            ListBox.HoveredItemColor =  System.Drawing.Color.White ;
+            ListBox.HoverText =  null ;
+            ListBox.IsDerivedStyle =  true ;
+            ListBox.ItemHeight =  45 ;
+            ListBox.Location =  new System.Drawing.Point( 14, 12 ) ;
+            ListBox.Margin =  new Padding( 1 ) ;
+            ListBox.MultiSelect =  false ;
+            ListBox.Name =  "ListBox" ;
+            ListBox.Padding =  new Padding( 3 ) ;
+            ListBox.SelectedIndex =  -1 ;
+            ListBox.SelectedItem =  null ;
+            ListBox.SelectedItemBackColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
+            ListBox.SelectedItemColor =  System.Drawing.Color.White ;
+            ListBox.SelectedText =  null ;
+            ListBox.SelectedValue =  null ;
+            ListBox.ShowBorder =  false ;
+            ListBox.ShowScrollBar =  false ;
+            ListBox.Size =  new System.Drawing.Size( 248, 624 ) ;
+            ListBox.Style =  MetroSet_UI.Enums.Style.Custom ;
+            ListBox.StyleManager =  null ;
+            ListBox.TabIndex =  0 ;
+            ListBox.ThemeAuthor =  "Terry D. Eppler" ;
+            ListBox.ThemeName =  "Budget Execution" ;
+            ListBox.ToolTip =  null ;
+            ListBox.UseWaitCursor =  true ;
             // 
             // CloseButtonTable
             // 
             CloseButtonTable.ColumnCount =  4 ;
             CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
             CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
-            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 82F ) );
-            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 11F ) );
+            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 85F ) );
+            CloseButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 8F ) );
             CloseButtonTable.Controls.Add( MenuButton, 2, 0 );
             CloseButtonTable.Controls.Add( CloseButton, 1, 0 );
             CloseButtonTable.Controls.Add( BackButton, 0, 0 );
-            CloseButtonTable.Dock =  DockStyle.Fill ;
+            CloseButtonTable.Dock =  DockStyle.Bottom ;
             CloseButtonTable.GrowStyle =  TableLayoutPanelGrowStyle.FixedSize ;
-            CloseButtonTable.Location =  new System.Drawing.Point( 1042, 705 ) ;
+            CloseButtonTable.Location =  new System.Drawing.Point( 1, 6 ) ;
             CloseButtonTable.Name =  "CloseButtonTable" ;
             CloseButtonTable.RowCount =  1 ;
             CloseButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            CloseButtonTable.Size =  new System.Drawing.Size( 293, 31 ) ;
+            CloseButtonTable.Size =  new System.Drawing.Size( 275, 34 ) ;
             CloseButtonTable.TabIndex =  8 ;
             CloseButtonTable.UseWaitCursor =  true ;
             // 
@@ -314,6 +290,7 @@
             MenuButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             MenuButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             MenuButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            MenuButton.Dock =  DockStyle.Fill ;
             MenuButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             MenuButton.ForeColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             MenuButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
@@ -321,7 +298,7 @@
             MenuButton.HoverText =  null ;
             MenuButton.HoverTextColor =  System.Drawing.Color.White ;
             MenuButton.IsDerivedStyle =  true ;
-            MenuButton.Location =  new System.Drawing.Point( 203, 3 ) ;
+            MenuButton.Location =  new System.Drawing.Point( 185, 3 ) ;
             MenuButton.Name =  "MenuButton" ;
             MenuButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             MenuButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -330,7 +307,7 @@
             MenuButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             MenuButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             MenuButton.PressTextColor =  System.Drawing.Color.White ;
-            MenuButton.Size =  new System.Drawing.Size( 75, 25 ) ;
+            MenuButton.Size =  new System.Drawing.Size( 79, 28 ) ;
             MenuButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             MenuButton.StyleManager =  null ;
             MenuButton.TabIndex =  5 ;
@@ -347,6 +324,7 @@
             CloseButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            CloseButton.Dock =  DockStyle.Fill ;
             CloseButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CloseButton.ForeColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             CloseButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
@@ -354,7 +332,7 @@
             CloseButton.HoverText =  null ;
             CloseButton.HoverTextColor =  System.Drawing.Color.White ;
             CloseButton.IsDerivedStyle =  true ;
-            CloseButton.Location =  new System.Drawing.Point( 103, 3 ) ;
+            CloseButton.Location =  new System.Drawing.Point( 94, 3 ) ;
             CloseButton.Name =  "CloseButton" ;
             CloseButton.NormalBorderColor =  System.Drawing.Color.Transparent ;
             CloseButton.NormalColor =  System.Drawing.Color.Transparent ;
@@ -363,7 +341,7 @@
             CloseButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             CloseButton.PressTextColor =  System.Drawing.Color.White ;
-            CloseButton.Size =  new System.Drawing.Size( 75, 25 ) ;
+            CloseButton.Size =  new System.Drawing.Size( 85, 28 ) ;
             CloseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             CloseButton.StyleManager =  null ;
             CloseButton.TabIndex =  3 ;
@@ -380,6 +358,7 @@
             BackButton.DisabledBackColor =  System.Drawing.Color.Transparent ;
             BackButton.DisabledBorderColor =  System.Drawing.Color.Transparent ;
             BackButton.DisabledForeColor =  System.Drawing.Color.Transparent ;
+            BackButton.Dock =  DockStyle.Fill ;
             BackButton.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             BackButton.ForeColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
             BackButton.HoverBorderColor =  System.Drawing.Color.FromArgb(   50  ,   93  ,   129   ) ;
@@ -396,7 +375,7 @@
             BackButton.PressBorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             BackButton.PressColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             BackButton.PressTextColor =  System.Drawing.Color.White ;
-            BackButton.Size =  new System.Drawing.Size( 75, 25 ) ;
+            BackButton.Size =  new System.Drawing.Size( 85, 28 ) ;
             BackButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             BackButton.StyleManager =  null ;
             BackButton.TabIndex =  4 ;
@@ -406,31 +385,49 @@
             BackButton.ToolTip =  null ;
             BackButton.UseWaitCursor =  true ;
             // 
-            // FlowLayout
+            // RightTable
             // 
-            FlowLayout.BackColor =  System.Drawing.Color.Transparent ;
-            FlowLayout.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            FlowLayout.BindingSource =  null ;
-            FlowLayout.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
-            FlowLayout.BorderThickness =  1 ;
-            FlowLayout.Children =  null ;
-            FlowLayout.Controls.Add( FlowPanel );
-            FlowLayout.DataFilter =  null ;
-            FlowLayout.Dock =  DockStyle.Fill ;
-            FlowLayout.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            FlowLayout.ForeColor =  System.Drawing.Color.Transparent ;
-            FlowLayout.HoverText =  null ;
-            FlowLayout.IsDerivedStyle =  true ;
-            FlowLayout.Location =  new System.Drawing.Point( 3, 26 ) ;
-            FlowLayout.Name =  "FlowLayout" ;
-            FlowLayout.Padding =  new Padding( 1 ) ;
-            FlowLayout.Size =  new System.Drawing.Size( 279, 626 ) ;
-            FlowLayout.Style =  MetroSet_UI.Enums.Style.Custom ;
-            FlowLayout.StyleManager =  null ;
-            FlowLayout.TabIndex =  0 ;
-            FlowLayout.ThemeAuthor =  "Terry D. Eppler" ;
-            FlowLayout.ThemeName =  "Budget Execution" ;
-            FlowLayout.ToolTip =  null ;
+            RightTable.ColumnCount =  1 ;
+            RightTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 100F ) );
+            RightTable.Controls.Add( layout1, 0, 2 );
+            RightTable.Controls.Add( ListBoxPanel, 0, 1 );
+            RightTable.Location =  new System.Drawing.Point( 1054, 0 ) ;
+            RightTable.Name =  "RightTable" ;
+            RightTable.RowCount =  3 ;
+            RightTable.RowStyles.Add( new RowStyle( SizeType.Percent, 5.113636F ) );
+            RightTable.RowStyles.Add( new RowStyle( SizeType.Percent, 94.88636F ) );
+            RightTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 46F ) );
+            RightTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 20F ) );
+            RightTable.Size =  new System.Drawing.Size( 283, 739 ) ;
+            RightTable.TabIndex =  4 ;
+            RightTable.UseWaitCursor =  true ;
+            // 
+            // layout1
+            // 
+            layout1.BackColor =  System.Drawing.Color.Transparent ;
+            layout1.BackgroundColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
+            layout1.BindingSource =  null ;
+            layout1.BorderColor =  System.Drawing.Color.FromArgb(   65  ,   65  ,   65   ) ;
+            layout1.BorderThickness =  1 ;
+            layout1.Children =  null ;
+            layout1.Controls.Add( CloseButtonTable );
+            layout1.DataFilter =  null ;
+            layout1.Dock =  DockStyle.Fill ;
+            layout1.Font =  new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
+            layout1.ForeColor =  System.Drawing.Color.Transparent ;
+            layout1.HoverText =  null ;
+            layout1.IsDerivedStyle =  true ;
+            layout1.Location =  new System.Drawing.Point( 3, 695 ) ;
+            layout1.Name =  "layout1" ;
+            layout1.Padding =  new Padding( 1 ) ;
+            layout1.Size =  new System.Drawing.Size( 277, 41 ) ;
+            layout1.Style =  MetroSet_UI.Enums.Style.Custom ;
+            layout1.StyleManager =  null ;
+            layout1.TabIndex =  9 ;
+            layout1.ThemeAuthor =  "Terry D. Eppler" ;
+            layout1.ThemeName =  "Budget Execution" ;
+            layout1.ToolTip =  null ;
+            layout1.UseWaitCursor =  true ;
             // 
             // PdfForm
             // 
@@ -447,7 +444,9 @@
             CaptionFont =  new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClientSize =  new System.Drawing.Size( 1338, 739 ) ;
-            Controls.Add( PdfTable );
+            Controls.Add( RightTable );
+            Controls.Add( LeftTable );
+            Controls.Add( DocumentPanel );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.LightGray ;
             FormBorderStyle =  FormBorderStyle.FixedSingle ;
@@ -466,13 +465,13 @@
             Text =  "PDF Document" ;
             UseWaitCursor =  true ;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
-            PdfTable.ResumeLayout( false );
-            ListBoxPanel.ResumeLayout( false );
-            ListBoxTable.ResumeLayout( false );
+            LeftTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
             DocumentPanel.ResumeLayout( false );
+            ListBoxPanel.ResumeLayout( false );
             CloseButtonTable.ResumeLayout( false );
-            FlowLayout.ResumeLayout( false );
+            RightTable.ResumeLayout( false );
+            layout1.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -480,19 +479,18 @@
         public BindingSource BindingSource;
         public SmallTip ToolTip;
         public Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl DocViewer;
-        private TableLayoutPanel PdfTable;
+        private TableLayoutPanel LeftTable;
         private Layout DocumentPanel;
         public PictureBox PictureBox;
-        public TableLayoutPanel ButtonTable;
         public Label HeaderLabel;
         public Button CloseButton;
         private TableLayoutPanel CloseButtonTable;
         public Layout ListBoxPanel;
         public Button MenuButton;
         public Button BackButton;
-        public HeaderPanel ListBoxTable;
         private ListView listView1;
-        public FlowLayoutPanel FlowPanel;
-        public Layout FlowLayout;
+        public ListBox ListBox;
+        private TableLayoutPanel RightTable;
+        private Layout layout1;
     }
 }
