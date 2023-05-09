@@ -20,16 +20,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -761,23 +761,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnActiveTabChanged( object sender, EventArgs e )
-        {
-            try
-            {
-                SetActiveTabControls( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Sets the active tab controls.
         /// </summary>
         private void SetActiveTabControls( )
@@ -1277,8 +1260,7 @@ namespace BudgetExecution
                     var _types = Enum.GetNames( typeof( SeriesChartType ) );
                     if( _types?.Contains( type ) == true )
                     {
-                        ChartType =
-                            (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
+                        ChartType = (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
                     }
                 }
                 catch( Exception ex )
@@ -1509,8 +1491,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the series.
         /// </summary>
-        private void SetSeriesProperties( int i = 0,
-            SeriesChartType type = SeriesChartType.Column )
+        private void SetSeriesProperties( int i = 0, SeriesChartType type = SeriesChartType.Column )
         {
             try
             {
@@ -1563,6 +1544,23 @@ namespace BudgetExecution
                 };
 
                 Chart.PaletteCustomColors = _palette;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetActiveTabControls( );
             }
             catch( Exception ex )
             {
@@ -2138,9 +2136,7 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( _selection )
                    && _names.Contains( _selection ) )
                 {
-                    Metric =
-                        (STAT)Enum.Parse( typeof( STAT ), _selection );
-
+                    Metric = (STAT)Enum.Parse( typeof( STAT ), _selection );
                     _notify.Show( );
                 }
             }

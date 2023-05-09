@@ -12,72 +12,72 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public struct ColorConfig
+    public class ColorConfig
     {
         /// <summary>
         /// The border dark
         /// </summary>
-        public Color DarkBorder { get; set; }
+        public Color DarkBorder { get; }
 
         /// <summary>
         /// The border blue
         /// </summary>
-        public Color BlueBorder { get; set; }
+        public Color BlueBorder { get; }
 
         /// <summary>
         /// The border red
         /// </summary>
-        public Color RedBorder { get; set; }
+        public Color RedBorder { get; }
 
         /// <summary>
         /// The form dark back color
         /// </summary>
-        public Color DarkBackground { get; set; }
+        public Color DarkBackground { get; }
 
         /// <summary>
         /// The fore red
         /// </summary>
-        public Color RedText { get; set; }
+        public Color RedText { get; }
 
         /// <summary>
         /// The fore gray
         /// </summary>
-        public Color GrayText { get; set; }
+        public Color GrayText { get; }
 
         /// <summary>
         /// The fore white
         /// </summary>
-        public Color WhiteText { get; set; }
+        public Color WhiteText { get; }
 
         /// <summary>
         /// The fore black
         /// </summary>
-        public Color BlackText { get; set; }
+        public Color BlackText { get; }
 
         /// <summary>
         /// The control interior color
         /// </summary>
-        public Color DarkInterior { get; set; }
+        public Color DarkInterior { get; }
 
         /// <summary>
         /// The transparent
         /// </summary>
-        public Color Transparent { get; set; }
+        public Color Transparent { get; }
         
         /// <summary>
         /// The hover gray
         /// </summary>
-        public Color HoverGray { get; set; }
+        public Color HoverGray { get; }
 
         /// <summary>
         /// The hover blue
         /// </summary>
-        public Color HoverBlue { get; set; }
+        public Color HoverBlue { get; }
 
         /// <summary>
         /// The hover blue
         /// </summary>
-        public Color SteelBlue { get; set; }
+        public Color SteelBlue { get; }
 
         /// <summary>
         /// Initializes a new
@@ -99,29 +99,6 @@ namespace BudgetExecution
             DarkBackground = Color.FromArgb( 20, 20, 20 );
             GrayText = Color.DarkGray;
             SteelBlue = Color.SteelBlue;
-        }
-        
-        /// <summary>
-        /// Called when [color changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public static void OnColorChanged( object sender, EventArgs e )
-        {
-            if( sender != null
-               && e != null )
-            {
-                try
-                {
-                    var _msg = "NOT YET IMPLEMENTED!!";
-                    var _notification = new Notification( _msg );
-                    _notification.Show( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
         }
 
         /// <summary>
