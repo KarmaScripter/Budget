@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        public override DateOnly Columbus { get; set; }
+        public override DateOnly ColumbusDay { get; set; }
 
         /// <summary>
         /// Gets or sets the christmas.

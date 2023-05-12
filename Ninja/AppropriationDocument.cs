@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class AppropriationDocument : DataUnit
+    public class AppropriationDocument : DataUnit, IAppropriationDocument
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -416,6 +416,35 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        public AppropriationDocument( IAppropriationDocument document )
+        {
+            ID = document.ID;
+            BFY = document.BFY;
+            EFY = document.EFY;
+            Fund = document.Fund;
+            FundCode = document.FundCode;
+            DocumentType = document.DocumentType;
+            DocumentNumber = document.DocumentNumber;
+            DocumentDate = document.DocumentDate;
+            BudgetingControls = document.BudgetingControls;
+            PostingControls = document.PostingControls;
+            PreCommitmentControls = document.PreCommitmentControls;
+            CommitmentControls = document.CommitmentControls;
+            ObligationControls = document.ObligationControls;
+            AccrualControls = document.AccrualControls;
+            ExpenditureControls = document.ExpenditureControls;
+            Budgeted = document.Budgeted;
+            Posted = document.Posted;
+            CarryoverOut = document.CarryoverOut;
+            CarryoverIn = document.CarryoverIn;
+            Recoveries = document.Recoveries;
+            Reimbursements = document.Reimbursements;
+            TreasuryAccountCode = document.TreasuryAccountCode;
+            TreasuryAccountName = document.TreasuryAccountName;
+            BudgetAccountCode = document.BudgetAccountCode;
+            BudgetAccountName = document.BudgetAccountName;
         }
     }
 }

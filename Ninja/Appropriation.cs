@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Appropriation : DataUnit
+    public class Appropriation : DataUnit, IAppropriation
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -113,6 +113,13 @@ namespace BudgetExecution
             Name = Record?[ "Name" ].ToString( );
             Code = Record?[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
+        }
+
+        public Appropriation( IAppropriation appropriation )
+        {
+            ID = appropriation.ID;
+            Code = appropriation.Code;
+            Name = appropriation.Name;
         }
     }
 }

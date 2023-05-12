@@ -20,7 +20,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        public virtual DateOnly Columbus { get; set; }
+        public virtual DateOnly ColumbusDay { get; set; }
 
         /// <summary>
         /// Gets or sets the veterans.

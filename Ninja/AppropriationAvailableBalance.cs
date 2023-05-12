@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AppropriationAvailableBalance : PRC
+    public class AppropriationAvailableBalance : PRC, IAppropriationAvailableBalance
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -247,6 +247,26 @@ namespace BudgetExecution
             Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString(  ) ?? "0" );
             Used = double.Parse( dataRow[ "Used" ].ToString(  ) ?? "0" );
             Available = double.Parse( dataRow[ "Available" ].ToString(  ) ?? "0" );
+        }
+
+        public AppropriationAvailableBalance( IAppropriationAvailableBalance balance )
+        {
+            ID = balance.ID;
+            BFY = balance.BFY;
+            EFY = balance.EFY;
+            FundCode = balance.FundCode;
+            FundName = balance.FundName;
+            BudgetAccountCode = balance.BudgetAccountCode;
+            BudgetAccountName = balance.BudgetAccountName;
+            TreasuryAccountCode = balance.TreasuryAccountCode;
+            TreasuryAccountName = balance.TreasuryAccountName;
+            Authority = balance.Authority;
+            Budgeted = balance.Budgeted;
+            Carryover = balance.Carryover;
+            Reimbursements = balance.Reimbursements;
+            Recoveries = balance.Recoveries;
+            Used = balance.Used;
+            Available = balance.Available;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AppropriationLevelAuthority : PRC
+    public class AppropriationLevelAuthority : PRC, IAppropriationLevelAuthority
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -230,6 +230,24 @@ namespace BudgetExecution
             Carryover = double.Parse( dataRow[ "Carryover" ].ToString( ) ?? "0" );
             Reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString( ) ?? "0" );
             Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
+        }
+
+        public AppropriationLevelAuthority( IAppropriationLevelAuthority authority )
+        {
+            ID = authority.ID;
+            BFY = authority.BFY;
+            EFY = authority.EFY;
+            FundCode = authority.FundCode;
+            FundName = authority.FundName;
+            TreasuryAccountCode = authority.TreasuryAccountCode;
+            TreasuryAccountName = authority.TreasuryAccountName;
+            BudgetAccountCode = authority.BudgetAccountCode;
+            BudgetAccountName = authority.BudgetAccountName;
+            Authority = authority.Authority;
+            Budgeted = authority.Budgeted;
+            Carryover = authority.Carryover;
+            Reimbursements = authority.Reimbursements;
+            Recoveries = authority.Recoveries;
         }
     }
 }

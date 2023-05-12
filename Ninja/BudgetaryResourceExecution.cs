@@ -15,7 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetaryResourceExecution : DataUnit
+    public class BudgetaryResourceExecution : DataUnit, IBudgetaryResourceExecution
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -401,6 +401,39 @@ namespace BudgetExecution
             Amount2 = double.Parse( Record[ "Amount2" ].ToString( ) ?? "0" );
             Amount3 = double.Parse( Record[ "Amount3" ].ToString( ) ?? "0" );
             Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
+        }
+        public BudgetaryResourceExecution( IBudgetaryResourceExecution budget )
+            : this( )
+        {
+            ID = budget.ID;
+            FiscalYear = budget.FiscalYear;
+            BFY = budget.BFY;
+            EFY = budget.EFY;
+            LastUpdate = budget.LastUpdate;
+            BudgetAccountCode = budget.BudgetAccountCode;
+            BudgetAccountName = budget.BudgetAccountName;
+            TreasuryAccountCode = budget.TreasuryAccountCode;
+            TreasuryAccountName = budget.TreasuryAccountName;
+            STAT = budget.STAT;
+            CreditIndicator = budget.CreditIndicator;
+            LineNumber = budget.LineNumber;
+            LineDescription = budget.LineDescription;
+            SectionName = budget.SectionName;
+            SectionNumber = budget.SectionNumber;
+            LineType = budget.LineType;
+            FinancingAccounts = budget.FinancingAccounts;
+            November = budget.November;
+            January = budget.January;
+            February = budget.February;
+            April = budget.April;
+            May = budget.May;
+            June = budget.June;
+            August = budget.August;
+            October = budget.October;
+            Amount1 = budget.Amount1;
+            Amount2 = budget.Amount2;
+            Amount3 = budget.Amount3;
+            Amount4 = budget.Amount4;
         }
     }
 }
