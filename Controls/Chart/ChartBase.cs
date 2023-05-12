@@ -13,6 +13,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : Chart
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChartBase"/> class.
+        /// </summary>
         protected ChartBase( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
