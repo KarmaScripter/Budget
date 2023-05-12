@@ -12,16 +12,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CarryoverOutlay : DataUnit
+    public class CarryoverOutlay : BudgetUnit
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the report year.
         /// </summary>

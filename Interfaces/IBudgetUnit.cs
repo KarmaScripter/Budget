@@ -4,13 +4,8 @@
 
 namespace BudgetExecution
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
-
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class BudgetUnit : DataUnit, IBudgetUnit
+    
+    public interface IBudgetUnit : IDataUnit
     {
         /// <summary>
         /// Gets or sets the bfy.
@@ -18,7 +13,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual string BFY { get; set; }
+        string BFY { get; set; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -26,7 +21,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string EFY { get; set; }
+        string EFY { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -34,7 +29,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public virtual string FundCode { get; set; }
+        string FundCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -42,7 +37,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public virtual string FundName { get; set; }
+        string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -50,7 +45,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public virtual string TreasuryAccountCode { get; set; }
+        string TreasuryAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the treasury account.
@@ -58,15 +53,15 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury account.
         /// </value>
-        public virtual string TreasuryAccountName { get; set; }
-        
+        string TreasuryAccountName { get; set; }
+
         /// <summary>
         /// Gets or sets the budget account code.
         /// </summary>
         /// <value>
         /// The budget account code.
         /// </value>
-        public virtual string BudgetAccountCode { get; set; }
+        string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -74,7 +69,6 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public virtual string BudgetAccountName { get; set; }
-
+        string BudgetAccountName { get; set; }
     }
 }

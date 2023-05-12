@@ -14,48 +14,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassOutlay : DataUnit, IOutlay
+    public class CompassOutlay : BudgetUnit, IOutlay
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public string FundName { get; set; }
-
         /// <summary>
         /// Gets or sets the appropriation code.
         /// </summary>
@@ -71,46 +31,6 @@ namespace BudgetExecution
         /// The name of the appropriation.
         /// </value>
         public string AppropriationName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury symbol.
-        /// </summary>
-        /// <value>
-        /// The treasury symbol.
-        /// </value>
-        public string TreasurySymbol { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the month processed.
