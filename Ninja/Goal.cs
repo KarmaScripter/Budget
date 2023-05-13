@@ -136,6 +136,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Goal"/> class.
+        /// </summary>
+        /// <param name="goal">The goal.</param>
         public Goal( IGoal goal )
         {
             ID = goal.ID;
@@ -228,12 +232,12 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( Source ), Source )
                     ? Source
-                    : Source.NS;
+                    : default( Source );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return Source.NS;
+                return default( Source );
             }
         }
     }

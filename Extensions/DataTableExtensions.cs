@@ -185,8 +185,11 @@ namespace BudgetExecution
                     foreach( DataColumn col in dataTable.Columns )
                     {
                         if( col?.Ordinal > 0
-                           && col.DataType == typeof( double ) | col.DataType == typeof( decimal )
-                           | col.DataType == typeof( float ) | col.DataType == typeof( int ) )
+                           && !col.ColumnName.EndsWith( "Id" )
+                           && ( col.DataType == typeof( double ) 
+                               | col.DataType == typeof( decimal )
+                               | col.DataType == typeof( float ) 
+                               | col.DataType == typeof( int ) ) )
                         {
                             return true;
                         }

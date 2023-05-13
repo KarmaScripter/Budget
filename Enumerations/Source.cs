@@ -10,11 +10,6 @@ namespace BudgetExecution
     public enum Source
     {
         /// <summary>
-        /// The ns
-        /// </summary>
-        NS = -1,
-
-        /// <summary>
         /// The external
         /// </summary>
         External = 0,
@@ -39,6 +34,9 @@ namespace BudgetExecution
         /// </summary>
         AmericanRescuePlan,
 
+        /// <summary>
+        /// The american rescue plan carryover estimates
+        /// </summary>
         AmericanRescuePlanCarryoverEstimates,
         
         /// <summary>
@@ -322,10 +320,8 @@ namespace BudgetExecution
         Images,
 
         /// <summary>
-        /// The infrastructure accounts
+        /// The inflation reduction act carryover estimates
         /// </summary>
-        InfrastructureAccounts,
-
         InflationReductionActCarryoverEstimates,
         
         /// <summary>
