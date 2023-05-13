@@ -107,7 +107,7 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 17, 53, 84 );
-                HoveredBorderColor = Color.FromArgb( 17, 53, 84 );
+                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
                 Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
                 Title.TextColor = Color.White;
                 Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
@@ -134,7 +134,7 @@ namespace BudgetExecution
             try
             {
                 BackColor = Color.FromArgb( 20, 20, 20 );
-                HoveredBorderColor = Color.FromArgb( 50, 93, 129 );
+                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
                 Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Title.TextColor = Color.FromArgb( 0, 120, 212 );
                 Body.Font = new Font( "Roboto", 9, FontStyle.Regular );

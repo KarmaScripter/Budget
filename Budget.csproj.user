@@ -7,15 +7,6 @@
     <Compile Update="Controls\Chart\ChartControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Binding\BindingBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Binding\BindingData.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Binding\SourceBinding.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Button\Button.cs">
       <SubType>Component</SubType>
     </Compile>
