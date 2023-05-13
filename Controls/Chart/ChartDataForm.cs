@@ -384,6 +384,7 @@ namespace BudgetExecution
                 if( string.IsNullOrEmpty( SelectedTable ) )
                 {
                     TabControl.SelectedIndex = 0;
+                    ChartTable.Visible = false;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
@@ -396,6 +397,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     LabelTable.Visible = true;
+                    ChartTable.Visible = true;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
                     ResetData( );
@@ -772,6 +774,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    ChartTable.Visible = false;
                     PopulateExecutionTables( );
                     break;
                 }
@@ -780,6 +783,7 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    ChartTable.Visible = true;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
                     break;
