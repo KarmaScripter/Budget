@@ -20,16 +20,16 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -774,7 +774,12 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
-                    ChartTable.Visible = false;
+                    if( Chart.Visible == true )
+                    {
+                        Chart.Visible = false;
+                        SqlHeader.Visible = false;
+                        MetricsTable.Visible = false;
+                    }
                     PopulateExecutionTables( );
                     break;
                 }
@@ -783,7 +788,12 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
-                    ChartTable.Visible = true;
+                    if( Chart.Visible == false )
+                    {
+                        Chart.Visible = true;
+                        SqlHeader.Visible = true;
+                        MetricsTable.Visible = true;
+                    }
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
                     break;
@@ -1141,6 +1151,42 @@ namespace BudgetExecution
                     _dataGridForm.Owner = this;
                     _dataGridForm.Show( );
                 }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstComboBox.Items.Clear( );
+                SecondComboBox.Items.Clear( );
+                ThirdComboBox.Items.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                FirstListBox.Items.Clear( );
+                SecondListBox.Items.Clear( );
+                ThirdListBox.Items.Clear( );
+                FieldListBox.Items.Clear( );
+                NumericListBox.Items.Clear( );
             }
             catch( Exception ex )
             {
@@ -1679,6 +1725,13 @@ namespace BudgetExecution
                         GroupButton.Visible = true;
                     }
 
+                    if( Chart.Visible == false )
+                    {
+                        Chart.Visible = true;
+                        SqlHeader.Visible = true;
+                        MetricsTable.Visible = true;
+                    }
+                    
                     ResetData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
                     SqlHeader.Text = SqlQuery;
@@ -1877,13 +1930,20 @@ namespace BudgetExecution
                     SqlHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
+
+                if( Chart.Visible == false )
+                {
+                    Chart.Visible = true;
+                    SqlHeader.Visible = true;
+                    MetricsTable.Visible = true;
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [numeric ListBox selected value changed].
         /// </summary>
@@ -1954,12 +2014,14 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 0;
                 SelectedTable = string.Empty;
                 BindingSource.DataSource = null;
                 ClearCollections( );
                 ClearSelections( );
+                ClearComboBoxes( );
+                ClearListBoxes( );
                 UpdateLabelText( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception ex )
             {
@@ -1998,12 +2060,20 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
+                    SqlQuery = string.Empty;
                     ClearCollections( );
                     ClearSelections( );
-                    SqlQuery = string.Empty;
+                    ClearListBoxes( );
+                    ClearComboBoxes( );
                     ResetData( );
                     TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
+                    if( Chart.Visible == true )
+                    {
+                        Chart.Visible = false;
+                        SqlHeader.Visible = false;
+                        MetricsTable.Visible = false;
+                    }
                 }
             }
             catch( Exception ex )
@@ -2085,6 +2155,12 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearCollections( );
                     SelectedTable = string.Empty;
+                    Visible = false;
+                }
+                else
+                {
+                    var _main = new MainForm( );
+                    _main.Show( );
                     Visible = false;
                 }
             }
