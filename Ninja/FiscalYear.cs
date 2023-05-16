@@ -6,121 +6,68 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
+    using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.CalendarYear" />
-    /// <seealso cref="CalendarYear" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ] 
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.CalendarYear"/>
+    /// <seealso cref = "CalendarYear"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class FiscalYear : CalendarYear
     {
-        /// <summary>
-        /// Gets or sets the fiscal year identifier.
-        /// </summary>
-        /// <value>
-        /// The fiscal year identifier.
-        /// </value>
+        /// <summary> Gets or sets the fiscal year identifier. </summary>
+        /// <value> The fiscal year identifier. </value>
         public virtual int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public  virtual string BFY { get; set; }
+        /// <summary> Gets or sets the bfy. </summary>
+        /// <value> The bfy. </value>
+        public virtual string BFY { get; set; }
 
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public  virtual string EFY { get; set; }
+        /// <summary> Gets or sets the efy. </summary>
+        /// <value> The efy. </value>
+        public virtual string EFY { get; set; }
 
-        /// <summary>
-        /// Gets or sets the bbfy.
-        /// </summary>
-        /// <value>
-        /// The bbfy.
-        /// </value>
+        /// <summary> Gets or sets the bbfy. </summary>
+        /// <value> The bbfy. </value>
         public virtual string FirstYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ebfy.
-        /// </summary>
-        /// <value>
-        /// The ebfy.
-        /// </value>
+        /// <summary> Gets or sets the ebfy. </summary>
+        /// <value> The ebfy. </value>
         public virtual string LastYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the expiring year.
-        /// </summary>
-        /// <value>
-        /// The expiring year.
-        /// </value>
+        /// <summary> Gets or sets the expiring year. </summary>
+        /// <value> The expiring year. </value>
         public virtual string ExpiringYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the input year.
-        /// </summary>
-        /// <value>
-        /// The input year.
-        /// </value>
+        /// <summary> Gets or sets the input year. </summary>
+        /// <value> The input year. </value>
         public virtual string InputYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the start date.
-        /// </summary>
-        /// <value>
-        /// The start date.
-        /// </value>
+        /// <summary> Gets or sets the start date. </summary>
+        /// <value> The start date. </value>
         public virtual DateOnly StartDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the end date.
-        /// </summary>
-        /// <value>
-        /// The end date.
-        /// </value>
+        /// <summary> Gets or sets the end date. </summary>
+        /// <value> The end date. </value>
         public virtual DateOnly EndDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the cancellation date.
-        /// </summary>
-        /// <value>
-        /// The cancellation date.
-        /// </value>
+        /// <summary> Gets or sets the cancellation date. </summary>
+        /// <value> The cancellation date. </value>
         public virtual DateOnly CancellationDate { get; set; }
 
-        /// <summary>
-        /// Gets or sets the expiration date.
-        /// </summary>
-        /// <value>
-        /// The expiration date.
-        /// </value>
+        /// <summary> Gets or sets the expiration date. </summary>
+        /// <value> The expiration date. </value>
         public virtual DateOnly ExpirationDate { get; set; }
 
-        /// <summary>
-        /// Determines whether this instance is current.
-        /// </summary>
+        /// <summary> Determines whether this instance is current. </summary>
         /// <returns>
-        /// <c>
-        /// true
-        /// </c>
+        /// <c> true </c>
         /// if this instance is current; otherwise,
-        /// <c>
-        /// false
-        /// </c>
+        /// <c> false </c>
         /// .
         /// </returns>
         public virtual bool IsCurrent( )
@@ -136,14 +83,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name = "bfy" >
-        /// The year.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <summary> Sets the arguments. </summary>
+        /// <param name = "bfy" > The year. </param>
+        /// <returns> </returns>
         private protected IDictionary<string, object> SetArgs( string bfy )
         {
             if( !string.IsNullOrEmpty( bfy )
