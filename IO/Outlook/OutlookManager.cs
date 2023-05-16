@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "OutlookManager.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -13,6 +13,7 @@ namespace BudgetExecution
     using System.Threading;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class OutlookManager
     {
         public string HostName { get; set; }
@@ -26,75 +27,111 @@ namespace BudgetExecution
             HostName = hostName;
         }
 
-        public void SendMail( OutlookConfig OutlookConfig, EmailContent content )
+        public void SendMail( OutlookConfig config, EmailContent content )
         {
-            var msg = ConstructEmailMessage( OutlookConfig, content );
-            Send( msg, OutlookConfig );
+            if( config != null && content != null )
+            {
+                try
+                {
+                    var _message = ConstructEmailMessage( config, content );
+                    Send( _message, config );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
-        // Put the properties of the email including "to", "cc", "from", "subject" and "email body"  
-        private MailMessage ConstructEmailMessage( OutlookConfig OutlookConfig, 
-            EmailContent content )
+        private MailMessage ConstructEmailMessage( OutlookConfig config, EmailContent content )
         {
-            var msg = new MailMessage( );
-            for( var j = 0; j < OutlookConfig.TOs.Length; j++ )
+            if( config != null
+               && content != null )
             {
-                var to = OutlookConfig.TOs[ j ];
-                if( !string.IsNullOrEmpty( to ) )
+                try
                 {
-                    msg.To.Add( to );
+                    var _message = new MailMessage( );
+                    for( var j = 0; j < config.TOs.Length; j++ )
+                    {
+                        var to = config.TOs[ j ];
+                        if( !string.IsNullOrEmpty( to ) )
+                        {
+                            _message.To.Add( to );
+                        }
+                    }
+
+                    for( var i = 0; i < config.CCs.Length; i++ )
+                    {
+                        var _cc = config.CCs[ i ];
+                        if( !string.IsNullOrEmpty( _cc ) )
+                        {
+                            _message.CC.Add( _cc );
+                        }
+                    }
+
+                    _message.From = new MailAddress( config.From, config.FromDisplayName,
+                        Encoding.UTF8 );
+
+                    _message.IsBodyHtml = content.IsHtml;
+                    _message.Body = content.Content;
+                    _message.Priority = config.Priority;
+                    _message.Subject = config.Subject;
+                    _message.BodyEncoding = Encoding.UTF8;
+                    _message.SubjectEncoding = Encoding.UTF8;
+                    if( content.AttachFileName != null )
+                    {
+                        var _data = new Attachment( content.AttachFileName,
+                            MediaTypeNames.Application.Zip );
+
+                        _message.Attachments.Add( _data );
+                    }
+
+                    return _message;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( MailMessage );
                 }
             }
 
-            for( var i = 0; i < OutlookConfig.CCs.Length; i++ )
-            {
-                var cc = OutlookConfig.CCs[ i ];
-                if( !string.IsNullOrEmpty( cc ) )
-                {
-                    msg.CC.Add( cc );
-                }
-            }
-
-            msg.From = new MailAddress( OutlookConfig.From, OutlookConfig.FromDisplayName,
-                Encoding.UTF8 );
-
-            msg.IsBodyHtml = content.IsHtml;
-            msg.Body = content.Content;
-            msg.Priority = OutlookConfig.Priority;
-            msg.Subject = OutlookConfig.Subject;
-            msg.BodyEncoding = Encoding.UTF8;
-            msg.SubjectEncoding = Encoding.UTF8;
-            if( content.AttachFileName != null )
-            {
-                var data = new Attachment( content.AttachFileName, MediaTypeNames.Application.Zip );
-                msg.Attachments.Add( data );
-            }
-
-            return msg;
+            return default( MailMessage );
         }
 
-        //Send the email using the SMTP server  
-        private void Send( MailMessage message, OutlookConfig OutlookConfig )
+        private void Send( MailMessage message, OutlookConfig config )
         {
-            var client = new SmtpClient( );
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential( OutlookConfig.ClientCredentialUserName,
-                OutlookConfig.ClientCredentialPassword );
-
-            client.Host = HostName;
-            client.Port = 25;  
-            client.EnableSsl = true; 
-            try
+            if( message != null 
+               && config != null )
             {
-                client.Send( message );
-            }
-            catch( Exception e )
-            {
-                Console.WriteLine( "Error in Send email: {0}", e.Message );
-                throw;
-            }
+                try
+                {
+                    var _client = new SmtpClient( );
+                    _client.UseDefaultCredentials = false;
+                    _client.Credentials = new NetworkCredential( config.ClientCredentialUserName,
+                        config.ClientCredentialPassword );
 
-            message.Dispose( );
+                    _client.Host = HostName;
+                    _client.Port = 25;  
+                    _client.EnableSsl = true; 
+                    _client.Send( message );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    message.Dispose( );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
