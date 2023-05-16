@@ -464,7 +464,6 @@ namespace BudgetExecution
 
         public Actual( IActual actual )
         {
-
             ID = actual.ID;
             BFY = actual.BFY;
             EFY = actual.EFY;
