@@ -2,72 +2,73 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution
+namespace BudgetExecution;
+
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms.Grid;
+
+/// <summary> </summary>
+/// <seealso cref = "Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
+[ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+public abstract class DataGridBase : GridDataBoundGrid
 {
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Grid;
-
     /// <summary>
-    /// 
+    /// Initializes a new instance of the
+    /// <see cref = "DataGridBase"/>
+    /// class.
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    public abstract class DataGridBase : GridDataBoundGrid
+    /// <overload>
+    /// Initializes a new instance of
+    /// <see cref = "T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
+    /// .
+    /// </overload>
+    public DataGridBase( )
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGridBase"/> class.
-        /// </summary>
-        /// <overload>
-        /// Initializes a new instance of
-        /// <see cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid" />.
-        /// </overload>
-        public DataGridBase( )
-        {
-            // Basic Properties
-            ForeColor = Color.LightGray;
-            BackColor = Color.FromArgb( 45, 45, 45 );
-            Font = new Font( "Roboto", 8 );
-            Margin = new Padding( 0 );
-            Padding = new Padding( 0 );
-            Size = new Size( 700, 400 );
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            Visible = true;
-            Enabled = true;
+        // Basic Properties
+        ForeColor = Color.LightGray;
+        BackColor = Color.FromArgb( 45, 45, 45 );
+        Font = new Font( "Roboto", 8 );
+        Margin = new Padding( 0 );
+        Padding = new Padding( 0 );
+        Size = new Size( 700, 400 );
+        Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        Dock = DockStyle.None;
+        Visible = true;
+        Enabled = true;
 
-            // Model Properties
-            Model.Rows.DefaultSize = 22;
-            Model.ActiveGridView.PdfExport = true;
-            Model.Properties.ThemedHeader = false;
-            Model.Properties.GridLineColor = Color.FromArgb( 141, 139, 138 );
+        // Model Properties
+        Model.Rows.DefaultSize = 22;
+        Model.ActiveGridView.PdfExport = true;
+        Model.Properties.ThemedHeader = false;
+        Model.Properties.GridLineColor = Color.FromArgb( 141, 139, 138 );
 
-            // Style Properties
-            ThemesEnabled = true;
-            ApplyVisualStyles = true;
-            EnableAddNew = true;
-            EnableEdit = true;
-            EnableRemove = true;
-            AllowResizeToFit = true;
-            ExcelLikeSelectionFrame = true;
-            ExcelLikeAlignment = true;
-            AlphaBlendSelectionColor = Color.FromArgb( 0, 120, 212 );
-            Properties.BackgroundColor = Color.FromArgb( 45, 45, 45 );
-            Properties.CenterHorizontal = true;
-            Properties.CenterVertical = true;
-            Properties.ColHeaders = true;
-            Properties.RowHeaders = true;
-            Properties.Buttons3D = true;
+        // Style Properties
+        ThemesEnabled = true;
+        ApplyVisualStyles = true;
+        EnableAddNew = true;
+        EnableEdit = true;
+        EnableRemove = true;
+        AllowResizeToFit = true;
+        ExcelLikeSelectionFrame = true;
+        ExcelLikeAlignment = true;
+        AlphaBlendSelectionColor = Color.FromArgb( 0, 120, 212 );
+        Properties.BackgroundColor = Color.FromArgb( 45, 45, 45 );
+        Properties.CenterHorizontal = true;
+        Properties.CenterVertical = true;
+        Properties.ColHeaders = true;
+        Properties.RowHeaders = true;
+        Properties.Buttons3D = true;
 
-            // Table Style Properties
-            TableStyle.Themed = true;
-            TableStyle.WrapText = false;
-            TableStyle.HorizontalAlignment = GridHorizontalAlignment.Center;
-            TableStyle.AutoFit = AutoFitOptions.Both;
-            TableStyle.Font.Facename = "Roboto";
-            TableStyle.Font.Size = 8;
-        }
+        // Table Style Properties
+        TableStyle.Themed = true;
+        TableStyle.WrapText = false;
+        TableStyle.HorizontalAlignment = GridHorizontalAlignment.Center;
+        TableStyle.AutoFit = AutoFitOptions.Both;
+        TableStyle.Font.Facename = "Roboto";
+        TableStyle.Font.Size = 8;
     }
 }

@@ -15,7 +15,6 @@ dotnet_diagnostic.RS1015.severity = none
 dotnet_diagnostic.RS1028.severity = none
 
 
-
 # Other Rules
 
 # RS1001: Missing diagnostic analyzer attribute

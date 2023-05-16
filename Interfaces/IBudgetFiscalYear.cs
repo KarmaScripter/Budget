@@ -119,7 +119,7 @@ public interface IBudgetFiscalYear
     /// <value>
     /// The washingtons.
     /// </value>
-    DateOnly WashingtonsDay { get; set; }
+    DateOnly PresidentsDay { get; set; }
 
     /// <summary>
     /// Gets or sets the martin luther king.
@@ -127,7 +127,7 @@ public interface IBudgetFiscalYear
     /// <value>
     /// The martin luther king.
     /// </value>
-    DateOnly MartinLutherKingsDay { get; set; }
+    DateOnly MartinLutherKingDay { get; set; }
 
     /// <summary>
     /// Creates new years.

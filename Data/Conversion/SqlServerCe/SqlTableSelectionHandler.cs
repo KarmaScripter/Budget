@@ -2,14 +2,13 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution
-{
-    using System.Collections.Generic;
+namespace BudgetExecution;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="schema">The schema.</param>
-    /// <returns></returns>
-    public delegate List<TableSchema> SqlTableSelectionHandler( List<TableSchema> schema );
-}
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+/// <summary> </summary>
+/// <param name = "schema" > The schema. </param>
+/// <returns> </returns>
+public delegate List<TableSchema> SqlTableSelectionHandler( List<TableSchema> schema );

@@ -54,7 +54,6 @@ dotnet_diagnostic.RS1035.severity = warning
 dotnet_diagnostic.RS1036.severity = warning
 
 
-
 # Other Rules
 
 # RS1007: Provide localizable arguments to diagnostic descriptor constructor

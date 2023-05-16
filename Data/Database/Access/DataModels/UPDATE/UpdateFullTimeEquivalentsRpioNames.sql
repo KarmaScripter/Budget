@@ -1,4 +1,4 @@
 UPDATE FullTimeEquivalents
-INNER JOIN ResourcePlanningOffices
+    INNER JOIN ResourcePlanningOffices
 ON FullTimeEquivalents.RpioCode = ResourcePlanningOffices.Code
-SET FullTimeEquivalents.RpioName = ResourcePlanningOffices.Name;
+    SET FullTimeEquivalents.RpioName = ResourcePlanningOffices.Name;

@@ -15,91 +15,90 @@ namespace BudgetExecution
     public abstract class FederalHoliday : IFederalHoliday
     {
         /// <summary>
-        /// Gets or sets the columbus.
+        /// Columbus Day, the second Monday in October.
         /// </summary>
         /// <value>
-        /// The columbus.
+        /// Columbus Day, the second Monday in October.
         /// </value>
         public virtual DateOnly ColumbusDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the veterans.
+        /// Veterans Day, November 11.
         /// </summary>
         /// <value>
-        /// The veterans.
+        /// Veterans Day, November 11.
         /// </value>
         public virtual DateOnly VeteransDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the thanksgiving.
+        /// Thanksgiving Day, the fourth Thursday in November.
         /// </summary>
         /// <value>
-        /// The thanksgiving.
+        /// Thanksgiving Day, the fourth Thursday in November.
         /// </value>
         public virtual DateOnly ThanksgivingDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the christmas.
+        /// Christmas Day, December 25.
         /// </summary>
         /// <value>
-        /// The christmas.
+        /// Christmas Day, December 25.
         /// </value>
         public virtual DateOnly ChristmasDay { get; set; }
 
         /// <summary>
-        /// Creates new years.
+        /// New Year’s Day, January 1.
         /// </summary>
         /// <value>
-        /// The new years.
+        /// New Year’s Day, January 1.
         /// </value>
         public virtual DateOnly NewYearsDay { get; set; }
-
-
+        
         /// <summary>
-        /// Gets or sets the martin luther king.
+        /// Birthday of Martin Luther King, Jr., the third Monday in January.
         /// </summary>
         /// <value>
-        /// The martin luther king.
+        /// Birthday of Martin Luther King, Jr., the third Monday in January.
         /// </value>
-        public virtual DateOnly MartinLutherKingsDay { get; set; }
+        public virtual DateOnly MartinLutherKingDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the washingtons.
+        /// Washington’s Birthday, the third Monday in February.
         /// </summary>
         /// <value>
-        /// The washingtons.
+        /// Washington’s Birthday, the third Monday in February.
         /// </value>
-        public virtual DateOnly WashingtonsDay { get; set; }
+        public virtual DateOnly PresidentsDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the memorial.
+        /// Memorial Day, the last Monday in May.
         /// </summary>
         /// <value>
-        /// The memorial.
+        /// Memorial Day, the last Monday in May.
         /// </value>
         public virtual DateOnly MemorialDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the juneteenth.
+        /// Juneteenth National Independence Day, June 19.
         /// </summary>
         /// <value>
-        /// The juneteenth.
+        /// Juneteenth National Independence Day, June 19.
         /// </value>
         public virtual DateOnly JuneteenthDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the independence.
+        /// Independence Day, July 4.
         /// </summary>
         /// <value>
-        /// The independence.
+        /// Independence Day, July 4.
         /// </value>
         public virtual DateOnly IndependenceDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the labor.
+        /// Labor Day, the first Monday in September.
         /// </summary>
         /// <value>
-        /// The labor.
+        /// Labor Day, the first Monday in September.
         /// </value>
         public virtual DateOnly LaborDay { get; set; }
         

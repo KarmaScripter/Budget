@@ -1,4 +1,4 @@
-UPDATE Allocations 
-INNER JOIN ProgramProjects 
+UPDATE Allocations
+    INNER JOIN ProgramProjects
 ON ProgramProjects.Code = Allocations.ProgramProjectCode
-SET Allocations.ProgramProjectName = ProgramProjects.Name;
+    SET Allocations.ProgramProjectName = ProgramProjects.Name;

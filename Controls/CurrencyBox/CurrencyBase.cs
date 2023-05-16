@@ -2,145 +2,53 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution
+namespace BudgetExecution;
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms.Tools;
+
+/// <summary> </summary>
+/// <seealso cref = "Syncfusion.Windows.Forms.Tools.CurrencyEdit"/>
+[ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+[ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+[ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+public abstract class CurrencyBase : CurrencyEdit
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
+    /// <summary> Gets or sets the binding source. </summary>
+    /// <value> The binding source. </value>
+    public virtual BindingSource BindingSource { get; set; }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.CurrencyEdit" />
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class CurrencyBase : CurrencyEdit
+    /// <summary> Gets or sets the tool tip. </summary>
+    /// <value> The tool tip. </value>
+    public virtual SmallTip ToolTip { get; set; }
+
+    /// <summary> Gets or sets the hover text. </summary>
+    /// <value> The hover text. </value>
+    public virtual string HoverText { get; set; }
+
+    /// <summary> Gets or sets the filter. </summary>
+    /// <value> The filter. </value>
+    public virtual IDictionary<string, object> DataFilter { get; set; }
+
+    /// <summary> Sets the binding source. </summary>
+    /// <param name = "bindingList" > The binding source. </param>
+    public virtual void SetDataSource<T1>( T1 bindingList )
+        where T1 : IBindingList
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public virtual SmallTip ToolTip { get; set; }
-
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public virtual string HoverText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="bindingList">The binding source.</param>
-        public virtual void SetDataSource<T1>( T1 bindingList ) 
-            where T1 : IBindingList
+        try
         {
-            try
-            {
-                if( bindingList is BindingSource _binder
-                   && _binder?.DataSource != null )
-                {
-                    try
-                    {
-                        BindingSource.DataSource = _binder.DataSource;
-                    }
-                    catch( Exception ex )
-                    {
-                        Fail( ex );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2">The type of the 2.</typeparam>
-        /// <param name="bindingList">The binding source.</param>
-        /// <param name="dict">The dictionary.</param>
-        public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
-            where T1 : IBindingList
-            where T2 : IDictionary<string, object>
-        {
-            try
-            {
-                if( bindingList != null
-                   && dict?.Any( ) == true )
-                {
-                    try
-                    {
-                        var _list = bindingList as BindingSource;
-                        var _filter = string.Empty;
-                        foreach( var kvp in dict )
-                        {
-                            if( !string.IsNullOrEmpty( kvp.Key )
-                               && kvp.Value != null )
-                            {
-                                _filter += $"{kvp.Key} = {kvp.Value} AND";
-                            }
-                        }
-
-                        if( _filter?.Length > 0
-                           && _list?.DataSource != null )
-                        {
-                            BindingSource.DataSource = _list?.DataSource;
-                            BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
-                        }
-                    }
-                    catch( Exception ex )
-                    {
-                        Fail( ex );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data )
-            where T1 : IEnumerable<T1>
-        {
-            if( data?.Any( ) == true )
+            if( bindingList is BindingSource _binder
+               && _binder?.DataSource != null )
             {
                 try
                 {
-                    BindingSource.DataSource = data?.ToList( );
+                    BindingSource.DataSource = _binder.DataSource;
                 }
                 catch( Exception ex )
                 {
@@ -148,21 +56,29 @@ namespace BudgetExecution
                 }
             }
         }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1">The type of the 1.</typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="dict">The dictionary.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data,
-            IDictionary<string, object> dict ) 
-            where T1 : IEnumerable<T1>
+        catch( Exception ex )
         {
-            if( data?.Any( ) == true )
+            Fail( ex );
+        }
+    }
+
+    /// <summary> Sets the binding source. </summary>
+    /// <typeparam name = "T1" > </typeparam>
+    /// <typeparam name = "T2" > The type of the 2. </typeparam>
+    /// <param name = "bindingList" > The binding source. </param>
+    /// <param name = "dict" > The dictionary. </param>
+    public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
+        where T1 : IBindingList
+        where T2 : IDictionary<string, object>
+    {
+        try
+        {
+            if( bindingList != null
+               && dict?.Any( ) == true )
             {
                 try
                 {
+                    var _list = bindingList as BindingSource;
                     var _filter = string.Empty;
                     foreach( var kvp in dict )
                     {
@@ -173,44 +89,11 @@ namespace BudgetExecution
                         }
                     }
 
-                    BindingSource.DataSource = data?.ToList( );
-                    BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray( ) );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1">The type of T1.</typeparam>
-        /// <typeparam name="T2">The type of T2.</typeparam>
-        /// <typeparam name="T3">The type of T3.</typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="field">The field.</param>
-        /// <param name="filter">The dictionary.</param>
-        public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
-            where T1 : IEnumerable<T1>
-            where T2 : struct
-        {
-            if( data?.Any( ) == true
-               && Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( filter?.ToString( ) ) )
+                    if( _filter?.Length > 0
+                       && _list?.DataSource != null )
                     {
-                        BindingSource.DataSource = data.ToList( );
-                        BindingSource.DataMember = field.ToString( );
-                        BindingSource.Filter = $"{field} = {filter}";
-                    }
-                    else
-                    {
-                        BindingSource.DataSource = data.ToList( );
-                        BindingSource.DataMember = field.ToString( );
+                        BindingSource.DataSource = _list?.DataSource;
+                        BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
                     }
                 }
                 catch( Exception ex )
@@ -219,135 +102,87 @@ namespace BudgetExecution
                 }
             }
         }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <typeparam name="T1">The type of the 1.</typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="field">The field.</param>
-        public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
-            where T1 : IEnumerable<T1>
+        catch( Exception ex )
         {
-            if( data?.Any( ) == true )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( field?.ToString( ) ) )
-                    {
-                        BindingSource.DataSource = data.ToList( );
-                        BindingSource.DataMember = field?.ToString( );
-                    }
-                    else
-                    {
-                        BindingSource.DataSource = data.ToList( );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
+            Fail( ex );
         }
+    }
 
-        /// <summary>
-        /// Sets the bindings.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param>The numeric.</param>
-        /// <param name = "dict" > </param>
-        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
-            where T1 : IEnumerable<T1> 
-            where T2 : IDictionary<string, object>
+    /// <summary> Sets the binding source. </summary>
+    /// <param name = "data" > The data. </param>
+    public virtual void SetDataSource<T1>( IEnumerable<T1> data )
+        where T1 : IEnumerable<T1>
+    {
+        if( data?.Any( ) == true )
         {
-            if( data?.Any( ) == true
-               && dict?.Any( ) == true )
-            {
-                try
-                {
-                    var filter = string.Empty;
-                    foreach( var kvp in dict )
-                    {
-                        if( !string.IsNullOrEmpty( kvp.Key )
-                           && kvp.Value != null )
-                        {
-                            filter += $"{kvp.Key} = {kvp.Value} AND";
-                        }
-                    }
-
-                    BindingSource.DataSource = data?.ToList( );
-                    BindingSource.Filter = filter?.TrimEnd( " AND".ToCharArray( ) );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sets the binding source.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="field">The field.</param>
-        /// <param name="filter">The filter.</param>
-        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field,
-            object filter = null ) 
-            where T1 : IEnumerable<T1> 
-            where T2 : struct
-        {
-            if( data?.Any( ) == true
-               && Enum.IsDefined( typeof( Field ), field ) )
-            {
-                try
-                {
-                    if( !string.IsNullOrEmpty( filter?.ToString( ) ) )
-                    {
-                        BindingSource.DataSource = data.ToList( );
-                        BindingSource.DataMember = field.ToString( );
-                        BindingSource.Filter = $"{field} = {filter}";
-                    }
-                    else
-                    {
-                        BindingSource.DataSource = data.ToList( );
-                        BindingSource.DataMember = field.ToString( );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [mouse over].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs" />
-        /// instance containing the event data.</param>
-        public virtual void OnMouseOver( object sender, EventArgs e )
-        {
-            var _currencyTextBox = sender as CurrencyBox;
             try
             {
-                if( _currencyTextBox != null
-                   && !string.IsNullOrEmpty( HoverText ) )
+                BindingSource.DataSource = data?.ToList( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+    }
+
+    /// <summary> Sets the binding source. </summary>
+    /// <typeparam name = "T1" > The type of the 1. </typeparam>
+    /// <param name = "data" > The data. </param>
+    /// <param name = "dict" > The dictionary. </param>
+    public virtual void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
+        where T1 : IEnumerable<T1>
+    {
+        if( data?.Any( ) == true )
+        {
+            try
+            {
+                var _filter = string.Empty;
+                foreach( var kvp in dict )
                 {
-                    if( !string.IsNullOrEmpty( HoverText ) )
+                    if( !string.IsNullOrEmpty( kvp.Key )
+                       && kvp.Value != null )
                     {
-                        var _hoverText = _currencyTextBox?.HoverText;
-                        var _ = new SmallTip( _currencyTextBox, _hoverText );
+                        _filter += $"{kvp.Key} = {kvp.Value} AND";
                     }
-                    else
-                    {
-                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
-                        {
-                            var _text = Tag?.ToString( )?.SplitPascal( );
-                            var _ = new SmallTip( _currencyTextBox, _text );
-                        }
-                    }
+                }
+
+                BindingSource.DataSource = data?.ToList( );
+                BindingSource.Filter = _filter.TrimEnd( " AND".ToCharArray( ) );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+    }
+
+    /// <summary> Sets the binding source. </summary>
+    /// <typeparam name = "T1" > The type of T1. </typeparam>
+    /// <typeparam name = "T2" > The type of T2. </typeparam>
+    /// <typeparam name = "T3" > The type of T3. </typeparam>
+    /// <param name = "data" > The data. </param>
+    /// <param name = "field" > The field. </param>
+    /// <param name = "filter" > The dictionary. </param>
+    public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
+        where T1 : IEnumerable<T1>
+        where T2 : struct
+    {
+        if( data?.Any( ) == true
+           && Enum.IsDefined( typeof( Field ), field ) )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( filter?.ToString( ) ) )
+                {
+                    BindingSource.DataSource = data.ToList( );
+                    BindingSource.DataMember = field.ToString( );
+                    BindingSource.Filter = $"{field} = {filter}";
+                }
+                else
+                {
+                    BindingSource.DataSource = data.ToList( );
+                    BindingSource.DataMember = field.ToString( );
                 }
             }
             catch( Exception ex )
@@ -355,22 +190,27 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+    }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs" />
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnMouseLeave( object sender, EventArgs e )
+    /// <summary> Sets the binding source. </summary>
+    /// <typeparam name = "T1" > The type of the 1. </typeparam>
+    /// <param name = "data" > The data. </param>
+    /// <param name = "field" > The field. </param>
+    public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
+        where T1 : IEnumerable<T1>
+    {
+        if( data?.Any( ) == true )
         {
-            var _currencyTextBox = sender as CurrencyBox;
             try
             {
-                if( _currencyTextBox != null )
+                if( !string.IsNullOrEmpty( field?.ToString( ) ) )
                 {
+                    BindingSource.DataSource = data.ToList( );
+                    BindingSource.DataMember = field?.ToString( );
+                }
+                else
+                {
+                    BindingSource.DataSource = data.ToList( );
                 }
             }
             catch( Exception ex )
@@ -378,16 +218,138 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
+    }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+    /// <summary> Sets the bindings. </summary>
+    /// <param name = "data" > The data. </param>
+    /// <param> The numeric. </param>
+    /// <param name = "dict" > </param>
+    public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
+        where T1 : IEnumerable<T1>
+        where T2 : IDictionary<string, object>
+    {
+        if( data?.Any( ) == true
+           && dict?.Any( ) == true )
         {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            try
+            {
+                var filter = string.Empty;
+                foreach( var kvp in dict )
+                {
+                    if( !string.IsNullOrEmpty( kvp.Key )
+                       && kvp.Value != null )
+                    {
+                        filter += $"{kvp.Key} = {kvp.Value} AND";
+                    }
+                }
+
+                BindingSource.DataSource = data?.ToList( );
+                BindingSource.Filter = filter?.TrimEnd( " AND".ToCharArray( ) );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
+    }
+
+    /// <summary> Sets the binding source. </summary>
+    /// <param name = "data" > The data. </param>
+    /// <param name = "field" > The field. </param>
+    /// <param name = "filter" > The filter. </param>
+    public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field,
+        object filter = null )
+        where T1 : IEnumerable<T1>
+        where T2 : struct
+    {
+        if( data?.Any( ) == true
+           && Enum.IsDefined( typeof( Field ), field ) )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( filter?.ToString( ) ) )
+                {
+                    BindingSource.DataSource = data.ToList( );
+                    BindingSource.DataMember = field.ToString( );
+                    BindingSource.Filter = $"{field} = {filter}";
+                }
+                else
+                {
+                    BindingSource.DataSource = data.ToList( );
+                    BindingSource.DataMember = field.ToString( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+    }
+
+    /// <summary> Called when [mouse over]. </summary>
+    /// <param name = "sender" > The sender. </param>
+    /// <param name = "e" >
+    /// The
+    /// <see cref = "EventArgs"/>
+    /// instance containing the event data.
+    /// </param>
+    public virtual void OnMouseOver( object sender, EventArgs e )
+    {
+        var _currencyTextBox = sender as CurrencyBox;
+        try
+        {
+            if( _currencyTextBox != null
+               && !string.IsNullOrEmpty( HoverText ) )
+            {
+                if( !string.IsNullOrEmpty( HoverText ) )
+                {
+                    var _hoverText = _currencyTextBox?.HoverText;
+                    var _ = new SmallTip( _currencyTextBox, _hoverText );
+                }
+                else
+                {
+                    if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
+                    {
+                        var _text = Tag?.ToString( )?.SplitPascal( );
+                        var _ = new SmallTip( _currencyTextBox, _text );
+                    }
+                }
+            }
+        }
+        catch( Exception ex )
+        {
+            Fail( ex );
+        }
+    }
+
+    /// <summary> Called when [mouse leave]. </summary>
+    /// <param name = "sender" > The sender. </param>
+    /// <param name = "e" >
+    /// The
+    /// <see cref = "EventArgs"/>
+    /// instance containing the event data.
+    /// </param>
+    public virtual void OnMouseLeave( object sender, EventArgs e )
+    {
+        var _currencyTextBox = sender as CurrencyBox;
+        try
+        {
+            if( _currencyTextBox != null )
+            {
+            }
+        }
+        catch( Exception ex )
+        {
+            Fail( ex );
+        }
+    }
+
+    /// <summary> Get ErrorDialog Dialog. </summary>
+    /// <param name = "ex" > The ex. </param>
+    private protected static void Fail( Exception ex )
+    {
+        using var _error = new ErrorDialog( ex );
+        _error?.SetText( );
+        _error?.ShowDialog( );
     }
 }

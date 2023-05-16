@@ -39,8 +39,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             NewYearsDay = DateOnly.Parse( dataRow[ "NewYearsDay" ].ToString( ) );
-            MartinLutherKingsDay = DateOnly.Parse( dataRow[ "MartinLutherKingsDay" ].ToString( ) );
-            WashingtonsDay = DateOnly.Parse( dataRow[ "WashingtonsDay" ].ToString( ) );
+            MartinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKingDay" ].ToString( ) );
+            PresidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
             MemorialDay = DateOnly.Parse( dataRow[ "MemorialDay" ].ToString( ) );
             VeteransDay = DateOnly.Parse( dataRow[ "VeteransDay" ].ToString( ) );
             LaborDay = DateOnly.Parse( dataRow[ "LaborDay" ].ToString( ) );

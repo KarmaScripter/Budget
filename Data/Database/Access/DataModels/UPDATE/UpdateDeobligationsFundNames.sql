@@ -1,4 +1,4 @@
-UPDATE Deobligations 
-INNER JOIN Funds
+UPDATE Deobligations
+    INNER JOIN Funds
 ON Deobligations.FundCode = Funds.Code
-SET Deobligations.FundName = Funds.Name;
+    SET Deobligations.FundName = Funds.Name;

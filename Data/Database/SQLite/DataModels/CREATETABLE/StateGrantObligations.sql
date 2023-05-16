@@ -1,1 +1,2 @@
-DELETE FROM CongressionalReprogrammings;
+DELETE
+FROM CongressionalReprogrammings;

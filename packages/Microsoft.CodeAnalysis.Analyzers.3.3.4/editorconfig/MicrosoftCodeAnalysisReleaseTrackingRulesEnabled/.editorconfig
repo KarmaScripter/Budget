@@ -36,7 +36,6 @@ dotnet_diagnostic.RS2007.severity = warning
 dotnet_diagnostic.RS2008.severity = warning
 
 
-
 # Other Rules
 
 # RS1001: Missing diagnostic analyzer attribute

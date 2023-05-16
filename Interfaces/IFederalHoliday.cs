@@ -12,90 +12,90 @@ namespace BudgetExecution
     public interface IFederalHoliday
     {
         /// <summary>
-        /// Creates new years.
+        /// New Year’s Day, January 1.
         /// </summary>
         /// <value>
-        /// The new years.
+        /// New Year’s Day, January 1.
         /// </value>
         public DateOnly NewYearsDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the martin luther king.
+        /// Birthday of Martin Luther King, Jr., the third Monday in January.
         /// </summary>
         /// <value>
-        /// The martin luther king.
+        /// Birthday of Martin Luther King, Jr., the third Monday in January.
         /// </value>
-        public DateOnly MartinLutherKingsDay { get; set; }
+        public DateOnly MartinLutherKingDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the presidents.
+        /// Washington’s Birthday, the third Monday in February.
         /// </summary>
         /// <value>
-        /// The presidents.
+        /// Washington’s Birthday, the third Monday in February.
         /// </value>
-        public DateOnly WashingtonsDay { get; set; }
+        public DateOnly PresidentsDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the memorial.
+        /// Memorial Day, the last Monday in May.
         /// </summary>
         /// <value>
-        /// The memorial.
+        /// Memorial Day, the last Monday in May.
         /// </value>
         public DateOnly MemorialDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the veterans.
+        /// Veterans Day, November 11.
         /// </summary>
         /// <value>
-        /// The veterans.
+        /// Veterans Day, November 11.
         /// </value>
         public DateOnly VeteransDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the labor.
+        /// Labor Day, the first Monday in September.
         /// </summary>
         /// <value>
-        /// The labor.
+        /// TLabor Day, the first Monday in September.
         /// </value>
         public DateOnly LaborDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the independence.
+        /// Independence Day, July 4.
         /// </summary>
         /// <value>
-        /// The independence.
+        /// Independence Day, July 4.
         /// </value>
         public DateOnly IndependenceDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the Juneteenth day.
+        /// Juneteenth National Independence Day, June 19.
         /// </summary>
         /// <value>
-        /// The Juneteenth day.
+        /// Juneteenth National Independence Day, June 19.
         /// </value>
         public DateOnly JuneteenthDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the columbus.
+        /// Columbus Day, the second Monday in October.
         /// </summary>
         /// <value>
-        /// The columbus.
+        /// Columbus Day, the second Monday in October.
         /// </value>
         public DateOnly ColumbusDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the thanksgiving.
+        /// Thanksgiving Day, the fourth Thursday in November.
         /// </summary>
         /// <value>
-        /// The thanksgiving.
+        /// Thanksgiving Day, the fourth Thursday in November.
         /// </value>
         public DateOnly ThanksgivingDay { get; set; }
 
         /// <summary>
-        /// Gets or sets the christmas.
+        /// Christmas Day, December 25.
         /// </summary>
         /// <value>
-        /// The christmas.
+        /// Christmas Day, December 25.
         /// </value>
         public DateOnly ChristmasDay { get; set; }
     }

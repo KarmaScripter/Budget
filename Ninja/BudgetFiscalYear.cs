@@ -203,9 +203,9 @@ namespace BudgetExecution
                 var _holidays = new Dictionary<Holiday, DateOnly>( );
                 var _day = new HolidayFactory( Record );
                 _holidays.Add( Holiday.NewYearsDay, _day.ChristmasDay );
-                _holidays.Add( Holiday.MartinLutherKingsDay, _day.MartinLutherKingsDay );
+                _holidays.Add( Holiday.MartinLutherKingsDay, _day.MartinLutherKingDay );
                 _holidays.Add( Holiday.MemorialDay, _day.MemorialDay );
-                _holidays.Add( Holiday.WashingtonsDay, _day.WashingtonsDay );
+                _holidays.Add( Holiday.WashingtonsDay, _day.PresidentsDay );
                 _holidays.Add( Holiday.VeteransDay, _day.VeteransDay );
                 _holidays.Add( Holiday.LaborDay, _day.LaborDay );
                 _holidays.Add( Holiday.JuneteenthDay, _day.JuneteenthDay );
