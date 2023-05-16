@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CongressionalControl : DataUnit
+    public class CongressionalControl : DataUnit, ICongressionalControl
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -227,6 +227,23 @@ namespace BudgetExecution
             IncreaseRestriction = dataRow[ "IncreaseRestriction" ].ToString( );
             DecreaseRestriction = dataRow[ "DecreaseRestriction" ].ToString( );
             MemoRequirement = dataRow[ "MemoRequirement" ].ToString(  );
+        }
+
+        public CongressionalControl( ICongressionalControl control )
+        {
+            ID = control.ID;
+            FundCode = control.FundCode;
+            FundName = control.FundName;
+            ProgramProjectCode = control.ProgramProjectCode;
+            ProgramProjectName = control.ProgramProjectName;
+            SubProjectCode = control.SubProjectCode;
+            SubProjectName = control.SubProjectName;
+            ProgramAreaCode = control.ProgramAreaCode;
+            ProgramAreaName = control.ProgramAreaName;
+            ReprogrammingRestriction = control.ReprogrammingRestriction;
+            IncreaseRestriction = control.IncreaseRestriction;
+            DecreaseRestriction = control.DecreaseRestriction;
+            MemoRequirement = control.MemoRequirement;
         }
     }
 }
