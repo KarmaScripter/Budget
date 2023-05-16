@@ -12,24 +12,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Document
+    public class Document : DataUnit, IDocument
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
         /// <summary>
         /// Gets or sets the category.
         /// </summary>
@@ -37,14 +21,6 @@ namespace BudgetExecution
         /// The category.
         /// </value>
         public string Category { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the system.
@@ -129,6 +105,15 @@ namespace BudgetExecution
             Category = Record[ "Category" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             System = Record[ "System" ].ToString( );
+        }
+
+        public Document( IDocument doc )
+        {
+            ID = doc.ID;
+            Code = doc.Code;
+            Name = doc.Name;
+            System = doc.System;
+            Category = doc.Category;
         }
     }
 }

@@ -7,12 +7,13 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using Syncfusion.Grouping;
 
     /// <summary>
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DocumentControlNumber
+    public class DocumentControlNumber : IDocumentControlNumber
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -121,6 +122,16 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+        }
+
+        public DocumentControlNumber( IDocumentControlNumber dcn )
+        {
+            ID = dcn.ID;
+            RpioCode = dcn.RpioCode;
+            RpioName = dcn.RpioName;
+            DocumentType = dcn.DocumentType;
+            DocumentPrefix = dcn.DocumentPrefix;
+            DocumentNumber = dcn.DocumentNumber;
         }
     }
 }
