@@ -17,7 +17,7 @@ namespace BudgetExecution
         /// <value>
         /// The new years.
         /// </value>
-        DateOnly NewYearsDay { get; set; }
+        public DateOnly NewYearsDay { get; set; }
 
         /// <summary>
         /// Gets or sets the martin luther king.
@@ -25,7 +25,7 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king.
         /// </value>
-        DateOnly MartinLutherKingDay { get; set; }
+        public DateOnly MartinLutherKingsDay { get; set; }
 
         /// <summary>
         /// Gets or sets the presidents.
@@ -33,7 +33,7 @@ namespace BudgetExecution
         /// <value>
         /// The presidents.
         /// </value>
-        DateOnly PresidentsDay { get; set; }
+        public DateOnly WashingtonsDay { get; set; }
 
         /// <summary>
         /// Gets or sets the memorial.
@@ -41,7 +41,7 @@ namespace BudgetExecution
         /// <value>
         /// The memorial.
         /// </value>
-        DateOnly MemorialDay { get; set; }
+        public DateOnly MemorialDay { get; set; }
 
         /// <summary>
         /// Gets or sets the veterans.
@@ -49,7 +49,7 @@ namespace BudgetExecution
         /// <value>
         /// The veterans.
         /// </value>
-        DateOnly VeteransDay { get; set; }
+        public DateOnly VeteransDay { get; set; }
 
         /// <summary>
         /// Gets or sets the labor.
@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// <value>
         /// The labor.
         /// </value>
-        DateOnly LaborDay { get; set; }
+        public DateOnly LaborDay { get; set; }
 
         /// <summary>
         /// Gets or sets the independence.
@@ -65,7 +65,15 @@ namespace BudgetExecution
         /// <value>
         /// The independence.
         /// </value>
-        DateOnly IndependenceDay { get; set; }
+        public DateOnly IndependenceDay { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Juneteenth day.
+        /// </summary>
+        /// <value>
+        /// The Juneteenth day.
+        /// </value>
+        public DateOnly JuneteenthDay { get; set; }
 
         /// <summary>
         /// Gets or sets the columbus.
@@ -73,7 +81,7 @@ namespace BudgetExecution
         /// <value>
         /// The columbus.
         /// </value>
-        DateOnly ColumbusDay { get; set; }
+        public DateOnly ColumbusDay { get; set; }
 
         /// <summary>
         /// Gets or sets the thanksgiving.
@@ -81,7 +89,7 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving.
         /// </value>
-        DateOnly ThanksgivingDay { get; set; }
+        public DateOnly ThanksgivingDay { get; set; }
 
         /// <summary>
         /// Gets or sets the christmas.
@@ -89,6 +97,6 @@ namespace BudgetExecution
         /// <value>
         /// The christmas.
         /// </value>
-        DateOnly ChristmasDay { get; set; }
+        public DateOnly ChristmasDay { get; set; }
     }
 }

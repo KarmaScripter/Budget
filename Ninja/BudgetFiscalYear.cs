@@ -26,184 +26,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear, ISource
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear
     {
-        /// <summary>
-        /// Gets or sets the fiscal year identifier.
-        /// </summary>
-        /// <value>
-        /// The fiscal year identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the start date.
-        /// </summary>
-        /// <value>
-        /// The start date.
-        /// </value>
-        public override DateOnly StartDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the end date.
-        /// </summary>
-        /// <value>
-        /// The end date.
-        /// </value>
-        public override DateOnly EndDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the columbus.
-        /// </summary>
-        /// <value>
-        /// The columbus.
-        /// </value>
-        public override DateOnly ColumbusDay { get; set; }
-
-        /// <summary>
-        /// Gets or sets the christmas.
-        /// </summary>
-        /// <value>
-        /// The christmas.
-        /// </value>
-        public override DateOnly Christmas { get; set; }
-
-        /// <summary>
-        /// Gets or sets the thanksgiving.
-        /// </summary>
-        /// <value>
-        /// The thanksgiving.
-        /// </value>
-        public override DateOnly Thanksgiving { get; set; }
-
-        /// <summary>
-        /// Gets or sets the veterans.
-        /// </summary>
-        /// <value>
-        /// The veterans.
-        /// </value>
-        public override DateOnly Veterans { get; set; }
-
-        /// <summary>
-        /// Gets or sets the labor.
-        /// </summary>
-        /// <value>
-        /// The labor.
-        /// </value>
-        public override DateOnly Labor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the independence.
-        /// </summary>
-        /// <value>
-        /// The independence.
-        /// </value>
-        public override DateOnly Independence { get; set; }
-
-        /// <summary>
-        /// Gets or sets the juneteenth.
-        /// </summary>
-        /// <value>
-        /// The juneteenth.
-        /// </value>
-        public override DateOnly Juneteenth { get; set; }
-
-        /// <summary>
-        /// Gets or sets the memorial.
-        /// </summary>
-        /// <value>
-        /// The memorial.
-        /// </value>
-        public override DateOnly Memorial { get; set; }
-
-        /// <summary>
-        /// Gets or sets the washingtons.
-        /// </summary>
-        /// <value>
-        /// The washingtons.
-        /// </value>
-        public override DateOnly Washingtons { get; set; }
-
-        /// <summary>
-        /// Gets or sets the martin luther king.
-        /// </summary>
-        /// <value>
-        /// The martin luther king.
-        /// </value>
-        public override DateOnly MartinLutherKing { get; set; }
-
-        /// <summary>
-        /// Creates new years.
-        /// </summary>
-        /// <value>
-        /// The new years.
-        /// </value>
-        public override DateOnly NewYears { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expiring year.
-        /// </summary>
-        /// <value>
-        /// The expiring year.
-        /// </value>
-        public override string ExpiringYear { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expiration date.
-        /// </summary>
-        /// <value>
-        /// The expiration date.
-        /// </value>
-        public override DateOnly ExpirationDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cancellation date.
-        /// </summary>
-        /// <value>
-        /// The cancellation date.
-        /// </value>
-        public override DateOnly CancellationDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the work days.
-        /// </summary>
-        /// <value>
-        /// The work days.
-        /// </value>
-        public override double WorkDays { get; set; }
-
-        /// <summary>
-        /// Gets or sets the week days.
-        /// </summary>
-        /// <value>
-        /// The week days.
-        /// </value>
-        public override double WeekDays { get; set; }
-
-        /// <summary>
-        /// Gets or sets the week ends.
-        /// </summary>
-        /// <value>
-        /// The week ends.
-        /// </value>
-        public override double WeekEnds { get; set; }
-
         /// <summary>
         /// Gets or sets the availability.
         /// </summary>
@@ -308,11 +133,13 @@ namespace BudgetExecution
         public BudgetFiscalYear( IDataModel dataBuilder )
             : this( )
         {
-            Record = dataBuilder?.Record;
-            ID = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
+            Record = dataBuilder.Record;
+            ID = int.Parse( Record[ "FiscalYearsId" ].ToString( ) );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
             FirstYear = Record[ "FirstYear" ].ToString( );
             LastYear = Record[ "LastYEar" ].ToString( );
-            Availability = Record[ "Availability" ].ToString( );
+            Availability = Record?[ "Availability" ].ToString( );
             WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
             WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
             WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
@@ -332,7 +159,9 @@ namespace BudgetExecution
         {
             Record = dataRow;
             InputYear = dataRow[ "BFY" ].ToString( );
-            ID = int.Parse( dataRow[ "FiscalYearId" ].ToString( ) );
+            ID = int.Parse( dataRow[ "FiscalYearsId" ].ToString( ) );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
             FirstYear = dataRow[ "FirstYear" ].ToString( );
             LastYear = dataRow[ "LastYEar" ].ToString( );
             Availability = dataRow[ "Availability" ].ToString( );
@@ -346,6 +175,23 @@ namespace BudgetExecution
             Holidays = new HolidayFactory( dataRow );
         }
 
+        public BudgetFiscalYear( IBudgetFiscalYear year ) 
+            : this( )
+        {
+            ID = year.ID;
+            BFY = year.BFY;
+            EFY = year.EFY;
+            FirstYear = year.FirstYear;
+            LastYear = year.LastYear;
+            WorkDays = year.WorkDays;
+            WeekDays = year.WeekDays;
+            WeekEnds = year.WeekEnds;
+            ExpiringYear = year.ExpiringYear;
+            StartDate = year.StartDate;
+            EndDate = year.EndDate;
+            CancellationDate = year.CancellationDate;
+        }
+        
         /// <summary>
         /// Gets the federal holidays.
         /// </summary>
@@ -356,17 +202,17 @@ namespace BudgetExecution
             {
                 var _holidays = new Dictionary<Holiday, DateOnly>( );
                 var _day = new HolidayFactory( Record );
-                _holidays.Add( Holiday.NewYears, _day.ChristmasDay );
-                _holidays.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
-                _holidays.Add( Holiday.Memorial, _day.MemorialDay );
-                _holidays.Add( Holiday.Presidents, _day.PresidentsDay );
-                _holidays.Add( Holiday.Veterans, _day.VeteransDay );
-                _holidays.Add( Holiday.Labor, _day.LaborDay );
-                _holidays.Add( Holiday.Juneteenth, _day.JuneteenthDay );
-                _holidays.Add( Holiday.Independence, _day.IndependenceDay );
-                _holidays.Add( Holiday.Columbus, _day.ColumbusDay );
-                _holidays.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
-                _holidays.Add( Holiday.Christmas, _day.ChristmasDay );
+                _holidays.Add( Holiday.NewYearsDay, _day.ChristmasDay );
+                _holidays.Add( Holiday.MartinLutherKingsDay, _day.MartinLutherKingsDay );
+                _holidays.Add( Holiday.MemorialDay, _day.MemorialDay );
+                _holidays.Add( Holiday.WashingtonsDay, _day.WashingtonsDay );
+                _holidays.Add( Holiday.VeteransDay, _day.VeteransDay );
+                _holidays.Add( Holiday.LaborDay, _day.LaborDay );
+                _holidays.Add( Holiday.JuneteenthDay, _day.JuneteenthDay );
+                _holidays.Add( Holiday.IndependenceDay, _day.IndependenceDay );
+                _holidays.Add( Holiday.ColumbusDay, _day.ColumbusDay );
+                _holidays.Add( Holiday.ThanksgivingDay, _day.ThanksgivingDay );
+                _holidays.Add( Holiday.ChristmasDay, _day.ChristmasDay );
                 return ( _holidays?.Any( ) == true )
                     ? _holidays
                     : default( IDictionary<Holiday, DateOnly> );
@@ -388,7 +234,7 @@ namespace BudgetExecution
             try
             {
                 return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString(  ) )
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
             catch( Exception ex )
@@ -410,7 +256,7 @@ namespace BudgetExecution
             {
                 return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) 
                     && dataRow != null
-                        ? int.Parse( dataRow[ $"{ primaryKey }" ].ToString(  ) )
+                        ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
                         : -1;
             }
             catch( Exception ex )
@@ -469,7 +315,7 @@ namespace BudgetExecution
         {
             try
             {
-                return MemberwiseClone( ) as BudgetFiscalYear;
+                return MemberwiseClone( ) as IBudgetFiscalYear;
             }
             catch( Exception ex )
             {

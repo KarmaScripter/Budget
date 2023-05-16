@@ -16,7 +16,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class CalendarYear : FederalHoliday, ICalendarYear
+    public abstract class CalendarYear : FederalHoliday
     {
         /// <summary>
         /// Gets or sets the work days.

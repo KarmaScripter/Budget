@@ -9,64 +9,60 @@ namespace BudgetExecution
     /// </summary>
     public enum Holiday
     {
-        /// <summary>
-        /// Defines the None
-        /// </summary>
-        NS = 0,
 
         /// <summary>
-        /// Creates new years.
+        /// New Year’s Day, January 1.
         /// </summary>
-        NewYears,
+        NewYearsDay,
 
         /// <summary>
-        /// The martin luther king
+        /// Martin Luther King, Jr.Day, the third Monday in January.
         /// </summary>
-        MartinLutherKing,
+        MartinLutherKingsDay,
 
         /// <summary>
-        /// The presidents
+        /// Washington’s Day, the third Monday in February.
         /// </summary>
-        Presidents,
+        WashingtonsDay,
 
         /// <summary>
-        /// The memorial
+        /// Memorial Day, the last Monday in May.
         /// </summary>
-        Memorial,
+        MemorialDay,
 
         /// <summary>
-        /// The Juneteenth holiday
+        /// Juneteenth National Independence Day, June 19.
         /// </summary>
-        Juneteenth,
+        JuneteenthDay,
         
         /// <summary>
-        /// The independence
+        /// Independence Day, July 4.
         /// </summary>
-        Independence,
+        IndependenceDay,
 
         /// <summary>
-        /// The veterans
+        /// Veterans Day, November 11.
         /// </summary>
-        Veterans,
+        VeteransDay,
 
         /// <summary>
-        /// The labor
+        /// Labor Day, the first Monday in September.
         /// </summary>
-        Labor,
+        LaborDay,
 
         /// <summary>
-        /// The columbus
+        /// Columbus Day, the second Monday in October.
         /// </summary>
-        Columbus,
+        ColumbusDay,
 
         /// <summary>
-        /// The thanksgiving
+        /// Thanksgiving Day, the fourth Thursday in November.
         /// </summary>
-        Thanksgiving,
+        ThanksgivingDay,
 
         /// <summary>
-        /// The christmas
+        /// Christmas Day, December 25.
         /// </summary>
-        Christmas
+        ChristmasDay
     }
 }

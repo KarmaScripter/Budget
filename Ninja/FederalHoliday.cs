@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class FederalHoliday
+    public abstract class FederalHoliday : IFederalHoliday
     {
         /// <summary>
         /// Gets or sets the columbus.
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <value>
         /// The veterans.
         /// </value>
-        public virtual DateOnly Veterans { get; set; }
+        public virtual DateOnly VeteransDay { get; set; }
 
         /// <summary>
         /// Gets or sets the thanksgiving.
@@ -36,7 +36,7 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving.
         /// </value>
-        public virtual DateOnly Thanksgiving { get; set; }
+        public virtual DateOnly ThanksgivingDay { get; set; }
 
         /// <summary>
         /// Gets or sets the christmas.
@@ -44,7 +44,7 @@ namespace BudgetExecution
         /// <value>
         /// The christmas.
         /// </value>
-        public virtual DateOnly Christmas { get; set; }
+        public virtual DateOnly ChristmasDay { get; set; }
 
         /// <summary>
         /// Creates new years.
@@ -52,7 +52,8 @@ namespace BudgetExecution
         /// <value>
         /// The new years.
         /// </value>
-        public virtual DateOnly NewYears { get; set; }
+        public virtual DateOnly NewYearsDay { get; set; }
+
 
         /// <summary>
         /// Gets or sets the martin luther king.
@@ -60,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king.
         /// </value>
-        public virtual DateOnly MartinLutherKing { get; set; }
+        public virtual DateOnly MartinLutherKingsDay { get; set; }
 
         /// <summary>
         /// Gets or sets the washingtons.
@@ -68,7 +69,7 @@ namespace BudgetExecution
         /// <value>
         /// The washingtons.
         /// </value>
-        public virtual DateOnly Washingtons { get; set; }
+        public virtual DateOnly WashingtonsDay { get; set; }
 
         /// <summary>
         /// Gets or sets the memorial.
@@ -76,7 +77,7 @@ namespace BudgetExecution
         /// <value>
         /// The memorial.
         /// </value>
-        public virtual DateOnly Memorial { get; set; }
+        public virtual DateOnly MemorialDay { get; set; }
 
         /// <summary>
         /// Gets or sets the juneteenth.
@@ -84,7 +85,7 @@ namespace BudgetExecution
         /// <value>
         /// The juneteenth.
         /// </value>
-        public virtual DateOnly Juneteenth { get; set; }
+        public virtual DateOnly JuneteenthDay { get; set; }
 
         /// <summary>
         /// Gets or sets the independence.
@@ -92,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The independence.
         /// </value>
-        public virtual DateOnly Independence { get; set; }
+        public virtual DateOnly IndependenceDay { get; set; }
 
         /// <summary>
         /// Gets or sets the labor.
@@ -100,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The labor.
         /// </value>
-        public virtual DateOnly Labor { get; set; }
+        public virtual DateOnly LaborDay { get; set; }
         
         /// <summary>
         /// Get ErrorDialog Dialog.
