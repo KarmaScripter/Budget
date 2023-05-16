@@ -2,64 +2,65 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
-
-using OfficeOpenXml;
-
-public interface IGrid
+namespace BudgetExecution
 {
-    /// <summary>
-    /// The range
-    /// </summary>
-    ExcelRange Range { get; set; }
+    using OfficeOpenXml;
 
-    /// <summary>
-    /// The workSheet
-    /// </summary>
-    ExcelWorksheet Worksheet { get; set; }
+    public interface IGrid
+    {
+        /// <summary>
+        /// The range
+        /// </summary>
+        ExcelRange Range { get; set; }
 
-    /// <summary>
-    /// The address
-    /// </summary>
-    ExcelAddress Address { get; set; }
+        /// <summary>
+        /// The workSheet
+        /// </summary>
+        ExcelWorksheet Worksheet { get; set; }
 
-    /// <summary>
-    /// Gets or sets from.
-    /// </summary>
-    /// <value>
-    /// From.
-    /// </value>
-    ( int Row, int Column ) From { get; set; }
+        /// <summary>
+        /// The address
+        /// </summary>
+        ExcelAddress Address { get; set; }
 
-    /// <summary>
-    /// Gets or sets to.
-    /// </summary>
-    /// <value>
-    /// To.
-    /// </value>
-    ( int Row, int Column ) To { get; set; }
+        /// <summary>
+        /// Gets or sets from.
+        /// </summary>
+        /// <value>
+        /// From.
+        /// </value>
+        ( int Row, int Column ) From { get; set; }
 
-    /// <summary>
-    /// Counts the cells.
-    /// </summary>
-    /// <param name = "range" >
-    /// The range.
-    /// </param>
-    /// <returns>
-    /// </returns>
-    int CountCells( ExcelRange range );
+        /// <summary>
+        /// Gets or sets to.
+        /// </summary>
+        /// <value>
+        /// To.
+        /// </value>
+        ( int Row, int Column ) To { get; set; }
 
-    /// <summary>
-    /// Gets the row count.
-    /// </summary>
-    /// <returns>
-    /// </returns>
-    int GetRowCount( );
+        /// <summary>
+        /// Counts the cells.
+        /// </summary>
+        /// <param name = "range" >
+        /// The range.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        int CountCells( ExcelRange range );
 
-    /// <summary>
-    /// Gets the column count.
-    /// </summary>
-    /// <returns>
-    /// </returns>
-    int GetColumnCount( );
+        /// <summary>
+        /// Gets the row count.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        int GetRowCount( );
+
+        /// <summary>
+        /// Gets the column count.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        int GetColumnCount( );
+    }
 }
