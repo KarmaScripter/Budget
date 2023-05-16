@@ -175,21 +175,21 @@ namespace BudgetExecution
             Holidays = new HolidayFactory( dataRow );
         }
 
-        public BudgetFiscalYear( IBudgetFiscalYear year ) 
+        public BudgetFiscalYear( IBudgetFiscalYear fiscalYear ) 
             : this( )
         {
-            ID = year.ID;
-            BFY = year.BFY;
-            EFY = year.EFY;
-            FirstYear = year.FirstYear;
-            LastYear = year.LastYear;
-            WorkDays = year.WorkDays;
-            WeekDays = year.WeekDays;
-            WeekEnds = year.WeekEnds;
-            ExpiringYear = year.ExpiringYear;
-            StartDate = year.StartDate;
-            EndDate = year.EndDate;
-            CancellationDate = year.CancellationDate;
+            ID = fiscalYear.ID;
+            BFY = fiscalYear.BFY;
+            EFY = fiscalYear.EFY;
+            FirstYear = fiscalYear.FirstYear;
+            LastYear = fiscalYear.LastYear;
+            WorkDays = fiscalYear.WorkDays;
+            WeekDays = fiscalYear.WeekDays;
+            WeekEnds = fiscalYear.WeekEnds;
+            ExpiringYear = fiscalYear.ExpiringYear;
+            StartDate = fiscalYear.StartDate;
+            EndDate = fiscalYear.EndDate;
+            CancellationDate = fiscalYear.CancellationDate;
         }
         
         /// <summary>
