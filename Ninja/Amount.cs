@@ -15,6 +15,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class Amount : IAmount
     {
         /// <summary>
@@ -48,9 +49,8 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="Amount"/> class.
         /// </summary>
-        /// <param name="numeric">The numeric.</param>
         /// <param name="value">The value.</param>
-        public Amount( double value = 0.0  ) 
+        public Amount( double value = 0.0 ) 
             : this( )
         {
             Value = value;
@@ -60,7 +60,7 @@ namespace BudgetExecution
         public Amount( DataRow dataRow, string numeric )
         {
             Numeric = numeric;
-            Value = double.Parse( dataRow[ numeric ].ToString( ) );
+            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? string.Empty );
             Delta = Initial - Value;
         }
 
@@ -191,8 +191,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( IAmount );
             }
-            
-            return default( IAmount );
         }
 
         /// <summary>

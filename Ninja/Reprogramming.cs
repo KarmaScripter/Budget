@@ -154,5 +154,39 @@ namespace BudgetExecution
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
             NpmCode = dataRow[ "NpmCode" ].ToString( );
         }
+
+        public Reprogramming( IReprogramming reprogramming )
+        {
+            ID = reprogramming.ID;
+            BFY = reprogramming.BFY;
+            EFY = reprogramming.EFY;
+            FundCode = reprogramming.FundCode;
+            FundName = reprogramming.FundName;
+            BudgetLevel = reprogramming.BudgetLevel;
+            RpioCode = reprogramming.RpioCode;
+            RpioName = reprogramming.RpioName;
+            AhCode = reprogramming.AhCode;
+            AhName = reprogramming.AhName;
+            OrgCode = reprogramming.OrgCode;
+            OrgName = reprogramming.OrgName;
+            AccountCode = reprogramming.AccountCode;
+            ProgramProjectCode = reprogramming.ProgramAreaCode;
+            ProgramProjectName = reprogramming.ProgramProjectName;
+            ProgramAreaCode = reprogramming.ProgramAreaCode;
+            ProgramAreaName = reprogramming.ProgramAreaName;
+            FromTo = reprogramming.FromTo;
+            Amount = reprogramming.Amount;
+            ResourceType = reprogramming.ResourceType;
+            ProcessedDate = reprogramming.ProcessedDate;
+            Quarter = reprogramming.Quarter;
+            ReprogrammingNumber = reprogramming.ReprogrammingNumber;
+            ControlNumber = reprogramming.ControlNumber;
+            Line = reprogramming.Line;
+            Subline = reprogramming.Subline;
+            Purpose = reprogramming.Purpose;
+            BocCode = reprogramming.BocCode;
+            BocName = reprogramming.BocName;
+            NpmCode = reprogramming.NpmCode;
+        }
     }
 }
