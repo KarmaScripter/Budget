@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class GrossUtilization
+    public class GrossUtilization : DataUnit 
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -22,7 +22,7 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// The outlaid.
         /// </value>
         public double Outlaid { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>

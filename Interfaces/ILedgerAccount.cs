@@ -1,10 +1,10 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+﻿// <copyright file="ILedgerAccount.cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
-    public interface IGeneralLedgerAccount
+    public interface ILedgerAccount
     {
         /// <summary>
         /// Gets or sets the identifier.

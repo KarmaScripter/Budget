@@ -24,48 +24,6 @@ namespace BudgetExecution
     public class Goal : DataUnit, IGoal 
     {
         /// <summary>
-        /// The source
-        /// </summary>
-        public override Source Source { get; set; } = Source.Goals;
-
-        /// <summary>
-        /// Gets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public override string Name { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "Goal"/> class.
         /// </summary>
