@@ -1,5 +1,5 @@
-﻿// <copyright file = "FundSymbol.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file="FundSymbol.cs" company="Terry D. Eppler">
+// Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -13,185 +13,313 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FundSymbol : Fund
+    [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public abstract class FundSymbol : BudgetUnit 
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundSymbol"/> class.
+        /// Gets or sets the bfy.
         /// </summary>
-        public FundSymbol( )
+        /// <value>
+        /// The bfy.
+        /// </value>
+        public override string BFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
+        public override string EFY { get; set; }
+
+        /// <summary>
+        /// Gets or sets the short name.
+        /// </summary>
+        /// <value>
+        /// The short name.
+        /// </value>
+        public virtual string ShortName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
+        public virtual string Status { get; set; }
+
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
+        public virtual DateOnly StartDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
+        public virtual DateOnly EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sub level prefix.
+        /// </summary>
+        /// <value>
+        /// The sub level prefix.
+        /// </value>
+        public virtual string SubLevelPrefix { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ata.
+        /// </summary>
+        /// <value>
+        /// The ata.
+        /// </value>
+        public virtual string AllocationTransferAgency { get; set; }
+
+        /// <summary>
+        /// Gets or sets the aid.
+        /// </summary>
+        /// <value>
+        /// The aid.
+        /// </value>
+        public virtual string AgencyIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets the beginning period of availability.
+        /// </summary>
+        /// <value>
+        /// The beginning period of availability.
+        /// </value>
+        public virtual string BeginningPeriodOfAvailability { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ending period of availability.
+        /// </summary>
+        /// <value>
+        /// The ending period of availability.
+        /// </value>
+        public virtual string EndingPeriodOfAvailability { get; set; }
+
+        /// <summary>
+        /// Gets or sets a.
+        /// </summary>
+        /// <value>
+        /// a.
+        /// </value>
+        public virtual string MultiYearIndicator { get; set; }
+
+        /// <summary>
+        /// Gets or sets the main.
+        /// </summary>
+        /// <value>
+        /// The main.
+        /// </value>
+        public virtual string MainAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sub.
+        /// </summary>
+        /// <value>
+        /// The sub.
+        /// </value>
+        public virtual string SubAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund category.
+        /// </summary>
+        /// <value>
+        /// The fund category.
+        /// </value>
+        public virtual string FundCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
+        public virtual string AppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sub appropriation code.
+        /// </summary>
+        /// <value>
+        /// The sub appropriation code.
+        /// </value>
+        public virtual string SubAppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fund group.
+        /// </summary>
+        /// <value>
+        /// The fund group.
+        /// </value>
+        public virtual string FundGroup { get; set; }
+
+        /// <summary>
+        /// Gets or sets the no year.
+        /// </summary>
+        /// <value>
+        /// The no year.
+        /// </value>
+        public virtual string NoYear { get; set; }
+
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
+        public virtual string Carryover { get; set; }
+
+        /// <summary>
+        /// Gets or sets the canceled year spending account.
+        /// </summary>
+        /// <value>
+        /// The canceled year spending account.
+        /// </value>
+        public virtual string CancelledYearSpendingAccount { get; set; }
+
+        /// <summary>
+        /// Gets or sets the apply at all levels.
+        /// </summary>
+        /// <value>
+        /// The apply at all levels.
+        /// </value>
+        public virtual string ApplyAtAllLevels { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bats fund.
+        /// </summary>
+        /// <value>
+        /// The bats fund.
+        /// </value>
+        public virtual string BatsFund { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bats end date.
+        /// </summary>
+        /// <value>
+        /// The bats end date.
+        /// </value>
+        public virtual DateOnly BatsEndDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bats option identifier.
+        /// </summary>
+        /// <value>
+        /// The bats option identifier.
+        /// </value>
+        public virtual string BatsOptionId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the security org.
+        /// </summary>
+        /// <value>
+        /// The security org.
+        /// </value>
+        public virtual string SecurityOrg { get; set; }
+
+        /// <summary>
+        /// Gets or sets the apportionment account code.
+        /// </summary>
+        /// <value>
+        /// The apportionment account code.
+        /// </value>
+        public virtual string ApportionmentAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public override IDictionary<string, object> Data { get; set; }
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        public override Source Source { get; set; }
+
+        /// <summary>
+        /// Gets the Data.
+        /// </summary>
+        /// <value>
+        /// The Data.
+        /// </value>
+        public override DataRow Record { get; set; }
+
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name = "fundCode" >
+        /// The fundCode.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        protected IDictionary<string, object> GetArgs( string fundCode )
         {
-            Source = Source.FundSymbols;
+            if( !string.IsNullOrEmpty( fundCode )
+               && fundCode.Length < 5 )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = fundCode };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return new Dictionary<string, object> { [ "Name" ] = fundCode };
+                }
+            }
+
+            if( !string.IsNullOrEmpty( fundCode )
+               && fundCode.Length > 5 )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Name"] = fundCode };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundSymbol"/> class.
+        /// Sets the arguments.
         /// </summary>
-        /// <param name="query">The query.</param>
-        public FundSymbol( IQuery query ) 
-            : base( query )
+        /// <param name = "fundCode" >
+        /// The fundCode.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        protected IDictionary<string, object> GetArgs( FundCode fundCode )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "FundSymbolsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
-            Status = Record[ "Status" ].ToString( );
-            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) ?? string.Empty );
-            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) ?? string.Empty );
-            SubLevelPrefix = Record[ "SubLevelPrefix" ].ToString( );
-            AllocationTransferAgency = Record[ "AllocationTransferAgency" ].ToString( );
-            AgencyIdentifier = Record[ "AgencyIdentifier" ].ToString( );
-            BeginningPeriodOfAvailability = Record[ "BeginningPeriodOfAvailability" ].ToString( );
-            EndingPeriodOfAvailability = Record[ "EndingPeriodOfAvailability" ].ToString( );
-            MultiYearIndicator = Record[ "MultiYearIndicator" ].ToString( );
-            MainAccount = Record[ "MainAccount" ].ToString( );
-            SubAccount = Record[ "SubAccount" ].ToString( );
-            FundCategory = Record[ "FundCategory" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
-            FundGroup = Record[ "FundGroup" ].ToString( );
-            NoYear = Record[ "NoYear" ].ToString( );
-            Carryover = Record[ "Carryover" ].ToString( );
-            CancelledYearSpendingAccount = Record[ "CancelledYearSpendingAccount" ].ToString( );
-            ApplyAtAllLevels = Record[ "ApplyAtAllLevels" ].ToString( );
-            BatsFund = Record[ "BatsFund" ].ToString( );
-            BatsEndDate = DateOnly.Parse( Record[ "BatsEndDate" ].ToString( ) ?? string.Empty );
-            BatsOptionId = Record[ "BatsOptionId" ].ToString( );
-            SecurityOrg = Record[ "SecurityOrg" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FundSymbol"/> class.
-        /// </summary>
-        /// <param name="builder">The builder.</param>
-        public FundSymbol( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "FundSymbolsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
-            Status = Record[ "Status" ].ToString( );
-            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) ?? string.Empty );
-            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) ?? string.Empty );
-            SubLevelPrefix = Record[ "SubLevelPrefix" ].ToString( );
-            AllocationTransferAgency = Record[ "AllocationTransferAgency" ].ToString( );
-            AgencyIdentifier = Record[ "AgencyIdentifier" ].ToString( );
-            BeginningPeriodOfAvailability = Record[ "BeginningPeriodOfAvailability" ].ToString( );
-            EndingPeriodOfAvailability = Record[ "EndingPeriodOfAvailability" ].ToString( );
-            MultiYearIndicator = Record[ "MultiYearIndicator" ].ToString( );
-            MainAccount = Record[ "MainAccount" ].ToString( );
-            SubAccount = Record[ "SubAccount" ].ToString( );
-            FundCategory = Record[ "FundCategory" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
-            FundGroup = Record[ "FundGroup" ].ToString( );
-            NoYear = Record[ "NoYear" ].ToString( );
-            Carryover = Record[ "Carryover" ].ToString( );
-            CancelledYearSpendingAccount = Record[ "CancelledYearSpendingAccount" ].ToString( );
-            ApplyAtAllLevels = Record[ "ApplyAtAllLevels" ].ToString( );
-            BatsFund = Record[ "BatsFund" ].ToString( );
-            BatsEndDate = DateOnly.Parse( Record[ "BatsEndDate" ].ToString( ) ?? string.Empty );
-            BatsOptionId = Record[ "BatsOptionId" ].ToString( );
-            SecurityOrg = Record[ "SecurityOrg" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FundSymbol" /> class.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public FundSymbol( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "FundSymbolsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
-            Status = Record[ "Status" ].ToString( );
-            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) ?? string.Empty );
-            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) ?? string.Empty );
-            SubLevelPrefix = Record[ "SubLevelPrefix" ].ToString( );
-            AllocationTransferAgency = Record[ "AllocationTransferAgency" ].ToString( );
-            AgencyIdentifier = Record[ "AgencyIdentifier" ].ToString( );
-            BeginningPeriodOfAvailability = Record[ "BeginningPeriodOfAvailability" ].ToString( );
-            EndingPeriodOfAvailability = Record[ "EndingPeriodOfAvailability" ].ToString( );
-            MultiYearIndicator = Record[ "MultiYearIndicator" ].ToString( );
-            MainAccount = Record[ "MainAccount" ].ToString( );
-            SubAccount = Record[ "SubAccount" ].ToString( );
-            FundCategory = Record[ "FundCategory" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            SubAppropriationCode = Record[ "SubAppropriationCode" ].ToString( );
-            FundGroup = Record[ "FundGroup" ].ToString( );
-            NoYear = Record[ "NoYear" ].ToString( );
-            Carryover = Record[ "Carryover" ].ToString( );
-            CancelledYearSpendingAccount = Record[ "CancelledYearSpendingAccount" ].ToString( );
-            ApplyAtAllLevels = Record[ "ApplyAtAllLevels" ].ToString( );
-            BatsFund = Record[ "BatsFund" ].ToString( );
-            BatsEndDate = DateOnly.Parse( Record[ "BatsEndDate" ].ToString( ) ?? string.Empty );
-            BatsOptionId = Record[ "BatsOptionId" ].ToString( );
-            SecurityOrg = Record[ "SecurityOrg" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-        }
-
-        public FundSymbol( IFund fund )
-        {
-            ID = fund.ID;
-            BFY = fund.BFY;
-            EFY = fund.EFY;
-            Code = fund.Code;
-            Name = fund.Name;
-            ShortName = fund.ShortName;
-            Status = fund.Status;
-            StartDate = fund.StartDate;
-            EndDate = fund.EndDate;
-            SubLevelPrefix = fund.SubLevelPrefix;
-            AllocationTransferAgency = fund.AllocationTransferAgency;
-            AgencyIdentifier = fund.AgencyIdentifier;
-            BeginningPeriodOfAvailability = fund.BeginningPeriodOfAvailability;
-            EndingPeriodOfAvailability = fund.EndingPeriodOfAvailability;
-            MultiYearIndicator = fund.MultiYearIndicator;
-            MainAccount = fund.MainAccount;
-            SubAccount = fund.SubAccount;
-            FundCategory = fund.FundCategory;
-            AppropriationCode = fund.AppropriationCode;
-            SubAppropriationCode = fund.SubAppropriationCode;
-            FundGroup = fund.FundCategory;
-            NoYear = fund.NoYear;
-            Carryover = fund.Carryover;
-            CancelledYearSpendingAccount = fund.CancelledYearSpendingAccount;
-            ApplyAtAllLevels = fund.ApplyAtAllLevels;
-            BatsFund = fund.BatsFund;
-            BatsEndDate = fund.BatsEndDate;
-            BatsOptionId = fund.BatsOptionId;
-            SecurityOrg = fund.SecurityOrg;
-            TreasuryAccountCode = fund.TreasuryAccountCode;
-            TreasuryAccountName = fund.TreasuryAccountName;
-            BudgetAccountCode = fund.BudgetAccountCode;
-            BudgetAccountName = fund.BudgetAccountName;
-            ApportionmentAccountCode = fund.ApportionmentAccountCode;
+            try
+            {
+                return Enum.IsDefined( typeof( FundCode ), fundCode )
+                    ? new Dictionary<string, object> { [ "Code" ] = fundCode.ToString( ) }
+                    : default;
+            }
+            catch( SystemException ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
     }
 }
