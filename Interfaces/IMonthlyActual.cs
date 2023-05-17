@@ -1,10 +1,10 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = "IMonthlyActual.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
-    public interface IActual
+    public interface IMonthlyActual
     {
         /// <summary>
         /// </summary>
@@ -43,6 +43,38 @@ namespace BudgetExecution
         string FundName { get; set; }
 
         /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
+        string TreasuryAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
+        string TreasuryAccountName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
+        string BudgetAccountCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
+        string BudgetAccountName { get; set; }
+
+        /// <summary>
         /// Gets or sets the rpio code.
         /// </summary>
         /// <value>
@@ -75,38 +107,6 @@ namespace BudgetExecution
         string AhName { get; set; }
 
         /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
-        public string AppropriationCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
-        public string AppropriationName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
-        public string SubAppropriationCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
-        public string SubAppropriationName { get; set; }
-
-        /// <summary>
         /// Gets or sets the org code.
         /// </summary>
         /// <value>
@@ -131,34 +131,18 @@ namespace BudgetExecution
         string AccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the program project code.
+        /// Gets or sets the activity code.
         /// </summary>
         /// <value>
-        /// The program project code.
-        /// </value>
-        string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio activity code.
-        /// </summary>
-        /// <value>
-        /// The rpio activity code.
+        /// The activity code.
         /// </value>
         string ActivityCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the rpio activity.
+        /// Gets or sets the name of the activity.
         /// </summary>
         /// <value>
-        /// The name of the rpio activity.
+        /// The name of the activity.
         /// </value>
         string ActivityName { get; set; }
 
@@ -177,46 +161,6 @@ namespace BudgetExecution
         /// The name of the boc.
         /// </value>
         string BocName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
-        double Commitments { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        double Obligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the balance.
-        /// </summary>
-        /// <value>
-        /// The balance.
-        /// </value>
-        double Balance { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        string ProgramAreaName { get; set; }
 
         /// <summary>
         /// Gets or sets the goal code.
@@ -251,35 +195,85 @@ namespace BudgetExecution
         string ObjectiveName { get; set; }
 
         /// <summary>
-        /// Gets or sets the budget account code.
+        /// Gets or sets the program project code.
         /// </summary>
         /// <value>
-        /// The budget account code.
+        /// The program project code.
         /// </value>
-        string BudgetAccountCode { get; set; }
+        string ProgramProjectCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the budget account.
+        /// Gets or sets the name of the program project.
         /// </summary>
         /// <value>
-        /// The name of the budget account.
+        /// The name of the program project.
         /// </value>
-        string BudgetAccountName { get; set; }
+        string ProgramProjectName { get; set; }
 
         /// <summary>
-        /// Gets or sets the treasury agency code.
+        /// Gets or sets the program area code.
         /// </summary>
         /// <value>
-        /// The treasury agency code.
+        /// The program area code.
         /// </value>
-        string TreasuryAccountName { get; set; }
+        string ProgramAreaCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the treasury account code.
+        /// Gets or sets the name of the program area.
         /// </summary>
         /// <value>
-        /// The treasury account code.
+        /// The name of the program area.
         /// </value>
-        string TreasuryAccountCode { get; set; }
+        string ProgramAreaName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
+        string AppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
+        string AppropriationName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
+        string SubAppropriationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
+        string SubAppropriationName { get; set; }
+
+        double Obligations { get; set; }
+
+        /// <summary>
+        /// Gets or sets the balance.
+        /// </summary>
+        /// <value>
+        /// The balance.
+        /// </value>
+        double NetOutlays { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
+        double GrossOutlays { get; set; }
     }
 }

@@ -213,7 +213,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public  override Provider Provider { get; set; }
+        public override Provider Provider { get; set; }
         
         /// <summary>
         /// Gets or sets the Record property.
@@ -257,7 +257,7 @@ namespace BudgetExecution
             LineCategory = Record[ "LineCategory" ].ToString( );
             PriorYear = double.Parse( Record[ "PriorYear" ].ToString( ) ?? "0" );
             CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
-            BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString( ) ?? "0" );
+            BudgetYear = Double.Parse( Record[ "BudgetYear" ].ToString( ) ?? "0" );
             OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
             OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
             OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
@@ -278,17 +278,17 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );
+            ID = int.Parse( Record[ "BudgetAuthorityAndOutlaysId" ].ToString( ) ?? "0" );
             ReportYear = Record[ "ReportYear" ].ToString( );
             AgencyName = Record[ "AgencyName" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
             Line = Record[ "Line" ].ToString( );
             LineSection = Record[ "LineSection" ].ToString( );
             LineName = Record[ "LineName" ].ToString( );
             LineCategory = Record[ "LineCategory" ].ToString( );
             PriorYear = double.Parse( Record[ "PriorYear" ].ToString( ) ?? "0" );
             CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
-            BudgetYear = Double.Parse( Record[ "BudgetYear"].ToString( ) ?? "0" );
+            BudgetYear = Double.Parse( Record[ "BudgetYear" ].ToString( ) ?? "0" );
             OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
             OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
             OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
@@ -309,10 +309,10 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            ID = int.Parse( dataRow[ "BudgetAuthorityAndOutlaysId" ].ToString(  ) ?? "0" );
+            ID = int.Parse( dataRow[ "BudgetAuthorityAndOutlaysId" ].ToString( ) ?? "0" );
             ReportYear = dataRow[ "ReportYear" ].ToString( );
             AgencyName = dataRow[ "AgencyName" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
             Line = dataRow[ "Line" ].ToString( );
             LineSection = dataRow[ "LineSection" ].ToString( );
             LineName = dataRow[ "LineName" ].ToString( );

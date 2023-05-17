@@ -15,16 +15,8 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.Actual" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class MonthlyActual : Actual
+    public class MonthlyActual : Actual, IMonthlyActual
     {
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public double Obligations { get; set; }
-
         /// <summary>
         /// Gets or sets the balance.
         /// </summary>
@@ -74,13 +66,13 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            RpioActivityCode = Record[ "RpioActivityCode" ].ToString( );
-            RpioActivityName = Record[ "RpioActivityName" ].ToString( );
+            ActivityCode = Record[ "RpioActivityCode" ].ToString( );
+            ActivityName = Record[ "RpioActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
+            GrossOutlays = double.Parse( Record[ "GrossOutlays" ].ToString( ) ?? "0" );
+            NetOutlays = double.Parse( Record[ "NetOutlays" ].ToString( ) ?? "0" );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
@@ -118,13 +110,13 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            RpioActivityCode = Record[ "RpioActivityCode" ].ToString( );
-            RpioActivityName = Record[ "RpioActivityName" ].ToString( );
+            ActivityCode = Record[ "RpioActivityCode" ].ToString( );
+            ActivityName = Record[ "RpioActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
+            GrossOutlays = double.Parse( Record[ "GrossOutlays" ].ToString( ) ?? "0" );
+            NetOutlays = double.Parse( Record[ "NetOutlays" ].ToString( ) ?? "0" );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
@@ -144,6 +136,7 @@ namespace BudgetExecution
         public MonthlyActual( DataRow dataRow )
             : base( dataRow )
         {
+            Source = Source.MonthlyActuals;
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -161,13 +154,13 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            RpioActivityCode = dataRow[ "RpioActivityCode" ].ToString( );
-            RpioActivityName = dataRow[ "RpioActivityName" ].ToString( );
+            ActivityCode = dataRow[ "RpioActivityCode" ].ToString( );
+            ActivityName = dataRow[ "RpioActivityName" ].ToString( );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            Balance = double.Parse( dataRow[ "Balance" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            GrossOutlays = double.Parse( Record[ "GrossOutlays" ].ToString( ) ?? "0" );
+            NetOutlays = double.Parse( Record[ "NetOutlays" ].ToString( ) ?? "0" );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
             GoalCode = dataRow[ "GoalCode" ].ToString( );
@@ -184,8 +177,9 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="MonthlyActual"/> class.
         /// </summary>
         /// <param name="actual">The actual.</param>
-        public MonthlyActual( IActual actual )
+        public MonthlyActual( IMonthlyActual actual )
         {
+            Source = Source.MonthlyActuals;
             ID = actual.ID;
             BFY = actual.BFY;
             EFY = actual.EFY;
@@ -204,13 +198,13 @@ namespace BudgetExecution
             AccountCode = actual.AccountCode;
             BocCode = actual.BocCode;
             BocName = actual.BocName;
-            RpioActivityCode = actual.RpioActivityCode;
-            RpioActivityName = actual.RpioActivityName;
+            ActivityCode = actual.ActivityCode;
+            ActivityName = actual.ActivityName;
             ProgramProjectCode = actual.ProgramProjectCode;
             ProgramProjectName = actual.ProgramProjectName;
-            ULO = actual.ULO;
             Obligations = actual.Obligations;
-            Balance = actual.Balance;
+            GrossOutlays = actual.GrossOutlays;
+            NetOutlays = actual.NetOutlays;
             ProgramAreaCode = actual.ProgramAreaCode;
             ProgramAreaName = actual.ProgramAreaName;
             GoalCode = actual.GoalCode;

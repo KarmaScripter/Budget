@@ -12,45 +12,14 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class HumanResourceOrganization
+    public class HumanResourceOrganization : DataUnit
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="HumanResourceOrganization"/> class.
         /// </summary>
         public HumanResourceOrganization( )
         {
+            Source = Source.HumanResourceOrganizations;
         }
 
         /// <summary>
@@ -61,6 +30,9 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "HumanResourceOrganizationsId" ].ToString( ) ?? string.Empty );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <summary>
@@ -71,6 +43,9 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "HumanResourceOrganizationsId" ].ToString( ) ?? string.Empty );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <summary>
@@ -81,6 +56,16 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "HumanResourceOrganizationsId" ].ToString( ) ?? string.Empty );
+            Code = dataRow[ "Code" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
+        }
+
+        public HumanResourceOrganization( IDataUnit org )
+        {
+            ID = org.ID;
+            Code = org.Code;
+            Name = org.Name;
         }
     }
 }

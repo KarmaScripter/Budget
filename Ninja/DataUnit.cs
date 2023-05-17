@@ -34,11 +34,6 @@ namespace BudgetExecution
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// The value
-        /// </summary>
-        public virtual object Value { get; set; }
-
-        /// <summary>
         /// Gets the source.
         /// </summary>
         public virtual Source Source { get; set; }

@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class GrowthRate
+    public class GrowthRate : IGrowthRate
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -227,6 +227,23 @@ namespace BudgetExecution
             OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
             OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
             Sort = Record[ "Sort" ].ToString( );
+        }
+
+        public GrowthRate( IGrowthRate rate )
+        {
+            ID = rate.ID;
+            RateId = rate.RateId;
+            Description = rate.Description;
+            BudgetYearRate = rate.BudgetYearRate;
+            OutYear1 = rate.OutYear1;
+            OutYear2 = rate.OutYear2;
+            OutYear3 = rate.OutYear3;
+            OutYear4 = rate.OutYear4;
+            OutYear5 = rate.OutYear5;
+            OutYear6 = rate.OutYear6;
+            OutYear7 = rate.OutYear7;
+            OutYear8 = rate.OutYear8;
+            OutYear9 = rate.OutYear9;
         }
     }
 }

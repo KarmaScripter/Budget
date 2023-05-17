@@ -82,10 +82,7 @@ namespace BudgetExecution
         /// </value>
         public override string Name { get; set; }
 
-        /// <summary>
-        /// The value
-        /// </summary>
-        public override object Value { get; set; }
+        public object Value { get; set; }
 
         /// <summary>
         /// Gets the arguments.
@@ -213,7 +210,6 @@ namespace BudgetExecution
             ID = boc.ID;
             Code = boc.Code;
             Name = boc.Name;
-            Value = boc.Value;
             Category = boc.Category;
         }
         

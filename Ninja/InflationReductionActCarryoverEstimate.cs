@@ -1,6 +1,5 @@
 ﻿namespace BudgetExecution
 {
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -8,8 +7,7 @@
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate, 
-                                                          ICarryoverEstimate
+    public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate 
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.

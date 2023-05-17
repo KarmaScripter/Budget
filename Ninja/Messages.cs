@@ -22,6 +22,8 @@ namespace BudgetExecution
         /// </value>
         public int ID { get; set; }
 
+        public string Content { get; set; }
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>

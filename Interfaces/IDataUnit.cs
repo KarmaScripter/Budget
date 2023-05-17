@@ -1,4 +1,4 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+﻿// <copyright file="IDataUnit.cs" company="Terry D. Eppler">
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
@@ -26,11 +26,6 @@ namespace BudgetExecution
         /// The name
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// The value
-        /// </summary>
-        public object Value { get; set; }
 
         /// <summary>
         /// 

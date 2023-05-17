@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class HeadquartersOffice : DataUnit
+    public class HeadquartersOffice : DataUnit, IHeadquartersOffice
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -112,6 +112,14 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
+        }
+
+        public HeadquartersOffice( IHeadquartersOffice npm )
+        {
+            ID = npm.ID;
+            RPIO = npm.RPIO;
+            Code = npm.Code;
+            Name = npm.Name;
         }
     }
 }

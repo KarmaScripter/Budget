@@ -13,16 +13,8 @@ namespace BudgetExecution
     /// </summary>
     [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class MonthlyLedgerAccountBalance
+    public class MonthlyLedgerAccountBalance : BudgetUnit, ILedgerAccountBalance
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the fiscal year.
         /// </summary>
@@ -30,38 +22,6 @@ namespace BudgetExecution
         /// The fiscal year.
         /// </value>
         public string FiscalYear { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public string FundName { get; set; }
 
         /// <summary>
         /// Gets or sets the ledger account.
@@ -86,38 +46,6 @@ namespace BudgetExecution
         /// The apportionment account code.
         /// </value>
         public string ApportionmentAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury symbol.
-        /// </summary>
-        /// <value>
-        /// The treasury symbol.
-        /// </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury symbol.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury symbol.
-        /// </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal month.
@@ -151,30 +79,6 @@ namespace BudgetExecution
         /// </value>
         public double YearToDateAmount { get; set; }
         
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MonthlyLedgerAccountBalance"/> class.
         /// </summary>
@@ -247,6 +151,23 @@ namespace BudgetExecution
             TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        public MonthlyLedgerAccountBalance( ILedgerAccountBalance account )
+        {
+            ID = account.ID;
+            BFY = account.BFY;
+            EFY = account.EFY;
+            FundCode = account.FundCode;
+            FundName = account.FundName;
+            LedgerAccount = account.LedgerAccount;
+            LedgerName = account.LedgerName;
+            CreditBalance = account.CreditBalance;
+            DebitBalance = account.DebitBalance;
+            TreasuryAccountCode = account.TreasuryAccountCode;
+            TreasuryAccountName = account.TreasuryAccountName;
+            BudgetAccountCode = account.BudgetAccountCode;
+            BudgetAccountName = account.BudgetAccountName;
         }
     }
 }

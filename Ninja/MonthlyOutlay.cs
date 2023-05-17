@@ -13,16 +13,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class MonthlyOutlay : BudgetUnit
+    public class MonthlyOutlay : BudgetUnit, IMonthlyOutlay
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the fiscal year.
         /// </summary>
@@ -88,44 +80,12 @@ namespace BudgetExecution
         public string BudgetBureauCode { get; set; }
         
         /// <summary>
-        /// Gets or sets the treasury account.
-        /// </summary>
-        /// <value>
-        /// The treasury account.
-        /// </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary>
         /// Gets or sets the sub account.
         /// </summary>
         /// <value>
         /// The sub account.
         /// </value>
         public string SubAccount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the omb account.
-        /// </summary>
-        /// <value>
-        /// The omb account.
-        /// </value>
-        public override string BudgetAccountCode { get; set; }
 
         /// <summary>
         /// Gets or sets the agency sequence.
@@ -166,22 +126,6 @@ namespace BudgetExecution
         /// The bureau title.
         /// </value>
         public string BureauTitle { get; set; }
-
-        /// <summary>
-        /// Gets or sets the omb account title.
-        /// </summary>
-        /// <value>
-        /// The omb account title.
-        /// </value>
-        public override string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account title.
-        /// </summary>
-        /// <value>
-        /// The treasury account title.
-        /// </value>
-        public override string TreasuryAccountName { get; set; }
 
         /// <summary>
         /// Gets or sets the october.
@@ -279,30 +223,6 @@ namespace BudgetExecution
         /// </value>
         public double September { get; set; }
         
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MonthlyOutlay"/> class.
         /// </summary>
@@ -422,6 +342,16 @@ namespace BudgetExecution
             July = double.Parse( dataRow[ "July" ].ToString( ) ?? "0" );
             August = double.Parse( dataRow[ "August" ].ToString( ) ?? "0" );
             September = double.Parse( dataRow[ "September" ].ToString( ) ?? "0" );
+        }
+
+        public MonthlyOutlay( IMonthlyOutlay outlays )
+        {
+            ID = outlays.ID;
+            BFY = outlays.BFY;
+            EFY = outlays.EFY;
+            FiscalYear = outlays.FiscalYear;
+            LineNumber = outlays.LineNumber;
+            
         }
     }
 }
