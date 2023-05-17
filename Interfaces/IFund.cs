@@ -37,13 +37,11 @@ namespace BudgetExecution
         /// <summary>
         /// Gets or sets the code
         /// </summary>
-        /// <value>
         string Code { get; set; }
         
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        /// <value>
         string Name { get; set; }
         
         /// <summary>

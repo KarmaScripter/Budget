@@ -19,32 +19,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Fund : BudgetUnit, IFund
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public override string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public override string EFY { get; set; }
-
         /// <summary>
         /// Gets or sets the short name.
         /// </summary>
@@ -238,65 +215,12 @@ namespace BudgetExecution
         public string SecurityOrg { get; set; }
 
         /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public override string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public override string BudgetAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
-        public override string TreasuryAccountName { get; set; }
-
-        /// <summary>
         /// Gets or sets the apportionment account code.
         /// </summary>
         /// <value>
         /// The apportionment account code.
         /// </value>
         public virtual string ApportionmentAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <value>
-        /// The Data.
-        /// </value>
-        public override DataRow Record { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref = "Fund"/> class.
@@ -595,12 +519,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ Field.Code.ToString( ) ] = fundCode };
+                    return new Dictionary<string, object> { [ "Code" ] = fundCode };
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return new Dictionary<string, object> { [ Field.Name.ToString( ) ] = fundCode };
+                    return default( IDictionary<string, object> );
                 }
             }
 
@@ -609,16 +533,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ Field.Name.ToString( ) ] = fundCode };
+                    return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, object> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, object> );
         }
 
         /// <summary>
@@ -634,13 +558,13 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( FundCode ), fundCode )
-                    ? new Dictionary<string, object> { [ "FundCode" ] = fundCode.ToString( ) }
-                    : default;
+                    ? new Dictionary<string, object> { [ "Code" ] = fundCode.ToString( ) }
+                    : default( IDictionary<string, object> );
             }
             catch( SystemException ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
     }
