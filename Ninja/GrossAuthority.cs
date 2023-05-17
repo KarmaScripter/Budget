@@ -15,16 +15,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class GrossAuthority : DataUnit
+    public class GrossAuthority : DataUnit, IGrossAuthority
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
@@ -192,31 +184,7 @@ namespace BudgetExecution
         /// The available.
         /// </value>
         public double Available { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="GrossAuthority"/> class.
         /// </summary>
@@ -319,6 +287,15 @@ namespace BudgetExecution
             Outlays = double.Parse( dataRow[ "Outlays" ].ToString( ) ?? "0" );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
             Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+        }
+
+        public GrossAuthority( IGrossAuthority authority )
+        {
+            ID = authority.ID;
+            BFY = authority.BFY;
+            EFY = authority.EFY;
+            FundCode = authority.FundCode;
+            FundName = authority.FundName;
         }
     }
 }

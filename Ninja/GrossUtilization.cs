@@ -13,16 +13,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class GrossUtilization : DataUnit 
+    public class GrossUtilization : DataUnit, IGrossUtilization
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
