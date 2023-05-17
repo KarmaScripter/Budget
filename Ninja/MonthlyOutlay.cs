@@ -346,12 +346,10 @@ namespace BudgetExecution
 
         public MonthlyOutlay( IMonthlyOutlay outlays )
         {
-            ID = outlays.ID;
             BFY = outlays.BFY;
             EFY = outlays.EFY;
             FiscalYear = outlays.FiscalYear;
             LineNumber = outlays.LineNumber;
-            
         }
     }
 }
