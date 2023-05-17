@@ -296,6 +296,23 @@ namespace BudgetExecution
             EFY = authority.EFY;
             FundCode = authority.FundCode;
             FundName = authority.FundName;
+            RpioCode = authority.RpioCode;
+            RpioName = authority.RpioName;
+            AhCode = authority.AhCode;
+            AhName = authority.AhName;
+            OrgCode = authority.OrgCode;
+            OrgName = authority.OrgName;
+            AccountCode = authority.AccountCode;
+            ProgramProjectName = authority.ProgramProjectName;
+            BocCode = authority.BocCode;
+            BocName = authority.BocName;
+            Authority = authority.Authority;
+            OpenCommitments = authority.OpenCommitments;
+            UnliquidatedObligations = authority.UnliquidatedObligations;
+            Obligations = authority.Obligations;
+            Outlays = authority.Outlays;
+            Used = authority.Used;
+            Available = authority.Available;
         }
     }
 }

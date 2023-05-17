@@ -168,22 +168,6 @@ namespace BudgetExecution
         public double Outlaid { get; set; }
 
         /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
         /// Gets the arguments.
         /// </summary>
         /// <value>
@@ -285,6 +269,30 @@ namespace BudgetExecution
             Unliquidated = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
             Outlaid = double.Parse( dataRow[ "Outlays" ].ToString( ) ?? "0" );
             Availability = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+        }
+
+        public GrossUtilization( IGrossUtilization utilization )
+        {
+            ID = utilization.ID;
+            BFY = utilization.BFY;
+            EFY = utilization.EFY;
+            FundCode = utilization.FundCode;
+            FundName = utilization.FundName;
+            RpioCode = utilization.RpioCode;
+            RpioName = utilization.RpioName;
+            AhCode = utilization.AhCode;
+            AhName = utilization.AhName;
+            OrgCode = utilization.OrgCode;
+            OrgName = utilization.OrgName;
+            AccountCode = utilization.AccountCode;
+            ProgramProjectName = utilization.ProgramProjectName;
+            BocCode = utilization.BocCode;
+            BocName = utilization.BocName;
+            Committed = utilization.Committed;
+            Obligated = utilization.Obligated;
+            Unliquidated = utilization.Unliquidated;
+            Outlaid = utilization.Outlaid;
+            Availability = utilization.Availability;
         }
     }
 }
