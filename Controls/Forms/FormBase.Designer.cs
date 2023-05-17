@@ -29,31 +29,7 @@
         private void InitializeComponent( )
         {
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( FormBase ) );
-            splashMessage1 =  new SplashMessage( ) ;
             SuspendLayout( );
-            // 
-            // splashMessage1
-            // 
-            splashMessage1.AnimationSpeed =  20 ;
-            splashMessage1.BackColor =  System.Drawing.Color.FromArgb(   20  ,   20  ,   20   ) ;
-            splashMessage1.BeforeTouchSize =  new System.Drawing.Size( 329, 172 ) ;
-            splashMessage1.BindingSource =  null ;
-            splashMessage1.BorderStyle =  System.Windows.Forms.Border3DStyle.Flat ;
-            splashMessage1.CloseOnClick =  true ;
-            splashMessage1.DataFilter =  null ;
-            splashMessage1.DiscreetLocation =  new System.Drawing.Point( 0, 0 ) ;
-            splashMessage1.Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            splashMessage1.ForeColor =  System.Drawing.Color.White ;
-            splashMessage1.Images =  null ;
-            splashMessage1.Location =  new System.Drawing.Point( 397, 276 ) ;
-            splashMessage1.MarqueeDirection =  Syncfusion.Windows.Forms.Tools.SplashPanelMarqueeDirection.RightToLeft ;
-            splashMessage1.MarqueePosition =  Syncfusion.Windows.Forms.Tools.MarqueePosition.BottomRight ;
-            splashMessage1.Name =  "splashMessage1" ;
-            splashMessage1.Size =  new System.Drawing.Size( 329, 172 ) ;
-            splashMessage1.SlideStyle =  Syncfusion.Windows.Forms.Tools.SlideStyle.FadeIn ;
-            splashMessage1.TabIndex =  0 ;
-            splashMessage1.Text =  "splashMessage1" ;
-            splashMessage1.ToolTip =  null ;
             // 
             // FormBase
             // 
@@ -68,7 +44,6 @@
             CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
             ClientSize =  new System.Drawing.Size( 1338, 713 ) ;
-            Controls.Add( splashMessage1 );
             Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
             ForeColor =  System.Drawing.Color.DarkGray ;
             Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
@@ -82,7 +57,5 @@
         }
 
         #endregion
-
-        private SplashMessage splashMessage1;
     }
 }

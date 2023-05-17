@@ -370,7 +370,7 @@ public partial class FileBrowser
                 GetFolderPath( SpecialFolder.DesktopDirectory ),
                 GetFolderPath( SpecialFolder.Personal ),
                 GetFolderPath( SpecialFolder.Recent ),
-                @"C:\Users\teppler\source\repos\Budget\Resource\Documents",
+                @"C:\Users\terry\source\repos\Budget\Resource\Documents",
                 _current
             };
 

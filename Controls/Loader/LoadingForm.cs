@@ -15,27 +15,27 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
     public partial class LoadingForm : MetroForm
     {
         /// <summary>
         /// The loading path
         /// </summary>
         public readonly string LoadingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Loading.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
         /// <summary>
         /// The processing path
         /// </summary>
         public readonly string ProcessingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Processing.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
 
         /// <summary>
         /// The waiting path
         /// </summary>
         public readonly string WaitingPath =
-            @"C:\Users\teppler\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
         /// <summary>
         /// Gets or sets the picture.

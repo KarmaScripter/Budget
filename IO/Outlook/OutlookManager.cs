@@ -12,28 +12,52 @@ namespace BudgetExecution
     using System.Text;
     using System.Threading;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class OutlookManager
     {
+        /// <summary>
+        /// Gets or sets the name of the host.
+        /// </summary>
+        /// <value>
+        /// The name of the host.
+        /// </value>
         public string HostName { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="OutlookManager"/> class.
+        /// </summary>
         public OutlookManager( )
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="OutlookManager"/> class.
+        /// </summary>
+        /// <param name="hostName">Name of the host.</param>
         public OutlookManager( string hostName )
         {
             HostName = hostName;
         }
 
+        /// <summary>
+        /// Sends the mail.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
+        /// <param name="content">The content.</param>
         public void SendMail( OutlookConfig config, EmailContent content )
         {
-            if( config != null && content != null )
+            if( config != null 
+               && content != null )
             {
                 try
                 {
-                    var _message = ConstructEmailMessage( config, content );
+                    var _message = CreateMessage( config, content );
                     Send( _message, config );
                 }
                 catch( Exception ex )
@@ -43,7 +67,13 @@ namespace BudgetExecution
             }
         }
 
-        private MailMessage ConstructEmailMessage( OutlookConfig config, EmailContent content )
+        /// <summary>
+        /// Constructs the email message.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
+        /// <param name="content">The content.</param>
+        /// <returns></returns>
+        private MailMessage CreateMessage( OutlookConfig config, EmailContent content )
         {
             if( config != null
                && content != null )
@@ -69,7 +99,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    _message.From = new MailAddress( config.From, config.FromDisplayName,
+                    _message.From = new MailAddress( config.From, config.DisplayName,
                         Encoding.UTF8 );
 
                     _message.IsBodyHtml = content.IsHtml;
@@ -98,6 +128,11 @@ namespace BudgetExecution
             return default( MailMessage );
         }
 
+        /// <summary>
+        /// Sends the specified message.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="config">The configuration.</param>
         private void Send( MailMessage message, OutlookConfig config )
         {
             if( message != null 
@@ -107,8 +142,8 @@ namespace BudgetExecution
                 {
                     var _client = new SmtpClient( );
                     _client.UseDefaultCredentials = false;
-                    _client.Credentials = new NetworkCredential( config.ClientCredentialUserName,
-                        config.ClientCredentialPassword );
+                    _client.Credentials = new NetworkCredential( config.UserName,
+                        config.Password );
 
                     _client.Host = HostName;
                     _client.Port = 25;  

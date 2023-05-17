@@ -70,7 +70,7 @@ public partial class MinionSelector : MetroForm
     /// <summary> Gets or sets the image path. </summary>
     /// <value> The image path. </value>
     public string ImagePath { get; set; } =
-        @"C:\Users\teppler\source\repos\Budget\Resource\Images\Carousel\Minion";
+        @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Minion";
 
     /// <summary> Called when [load]. </summary>
     /// <param name = "sender" > The sender. </param>

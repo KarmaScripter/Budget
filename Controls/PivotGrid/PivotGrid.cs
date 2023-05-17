@@ -38,9 +38,11 @@ namespace BudgetExecution
         /// </summary>
         public PivotGrid( )
         {
-            GridVisualStyles = GridVisualStyles.Office2016Black;
+            GridVisualStyles = GridVisualStyles.Custom;
+            CanOverrideStyle = true;
+            CanApplyTheme = true;
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.LightGray;
             Size = new Size( 900, 500 );
             ShowCalculationsAsColumns = true;
             ShowSubTotals = true;
@@ -52,34 +54,34 @@ namespace BudgetExecution
 
             // Edit Menu Style Properties
             ThemeStyle.EditMenuStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.EditMenuStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.EditMenuStyle.ForeColor = Color.LightGray;
             ThemeStyle.EditMenuStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Header Cell Style Properties
             ThemeStyle.HeaderCellStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.HeaderCellStyle.HoverTextColor = Color.White;
             ThemeStyle.HeaderCellStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
-            ThemeStyle.HeaderCellStyle.PressedTextColor = Color.DarkGray;
+            ThemeStyle.HeaderCellStyle.PressedTextColor = Color.LightGray;
 
             // Value Cell Style Properties
             ThemeStyle.ValueCellStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.ValueCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.ValueCellStyle.TextColor = Color.DarkGray;
+            ThemeStyle.ValueCellStyle.TextColor = Color.LightGray;
 
             // Summary Cell Style Properties
             ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9, FontStyle.Regular);
             ThemeStyle.SummaryCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.SummaryCellStyle.TextColor = Color.DarkGray;
+            ThemeStyle.SummaryCellStyle.TextColor = Color.LightGray;
 
             // Expander Style Properties
 
             // Filter DropDown Style Properties
-            ThemeStyle.FilterDropDownStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.FilterDropDownStyle.ForeColor = Color.LightGray;
             ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.FilterDropDownStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // GroupBar Item Style Properties
-            ThemeStyle.GroupBarItemStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.GroupBarItemStyle.ForeColor = Color.LightGray;
             ThemeStyle.GroupBarItemStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.GroupBarItemStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.GroupBarItemStyle.SortIconColor = Color.FromArgb( 0, 120, 212 );
@@ -89,7 +91,7 @@ namespace BudgetExecution
             ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 45, 45, 45 );
 
             // PivotValueChooser Style Properties
-            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.LightGray;
             ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.PivotValueChooserStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
         }

@@ -30,7 +30,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <NoWarn>1701;1702;2201;1051</NoWarn>
-        <OutputPath>C:\Users\teppler\source\repos\Budget\bin\Debug\</OutputPath>
+        <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
         <Optimize>True</Optimize>
         <Deterministic>False</Deterministic>
         <DebugType>full</DebugType>
@@ -47,12 +47,15 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
-        <PackageReference Include="EPPlus" Version="6.2.1" />
+        <PackageReference Include="EPPlus" Version="6.2.4" />
         <PackageReference Include="Google.Apis" Version="1.60.0" />
         <PackageReference Include="Google.Apis.Core" Version="1.60.0" />
         <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
         <PackageReference Include="Google.Cloud.ServiceUsage.V1" Version="2.1.0" />
         <PackageReference Include="MetroSet_UI" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Office.Interop.Access" Version="15.0.4420.1018" />
+        <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+        <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
         <PackageReference Include="MSChartExtension" Version="3.9.1" />
         <PackageReference Include="Syncfusion.Licensing" Version="20.4.0.38" />
         <PackageReference Include="System.Data.OleDb" Version="7.0.0" />

@@ -467,7 +467,7 @@ namespace BudgetExecution
                         ?.Select( p => p.Field<string>( "Location" ) )
                         ?.Single( );
 
-                    var _prefix = @"C:\Users\teppler\source\repos\Budget\";
+                    var _prefix = @"C:\Users\terry\source\repos\Budget\";
                     HeaderLabel.Text = _caption;
                     var _path = _prefix + _file;
                     Document = new PdfLoadedDocument( _path );
