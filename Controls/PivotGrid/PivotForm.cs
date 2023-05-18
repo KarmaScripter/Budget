@@ -21,9 +21,9 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 1500, 750 );
-            MaximumSize = new Size( 1600, 800 );
-            MinimumSize = new Size( 1400, 700  );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             BackColor = Color.FromArgb( 20, 20, 20 );

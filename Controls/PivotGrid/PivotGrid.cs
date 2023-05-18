@@ -69,7 +69,7 @@ namespace BudgetExecution
             ThemeStyle.ValueCellStyle.TextColor = Color.LightGray;
 
             // Summary Cell Style Properties
-            ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9, FontStyle.Regular);
+            ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.SummaryCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.SummaryCellStyle.TextColor = Color.LightGray;
 
@@ -87,7 +87,7 @@ namespace BudgetExecution
             ThemeStyle.GroupBarItemStyle.SortIconColor = Color.FromArgb( 0, 120, 212 );
 
             // GroupBar Style Properties
-            ThemeStyle.GroupBarStyle.FilterAreaBackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.GroupBarStyle.FilterAreaBackColor = Color.FromArgb( 55, 55, 55 );
             ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 45, 45, 45 );
 
             // PivotValueChooser Style Properties
