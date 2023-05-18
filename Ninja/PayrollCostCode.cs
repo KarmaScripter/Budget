@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -67,7 +69,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PayrollCostCode"/>
+        /// <see cref="PayrollCostCode"/>
         /// class.
         /// </summary>
         public PayrollCostCode( )
@@ -76,10 +78,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PayrollCostCode"/>
+        /// <see cref="PayrollCostCode"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public PayrollCostCode( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -88,10 +90,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PayrollCostCode"/>
+        /// <see cref="PayrollCostCode"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public PayrollCostCode( IDataModel builder )
         {
             Record = builder.Record;
@@ -100,10 +102,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PayrollCostCode"/>
+        /// <see cref="PayrollCostCode"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public PayrollCostCode( DataRow dataRow )
         {
             Record = dataRow;

@@ -13,7 +13,7 @@ namespace BudgetExecution
     using System.Windows.Forms.DataVisualization.Charting;
 
     /// <summary> </summary>
-    /// <seealso cref = "System.Windows.Forms.DataVisualization.Charting.Chart"/>
+    /// <seealso cref="System.Windows.Forms.DataVisualization.Charting.Chart"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Chart : ChartBase
     {
@@ -35,7 +35,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Chart"/>
+        /// <see cref="Chart"/>
         /// class.
         /// </summary>
         public Chart( )
@@ -48,16 +48,16 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Chart"/>
+        /// <see cref="Chart"/>
         /// class.
         /// </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
-        /// <param name = "category" > The category. </param>
-        /// <param name = "values" > The values. </param>
-        /// <param name = "type" > The type. </param>
-        /// <param name = "stat" > The stat. </param>
-        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values,
-            SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
+        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="category"> The category. </param>
+        /// <param name="values"> The values. </param>
+        /// <param name="type"> The type. </param>
+        /// <param name="stat"> The stat. </param>
+        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values, SeriesChartType type = SeriesChartType.Column,
+            STAT stat = STAT.Total )
             : this( )
         {
             DataTable = (DataTable)bindingSource.DataSource;

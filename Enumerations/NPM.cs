@@ -4,79 +4,52 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// Defines the NPM
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> Defines the NPM </summary>
     public enum NPM
     {
-        /// <summary>
-        /// Defines the None
-        /// </summary>
+        /// <summary> Defines the None </summary>
         NS = 0,
 
-        /// <summary>
-        /// Defines the A
-        /// </summary>
+        /// <summary> Defines the A </summary>
         A,
 
-        /// <summary>
-        /// Defines the B
-        /// </summary>
+        /// <summary> Defines the B </summary>
         B,
 
-        /// <summary>
-        /// Defines the C
-        /// </summary>
+        /// <summary> Defines the C </summary>
         C,
 
-        /// <summary>
-        /// Defines the D
-        /// </summary>
+        /// <summary> Defines the D </summary>
         D,
 
-        /// <summary>
-        /// Defines the E
-        /// </summary>
+        /// <summary> Defines the E </summary>
         E,
 
-        /// <summary>
-        /// Defines the F
-        /// </summary>
+        /// <summary> Defines the F </summary>
         F,
 
-        /// <summary>
-        /// Defines the G
-        /// </summary>
+        /// <summary> Defines the G </summary>
         G,
 
-        /// <summary>
-        /// Defines the H
-        /// </summary>
+        /// <summary> Defines the H </summary>
         H,
 
-        /// <summary>
-        /// Defines the J
-        /// </summary>
+        /// <summary> Defines the J </summary>
         J,
 
-        /// <summary>
-        /// Defines the L
-        /// </summary>
+        /// <summary> Defines the L </summary>
         L,
 
-        /// <summary>
-        /// Defines the M
-        /// </summary>
+        /// <summary> Defines the M </summary>
         M,
 
-        /// <summary>
-        /// The w
-        /// </summary>
-        W, 
-        
-        /// <summary>
-        /// Defines the Y
-        /// </summary>
+        /// <summary> The w </summary>
+        W,
+
+        /// <summary> Defines the Y </summary>
         Y
     }
 }

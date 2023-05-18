@@ -6,10 +6,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "System.Windows.Forms.ToolStripTextBox"/>
+    /// <seealso cref="System.Windows.Forms.ToolStripTextBox"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -31,22 +32,22 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolStripTextBase"/>
-        /// class.
-        /// </summary>
-        protected ToolStripTextBase( )
-        {
-        }
-
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripTextBase"/>
+        /// class.
+        /// </summary>
+        protected ToolStripTextBase( )
+        {
         }
     }
 }

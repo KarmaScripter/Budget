@@ -7,15 +7,15 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary>
-    /// Budget authority provided in an appropriations act in addition to regular or
-    /// continuing appropriations already provided. Supplemental appropriations
-    /// generally are made to cover emergencies, such as disaster relief, or other
-    /// needs deemed too urgent to be postponed until the enactment of next year's
-    /// regular appropriations act.
+    /// Budget authority provided in an appropriations act in addition to regular or continuing
+    /// appropriations already provided. Supplemental appropriations generally are made to cover
+    /// emergencies, such as disaster relief, or other needs deemed too urgent to be postponed until the
+    /// enactment of next year's regular appropriations act.
     /// </summary>
-    /// <seealso cref = "ProgramResultsCode"/>
+    /// <seealso cref="ProgramResultsCode"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Global" ) ]

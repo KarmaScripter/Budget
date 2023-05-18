@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -60,9 +61,18 @@ namespace BudgetExecution
         /// <value> The dark blue. </value>
         public Color DarkBlue { get; }
 
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ColorConfig"/>
+        /// <see cref="ColorConfig"/>
         /// class.
         /// </summary>
         public ColorConfig( )
@@ -82,15 +92,6 @@ namespace BudgetExecution
             SteelBlue = Color.SteelBlue;
             Maroon = Color.Maroon;
             LightSteelBlue = Color.LightSteelBlue;
-        }
-
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

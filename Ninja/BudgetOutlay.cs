@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -123,7 +124,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetOutlay"/>
+        /// <see cref="BudgetOutlay"/>
         /// class.
         /// </summary>
         public BudgetOutlay( )
@@ -133,10 +134,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetOutlay"/>
+        /// <see cref="BudgetOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public BudgetOutlay( IQuery query )
             : this( )
         {
@@ -166,10 +167,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetOutlay"/>
+        /// <see cref="BudgetOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public BudgetOutlay( IDataModel builder )
             : this( )
         {
@@ -199,10 +200,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BudgetOutlay"/>
+        /// <see cref="BudgetOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public BudgetOutlay( DataRow dataRow )
             : this( )
         {

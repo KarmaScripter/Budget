@@ -5,7 +5,7 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -27,22 +27,22 @@ namespace BudgetExecution
         /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolStripProgressBase"/>
-        /// class.
-        /// </summary>
-        protected ToolStripProgressBase( )
-        {
-        }
-
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripProgressBase"/>
+        /// class.
+        /// </summary>
+        protected ToolStripProgressBase( )
+        {
         }
     }
 }

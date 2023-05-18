@@ -7,9 +7,10 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "IAmount"/>
+    /// <seealso cref="IAmount"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -22,65 +23,8 @@ namespace BudgetExecution
         /// <summary> The delta </summary>
         public double Delta { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Amount"/>
-        /// class.
-        /// </summary>
-        public Amount( )
-        {
-            Numeric = "Amount";
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Amount"/>
-        /// class.
-        /// </summary>
-        /// <param name = "value" > The value. </param>
-        public Amount( double value = 0.0 )
-            : this( )
-        {
-            Value = value;
-            Delta = Initial - Value;
-        }
-
-        public Amount( DataRow dataRow, string numeric )
-        {
-            Numeric = numeric;
-            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? string.Empty );
-            Delta = Initial - Value;
-        }
-
-        public Amount( IAmount amount )
-        {
-            Numeric = amount.Numeric;
-            Value = amount.Value;
-            Delta = 0.0;
-        }
-
-        /// <summary> The funding </summary>
-        public double Value { get; set; }
-
-        /// <summary> The numeric column name </summary>
-        public string Numeric { get; set; }
-
-        /// <summary> Called to get the Amount </summary>
-        public IAmount GetAmount( )
-        {
-            try
-            {
-                return new Amount( Value );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IAmount );
-            }
-        }
-
         /// <summary> Increases the specified amount. </summary>
-        /// <param name = "increment" > The amount. </param>
+        /// <param name="increment"> The amount. </param>
         public void Increase( int increment )
         {
             try
@@ -95,7 +39,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Decreases the specified amount. </summary>
-        /// <param name = "decrement" > The amount. </param>
+        /// <param name="decrement"> The amount. </param>
         public void Decrease( int decrement )
         {
             try
@@ -110,7 +54,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether the specified amount is equal. </summary>
-        /// <param name = "amount" > The amount. </param>
+        /// <param name="amount"> The amount. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified amount is equal; otherwise,
@@ -136,8 +80,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether the specified first is equal. </summary>
-        /// <param name = "first" > The first. </param>
-        /// <param name = "second" > The second. </param>
+        /// <param name="first"> The first. </param>
+        /// <param name="second"> The second. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified first is equal; otherwise,
@@ -164,10 +108,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event Data.
         /// </param>
         public void OnChanged( object sender, EventArgs e )
@@ -184,12 +128,69 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary> The funding </summary>
+        public double Value { get; set; }
+
+        /// <summary> The numeric column name </summary>
+        public string Numeric { get; set; }
+
+        /// <summary> Called to get the Amount </summary>
+        public IAmount GetAmount( )
+        {
+            try
+            {
+                return new Amount( Value );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IAmount );
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Amount"/>
+        /// class.
+        /// </summary>
+        public Amount( )
+        {
+            Numeric = "Amount";
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Amount"/>
+        /// class.
+        /// </summary>
+        /// <param name="value"> The value. </param>
+        public Amount( double value = 0.0 )
+            : this( )
+        {
+            Value = value;
+            Delta = Initial - Value;
+        }
+
+        public Amount( DataRow dataRow, string numeric )
+        {
+            Numeric = numeric;
+            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? string.Empty );
+            Delta = Initial - Value;
+        }
+
+        public Amount( IAmount amount )
+        {
+            Numeric = amount.Numeric;
+            Value = amount.Value;
+            Delta = 0.0;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -16,9 +17,46 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class StatusOfFunds : PRC, IStatusOfFunds
     {
+
+        /// <summary> Gets or sets the amount. </summary>
+        /// <value> The amount. </value>
+        public virtual double Amount { get; set; }
+
+        /// <summary> Gets or sets the budgeted. </summary>
+        /// <value> The budgeted. </value>
+        public virtual double Budgeted { get; set; }
+
+        /// <summary> Gets or sets the posted. </summary>
+        /// <value> The posted. </value>
+        public virtual double Posted { get; set; }
+
+        /// <summary> Gets or sets the open commitments. </summary>
+        /// <value> The open commitments. </value>
+        public virtual double OpenCommitments { get; set; }
+
+        /// <summary> Gets or sets the ulo. </summary>
+        /// <value> The ulo. </value>
+        public virtual double ULO { get; set; }
+
+        /// <summary> Gets or sets the expenditures. </summary>
+        /// <value> The expenditures. </value>
+        public virtual double Expenditures { get; set; }
+
+        /// <summary> Gets or sets the obligations. </summary>
+        /// <value> The obligations. </value>
+        public virtual double Obligations { get; set; }
+
+        /// <summary> Gets or sets the used. </summary>
+        /// <value> The used. </value>
+        public virtual double Used { get; set; }
+
+        /// <summary> Gets or sets the available. </summary>
+        /// <value> The available. </value>
+        public virtual double Available { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfFunds"/>
+        /// <see cref="StatusOfFunds"/>
         /// class.
         /// </summary>
         public StatusOfFunds( )
@@ -28,10 +66,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfFunds"/>
+        /// <see cref="StatusOfFunds"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public StatusOfFunds( IQuery query )
             : base( query )
         {
@@ -80,10 +118,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfFunds"/>
+        /// <see cref="StatusOfFunds"/>
         /// class.
         /// </summary>
-        /// <param name = "dataBuilder" > The builder. </param>
+        /// <param name="dataBuilder"> The builder. </param>
         public StatusOfFunds( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -132,10 +170,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfFunds"/>
+        /// <see cref="StatusOfFunds"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfFunds( DataRow dataRow )
             : base( dataRow )
         {
@@ -264,41 +302,5 @@ namespace BudgetExecution
             BudgetAccountCode = status.BudgetAccountCode;
             BudgetAccountName = status.BudgetAccountName;
         }
-
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
-        public virtual double Amount { get; set; }
-
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
-        public virtual double Budgeted { get; set; }
-
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
-        public virtual double Posted { get; set; }
-
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
-        public virtual double OpenCommitments { get; set; }
-
-        /// <summary> Gets or sets the ulo. </summary>
-        /// <value> The ulo. </value>
-        public virtual double ULO { get; set; }
-
-        /// <summary> Gets or sets the expenditures. </summary>
-        /// <value> The expenditures. </value>
-        public virtual double Expenditures { get; set; }
-
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
-        public virtual double Obligations { get; set; }
-
-        /// <summary> Gets or sets the used. </summary>
-        /// <value> The used. </value>
-        public virtual double Used { get; set; }
-
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
-        public virtual double Available { get; set; }
     }
 }

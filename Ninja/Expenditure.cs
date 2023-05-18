@@ -5,9 +5,9 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -16,7 +16,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Expenditure"/>
+        /// <see cref="Expenditure"/>
         /// class.
         /// </summary>
         public Expenditure( )
@@ -26,10 +26,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Expenditure"/>
+        /// <see cref="Expenditure"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public Expenditure( IQuery query )
             : base( query )
         {
@@ -76,10 +76,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Expenditure"/>
+        /// <see cref="Expenditure"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public Expenditure( IDataModel builder )
             : base( builder )
         {
@@ -126,10 +126,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Expenditure"/>
+        /// <see cref="Expenditure"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public Expenditure( DataRow dataRow )
             : base( dataRow )
         {

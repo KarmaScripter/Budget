@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -24,110 +25,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrowthRate"/>
-        /// class.
-        /// </summary>
-        public GrowthRate( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrowthRate"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public GrowthRate( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
-            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
-            Description = Record[ "Description" ].ToString( );
-            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
-            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
-            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
-            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
-            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
-            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
-            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
-            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
-            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
-            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
-            Sort = Record[ "Sort" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrowthRate"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public GrowthRate( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
-            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
-            Description = Record[ "Description" ].ToString( );
-            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
-            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
-            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
-            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
-            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
-            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
-            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
-            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
-            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
-            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
-            Sort = Record[ "Sort" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrowthRate"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public GrowthRate( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
-            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
-            Description = Record[ "Description" ].ToString( );
-            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
-            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
-            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
-            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
-            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
-            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
-            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
-            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
-            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
-            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
-            Sort = Record[ "Sort" ].ToString( );
-        }
-
-        public GrowthRate( IGrowthRate rate )
-        {
-            ID = rate.ID;
-            RateId = rate.RateId;
-            Description = rate.Description;
-            BudgetYearRate = rate.BudgetYearRate;
-            OutYear1 = rate.OutYear1;
-            OutYear2 = rate.OutYear2;
-            OutYear3 = rate.OutYear3;
-            OutYear4 = rate.OutYear4;
-            OutYear5 = rate.OutYear5;
-            OutYear6 = rate.OutYear6;
-            OutYear7 = rate.OutYear7;
-            OutYear8 = rate.OutYear8;
-            OutYear9 = rate.OutYear9;
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -184,5 +81,109 @@ namespace BudgetExecution
         /// <summary> Gets or sets the sort. </summary>
         /// <value> The sort. </value>
         public string Sort { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrowthRate"/>
+        /// class.
+        /// </summary>
+        public GrowthRate( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrowthRate"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public GrowthRate( IQuery query )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
+            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
+            Description = Record[ "Description" ].ToString( );
+            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
+            Sort = Record[ "Sort" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrowthRate"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public GrowthRate( IDataModel builder )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
+            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
+            Description = Record[ "Description" ].ToString( );
+            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
+            Sort = Record[ "Sort" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrowthRate"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public GrowthRate( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "GrowthRatesId" ].ToString( ) ?? "0" );
+            RateId = int.Parse( Record[ "RatesId" ].ToString( ) ?? "0" );
+            Description = Record[ "Description" ].ToString( );
+            BudgetYearRate = Double.Parse( Record[ "BudgetYearRate" ].ToString( ) ?? "0" );
+            OutYear1 = double.Parse( Record[ "OutYear1" ].ToString( ) ?? "0" );
+            OutYear2 = double.Parse( Record[ "OutYear2" ].ToString( ) ?? "0" );
+            OutYear3 = double.Parse( Record[ "OutYear3" ].ToString( ) ?? "0" );
+            OutYear4 = double.Parse( Record[ "OutYear4" ].ToString( ) ?? "0" );
+            OutYear5 = double.Parse( Record[ "OutYear5" ].ToString( ) ?? "0" );
+            OutYear6 = double.Parse( Record[ "OutYear6" ].ToString( ) ?? "0" );
+            OutYear7 = double.Parse( Record[ "OutYear7" ].ToString( ) ?? "0" );
+            OutYear8 = double.Parse( Record[ "OutYear8" ].ToString( ) ?? "0" );
+            OutYear9 = double.Parse( Record[ "OutYear9" ].ToString( ) ?? "0" );
+            Sort = Record[ "Sort" ].ToString( );
+        }
+
+        public GrowthRate( IGrowthRate rate )
+        {
+            ID = rate.ID;
+            RateId = rate.RateId;
+            Description = rate.Description;
+            BudgetYearRate = rate.BudgetYearRate;
+            OutYear1 = rate.OutYear1;
+            OutYear2 = rate.OutYear2;
+            OutYear3 = rate.OutYear3;
+            OutYear4 = rate.OutYear4;
+            OutYear5 = rate.OutYear5;
+            OutYear6 = rate.OutYear6;
+            OutYear7 = rate.OutYear7;
+            OutYear8 = rate.OutYear8;
+            OutYear9 = rate.OutYear9;
+        }
     }
 }

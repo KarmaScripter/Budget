@@ -4,9 +4,10 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -15,7 +16,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunding"/>
         /// class.
         /// </summary>
         public StatusOfSupplementalFunding( )
@@ -25,10 +26,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunding"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public StatusOfSupplementalFunding( IQuery query )
             : base( query )
         {
@@ -71,10 +72,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunding"/>
         /// class.
         /// </summary>
-        /// <param name = "dataBuilder" > The builder. </param>
+        /// <param name="dataBuilder"> The builder. </param>
         public StatusOfSupplementalFunding( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -117,10 +118,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunding"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfSupplementalFunding( DataRow dataRow )
             : base( dataRow )
         {

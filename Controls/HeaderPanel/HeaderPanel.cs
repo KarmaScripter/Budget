@@ -5,21 +5,18 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Threading;
     using System.Windows.Forms;
     using CBComponents;
 
     /// <summary> </summary>
-    /// <seealso cref = "CBComponents.HeaderTableLayoutPanel"/>
+    /// <seealso cref="CBComponents.HeaderTableLayoutPanel"/>
     public class HeaderPanel : HeaderTableLayoutPanel
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "HeaderPanel"/>
+        /// <see cref="HeaderPanel"/>
         /// class.
         /// </summary>
         public HeaderPanel( )
@@ -35,10 +32,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "HeaderPanel"/>
+        /// <see cref="HeaderPanel"/>
         /// class.
         /// </summary>
-        /// <param name = "header" > The header. </param>
+        /// <param name="header"> The header. </param>
         public HeaderPanel( string header )
             : this( )
         {

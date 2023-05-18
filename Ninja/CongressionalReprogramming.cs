@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -128,7 +129,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CongressionalReprogramming"/>
+        /// <see cref="CongressionalReprogramming"/>
         /// class.
         /// </summary>
         public CongressionalReprogramming( )
@@ -138,10 +139,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CongressionalReprogramming"/>
+        /// <see cref="CongressionalReprogramming"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public CongressionalReprogramming( IQuery query )
             : base( query )
         {
@@ -181,10 +182,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CongressionalReprogramming"/>
+        /// <see cref="CongressionalReprogramming"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public CongressionalReprogramming( IDataModel builder )
             : base( builder )
         {
@@ -224,10 +225,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CongressionalReprogramming"/>
+        /// <see cref="CongressionalReprogramming"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public CongressionalReprogramming( DataRow dataRow )
             : base( dataRow )
         {

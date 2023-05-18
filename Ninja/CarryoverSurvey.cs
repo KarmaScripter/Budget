@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -23,76 +25,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the data. </summary>
         /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverSurvey"/>
-        /// class.
-        /// </summary>
-        public CarryoverSurvey( )
-        {
-            Source = Source.AnnualCarryoverSurvey;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverSurvey"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public CarryoverSurvey( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverSurvey"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public CarryoverSurvey( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverSurvey"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public CarryoverSurvey( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -121,5 +53,75 @@ namespace BudgetExecution
         /// <summary> Gets or sets the amount. </summary>
         /// <value> The amount. </value>
         public double Amount { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverSurvey"/>
+        /// class.
+        /// </summary>
+        public CarryoverSurvey( )
+        {
+            Source = Source.AnnualCarryoverSurvey;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverSurvey"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public CarryoverSurvey( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverSurvey"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public CarryoverSurvey( IDataModel builder )
+            : this( )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverSurvey"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public CarryoverSurvey( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
     }
 }

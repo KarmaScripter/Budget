@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -25,100 +27,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GeneralLedgerAccount"/>
-        /// class.
-        /// </summary>
-        public GeneralLedgerAccount( )
-        {
-            Source = Source.GeneralLedgerAccounts;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GeneralLedgerAccount"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public GeneralLedgerAccount( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            Number = Record[ "Number" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
-            NormalBalance = Record[ "NormalBalance" ].ToString( );
-            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
-            SummaryAccount = Record[ "SummaryAccount" ].ToString( );
-            AccountClassification = Record[ "AccountClassification" ].ToString( );
-            CashAccount = Record[ "CashAccount" ].ToString( );
-            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
-            RealOrClosingAccount = Record[ "RealOrClosingAccount" ].ToString( );
-            FederalNonFederal = Record[ "FederalNonFederal" ].ToString( );
-            AttributeValue = Record[ "AttributeValue" ].ToString( );
-            Usage = Record[ "Usage" ].ToString( );
-            Deposit = Record[ "Deposit" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GeneralLedgerAccount"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public GeneralLedgerAccount( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            Number = Record[ "Number" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
-            NormalBalance = Record[ "NormalBalance" ].ToString( );
-            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
-            SummaryAccount = Record[ "SummaryAccount" ].ToString( );
-            AccountClassification = Record[ "AccountClassification" ].ToString( );
-            CashAccount = Record[ "CashAccount" ].ToString( );
-            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
-            RealOrClosingAccount = Record[ "RealOrClosingAccount" ].ToString( );
-            FederalNonFederal = Record[ "FederalNonFederal" ].ToString( );
-            AttributeValue = Record[ "AttributeValue" ].ToString( );
-            Usage = Record[ "Usage" ].ToString( );
-            Deposit = Record[ "Deposit" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GeneralLedgerAccount"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public GeneralLedgerAccount( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
-            BFY = dataRow[ "BFY" ].ToString( );
-            Number = dataRow[ "Number" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
-            ShortName = dataRow[ "ShortName" ].ToString( );
-            NormalBalance = dataRow[ "NormalBalance" ].ToString( );
-            ReportableAccount = dataRow[ "ReportableAccount" ].ToString( );
-            SummaryAccount = dataRow[ "SummaryAccount" ].ToString( );
-            AccountClassification = dataRow[ "AccountClassification" ].ToString( );
-            CashAccount = dataRow[ "CashAccount" ].ToString( );
-            ReportableAccount = dataRow[ "ReportableAccount" ].ToString( );
-            RealOrClosingAccount = dataRow[ "RealOrClosingAccount" ].ToString( );
-            FederalNonFederal = dataRow[ "FederalNonFederal" ].ToString( );
-            AttributeValue = dataRow[ "AttributeValue" ].ToString( );
-            Usage = dataRow[ "Usage" ].ToString( );
-            Deposit = dataRow[ "Deposit" ].ToString( );
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -183,5 +91,99 @@ namespace BudgetExecution
         /// <summary> Gets or sets the closing amount. </summary>
         /// <value> The closing amount. </value>
         public string Deposit { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GeneralLedgerAccount"/>
+        /// class.
+        /// </summary>
+        public GeneralLedgerAccount( )
+        {
+            Source = Source.GeneralLedgerAccounts;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GeneralLedgerAccount"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public GeneralLedgerAccount( IQuery query )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            NormalBalance = Record[ "NormalBalance" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            SummaryAccount = Record[ "SummaryAccount" ].ToString( );
+            AccountClassification = Record[ "AccountClassification" ].ToString( );
+            CashAccount = Record[ "CashAccount" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            RealOrClosingAccount = Record[ "RealOrClosingAccount" ].ToString( );
+            FederalNonFederal = Record[ "FederalNonFederal" ].ToString( );
+            AttributeValue = Record[ "AttributeValue" ].ToString( );
+            Usage = Record[ "Usage" ].ToString( );
+            Deposit = Record[ "Deposit" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GeneralLedgerAccount"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public GeneralLedgerAccount( IDataModel builder )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            ShortName = Record[ "ShortName" ].ToString( );
+            NormalBalance = Record[ "NormalBalance" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            SummaryAccount = Record[ "SummaryAccount" ].ToString( );
+            AccountClassification = Record[ "AccountClassification" ].ToString( );
+            CashAccount = Record[ "CashAccount" ].ToString( );
+            ReportableAccount = Record[ "ReportableAccount" ].ToString( );
+            RealOrClosingAccount = Record[ "RealOrClosingAccount" ].ToString( );
+            FederalNonFederal = Record[ "FederalNonFederal" ].ToString( );
+            AttributeValue = Record[ "AttributeValue" ].ToString( );
+            Usage = Record[ "Usage" ].ToString( );
+            Deposit = Record[ "Deposit" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GeneralLedgerAccount"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public GeneralLedgerAccount( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            Number = dataRow[ "Number" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
+            ShortName = dataRow[ "ShortName" ].ToString( );
+            NormalBalance = dataRow[ "NormalBalance" ].ToString( );
+            ReportableAccount = dataRow[ "ReportableAccount" ].ToString( );
+            SummaryAccount = dataRow[ "SummaryAccount" ].ToString( );
+            AccountClassification = dataRow[ "AccountClassification" ].ToString( );
+            CashAccount = dataRow[ "CashAccount" ].ToString( );
+            ReportableAccount = dataRow[ "ReportableAccount" ].ToString( );
+            RealOrClosingAccount = dataRow[ "RealOrClosingAccount" ].ToString( );
+            FederalNonFederal = dataRow[ "FederalNonFederal" ].ToString( );
+            AttributeValue = dataRow[ "AttributeValue" ].ToString( );
+            Usage = dataRow[ "Usage" ].ToString( );
+            Deposit = dataRow[ "Deposit" ].ToString( );
+        }
     }
 }

@@ -10,11 +10,12 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
@@ -105,105 +106,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the type of the tool. </summary>
         /// <value> The type of the tool. </value>
         public ToolType ToolType { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FilterDialog"/>
-        /// class.
-        /// </summary>
-        public FilterDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-            Size = new Size( 1340, 674 );
-
-            // Header Label Properties
-            SourceHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-            FilterHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-            GroupHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-
-            // Event Wiring
-            TabControl.TabIndexChanged += OnActiveTabChanged;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
-            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
-            ClearButton.Click += OnClearButtonClick;
-            SelectButton.Click += OnSelectButtonClick;
-            GroupButton.Click += OnGroupButtonClick;
-            CloseButton.Click += OnCloseButtonClick;
-            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            Load += OnLoad;
-            MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FilterDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        public FilterDialog( Source source, Provider provider = Provider.Access )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataModel.DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FilterDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
-        public FilterDialog( BindingSource bindingSource )
-            : this( )
-        {
-            DataTable = (DataTable)bindingSource.DataSource;
-            SelectedTable = DataTable.TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-            Provider = Provider.Access;
-            DataModel = new DataBuilder( Source, Provider );
-            BindingSource.DataSource = DataModel.DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
-        }
 
         /// <summary> Populates the second como box items. </summary>
         public void PopulateSecondComboBoxItems( )
@@ -326,30 +228,21 @@ namespace BudgetExecution
                 MaintenanceListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
                     TableListBox.Items.Add( name );
                 }
 
-                var _references = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
+                var _references = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 for( var _i = 0; _i < _references?.Count - 1; _i++ )
                 {
                     var name = _references[ _i ];
                     ReferenceListBox.Items.Add( name );
                 }
 
-                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
+                var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 for( var _i = 0; _i < _mx?.Count - 1; _i++ )
                 {
                     var name = _mx[ _i ];
@@ -363,7 +256,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [table ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -397,10 +290,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [first ComboBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnFirstComboBoxItemSelected( object sender, EventArgs e )
@@ -445,7 +338,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [first item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -469,10 +362,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [second item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
@@ -516,7 +409,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [second ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnSecondListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -541,10 +434,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [third item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
@@ -582,7 +475,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [third ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -609,10 +502,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [fourth ComboBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnFourthComboBoxItemSelected( object sender, EventArgs e )
@@ -673,10 +566,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnClearButtonClick( object sender, EventArgs e )
@@ -702,10 +595,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [select button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnSelectButtonClick( object sender, EventArgs e )
@@ -726,10 +619,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [group button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnGroupButtonClick( object sender, EventArgs e )
@@ -750,10 +643,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [third button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnCloseButtonClick( object sender, EventArgs e )
@@ -782,10 +675,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnLoad( object sender, EventArgs e )
@@ -889,7 +782,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the provider RadioButton. </summary>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="provider"> The provider. </param>
         private void SetProviderRadioButton( Provider provider )
         {
             try
@@ -1018,7 +911,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the SQL text. </summary>
-        /// <param name = "where" > The where. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
@@ -1039,12 +932,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the SQL text. </summary>
-        /// <param name = "fields" > The fields. </param>
-        /// <param name = "numerics" > The numerics. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
-        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+        private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
                && fields?.Any( ) == true
@@ -1067,8 +959,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} " + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
                 {
@@ -1081,8 +972,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the SQL text. </summary>
-        /// <param name = "columns" > The columns. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
@@ -1100,8 +991,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_names} ;";
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} " + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
                 {
@@ -1165,9 +1055,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Binds the data source. </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The where. </param>
         private void BindData( Source source, Provider provider, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), source )
@@ -1192,8 +1082,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Binds the data source. </summary>
-        /// <param name = "cols" > The cols. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="cols"> The cols. </param>
+        /// <param name="where"> The where. </param>
         private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
@@ -1219,11 +1109,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Binds the data source. </summary>
-        /// <param name = "fields" > The fields. </param>
-        /// <param name = "numerics" > The numerics. </param>
-        /// <param name = "where" > The where. </param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
@@ -1273,7 +1162,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [field ListBox selected value changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         private void OnFieldListBoxSelectedValueChanged( object sender )
         {
             try
@@ -1295,7 +1184,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [numeric ListBox selected value changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         private void OnNumericListBoxSelectedValueChanged( object sender )
         {
             try
@@ -1316,10 +1205,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "MouseEventArgs"/>
+        /// <see cref="MouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
@@ -1338,7 +1227,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [RadioButton checked]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _radio
@@ -1360,10 +1249,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [active tab changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnActiveTabChanged( object sender, EventArgs e )
@@ -1435,12 +1324,111 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FilterDialog"/>
+        /// class.
+        /// </summary>
+        public FilterDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            Size = new Size( 1340, 674 );
+
+            // Header Label Properties
+            SourceHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            FilterHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            GroupHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+
+            // Event Wiring
+            TabControl.TabIndexChanged += OnActiveTabChanged;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
+            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
+            ClearButton.Click += OnClearButtonClick;
+            SelectButton.Click += OnSelectButtonClick;
+            GroupButton.Click += OnGroupButtonClick;
+            CloseButton.Click += OnCloseButtonClick;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            Load += OnLoad;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FilterDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public FilterDialog( Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataModel.DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FilterDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public FilterDialog( BindingSource bindingSource )
+            : this( )
+        {
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = DataTable.TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            Provider = Provider.Access;
+            DataModel = new DataBuilder( Source, Provider );
+            BindingSource.DataSource = DataModel.DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
         }
     }
 }

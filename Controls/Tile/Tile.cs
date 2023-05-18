@@ -7,17 +7,77 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.TileBase"/>
+    /// <seealso cref="BudgetExecution.TileBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Tile : TileBase
     {
+
+        /// <summary> Called when [mouse enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                BackColor = Color.FromArgb( 17, 53, 84 );
+                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
+                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                Title.TextColor = Color.White;
+                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Body.TextColor = Color.White;
+                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Footer.TextColor = Color.White;
+                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Banner.TextColor = Color.White;
+                Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                BackColor = Color.FromArgb( 20, 20, 20 );
+                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
+                Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Title.TextColor = Color.FromArgb( 0, 120, 212 );
+                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Body.TextColor = Color.DarkGray;
+                Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Footer.TextColor = Color.DarkGray;
+                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Banner.TextColor = Color.DarkGray;
+                Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Tile"/>
+        /// <see cref="Tile"/>
         /// class.
         /// </summary>
         public Tile( )
@@ -59,10 +119,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Tile"/>
+        /// <see cref="Tile"/>
         /// class.
         /// </summary>
-        /// <param name = "type" > The type. </param>
+        /// <param name="type"> The type. </param>
         public Tile( HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
@@ -71,11 +131,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Tile"/>
+        /// <see cref="Tile"/>
         /// class.
         /// </summary>
-        /// <param name = "name" > The name. </param>
-        /// <param name = "type" > The type. </param>
+        /// <param name="name"> The name. </param>
+        /// <param name="type"> The type. </param>
         public Tile( string name, HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
@@ -85,76 +145,18 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Tile"/>
+        /// <see cref="Tile"/>
         /// class.
         /// </summary>
-        /// <param name = "location" > The location. </param>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "type" > The type. </param>
+        /// <param name="location"> The location. </param>
+        /// <param name="size"> The size. </param>
+        /// <param name="type"> The type. </param>
         public Tile( Point location, Size size, HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
             Size = size;
             Location = location;
             TileType = type;
-        }
-
-        /// <summary> Called when [mouse enter]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMouseEnter( object sender, EventArgs e )
-        {
-            try
-            {
-                BackColor = Color.FromArgb( 17, 53, 84 );
-                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
-                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
-                Title.TextColor = Color.White;
-                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Body.TextColor = Color.White;
-                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Footer.TextColor = Color.White;
-                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                Banner.TextColor = Color.White;
-                Refresh( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMouseLeave( object sender, EventArgs e )
-        {
-            try
-            {
-                BackColor = Color.FromArgb( 20, 20, 20 );
-                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
-                Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Title.TextColor = Color.FromArgb( 0, 120, 212 );
-                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Body.TextColor = Color.DarkGray;
-                Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                Footer.TextColor = Color.DarkGray;
-                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                Banner.TextColor = Color.DarkGray;
-                Refresh( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
     }
 }

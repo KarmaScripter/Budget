@@ -4,49 +4,34 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// Defines the Enum
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> Defines the Enum </summary>
     public enum ImageFormat
     {
-        /// <summary>
-        /// Defines the None
-        /// </summary>
+        /// <summary> Defines the None </summary>
         NS = 0,
 
-        /// <summary>
-        /// The PNG
-        /// </summary>
+        /// <summary> The PNG </summary>
         PNG,
 
-        /// <summary>
-        /// The JPEG
-        /// </summary>
+        /// <summary> The JPEG </summary>
         JPEG,
 
-        /// <summary>
-        /// The BMP
-        /// </summary>
+        /// <summary> The BMP </summary>
         BMP,
 
-        /// <summary>
-        /// The icon
-        /// </summary>
+        /// <summary> The icon </summary>
         ICO,
 
-        /// <summary>
-        /// The GIF
-        /// </summary>
+        /// <summary> The GIF </summary>
         GIF,
 
-        /// <summary>
-        /// The tiff
-        /// </summary>
+        /// <summary> The tiff </summary>
         TIFF,
 
-        /// <summary>
-        /// The SVG
-        /// </summary>
+        /// <summary> The SVG </summary>
         SVG
     }
 }

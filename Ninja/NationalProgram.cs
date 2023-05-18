@@ -8,11 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "INationalProgram"/>
-    /// <seealso cref = "IProgram"/>
-    /// <seealso cref = "ISource"/>
+    /// <seealso cref="INationalProgram"/>
+    /// <seealso cref="IProgram"/>
+    /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -31,95 +32,40 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "NationalProgram"/>
-        /// class.
-        /// </summary>
-        public NationalProgram( )
+        /// <summary> Gets the national program. </summary>
+        /// <returns> </returns>
+        public INationalProgram GetNationalProgram( )
         {
+            try
+            {
+                return MemberwiseClone( ) as INationalProgram;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "NationalProgram"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public NationalProgram( IQuery query )
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
-        }
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "NationalProgram"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public NationalProgram( IDataModel builder )
-        {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "NationalProgram"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        public NationalProgram( DataRow dataRow )
-        {
-            Record = dataRow;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "NationalProgram"/>
-        /// class.
-        /// </summary>
-        /// <param name = "code" > The code. </param>
-        public NationalProgram( string code )
-        {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
-        }
-
-        public NationalProgram( INationalProgram npm )
-        {
-            ID = npm.ID;
-            Code = npm.Code;
-            Name = npm.Name;
-            NPM = npm.NPM;
-            Title = npm.Title;
-            RpioCode = npm.RpioCode;
+            return default;
         }
 
         /// <summary> Gets or sets the identifier. </summary>
@@ -145,40 +91,95 @@ namespace BudgetExecution
         /// <value> The NPM. </value>
         public NPM NPM { get; set; }
 
-        /// <summary> Gets the national program. </summary>
-        /// <returns> </returns>
-        public INationalProgram GetNationalProgram( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="NationalProgram"/>
+        /// class.
+        /// </summary>
+        public NationalProgram( )
         {
-            try
-            {
-                return MemberwiseClone( ) as INationalProgram;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="NationalProgram"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public NationalProgram( IQuery query )
         {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
+            Record = new DataBuilder( query )?.Record;
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+        }
 
-            return default;
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="NationalProgram"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public NationalProgram( IDataModel builder )
+        {
+            Record = builder?.Record;
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="NationalProgram"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The dataRow. </param>
+        public NationalProgram( DataRow dataRow )
+        {
+            Record = dataRow;
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="NationalProgram"/>
+        /// class.
+        /// </summary>
+        /// <param name="code"> The code. </param>
+        public NationalProgram( string code )
+        {
+            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+        }
+
+        public NationalProgram( INationalProgram npm )
+        {
+            ID = npm.ID;
+            Code = npm.Code;
+            Name = npm.Name;
+            NPM = npm.NPM;
+            Title = npm.Title;
+            RpioCode = npm.RpioCode;
         }
     }
 }

@@ -4,9 +4,10 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -17,7 +18,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "OperatingPlan"/>
+        /// <see cref="OperatingPlan"/>
         /// class.
         /// </summary>
         public OperatingPlan( )
@@ -26,10 +27,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "OperatingPlan"/>
+        /// <see cref="OperatingPlan"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public OperatingPlan( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -67,10 +68,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "OperatingPlan"/>
+        /// <see cref="OperatingPlan"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public OperatingPlan( IDataModel builder )
         {
             Record = builder.Record;
@@ -108,10 +109,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "OperatingPlan"/>
+        /// <see cref="OperatingPlan"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public OperatingPlan( DataRow dataRow )
         {
             Record = dataRow;

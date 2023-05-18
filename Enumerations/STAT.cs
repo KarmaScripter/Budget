@@ -4,39 +4,28 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// Defines the STAT
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> Defines the STAT </summary>
     public enum STAT
     {
-        /// <summary>
-        /// Defines the Total
-        /// </summary>
+        /// <summary> Defines the Total </summary>
         Total = 1,
 
-        /// <summary>
-        /// Defines the Count
-        /// </summary>
+        /// <summary> Defines the Count </summary>
         Count = 2,
 
-        /// <summary>
-        /// Defines the Average
-        /// </summary>
+        /// <summary> Defines the Average </summary>
         Average = 3,
 
-        /// <summary>
-        /// Defines the Percentage
-        /// </summary>
+        /// <summary> Defines the Percentage </summary>
         Percentage = 4,
 
-        /// <summary>
-        /// The standard deviation
-        /// </summary>
+        /// <summary> The standard deviation </summary>
         Deviation = 5,
 
-        /// <summary>
-        /// The variance
-        /// </summary>
+        /// <summary> The variance </summary>
         Variance = 6
     }
 }

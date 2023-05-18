@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -23,85 +25,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the data. </summary>
         /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AnnualReimbursableSurvey"/>
-        /// class.
-        /// </summary>
-        public AnnualReimbursableSurvey( )
-        {
-            Source = Source.AnnualReimbursableSurvey;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AnnualReimbursableSurvey"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public AnnualReimbursableSurvey( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualReimbursableSurveyId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AnnualReimbursableSurvey"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public AnnualReimbursableSurvey( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AnnualReimbursableSurveyId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AnnualReimbursableSurvey"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public AnnualReimbursableSurvey( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "AnnualReimbursableSurveyId" ].ToString( ) ?? "0" );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        public AnnualReimbursableSurvey( ICarryoverSurvey survey )
-        {
-            ID = survey.ID;
-            BFY = survey.BFY;
-            EFY = survey.EFY;
-            FundCode = survey.FundCode;
-            FundName = survey.FundName;
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -130,5 +53,84 @@ namespace BudgetExecution
         /// <summary> Gets or sets the amount. </summary>
         /// <value> The amount. </value>
         public double Amount { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AnnualReimbursableSurvey"/>
+        /// class.
+        /// </summary>
+        public AnnualReimbursableSurvey( )
+        {
+            Source = Source.AnnualReimbursableSurvey;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AnnualReimbursableSurvey"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public AnnualReimbursableSurvey( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualReimbursableSurveyId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AnnualReimbursableSurvey"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public AnnualReimbursableSurvey( IDataModel builder )
+            : this( )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AnnualReimbursableSurveyId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AnnualReimbursableSurvey"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public AnnualReimbursableSurvey( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "AnnualReimbursableSurveyId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        public AnnualReimbursableSurvey( ICarryoverSurvey survey )
+        {
+            ID = survey.ID;
+            BFY = survey.BFY;
+            EFY = survey.EFY;
+            FundCode = survey.FundCode;
+            FundName = survey.FundName;
+        }
     }
 }

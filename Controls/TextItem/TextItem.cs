@@ -4,7 +4,9 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Drawing;
+    using System.Threading;
 
     /// <summary> </summary>
     public class TextItem
@@ -71,7 +73,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TextItem"/>
+        /// <see cref="TextItem"/>
         /// class.
         /// </summary>
         public TextItem( )
@@ -89,10 +91,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TextItem"/>
+        /// <see cref="TextItem"/>
         /// class.
         /// </summary>
-        /// <param name = "bodyText" > The body text. </param>
+        /// <param name="bodyText"> The body text. </param>
         public TextItem( string bodyText )
             : this( )
         {
@@ -103,11 +105,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TextItem"/>
+        /// <see cref="TextItem"/>
         /// class.
         /// </summary>
-        /// <param name = "headerText" > The header text. </param>
-        /// <param name = "bodyText" > The body text. </param>
+        /// <param name="headerText"> The header text. </param>
+        /// <param name="bodyText"> The body text. </param>
         public TextItem( string headerText, string bodyText )
             : this( )
         {
@@ -118,12 +120,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TextItem"/>
+        /// <see cref="TextItem"/>
         /// class.
         /// </summary>
-        /// <param name = "headerText" > The header text. </param>
-        /// <param name = "bodyText" > The body text. </param>
-        /// <param name = "footerText" > The footer text. </param>
+        /// <param name="headerText"> The header text. </param>
+        /// <param name="bodyText"> The body text. </param>
+        /// <param name="footerText"> The footer text. </param>
         public TextItem( string headerText, string bodyText, string footerText )
             : this( )
         {

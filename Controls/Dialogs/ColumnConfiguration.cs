@@ -13,7 +13,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "MetroForm"/>
+    /// <seealso cref="MetroForm"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -36,59 +36,11 @@ namespace BudgetExecution
         /// <value> The host. </value>
         public ToolStripControlHost Host { get; set; }
 
-        /// <summary>
-        /// Sets Basic Properties Initializes a new instance of the
-        /// <see cref = "ColumnConfiguration"/>
-        /// class.
-        /// </summary>
-        public ColumnConfiguration( )
-        {
-            InitializeComponent( );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 2;
-            Size = new Size( 250, 350 );
-            MaximumSize = new Size( 250, 350 );
-            MinimumSize = new Size( 250, 350 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-            Enabled = true;
-            Visible = true;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ColumnConfiguration"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataGrid" > The DGV. </param>
-        public ColumnConfiguration( DataGridView dataGrid )
-            : this( )
-        {
-            Grid = dataGrid;
-            PopUp = new System.Windows.Forms.ToolStripDropDown( );
-            ColumnListBox.CheckOnClick = true;
-            ColumnListBox.ItemCheck += OnListItemChecked;
-            CloseButton.Click += OnCloseButtonClick;
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Load += OnLoad;
-        }
-
         /// <summary> Called when [data grid right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "DataGridViewCellMouseEventArgs"/>
+        /// <see cref="DataGridViewCellMouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
@@ -124,8 +76,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -133,10 +85,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnLoad( object sender, EventArgs e )
@@ -151,7 +103,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the control host. </summary>
-        /// <param name = "listBox" > The listbox. </param>
+        /// <param name="listBox"> The listbox. </param>
         /// <returns> </returns>
         private ToolStripControlHost GetControlHost( Control listBox )
         {
@@ -176,10 +128,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [data grid item checked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "ItemCheckEventArgs"/>
+        /// <see cref="ItemCheckEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnListItemChecked( object sender, ItemCheckEventArgs e )
@@ -198,10 +150,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnCloseButtonClick( object sender, EventArgs e )
@@ -217,6 +169,54 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Sets Basic Properties Initializes a new instance of the
+        /// <see cref="ColumnConfiguration"/>
+        /// class.
+        /// </summary>
+        public ColumnConfiguration( )
+        {
+            InitializeComponent( );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
+            Size = new Size( 250, 350 );
+            MaximumSize = new Size( 250, 350 );
+            MinimumSize = new Size( 250, 350 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            Enabled = true;
+            Visible = true;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ColumnConfiguration"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataGrid"> The DGV. </param>
+        public ColumnConfiguration( DataGridView dataGrid )
+            : this( )
+        {
+            Grid = dataGrid;
+            PopUp = new System.Windows.Forms.ToolStripDropDown( );
+            ColumnListBox.CheckOnClick = true;
+            ColumnListBox.ItemCheck += OnListItemChecked;
+            CloseButton.Click += OnCloseButtonClick;
+            HeaderLabel.Font = new Font( "Roboto", 10 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Load += OnLoad;
         }
     }
 }

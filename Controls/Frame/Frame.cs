@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -21,7 +22,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Frame"/>
+        /// <see cref="Frame"/>
         /// class.
         /// </summary>
         public Frame( )

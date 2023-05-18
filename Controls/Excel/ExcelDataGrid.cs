@@ -9,8 +9,9 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using Syncfusion.Windows.Forms.Spreadsheet;
+    using System.Threading;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Spreadsheet;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -28,58 +29,11 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelDataGrid"/>
-        /// class.
-        /// </summary>
-        public ExcelDataGrid( )
-        {
-            // Spreadsheet Properties
-            CanApplyTheme = true;
-            CanOverrideStyle = true;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.Black;
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            DefaultColumnCount = 26;
-            DefaultRowCount = 66;
-            AllowZooming = true;
-            AllowCellContextMenu = true;
-            CanApplyTheme = true;
-            CanOverrideStyle = true;
-            Margin = new Padding( 1 );
-            Padding = new Padding( 1 );
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ForeColor = Color.Black;
-            DefaultColumnCount = 40;
-            DefaultRowCount = 60;
-            AllowZooming = true;
-            AllowFiltering = true;
-        }
-
-        /// <summary> Opens the file. </summary>
-        /// <param name = "file" > The file. </param>
-        public void OpenFile( Stream file )
-        {
-        }
-
-        /// <summary> Displays the message box. </summary>
-        /// <param name = "text" > The text. </param>
-        /// <param name = "caption" > The caption. </param>
-        /// <param name = "button" > The button. </param>
-        /// <param name = "icon" > The icon. </param>
-        /// <returns> </returns>
-        public virtual bool DisplayMessageBox( string text, string caption, MessageBoxButtons button,
-            MessageBoxIcon icon )
-        {
-            return false;
-        }
-
         /// <summary> Called when [cell enter]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnCellEnter( object sender, EventArgs e )
@@ -130,12 +84,58 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary> Opens the file. </summary>
+        /// <param name="file"> The file. </param>
+        public void OpenFile( Stream file )
+        {
+        }
+
+        /// <summary> Displays the message box. </summary>
+        /// <param name="text"> The text. </param>
+        /// <param name="caption"> The caption. </param>
+        /// <param name="button"> The button. </param>
+        /// <param name="icon"> The icon. </param>
+        /// <returns> </returns>
+        public virtual bool DisplayMessageBox( string text, string caption, MessageBoxButtons button, MessageBoxIcon icon )
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataGrid"/>
+        /// class.
+        /// </summary>
+        public ExcelDataGrid( )
+        {
+            // Spreadsheet Properties
+            CanApplyTheme = true;
+            CanOverrideStyle = true;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.Black;
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
+            DefaultColumnCount = 26;
+            DefaultRowCount = 66;
+            AllowZooming = true;
+            AllowCellContextMenu = true;
+            CanApplyTheme = true;
+            CanOverrideStyle = true;
+            Margin = new Padding( 1 );
+            Padding = new Padding( 1 );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
+            ForeColor = Color.Black;
+            DefaultColumnCount = 40;
+            DefaultRowCount = 60;
+            AllowZooming = true;
+            AllowFiltering = true;
         }
     }
 }

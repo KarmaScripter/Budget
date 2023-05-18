@@ -8,11 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "IGoal"/>
-    /// <seealso cref = "IProgram"/>
-    /// <seealso cref = "ISource"/>
+    /// <seealso cref="IGoal"/>
+    /// <seealso cref="IProgram"/>
+    /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -21,90 +22,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Goal : DataUnit, IGoal
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Goal"/>
-        /// class.
-        /// </summary>
-        public Goal( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Goal"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public Goal( IQuery query )
-        {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Goal"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public Goal( IDataModel builder )
-        {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Goal"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        public Goal( DataRow dataRow )
-        {
-            Record = dataRow;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Goal"/>
-        /// class.
-        /// </summary>
-        /// <param name = "code" > The code. </param>
-        public Goal( string code )
-        {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Goal"/>
-        /// class.
-        /// </summary>
-        /// <param name = "goal" > The goal. </param>
-        public Goal( IGoal goal )
-        {
-            ID = goal.ID;
-            Code = goal.Code;
-            Name = goal.Name;
-        }
 
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "goal" > The goal. </param>
+        /// <param name="goal"> The goal. </param>
         /// <returns> </returns>
         public IDictionary<string, object> GetArgs( int goal )
         {
@@ -158,7 +78,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
+        /// <param name="code"> The code. </param>
         /// <returns> </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
@@ -176,6 +96,88 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Goal"/>
+        /// class.
+        /// </summary>
+        public Goal( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Goal"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public Goal( IQuery query )
+        {
+            Record = new DataBuilder( query )?.Record;
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Goal"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public Goal( IDataModel builder )
+        {
+            Record = builder?.Record;
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Goal"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The dataRow. </param>
+        public Goal( DataRow dataRow )
+        {
+            Record = dataRow;
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Goal"/>
+        /// class.
+        /// </summary>
+        /// <param name="code"> The code. </param>
+        public Goal( string code )
+        {
+            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Goal"/>
+        /// class.
+        /// </summary>
+        /// <param name="goal"> The goal. </param>
+        public Goal( IGoal goal )
+        {
+            ID = goal.ID;
+            Code = goal.Code;
+            Name = goal.Name;
         }
     }
 }

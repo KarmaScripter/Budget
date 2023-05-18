@@ -14,7 +14,7 @@ namespace BudgetExecution
     using Syncfusion.WinForms.ListView;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.WinForms.ListView.SfListView"/>
+    /// <seealso cref="Syncfusion.WinForms.ListView.SfListView"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ListViewBase : SfListView
     {
@@ -60,10 +60,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > </typeparam>
-        /// <typeparam name = "T2" > The type of the 2. </typeparam>
-        /// <param name = "bindingList" > The binding source. </param>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <typeparam name="T1"> </typeparam>
+        /// <typeparam name="T2"> The type of the 2. </typeparam>
+        /// <param name="bindingList"> The binding source. </param>
+        /// <param name="dict"> The dictionary. </param>
         public virtual void SetDataSource<T1, T2>( T1 bindingList, T2 dict )
             where T1 : IBindingList
             where T2 : IDictionary<string, object>
@@ -106,7 +106,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the binding source. </summary>
-        /// <param name = "data" > The data. </param>
+        /// <param name="data"> The data. </param>
         public virtual void SetDataSource<T1>( IEnumerable<T1> data )
             where T1 : IEnumerable<T1>
         {
@@ -124,9 +124,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <typeparam name="T1"> The type of the 1. </typeparam>
+        /// <param name="data"> The data. </param>
+        /// <param name="dict"> The dictionary. </param>
         public virtual void SetDataSource<T1>( IEnumerable<T1> data, IDictionary<string, object> dict )
             where T1 : IEnumerable<T1>
         {
@@ -155,12 +155,12 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of T1. </typeparam>
-        /// <typeparam name = "T2" > The type of T2. </typeparam>
-        /// <typeparam name = "T3" > The type of T3. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "field" > The field. </param>
-        /// <param name = "filter" > The dictionary. </param>
+        /// <typeparam name="T1"> The type of T1. </typeparam>
+        /// <typeparam name="T2"> The type of T2. </typeparam>
+        /// <typeparam name="T3"> The type of T3. </typeparam>
+        /// <param name="data"> The data. </param>
+        /// <param name="field"> The field. </param>
+        /// <param name="filter"> The dictionary. </param>
         public virtual void SetDataSource<T1, T2, T3>( IEnumerable<T1> data, T2 field, T3 filter )
             where T1 : IEnumerable<T1>
             where T2 : struct
@@ -190,9 +190,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the binding source. </summary>
-        /// <typeparam name = "T1" > The type of the 1. </typeparam>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "field" > The field. </param>
+        /// <typeparam name="T1"> The type of the 1. </typeparam>
+        /// <param name="data"> The data. </param>
+        /// <param name="field"> The field. </param>
         public virtual void SetDataSource<T1>( IEnumerable<T1> data, object field = null )
             where T1 : IEnumerable<T1>
         {
@@ -218,9 +218,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the bindings. </summary>
-        /// <param name = "data" > The data. </param>
+        /// <param name="data"> The data. </param>
         /// <param> The numeric. </param>
-        /// <param name = "dict" > </param>
+        /// <param name="dict"> </param>
         public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 dict )
             where T1 : IEnumerable<T1>
             where T2 : IDictionary<string, object>
@@ -251,11 +251,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the binding source. </summary>
-        /// <param name = "data" > The data. </param>
-        /// <param name = "field" > The field. </param>
-        /// <param name = "filter" > The filter. </param>
-        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field,
-            object filter = null )
+        /// <param name="data"> The data. </param>
+        /// <param name="field"> The field. </param>
+        /// <param name="filter"> The filter. </param>
+        public virtual void SetDataSource<T1, T2>( IEnumerable<T1> data, T2 field, object filter = null )
             where T1 : IEnumerable<T1>
             where T2 : struct
         {
@@ -284,8 +283,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

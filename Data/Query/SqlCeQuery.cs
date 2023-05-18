@@ -13,137 +13,13 @@ namespace BudgetExecution
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref = "T:BudgetExecution.Query"/>
+    /// <seealso cref="T:BudgetExecution.Query"/>
     public class SqlCeQuery : Query
     {
-        /// <inheritdoc/>
-        /// <summary> </summary>
-        public SqlCeQuery( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        public SqlCeQuery( Source source )
-            : base( source, Provider.SqlCe, SQL.SELECT )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "dict" > The dictionary. </param>
-        public SqlCeQuery( Source source, IDictionary<string, object> dict )
-            : base( source, Provider.SqlCe, dict, SQL.SELECT )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source Data. </param>
-        /// <param name = "provider" > The provider used. </param>
-        /// <param name = "dict" > The dictionary of parameters. </param>
-        /// <param name = "commandType" > The type of sql command. </param>
-        public SqlCeQuery( Source source, IDictionary<string, object> dict, SQL commandType )
-            : base( source, Provider.SqlCe, dict, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "updates" > </param>
-        /// <param name = "where" > The where. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public SqlCeQuery( Source source, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, Provider.SqlCe, updates, where, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "columns" > The columns. </param>
-        /// <param name = "criteria" > The criteria. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public SqlCeQuery( Source source, IEnumerable<string> columns,
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, Provider.SqlCe, columns, criteria, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "sqlStatement" > The sqlStatement. </param>
-        public SqlCeQuery( ISqlStatement sqlStatement )
-            : base( sqlStatement )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "sqlText" > The SQL text. </param>
-        public SqlCeQuery( Source source, string sqlText )
-            : base( source, Provider.SqlCe, sqlText )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "fullPath" > The fullpath. </param>
-        /// <param name = "sqlText" > </param>
-        /// <param name = "commandType" > The commandType. </param>
-        public SqlCeQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
-            : base( fullPath, sqlText, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlCeQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "fullPath" > The fullpath. </param>
-        /// <param name = "commandType" > The commandType. </param>
-        /// <param name = "dict" > The dictionary. </param>
-        public SqlCeQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
-            : base( fullPath, commandType, dict )
-        {
-        }
 
         /// <summary> Creates the table from excel file. </summary>
-        /// <param name = "fileName" > The filePath. </param>
-        /// <param name = "sheetName" > The sheetName. </param>
+        /// <param name="fileName"> The filePath. </param>
+        /// <param name="sheetName"> The sheetName. </param>
         /// <returns> </returns>
         public DataTable CreateTableFromExcelFile( string fileName, ref string sheetName )
         {
@@ -182,8 +58,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the table from CSV file. </summary>
-        /// <param name = "filePath" > The filePath. </param>
-        /// <param name = "sheetName" > The sheetName. </param>
+        /// <param name="filePath"> The filePath. </param>
+        /// <param name="sheetName"> The sheetName. </param>
         /// <returns> </returns>
         public DataTable CreateTableFromCsvFile( string filePath, ref string sheetName )
         {
@@ -225,7 +101,7 @@ namespace BudgetExecution
         }
 
         /// <summary> The Dispose </summary>
-        protected override void Dispose( bool disposing )
+        override protected void Dispose( bool disposing )
         {
             if( disposing )
             {
@@ -267,8 +143,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Checks if sheet name exists. </summary>
-        /// <param name = "sheetName" > The sheetName. </param>
-        /// <param name = "schemaTable" > The datatable. </param>
+        /// <param name="sheetName"> The sheetName. </param>
+        /// <param name="schemaTable"> The datatable. </param>
         /// <returns> </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable schemaTable )
         {
@@ -287,6 +163,129 @@ namespace BudgetExecution
             }
 
             return false;
+        }
+
+        /// <inheritdoc/>
+        /// <summary> </summary>
+        public SqlCeQuery( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        public SqlCeQuery( Source source )
+            : base( source, Provider.SqlCe, SQL.SELECT )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> The dictionary. </param>
+        public SqlCeQuery( Source source, IDictionary<string, object> dict )
+            : base( source, Provider.SqlCe, dict, SQL.SELECT )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source Data. </param>
+        /// <param name="provider"> The provider used. </param>
+        /// <param name="dict"> The dictionary of parameters. </param>
+        /// <param name="commandType"> The type of sql command. </param>
+        public SqlCeQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+            : base( source, Provider.SqlCe, dict, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlCeQuery( Source source, IDictionary<string, object> updates, IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : base( source, Provider.SqlCe, updates, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="criteria"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlCeQuery( Source source, IEnumerable<string> columns, IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            : base( source, Provider.SqlCe, columns, criteria, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlStatement"> The sqlStatement. </param>
+        public SqlCeQuery( ISqlStatement sqlStatement )
+            : base( sqlStatement )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        public SqlCeQuery( Source source, string sqlText )
+            : base( source, Provider.SqlCe, sqlText )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
+        public SqlCeQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+            : base( fullPath, sqlText, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlCeQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="dict"> The dictionary. </param>
+        public SqlCeQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
+            : base( fullPath, commandType, dict )
+        {
         }
     }
 }

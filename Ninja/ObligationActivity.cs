@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Threading;
 
     /// <summary> </summary>
     public class ObligationActivity : Obligation
@@ -135,7 +136,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObligationActivity"/>
+        /// <see cref="ObligationActivity"/>
         /// class.
         /// </summary>
         public ObligationActivity( )
@@ -145,10 +146,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObligationActivity"/>
+        /// <see cref="ObligationActivity"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public ObligationActivity( IQuery query )
             : this( )
         {
@@ -158,10 +159,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObligationActivity"/>
+        /// <see cref="ObligationActivity"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public ObligationActivity( IDataModel builder )
             : this( builder.Query )
         {
@@ -171,10 +172,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObligationActivity"/>
+        /// <see cref="ObligationActivity"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public ObligationActivity( DataRow dataRow )
             : this( )
         {

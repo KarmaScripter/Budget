@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -25,109 +26,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ApportionmentData"/>
-        /// class.
-        /// </summary>
-        public ApportionmentData( )
-        {
-            Source = Source.ApportionmentData;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ApportionmentData"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public ApportionmentData( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString( );
-            AvailabilityType = Record[ "AvailabilityType" ].ToString( );
-            LineNumber = Record[ "LineNumber" ].ToString( );
-            LineName = Record[ "LineName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ApportionmentData"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public ApportionmentData( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString( );
-            AvailabilityType = Record[ "AvailabilityType" ].ToString( );
-            LineNumber = Record[ "LineNumber" ].ToString( );
-            LineName = Record[ "LineName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ApportionmentData"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public ApportionmentData( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString( );
-            ApportionmentAccountName = dataRow[ "ApportionmentAccountName" ].ToString( );
-            AvailabilityType = dataRow[ "AvailabilityType" ].ToString( );
-            LineNumber = dataRow[ "LineNumber" ].ToString( );
-            LineName = dataRow[ "LineName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-        }
-
-        public ApportionmentData( IApportionment omb )
-        {
-            ID = omb.ID;
-            FiscalYear = omb.FiscalYear;
-            BFY = omb.BFY;
-            EFY = omb.EFY;
-            BudgetAccountCode = omb.BudgetAccountCode;
-            BudgetAccountName = omb.BudgetAccountName;
-            TreasuryAccountCode = omb.TreasuryAccountCode;
-            TreasuryAccountName = omb.TreasuryAccountName;
-            ApportionmentAccountCode = omb.ApportionmentAccountCode;
-            ApportionmentAccountName = omb.ApportionmentAccountName;
-            AvailabilityType = omb.AvailabilityType;
-            LineNumber = omb.LineNumber;
-            LineName = omb.LineName;
-            Amount = omb.Amount;
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -149,7 +47,9 @@ namespace BudgetExecution
         /// <value> The treasury appropriation fund symbol. </value>
         public string TreasuryAccountCode { get; set; }
 
-        /// <summary> Gets or sets the name of the treasury appropriation fund symbol. </summary>
+        /// <summary>
+        /// Gets or sets the name of the treasury appropriation fund symbol.
+        /// </summary>
         /// <value> The name of the treasury appropriation fund symbol. </value>
         public string TreasuryAccountName { get; set; }
 
@@ -188,5 +88,108 @@ namespace BudgetExecution
         /// <summary> Gets or sets the amount. </summary>
         /// <value> The amount. </value>
         public double Amount { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ApportionmentData"/>
+        /// class.
+        /// </summary>
+        public ApportionmentData( )
+        {
+            Source = Source.ApportionmentData;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ApportionmentData"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public ApportionmentData( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString( );
+            AvailabilityType = Record[ "AvailabilityType" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ApportionmentData"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public ApportionmentData( IDataModel builder )
+            : this( )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString( );
+            AvailabilityType = Record[ "AvailabilityType" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ApportionmentData"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public ApportionmentData( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString( );
+            ApportionmentAccountName = dataRow[ "ApportionmentAccountName" ].ToString( );
+            AvailabilityType = dataRow[ "AvailabilityType" ].ToString( );
+            LineNumber = dataRow[ "LineNumber" ].ToString( );
+            LineName = dataRow[ "LineName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+        }
+
+        public ApportionmentData( IApportionment omb )
+        {
+            ID = omb.ID;
+            FiscalYear = omb.FiscalYear;
+            BFY = omb.BFY;
+            EFY = omb.EFY;
+            BudgetAccountCode = omb.BudgetAccountCode;
+            BudgetAccountName = omb.BudgetAccountName;
+            TreasuryAccountCode = omb.TreasuryAccountCode;
+            TreasuryAccountName = omb.TreasuryAccountName;
+            ApportionmentAccountCode = omb.ApportionmentAccountCode;
+            ApportionmentAccountName = omb.ApportionmentAccountName;
+            AvailabilityType = omb.AvailabilityType;
+            LineNumber = omb.LineNumber;
+            LineName = omb.LineName;
+            Amount = omb.Amount;
+        }
     }
 }

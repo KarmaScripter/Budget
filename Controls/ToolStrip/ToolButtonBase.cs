@@ -7,10 +7,11 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "System.Windows.Forms.ToolStripButton"/>
+    /// <seealso cref="System.Windows.Forms.ToolStripButton"/>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
@@ -76,7 +77,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the hover text. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <param name="text"> The text. </param>
         public void SetHoverText( string text )
         {
             try
@@ -92,8 +93,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

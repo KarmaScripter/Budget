@@ -8,11 +8,11 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.PRC"/>
-    /// <seealso cref = "BudgetExecution.IAccount"/>
+    /// <seealso cref="BudgetExecution.PRC"/>
+    /// <seealso cref="BudgetExecution.IAccount"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -24,9 +24,45 @@ namespace BudgetExecution
         /// <value> The agency activity. </value>
         public string AgencyActivity { get; set; }
 
+        /// <summary> Gets the account. </summary>
+        /// <returns> </returns>
+        public Account GetAccount( )
+        {
+            try
+            {
+                return (Account)MemberwiseClone( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Account );
+            }
+        }
+
+        /// <summary> Gets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        protected private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Account"/>
+        /// <see cref="Account"/>
         /// class.
         /// </summary>
         public Account( )
@@ -36,10 +72,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Account"/>
+        /// <see cref="Account"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public Account( IQuery query )
             : base( query )
         {
@@ -58,10 +94,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Account"/>
+        /// <see cref="Account"/>
         /// class.
         /// </summary>
-        /// <param name = "dataBuilder" > The data builder. </param>
+        /// <param name="dataBuilder"> The data builder. </param>
         public Account( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -85,10 +121,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Account"/>
+        /// <see cref="Account"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public Account( DataRow dataRow )
         {
             Source = Source.Accounts;
@@ -111,10 +147,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Account"/>
+        /// <see cref="Account"/>
         /// class.
         /// </summary>
-        /// <param name = "code" > The code. </param>
+        /// <param name="code"> The code. </param>
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -149,42 +185,6 @@ namespace BudgetExecution
             ActivityName = account.ActivityName;
             ProgramAreaCode = account.ProgramProjectCode;
             ProgramAreaName = account.ProgramAreaName;
-        }
-
-        /// <summary> Gets the account. </summary>
-        /// <returns> </returns>
-        public Account GetAccount( )
-        {
-            try
-            {
-                return (Account)MemberwiseClone( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Account );
-            }
-        }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
-        /// <returns> </returns>
-        private protected IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
         }
     }
 }

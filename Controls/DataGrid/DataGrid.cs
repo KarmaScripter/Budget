@@ -14,7 +14,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "DataGridView"/>
+    /// <seealso cref="DataGridView"/>
     /// <seealso/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
@@ -38,9 +38,165 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
+        /// <summary> Called when [cell enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCellEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                if( CurrentCell.ValueType == typeof( string ) )
+                {
+                    var _cellValue = CurrentCell?.Value?.ToString( );
+                    if( _cellValue?.Length >= 6
+                       && _cellValue.Length <= 9 )
+                    {
+                        var _code = _cellValue.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                }
+                else if( CurrentCell.ValueType == typeof( double ) )
+                {
+                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalculationForm( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calculator.Value.ToDouble( );
+                }
+                else if( CurrentCell.ValueType == typeof( decimal ) )
+                {
+                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalculationForm( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
+                }
+                else if( CurrentCell.ValueType == typeof( DateOnly ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarDialog( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+                else if( CurrentCell.ValueType == typeof( DateTime ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarDialog( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+                else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarDialog( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
+        /// <summary> Gets the filter values. </summary>
+        /// <param name="dict"> The dictionary. </param>
+        /// <returns> </returns>
+        public string GetFilterValues( IDictionary<string, object> dict )
+        {
+            {
+                if( dict?.Any( ) == true )
+                {
+                    try
+                    {
+                        var _vals = string.Empty;
+                        foreach( var _kvp in dict )
+                        {
+                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
+                        }
+
+                        return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
+                    }
+                    catch( Exception ex )
+                    {
+                        Fail( ex );
+                        return default;
+                    }
+                }
+
+                return default;
+            }
+        }
+
+        /// <summary> Gets the current data row. </summary>
+        /// <returns> </returns>
+        public DataRow GetCurrentDataRow( )
+        {
+            if( BindingSource.DataSource != null )
+            {
+                try
+                {
+                    var _dataRow = BindingSource.GetCurrentDataRow( );
+                    return _dataRow?.ItemArray?.Length > 0
+                        ? _dataRow
+                        : default( DataRow );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataRow );
+                }
+            }
+
+            return default( DataRow );
+        }
+
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="DataGridViewCellMouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    var _columnConfiguration = new ColumnConfiguration( this );
+                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
+                    _columnConfiguration.ColumnListBox?.Items?.Clear( );
+                    for( var _i = 0; _i < Columns.Count; _i++ )
+                    {
+                        var c = Columns[ _i ];
+                        _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                    }
+
+                    _columnConfiguration.TopMost = true;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataGrid"/>
+        /// <see cref="DataGrid"/>
         /// class.
         /// </summary>
         public DataGrid( )
@@ -114,11 +270,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataGrid"/>
+        /// <see cref="DataGrid"/>
         /// class.
         /// </summary>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "location" > The location. </param>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
         public DataGrid( Size size, Point location )
             : this( )
         {
@@ -128,10 +284,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataGrid"/>
+        /// <see cref="DataGrid"/>
         /// class.
         /// </summary>
-        /// <param name = "dataGrid" > The dataGrid. </param>
+        /// <param name="dataGrid"> The dataGrid. </param>
         public DataGrid( Control dataGrid )
             : this( dataGrid.Size, dataGrid.Location )
         {
@@ -139,172 +295,16 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataGrid"/>
+        /// <see cref="DataGrid"/>
         /// class.
         /// </summary>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "location" > The location. </param>
-        /// <param name = "parent" > The parent. </param>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
+        /// <param name="parent"> The parent. </param>
         public DataGrid( Size size, Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
-        }
-
-        /// <summary> Gets the filter values. </summary>
-        /// <param name = "dict" > The dictionary. </param>
-        /// <returns> </returns>
-        public string GetFilterValues( IDictionary<string, object> dict )
-        {
-            {
-                if( dict?.Any( ) == true )
-                {
-                    try
-                    {
-                        var _vals = string.Empty;
-                        foreach( var _kvp in dict )
-                        {
-                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
-                        }
-
-                        return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
-                    }
-                    catch( Exception ex )
-                    {
-                        Fail( ex );
-                        return default;
-                    }
-                }
-
-                return default;
-            }
-        }
-
-        /// <summary> Gets the current data row. </summary>
-        /// <returns> </returns>
-        public DataRow GetCurrentDataRow( )
-        {
-            if( BindingSource.DataSource != null )
-            {
-                try
-                {
-                    var _dataRow = BindingSource.GetCurrentDataRow( );
-                    return _dataRow?.ItemArray?.Length > 0
-                        ? _dataRow
-                        : default( DataRow );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataRow );
-                }
-            }
-
-            return default( DataRow );
-        }
-
-        /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "DataGridViewCellMouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
-        {
-            if( e.Button == MouseButtons.Right )
-            {
-                try
-                {
-                    var _columnConfiguration = new ColumnConfiguration( this );
-                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
-                    _columnConfiguration.ColumnListBox?.Items?.Clear( );
-                    for( var _i = 0; _i < Columns.Count; _i++ )
-                    {
-                        var c = Columns[ _i ];
-                        _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
-                    }
-
-                    _columnConfiguration.TopMost = true;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Called when [cell enter]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCellEnter( object sender, EventArgs e )
-        {
-            try
-            {
-                if( CurrentCell.ValueType == typeof( string ) )
-                {
-                    var _cellValue = CurrentCell?.Value?.ToString( );
-                    if( _cellValue?.Length >= 6
-                       && _cellValue.Length <= 9 )
-                    {
-                        var _code = _cellValue.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
-                    }
-                }
-                else if( CurrentCell.ValueType == typeof( double ) )
-                {
-                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalculationForm( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calculator.Value.ToDouble( );
-                }
-                else if( CurrentCell.ValueType == typeof( decimal ) )
-                {
-                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalculationForm( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
-                }
-                else if( CurrentCell.ValueType == typeof( DateOnly ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-                else if( CurrentCell.ValueType == typeof( DateTime ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-                else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -32,8 +33,8 @@ namespace BudgetExecution
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary> Res the size. </summary>
-        /// <param name = "width" > The width. </param>
-        /// <param name = "height" > The height. </param>
+        /// <param name="width"> The width. </param>
+        /// <param name="height"> The height. </param>
         public virtual void ReSizeImages( int width, int height )
         {
             if( width > 0
@@ -51,7 +52,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <param name="ex"> The ex. </param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

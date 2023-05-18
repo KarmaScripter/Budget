@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -99,7 +101,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObjectClassOutlay"/>
+        /// <see cref="ObjectClassOutlay"/>
         /// class.
         /// </summary>
         public ObjectClassOutlay( )
@@ -109,10 +111,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObjectClassOutlay"/>
+        /// <see cref="ObjectClassOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public ObjectClassOutlay( IQuery query )
         {
             Source = query.Source;
@@ -138,10 +140,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObjectClassOutlay"/>
+        /// <see cref="ObjectClassOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public ObjectClassOutlay( IDataModel builder )
         {
             Source = builder.Source;
@@ -167,10 +169,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ObjectClassOutlay"/>
+        /// <see cref="ObjectClassOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public ObjectClassOutlay( DataRow dataRow )
         {
             Record = dataRow;

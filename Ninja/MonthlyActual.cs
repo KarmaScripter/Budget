@@ -5,19 +5,28 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.Actual"/>
+    /// <seealso cref="BudgetExecution.Actual"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class MonthlyActual : Actual, IMonthlyActual
     {
+
+        /// <summary> Gets or sets the balance. </summary>
+        /// <value> The balance. </value>
+        public double NetOutlays { get; set; }
+
+        /// <summary> Gets or sets the program area code. </summary>
+        /// <value> The program area code. </value>
+        public double GrossOutlays { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyActual"/>
+        /// <see cref="MonthlyActual"/>
         /// class.
         /// </summary>
         public MonthlyActual( )
@@ -27,10 +36,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyActual"/>
+        /// <see cref="MonthlyActual"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public MonthlyActual( IQuery query )
             : base( query )
         {
@@ -73,10 +82,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyActual"/>
+        /// <see cref="MonthlyActual"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > </param>
+        /// <param name="builder"> </param>
         public MonthlyActual( IDataModel builder )
             : base( builder )
         {
@@ -119,10 +128,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyActual"/>
+        /// <see cref="MonthlyActual"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public MonthlyActual( DataRow dataRow )
             : base( dataRow )
         {
@@ -165,10 +174,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyActual"/>
+        /// <see cref="MonthlyActual"/>
         /// class.
         /// </summary>
-        /// <param name = "actual" > The actual. </param>
+        /// <param name="actual"> The actual. </param>
         public MonthlyActual( IMonthlyActual actual )
         {
             Source = Source.MonthlyActuals;
@@ -208,13 +217,5 @@ namespace BudgetExecution
             BudgetAccountCode = actual.BudgetAccountCode;
             BudgetAccountName = actual.BudgetAccountName;
         }
-
-        /// <summary> Gets or sets the balance. </summary>
-        /// <value> The balance. </value>
-        public double NetOutlays { get; set; }
-
-        /// <summary> Gets or sets the program area code. </summary>
-        /// <value> The program area code. </value>
-        public double GrossOutlays { get; set; }
     }
 }

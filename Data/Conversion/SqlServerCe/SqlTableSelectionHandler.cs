@@ -9,7 +9,7 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    /// <param name = "schema" > The schema. </param>
+    /// <param name="schema"> The schema. </param>
     /// <returns> </returns>
     public delegate List<TableSchema> SqlTableSelectionHandler( List<TableSchema> schema );
 }

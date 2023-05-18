@@ -4,8 +4,10 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -13,7 +15,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimate"/>
         /// class.
         /// </summary>
         public InflationReductionActCarryoverEstimate( )
@@ -23,10 +25,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimate"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public InflationReductionActCarryoverEstimate( IQuery query )
             : this( )
         {
@@ -51,10 +53,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimate"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public InflationReductionActCarryoverEstimate( IDataModel builder )
             : this( )
         {
@@ -80,10 +82,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// <see cref="InflationReductionActCarryoverEstimate"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public InflationReductionActCarryoverEstimate( DataRow dataRow )
             : this( )
         {

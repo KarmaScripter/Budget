@@ -11,19 +11,19 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.CurrencyBase"/>
+    /// <seealso cref="BudgetExecution.CurrencyBase"/>
     public class CurrencyBox : CurrencyBase
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CurrencyBox"/>
+        /// <see cref="CurrencyBox"/>
         /// class.
         /// </summary>
         /// <remarks>
         /// The CurrencyEdit class also creates the controls that it hosts such as the
-        /// <see cref = "T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.CurrencyTextBox"/>
         /// control and the
-        /// <see cref = "T:Syncfusion.Windows.Forms.Tools.PopupCalculator"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator"/>
         /// control.
         /// </remarks>
         public CurrencyBox( )

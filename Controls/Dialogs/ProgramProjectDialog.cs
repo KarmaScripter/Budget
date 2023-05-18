@@ -6,16 +6,16 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
-    using System.Data;
-    using System.Linq;
     using System.Text;
+    using System.Threading;
+    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -61,69 +61,11 @@ namespace BudgetExecution
         /// <value> The program codes. </value>
         public IEnumerable<string> ProgramCodes { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramProjectDialog"/>
-        /// class.
-        /// </summary>
-        public ProgramProjectDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 908, 614 );
-            MaximumSize = new Size( 908, 614 );
-            MinimumSize = new Size( 908, 614 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            StartPosition = FormStartPosition.CenterParent;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Bind DataSource
-            Source = Source.ProgramProjectDescriptions;
-            Provider = Provider.Access;
-
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            BindingSource.CurrentChanged += UpdateHeaderTitle;
-            SearchButton.Click += OnSearchButtonClicked;
-            MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramProjectDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "code" > The code. </param>
-        public ProgramProjectDialog( string code )
-            : this( )
-        {
-            SelectedProgram = code;
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnLoad( object sender, EventArgs e )
@@ -153,10 +95,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
@@ -172,10 +114,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [previous button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnSearchButtonClicked( object sender, EventArgs e )
@@ -261,10 +203,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "MouseEventArgs"/>
+        /// <see cref="MouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
@@ -283,12 +225,70 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramProjectDialog"/>
+        /// class.
+        /// </summary>
+        public ProgramProjectDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 908, 614 );
+            MaximumSize = new Size( 908, 614 );
+            MinimumSize = new Size( 908, 614 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StartPosition = FormStartPosition.CenterParent;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Bind DataSource
+            Source = Source.ProgramProjectDescriptions;
+            Provider = Provider.Access;
+
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            BindingSource.CurrentChanged += UpdateHeaderTitle;
+            SearchButton.Click += OnSearchButtonClicked;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramProjectDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="code"> The code. </param>
+        public ProgramProjectDialog( string code )
+            : this( )
+        {
+            SelectedProgram = code;
         }
     }
 }

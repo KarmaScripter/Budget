@@ -4,9 +4,10 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -14,7 +15,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalCarryoverEstimate"/>
         /// class.
         /// </summary>
         public SupplementalCarryoverEstimate( )
@@ -24,10 +25,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalCarryoverEstimate"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public SupplementalCarryoverEstimate( IQuery query )
             : base( query )
         {
@@ -52,10 +53,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalCarryoverEstimate"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public SupplementalCarryoverEstimate( IDataModel builder )
             : base( builder.Query )
         {
@@ -80,10 +81,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// <see cref="SupplementalCarryoverEstimate"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public SupplementalCarryoverEstimate( DataRow dataRow )
             : base( dataRow )
         {

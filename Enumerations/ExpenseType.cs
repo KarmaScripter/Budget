@@ -4,49 +4,34 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// Defines the OutlayType
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> Defines the OutlayType </summary>
     public enum ExpenseType
     {
-        /// <summary>
-        /// Defines the None
-        /// </summary>
+        /// <summary> Defines the None </summary>
         NS = 0,
 
-        /// <summary>
-        /// Defines the Commitment
-        /// </summary>
+        /// <summary> Defines the Commitment </summary>
         Commitment,
 
-        /// <summary>
-        /// Defines the OpenCommitment
-        /// </summary>
+        /// <summary> Defines the OpenCommitment </summary>
         OpenCommitment,
 
-        /// <summary>
-        /// Defines the Obligation
-        /// </summary>
+        /// <summary> Defines the Obligation </summary>
         Obligation,
 
-        /// <summary>
-        /// Defines the ULO
-        /// </summary>
+        /// <summary> Defines the ULO </summary>
         ULO,
 
-        /// <summary>
-        /// The de-obligation
-        /// </summary>
+        /// <summary> The de-obligation </summary>
         Deobligation,
 
-        /// <summary>
-        /// Defines the Expenditure
-        /// </summary>
+        /// <summary> Defines the Expenditure </summary>
         Expenditure,
 
-        /// <summary>
-        /// Defines the All
-        /// </summary>
+        /// <summary> Defines the All </summary>
         All
     }
 }

@@ -1,50 +1,74 @@
 ﻿<root>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
+                xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
                 xmlns="">
         <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
-        <xsd:element name="root" msdata:IsDataSet="true">
+        <xsd:element name="root"
+                     msdata:IsDataSet="true">
             <xsd:complexType>
                 <xsd:choice maxOccurs="unbounded">
                     <xsd:element name="metadata">
                         <xsd:complexType>
                             <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="value"
+                                             type="xsd:string"
+                                             minOccurs="0"/>
                             </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string"/>
-                            <xsd:attribute name="type" type="xsd:string"/>
-                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute name="name"
+                                           use="required"
+                                           type="xsd:string"/>
+                            <xsd:attribute name="type"
+                                           type="xsd:string"/>
+                            <xsd:attribute name="mimetype"
+                                           type="xsd:string"/>
                             <xsd:attribute ref="xml:space"/>
                         </xsd:complexType>
                     </xsd:element>
                     <xsd:element name="assembly">
                         <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string"/>
-                            <xsd:attribute name="name" type="xsd:string"/>
+                            <xsd:attribute name="alias"
+                                           type="xsd:string"/>
+                            <xsd:attribute name="name"
+                                           type="xsd:string"/>
                         </xsd:complexType>
                     </xsd:element>
                     <xsd:element name="data">
                         <xsd:complexType>
                             <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0"
+                                <xsd:element name="value"
+                                             type="xsd:string"
+                                             minOccurs="0"
                                              msdata:Ordinal="1"/>
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0"
+                                <xsd:element name="comment"
+                                             type="xsd:string"
+                                             minOccurs="0"
                                              msdata:Ordinal="2"/>
                             </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required"
+                            <xsd:attribute name="name"
+                                           type="xsd:string"
+                                           use="required"
                                            msdata:Ordinal="1"/>
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute name="type"
+                                           type="xsd:string"
+                                           msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype"
+                                           type="xsd:string"
+                                           msdata:Ordinal="4"/>
                             <xsd:attribute ref="xml:space"/>
                         </xsd:complexType>
                     </xsd:element>
                     <xsd:element name="resheader">
                         <xsd:complexType>
                             <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0"
+                                <xsd:element name="value"
+                                             type="xsd:string"
+                                             minOccurs="0"
                                              msdata:Ordinal="1"/>
                             </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                            <xsd:attribute name="name"
+                                           type="xsd:string"
+                                           use="required"/>
                         </xsd:complexType>
                     </xsd:element>
                 </xsd:choice>
@@ -85,7 +109,8 @@
     </metadata>
     <assembly alias="System.Drawing"
               name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
-    <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing"
+    <data name="$this.Icon"
+          type="System.Drawing.Icon, System.Drawing"
           mimetype="application/x-microsoft.net.object.bytearray.base64">
         <value>
             AAABAAEAISoAAAEAIAAgFwAAFgAAACgAAAAhAAAAVAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -186,8 +211,7 @@
             AAD/+AA/gAAAAP/wAD+AAAAA//AAH4AAAAD/8AAPgAAAAP/wAB+AAAAA//AAP4AAAAD/8AAfgAAAAP//
             gB+AAAAA//+AH4AAAAD//wAfgAAAAP/+AB+AAAAA//4AP4AAAAD//gAfgAAAAH/+AAOAAAAAH/wAAYAA
             AAAH+AAAAAAAAAHwAAAAAAAAgGAAAAAAAADgAAAAAAAAAPgAAAAAAAAA/gAAAIAAAAD/gAAAgAAAAP/g
-            AACAAAAA/+AAAIAAAAD/4AABgAAAAP/wAAGAAAAA//AAAYAAAAD/+AABgAAAAP/8AIOAAAAA//8D/4AA
-            AAA=
+            AACAAAAA/+AAAIAAAAD/4AABgAAAAP/wAAGAAAAA//AAAYAAAAD/+AABgAAAAP/8AIOAAAAA//8D/4AA AAA=
         </value>
     </data>
 </root>

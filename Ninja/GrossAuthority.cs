@@ -4,10 +4,10 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using static C1.Util.Win.Win32;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -15,145 +15,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class GrossAuthority : DataUnit, IGrossAuthority
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrossAuthority"/>
-        /// class.
-        /// </summary>
-        public GrossAuthority( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrossAuthority"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public GrossAuthority( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
-
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Outlays = double.Parse( Record[ "Outlays" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrossAuthority"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public GrossAuthority( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
-
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Outlays = double.Parse( Record[ "Outlays" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GrossAuthority"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public GrossAuthority( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            RpioCode = dataRow[ "RpioCode" ].ToString( );
-            RpioName = dataRow[ "RpioName" ].ToString( );
-            AhCode = dataRow[ "AhCode" ].ToString( );
-            AhName = dataRow[ "AhName" ].ToString( );
-            OrgCode = dataRow[ "OrgCode" ].ToString( );
-            OrgName = dataRow[ "OrgName" ].ToString( );
-            AccountCode = dataRow[ "AccountCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            BocCode = dataRow[ "BocCode" ].ToString( );
-            BocName = dataRow[ "BocName" ].ToString( );
-            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
-
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            Outlays = double.Parse( dataRow[ "Outlays" ].ToString( ) ?? "0" );
-            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
-        }
-
-        public GrossAuthority( IGrossAuthority authority )
-        {
-            ID = authority.ID;
-            BFY = authority.BFY;
-            EFY = authority.EFY;
-            FundCode = authority.FundCode;
-            FundName = authority.FundName;
-            RpioCode = authority.RpioCode;
-            RpioName = authority.RpioName;
-            AhCode = authority.AhCode;
-            AhName = authority.AhName;
-            OrgCode = authority.OrgCode;
-            OrgName = authority.OrgName;
-            AccountCode = authority.AccountCode;
-            ProgramProjectName = authority.ProgramProjectName;
-            BocCode = authority.BocCode;
-            BocName = authority.BocName;
-            Authority = authority.Authority;
-            OpenCommitments = authority.OpenCommitments;
-            UnliquidatedObligations = authority.UnliquidatedObligations;
-            Obligations = authority.Obligations;
-            Outlays = authority.Outlays;
-            Used = authority.Used;
-            Available = authority.Available;
-        }
 
         /// <summary> Gets or sets the bfy. </summary>
         /// <value> The bfy. </value>
@@ -238,5 +99,139 @@ namespace BudgetExecution
         /// <summary> Gets or sets the available. </summary>
         /// <value> The available. </value>
         public double Available { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrossAuthority"/>
+        /// class.
+        /// </summary>
+        public GrossAuthority( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrossAuthority"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public GrossAuthority( IQuery query )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Outlays = double.Parse( Record[ "Outlays" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrossAuthority"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public GrossAuthority( IDataModel builder )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Outlays = double.Parse( Record[ "Outlays" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GrossAuthority"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public GrossAuthority( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            AhCode = dataRow[ "AhCode" ].ToString( );
+            AhName = dataRow[ "AhName" ].ToString( );
+            OrgCode = dataRow[ "OrgCode" ].ToString( );
+            OrgName = dataRow[ "OrgName" ].ToString( );
+            AccountCode = dataRow[ "AccountCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            BocCode = dataRow[ "BocCode" ].ToString( );
+            BocName = dataRow[ "BocName" ].ToString( );
+            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
+            Outlays = double.Parse( dataRow[ "Outlays" ].ToString( ) ?? "0" );
+            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+        }
+
+        public GrossAuthority( IGrossAuthority authority )
+        {
+            ID = authority.ID;
+            BFY = authority.BFY;
+            EFY = authority.EFY;
+            FundCode = authority.FundCode;
+            FundName = authority.FundName;
+            RpioCode = authority.RpioCode;
+            RpioName = authority.RpioName;
+            AhCode = authority.AhCode;
+            AhName = authority.AhName;
+            OrgCode = authority.OrgCode;
+            OrgName = authority.OrgName;
+            AccountCode = authority.AccountCode;
+            ProgramProjectName = authority.ProgramProjectName;
+            BocCode = authority.BocCode;
+            BocName = authority.BocName;
+            Authority = authority.Authority;
+            OpenCommitments = authority.OpenCommitments;
+            UnliquidatedObligations = authority.UnliquidatedObligations;
+            Obligations = authority.Obligations;
+            Outlays = authority.Outlays;
+            Used = authority.Used;
+            Available = authority.Available;
+        }
     }
 }

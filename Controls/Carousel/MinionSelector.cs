@@ -13,73 +13,24 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    /// <summary> </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class MinionSelector : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the image path.
-        /// </summary>
-        /// <value>
-        /// The image path.
-        /// </value>
-        public string ImagePath { get; set; } =
-            @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Minion";
+        /// <summary> Gets or sets the image path. </summary>
+        /// <value> The image path. </value>
+        public string ImagePath { get; set; } = @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Minion";
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MinionSelector"/> class.
-        /// </summary>
-        public MinionSelector( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1200, 600 );
-            MaximumSize = new Size( 1200, 600 );
-            MinimumSize = new Size( 1200, 600 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-            StartPosition = FormStartPosition.CenterParent;
-
-            // Header Properties
-            Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-
-            // Panel Properties
-            SelectionPanel.BorderColor = Color.Transparent;
-
-            // Event Wiring
-            Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
-            CloseButton.Click += OnCloseButtonClicked;
-            Load += OnLoad;
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( ImagePath ) )
@@ -112,11 +63,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [item selected]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
             if( sender is Selector _carousel )
@@ -172,11 +125,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button _button )
@@ -192,15 +147,59 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MinionSelector"/>
+        /// class.
+        /// </summary>
+        public MinionSelector( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1200, 600 );
+            MaximumSize = new Size( 1200, 600 );
+            MinimumSize = new Size( 1200, 600 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 11 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+            StartPosition = FormStartPosition.CenterParent;
+
+            // Header Properties
+            Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
+            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+
+            // Panel Properties
+            SelectionPanel.BorderColor = Color.Transparent;
+
+            // Event Wiring
+            Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
+            CloseButton.Click += OnCloseButtonClicked;
+            Load += OnLoad;
         }
     }
 }

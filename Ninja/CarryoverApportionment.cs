@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -25,138 +27,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverApportionment"/>
-        /// class.
-        /// </summary>
-        public CarryoverApportionment( )
-        {
-            Source = Source.CarryoverApportionments;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverApportionment"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public CarryoverApportionment( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Group = Record[ "Group" ].ToString( );
-            Description = Record[ "Description" ].ToString( );
-            LineName = Record[ "LineName" ].ToString( );
-            LineNumber = Record[ "LineNumber" ].ToString( );
-            AuthorityType = Record[ "AuthorityType" ].ToString( );
-            Request = double.Parse( Record[ "Request" ].ToString( ) ?? "0" );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
-            Deobligations = double.Parse( Record[ "Deobligations" ].ToString( ) ?? "0" );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            LineSplit = Record[ "LineSplit" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverApportionment"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public CarryoverApportionment( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Group = Record[ "Group" ].ToString( );
-            Description = Record[ "Description" ].ToString( );
-            LineName = Record[ "LineName" ].ToString( );
-            LineNumber = Record[ "LineNumber" ].ToString( );
-            AuthorityType = Record[ "AuthorityType" ].ToString( );
-            Request = double.Parse( Record[ "Request" ].ToString( ) ?? "0" );
-            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
-            Deobligations = double.Parse( Record[ "Deobligations" ].ToString( ) ?? "0" );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            LineSplit = Record[ "LineSplit" ].ToString( );
-            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverApportionment"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public CarryoverApportionment( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            Group = dataRow[ "Group" ].ToString( );
-            Description = dataRow[ "Description" ].ToString( );
-            LineName = dataRow[ "LineName" ].ToString( );
-            LineNumber = dataRow[ "LineNumber" ].ToString( );
-            AuthorityType = dataRow[ "AuthorityType" ].ToString( );
-            Request = double.Parse( dataRow[ "Request" ].ToString( ) ?? "0" );
-            Balance = double.Parse( dataRow[ "Balance" ].ToString( ) ?? "0" );
-            Deobligations = double.Parse( dataRow[ "Deobligations" ].ToString( ) ?? "0" );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-            LineSplit = dataRow[ "LineSplit" ].ToString( );
-            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CarryoverApportionment"/>
-        /// class.
-        /// </summary>
-        /// <param name = "carryover" > The carryover. </param>
-        public CarryoverApportionment( ICarryoverApportionment carryover )
-            : this( )
-        {
-            ID = carryover.ID;
-            BFY = carryover.BFY;
-            EFY = carryover.EFY;
-            Group = carryover.Group;
-            Description = carryover.Description;
-            LineName = carryover.LineName;
-            LineNumber = carryover.LineNumber;
-            AuthorityType = carryover.AuthorityType;
-            Request = carryover.Request;
-            Balance = carryover.Balance;
-            Deobligations = carryover.Deobligations;
-            Amount = carryover.Amount;
-            LineSplit = carryover.LineSplit;
-            ApportionmentAccountCode = carryover.ApportionmentAccountCode;
-            TreasuryAccountCode = carryover.TreasuryAccountCode;
-            TreasuryAccountName = carryover.TreasuryAccountName;
-            BudgetAccountCode = carryover.BudgetAccountCode;
-            BudgetAccountName = carryover.BudgetAccountName;
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -237,5 +107,137 @@ namespace BudgetExecution
         /// <summary> Gets or sets the name of the budget account. </summary>
         /// <value> The name of the budget account. </value>
         public string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverApportionment"/>
+        /// class.
+        /// </summary>
+        public CarryoverApportionment( )
+        {
+            Source = Source.CarryoverApportionments;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverApportionment"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public CarryoverApportionment( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Group = Record[ "Group" ].ToString( );
+            Description = Record[ "Description" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            AuthorityType = Record[ "AuthorityType" ].ToString( );
+            Request = double.Parse( Record[ "Request" ].ToString( ) ?? "0" );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            LineSplit = Record[ "LineSplit" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverApportionment"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public CarryoverApportionment( IDataModel builder )
+            : this( )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Group = Record[ "Group" ].ToString( );
+            Description = Record[ "Description" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            AuthorityType = Record[ "AuthorityType" ].ToString( );
+            Request = double.Parse( Record[ "Request" ].ToString( ) ?? "0" );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            LineSplit = Record[ "LineSplit" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverApportionment"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public CarryoverApportionment( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            Group = dataRow[ "Group" ].ToString( );
+            Description = dataRow[ "Description" ].ToString( );
+            LineName = dataRow[ "LineName" ].ToString( );
+            LineNumber = dataRow[ "LineNumber" ].ToString( );
+            AuthorityType = dataRow[ "AuthorityType" ].ToString( );
+            Request = double.Parse( dataRow[ "Request" ].ToString( ) ?? "0" );
+            Balance = double.Parse( dataRow[ "Balance" ].ToString( ) ?? "0" );
+            Deobligations = double.Parse( dataRow[ "Deobligations" ].ToString( ) ?? "0" );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+            LineSplit = dataRow[ "LineSplit" ].ToString( );
+            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CarryoverApportionment"/>
+        /// class.
+        /// </summary>
+        /// <param name="carryover"> The carryover. </param>
+        public CarryoverApportionment( ICarryoverApportionment carryover )
+            : this( )
+        {
+            ID = carryover.ID;
+            BFY = carryover.BFY;
+            EFY = carryover.EFY;
+            Group = carryover.Group;
+            Description = carryover.Description;
+            LineName = carryover.LineName;
+            LineNumber = carryover.LineNumber;
+            AuthorityType = carryover.AuthorityType;
+            Request = carryover.Request;
+            Balance = carryover.Balance;
+            Deobligations = carryover.Deobligations;
+            Amount = carryover.Amount;
+            LineSplit = carryover.LineSplit;
+            ApportionmentAccountCode = carryover.ApportionmentAccountCode;
+            TreasuryAccountCode = carryover.TreasuryAccountCode;
+            TreasuryAccountName = carryover.TreasuryAccountName;
+            BudgetAccountCode = carryover.BudgetAccountCode;
+            BudgetAccountName = carryover.BudgetAccountName;
+        }
     }
 }

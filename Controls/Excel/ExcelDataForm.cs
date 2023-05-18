@@ -11,6 +11,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
@@ -86,117 +87,11 @@ namespace BudgetExecution
         /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> </summary>
-        public ExcelDataForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Ribbon Properties
-            Ribbon.Spreadsheet = Spreadsheet;
-
-            // Event Wiring
-            RemoveFiltersButton.Click += null;
-            TableButton.Click += null;
-            LookupButton.Click += null;
-            UploadButton.Click += null;
-            MenuButton.Click += null;
-            RemoveFiltersButton.Click += null;
-            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "filePath" > The file path. </param>
-        public ExcelDataForm( string filePath )
-            : this( )
-        {
-            Spreadsheet.Open( filePath );
-            FilePath = filePath;
-            FileName = Path.GetFileName( filePath );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "fileStream" > The file. </param>
-        public ExcelDataForm( Stream fileStream )
-            : this( )
-        {
-            Spreadsheet.Open( fileStream );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
-        public ExcelDataForm( BindingSource bindingSource )
-            : this( )
-        {
-            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-            Header.Text = $"{SelectedTable.SplitPascal( )} ";
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataTable" > The data table. </param>
-        public ExcelDataForm( DataTable dataTable )
-            : this( )
-        {
-            DataTable = dataTable;
-            BindingSource.DataSource = dataTable;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "System.EventArgs"/>
+        /// <see cref="System.EventArgs"/>
         /// instance containing the event data.
         /// </param>
         /// <returns> </returns>
@@ -224,10 +119,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [chart button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnChartButtonClicked( object sender, EventArgs e )
@@ -247,10 +142,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "MouseEventArgs"/>
+        /// <see cref="MouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnRightClick( object sender, MouseEventArgs e )
@@ -269,10 +164,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [lookup button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnLookupButtonClicked( object sender, EventArgs e )
@@ -288,10 +183,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [remove filter button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
@@ -307,10 +202,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
@@ -339,10 +234,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [upload button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnUploadButtonClicked( object sender, EventArgs e )
@@ -363,10 +258,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [cell enter]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnCellClick( object sender, EventArgs e )
@@ -378,8 +273,7 @@ namespace BudgetExecution
                     var _value = Spreadsheet.CurrentCellRange.DisplayText;
                     var _chars = _value.ToCharArray( );
                     if( ( _value.Length >= 6 && _value.Length <= 9 )
-                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) )
-                           && _value.Substring( 0, 3 ) == "000" ) )
+                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) ) && _value.Substring( 0, 3 ) == "000" ) )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
@@ -415,8 +309,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -523,12 +417,8 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
-                    SystemColors.ControlDarkDark;
-
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
-                    Color.FromArgb( 17, 69, 97 );
-
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = Color.FromArgb( 17, 69, 97 );
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
@@ -613,9 +503,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
-                        ?.First( );
-
+                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
                     _dataGridForm.Visible = true;
                 }
                 else
@@ -639,9 +527,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
-                        ?.First( );
-
+                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
                     _chartDataForm.Visible = true;
                 }
                 else
@@ -658,10 +544,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [work book loaded]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnWorkBookLoaded( object sender, EventArgs e )
@@ -679,10 +565,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [table button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnTableButtonClick( object sender, EventArgs e )
@@ -702,10 +588,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [back button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnBackButtonClicked( object sender, EventArgs e )
@@ -727,10 +613,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [exit button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnExitButtonClick( object sender, EventArgs e )
@@ -746,10 +632,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [shown]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnShown( object sender, EventArgs e )
@@ -768,10 +654,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Raises the Close event. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnClose( object sender, EventArgs e )
@@ -809,6 +695,112 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary> </summary>
+        public ExcelDataForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Ribbon Properties
+            Ribbon.Spreadsheet = Spreadsheet;
+
+            // Event Wiring
+            RemoveFiltersButton.Click += null;
+            TableButton.Click += null;
+            LookupButton.Click += null;
+            UploadButton.Click += null;
+            MenuButton.Click += null;
+            RemoveFiltersButton.Click += null;
+            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="filePath"> The file path. </param>
+        public ExcelDataForm( string filePath )
+            : this( )
+        {
+            Spreadsheet.Open( filePath );
+            FilePath = filePath;
+            FileName = Path.GetFileName( filePath );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="fileStream"> The file. </param>
+        public ExcelDataForm( Stream fileStream )
+            : this( )
+        {
+            Spreadsheet.Open( fileStream );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public ExcelDataForm( BindingSource bindingSource )
+            : this( )
+        {
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            Header.Text = $"{SelectedTable.SplitPascal( )} ";
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataTable"> The data table. </param>
+        public ExcelDataForm( DataTable dataTable )
+            : this( )
+        {
+            DataTable = dataTable;
+            BindingSource.DataSource = dataTable;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
     }
 }

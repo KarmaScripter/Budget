@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -30,7 +32,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "GsPayScale"/>
+        /// <see cref="GsPayScale"/>
         /// class.
         /// </summary>
         public GsPayScale( )
@@ -39,10 +41,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "GsPayScale"/>
+        /// <see cref="GsPayScale"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public GsPayScale( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -51,10 +53,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "GsPayScale"/>
+        /// <see cref="GsPayScale"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public GsPayScale( IDataModel builder )
         {
             Record = builder.Record;
@@ -63,10 +65,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "GsPayScale"/>
+        /// <see cref="GsPayScale"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public GsPayScale( DataRow dataRow )
         {
             Record = dataRow;

@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -14,34 +15,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripProgressBar : ToolStripProgressBase
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolStripLabel"/>
-        /// class.
-        /// </summary>
-        public ToolStripProgressBar( )
-        {
-            Margin = new Padding( 1, 1, 1, 1 );
-            Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 200, 22 );
-            ForeColor = SystemColors.Highlight;
-            BackColor = SystemColors.Control;
-            Font = new Font( "Roboto", 9 );
-            Visible = true;
-            Enabled = true;
-            Name = "ProgressBar";
-            Maximum = 100;
-            Minimum = 1;
-            Tag = Name;
-            ToolTipText = Tag.ToString( );
-            HoverText = ToolTipText;
-            Style = ProgressBarStyle.Blocks;
-            Step = 10;
-            MouseHover += OnMouseHover;
-        }
 
         /// <summary> Increases the specified increment. </summary>
-        /// <param name = "increment" > The increment. </param>
+        /// <param name="increment"> The increment. </param>
         public void IncreaseBy( int increment )
         {
             if( increment > 0 )
@@ -72,7 +48,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the field. </summary>
-        /// <param name = "field" > The field. </param>
+        /// <param name="field"> The field. </param>
         public void SetField( Field field )
         {
             try
@@ -88,7 +64,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tag. </summary>
-        /// <param name = "tag" > The tag. </param>
+        /// <param name="tag"> The tag. </param>
         public void ReTag( object tag )
         {
             try
@@ -104,7 +80,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the hover text. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <param name="text"> The text. </param>
         public void SetHoverText( string text )
         {
             try
@@ -120,10 +96,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse hover]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMouseHover( object sender, EventArgs e )
@@ -152,6 +128,32 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/>
+        /// class.
+        /// </summary>
+        public ToolStripProgressBar( )
+        {
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1, 1, 1, 1 );
+            Size = new Size( 200, 22 );
+            ForeColor = SystemColors.Highlight;
+            BackColor = SystemColors.Control;
+            Font = new Font( "Roboto", 9 );
+            Visible = true;
+            Enabled = true;
+            Name = "ProgressBar";
+            Maximum = 100;
+            Minimum = 1;
+            Tag = Name;
+            ToolTipText = Tag.ToString( );
+            HoverText = ToolTipText;
+            Style = ProgressBarStyle.Blocks;
+            Step = 10;
+            MouseHover += OnMouseHover;
         }
     }
 }

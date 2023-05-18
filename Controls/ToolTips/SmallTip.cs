@@ -4,16 +4,16 @@
 
 namespace BudgetExecution
 {
-    using System.Drawing;
-    using System.ComponentModel;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Forms;
-    using MetroSet_UI.Enums;
-    using MetroSet_UI.Components;
     using System;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
+    using MetroSet_UI.Components;
+    using MetroSet_UI.Enums;
 
     /// <summary> </summary>
-    /// <seealso cref = "MetroSet_UI.Components.MetroSetSetToolTip"/>
+    /// <seealso cref="MetroSet_UI.Components.MetroSetSetToolTip"/>
     public class SmallTip : MetroSetSetToolTip
     {
         /// <summary> Gets or sets the tip icon. </summary>
@@ -36,86 +36,8 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SmallTip"/>
-        /// class.
-        /// </summary>
-        public SmallTip( )
-        {
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            BackColor = Color.FromArgb( 5, 5, 5 );
-            BorderColor = SystemColors.Highlight;
-            ForeColor = Color.White;
-            UseAnimation = true;
-            UseFading = true;
-            AutomaticDelay = 500;
-            InitialDelay = 500;
-            AutoPopDelay = 5000;
-            ReshowDelay = 100;
-            TipIcon = ToolTipIcon.Info;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name = "control" > The control. </param>
-        /// <param name = "text" > The text. </param>
-        /// <param name = "title" > </param>
-        public SmallTip( Control control, string text, string title = "" )
-            : this( )
-        {
-            TipTitle = title;
-            TipText = text;
-            SetText( control, TipText );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name = "component" > The component. </param>
-        /// <param name = "text" > The text. </param>
-        /// <param name = "title" > </param>
-        public SmallTip( Component component, string text, string title = "" )
-            : this( )
-        {
-            TipTitle = title;
-            TipText = text;
-            SetText( component, text );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name = "toolItem" > The toolItem. </param>
-        public SmallTip( ToolStripItem toolItem )
-            : this( )
-        {
-            SetText( toolItem );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name = "control" > The control. </param>
-        public SmallTip( Control control )
-            : this( )
-        {
-            SetText( control );
-        }
-
         /// <summary> Sets the animation. </summary>
-        /// <param name = "animate" >
+        /// <param name="animate">
         /// if set to
         /// <c> true </c>
         /// [animate].
@@ -134,7 +56,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the automatic delay. </summary>
-        /// <param name = "delay" > The delay. </param>
+        /// <param name="delay"> The delay. </param>
         public virtual void SetAutomaticDelay( int delay = 500 )
         {
             if( delay > 0 )
@@ -151,7 +73,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the duration. </summary>
-        /// <param name = "time" > The time. </param>
+        /// <param name="time"> The time. </param>
         public virtual void ResetDuration( int time = 5000 )
         {
             if( time > 0 )
@@ -168,7 +90,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the initial delay. </summary>
-        /// <param name = "delay" > The delay. </param>
+        /// <param name="delay"> The delay. </param>
         public virtual void SetInitialDelay( int delay = 500 )
         {
             if( delay > 0 )
@@ -185,7 +107,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the reshow delay. </summary>
-        /// <param name = "reshow" > The reshow. </param>
+        /// <param name="reshow"> The reshow. </param>
         public virtual void ResetDelay( int reshow = 100 )
         {
             if( reshow > 0 )
@@ -202,7 +124,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tag. </summary>
-        /// <param name = "tag" > The tag. </param>
+        /// <param name="tag"> The tag. </param>
         public virtual void ReTag( object tag )
         {
             if( tag != null )
@@ -219,7 +141,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool tip text. </summary>
-        /// <param name = "control" > The control. </param>
+        /// <param name="control"> The control. </param>
         public virtual void SetText( Control control )
         {
             if( !string.IsNullOrEmpty( control?.Tag?.ToString( ) ) )
@@ -238,8 +160,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool tip text. </summary>
-        /// <param name = "control" > The control. </param>
-        /// <param name = "caption" > The caption. </param>
+        /// <param name="control"> The control. </param>
+        /// <param name="caption"> The caption. </param>
         public virtual void SetText( Control control, string caption )
         {
             if( control != null
@@ -258,7 +180,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool tip text. </summary>
-        /// <param name = "item" > The item. </param>
+        /// <param name="item"> The item. </param>
         public virtual void SetText( ToolStripItem item )
         {
             if( item.GetCurrentParent( ) != null
@@ -282,7 +204,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool tip text. </summary>
-        /// <param name = "component" > The component. </param>
+        /// <param name="component"> The component. </param>
         public virtual void SetText( Component component )
         {
             if( component is Control control )
@@ -304,8 +226,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool tip text. </summary>
-        /// <param name = "component" > The component. </param>
-        /// <param name = "caption" > The caption. </param>
+        /// <param name="component"> The component. </param>
+        /// <param name="caption"> The caption. </param>
         public virtual void SetText( Component component, string caption )
         {
             if( component != null
@@ -342,12 +264,90 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        public SmallTip( )
+        {
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            BackColor = Color.FromArgb( 5, 5, 5 );
+            BorderColor = SystemColors.Highlight;
+            ForeColor = Color.White;
+            UseAnimation = true;
+            UseFading = true;
+            AutomaticDelay = 500;
+            InitialDelay = 500;
+            AutoPopDelay = 5000;
+            ReshowDelay = 100;
+            TipIcon = ToolTipIcon.Info;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="control"> The control. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> </param>
+        public SmallTip( Control control, string text, string title = "" )
+            : this( )
+        {
+            TipTitle = title;
+            TipText = text;
+            SetText( control, TipText );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="component"> The component. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> </param>
+        public SmallTip( Component component, string text, string title = "" )
+            : this( )
+        {
+            TipTitle = title;
+            TipText = text;
+            SetText( component, text );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolItem"> The toolItem. </param>
+        public SmallTip( ToolStripItem toolItem )
+            : this( )
+        {
+            SetText( toolItem );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="control"> The control. </param>
+        public SmallTip( Control control )
+            : this( )
+        {
+            SetText( control );
         }
     }
 }

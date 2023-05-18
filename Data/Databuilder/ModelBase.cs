@@ -12,18 +12,10 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "DataAccess"/>
+    /// <seealso cref="DataAccess"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class ModelBase : DataAccess
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ModelBase"/>
-        /// class.
-        /// </summary>
-        protected ModelBase( )
-        {
-        }
 
         /// <summary> Gets the column ordinals. </summary>
         /// <returns> </returns>
@@ -94,11 +86,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Filters the data. </summary>
-        /// <param name = "dataRows" > </param>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <param name="dataRows"> </param>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows,
-            IDictionary<string, object> dict )
+        public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true
                && dataRows?.Any( ) == true )
@@ -198,6 +189,15 @@ namespace BudgetExecution
             }
 
             return default( IEnumerable<string> );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ModelBase"/>
+        /// class.
+        /// </summary>
+        protected ModelBase( )
+        {
         }
     }
 }

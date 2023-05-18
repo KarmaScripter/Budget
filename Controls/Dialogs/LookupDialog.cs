@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -27,31 +28,11 @@ namespace BudgetExecution
         /// <value> The value prefix. </value>
         public string ValuePrefix { get; } = " Values : ";
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "LookupDialog"/>
-        /// class.
-        /// </summary>
-        public LookupDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            Panels = GetPanels( );
-            RadioButtons = GetRadioButtons( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
-            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnLoad( object sender, EventArgs e )
@@ -84,10 +65,7 @@ namespace BudgetExecution
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.ToList( );
-
+                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )?.Select( dr => dr.Field<string>( "TableName" ) )?.ToList( );
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var name = _names[ _i ];
@@ -101,7 +79,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [table ListBox selection changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnTableListBoxSelectionChanged( object sender )
         {
             try
@@ -135,7 +113,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [column ListBox selection changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnColumnListBoxSelectionChanged( object sender )
         {
             try
@@ -158,6 +136,26 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="LookupDialog"/>
+        /// class.
+        /// </summary>
+        public LookupDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            Panels = GetPanels( );
+            RadioButtons = GetRadioButtons( );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
+            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
         }
     }
 }

@@ -35,42 +35,11 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CheckBox"/>
-        /// class.
-        /// </summary>
-        public CheckBox( )
-        {
-            // Basic Properties
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            Size = new Size( 125, 25 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
-            Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            Cursor = Cursors.Hand;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            CheckSignColor = Color.LimeGreen;
-            CheckState = CheckState.Unchecked;
-
-            // Disabled Color Configuration
-            DisabledBorderColor = Color.Transparent;
-
-            // Event Wiring
-            MouseHover += OnMouseOver;
-            MouseLeave += OnMouseLeave;
-        }
-
         /// <summary> Called when [mouse over]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnMouseOver( object sender, EventArgs e )
@@ -100,10 +69,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse leave]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnMouseLeave( object sender, EventArgs e )
@@ -122,12 +91,43 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CheckBox"/>
+        /// class.
+        /// </summary>
+        public CheckBox( )
+        {
+            // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            Size = new Size( 125, 25 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
+            Font = new Font( "Roboto", 8 );
+            ForeColor = Color.LightGray;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
+            Cursor = Cursors.Hand;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            CheckSignColor = Color.LimeGreen;
+            CheckState = CheckState.Unchecked;
+
+            // Disabled Color Configuration
+            DisabledBorderColor = Color.Transparent;
+
+            // Event Wiring
+            MouseHover += OnMouseOver;
+            MouseLeave += OnMouseLeave;
         }
     }
 }

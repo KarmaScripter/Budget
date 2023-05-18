@@ -12,18 +12,18 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Grid;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class DataGridBase : GridDataBoundGrid
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataGridBase"/>
+        /// <see cref="DataGridBase"/>
         /// class.
         /// </summary>
         /// <overload>
         /// Initializes a new instance of
-        /// <see cref = "T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Grid.GridDataBoundGrid"/>
         /// .
         /// </overload>
         public DataGridBase( )

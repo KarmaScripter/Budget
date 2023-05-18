@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -30,9 +31,41 @@ namespace BudgetExecution
         /// <value> The description. </value>
         public override IDictionary<string, object> Data { get; set; }
 
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "ActivityCode" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
+        }
+
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
+        public override int ID { get; set; }
+
+        /// <summary> Gets the code. </summary>
+        public override string Code { get; set; }
+
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
+        public override string Name { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ActivityCode"/>
+        /// <see cref="ActivityCode"/>
         /// class.
         /// </summary>
         public ActivityCode( )
@@ -42,10 +75,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ActivityCode"/>
+        /// <see cref="ActivityCode"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public ActivityCode( IQuery query )
             : this( )
         {
@@ -58,10 +91,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ActivityCode"/>
+        /// <see cref="ActivityCode"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public ActivityCode( IDataModel builder )
             : this( )
         {
@@ -74,10 +107,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "ActivityCode"/>
+        /// <see cref="ActivityCode"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public ActivityCode( DataRow dataRow )
             : this( )
         {
@@ -104,38 +137,6 @@ namespace BudgetExecution
             ID = activityCode.ID;
             Code = activityCode.Code;
             Name = activityCode.Name;
-        }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "ActivityCode" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
         }
     }
 }

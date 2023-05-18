@@ -4,10 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using Syncfusion.Grouping;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -24,61 +25,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DocumentControlNumber"/>
-        /// class.
-        /// </summary>
-        public DocumentControlNumber( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DocumentControlNumber"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public DocumentControlNumber( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DocumentControlNumber"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public DocumentControlNumber( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DocumentControlNumber"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public DocumentControlNumber( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-        }
-
-        public DocumentControlNumber( IDocumentControlNumber dcn )
-        {
-            ID = dcn.ID;
-            RpioCode = dcn.RpioCode;
-            RpioName = dcn.RpioName;
-            DocumentType = dcn.DocumentType;
-            DocumentPrefix = dcn.DocumentPrefix;
-            DocumentNumber = dcn.DocumentNumber;
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -103,5 +49,60 @@ namespace BudgetExecution
         /// <summary> Gets or sets the document prefix. </summary>
         /// <value> The document prefix. </value>
         public string DocumentPrefix { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DocumentControlNumber"/>
+        /// class.
+        /// </summary>
+        public DocumentControlNumber( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DocumentControlNumber"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public DocumentControlNumber( IQuery query )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DocumentControlNumber"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public DocumentControlNumber( IDataModel builder )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DocumentControlNumber"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public DocumentControlNumber( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+        }
+
+        public DocumentControlNumber( IDocumentControlNumber dcn )
+        {
+            ID = dcn.ID;
+            RpioCode = dcn.RpioCode;
+            RpioName = dcn.RpioName;
+            DocumentType = dcn.DocumentType;
+            DocumentPrefix = dcn.DocumentPrefix;
+            DocumentNumber = dcn.DocumentNumber;
+        }
     }
 }

@@ -12,22 +12,19 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
     public partial class LoadingForm : MetroForm
     {
         /// <summary> The loading path </summary>
-        public readonly string LoadingPath =
-            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
+        public readonly string LoadingPath = @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
         /// <summary> The processing path </summary>
-        public readonly string ProcessingPath =
-            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
+        public readonly string ProcessingPath = @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
 
         /// <summary> The waiting path </summary>
-        public readonly string WaitingPath =
-            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
+        public readonly string WaitingPath = @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
         /// <summary> Gets or sets the picture. </summary>
         /// <value> The picture. </value>
@@ -41,58 +38,11 @@ namespace BudgetExecution
         /// <value> The status. </value>
         public Status Status { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "LoadingForm"/>
-        /// class.
-        /// </summary>
-        public LoadingForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Form Properties
-            Font = new Font( "Roboto", 9 );
-            Size = new Size( 1345, 745 );
-            MaximumSize = new Size( 1345, 745 );
-            MinimumSize = new Size( 1345, 745 );
-            BackColor = Color.Black;
-            CaptionBarColor = Color.Black;
-            MetroColor = Color.Black;
-            ForeColor = Color.Black;
-            StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.None;
-            BorderColor = Color.Transparent;
-
-            // Timer Configuration
-            Timer.Enabled = true;
-            Timer.Interval = 5000;
-            Timer.Tick += OnTick;
-            Timer.Start( );
-
-            // Event Wiring
-            Load += OnLoad;
-            Closing += OnClose;
-            Shown += OnShown;
-            CloseButton.Click += OnCloseButtonClicked;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "LoadingForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "status" > The status. </param>
-        public LoadingForm( Status status )
-            : this( )
-        {
-            Status = status;
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnLoad( object sender, EventArgs e )
@@ -109,10 +59,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [tick]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnTick( object sender, EventArgs e )
@@ -151,10 +101,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Raises the Close event. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnClose( object sender, EventArgs e )
@@ -174,10 +124,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
@@ -193,10 +143,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [shown]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnShown( object sender, EventArgs e )
@@ -211,12 +161,59 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="LoadingForm"/>
+        /// class.
+        /// </summary>
+        public LoadingForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Form Properties
+            Font = new Font( "Roboto", 9 );
+            Size = new Size( 1345, 745 );
+            MaximumSize = new Size( 1345, 745 );
+            MinimumSize = new Size( 1345, 745 );
+            BackColor = Color.Black;
+            CaptionBarColor = Color.Black;
+            MetroColor = Color.Black;
+            ForeColor = Color.Black;
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BorderColor = Color.Transparent;
+
+            // Timer Configuration
+            Timer.Enabled = true;
+            Timer.Interval = 5000;
+            Timer.Tick += OnTick;
+            Timer.Start( );
+
+            // Event Wiring
+            Load += OnLoad;
+            Closing += OnClose;
+            Shown += OnShown;
+            CloseButton.Click += OnCloseButtonClicked;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="LoadingForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="status"> The status. </param>
+        public LoadingForm( Status status )
+            : this( )
+        {
+            Status = status;
         }
     }
 }

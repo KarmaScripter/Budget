@@ -5,9 +5,9 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -21,7 +21,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Fund"/>
+        /// <see cref="Fund"/>
         /// class.
         /// </summary>
         public Fund( )
@@ -31,10 +31,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Fund"/>
+        /// <see cref="Fund"/>
         /// class.
         /// </summary>
-        /// <param name = "fundCode" > The fundCode. </param>
+        /// <param name="fundCode"> The fundCode. </param>
         public Fund( FundCode fundCode )
             : this( )
         {
@@ -78,10 +78,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Fund"/>
+        /// <see cref="Fund"/>
         /// class.
         /// </summary>
-        /// <param name = "code" > The code. </param>
+        /// <param name="code"> The code. </param>
         public Fund( string code )
             : this( )
         {
@@ -125,10 +125,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Fund"/>
+        /// <see cref="Fund"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public Fund( IQuery query )
             : this( )
         {
@@ -172,10 +172,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Fund"/>
+        /// <see cref="Fund"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public Fund( IDataModel builder )
             : this( )
         {
@@ -219,10 +219,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Fund"/>
+        /// <see cref="Fund"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The Data. </param>
+        /// <param name="dataRow"> The Data. </param>
         public Fund( DataRow dataRow )
             : this( )
         {

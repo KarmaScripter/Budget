@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -15,7 +17,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunding"/>
         /// class.
         /// </summary>
         public StatusOfJobsActFunding( )
@@ -25,10 +27,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunding"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public StatusOfJobsActFunding( IQuery query )
             : base( query )
         {
@@ -70,10 +72,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunding"/>
         /// class.
         /// </summary>
-        /// <param name = "dataBuilder" > The builder. </param>
+        /// <param name="dataBuilder"> The builder. </param>
         public StatusOfJobsActFunding( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -115,10 +117,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunding"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfJobsActFunding( DataRow dataRow )
             : base( dataRow )
         {

@@ -9,6 +9,7 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -34,8 +35,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the default location. </summary>
         /// <value> The default location. </value>
-        public static FormStartPosition DefaultLocation { get; set; } =
-            FormStartPosition.WindowsDefaultLocation;
+        public static FormStartPosition DefaultLocation { get; set; } = FormStartPosition.WindowsDefaultLocation;
 
         /// <summary> Gets or sets the form. </summary>
         /// <value> The form. </value>
@@ -53,7 +53,9 @@ namespace BudgetExecution
         /// <value> The field. </value>
         public Field Field { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance is visible. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is visible.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is visible; otherwise,
@@ -62,7 +64,9 @@ namespace BudgetExecution
         /// </value>
         public static bool IsVisible { get; set; } = true;
 
-        /// <summary> Gets or sets a value indicating whether this instance is enabled. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is enabled.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is enabled; otherwise,
@@ -75,26 +79,6 @@ namespace BudgetExecution
         /// <value> The budget execution icon. </value>
         public static NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "BudgetForm"/>
-        /// class.
-        /// </summary>
-        public BudgetForm( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "BudgetForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "form" > The form. </param>
-        public BudgetForm( MetroForm form )
-        {
-            Form = form;
-        }
-
         /// <summary> The caption height </summary>
         public static int CaptionHeight = 26;
 
@@ -102,7 +86,7 @@ namespace BudgetExecution
         public static FormStartPosition StartPosition = FormStartPosition.CenterScreen;
 
         /// <summary> Gets the field. </summary>
-        /// <param name = "field" > The field. </param>
+        /// <param name="field"> The field. </param>
         /// <returns> </returns>
         public static Field GetField( Field field )
         {
@@ -123,12 +107,32 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetForm"/>
+        /// class.
+        /// </summary>
+        public BudgetForm( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="form"> The form. </param>
+        public BudgetForm( MetroForm form )
+        {
+            Form = form;
         }
     }
 }

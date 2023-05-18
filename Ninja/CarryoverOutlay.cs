@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -118,7 +120,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CarryoverOutlay"/>
+        /// <see cref="CarryoverOutlay"/>
         /// class.
         /// </summary>
         public CarryoverOutlay( )
@@ -128,10 +130,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CarryoverOutlay"/>
+        /// <see cref="CarryoverOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public CarryoverOutlay( IQuery query )
             : this( )
         {
@@ -147,9 +149,7 @@ namespace BudgetExecution
             Delta = double.Parse( Record[ "Delta" ].ToString( ) ?? "0" );
             AvailableBalance = double.Parse( Record[ "AvailableBalance" ].ToString( ) ?? "0" );
             ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            CurrentYearAdjustment =
-                double.Parse( Record[ "CurrentYearAdjustment" ].ToString( ) ?? "0" );
-
+            CurrentYearAdjustment = double.Parse( Record[ "CurrentYearAdjustment" ].ToString( ) ?? "0" );
             BudgetYearAdjustment = double.Parse( Record[ "BudgetYearAdjustment" ].ToString( ) ?? "0" );
             CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
             BudgetYear = double.Parse( Record[ "BudgetYear" ].ToString( ) ?? "0" );
@@ -166,10 +166,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CarryoverOutlay"/>
+        /// <see cref="CarryoverOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public CarryoverOutlay( IDataModel builder )
             : this( )
         {
@@ -185,9 +185,7 @@ namespace BudgetExecution
             Delta = double.Parse( Record[ "Delta" ].ToString( ) ?? "0" );
             AvailableBalance = double.Parse( Record[ "AvailableBalance" ].ToString( ) ?? "0" );
             ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            CurrentYearAdjustment =
-                double.Parse( Record[ "CurrentYearAdjustment" ].ToString( ) ?? "0" );
-
+            CurrentYearAdjustment = double.Parse( Record[ "CurrentYearAdjustment" ].ToString( ) ?? "0" );
             BudgetYearAdjustment = double.Parse( Record[ "BudgetYearAdjustment" ].ToString( ) ?? "0" );
             CurrentYear = double.Parse( Record[ "CurrentYear" ].ToString( ) ?? "0" );
             BudgetYear = double.Parse( Record[ "BudgetYear" ].ToString( ) ?? "0" );
@@ -204,10 +202,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "CarryoverOutlay"/>
+        /// <see cref="CarryoverOutlay"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public CarryoverOutlay( DataRow dataRow )
             : this( )
         {
@@ -223,9 +221,7 @@ namespace BudgetExecution
             Delta = double.Parse( dataRow[ "Delta" ].ToString( ) ?? "0" );
             AvailableBalance = double.Parse( dataRow[ "AvailableBalance" ].ToString( ) ?? "0" );
             ULO = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
-            CurrentYearAdjustment =
-                double.Parse( dataRow[ "CurrentYearAdjustment" ].ToString( ) ?? "0" );
-
+            CurrentYearAdjustment = double.Parse( dataRow[ "CurrentYearAdjustment" ].ToString( ) ?? "0" );
             BudgetYearAdjustment = double.Parse( dataRow[ "BudgetYearAdjustment" ].ToString( ) ?? "0" );
             CurrentYear = double.Parse( dataRow[ "CurrentYear" ].ToString( ) ?? "0" );
             BudgetYear = double.Parse( dataRow[ "BudgetYear" ].ToString( ) ?? "0" );

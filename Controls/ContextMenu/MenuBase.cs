@@ -48,10 +48,10 @@ namespace BudgetExecution
         public MetroSetToolStripMenuItem ExitOption { get; set; }
 
         /// <summary> Called when [mouse enter]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         protected void OnMouseEnter( object sender, EventArgs e )
@@ -71,10 +71,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse leave]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         protected void OnMouseLeave( object sender, EventArgs e )
@@ -94,8 +94,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

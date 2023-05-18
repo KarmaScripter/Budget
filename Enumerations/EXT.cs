@@ -4,24 +4,19 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// Defines the EXT
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> Defines the EXT </summary>
     public enum EXT
     {
-        /// <summary>
-        /// Defines the DB on SQLite database files.
-        /// </summary>
+        /// <summary> Defines the DB on SQLite database files. </summary>
         DB,
 
-        /// <summary>
-        /// Defines the ACCDB on newer MS Access database files.
-        /// </summary>
+        /// <summary> Defines the ACCDB on newer MS Access database files. </summary>
         ACCDB,
 
-        /// <summary>
-        /// Defines the MDB on older MS Access database files.
-        /// </summary>
+        /// <summary> Defines the MDB on older MS Access database files. </summary>
         MDB,
 
         /// <summary>
@@ -29,79 +24,49 @@ namespace BudgetExecution
         /// </summary>
         SDF,
 
-        /// <summary>
-        /// Defines the MDF on MS SQL Server database files.
-        /// </summary>
+        /// <summary> Defines the MDF on MS SQL Server database files. </summary>
         MDF,
 
-        /// <summary>
-        /// Defines the XLS on older MS Excel files.
-        /// </summary>
+        /// <summary> Defines the XLS on older MS Excel files. </summary>
         XLS,
 
-        /// <summary>
-        /// Defines the XLSX on newer MS Excel files.
-        /// </summary>
+        /// <summary> Defines the XLSX on newer MS Excel files. </summary>
         XLSX,
 
-        /// <summary>
-        /// Defines the CSV on Comma Separated Value files.
-        /// </summary>
+        /// <summary> Defines the CSV on Comma Separated Value files. </summary>
         CSV,
 
-        /// <summary>
-        /// Defines the TXT on Text files.
-        /// </summary>
+        /// <summary> Defines the TXT on Text files. </summary>
         TXT,
 
-        /// <summary>
-        /// Defines the PDF on Portable Document Codec files.
-        /// </summary>
+        /// <summary> Defines the PDF on Portable Document Codec files. </summary>
         PDF,
 
-        /// <summary>
-        /// Defines the DOCX on newer MS Word files.
-        /// </summary>
+        /// <summary> Defines the DOCX on newer MS Word files. </summary>
         DOCX,
 
-        /// <summary>
-        /// Defines the DOC on older MS Word files.
-        /// </summary>
+        /// <summary> Defines the DOC on older MS Word files. </summary>
         DOC,
 
-        /// <summary>
-        /// Identifies SQL files
-        /// </summary>
+        /// <summary> Identifies SQL files </summary>
         SQL,
 
-        /// <summary>
-        /// Identifies .resx file extension for resource files
-        /// </summary>
+        /// <summary> Identifies .resx file extension for resource files </summary>
         RESX,
 
-        /// <summary>
-        /// Identifies .dll extension for libraries
-        /// </summary>
+        /// <summary> Identifies .dll extension for libraries </summary>
         DLL,
 
-        /// <summary>
-        /// Identifies the .exe file extenstion for executables
-        /// </summary>
+        /// <summary> Identifies the .exe file extenstion for executables </summary>
         EXE,
 
-        /// <summary>
-        /// Identifies the .ico file extension for icons
-        /// </summary>
+        /// <summary> Identifies the .ico file extension for icons </summary>
         ICO,
 
-        /// <summary>
-        /// Identifies the .png file extension for images
-        /// </summary>
+        /// <summary> Identifies the .png file extension for images </summary>
         PNG,
 
-        /// <summary>
-        /// Identifies the .gif file extension for gif images
-        /// </summary>
+        /// <summary> Identifies the .gif file extension for gif images </summary>
         GIF
     }
 }

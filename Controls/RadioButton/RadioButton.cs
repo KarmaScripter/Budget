@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
@@ -28,47 +29,8 @@ namespace BudgetExecution
         /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "RadioButton"/>
-        /// class.
-        /// </summary>
-        public RadioButton( )
-        {
-            // Basic Properties
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            BackgroundColor = Color.FromArgb( 30, 30, 30 );
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ForeColor = Color.LightSteelBlue;
-            CheckSignColor = Color.LimeGreen;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            Size = new Size( 125, 17 );
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            CheckState = CheckState.Unchecked;
-
-            // Event Wiring
-            CheckedChanged += OnCheckStateChanged;
-            MouseEnter += OnMouseHover;
-            MouseLeave += OnMouseLeave;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "RadioButton"/>
-        /// class.
-        /// </summary>
-        /// <param name = "text" > The text displayed by the control. </param>
-        public RadioButton( string text )
-            : this( )
-        {
-            Text = text;
-        }
-
         /// <summary> Called when [check state changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnCheckStateChanged( object sender )
         {
             if( sender is RadioButton radioButton
@@ -86,10 +48,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse over]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnMouseHover( object sender, EventArgs e )
@@ -119,10 +81,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse leave]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnMouseLeave( object sender, EventArgs e )
@@ -142,12 +104,51 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The exception. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The exception. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="RadioButton"/>
+        /// class.
+        /// </summary>
+        public RadioButton( )
+        {
+            // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            BackgroundColor = Color.FromArgb( 30, 30, 30 );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
+            ForeColor = Color.LightSteelBlue;
+            CheckSignColor = Color.LimeGreen;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            Size = new Size( 125, 17 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
+            CheckState = CheckState.Unchecked;
+
+            // Event Wiring
+            CheckedChanged += OnCheckStateChanged;
+            MouseEnter += OnMouseHover;
+            MouseLeave += OnMouseLeave;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="RadioButton"/>
+        /// class.
+        /// </summary>
+        /// <param name="text"> The text displayed by the control. </param>
+        public RadioButton( string text )
+            : this( )
+        {
+            Text = text;
         }
     }
 }

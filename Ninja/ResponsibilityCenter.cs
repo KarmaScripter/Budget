@@ -8,11 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "DataUnit"/>
-    /// <seealso cref = "BudgetExecution.IResponsibilityCenter"/>
-    /// <seealso cref = "BudgetExecution.ISource"/>
+    /// <seealso cref="DataUnit"/>
+    /// <seealso cref="BudgetExecution.IResponsibilityCenter"/>
+    /// <seealso cref="BudgetExecution.ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
@@ -31,84 +32,8 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ResponsibilityCenter"/>
-        /// class.
-        /// </summary>
-        public ResponsibilityCenter( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ResponsibilityCenter"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public ResponsibilityCenter( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ResponsibilityCenter"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public ResponsibilityCenter( IDataModel builder )
-        {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ResponsibilityCenter"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The Data. </param>
-        public ResponsibilityCenter( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ResponsibilityCenter"/>
-        /// class.
-        /// </summary>
-        /// <param name = "rcCode" > The rcCode. </param>
-        public ResponsibilityCenter( string rcCode )
-            : this( )
-        {
-            Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
+        /// <param name="code"> The code. </param>
         /// <returns> </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
@@ -126,6 +51,82 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
+        }
+
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
+        public override int ID { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
+        /// </summary>
+        public ResponsibilityCenter( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public ResponsibilityCenter( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query )?.Record;
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public ResponsibilityCenter( IDataModel builder )
+        {
+            Record = builder?.Record;
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The Data. </param>
+        public ResponsibilityCenter( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ResponsibilityCenter"/>
+        /// class.
+        /// </summary>
+        /// <param name="rcCode"> The rcCode. </param>
+        public ResponsibilityCenter( string rcCode )
+            : this( )
+        {
+            Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
+            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
     }
 }

@@ -8,11 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "IFinanceObjectClass"/>
-    /// <seealso cref = "IProgram"/>
-    /// <seealso cref = "ISource"/>
+    /// <seealso cref="IFinanceObjectClass"/>
+    /// <seealso cref="IProgram"/>
+    /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
@@ -33,83 +34,40 @@ namespace BudgetExecution
         /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FinanceObjectClass"/>
-        /// class.
-        /// </summary>
-        public FinanceObjectClass( )
+        /// <summary> Gets the finance object class. </summary>
+        /// <returns> </returns>
+        public IFinanceObjectClass GetFinanceObjectClass( )
         {
+            try
+            {
+                return MemberwiseClone( ) as FinanceObjectClass;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( FinanceObjectClass );
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FinanceObjectClass"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public FinanceObjectClass( IQuery query )
+        /// <summary> Gets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FinanceObjectClass"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public FinanceObjectClass( IDataModel builder )
-        {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FinanceObjectClass"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public FinanceObjectClass( DataRow dataRow )
-        {
-            Record = dataRow;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
-            Name = dataRow[ $"{Field.Name}" ].ToString( );
-            Code = dataRow[ $"{Field.Code}" ].ToString( );
-            Data = dataRow?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FinanceObjectClass"/>
-        /// class.
-        /// </summary>
-        /// <param name = "focCode" > The foc code. </param>
-        public FinanceObjectClass( string focCode )
-        {
-            Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        public FinanceObjectClass( IFinanceObjectClass foc )
-        {
-            ID = foc.ID;
-            Code = foc.Code;
-            Name = foc.Name;
-            Category = foc.Category;
-            BocCode = foc.BocCode;
-            BocName = foc.BocName;
+            return default;
         }
 
         /// <summary> Gets or sets the identifier. </summary>
@@ -134,40 +92,83 @@ namespace BudgetExecution
         /// <value> The category. </value>
         public BOC Category { get; set; }
 
-        /// <summary> Gets the finance object class. </summary>
-        /// <returns> </returns>
-        public IFinanceObjectClass GetFinanceObjectClass( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
+        /// </summary>
+        public FinanceObjectClass( )
         {
-            try
-            {
-                return MemberwiseClone( ) as FinanceObjectClass;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( FinanceObjectClass );
-            }
         }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public FinanceObjectClass( IQuery query )
         {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
+            Record = new DataBuilder( query )?.Record;
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
+            Name = Record[ $"{Field.Name}" ].ToString( );
+            Code = Record[ $"{Field.Code}" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
 
-            return default;
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public FinanceObjectClass( IDataModel builder )
+        {
+            Record = builder?.Record;
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
+            Name = Record[ $"{Field.Name}" ].ToString( );
+            Code = Record[ $"{Field.Code}" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public FinanceObjectClass( DataRow dataRow )
+        {
+            Record = dataRow;
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
+            Name = dataRow[ $"{Field.Name}" ].ToString( );
+            Code = dataRow[ $"{Field.Code}" ].ToString( );
+            Data = dataRow?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FinanceObjectClass"/>
+        /// class.
+        /// </summary>
+        /// <param name="focCode"> The foc code. </param>
+        public FinanceObjectClass( string focCode )
+        {
+            Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
+            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) );
+            Name = Record[ $"{Field.Name}" ].ToString( );
+            Code = Record[ $"{Field.Code}" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        public FinanceObjectClass( IFinanceObjectClass foc )
+        {
+            ID = foc.ID;
+            Code = foc.Code;
+            Name = foc.Name;
+            Category = foc.Category;
+            BocCode = foc.BocCode;
+            BocName = foc.BocName;
         }
     }
 }

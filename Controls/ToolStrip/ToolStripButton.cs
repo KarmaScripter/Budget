@@ -6,10 +6,10 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Forms;
     using System.Drawing;
     using System.IO;
-    using Microsoft.Extensions.Configuration;
+    using System.Threading;
+    using System.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary> </summary>
@@ -18,54 +18,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class ToolStripButton : ToolButtonBase, IToolStripButton
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolStripButton"/>
-        /// class.
-        /// </summary>
-        public ToolStripButton( )
-        {
-            // Basic Properties
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
-            DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor = Color.Transparent;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            AutoToolTip = false;
-            Text = string.Empty;
-            Size = new Size( 24, 20 );
 
-            // Event Wiring
-            MouseHover += OnMouseHover;
-            MouseLeave += OnMouseLeave;
-            Click += OnClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance Mof the
-        /// <see cref = "ToolStripButton"/>
-        /// class.
-        /// </summary>
-        /// <param name = "toolType" > The tool. </param>
-        public ToolStripButton( ToolType toolType )
-            : this( )
+        /// <summary> Sets the image. </summary>
+        public void SetImage( )
         {
-            ToolType = toolType;
-            Name = toolType.ToString( );
-            HoverText = GetHoverText( toolType );
-            Tag = HoverText;
-            Image = GetImage( toolType );
-            Click += OnClick;
-        }
-
-        /// <summary> </summary>
-        /// <param name = "toolType" > </param>
-        /// <param name = "bindingSource" > </param>
-        public ToolStripButton( ToolType toolType, BindingSource bindingSource )
-            : this( toolType )
-        {
-            BindingSource = bindingSource;
+            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
+            {
+                try
+                {
+                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
+                    using var _stream = File.Open( _path, FileMode.Open );
+                    if( _stream != null )
+                    {
+                        var _image = Image.FromStream( _stream );
+                        Image = _image;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
         /// <summary> Sets the button image. </summary>
@@ -97,10 +70,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse over]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMouseHover( object sender, EventArgs e )
@@ -131,10 +104,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [mouse leave]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
@@ -154,10 +127,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnClick( object sender, EventArgs e )
@@ -229,9 +202,7 @@ namespace BudgetExecution
                         }
                         case ToolType.ExcelButton:
                         {
-                            var _excel =
-                                @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
-
+                            var _excel = @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
                             using var _excelForm = new ExcelDataForm( _excel );
                             _excelForm?.ShowDialog( );
                             break;
@@ -339,26 +310,54 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the image. </summary>
-        public void SetImage( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripButton"/>
+        /// class.
+        /// </summary>
+        public ToolStripButton( )
         {
-            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
-            {
-                try
-                {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
-                    using var _stream = File.Open( _path, FileMode.Open );
-                    if( _stream != null )
-                    {
-                        var _image = Image.FromStream( _stream );
-                        Image = _image;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
+            // Basic Properties
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            DisplayStyle = ToolStripItemDisplayStyle.Image;
+            BackColor = Color.Transparent;
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            AutoToolTip = false;
+            Text = string.Empty;
+            Size = new Size( 24, 20 );
+
+            // Event Wiring
+            MouseHover += OnMouseHover;
+            MouseLeave += OnMouseLeave;
+            Click += OnClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance Mof the
+        /// <see cref="ToolStripButton"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> The tool. </param>
+        public ToolStripButton( ToolType toolType )
+            : this( )
+        {
+            ToolType = toolType;
+            Name = toolType.ToString( );
+            HoverText = GetHoverText( toolType );
+            Tag = HoverText;
+            Image = GetImage( toolType );
+            Click += OnClick;
+        }
+
+        /// <summary> </summary>
+        /// <param name="toolType"> </param>
+        /// <param name="bindingSource"> </param>
+        public ToolStripButton( ToolType toolType, BindingSource bindingSource )
+            : this( toolType )
+        {
+            BindingSource = bindingSource;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    /// <param name = "viewSchema" > The view schema. </param>
+    /// <param name="viewSchema"> The view schema. </param>
     /// <returns> </returns>
     public delegate string FailedViewDefinitionHandler( ViewSchema viewSchema );
 }

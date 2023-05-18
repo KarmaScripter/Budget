@@ -11,8 +11,8 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "IProvider"/>
-    /// <seealso cref = "ISource"/>
+    /// <seealso cref="IProvider"/>
+    /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -63,149 +63,6 @@ namespace BudgetExecution
         /// <value> The select statement. </value>
         public string CommandText { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBase"/>
-        /// class.
-        /// </summary>
-        protected SqlBase( )
-        {
-            Criteria = new Dictionary<string, object>( );
-            Fields = new List<string>( );
-            Numerics = new List<string>( );
-            Groups = new List<string>( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
-            : this( )
-        {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
-            CommandType = commandType;
-            Source = source;
-            TableName = source.ToString( );
-            Provider = provider;
-            CommandText = $"SELECT * FROM {source}";
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "sqlText" > The SQL text. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, string sqlText,
-            SQL commandType )
-            : this( )
-        {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            CommandText = sqlText;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "where" > </param>
-        /// <param name = "commandType" > </param>
-        protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
-            : this( )
-        {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Criteria = where;
-            CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
-        }
-
-        /// <summary> </summary>
-        /// <param name = "source" > </param>
-        /// <param name = "provider" > </param>
-        /// <param name = "updates" > </param>
-        /// <param name = "where" > </param>
-        /// <param name = "commandType" > </param>
-        protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : this( )
-        {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Updates = updates;
-            Criteria = where;
-            Fields = updates.Keys.ToList( );
-            CommandText = GetCommandText( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "columns" > The columns. </param>
-        /// <param name = "where" > The dictionary. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
-            : this( )
-        {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Criteria = where;
-            Fields = columns.ToList( );
-            CommandText = GetCommandText( );
-        }
-
-        /// <summary> </summary>
-        /// <param name = "source" > </param>
-        /// <param name = "provider" > </param>
-        /// <param name = "fields" > </param>
-        /// <param name = "numerics" > </param>
-        /// <param name = "having" > </param>
-        /// <param name = "commandType" > </param>
-        protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
-            : this( )
-        {
-            DbPath = new ConnectionFactory( source, provider ).DbPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Criteria = having;
-            Fields = fields.ToList( );
-            Numerics = numerics.ToList( );
-            CommandText = GetCommandText( );
-        }
-
         /// <summary> Gets the command text. </summary>
         /// <returns> </returns>
         public string GetCommandText( )
@@ -249,8 +106,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -258,7 +115,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the select statement. </summary>
-        private protected string GetSelectStatement( )
+        protected private string GetSelectStatement( )
         {
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -279,8 +136,7 @@ namespace BudgetExecution
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
-                    + $"GROUP BY {_groups};";
+                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} " + $"GROUP BY {_groups};";
             }
 
             if( Fields?.Any( ) == true
@@ -296,8 +152,7 @@ namespace BudgetExecution
 
                 var _criteria = Criteria.ToCriteria( );
                 var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
-                    + $"GROUP BY {_columns};";
+                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} " + $"GROUP BY {_columns};";
             }
             else if( Fields?.Any( ) == false
                     && Criteria?.Any( ) == true
@@ -318,7 +173,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the update statement. </summary>
         /// <returns> </returns>
-        private protected string GetUpdateStatement( )
+        protected private string GetUpdateStatement( )
         {
             if( Updates?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -357,7 +212,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the insert statement. </summary>
-        private protected string GetInsertStatement( )
+        protected private string GetInsertStatement( )
         {
             if( Updates?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
@@ -383,9 +238,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    var _columnValues = $"({_columns.TrimEnd( ", ".ToCharArray( ) )})"
-                        + $" VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
-
+                    var _columnValues = $"({_columns.TrimEnd( ", ".ToCharArray( ) )})" + $" VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
                     return $"INSERT INTO {Source} {_columnValues};";
                 }
                 catch( Exception ex )
@@ -400,7 +253,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the delete statement. </summary>
         /// <returns> </returns>
-        private protected string GetDeleteStatement( )
+        protected private string GetDeleteStatement( )
         {
             if( Criteria?.Any( ) == true )
             {
@@ -419,6 +272,146 @@ namespace BudgetExecution
             }
 
             return string.Empty;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBase"/>
+        /// class.
+        /// </summary>
+        protected SqlBase( )
+        {
+            Criteria = new Dictionary<string, object>( );
+            Fields = new List<string>( );
+            Numerics = new List<string>( );
+            Groups = new List<string>( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            TableName = source.ToString( );
+            Provider = provider;
+            CommandText = $"SELECT * FROM {source}";
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            CommandText = sqlText;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> </param>
+        /// <param name="commandType"> </param>
+        protected SqlBase( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Criteria = where;
+            CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
+        }
+
+        /// <summary> </summary>
+        /// <param name="source"> </param>
+        /// <param name="provider"> </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> </param>
+        /// <param name="commandType"> </param>
+        protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
+            SQL commandType = SQL.UPDATE )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Updates = updates;
+            Criteria = where;
+            Fields = updates.Keys.ToList( );
+            CommandText = GetCommandText( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The dictionary. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
+            SQL commandType = SQL.SELECT )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Criteria = where;
+            Fields = columns.ToList( );
+            CommandText = GetCommandText( );
+        }
+
+        /// <summary> </summary>
+        /// <param name="source"> </param>
+        /// <param name="provider"> </param>
+        /// <param name="fields"> </param>
+        /// <param name="numerics"> </param>
+        /// <param name="having"> </param>
+        /// <param name="commandType"> </param>
+        protected SqlBase( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+            : this( )
+        {
+            DbPath = new ConnectionFactory( source, provider ).DbPath;
+            CommandType = commandType;
+            Source = source;
+            Provider = provider;
+            TableName = source.ToString( );
+            Criteria = having;
+            Fields = fields.ToList( );
+            Numerics = numerics.ToList( );
+            CommandText = GetCommandText( );
         }
     }
 }

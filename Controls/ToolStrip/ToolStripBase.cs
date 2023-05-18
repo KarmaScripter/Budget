@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -136,15 +137,6 @@ namespace BudgetExecution
         /// <value> The home button. </value>
         public virtual ToolStripButton HomeButton { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolStripBase"/>
-        /// class.
-        /// </summary>
-        protected ToolStripBase( )
-        {
-        }
-
         /// <summary> Creates the text box. </summary>
         /// <returns> </returns>
         public virtual void AddTextBox( )
@@ -175,7 +167,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Adds the drop down item. </summary>
-        /// <param name = "item" > The item. </param>
+        /// <param name="item"> The item. </param>
         public virtual void AddDropDownItem( object item )
         {
             if( item != null )
@@ -192,7 +184,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Resets the drop down list. </summary>
-        /// <param name = "items" > The items. </param>
+        /// <param name="items"> The items. </param>
         public virtual void ResetDropDownList( IEnumerable<object> items )
         {
             try
@@ -228,12 +220,21 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripBase"/>
+        /// class.
+        /// </summary>
+        protected ToolStripBase( )
+        {
         }
     }
 }

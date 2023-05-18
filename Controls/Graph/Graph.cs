@@ -5,13 +5,10 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
-    using System.Configuration;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Drawing.Drawing2D;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
@@ -20,10 +17,75 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Graph : GraphBase
     {
+
+        /// <summary> Sets the size. </summary>
+        /// <param name="width"> The width. </param>
+        /// <param name="height"> The height. </param>
+        public void SetSize( int width = 600, int height = 400 )
+        {
+            if( width > 0
+               && height > 0 )
+            {
+                try
+                {
+                    Size = new Size( width, height );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the primary axis titleInfo. </summary>
+        /// <param name="text"> The titleInfo. </param>
+        /// <param name="font"> </param>
+        /// <param name="color"> The color. </param>
+        public void SetPrimaryAxisTitle( string text, Font font, Color color )
+        {
+            try
+            {
+                PrimaryXAxis.Title = text;
+                PrimaryXAxis.TitleColor = color;
+                PrimaryXAxis.TitleFont = font;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the main titleInfo. </summary>
+        /// <param name="text"> The t. </param>
+        /// <param name="font"> </param>
+        /// <param name="color"> </param>
+        public void SetMainTitle( string text, Font font, Color color )
+        {
+            try
+            {
+                if( Titles?.Count > 0 )
+                {
+                    Titles.Clear( );
+                }
+
+                using var title = new ChartTitle( );
+                title.Visible = true;
+                title.Font = font;
+                title.BackColor = Color.FromArgb( 18, 18, 18 );
+                title.ForeColor = color;
+                title.Text = text;
+                Titles?.Add( title );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         // Initializes Properties
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Graph"/>
+        /// <see cref="Graph"/>
         /// class.
         /// </summary>
         public Graph( )
@@ -48,9 +110,7 @@ namespace BudgetExecution
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
             BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
-                Color.FromArgb( 20, 20, 20 ) );
-
+            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue, Color.FromArgb( 20, 20, 20 ) );
             CalcRegions = true;
 
             //ChartArea Properties
@@ -69,9 +129,7 @@ namespace BudgetExecution
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
-                Color.Silver );
-
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ), Color.Silver );
             Depth = 250;
             ElementsSpacing = 10;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
@@ -108,70 +166,6 @@ namespace BudgetExecution
             Legend.ShowItemsShadow = true;
             Legend.ShowBorder = false;
             Legend.Visible = true;
-        }
-
-        /// <summary> Sets the size. </summary>
-        /// <param name = "width" > The width. </param>
-        /// <param name = "height" > The height. </param>
-        public void SetSize( int width = 600, int height = 400 )
-        {
-            if( width > 0
-               && height > 0 )
-            {
-                try
-                {
-                    Size = new Size( width, height );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the primary axis titleInfo. </summary>
-        /// <param name = "text" > The titleInfo. </param>
-        /// <param name = "font" > </param>
-        /// <param name = "color" > The color. </param>
-        public void SetPrimaryAxisTitle( string text, Font font, Color color )
-        {
-            try
-            {
-                PrimaryXAxis.Title = text;
-                PrimaryXAxis.TitleColor = color;
-                PrimaryXAxis.TitleFont = font;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the main titleInfo. </summary>
-        /// <param name = "text" > The t. </param>
-        /// <param name = "font" > </param>
-        /// <param name = "color" > </param>
-        public void SetMainTitle( string text, Font font, Color color )
-        {
-            try
-            {
-                if( Titles?.Count > 0 )
-                {
-                    Titles.Clear( );
-                }
-
-                using var title = new ChartTitle( );
-                title.Visible = true;
-                title.Font = font;
-                title.BackColor = Color.FromArgb( 18, 18, 18 );
-                title.ForeColor = color;
-                title.Text = text;
-                Titles?.Add( title );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
     }
 }

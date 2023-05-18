@@ -6,12 +6,23 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class FederalHoliday : IFederalHoliday
     {
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
         /// <summary> Columbus Day, the second Monday in October. </summary>
         /// <value> Columbus Day, the second Monday in October. </value>
         public virtual DateOnly ColumbusDay { get; set; }
@@ -32,8 +43,12 @@ namespace BudgetExecution
         /// <value> New Year’s Day, January 1. </value>
         public virtual DateOnly NewYearsDay { get; set; }
 
-        /// <summary> Birthday of Martin Luther King, Jr., the third Monday in January. </summary>
-        /// <value> Birthday of Martin Luther King, Jr., the third Monday in January. </value>
+        /// <summary>
+        /// Birthday of Martin Luther King, Jr., the third Monday in January.
+        /// </summary>
+        /// <value>
+        /// Birthday of Martin Luther King, Jr., the third Monday in January.
+        /// </value>
         public virtual DateOnly MartinLutherKingDay { get; set; }
 
         /// <summary> Washington’s Birthday, the third Monday in February. </summary>
@@ -55,14 +70,5 @@ namespace BudgetExecution
         /// <summary> Labor Day, the first Monday in September. </summary>
         /// <value> Labor Day, the first Monday in September. </value>
         public virtual DateOnly LaborDay { get; set; }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
     }
 }

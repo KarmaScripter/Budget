@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -38,7 +40,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SchemaType"/>
+        /// <see cref="SchemaType"/>
         /// class.
         /// </summary>
         public SchemaType( )
@@ -48,10 +50,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SchemaType"/>
+        /// <see cref="SchemaType"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public SchemaType( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -63,10 +65,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SchemaType"/>
+        /// <see cref="SchemaType"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public SchemaType( IDataModel builder )
         {
             Record = builder.Record;
@@ -78,10 +80,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SchemaType"/>
+        /// <see cref="SchemaType"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public SchemaType( DataRow dataRow )
         {
             Record = dataRow;

@@ -5,27 +5,44 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary>
-    /// Full-time equivalent (FullTimeEquivalents) or whole time equivalent (WTE) is a
-    /// unit that indicates the workload of an employed person (or student) in a way
-    /// that makes workloads or class loads comparable across various contexts.
-    /// FullTimeEquivalent is often used to measure a worker's or student's involvement
-    /// in a project, or to track cost reductions in an organization. An
-    /// FullTimeEquivalent of 1.0 is equivalent to a full-time worker or student, while
-    /// an FullTimeEquivalent of 0.5 signals half of a full work or school load.
+    /// Full-time equivalent (FullTimeEquivalents) or whole time equivalent (WTE) is a unit that indicates
+    /// the workload of an employed person (or student) in a way that makes workloads or class loads
+    /// comparable across various contexts. FullTimeEquivalent is often used to measure a worker's or
+    /// student's involvement in a project, or to track cost reductions in an organization. An
+    /// FullTimeEquivalent of 1.0 is equivalent to a full-time worker or student, while an
+    /// FullTimeEquivalent of 0.5 signals half of a full work or school load.
     /// </summary>
-    /// <seealso cref = "ProgramResultsCode"/>
+    /// <seealso cref="ProgramResultsCode"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class FullTimeEquivalent : OperatingPlan
     {
+
+        /// <summary> Gets the ProgramResultCodes identifier. </summary>
+        /// <returns> </returns>
+        public override int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "T:BudgetExecution.FullTimeEquivalent"/>
+        /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
         /// class.
         /// </summary>
         public FullTimeEquivalent( )
@@ -35,10 +52,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "FullTimeEquivalent"/>
+        /// <see cref="FullTimeEquivalent"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public FullTimeEquivalent( IQuery query )
             : base( query )
         {
@@ -78,10 +95,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "FullTimeEquivalent"/>
+        /// <see cref="FullTimeEquivalent"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The databuilder. </param>
+        /// <param name="builder"> The databuilder. </param>
         public FullTimeEquivalent( IDataModel builder )
             : base( builder )
         {
@@ -121,10 +138,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "FullTimeEquivalent"/>
+        /// <see cref="FullTimeEquivalent"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
+        /// <param name="dataRow"> The dataRow. </param>
         public FullTimeEquivalent( DataRow dataRow )
             : base( dataRow )
         {
@@ -190,23 +207,6 @@ namespace BudgetExecution
             TreasuryAccountName = allocation.TreasuryAccountName;
             BudgetAccountCode = allocation.BudgetAccountCode;
             BudgetAccountName = allocation.BudgetAccountName;
-        }
-
-        /// <summary> Gets the ProgramResultCodes identifier. </summary>
-        /// <returns> </returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
     }
 }

@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
@@ -31,9 +32,68 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
+        /// <summary> Sets the header text. </summary>
+        /// <param name="bodyText"> The body text. </param>
+        public virtual void SetHeaderText( string bodyText )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( bodyText ) )
+                {
+                    TipInfo.Body.Text = bodyText;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the body text. </summary>
+        /// <param name="bodyText"> The body text. </param>
+        public virtual void SetBodyText( string bodyText )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( bodyText ) )
+                {
+                    TipInfo.Body.Text = bodyText;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the header tool information properties. </summary>
+        public virtual void SetFooterText( string footerText )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( footerText ) )
+                {
+                    TipInfo.Body.Text = footerText;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BigTip"/>
+        /// <see cref="BigTip"/>
         /// class.
         /// </summary>
         public BigTip( )
@@ -73,12 +133,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "BigTip"/>
+        /// <see cref="BigTip"/>
         /// class.
         /// </summary>
-        /// <param name = "control" > The control. </param>
-        /// <param name = "text" > The text. </param>
-        /// <param name = "title" > The title. </param>
+        /// <param name="control"> The control. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> The title. </param>
         public BigTip( Control control, string text, string title = "" )
             : this( )
         {
@@ -86,72 +146,13 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "SmallTip"/>
+        /// <see cref="SmallTip"/>
         /// class.
         /// </summary>
-        /// <param name = "toolItem" > The toolItem. </param>
+        /// <param name="toolItem"> The toolItem. </param>
         public BigTip( ToolStripItem toolItem )
             : this( )
         {
-        }
-
-        /// <summary> Sets the header text. </summary>
-        /// <param name = "bodyText" > The body text. </param>
-        public virtual void SetHeaderText( string bodyText )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( bodyText ) )
-                {
-                    TipInfo.Body.Text = bodyText;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the body text. </summary>
-        /// <param name = "bodyText" > The body text. </param>
-        public virtual void SetBodyText( string bodyText )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( bodyText ) )
-                {
-                    TipInfo.Body.Text = bodyText;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the header tool information properties. </summary>
-        public virtual void SetFooterText( string footerText )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( footerText ) )
-                {
-                    TipInfo.Body.Text = footerText;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

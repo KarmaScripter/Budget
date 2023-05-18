@@ -17,7 +17,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Transfer"/>
+        /// <see cref="Transfer"/>
         /// class.
         /// </summary>
         public Reprogramming( )
@@ -27,10 +27,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Transfer"/>
+        /// <see cref="Transfer"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public Reprogramming( IQuery query )
             : base( query )
         {
@@ -70,10 +70,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Transfer"/>
+        /// <see cref="Transfer"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public Reprogramming( IDataModel builder )
             : base( builder )
         {
@@ -113,10 +113,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Transfer"/>
+        /// <see cref="Transfer"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public Reprogramming( DataRow dataRow )
             : base( dataRow )
         {

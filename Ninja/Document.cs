@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -24,9 +26,17 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
 
+        /// <summary> Gets or sets the category. </summary>
+        /// <value> The category. </value>
+        public string Category { get; set; }
+
+        /// <summary> Gets or sets the system. </summary>
+        /// <value> The system. </value>
+        public string System { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Document"/>
+        /// <see cref="Document"/>
         /// class.
         /// </summary>
         public Document( )
@@ -36,10 +46,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Document"/>
+        /// <see cref="Document"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public Document( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -53,10 +63,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Document"/>
+        /// <see cref="Document"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public Document( IDataModel builder )
         {
             Record = builder.Record;
@@ -70,10 +80,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Document"/>
+        /// <see cref="Document"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public Document( DataRow dataRow )
         {
             Record = dataRow;
@@ -93,13 +103,5 @@ namespace BudgetExecution
             System = doc.System;
             Category = doc.Category;
         }
-
-        /// <summary> Gets or sets the category. </summary>
-        /// <value> The category. </value>
-        public string Category { get; set; }
-
-        /// <summary> Gets or sets the system. </summary>
-        /// <value> The system. </value>
-        public string System { get; set; }
     }
 }

@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> c </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -23,7 +25,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "AmericanRescuePlan"/>
+        /// <see cref="AmericanRescuePlan"/>
         /// class.
         /// </summary>
         public AmericanRescuePlan( )
@@ -33,10 +35,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "AmericanRescuePlan"/>
+        /// <see cref="AmericanRescuePlan"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public AmericanRescuePlan( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -82,10 +84,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "AmericanRescuePlan"/>
+        /// <see cref="AmericanRescuePlan"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public AmericanRescuePlan( IDataModel builder )
         {
             Record = builder.Record;
@@ -131,10 +133,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "AmericanRescuePlan"/>
+        /// <see cref="AmericanRescuePlan"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public AmericanRescuePlan( DataRow dataRow )
         {
             Record = dataRow;

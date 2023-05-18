@@ -1,6 +1,6 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
-// Copyright (c) Terry Eppler.All rights reserved.
-// </copyright>
+﻿//  <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+//  Copyright (c) Terry Eppler. All rights reserved.
+//  </copyright>
 
 namespace BudgetExecution
 {
@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -33,171 +34,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AppropriationDocument"/>
-        /// class.
-        /// </summary>
-        public AppropriationDocument( )
-        {
-            Source = Source.AppropriationDocuments;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AppropriationDocument"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public AppropriationDocument( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Fund = Record[ "Fund" ].ToString( );
-            FundCode = Record[ "FundName" ].ToString( );
-            DocumentType = Record[ "DocumentType" ].ToString( );
-            DocumentNumber = Record[ "DocumentNumber" ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "" );
-            LastDocumentDate = DateOnly.Parse( Record[ "LastDocumentDate" ].ToString( ) ?? "" );
-            BudgetingControls = Record[ "BudgetingControls" ].ToString( );
-            PostingControls = Record[ "PostingControls" ].ToString( );
-            PreCommitmentControls = Record[ "PreCommitmentControls" ].ToString( );
-            CommitmentControls = Record[ "CommitmentControls" ].ToString( );
-            ObligationControls = Record[ "ObligationControls" ].ToString( );
-            AccrualControls = Record[ "AccrualControls" ].ToString( );
-            ExpenseControls = Record[ "ExpenseControls" ].ToString( );
-            ExpenditureControls = Record[ "ExpenditureControls" ].ToString( );
-            ReimbursementControls = Record[ "ReimbursementControls" ].ToString( );
-            ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString( );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
-            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AppropriationDocument"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public AppropriationDocument( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            Fund = Record[ "Fund" ].ToString( );
-            FundCode = Record[ "FundName" ].ToString( );
-            DocumentType = Record[ "DocumentType" ].ToString( );
-            DocumentNumber = Record[ "DocumentNumber" ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "" );
-            LastDocumentDate = DateOnly.Parse( Record[ "LastDocumentDate" ].ToString( ) ?? "" );
-            BudgetingControls = Record[ "BudgetingControls" ].ToString( );
-            PostingControls = Record[ "PostingControls" ].ToString( );
-            PreCommitmentControls = Record[ "PreCommitmentControls" ].ToString( );
-            CommitmentControls = Record[ "CommitmentControls" ].ToString( );
-            ObligationControls = Record[ "ObligationControls" ].ToString( );
-            AccrualControls = Record[ "AccrualControls" ].ToString( );
-            ExpenseControls = Record[ "ExpenseControls" ].ToString( );
-            ExpenditureControls = Record[ "ExpenditureControls" ].ToString( );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
-            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AppropriationDocument"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public AppropriationDocument( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
-            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            Fund = dataRow[ "Fund" ].ToString( );
-            FundCode = dataRow[ "FundName" ].ToString( );
-            DocumentType = dataRow[ "DocumentType" ].ToString( );
-            DocumentNumber = dataRow[ "DocumentNumber" ].ToString( );
-            DocumentDate = DateOnly.Parse( dataRow[ "DocumentDate" ].ToString( ) ?? "" );
-            LastDocumentDate = DateOnly.Parse( dataRow[ "LastDocumentDate" ].ToString( ) ?? "" );
-            BudgetingControls = dataRow[ "BudgetingControls" ].ToString( );
-            PostingControls = dataRow[ "PostingControls" ].ToString( );
-            PreCommitmentControls = dataRow[ "PreCommitmentControls" ].ToString( );
-            CommitmentControls = dataRow[ "CommitmentControls" ].ToString( );
-            ObligationControls = dataRow[ "ObligationControls" ].ToString( );
-            AccrualControls = dataRow[ "AccrualControls" ].ToString( );
-            ExpenseControls = dataRow[ "ExpenseControls" ].ToString( );
-            ExpenditureControls = dataRow[ "ExpenditureControls" ].ToString( );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) );
-            CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) );
-            CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-        }
-
-        public AppropriationDocument( IAppropriationDocument document )
-        {
-            ID = document.ID;
-            BFY = document.BFY;
-            EFY = document.EFY;
-            Fund = document.Fund;
-            FundCode = document.FundCode;
-            DocumentType = document.DocumentType;
-            DocumentNumber = document.DocumentNumber;
-            DocumentDate = document.DocumentDate;
-            BudgetingControls = document.BudgetingControls;
-            PostingControls = document.PostingControls;
-            PreCommitmentControls = document.PreCommitmentControls;
-            CommitmentControls = document.CommitmentControls;
-            ObligationControls = document.ObligationControls;
-            AccrualControls = document.AccrualControls;
-            ExpenditureControls = document.ExpenditureControls;
-            Budgeted = document.Budgeted;
-            Posted = document.Posted;
-            CarryoverOut = document.CarryoverOut;
-            CarryoverIn = document.CarryoverIn;
-            Recoveries = document.Recoveries;
-            Reimbursements = document.Reimbursements;
-            TreasuryAccountCode = document.TreasuryAccountCode;
-            TreasuryAccountName = document.TreasuryAccountName;
-            BudgetAccountCode = document.BudgetAccountCode;
-            BudgetAccountName = document.BudgetAccountName;
-        }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -314,5 +150,170 @@ namespace BudgetExecution
         /// <summary> Gets or sets the name of the budget account. </summary>
         /// <value> The name of the budget account. </value>
         public string BudgetAccountName { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AppropriationDocument"/>
+        /// class.
+        /// </summary>
+        public AppropriationDocument( )
+        {
+            Source = Source.AppropriationDocuments;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AppropriationDocument"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public AppropriationDocument( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Fund = Record[ "Fund" ].ToString( );
+            FundCode = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString( );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "" );
+            LastDocumentDate = DateOnly.Parse( Record[ "LastDocumentDate" ].ToString( ) ?? "" );
+            BudgetingControls = Record[ "BudgetingControls" ].ToString( );
+            PostingControls = Record[ "PostingControls" ].ToString( );
+            PreCommitmentControls = Record[ "PreCommitmentControls" ].ToString( );
+            CommitmentControls = Record[ "CommitmentControls" ].ToString( );
+            ObligationControls = Record[ "ObligationControls" ].ToString( );
+            AccrualControls = Record[ "AccrualControls" ].ToString( );
+            ExpenseControls = Record[ "ExpenseControls" ].ToString( );
+            ExpenditureControls = Record[ "ExpenditureControls" ].ToString( );
+            ReimbursementControls = Record[ "ReimbursementControls" ].ToString( );
+            ReimbursableAgreementControls = Record[ "ReimbursementAgreementControls" ].ToString( );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AppropriationDocument"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public AppropriationDocument( IDataModel builder )
+            : this( )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Fund = Record[ "Fund" ].ToString( );
+            FundCode = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString( );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "" );
+            LastDocumentDate = DateOnly.Parse( Record[ "LastDocumentDate" ].ToString( ) ?? "" );
+            BudgetingControls = Record[ "BudgetingControls" ].ToString( );
+            PostingControls = Record[ "PostingControls" ].ToString( );
+            PreCommitmentControls = Record[ "PreCommitmentControls" ].ToString( );
+            CommitmentControls = Record[ "CommitmentControls" ].ToString( );
+            ObligationControls = Record[ "ObligationControls" ].ToString( );
+            AccrualControls = Record[ "AccrualControls" ].ToString( );
+            ExpenseControls = Record[ "ExpenseControls" ].ToString( );
+            ExpenditureControls = Record[ "ExpenditureControls" ].ToString( );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AppropriationDocument"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public AppropriationDocument( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            Fund = dataRow[ "Fund" ].ToString( );
+            FundCode = dataRow[ "FundName" ].ToString( );
+            DocumentType = dataRow[ "DocumentType" ].ToString( );
+            DocumentNumber = dataRow[ "DocumentNumber" ].ToString( );
+            DocumentDate = DateOnly.Parse( dataRow[ "DocumentDate" ].ToString( ) ?? "" );
+            LastDocumentDate = DateOnly.Parse( dataRow[ "LastDocumentDate" ].ToString( ) ?? "" );
+            BudgetingControls = dataRow[ "BudgetingControls" ].ToString( );
+            PostingControls = dataRow[ "PostingControls" ].ToString( );
+            PreCommitmentControls = dataRow[ "PreCommitmentControls" ].ToString( );
+            CommitmentControls = dataRow[ "CommitmentControls" ].ToString( );
+            ObligationControls = dataRow[ "ObligationControls" ].ToString( );
+            AccrualControls = dataRow[ "AccrualControls" ].ToString( );
+            ExpenseControls = dataRow[ "ExpenseControls" ].ToString( );
+            ExpenditureControls = dataRow[ "ExpenditureControls" ].ToString( );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) );
+            CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) );
+            CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        public AppropriationDocument( IAppropriationDocument document )
+        {
+            ID = document.ID;
+            BFY = document.BFY;
+            EFY = document.EFY;
+            Fund = document.Fund;
+            FundCode = document.FundCode;
+            DocumentType = document.DocumentType;
+            DocumentNumber = document.DocumentNumber;
+            DocumentDate = document.DocumentDate;
+            BudgetingControls = document.BudgetingControls;
+            PostingControls = document.PostingControls;
+            PreCommitmentControls = document.PreCommitmentControls;
+            CommitmentControls = document.CommitmentControls;
+            ObligationControls = document.ObligationControls;
+            AccrualControls = document.AccrualControls;
+            ExpenditureControls = document.ExpenditureControls;
+            Budgeted = document.Budgeted;
+            Posted = document.Posted;
+            CarryoverOut = document.CarryoverOut;
+            CarryoverIn = document.CarryoverIn;
+            Recoveries = document.Recoveries;
+            Reimbursements = document.Reimbursements;
+            TreasuryAccountCode = document.TreasuryAccountCode;
+            TreasuryAccountName = document.TreasuryAccountName;
+            BudgetAccountCode = document.BudgetAccountCode;
+            BudgetAccountName = document.BudgetAccountName;
+        }
     }
 }

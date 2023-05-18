@@ -4,16 +4,17 @@
 
 namespace BudgetExecution
 {
-    using System.Diagnostics.CodeAnalysis;
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <summary> </summary>
-    /// <seealso cref = "ChartControl"/>
+    /// <seealso cref="ChartControl"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
@@ -36,19 +37,10 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GraphBase"/>
-        /// class.
-        /// </summary>
-        protected GraphBase( )
-        {
-        }
-
         /// <summary> Sets the legend configuration. </summary>
-        /// <param name = "font" > The font. </param>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "backColor" > The back color. </param>
+        /// <param name="font"> The font. </param>
+        /// <param name="size"> The size. </param>
+        /// <param name="backColor"> The back color. </param>
         public virtual void SetLegend( Font font, Size size, Color backColor )
         {
             try
@@ -74,12 +66,21 @@ namespace BudgetExecution
         }
 
         /// <summary> Get Error Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GraphBase"/>
+        /// class.
+        /// </summary>
+        protected GraphBase( )
+        {
         }
     }
 }

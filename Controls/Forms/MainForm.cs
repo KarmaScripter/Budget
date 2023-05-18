@@ -9,11 +9,12 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public partial class MainForm : MetroForm
@@ -22,62 +23,11 @@ namespace BudgetExecution
         /// <value> The tiles. </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "MainForm"/>
-        /// class.
-        /// </summary>
-        public MainForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Name = "Main";
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-            ExitButton.HoverText = "Exit Application";
-            Tiles = GetTiles( );
-
-            // Event Wiring
-            ExitButton.Click += null;
-            DatabaseTile.Click += OnDatabaseTileClicked;
-            UtilityTile.Click += OnUtilityTileClicked;
-            ReportingTile.Click += OnReportingTileClicked;
-            ClientTile.Click += OnClientTileClicked;
-            GuidanceTile.Click += OnGuidanceTileClicked;
-            WebTile.Click += OnWebTileClicked;
-            ExitButton.Click += OnExitButtonClicked;
-            TestButton.Click += OnTestButtonClick;
-            Load += OnLoad;
-            Shown += OnShown;
-            MouseClick += OnRightClick;
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnLoad( object sender, EventArgs e )
@@ -197,9 +147,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
-                        ?.First( );
-
+                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
                     _chartDataForm.Visible = true;
                 }
                 else
@@ -224,9 +172,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
-                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
-                        ?.First( );
-
+                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )?.First( );
                     _excelDataForm.Visible = true;
                 }
                 else
@@ -275,9 +221,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
-                        ?.First( );
-
+                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
                     _dataGridForm.Visible = true;
                 }
                 else
@@ -295,10 +239,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [database tile clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnDatabaseTileClicked( object sender, EventArgs e )
@@ -314,10 +258,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [reporting tile clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnReportingTileClicked( object sender, EventArgs e )
@@ -333,10 +277,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [client tile clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnClientTileClicked( object sender, EventArgs e )
@@ -352,10 +296,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [utility tile clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnUtilityTileClicked( object sender, EventArgs e )
@@ -373,10 +317,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [guidance tile clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnGuidanceTileClicked( object sender, EventArgs e )
@@ -392,10 +336,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [tool tile clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnWebTileClicked( object sender, EventArgs e )
@@ -415,10 +359,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [exit button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnExitButtonClicked( object sender, EventArgs e )
@@ -448,10 +392,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "MouseEventArgs"/>
+        /// <see cref="MouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
@@ -470,10 +414,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [shown]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnShown( object sender, EventArgs e )
@@ -489,12 +433,63 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MainForm"/>
+        /// class.
+        /// </summary>
+        public MainForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Name = "Main";
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+            ExitButton.HoverText = "Exit Application";
+            Tiles = GetTiles( );
+
+            // Event Wiring
+            ExitButton.Click += null;
+            DatabaseTile.Click += OnDatabaseTileClicked;
+            UtilityTile.Click += OnUtilityTileClicked;
+            ReportingTile.Click += OnReportingTileClicked;
+            ClientTile.Click += OnClientTileClicked;
+            GuidanceTile.Click += OnGuidanceTileClicked;
+            WebTile.Click += OnWebTileClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            TestButton.Click += OnTestButtonClick;
+            Load += OnLoad;
+            Shown += OnShown;
+            MouseClick += OnRightClick;
         }
     }
 }

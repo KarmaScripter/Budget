@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -34,17 +35,8 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolStripLabelBase"/>
-        /// class.
-        /// </summary>
-        protected ToolStripLabelBase( )
-        {
-        }
-
         /// <summary> Sets the font. </summary>
-        /// <param name = "font" > The font. </param>
+        /// <param name="font"> The font. </param>
         public virtual void SetFont( Font font )
         {
             try
@@ -58,7 +50,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the color of the fore. </summary>
-        /// <param name = "color" > The color. </param>
+        /// <param name="color"> The color. </param>
         public virtual void SetForeColor( Color color )
         {
             try
@@ -74,7 +66,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the color of the back. </summary>
-        /// <param name = "color" > The color. </param>
+        /// <param name="color"> The color. </param>
         public virtual void SetBackColor( Color color )
         {
             try
@@ -90,7 +82,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the text. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <param name="text"> The text. </param>
         public virtual void SetText( string text )
         {
             try
@@ -106,7 +98,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tag. </summary>
-        /// <param name = "tag" > The tag. </param>
+        /// <param name="tag"> The tag. </param>
         public virtual void SetTag( object tag )
         {
             try
@@ -120,12 +112,21 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabelBase"/>
+        /// class.
+        /// </summary>
+        protected ToolStripLabelBase( )
+        {
         }
     }
 }

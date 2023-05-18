@@ -13,7 +13,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Grid;
 
     /// <summary> </summary>
-    /// <seealso cref = "DataViewBase"/>
+    /// <seealso cref="DataViewBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class DataView : DataViewBase
     {
@@ -23,7 +23,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataView"/>
+        /// <see cref="DataView"/>
         /// class.
         /// </summary>
         public DataView( )
@@ -90,10 +90,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataView"/>
+        /// <see cref="DataView"/>
         /// class.
         /// </summary>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="dataTable"> The data table. </param>
         public DataView( DataTable dataTable )
             : this( )
         {

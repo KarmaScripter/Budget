@@ -12,12 +12,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Pdf.Parsing;
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
@@ -43,73 +44,11 @@ namespace BudgetExecution
         /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "PdfForm"/>
-        /// class.
-        /// </summary>
-        public PdfForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            StartPosition = FormStartPosition.CenterScreen;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 5;
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Event Wiring
-            CloseButton.Click += OnCloseButtonClick;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
-            DataGridButton.Click += OnDataGridButtonClick;
-            ChartButton.Click += OnChartButtonClick;
-            ExcelButton.Click += OnExcelButtonClick;
-            ListBox.SelectedValueChanged += OnListBoxItemSelected;
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClosing;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "PdfForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "filePath" > The file path. </param>
-        public PdfForm( string filePath )
-            : this( )
-        {
-            FilePath = filePath;
-            FileName = Path.GetFileName( filePath );
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnLoad( object sender, EventArgs e )
@@ -132,10 +71,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
@@ -151,8 +90,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -215,9 +154,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
-                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
-                        ?.First( );
-
+                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )?.First( );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
@@ -243,9 +180,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
-                        ?.First( );
-
+                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
@@ -271,9 +206,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
-                        ?.First( );
-
+                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
@@ -292,10 +225,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [data grid button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnDataGridButtonClick( object sender, EventArgs e )
@@ -335,10 +268,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnCloseButtonClick( object sender, EventArgs e )
@@ -364,10 +297,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [back button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnBackButtonClicked( object sender, EventArgs e )
@@ -393,10 +326,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [shown]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnShown( object sender, EventArgs e )
@@ -415,10 +348,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Raises the Close event. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnClosing( object sender, EventArgs e )
@@ -437,10 +370,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnListBoxItemSelected( object sender )
@@ -452,10 +385,7 @@ namespace BudgetExecution
                 {
                     var _data = DataTable.AsEnumerable( );
                     var _caption = listBox.SelectedValue.ToString( );
-                    var _file = _data?.Where( p => p.Field<string>( "Caption" ).Equals( _caption ) )
-                        ?.Select( p => p.Field<string>( "Location" ) )
-                        ?.Single( );
-
+                    var _file = _data?.Where( p => p.Field<string>( "Caption" ).Equals( _caption ) )?.Select( p => p.Field<string>( "Location" ) )?.Single( );
                     var _prefix = @"C:\Users\terry\source\repos\Budget\";
                     HeaderLabel.Text = _caption;
                     var _path = _prefix + _file;
@@ -467,6 +397,68 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="PdfForm"/>
+        /// class.
+        /// </summary>
+        public PdfForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            StartPosition = FormStartPosition.CenterScreen;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 5;
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Event Wiring
+            CloseButton.Click += OnCloseButtonClick;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
+            DataGridButton.Click += OnDataGridButtonClick;
+            ChartButton.Click += OnChartButtonClick;
+            ExcelButton.Click += OnExcelButtonClick;
+            ListBox.SelectedValueChanged += OnListBoxItemSelected;
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClosing;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="PdfForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="filePath"> The file path. </param>
+        public PdfForm( string filePath )
+            : this( )
+        {
+            FilePath = filePath;
+            FileName = Path.GetFileName( filePath );
         }
     }
 }

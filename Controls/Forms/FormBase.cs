@@ -4,17 +4,19 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     public partial class FormBase : MetroForm
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "FormBase"/>
+        /// <see cref="FormBase"/>
         /// class.
         /// </summary>
         public FormBase( )

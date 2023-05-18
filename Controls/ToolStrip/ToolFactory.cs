@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary> </summary>
@@ -17,15 +18,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the image directory. </summary>
         /// <value> The image directory. </value>
         public static string ImageDirectory { get; } = ConfigurationManager.AppSettings[ "ToolStrip" ];
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ToolFactory"/>
-        /// class.
-        /// </summary>
-        public ToolFactory( )
-        {
-        }
 
         /// <summary> Creates the separator. </summary>
         /// <returns> </returns>
@@ -368,12 +360,21 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolFactory"/>
+        /// class.
+        /// </summary>
+        public ToolFactory( )
+        {
         }
     }
 }

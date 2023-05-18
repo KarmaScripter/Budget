@@ -4,12 +4,14 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.ResourcePlanningOffice"/>
+    /// <seealso cref="BudgetExecution.ResourcePlanningOffice"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RegionalOffice : ResourcePlanningOffice
     {
@@ -42,7 +44,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalOffice"/>
+        /// <see cref="RegionalOffice"/>
         /// class.
         /// </summary>
         public RegionalOffice( )
@@ -51,10 +53,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalOffice"/>
+        /// <see cref="RegionalOffice"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public RegionalOffice( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -63,10 +65,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalOffice"/>
+        /// <see cref="RegionalOffice"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public RegionalOffice( IDataModel builder )
         {
             Record = builder.Record;
@@ -75,10 +77,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalOffice"/>
+        /// <see cref="RegionalOffice"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
+        /// <param name="dataRow"> The dataRow. </param>
         public RegionalOffice( DataRow dataRow )
         {
             Record = dataRow;

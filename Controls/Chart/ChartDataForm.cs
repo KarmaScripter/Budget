@@ -18,7 +18,7 @@ namespace BudgetExecution
     using MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
@@ -131,149 +131,11 @@ namespace BudgetExecution
         /// <value> The metric. </value>
         public STAT Metric { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ChartDataForm"/>
-        /// class.
-        /// </summary>
-        public ChartDataForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Initialize Default Provider
-            Provider = Provider.Access;
-            Metric = STAT.Total;
-            ChartType = SeriesChartType.Column;
-
-            // Event Wiring
-            ExitButton.Click += null;
-            BackButton.Click += null;
-            MenuButton.Click += null;
-            ExcelButton.Click += null;
-            RefreshDataButton.Click += null;
-            RemoveFiltersButton.Click += null;
-            TableButton.Click += null;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            BackButton.Click += OnBackButtonClicked;
-            ExitButton.Click += OnExitButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            GroupButton.Click += OnGroupButtonClicked;
-            RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
-            RefreshDataButton.Click += OnRefreshDataButtonClicked;
-            ExcelButton.Click += OnExcelExportButtonClicked;
-            TableButton.Click += OnTableButtonClick;
-            ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
-            MetricsComboBox.SelectedIndexChanged += OnMeasureSelected;
-            MouseClick += OnRightClick;
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ChartDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
-        public ChartDataForm( BindingSource bindingSource )
-            : this( )
-        {
-            DataTable = (DataTable)bindingSource.DataSource;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            SelectedTable = DataTable.TableName;
-            DataModel = new DataBuilder( Source, Provider );
-            BindingSource.DataSource = DataModel.DataTable;
-            Chart.DataSource = BindingSource;
-            ToolStrip.BindingSource = BindingSource;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ChartDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        public ChartDataForm( Source source, Provider provider )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource = BindingSource;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ChartDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "where" > The where. </param>
-        public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            FormFilter = where;
-            DataModel = new DataBuilder( Source, Provider, FormFilter );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource.DataSource = DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnLoad( object sender, EventArgs e )
@@ -426,7 +288,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [table ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -460,7 +322,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [first ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -510,10 +372,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [second ComboBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
@@ -550,7 +412,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [second ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnSecondListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -584,10 +446,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [third ComboBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
@@ -625,7 +487,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [third ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         public void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -659,10 +521,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [exit button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnExitButtonClicked( object sender, EventArgs e )
@@ -678,10 +540,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
@@ -697,10 +559,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [excel export button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnExcelExportButtonClicked( object sender, EventArgs e )
@@ -717,10 +579,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [binding source changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnBindingSourceChanged( object sender, EventArgs e )
@@ -739,8 +601,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -748,7 +610,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the SQL text. </summary>
-        /// <param name = "where" > The where. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
@@ -770,12 +632,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the SQL text. </summary>
-        /// <param name = "fields" > The fields. </param>
-        /// <param name = "numerics" > The numerics. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
                && where?.Any( ) == true
@@ -799,8 +660,7 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {SelectedTable} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    return $"SELECT {_columns} FROM {SelectedTable} " + $"WHERE {_criteria} " + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
                 {
@@ -813,8 +673,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the SQL text. </summary>
-        /// <param name = "columns" > The columns. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
@@ -832,8 +692,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
-                        + $"GROUP BY {_names};";
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} " + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
                 {
@@ -880,7 +739,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Resets the data. </summary>
-        /// <param name = "sqlText" > The SQL text. </param>
+        /// <param name="sqlText"> The SQL text. </param>
         private void ResetData( string sqlText )
         {
             if( !string.IsNullOrEmpty( sqlText ) )
@@ -916,7 +775,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Resets the data. </summary>
-        /// <param name = "where" > The where. </param>
+        /// <param name="where"> The where. </param>
         private void ResetData( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )
@@ -953,8 +812,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Resets the data. </summary>
-        /// <param name = "cols" > The cols. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="cols"> The cols. </param>
+        /// <param name="where"> The where. </param>
         private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -992,11 +851,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Resets the data. </summary>
-        /// <param name = "fields" > The fields. </param>
-        /// <param name = "numerics" > The numerics. </param>
-        /// <param name = "where" > The where. </param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
                && numerics?.Any( ) == true
@@ -1198,11 +1056,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
-
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )?.OrderBy( r => r.Field<string>( "Title" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 if( _names?.Any( ) == true )
                 {
                     foreach( var name in _names )
@@ -1305,10 +1159,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
-                    var _excelDataForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
-                        ?.First( );
-
+                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )?.First( );
                     _excelDataForm.Visible = true;
                 }
                 else
@@ -1332,10 +1183,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
-                    var _dataGridForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
-                        ?.First( );
-
+                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )?.First( );
                     _dataGridForm.Visible = true;
                 }
                 else
@@ -1482,7 +1330,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the type of the chart. </summary>
-        /// <param name = "type" > The type. </param>
+        /// <param name="type"> The type. </param>
         private void SetChartType( string type )
         {
             if( !string.IsNullOrEmpty( type ) )
@@ -1503,7 +1351,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the measure. </summary>
-        /// <param name = "stat" > The stat. </param>
+        /// <param name="stat"> The stat. </param>
         private void SetMeasure( string stat )
         {
             if( !string.IsNullOrEmpty( stat ) )
@@ -1582,7 +1430,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the axis title. </summary>
-        /// <param name = "filter" > The filter. </param>
+        /// <param name="filter"> The filter. </param>
         private void SetAxisTitle( IDictionary<string, object> filter )
         {
             if( filter?.Any( ) == true )
@@ -1686,8 +1534,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the legend properties. </summary>
-        /// <param name = "i" > The i. </param>
-        /// <param name = "enabled" >
+        /// <param name="i"> The i. </param>
+        /// <param name="enabled">
         /// if set to
         /// <c> true </c>
         /// [enabled].
@@ -1711,8 +1559,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the series properties. </summary>
-        /// <param name = "i" > The i. </param>
-        /// <param name = "type" > The type. </param>
+        /// <param name="i"> The i. </param>
+        /// <param name="type"> The type. </param>
         private void SetSeriesProperties( int i = 0, SeriesChartType type = SeriesChartType.Column )
         {
             try
@@ -1771,10 +1619,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [active tab changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnActiveTabChanged( object sender, EventArgs e )
@@ -1790,10 +1638,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [first ComboBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
@@ -1830,7 +1678,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [field ListBox selected value changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         private void OnFieldListBoxSelectedValueChanged( object sender )
         {
             try
@@ -1879,7 +1727,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [numeric ListBox selected value changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         private void OnNumericListBoxSelectedValueChanged( object sender )
         {
             try
@@ -1904,10 +1752,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [refresh data button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRefreshDataButtonClicked( object sender, EventArgs e )
@@ -1930,10 +1778,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [group button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnGroupButtonClicked( object sender, EventArgs e )
@@ -1952,10 +1800,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [remove filters button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRemoveFiltersButtonClicked( object sender, EventArgs e )
@@ -1987,10 +1835,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [table button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnTableButtonClick( object sender, EventArgs e )
@@ -2007,10 +1855,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "MouseEventArgs"/>
+        /// <see cref="MouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
@@ -2029,10 +1877,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [back button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnBackButtonClicked( object sender, EventArgs e )
@@ -2063,10 +1911,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [chart type selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnChartTypeSelected( object sender, EventArgs e )
@@ -2092,10 +1940,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [measure selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnMeasureSelected( object sender, EventArgs e )
@@ -2121,10 +1969,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [shown]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnShown( object sender, EventArgs e )
@@ -2143,10 +1991,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Raises the Close event. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnClose( object sender, EventArgs e )
@@ -2162,6 +2010,144 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        public ChartDataForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Initialize Default Provider
+            Provider = Provider.Access;
+            Metric = STAT.Total;
+            ChartType = SeriesChartType.Column;
+
+            // Event Wiring
+            ExitButton.Click += null;
+            BackButton.Click += null;
+            MenuButton.Click += null;
+            ExcelButton.Click += null;
+            RefreshDataButton.Click += null;
+            RemoveFiltersButton.Click += null;
+            TableButton.Click += null;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            BackButton.Click += OnBackButtonClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            GroupButton.Click += OnGroupButtonClicked;
+            RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
+            RefreshDataButton.Click += OnRefreshDataButtonClicked;
+            ExcelButton.Click += OnExcelExportButtonClicked;
+            TableButton.Click += OnTableButtonClick;
+            ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
+            MetricsComboBox.SelectedIndexChanged += OnMeasureSelected;
+            MouseClick += OnRightClick;
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public ChartDataForm( BindingSource bindingSource )
+            : this( )
+        {
+            DataTable = (DataTable)bindingSource.DataSource;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            SelectedTable = DataTable.TableName;
+            DataModel = new DataBuilder( Source, Provider );
+            BindingSource.DataSource = DataModel.DataTable;
+            Chart.DataSource = BindingSource;
+            ToolStrip.BindingSource = BindingSource;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public ChartDataForm( Source source, Provider provider )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource = BindingSource;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The where. </param>
+        public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            FormFilter = where;
+            DataModel = new DataBuilder( Source, Provider, FormFilter );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource.DataSource = DataTable;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
         }
     }
 }

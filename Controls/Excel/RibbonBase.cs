@@ -5,14 +5,14 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary> </summary>
-    /// <seealso cref = "SpreadsheetRibbon"/>
+    /// <seealso cref="SpreadsheetRibbon"/>
     public class RibbonBase : SpreadsheetRibbon
     {
         /// <summary> Gets or sets the grid. </summary>
@@ -31,9 +31,18 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RibbonBase"/>
+        /// <see cref="RibbonBase"/>
         /// class.
         /// </summary>
         public RibbonBase( )
@@ -56,15 +65,6 @@ namespace BudgetExecution
             OfficeMenu.LayoutStyle = ToolStripLayoutStyle.Flow;
             ShowQuickItemsDropDownButton = false;
             Ribbon.ScaleMenuButtonImage = true;
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

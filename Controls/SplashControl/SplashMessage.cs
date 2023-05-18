@@ -8,11 +8,12 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
-    using Syncfusion.Drawing;
-    using Image = System.Drawing.Image;
     using System.IO;
+    using System.Threading;
+    using System.Windows.Forms;
+    using Syncfusion.Drawing;
+    using Syncfusion.Windows.Forms.Tools;
+    using Image = System.Drawing.Image;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -35,84 +36,8 @@ namespace BudgetExecution
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <remarks>
-        /// The default value for the
-        /// <see cref = "P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval"/>
-        /// is set to The splash panel has animation turned and by default will appear in
-        /// the middle of the screen.
-        /// </remarks>
-        public SplashMessage( )
-        {
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Size = new Size( 300, 150 );
-            BorderStyle = Border3DStyle.Flat;
-            BorderType = SplashBorderType.Border3D;
-            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 20, 20, 20 ),
-                Color.FromArgb( 45, 45, 45 ) );
-
-            ShowAnimation = true;
-            ShowAsTopMost = true;
-            AnimationSpeed = 20;
-            AnimationSteps = 3;
-            AnimationDirection = AnimationDirection.Default;
-            DesktopAlignment = SplashAlignment.Center;
-            DiscreetLocation = new Point( 0, 0 );
-            SuspendAutoCloseWhenMouseOver = false;
-            TabIndex = 0;
-            TimerInterval = 5000;
-            CloseOnClick = true;
-            MarqueePosition = MarqueePosition.BottomRight;
-            MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
-            SlideStyle = SlideStyle.FadeIn;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <param name = "message" > The message. </param>
-        public SplashMessage( string message )
-            : this( )
-        {
-            Text = message;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <param name = "toolTip" > The tool tip. </param>
-        public SplashMessage( SmallTip toolTip )
-            : this( )
-        {
-            Text = toolTip?.TipText;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <param name = "control" > The control. </param>
-        /// <param name = "message" > The message. </param>
-        public SplashMessage( Control control, string message )
-            : this( )
-        {
-            Parent = control;
-            Text = message;
-        }
-
-        /// <summary>
         /// Displays the
-        /// <see cref = "T:Syncfusion.Windows.Forms.Tools.SplashPanel"/>
+        /// <see cref="T:Syncfusion.Windows.Forms.Tools.SplashPanel"/>
         /// Splash panel.
         /// </summary>
         public void ShowMessage( )
@@ -131,7 +56,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the size. </summary>
-        /// <param name = "size" > The size. </param>
+        /// <param name="size"> The size. </param>
         public virtual void ReSize( Size size )
         {
             try
@@ -145,8 +70,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the size. </summary>
-        /// <param name = "width" > The width. </param>
-        /// <param name = "height" > The height. </param>
+        /// <param name="width"> The width. </param>
+        /// <param name="height"> The height. </param>
         public virtual void ReSize( int width = 300, int height = 150 )
         {
             try
@@ -160,7 +85,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the text. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <param name="text"> The text. </param>
         public virtual void SetText( string text )
         {
             try
@@ -174,7 +99,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the color of the back. </summary>
-        /// <param name = "color" > The color. </param>
+        /// <param name="color"> The color. </param>
         public virtual void SetBackColor( Color color )
         {
             try
@@ -188,7 +113,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the image. </summary>
-        /// <param name = "path" > </param>
+        /// <param name="path"> </param>
         public virtual void ResetIcon( string path )
         {
             if( !string.IsNullOrEmpty( path )
@@ -207,12 +132,86 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <remarks>
+        /// The default value for the
+        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval"/>
+        /// is set to The splash panel has animation turned and by default will appear in the middle of the
+        /// screen.
+        /// </remarks>
+        public SplashMessage( )
+        {
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Size = new Size( 300, 150 );
+            BorderStyle = Border3DStyle.Flat;
+            BorderType = SplashBorderType.Border3D;
+            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 45, 45, 45 ) );
+            ShowAnimation = true;
+            ShowAsTopMost = true;
+            AnimationSpeed = 20;
+            AnimationSteps = 3;
+            AnimationDirection = AnimationDirection.Default;
+            DesktopAlignment = SplashAlignment.Center;
+            DiscreetLocation = new Point( 0, 0 );
+            SuspendAutoCloseWhenMouseOver = false;
+            TabIndex = 0;
+            TimerInterval = 5000;
+            CloseOnClick = true;
+            MarqueePosition = MarqueePosition.BottomRight;
+            MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
+            SlideStyle = SlideStyle.FadeIn;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <param name="message"> The message. </param>
+        public SplashMessage( string message )
+            : this( )
+        {
+            Text = message;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolTip"> The tool tip. </param>
+        public SplashMessage( SmallTip toolTip )
+            : this( )
+        {
+            Text = toolTip?.TipText;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <param name="control"> The control. </param>
+        /// <param name="message"> The message. </param>
+        public SplashMessage( Control control, string message )
+            : this( )
+        {
+            Parent = control;
+            Text = message;
         }
     }
 }

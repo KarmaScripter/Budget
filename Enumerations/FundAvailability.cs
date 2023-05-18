@@ -4,29 +4,22 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// Defines the Fiscal Year Availability of Appropriated Funds
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> Defines the Fiscal Year Availability of Appropriated Funds </summary>
     public enum FundAvailability
     {
-        /// <summary>
-        /// The none
-        /// </summary>
+        /// <summary> The none </summary>
         NS = 0,
 
-        /// <summary>
-        /// The expirirng
-        /// </summary>
+        /// <summary> The expirirng </summary>
         Expiring = 1,
 
-        /// <summary>
-        /// The mulit year
-        /// </summary>
+        /// <summary> The mulit year </summary>
         MultiYear = 2,
 
-        /// <summary>
-        /// The no year
-        /// </summary>
+        /// <summary> The no year </summary>
         NoYear
     }
 }

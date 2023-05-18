@@ -13,25 +13,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ChartBase"/>
-        /// class.
-        /// </summary>
-        protected ChartBase( )
-        {
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.White;
-            BorderlineColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
-        }
 
         /// <summary> Sets the area properties. </summary>
-        private protected void SetAreaProperties( )
+        protected private void SetAreaProperties( )
         {
             try
             {
@@ -81,7 +65,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the title properties. </summary>
-        private protected void SetTitleProperties( )
+        protected private void SetTitleProperties( )
         {
             try
             {
@@ -97,7 +81,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the legend properties. </summary>
-        private protected void SetLegendProperties( int i = 0, bool enabled = false )
+        protected private void SetLegendProperties( int i = 0, bool enabled = false )
         {
             try
             {
@@ -116,7 +100,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the series. </summary>
-        private protected void SetSeriesProperties( int i = 0 )
+        protected private void SetSeriesProperties( int i = 0 )
         {
             try
             {
@@ -145,7 +129,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the chart palette colors. </summary>
-        private protected void SetChartPaletteColors( )
+        protected private void SetChartPaletteColors( )
         {
             try
             {
@@ -174,12 +158,29 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartBase"/>
+        /// class.
+        /// </summary>
+        protected ChartBase( )
+        {
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.White;
+            BorderlineColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
         }
     }
 }

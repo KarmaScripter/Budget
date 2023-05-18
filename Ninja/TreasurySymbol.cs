@@ -8,7 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using BudgetExecution;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -88,7 +88,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TreasurySymbol"/>
+        /// <see cref="TreasurySymbol"/>
         /// class.
         /// </summary>
         public TreasurySymbol( )
@@ -97,10 +97,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TreasurySymbol"/>
+        /// <see cref="TreasurySymbol"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public TreasurySymbol( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -109,10 +109,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TreasurySymbol"/>
+        /// <see cref="TreasurySymbol"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public TreasurySymbol( IDataModel builder )
         {
             Record = builder.Record;
@@ -121,10 +121,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "TreasurySymbol"/>
+        /// <see cref="TreasurySymbol"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public TreasurySymbol( DataRow dataRow )
         {
             Record = dataRow;

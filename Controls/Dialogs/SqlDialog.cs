@@ -9,16 +9,14 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
     using System.IO;
     using System.Linq;
-    using CheckState = MetroSet_UI.Enums.CheckState;
-    using Syncfusion.Windows.Forms.Edit;
-    using Syncfusion.Windows.Forms;
-    using DocumentFormat.OpenXml.Wordprocessing;
+    using System.Threading;
+    using System.Windows.Forms;
     using Syncfusion.Drawing;
-    using Color = System.Drawing.Color;
-    using Font = System.Drawing.Font;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Edit;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -52,98 +50,11 @@ namespace BudgetExecution
         /// <value> The statements. </value>
         public IDictionary<string, object> Statements { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlDialog"/>
-        /// class.
-        /// </summary>
-        public SqlDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            FirstButton.Text = "Save";
-            ThirdButton.Text = "Exit";
-            DatabaseDirectory = @"C:\Users\terry\source\repos\Budget\Data\Database\";
-
-            // Event Wiring
-            ThirdButton.Click += OnCloseButtonClicked;
-            Load += OnLoad;
-            MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
-        /// <param name = "provider" > The provider. </param>
-        public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = ToolType.EditSqlButton;
-            BindingSource = bindingSource;
-            Provider = provider;
-            DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Commands = new List<string>( );
-            Statements = new Dictionary<string, object>( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "toolType" > Type of the tool. </param>
-        /// <param name = "bindingSource" > The binding source. </param>
-        /// <param name = "provider" > The provider. </param>
-        public SqlDialog( ToolType toolType, BindingSource bindingSource,
-            Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = toolType;
-            BindingSource = bindingSource;
-            Provider = provider;
-            DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "toolType" > Type of the tool. </param>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        public SqlDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = toolType;
-            Provider = provider;
-            Source = source;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnLoad( object sender, EventArgs e )
@@ -188,7 +99,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the provider. </summary>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="provider"> The provider. </param>
         private void SetProvider( string provider )
         {
             if( !string.IsNullOrEmpty( provider ) )
@@ -252,7 +163,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Populates the SQL ComboBox. </summary>
-        /// <param name = "list" > The list. </param>
+        /// <param name="list"> The list. </param>
         private void PopulateSqlComboBox( IList<string> list )
         {
             if( list?.Any( ) == true )
@@ -303,7 +214,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the command list. </summary>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
         private IList<string> CreateCommandList( Provider provider )
         {
@@ -338,7 +249,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the query list. </summary>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
         private IList<string> CreateQueryList( Provider provider )
         {
@@ -386,10 +297,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [RadioButton checked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRadioButtonChecked( object sender, EventArgs e )
@@ -429,12 +340,8 @@ namespace BudgetExecution
                 SqlEditor.ContextChoiceForeColor = Color.Black;
                 SqlEditor.ContextChoiceBackColor = SystemColors.ControlLight;
                 SqlEditor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.ContextPromptBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                SqlEditor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
+                SqlEditor.ContextPromptBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                SqlEditor.ContextTooltipBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
                 SqlEditor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
                 SqlEditor.EndOfLineBackColor = SystemColors.ControlLight;
                 SqlEditor.EndOfLineForeColor = SystemColors.ControlLight;
@@ -456,8 +363,7 @@ namespace BudgetExecution
                 SqlEditor.WordWrap = true;
                 SqlEditor.WordWrapColumn = 100;
                 SqlEditor.Dock = DockStyle.None;
-                SqlEditor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
-                    | AnchorStyles.Right;
+                SqlEditor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             }
             catch( Exception ex )
             {
@@ -466,10 +372,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [ComboBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnComboBoxItemSelected( object sender, EventArgs e )
@@ -514,7 +420,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [ListBox item selected]. </summary>
-        /// <param name = "sender" > The sender. </param>
+        /// <param name="sender"> The sender. </param>
         private void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -528,9 +434,7 @@ namespace BudgetExecution
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = DatabaseDirectory
-                            + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
-
+                        var _filePath = DatabaseDirectory + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
                         var _stream = File.OpenRead( _filePath );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
@@ -538,9 +442,7 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = DatabaseDirectory
-                            + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
-
+                        var _path = DatabaseDirectory + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
                         var _stream = File.OpenRead( _path );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
@@ -555,10 +457,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [clear button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnClearButtonClick( object sender, EventArgs e )
@@ -574,10 +476,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "MouseEventArgs"/>
+        /// <see cref="MouseEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
@@ -593,6 +495,92 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        public SqlDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            FirstButton.Text = "Save";
+            ThirdButton.Text = "Exit";
+            DatabaseDirectory = @"C:\Users\terry\source\repos\Budget\Data\Database\";
+
+            // Event Wiring
+            ThirdButton.Click += OnCloseButtonClicked;
+            Load += OnLoad;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="provider"> The provider. </param>
+        public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = ToolType.EditSqlButton;
+            BindingSource = bindingSource;
+            Provider = provider;
+            DataTable = BindingSource.GetDataTable( );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            Commands = new List<string>( );
+            Statements = new Dictionary<string, object>( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="provider"> The provider. </param>
+        public SqlDialog( ToolType toolType, BindingSource bindingSource, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = toolType;
+            BindingSource = bindingSource;
+            Provider = provider;
+            DataTable = BindingSource.GetDataTable( );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public SqlDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = toolType;
+            Provider = provider;
+            Source = source;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataModel.DataTable;
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
         }
     }
 }

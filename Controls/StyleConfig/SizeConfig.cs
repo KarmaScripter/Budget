@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using System.Threading;
 
     /// <summary> </summary>
     public class SizeConfig
@@ -25,15 +26,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the width. </summary>
         /// <value> The width. </value>
         public int Width { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SizeConfig"/>
-        /// class.
-        /// </summary>
-        public SizeConfig( )
-        {
-        }
 
         /// <summary> Gets the size of the normal form. </summary>
         /// <value> The size of the normal form. </value>
@@ -72,8 +64,8 @@ namespace BudgetExecution
         public static readonly Size ImageHuge = new(250, 250);
 
         /// <summary> Sets the color. </summary>
-        /// <param name = "width" > The width. </param>
-        /// <param name = "height" > The height. </param>
+        /// <param name="width"> The width. </param>
+        /// <param name="height"> The height. </param>
         /// <returns> </returns>
         public static Size GetSize( int width = 1, int height = 1 )
         {
@@ -91,7 +83,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the size. </summary>
-        /// <param name = "size" > The size. </param>
+        /// <param name="size"> The size. </param>
         /// <returns> </returns>
         public static Size GetSize( Size size )
         {
@@ -112,10 +104,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [size changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public static void OnSizeChanged( object sender, EventArgs e )
@@ -136,12 +128,21 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SizeConfig"/>
+        /// class.
+        /// </summary>
+        public SizeConfig( )
+        {
         }
     }
 }

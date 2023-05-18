@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -139,7 +140,7 @@ namespace BudgetExecution
         public override DataRow Record { get; set; }
 
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "fundCode" > The fundCode. </param>
+        /// <param name="fundCode"> The fundCode. </param>
         /// <returns> </returns>
         protected IDictionary<string, object> GetArgs( string fundCode )
         {
@@ -175,7 +176,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "fundCode" > The fundCode. </param>
+        /// <param name="fundCode"> The fundCode. </param>
         /// <returns> </returns>
         protected IDictionary<string, object> GetArgs( FundCode fundCode )
         {

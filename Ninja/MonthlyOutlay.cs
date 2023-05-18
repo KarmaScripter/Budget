@@ -4,151 +4,16 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class MonthlyOutlay : BudgetUnit, IMonthlyOutlay
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "MonthlyOutlay"/>
-        /// class.
-        /// </summary>
-        public MonthlyOutlay( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "MonthlyOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public MonthlyOutlay( IQuery query )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FiscalYear = Record[ "FiscalYear" ].ToString( );
-            LineNumber = Record[ "LineNumber" ].ToString( );
-            LineTitle = Record[ "LineTitle" ].ToString( );
-            TaxationCode = Record[ "TaxationCode" ].ToString( );
-            TreasuryAgencyCode = Record[ "TreasuryAgency" ].ToString( );
-            TreasuryBureauCode = Record[ "TreasuryBureauCode" ].ToString( );
-            BudgetAgencyCode = Record[ "BudgetAgencyCode" ].ToString( );
-            TreasuryAgencyCode = Record[ "TreasuryAgencyCode" ].ToString( );
-            SubAccount = Record[ "SubAccount" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
-            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
-            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
-            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
-            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
-            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
-            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
-            May = double.Parse( Record[ "May" ].ToString( ) ?? "0" );
-            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
-            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
-            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
-            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "MonthlyOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public MonthlyOutlay( IDataModel builder )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FiscalYear = Record[ "FiscalYear" ].ToString( );
-            LineNumber = Record[ "LineNumber" ].ToString( );
-            LineTitle = Record[ "LineTitle" ].ToString( );
-            TaxationCode = Record[ "TaxationCode" ].ToString( );
-            TreasuryAgencyCode = Record[ "TreasuryAgency" ].ToString( );
-            TreasuryBureauCode = Record[ "TreasuryBureauCode" ].ToString( );
-            BudgetAgencyCode = Record[ "BudgetAgencyCode" ].ToString( );
-            TreasuryAgencyCode = Record[ "TreasuryAgencyCode" ].ToString( );
-            SubAccount = Record[ "SubAccount" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
-            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
-            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
-            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
-            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
-            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
-            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
-            May = double.Parse( Record[ "May" ].ToString( ) ?? "0" );
-            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
-            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
-            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
-            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "MonthlyOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public MonthlyOutlay( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FiscalYear = dataRow[ "FiscalYear" ].ToString( );
-            LineNumber = dataRow[ "LineNumber" ].ToString( );
-            LineTitle = dataRow[ "LineTitle" ].ToString( );
-            TaxationCode = dataRow[ "TaxationCode" ].ToString( );
-            TreasuryAgencyCode = dataRow[ "TreasuryAgency" ].ToString( );
-            TreasuryBureauCode = dataRow[ "TreasuryBureauCode" ].ToString( );
-            BudgetAgencyCode = dataRow[ "BudgetAgencyCode" ].ToString( );
-            TreasuryAgencyCode = dataRow[ "TreasuryAgencyCode" ].ToString( );
-            SubAccount = dataRow[ "SubAccount" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-            October = double.Parse( dataRow[ "October" ].ToString( ) ?? "0" );
-            November = double.Parse( dataRow[ "November" ].ToString( ) ?? "0" );
-            December = double.Parse( dataRow[ "December" ].ToString( ) ?? "0" );
-            January = double.Parse( dataRow[ "January" ].ToString( ) ?? "0" );
-            February = double.Parse( dataRow[ "February" ].ToString( ) ?? "0" );
-            March = double.Parse( dataRow[ "March" ].ToString( ) ?? "0" );
-            April = double.Parse( dataRow[ "April" ].ToString( ) ?? "0" );
-            May = double.Parse( dataRow[ "May" ].ToString( ) ?? "0" );
-            June = double.Parse( dataRow[ "June" ].ToString( ) ?? "0" );
-            July = double.Parse( dataRow[ "July" ].ToString( ) ?? "0" );
-            August = double.Parse( dataRow[ "August" ].ToString( ) ?? "0" );
-            September = double.Parse( dataRow[ "September" ].ToString( ) ?? "0" );
-        }
-
-        public MonthlyOutlay( IMonthlyOutlay outlays )
-        {
-            BFY = outlays.BFY;
-            EFY = outlays.EFY;
-            FiscalYear = outlays.FiscalYear;
-            LineNumber = outlays.LineNumber;
-        }
 
         /// <summary> Gets or sets the fiscal year. </summary>
         /// <value> The fiscal year. </value>
@@ -253,5 +118,142 @@ namespace BudgetExecution
         /// <summary> Gets or sets the september. </summary>
         /// <value> The september. </value>
         public double September { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MonthlyOutlay"/>
+        /// class.
+        /// </summary>
+        public MonthlyOutlay( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MonthlyOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public MonthlyOutlay( IQuery query )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FiscalYear = Record[ "FiscalYear" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            LineTitle = Record[ "LineTitle" ].ToString( );
+            TaxationCode = Record[ "TaxationCode" ].ToString( );
+            TreasuryAgencyCode = Record[ "TreasuryAgency" ].ToString( );
+            TreasuryBureauCode = Record[ "TreasuryBureauCode" ].ToString( );
+            BudgetAgencyCode = Record[ "BudgetAgencyCode" ].ToString( );
+            TreasuryAgencyCode = Record[ "TreasuryAgencyCode" ].ToString( );
+            SubAccount = Record[ "SubAccount" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
+            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
+            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
+            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
+            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
+            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
+            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
+            May = double.Parse( Record[ "May" ].ToString( ) ?? "0" );
+            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
+            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
+            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
+            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MonthlyOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public MonthlyOutlay( IDataModel builder )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FiscalYear = Record[ "FiscalYear" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            LineTitle = Record[ "LineTitle" ].ToString( );
+            TaxationCode = Record[ "TaxationCode" ].ToString( );
+            TreasuryAgencyCode = Record[ "TreasuryAgency" ].ToString( );
+            TreasuryBureauCode = Record[ "TreasuryBureauCode" ].ToString( );
+            BudgetAgencyCode = Record[ "BudgetAgencyCode" ].ToString( );
+            TreasuryAgencyCode = Record[ "TreasuryAgencyCode" ].ToString( );
+            SubAccount = Record[ "SubAccount" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            October = double.Parse( Record[ "October" ].ToString( ) ?? "0" );
+            November = double.Parse( Record[ "November" ].ToString( ) ?? "0" );
+            December = double.Parse( Record[ "December" ].ToString( ) ?? "0" );
+            January = double.Parse( Record[ "January" ].ToString( ) ?? "0" );
+            February = double.Parse( Record[ "February" ].ToString( ) ?? "0" );
+            March = double.Parse( Record[ "March" ].ToString( ) ?? "0" );
+            April = double.Parse( Record[ "April" ].ToString( ) ?? "0" );
+            May = double.Parse( Record[ "May" ].ToString( ) ?? "0" );
+            June = double.Parse( Record[ "June" ].ToString( ) ?? "0" );
+            July = double.Parse( Record[ "July" ].ToString( ) ?? "0" );
+            August = double.Parse( Record[ "August" ].ToString( ) ?? "0" );
+            September = double.Parse( Record[ "September" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MonthlyOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public MonthlyOutlay( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "MonthlyOutlaysId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FiscalYear = dataRow[ "FiscalYear" ].ToString( );
+            LineNumber = dataRow[ "LineNumber" ].ToString( );
+            LineTitle = dataRow[ "LineTitle" ].ToString( );
+            TaxationCode = dataRow[ "TaxationCode" ].ToString( );
+            TreasuryAgencyCode = dataRow[ "TreasuryAgency" ].ToString( );
+            TreasuryBureauCode = dataRow[ "TreasuryBureauCode" ].ToString( );
+            BudgetAgencyCode = dataRow[ "BudgetAgencyCode" ].ToString( );
+            TreasuryAgencyCode = dataRow[ "TreasuryAgencyCode" ].ToString( );
+            SubAccount = dataRow[ "SubAccount" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            October = double.Parse( dataRow[ "October" ].ToString( ) ?? "0" );
+            November = double.Parse( dataRow[ "November" ].ToString( ) ?? "0" );
+            December = double.Parse( dataRow[ "December" ].ToString( ) ?? "0" );
+            January = double.Parse( dataRow[ "January" ].ToString( ) ?? "0" );
+            February = double.Parse( dataRow[ "February" ].ToString( ) ?? "0" );
+            March = double.Parse( dataRow[ "March" ].ToString( ) ?? "0" );
+            April = double.Parse( dataRow[ "April" ].ToString( ) ?? "0" );
+            May = double.Parse( dataRow[ "May" ].ToString( ) ?? "0" );
+            June = double.Parse( dataRow[ "June" ].ToString( ) ?? "0" );
+            July = double.Parse( dataRow[ "July" ].ToString( ) ?? "0" );
+            August = double.Parse( dataRow[ "August" ].ToString( ) ?? "0" );
+            September = double.Parse( dataRow[ "September" ].ToString( ) ?? "0" );
+        }
+
+        public MonthlyOutlay( IMonthlyOutlay outlays )
+        {
+            BFY = outlays.BFY;
+            EFY = outlays.EFY;
+            FiscalYear = outlays.FiscalYear;
+            LineNumber = outlays.LineNumber;
+        }
     }
 }

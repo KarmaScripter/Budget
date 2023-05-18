@@ -26,7 +26,9 @@ namespace BudgetExecution
         /// <value> The is case sensitive. </value>
         public bool? IsCaseSensitive { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance is identity. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is identity.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is identity; otherwise,
@@ -35,7 +37,9 @@ namespace BudgetExecution
         /// </value>
         public bool IsIdentity { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance is nullable. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is nullable.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is nullable; otherwise,

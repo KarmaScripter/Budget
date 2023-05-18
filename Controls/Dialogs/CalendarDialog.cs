@@ -38,72 +38,11 @@ namespace BudgetExecution
         /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CalendarDialog"/>
-        /// class.
-        /// </summary>
-        public CalendarDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 446, 373 );
-            MinimumSize = new Size( 446, 373 );
-            MaximumSize = new Size( 446, 373 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Close Button
-            CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
-            CloseButton.HoverTextColor = Color.White;
-            CloseButton.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
-            CloseButton.Text = "Close";
-            CloseButton.HoverText = "Close Calendar";
-
-            // HeaderLabel Settings
-            HeaderLabel.Font = new Font( "Roboto", 11 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-
-            // Event Wiring
-            Load += OnLoad;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CalendarDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dateTime" > The date time. </param>
-        public CalendarDialog( DateTime dateTime )
-            : this( )
-        {
-            DateString = dateTime.ToString( );
-        }
-
         /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnLoad( object sender, EventArgs e )
@@ -159,10 +98,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
@@ -178,10 +117,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [selection changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "SelectionChangedEventArgs"/>
+        /// <see cref="SelectionChangedEventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnSelectionChanged( object sender, EventArgs e )
@@ -199,12 +138,73 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CalendarDialog"/>
+        /// class.
+        /// </summary>
+        public CalendarDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Size = new Size( 446, 373 );
+            MinimumSize = new Size( 446, 373 );
+            MaximumSize = new Size( 446, 373 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Close Button
+            CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
+            CloseButton.HoverTextColor = Color.White;
+            CloseButton.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
+            CloseButton.Text = "Close";
+            CloseButton.HoverText = "Close Calendar";
+
+            // HeaderLabel Settings
+            HeaderLabel.Font = new Font( "Roboto", 11 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+            // Event Wiring
+            Load += OnLoad;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CalendarDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="dateTime"> The date time. </param>
+        public CalendarDialog( DateTime dateTime )
+            : this( )
+        {
+            DateString = dateTime.ToString( );
         }
     }
 }

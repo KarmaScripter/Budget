@@ -4,9 +4,11 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -15,7 +17,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfEarmarks"/>
+        /// <see cref="StatusOfEarmarks"/>
         /// class.
         /// </summary>
         public StatusOfEarmarks( )
@@ -24,10 +26,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfEarmarks"/>
+        /// <see cref="StatusOfEarmarks"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public StatusOfEarmarks( IQuery query )
             : base( query )
         {
@@ -69,10 +71,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfEarmarks"/>
+        /// <see cref="StatusOfEarmarks"/>
         /// class.
         /// </summary>
-        /// <param name = "dataBuilder" > The builder. </param>
+        /// <param name="dataBuilder"> The builder. </param>
         public StatusOfEarmarks( IDataModel dataBuilder )
         {
             Record = dataBuilder.Record;
@@ -113,10 +115,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfEarmarks"/>
+        /// <see cref="StatusOfEarmarks"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfEarmarks( DataRow dataRow )
         {
             Record = dataRow;

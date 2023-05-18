@@ -10,12 +10,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary> </summary>
-    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
@@ -107,38 +108,8 @@ namespace BudgetExecution
         /// <value> The data types. </value>
         public virtual IEnumerable<string> DataTypes { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "EditBase"/>
-        /// class.
-        /// </summary>
-        public EditBase( )
-        {
-            InitializeComponent( );
-            Size = new Size( 1310, 648 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 26;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
-            ShowIcon = false;
-            ShowMouseOver = false;
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterParent;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Text = string.Empty;
-        }
-
         /// <summary> Gets the data types. </summary>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
         public virtual IEnumerable<string> GetDataTypes( Provider provider )
         {
@@ -146,9 +117,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = "SELECT DISTINCT SchemaTypes.TypeName" + " FROM SchemaTypes"
-                        + $" WHERE SchemaTypes.Database = '{provider}'";
-
+                    var _query = "SELECT DISTINCT SchemaTypes.TypeName" + " FROM SchemaTypes" + $" WHERE SchemaTypes.Database = '{provider}'";
                     var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
                     var _data = _model.DataTable.GetUniqueColumnValues( "TypeName" );
                     return _data?.Length > 0
@@ -166,10 +135,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [close button clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public virtual void OnCloseButtonClicked( object sender, EventArgs e )
@@ -185,7 +154,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Populates the table ListBox items. </summary>
-        /// <param name = "listBox" > The list box. </param>
+        /// <param name="listBox"> The list box. </param>
         public virtual void PopulateTableListBoxItems( ListBox listBox )
         {
             try
@@ -369,12 +338,42 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EditBase"/>
+        /// class.
+        /// </summary>
+        public EditBase( )
+        {
+            InitializeComponent( );
+            Size = new Size( 1310, 648 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.Red;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 26;
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            ShowIcon = false;
+            ShowMouseOver = false;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Text = string.Empty;
         }
     }
 }

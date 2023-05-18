@@ -14,7 +14,7 @@ namespace BudgetExecution
     using OfficeOpenXml;
 
     /// <summary> </summary>
-    /// <seealso cref = "ModelBase"/>
+    /// <seealso cref="ModelBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -23,288 +23,9 @@ namespace BudgetExecution
         /// <summary> The program elements </summary>
         public IDictionary<string, IEnumerable<string>> DataElements { get; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        public DataModel( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        public DataModel( Source source, Provider provider = Provider.Access )
-        {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataElements = CreateSeries( DataTable );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "where" > The dictionary. </param>
-        public DataModel( Source source, Provider provider, IDictionary<string, object> where )
-        {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, where );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataElements = CreateSeries( DataTable );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "updates" > The updates. </param>
-        /// <param name = "where" > The where. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-        {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "columns" > The columns. </param>
-        /// <param name = "where" > The criteria. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
-        {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "fields" > The columns. </param>
-        /// <param name = "numerics" > The numerics. </param>
-        /// <param name = "where" > The where. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
-        {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
-                commandType );
-
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "where" > The dictionary. </param>
-        public DataModel( Source source, IDictionary<string, object> where )
-        {
-            Source = source;
-            Provider = Provider.Access;
-            ConnectionFactory = new ConnectionFactory( source, Provider.Access );
-            SqlStatement = new SqlStatement( source, Provider.Access, where );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "sqlText" > The SQL text. </param>
-        public DataModel( Source source, Provider provider, string sqlText )
-        {
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, sqlText );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Keys = GetPrimaryKeys( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "fullPath" > The full path. </param>
-        /// <param name = "sqlText" > The SQL text. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
-        {
-            ConnectionFactory = new ConnectionFactory( fullPath );
-            Source = ConnectionFactory.Source;
-            Provider = ConnectionFactory.Provider;
-            SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = DataTable.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataModel"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public DataModel( IQuery query )
-        {
-            Query = query;
-            Source = query.Source;
-            Provider = query.Provider;
-            ConnectionFactory = query.ConnectionFactory;
-            SqlStatement = query.SqlStatement;
-            DataTable = GetDataTable( );
-            DataSetName = DataSet.DataSetName;
-            TableName = SqlStatement.TableName;
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            DataElements = CreateSeries( DataTable );
-            Record = GetData( )?.FirstOrDefault( );
-            Map = Record?.ToDictionary( );
-        }
-
         /// <summary> Gets the values. </summary>
-        /// <param name = "dataRows" > The dataRows. </param>
-        /// <param name = "column" > The column. </param>
+        /// <param name="dataRows"> The dataRows. </param>
+        /// <param name="column"> The column. </param>
         /// <returns> </returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
         {
@@ -329,22 +50,18 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the values. </summary>
-        /// <param name = "dataRows" > The dataRows. </param>
-        /// <param name = "name" > The field. </param>
-        /// <param name = "value" > The filter. </param>
+        /// <param name="dataRows"> The dataRows. </param>
+        /// <param name="name"> The field. </param>
+        /// <param name="value"> The filter. </param>
         /// <returns> </returns>
-        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name,
-            string value )
+        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name, string value )
         {
             if( dataRows?.Any( ) == true
                && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
-                    var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{name}" ) )
-                        ?.Distinct( );
-
+                    var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
                     return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<string> );
@@ -360,7 +77,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the schema table. </summary>
-        /// <param name = "dataTable" > The dataRows table. </param>
+        /// <param name="dataTable"> The dataRows table. </param>
         /// <returns> </returns>
         public static DataTable CreateSchemaTable( DataTable dataTable )
         {
@@ -385,8 +102,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the table from excel. </summary>
-        /// <param name = "filePath" > The file path. </param>
-        /// <param name = "header" >
+        /// <param name="filePath"> The file path. </param>
+        /// <param name="header">
         /// if set to
         /// <c> true </c>
         /// [header].
@@ -445,9 +162,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the series. </summary>
-        /// <param name = "dataTable" > The dataRows. </param>
+        /// <param name="dataTable"> The dataRows. </param>
         /// <returns> </returns>
-        private static IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
+        static private IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
             {
@@ -461,8 +178,7 @@ namespace BudgetExecution
                         if( !string.IsNullOrEmpty( _columns[ i ]?.ColumnName )
                            && _columns[ i ]?.DataType == typeof( string ) )
                         {
-                            _dict?.Add( _columns[ i ]?.ColumnName,
-                                GetValues( _rows, _columns[ i ]?.ColumnName ) );
+                            _dict?.Add( _columns[ i ]?.ColumnName, GetValues( _rows, _columns[ i ]?.ColumnName ) );
                         }
                     }
 
@@ -478,6 +194,285 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, IEnumerable<string>> );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        public DataModel( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public DataModel( Source source, Provider provider = Provider.Access )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataElements = CreateSeries( DataTable );
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The dictionary. </param>
+        public DataModel( Source source, Provider provider, IDictionary<string, object> where )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, where );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataElements = CreateSeries( DataTable );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> The updates. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataModel( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
+            SQL commandType = SQL.UPDATE )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataModel( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
+            SQL commandType = SQL.SELECT )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> The columns. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataModel( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where, SQL commandType )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
+                commandType );
+
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="where"> The dictionary. </param>
+        public DataModel( Source source, IDictionary<string, object> where )
+        {
+            Source = source;
+            Provider = Provider.Access;
+            ConnectionFactory = new ConnectionFactory( source, Provider.Access );
+            SqlStatement = new SqlStatement( source, Provider.Access, where );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        public DataModel( Source source, Provider provider, string sqlText )
+        {
+            Source = source;
+            Provider = provider;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, sqlText );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Keys = GetPrimaryKeys( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The full path. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        {
+            ConnectionFactory = new ConnectionFactory( fullPath );
+            Source = ConnectionFactory.Source;
+            Provider = ConnectionFactory.Provider;
+            SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
+            Query = new Query( SqlStatement );
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = DataTable.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public DataModel( IQuery query )
+        {
+            Query = query;
+            Source = query.Source;
+            Provider = query.Provider;
+            ConnectionFactory = query.ConnectionFactory;
+            SqlStatement = query.SqlStatement;
+            DataTable = GetDataTable( );
+            DataSetName = DataSet.DataSetName;
+            TableName = SqlStatement.TableName;
+            DataColumns = GetDataColumns( );
+            ColumnNames = GetColumnNames( );
+            Keys = GetPrimaryKeys( );
+            Fields = GetFields( );
+            Numerics = GetNumerics( );
+            Dates = GetDates( );
+            DataElements = CreateSeries( DataTable );
+            Record = GetData( )?.FirstOrDefault( );
+            Map = Record?.ToDictionary( );
         }
     }
 }

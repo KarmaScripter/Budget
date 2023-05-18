@@ -16,157 +16,12 @@ namespace BudgetExecution
     using OfficeOpenXml;
 
     /// <summary> </summary>
-    /// <seealso cref = "Query"/>
+    /// <seealso cref="Query"/>
     public class ExcelQuery : Query
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        public ExcelQuery( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        public ExcelQuery( Source source )
-            : base( source, Provider.Excel, SQL.SELECT )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "dict" > The dictionary. </param>
-        public ExcelQuery( Source source, IDictionary<string, object> dict )
-            : base( source, Provider.Excel, dict, SQL.SELECT )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source Data. </param>
-        /// <param name = "provider" > The provider used. </param>
-        /// <param name = "dict" > The dictionary of parameters. </param>
-        /// <param name = "commandType" > The type of sql command. </param>
-        public ExcelQuery( Source source, IDictionary<string, object> dict, SQL commandType )
-            : base( source, Provider.Excel, dict, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "updates" > </param>
-        /// <param name = "where" > The where. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public ExcelQuery( Source source, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, Provider.Excel, updates, where, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "columns" > The columns. </param>
-        /// <param name = "criteria" > The criteria. </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public ExcelQuery( Source source, IEnumerable<string> columns,
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, Provider.Excel, columns, criteria, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "fields" > </param>
-        /// <param name = "numerics" > The numerics. </param>
-        /// <param name = "criteria" > </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public ExcelQuery( Source source, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, Provider.Excel, fields, numerics, criteria,
-                commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "sqlStatement" > The sqlStatement. </param>
-        public ExcelQuery( ISqlStatement sqlStatement )
-            : base( sqlStatement )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "provider" > The provider. </param>
-        /// <param name = "sqlText" > The SQL text. </param>
-        public ExcelQuery( Source source, string sqlText )
-            : base( source, Provider.Excel, sqlText )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "fullPath" > The fullpath. </param>
-        /// <param name = "sqlText" > </param>
-        /// <param name = "commandType" > The commandType. </param>
-        public ExcelQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
-            : base( fullPath, sqlText, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ExcelQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name = "fullPath" > The fullpath. </param>
-        /// <param name = "commandType" > The commandType. </param>
-        /// <param name = "dict" > The dictionary. </param>
-        public ExcelQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
-            : base( fullPath, commandType, dict )
-        {
-        }
 
         /// <summary> Saves the file. </summary>
-        /// <param name = "workBook" > The work book. </param>
+        /// <param name="workBook"> The work book. </param>
         public void SaveFile( ExcelPackage workBook )
         {
             if( workBook != null )
@@ -196,8 +51,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Writes the excel file. </summary>
-        /// <param name = "table" > The table. </param>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="table"> The table. </param>
+        /// <param name="filePath"> The file path. </param>
         public void WriteExcelFile( DataTable table, string filePath )
         {
             if( table?.Columns.Count > 0
@@ -214,8 +69,7 @@ namespace BudgetExecution
                     {
                         if( _excelWorksheet != null )
                         {
-                            _excelWorksheet.Cells[ 1, column ].Value =
-                                table.Columns[ column - 1 ].ColumnName;
+                            _excelWorksheet.Cells[ 1, column ].Value = table.Columns[ column - 1 ].ColumnName;
                         }
                     }
 
@@ -225,8 +79,7 @@ namespace BudgetExecution
                         {
                             if( _excelWorksheet != null )
                             {
-                                _excelWorksheet.Cells[ row + 1, col + 1 ].Value =
-                                    table.Rows[ row - 1 ][ col ];
+                                _excelWorksheet.Cells[ row + 1, col + 1 ].Value = table.Rows[ row - 1 ][ col ];
                             }
                         }
                     }
@@ -269,7 +122,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Imports the Data. </summary>
-        /// <param name = "sheetName" > Name of the sheet. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
         /// <returns> </returns>
         public DataTable ImportData( ref string sheetName )
         {
@@ -309,8 +162,8 @@ namespace BudgetExecution
         }
 
         /// <summary> CSVs the import. </summary>
-        /// <param name = "fileName" > Name of the file. </param>
-        /// <param name = "sheetName" > Name of the sheet. </param>
+        /// <param name="fileName"> Name of the file. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
         /// <returns> </returns>
         public DataTable CsvImport( string fileName, ref string sheetName )
         {
@@ -321,10 +174,7 @@ namespace BudgetExecution
                 {
                     var _data = new DataSet( );
                     var _sql = $"SELECT * FROM {sheetName}";
-                    var _connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;"
-                        + $"Data Source={Path.GetDirectoryName( fileName )} "
-                        + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
-
+                    var _connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;" + $"Data Source={Path.GetDirectoryName( fileName )} " + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
                     var _connection = new OleDbConnection( _connectionString );
                     var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
                     if( !string.IsNullOrEmpty( sheetName ) )
@@ -356,10 +206,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Releases the specified range. </summary>
-        /// <param name = "range" > The range. </param>
-        /// <param name = "workSheet" > The work sheet. </param>
-        /// <param name = "excel" > The excel. </param>
-        protected virtual void Release( ExcelRange range, ExcelWorksheet workSheet, ExcelPackage excel )
+        /// <param name="range"> The range. </param>
+        /// <param name="workSheet"> The work sheet. </param>
+        /// <param name="excel"> The excel. </param>
+        virtual protected void Release( ExcelRange range, ExcelWorksheet workSheet, ExcelPackage excel )
         {
             try
             {
@@ -376,13 +226,13 @@ namespace BudgetExecution
         }
 
         /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name = "disposing" >
+        /// <param name="disposing">
         /// <c> true </c>
         /// to release both managed and unmanaged resources;
         /// <c> false </c>
         /// to release only unmanaged resources.
         /// </param>
-        protected override void Dispose( bool disposing )
+        override protected void Dispose( bool disposing )
         {
             if( disposing )
             {
@@ -393,9 +243,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Reads the excel file. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         /// <returns> </returns>
-        private static ExcelPackage ReadExcelFile( string filePath )
+        static private ExcelPackage ReadExcelFile( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath ) )
             {
@@ -422,7 +272,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Exports to Data grid. </summary>
-        /// <param name = "dataGrid" > The Data grid. </param>
+        /// <param name="dataGrid"> The Data grid. </param>
         private void ExportToDataGrid( DataGridView dataGrid )
         {
             try
@@ -458,8 +308,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sheets the exists. </summary>
-        /// <param name = "sheetName" > Name of the sheet. </param>
-        /// <param name = "dataTable" > The Data table. </param>
+        /// <param name="sheetName"> Name of the sheet. </param>
+        /// <param name="dataTable"> The Data table. </param>
         /// <returns> </returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
@@ -487,6 +337,150 @@ namespace BudgetExecution
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        public ExcelQuery( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        public ExcelQuery( Source source )
+            : base( source, Provider.Excel, SQL.SELECT )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="dict"> The dictionary. </param>
+        public ExcelQuery( Source source, IDictionary<string, object> dict )
+            : base( source, Provider.Excel, dict, SQL.SELECT )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source Data. </param>
+        /// <param name="provider"> The provider used. </param>
+        /// <param name="dict"> The dictionary of parameters. </param>
+        /// <param name="commandType"> The type of sql command. </param>
+        public ExcelQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+            : base( source, Provider.Excel, dict, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public ExcelQuery( Source source, IDictionary<string, object> updates, IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : base( source, Provider.Excel, updates, where, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="criteria"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public ExcelQuery( Source source, IEnumerable<string> columns, IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            : base( source, Provider.Excel, columns, criteria, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="criteria"> </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public ExcelQuery( Source source, IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> criteria,
+            SQL commandType = SQL.SELECT )
+            : base( source, Provider.Excel, fields, numerics, criteria,
+                commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlStatement"> The sqlStatement. </param>
+        public ExcelQuery( ISqlStatement sqlStatement )
+            : base( sqlStatement )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        public ExcelQuery( Source source, string sqlText )
+            : base( source, Provider.Excel, sqlText )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
+        public ExcelQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+            : base( fullPath, sqlText, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="dict"> The dictionary. </param>
+        public ExcelQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
+            : base( fullPath, commandType, dict )
+        {
         }
     }
 }

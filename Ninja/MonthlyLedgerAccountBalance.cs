@@ -4,18 +4,52 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MonthlyLedgerAccountBalance : BudgetUnit, ILedgerAccountBalance
     {
+
+        /// <summary> Gets or sets the fiscal year. </summary>
+        /// <value> The fiscal year. </value>
+        public string FiscalYear { get; set; }
+
+        /// <summary> Gets or sets the ledger account. </summary>
+        /// <value> The ledger account. </value>
+        public string LedgerAccount { get; set; }
+
+        /// <summary> Gets or sets the name of the ledger. </summary>
+        /// <value> The name of the ledger. </value>
+        public string LedgerName { get; set; }
+
+        /// <summary> Gets or sets the apportionment account code. </summary>
+        /// <value> The apportionment account code. </value>
+        public string ApportionmentAccountCode { get; set; }
+
+        /// <summary> Gets or sets the fiscal month. </summary>
+        /// <value> The fiscal month. </value>
+        public string FiscalMonth { get; set; }
+
+        /// <summary> Gets or sets the credit balance. </summary>
+        /// <value> The credit balance. </value>
+        public double CreditBalance { get; set; }
+
+        /// <summary> Gets or sets the debit balance. </summary>
+        /// <value> The debit balance. </value>
+        public double DebitBalance { get; set; }
+
+        /// <summary> Gets or sets the year to date amount. </summary>
+        /// <value> The year to date amount. </value>
+        public double YearToDateAmount { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyLedgerAccountBalance"/>
+        /// <see cref="MonthlyLedgerAccountBalance"/>
         /// class.
         /// </summary>
         public MonthlyLedgerAccountBalance( )
@@ -25,10 +59,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyLedgerAccountBalance"/>
+        /// <see cref="MonthlyLedgerAccountBalance"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public MonthlyLedgerAccountBalance( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -49,10 +83,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyLedgerAccountBalance"/>
+        /// <see cref="MonthlyLedgerAccountBalance"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public MonthlyLedgerAccountBalance( IDataModel builder )
         {
             Record = builder.Record;
@@ -73,10 +107,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "MonthlyLedgerAccountBalance"/>
+        /// <see cref="MonthlyLedgerAccountBalance"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public MonthlyLedgerAccountBalance( DataRow dataRow )
         {
             Record = dataRow;
@@ -111,37 +145,5 @@ namespace BudgetExecution
             BudgetAccountCode = account.BudgetAccountCode;
             BudgetAccountName = account.BudgetAccountName;
         }
-
-        /// <summary> Gets or sets the fiscal year. </summary>
-        /// <value> The fiscal year. </value>
-        public string FiscalYear { get; set; }
-
-        /// <summary> Gets or sets the ledger account. </summary>
-        /// <value> The ledger account. </value>
-        public string LedgerAccount { get; set; }
-
-        /// <summary> Gets or sets the name of the ledger. </summary>
-        /// <value> The name of the ledger. </value>
-        public string LedgerName { get; set; }
-
-        /// <summary> Gets or sets the apportionment account code. </summary>
-        /// <value> The apportionment account code. </value>
-        public string ApportionmentAccountCode { get; set; }
-
-        /// <summary> Gets or sets the fiscal month. </summary>
-        /// <value> The fiscal month. </value>
-        public string FiscalMonth { get; set; }
-
-        /// <summary> Gets or sets the credit balance. </summary>
-        /// <value> The credit balance. </value>
-        public double CreditBalance { get; set; }
-
-        /// <summary> Gets or sets the debit balance. </summary>
-        /// <value> The debit balance. </value>
-        public double DebitBalance { get; set; }
-
-        /// <summary> Gets or sets the year to date amount. </summary>
-        /// <value> The year to date amount. </value>
-        public double YearToDateAmount { get; set; }
     }
 }

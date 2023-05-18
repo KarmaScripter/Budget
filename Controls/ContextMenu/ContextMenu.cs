@@ -16,40 +16,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ContextMenu : MenuBase
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ContextMenu"/>
-        /// class.
-        /// </summary>
-        public ContextMenu( )
-        {
-            BackColor = Color.FromArgb( 30, 30, 30 );
-            BackgroundColor = Color.FromArgb( 30, 30, 30 );
-            ForeColor = Color.White;
-            ArrowColor = Color.FromArgb( 50, 93, 129 );
-            SeparatorColor = Color.FromArgb( 65, 65, 65 );
-            AutoSize = false;
-            Size = new Size( 156, 264 );
-            IsDerivedStyle = false;
-            RenderMode = ToolStripRenderMode.System;
-            Style = Style.Custom;
-            ShowCheckMargin = false;
-            ShowImageMargin = true;
-            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
-            SelectedItemColor = Color.White;
-            ThemeAuthor = "Terry Eppler";
-            ThemeName = "Budget Execution";
-
-            // Menu Items
-            FileOption = CreateFileOption( );
-            FolderOption = CreateFolderOption( );
-            CalculatorOption = CreateCalculatorOption( );
-            CalendarOption = CreateCalendarOption( );
-            GuidanceOption = CreateGuidanceOption( );
-            SaveOption = CreateSaveOption( );
-            CloseOption = CreateCloseOption( );
-            ExitOption = CreateExitOption( );
-        }
 
         /// <summary> Initializes the file option. </summary>
         private MetroSetToolStripMenuItem CreateFileOption( )
@@ -276,10 +242,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Called when [item clicked]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
         /// The
-        /// <see cref = "EventArgs"/>
+        /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         private void OnItemClicked( object sender, MouseEventArgs e )
@@ -367,6 +333,41 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ContextMenu"/>
+        /// class.
+        /// </summary>
+        public ContextMenu( )
+        {
+            BackColor = Color.FromArgb( 30, 30, 30 );
+            BackgroundColor = Color.FromArgb( 30, 30, 30 );
+            ForeColor = Color.White;
+            ArrowColor = Color.FromArgb( 50, 93, 129 );
+            SeparatorColor = Color.FromArgb( 65, 65, 65 );
+            AutoSize = false;
+            Size = new Size( 156, 264 );
+            IsDerivedStyle = false;
+            RenderMode = ToolStripRenderMode.System;
+            Style = Style.Custom;
+            ShowCheckMargin = false;
+            ShowImageMargin = true;
+            SelectedItemBackColor = Color.FromArgb( 50, 93, 129 );
+            SelectedItemColor = Color.White;
+            ThemeAuthor = "Terry Eppler";
+            ThemeName = "Budget Execution";
+
+            // Menu Items
+            FileOption = CreateFileOption( );
+            FolderOption = CreateFolderOption( );
+            CalculatorOption = CreateCalculatorOption( );
+            CalendarOption = CreateCalendarOption( );
+            GuidanceOption = CreateGuidanceOption( );
+            SaveOption = CreateSaveOption( );
+            CloseOption = CreateCloseOption( );
+            ExitOption = CreateExitOption( );
         }
     }
 }

@@ -1,9 +1,12 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
-// Copyright (c) Terry Eppler.All rights reserved.
-// </copyright>
+﻿//  <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+//  Copyright (c) Terry Eppler. All rights reserved.
+//  </copyright>
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Threading;
+
     public abstract class BudgetControl : DataUnit
     {
         /// <summary> Gets or sets the security org. </summary>
@@ -34,8 +37,8 @@ namespace BudgetExecution
         /// <value> The actual type of the recoveries trans. </value>
         public virtual string ActualRecoveriesTransType { get; set; }
 
-        /// <summary> Gets or sets the type of the stategic reserve trans. </summary>
-        /// <value> The type of the stategic reserve trans. </value>
+        /// <summary> Gets or sets the type of the strategic reserve trans. </summary>
+        /// <value> The type of the strategic reserve trans. </value>
         public virtual string StrategicReserveTransType { get; set; }
 
         /// <summary> Gets or sets the type of the prof loss trans. </summary>

@@ -17,35 +17,6 @@ namespace BudgetExecution
         /// <summary> The connection </summary>
         private OleDbConnection _connection;
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "AccessConnect"/>
-        /// class.
-        /// </summary>
-        /// <param name = "path" > The path. </param>
-        public AccessConnect( string path )
-        {
-            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source=" + path
-                + ";Jet OLEDB:Database Password=;";
-
-            _connection = new OleDbConnection( _connectionString );
-            _connection?.Open( );
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing,
-        /// releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            if( _connection.State == ConnectionState.Open )
-            {
-                _connection = null;
-            }
-
-            GC.SuppressFinalize( this );
-        }
-
         /// <summary> Gets the table names. </summary>
         /// <returns> </returns>
         public IEnumerable<string> GetTableNames( )
@@ -63,7 +34,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the table. </summary>
-        /// <param name = "name" > The name. </param>
+        /// <param name="name"> The name. </param>
         /// <returns> </returns>
         public DataTable GetTable( string name )
         {
@@ -84,7 +55,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the column names. </summary>
-        /// <param name = "tableName" > The tableName. </param>
+        /// <param name="tableName"> The tableName. </param>
         /// <returns> </returns>
         public List<string> GetColumnNames( string tableName )
         {
@@ -107,6 +78,33 @@ namespace BudgetExecution
             return _names?.Any( ) == true
                 ? _names
                 : default;
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged
+        /// resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            if( _connection.State == ConnectionState.Open )
+            {
+                _connection = null;
+            }
+
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AccessConnect"/>
+        /// class.
+        /// </summary>
+        /// <param name="path"> The path. </param>
+        public AccessConnect( string path )
+        {
+            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source=" + path + ";Jet OLEDB:Database Password=;";
+            _connection = new OleDbConnection( _connectionString );
+            _connection?.Open( );
         }
     }
 }

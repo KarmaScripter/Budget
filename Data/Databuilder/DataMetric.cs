@@ -31,37 +31,8 @@ namespace BudgetExecution
         /// <value> The values. </value>
         public IDictionary<string, double> Values { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataMetric"/>
-        /// class.
-        /// </summary>
-        public DataMetric( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataMetric"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataTable" > The data table. </param>
-        public DataMetric( DataTable dataTable )
-        {
-            DataTable = dataTable;
-            Numerics = GetNumericColumns( );
-        }
-
-        /// <summary> </summary>
-        /// <param name = "dataRow" > </param>
-        public DataMetric( IEnumerable<DataRow> dataRow )
-        {
-            DataTable = dataRow.CopyToDataTable( );
-            Numerics = GetNumericColumns( );
-        }
-
         /// <summary> Gets the count. </summary>
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public int CountValues( string numeric )
         {
@@ -88,7 +59,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the count. </summary>
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public int CountValues( string numeric, IDictionary<string, object> where )
         {
@@ -116,7 +87,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Calculates the totals. </summary>
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public double CalculateTotal( string numeric )
         {
@@ -127,10 +98,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
+                    var _select = DataTable.AsEnumerable( )?.Select( p => p.Field<double>( numeric ) )?.Sum( );
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -153,10 +121,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
+                    var _select = DataTable.Filter( where )?.Select( p => p.Field<double>( numeric ) )?.Sum( );
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -171,7 +136,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Calculates the average. </summary>
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public double CalculateAverage( string numeric )
         {
@@ -182,10 +147,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Average( );
-
+                    var _query = DataTable.AsEnumerable( )?.Select( p => p.Field<double>( numeric ) )?.Average( );
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -209,10 +171,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Average( );
-
+                    var _query = DataTable.Filter( where )?.Select( p => p.Field<double>( numeric ) )?.Average( );
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -228,7 +187,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Calculates the percentage. </summary>
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public double CalculatePercentage( string numeric )
         {
@@ -239,10 +198,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
+                    var _select = DataTable.AsEnumerable( )?.Select( p => p.Field<double>( numeric ) )?.Sum( );
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -257,8 +213,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Calculates the percentage. </summary>
-        /// <param name = "numeric" > The numeric. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="numeric"> The numeric. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
         public double CalculatePercentage( string numeric, IDictionary<string, object> where )
         {
@@ -269,10 +225,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
+                    var _select = DataTable.Filter( where )?.Select( p => p.Field<double>( numeric ) )?.Sum( );
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -288,7 +241,7 @@ namespace BudgetExecution
 
         /// <summary> Calculates the deviation. </summary>
         /// The dataRow.
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public double CalculateDeviation( string numeric )
         {
@@ -299,10 +252,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.StandardDeviation( );
-
+                    var _query = DataTable.AsEnumerable( )?.Select( p => p.Field<double>( numeric ) )?.StandardDeviation( );
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -326,10 +276,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.StandardDeviation( );
-
+                    var _query = DataTable.Filter( where )?.Select( p => p.Field<double>( numeric ) )?.StandardDeviation( );
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -346,7 +293,7 @@ namespace BudgetExecution
 
         /// <summary> Calculates the variance. </summary>
         /// The dataRow.
-        /// <param name = "numeric" > The numeric. </param>
+        /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
         public double CalculateVariance( string numeric )
         {
@@ -357,10 +304,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Variance( );
-
+                    var _query = DataTable.AsEnumerable( )?.Select( p => p.Field<double>( numeric ) )?.Variance( );
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -384,10 +328,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Variance( );
-
+                    var _query = DataTable.Filter( where )?.Select( p => p.Field<double>( numeric ) )?.Variance( );
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -403,8 +344,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -428,8 +369,7 @@ namespace BudgetExecution
                            && col.DataType != typeof( DateTime )
                            && col.DataType != typeof( DateOnly )
                            && col.DataType != typeof( DateTimeOffset )
-                           && ( col.DataType == typeof( double ) || col.DataType == typeof( decimal )
-                               || col.DataType == typeof( float ) ) )
+                           && ( col.DataType == typeof( double ) || col.DataType == typeof( decimal ) || col.DataType == typeof( float ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }
@@ -447,6 +387,35 @@ namespace BudgetExecution
             }
 
             return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
+        /// </summary>
+        public DataMetric( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataTable"> The data table. </param>
+        public DataMetric( DataTable dataTable )
+        {
+            DataTable = dataTable;
+            Numerics = GetNumericColumns( );
+        }
+
+        /// <summary> </summary>
+        /// <param name="dataRow"> </param>
+        public DataMetric( IEnumerable<DataRow> dataRow )
+        {
+            DataTable = dataRow.CopyToDataTable( );
+            Numerics = GetNumericColumns( );
         }
     }
 }

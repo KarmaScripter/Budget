@@ -4,9 +4,10 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -15,7 +16,7 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalAuthority"/>
+        /// <see cref="RegionalAuthority"/>
         /// class.
         /// </summary>
         public RegionalAuthority( )
@@ -25,10 +26,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalAuthority"/>
+        /// <see cref="RegionalAuthority"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public RegionalAuthority( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -73,10 +74,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalAuthority"/>
+        /// <see cref="RegionalAuthority"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public RegionalAuthority( IDataModel builder )
         {
             Record = builder.Record;
@@ -121,10 +122,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "RegionalAuthority"/>
+        /// <see cref="RegionalAuthority"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public RegionalAuthority( DataRow dataRow )
         {
             Record = dataRow;

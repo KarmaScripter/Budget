@@ -4,14 +4,15 @@
 
 namespace BudgetExecution
 {
-    using System.Collections.Generic;
+    using System;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.PivotGridBase"/>
+    /// <seealso cref="BudgetExecution.PivotGridBase"/>
     public class PivotGrid : PivotGridControl
     {
         /// <summary> Gets or sets the binding source. </summary>
@@ -24,7 +25,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PivotGrid"/>
+        /// <see cref="PivotGrid"/>
         /// class.
         /// </summary>
         public PivotGrid( )

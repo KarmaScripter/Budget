@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -93,7 +94,9 @@ namespace BudgetExecution
         /// <value> The type of the estimated recoveries trans. </value>
         public string EstimatedRecoveriesTransType { get; set; }
 
-        /// <summary> Gets or sets the type of the estimated reimbursements trans. </summary>
+        /// <summary>
+        /// Gets or sets the type of the estimated reimbursements trans.
+        /// </summary>
         /// <value> The type of the estimated reimbursements trans. </value>
         public string EstimatedReimbursementsTransType { get; set; }
 
@@ -251,7 +254,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfAppropriations"/>
+        /// <see cref="StatusOfAppropriations"/>
         /// class.
         /// </summary>
         public StatusOfAppropriations( )
@@ -260,10 +263,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfAppropriations"/>
+        /// <see cref="StatusOfAppropriations"/>
         /// class.
         /// </summary>
-        /// <param name = "query" > The query. </param>
+        /// <param name="query"> The query. </param>
         public StatusOfAppropriations( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -272,10 +275,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfAppropriations"/>
+        /// <see cref="StatusOfAppropriations"/>
         /// class.
         /// </summary>
-        /// <param name = "builder" > The builder. </param>
+        /// <param name="builder"> The builder. </param>
         public StatusOfAppropriations( IDataModel builder )
         {
             Record = builder.Record;
@@ -284,10 +287,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "StatusOfAppropriations"/>
+        /// <see cref="StatusOfAppropriations"/>
         /// class.
         /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         public StatusOfAppropriations( DataRow dataRow )
         {
             Record = dataRow;

@@ -40,35 +40,8 @@ namespace BudgetExecution
         /// <value> The command repository. </value>
         public IDictionary<string, string> Commands { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBuilder"/>
-        /// class.
-        /// </summary>
-        public SqlBuilder( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlBuilder"/>
-        /// class.
-        /// </summary>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "ext" > </param>
-        /// <param name = "commandType" > Type of the command. </param>
-        public SqlBuilder( Source source, SQL commandType, EXT ext )
-        {
-            Source = source;
-            CommandType = commandType;
-            Extension = ext;
-            DirectoryPath = GetSqlDirectoryPath( );
-            Files = Directory.GetFiles( DirectoryPath );
-            Commands = GetCommands( );
-        }
-
         /// <summary> Gets the command text. </summary>
-        /// <param name = "commandName" > Name of the command. </param>
+        /// <param name="commandName"> Name of the command. </param>
         /// <returns> </returns>
         public string GetCommandText( string commandName )
         {
@@ -91,7 +64,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the command text. </summary>
-        /// <param name = "sqlCommand" > Name of the command. </param>
+        /// <param name="sqlCommand"> Name of the command. </param>
         /// <returns> </returns>
         public string GetCommandText( SQL sqlCommand )
         {
@@ -177,12 +150,39 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBuilder"/>
+        /// class.
+        /// </summary>
+        public SqlBuilder( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBuilder"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="ext"> </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlBuilder( Source source, SQL commandType, EXT ext )
+        {
+            Source = source;
+            CommandType = commandType;
+            Extension = ext;
+            DirectoryPath = GetSqlDirectoryPath( );
+            Files = Directory.GetFiles( DirectoryPath );
+            Commands = GetCommands( );
         }
     }
 }

@@ -4,33 +4,25 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> </summary>
     public enum PicSize
     {
-        /// <summary>
-        /// The none
-        /// </summary>
+        /// <summary> The none </summary>
         NS = 0,
 
-        /// <summary>
-        /// The small
-        /// </summary>
+        /// <summary> The small </summary>
         Small,
 
-        /// <summary>
-        /// The medium
-        /// </summary>
+        /// <summary> The medium </summary>
         Medium,
 
-        /// <summary>
-        /// The large
-        /// </summary>
+        /// <summary> The large </summary>
         Large,
 
-        /// <summary>
-        /// The huge
-        /// </summary>
+        /// <summary> The huge </summary>
         Huge
     }
 }

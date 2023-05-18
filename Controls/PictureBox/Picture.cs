@@ -4,12 +4,14 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
-    /// <seealso cref = "System.Windows.Forms.PictureBox"/>
+    /// <seealso cref="System.Windows.Forms.PictureBox"/>
     public class Picture : PictureBox
     {
         /// <summary> Gets or sets the tool tip. </summary>
@@ -34,7 +36,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Picture"/>
+        /// <see cref="Picture"/>
         /// class.
         /// </summary>
         public Picture( )
@@ -50,11 +52,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Picture"/>
+        /// <see cref="Picture"/>
         /// class.
         /// </summary>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "location" > The location. </param>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
         public Picture( Size size, Point location )
             : this( )
         {
@@ -64,10 +66,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Picture"/>
+        /// <see cref="Picture"/>
         /// class.
         /// </summary>
-        /// <param name = "image" > The image. </param>
+        /// <param name="image"> The image. </param>
         public Picture( Image image )
             : this( )
         {
@@ -75,10 +77,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Picture"/>
+        /// <see cref="Picture"/>
         /// class.
         /// </summary>
-        /// <param name = "path" > The path. </param>
+        /// <param name="path"> The path. </param>
         public Picture( string path )
             : this( )
         {

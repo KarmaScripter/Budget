@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -25,125 +26,6 @@ namespace BudgetExecution
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CompassOutlay"/>
-        /// class.
-        /// </summary>
-        public CompassOutlay( )
-        {
-            Source = Source.CompassOutlays;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CompassOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public CompassOutlay( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CompassOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public CompassOutlay( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CompassOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        public CompassOutlay( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CompassOutlay"/>
-        /// class.
-        /// </summary>
-        /// <param name = "outlay" > The outlay. </param>
-        public CompassOutlay( IOutlay outlay )
-        {
-            ID = outlay.ID;
-            BFY = outlay.BFY;
-            EFY = outlay.EFY;
-            FundCode = outlay.FundCode;
-            FundName = outlay.FundName;
-            AppropriationCode = outlay.AppropriationCode;
-            AppropriationName = outlay.AppropriationName;
-            TreasuryAccountCode = outlay.TreasuryAccountCode;
-            TreasuryAccountName = outlay.TreasuryAccountName;
-            BudgetAccountCode = outlay.BudgetAccountCode;
-            BudgetAccountName = outlay.BudgetAccountName;
-            MonthProcessed = outlay.MonthProcessed;
-            TotalObligations = outlay.TotalObligations;
-            ObligationsPaid = outlay.ObligationsPaid;
-            UnliquidatedObligations = outlay.UnliquidatedObligations;
-        }
 
         /// <summary> Gets or sets the Record property. </summary>
         /// <value> The data row. </value>
@@ -172,5 +54,121 @@ namespace BudgetExecution
         /// <summary> Gets or sets the obligations paid. </summary>
         /// <value> The obligations paid. </value>
         public double ObligationsPaid { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CompassOutlay"/>
+        /// class.
+        /// </summary>
+        public CompassOutlay( )
+        {
+            Source = Source.CompassOutlays;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CompassOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public CompassOutlay( IQuery query )
+            : this( )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CompassOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public CompassOutlay( IDataModel builder )
+            : this( )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CompassOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The data row. </param>
+        public CompassOutlay( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
+            AppropriationName = Record[ "AppropriationName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
+            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CompassOutlay"/>
+        /// class.
+        /// </summary>
+        /// <param name="outlay"> The outlay. </param>
+        public CompassOutlay( IOutlay outlay )
+        {
+            ID = outlay.ID;
+            BFY = outlay.BFY;
+            EFY = outlay.EFY;
+            FundCode = outlay.FundCode;
+            FundName = outlay.FundName;
+            AppropriationCode = outlay.AppropriationCode;
+            AppropriationName = outlay.AppropriationName;
+            TreasuryAccountCode = outlay.TreasuryAccountCode;
+            TreasuryAccountName = outlay.TreasuryAccountName;
+            BudgetAccountCode = outlay.BudgetAccountCode;
+            BudgetAccountName = outlay.BudgetAccountName;
+            MonthProcessed = outlay.MonthProcessed;
+            TotalObligations = outlay.TotalObligations;
+            ObligationsPaid = outlay.ObligationsPaid;
+            UnliquidatedObligations = outlay.UnliquidatedObligations;
+        }
     }
 }

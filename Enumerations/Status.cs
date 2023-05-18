@@ -5,30 +5,22 @@
 
 namespace BudgetExecution
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    using System;
+    using System.Threading;
+
+    /// <summary> </summary>
     public enum Status
     {
-        /// <summary>
-        /// The ns
-        /// </summary>
+        /// <summary> The ns </summary>
         NS = 0,
 
-        /// <summary>
-        /// The loading
-        /// </summary>
+        /// <summary> The loading </summary>
         Loading = 1,
 
-        /// <summary>
-        /// The processing
-        /// </summary>
+        /// <summary> The processing </summary>
         Processing = 2,
 
-        /// <summary>
-        /// The waiting
-        /// </summary>
+        /// <summary> The waiting </summary>
         Waiting = 3
     }
 }
-

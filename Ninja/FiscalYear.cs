@@ -10,8 +10,8 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.CalendarYear"/>
-    /// <seealso cref = "CalendarYear"/>
+    /// <seealso cref="BudgetExecution.CalendarYear"/>
+    /// <seealso cref="CalendarYear"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Global" ) ]
@@ -84,9 +84,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "bfy" > The year. </param>
+        /// <param name="bfy"> The year. </param>
         /// <returns> </returns>
-        private protected IDictionary<string, object> SetArgs( string bfy )
+        protected private IDictionary<string, object> SetArgs( string bfy )
         {
             if( !string.IsNullOrEmpty( bfy )
                && bfy.Length == 4

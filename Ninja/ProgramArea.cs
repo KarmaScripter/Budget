@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -27,94 +28,6 @@ namespace BudgetExecution
         /// <summary> The source </summary>
         public override Source Source { get; set; } = Source.ProgramAreas;
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramArea"/>
-        /// class.
-        /// </summary>
-        public ProgramArea( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramArea"/>
-        /// class.
-        /// </summary>
-        /// <param name = "query" > The query. </param>
-        public ProgramArea( IQuery query )
-        {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramArea"/>
-        /// class.
-        /// </summary>
-        /// <param name = "builder" > The builder. </param>
-        public ProgramArea( IDataModel builder )
-        {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramArea"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        public ProgramArea( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = dataRow?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ProgramArea"/>
-        /// class.
-        /// </summary>
-        /// <param name = "code" > The code. </param>
-        public ProgramArea( string code )
-        {
-            Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        public ProgramArea( IProgramArea area )
-        {
-            ID = area.ID;
-            Code = area.Code;
-            Name = area.Name;
-        }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
         /// <summary> Gets the program area. </summary>
         /// <returns> </returns>
         public IProgramArea GetProgramArea( )
@@ -131,7 +44,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the arguments. </summary>
-        /// <param name = "code" > The code. </param>
+        /// <param name="code"> The code. </param>
         /// <returns> </returns>
         private IDictionary<string, object> SetArgs( string code )
         {
@@ -149,6 +62,94 @@ namespace BudgetExecution
             }
 
             return default;
+        }
+
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
+        public override int ID { get; set; }
+
+        /// <summary> Gets the code. </summary>
+        public override string Code { get; set; }
+
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
+        public override string Name { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramArea"/>
+        /// class.
+        /// </summary>
+        public ProgramArea( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramArea"/>
+        /// class.
+        /// </summary>
+        /// <param name="query"> The query. </param>
+        public ProgramArea( IQuery query )
+        {
+            Record = new DataBuilder( query )?.Record;
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramArea"/>
+        /// class.
+        /// </summary>
+        /// <param name="builder"> The builder. </param>
+        public ProgramArea( IDataModel builder )
+        {
+            Record = builder?.Record;
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramArea"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataRow"> The dataRow. </param>
+        public ProgramArea( DataRow dataRow )
+            : this( )
+        {
+            Record = dataRow;
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = dataRow?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ProgramArea"/>
+        /// class.
+        /// </summary>
+        /// <param name="code"> The code. </param>
+        public ProgramArea( string code )
+        {
+            Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
+            ID = int.Parse( Record[ "ProgramAreasId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record?.ToDictionary( );
+        }
+
+        public ProgramArea( IProgramArea area )
+        {
+            ID = area.ID;
+            Code = area.Code;
+            Name = area.Name;
         }
     }
 }
