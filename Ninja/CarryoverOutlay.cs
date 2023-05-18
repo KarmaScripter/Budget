@@ -12,6 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CarryoverOutlay : BudgetUnit
     {
         /// <summary> Gets or sets the report year. </summary>
@@ -21,10 +22,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the name of the agency. </summary>
         /// <value> The name of the agency. </value>
         public string AgencyName { get; set; }
-
-        /// <summary> Gets or sets the name of the omb account. </summary>
-        /// <value> The name of the omb account. </value>
-        public string BudgetAccountName { get; set; }
 
         /// <summary> Gets or sets the line. </summary>
         /// <value> The line. </value>

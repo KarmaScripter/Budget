@@ -14,23 +14,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetaryResourceExecution : DataUnit, IBudgetaryResourceExecution
+    public class BudgetaryResourceExecution : BudgetUnit 
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the Provider </summary>
-        public override Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -39,33 +24,9 @@ namespace BudgetExecution
         /// <value> The fiscal year. </value>
         public string FiscalYear { get; set; }
 
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public string EFY { get; set; }
-
         /// <summary> Gets or sets the last update. </summary>
         /// <value> The last update. </value>
         public DateOnly LastUpdate { get; set; }
-
-        /// <summary> Gets or sets the treasury symbol. </summary>
-        /// <value> The treasury symbol. </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the omb account. </summary>
-        /// <value> The omb account. </value>
-        public string BudgetAccountName { get; set; }
-
-        /// <summary> Gets or sets the treasury agency code. </summary>
-        /// <value> The treasury agency code. </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public string TreasuryAccountCode { get; set; }
 
         /// <summary> Gets or sets the stat. </summary>
         /// <value> The stat. </value>
@@ -280,7 +241,7 @@ namespace BudgetExecution
             Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
         }
 
-        public BudgetaryResourceExecution( IBudgetaryResourceExecution budget )
+        public BudgetaryResourceExecution( BudgetaryResourceExecution budget )
             : this( )
         {
             ID = budget.ID;

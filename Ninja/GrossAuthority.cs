@@ -13,7 +13,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class GrossAuthority : DataUnit, IGrossAuthority
+    public class GrossAuthority : DataUnit 
     {
 
         /// <summary> Gets or sets the bfy. </summary>
@@ -208,7 +208,7 @@ namespace BudgetExecution
             Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
         }
 
-        public GrossAuthority( IGrossAuthority authority )
+        public GrossAuthority( GrossAuthority authority )
         {
             ID = authority.ID;
             BFY = authority.BFY;

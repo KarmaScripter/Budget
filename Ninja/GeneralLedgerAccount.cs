@@ -14,7 +14,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class GeneralLedgerAccount : ILedgerAccount
+    public class GeneralLedgerAccount  
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -184,6 +184,26 @@ namespace BudgetExecution
             AttributeValue = dataRow[ "AttributeValue" ].ToString( );
             Usage = dataRow[ "Usage" ].ToString( );
             Deposit = dataRow[ "Deposit" ].ToString( );
+        }
+
+        public GeneralLedgerAccount( GeneralLedgerAccount account )
+        {
+            ID = account.ID;
+            BFY = account.BFY;
+            Number = account.Number;
+            Name = account.Name;
+            ShortName = account.ShortName;
+            NormalBalance = account.NormalBalance;
+            ReportableAccount = account.ReportableAccount;
+            SummaryAccount = account.SummaryAccount;
+            AccountClassification = account.AccountClassification;
+            CashAccount = account.CashAccount;
+            ReportableAccount = account.ReportableAccount;
+            RealOrClosingAccount = account.RealOrClosingAccount;
+            FederalNonFederal = account.FederalNonFederal;
+            AttributeValue = account.AttributeValue;
+            Usage = account.Usage;
+            Deposit = account.Deposit;
         }
     }
 }

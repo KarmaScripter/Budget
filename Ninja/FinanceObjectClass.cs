@@ -20,7 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class FinanceObjectClass : DataUnit, IFinanceObjectClass
+    public class FinanceObjectClass : DataUnit 
     {
         /// <summary> Gets the source. </summary>
         /// <value> The source. </value>
@@ -125,7 +125,7 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public FinanceObjectClass( IFinanceObjectClass foc )
+        public FinanceObjectClass( FinanceObjectClass foc )
         {
             ID = foc.ID;
             Code = foc.Code;
@@ -133,21 +133,6 @@ namespace BudgetExecution
             Category = foc.Category;
             BocCode = foc.BocCode;
             BocName = foc.BocName;
-        }
-
-        /// <summary> Gets the finance object class. </summary>
-        /// <returns> </returns>
-        public IFinanceObjectClass GetFinanceObjectClass( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as FinanceObjectClass;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( FinanceObjectClass );
-            }
         }
 
         /// <summary> Gets the arguments. </summary>

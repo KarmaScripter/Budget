@@ -169,7 +169,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public HeadquartersAuthority( IAllocation allocation )
+        public HeadquartersAuthority( HeadquartersAuthority allocation )
             : this( )
         {
             ID = allocation.ID;

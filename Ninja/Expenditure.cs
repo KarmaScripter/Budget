@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Expenditure : Obligation, IExpenditure
+    public class Expenditure : Obligation 
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -174,7 +174,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Expenditure( IStatusOfFunds status )
+        public Expenditure( Expenditure status )
         {
             ID = status.ID;
             BudgetLevel = status.BudgetLevel;

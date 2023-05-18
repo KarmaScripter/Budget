@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CarryoverSurvey : DataUnit, ICarryoverSurvey
+    public class CarryoverSurvey : DataUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>

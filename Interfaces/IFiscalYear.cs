@@ -16,7 +16,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the fiscal year identifier. </summary>
         /// <value> The fiscal year identifier. </value>
-        IKey FiscalYearId { get; set; }
+        int ID { get; set; }
 
         /// <summary> Gets or sets the first year. </summary>
         /// <value> The first year. </value>

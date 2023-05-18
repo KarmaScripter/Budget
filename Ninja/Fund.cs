@@ -17,7 +17,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Fund : FundSymbol, IFund
+    public class Fund : FundSymbol 
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -265,7 +265,7 @@ namespace BudgetExecution
             ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
         }
 
-        public Fund( IFund fund )
+        public Fund( Fund fund )
         {
             ID = fund.ID;
             BFY = fund.BFY;

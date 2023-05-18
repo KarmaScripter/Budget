@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassLevel : PRC, ICompassLevel
+    public class CompassLevel : PRC 
     {
         /// <summary> Gets or sets the type of the document. </summary>
         /// <value> The type of the document. </value>
@@ -213,7 +213,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public CompassLevel( ICompassLevel compassLevel )
+        public CompassLevel( CompassLevel compassLevel )
         {
             ID = compassLevel.ID;
             BFY = compassLevel.BFY;

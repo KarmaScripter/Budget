@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class GrowthRate : IGrowthRate
+    public class GrowthRate  
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -169,7 +169,7 @@ namespace BudgetExecution
             Sort = Record[ "Sort" ].ToString( );
         }
 
-        public GrowthRate( IGrowthRate rate )
+        public GrowthRate( GrowthRate rate )
         {
             ID = rate.ID;
             RateId = rate.RateId;

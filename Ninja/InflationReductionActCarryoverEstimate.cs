@@ -108,7 +108,7 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        public InflationReductionActCarryoverEstimate( ICarryoverEstimate carryover )
+        public InflationReductionActCarryoverEstimate( InflationReductionActCarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

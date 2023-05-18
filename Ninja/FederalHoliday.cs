@@ -11,7 +11,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class FederalHoliday : IFederalHoliday
+    public abstract class FederalHoliday  
     {
 
         /// <summary> Columbus Day, the second Monday in October. </summary>

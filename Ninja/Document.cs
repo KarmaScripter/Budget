@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Document : DataUnit, IDocument
+    public class Document : DataUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -95,7 +95,7 @@ namespace BudgetExecution
             System = Record[ "System" ].ToString( );
         }
 
-        public Document( IDocument doc )
+        public Document( Document doc )
         {
             ID = doc.ID;
             Code = doc.Code;

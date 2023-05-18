@@ -14,7 +14,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CarryoverApportionment : DataUnit, ICarryoverApportionment
+    public class CarryoverApportionment : BudgetUnit
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -39,14 +39,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the treasury account. </summary>
         /// <value> The treasury account. </value>
         public string TreasuryAccount { get; set; }
-
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public string EFY { get; set; }
 
         /// <summary> Gets or sets the group. </summary>
         /// <value> The group. </value>
@@ -91,22 +83,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the apportionment account code. </summary>
         /// <value> The apportionment account code. </value>
         public string ApportionmentAccountCode { get; set; }
-
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the treasury account. </summary>
-        /// <value> The name of the treasury account. </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
-        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -217,7 +193,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="carryover"> The carryover. </param>
-        public CarryoverApportionment( ICarryoverApportionment carryover )
+        public CarryoverApportionment( CarryoverApportionment carryover )
             : this( )
         {
             ID = carryover.ID;

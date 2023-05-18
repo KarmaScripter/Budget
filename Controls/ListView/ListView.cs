@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ListView.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -6,11 +6,13 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ListView : ListViewBase, IListView
     {
 

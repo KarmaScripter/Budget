@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.Actual"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class MonthlyActual : Actual, IMonthlyActual
+    public class MonthlyActual : Actual 
     {
 
         /// <summary> Gets or sets the balance. </summary>
@@ -178,7 +178,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="actual"> The actual. </param>
-        public MonthlyActual( IMonthlyActual actual )
+        public MonthlyActual( MonthlyActual actual )
         {
             Source = Source.MonthlyActuals;
             ID = actual.ID;

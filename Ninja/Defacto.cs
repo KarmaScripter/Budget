@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Defacto : StatusOfFunds, IDefacto
+    public class Defacto : StatusOfFunds 
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -177,7 +177,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Defacto( IStatusOfFunds defacto )
+        public Defacto( Defacto defacto )
         {
             ID = defacto.ID;
             BudgetLevel = defacto.BudgetLevel;

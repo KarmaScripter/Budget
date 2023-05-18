@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class FundCategory : DataUnit, IFundCategory
+    public class FundCategory : DataUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -96,7 +96,7 @@ namespace BudgetExecution
             ShortName = Record[ "ShortName" ].ToString( );
         }
 
-        public FundCategory( IFundCategory fundCategory )
+        public FundCategory( FundCategory fundCategory )
         {
             ID = fundCategory.ID;
             Code = fundCategory.Code;

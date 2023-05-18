@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class CompassOutlay : BudgetUnit, IOutlay
+    public class CompassOutlay : BudgetUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="outlay"> The outlay. </param>
-        public CompassOutlay( IOutlay outlay )
+        public CompassOutlay( CompassOutlay outlay )
         {
             ID = outlay.ID;
             BFY = outlay.BFY;

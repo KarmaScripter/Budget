@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetControlValue : BudgetControl, IBudgetControl
+    public class BudgetControlValue : BudgetControl 
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -177,7 +177,7 @@ namespace BudgetExecution
             AuthorityDistributionControl = row[ "AuthorityDistributionControl" ].ToString( );
         }
 
-        public BudgetControlValue( IBudgetControl control )
+        public BudgetControlValue( BudgetControl control )
         {
             ID = control.ID;
             Code = control.Code;

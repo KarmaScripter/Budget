@@ -12,14 +12,13 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="INationalProgram"/>
-    /// <seealso cref="IProgram"/>
     /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "Performance", "CA1822:Mark members as static" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class NationalProgram : DataUnit, INationalProgram
+    public class NationalProgram : DataUnit 
     {
         /// <summary> The source </summary>
         public override Source Source { get; set; } = Source.NationalPrograms;
@@ -136,7 +135,7 @@ namespace BudgetExecution
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
-        public NationalProgram( INationalProgram npm )
+        public NationalProgram( NationalProgram npm )
         {
             ID = npm.ID;
             Code = npm.Code;
@@ -144,21 +143,6 @@ namespace BudgetExecution
             NPM = npm.NPM;
             Title = npm.Title;
             RpioCode = npm.RpioCode;
-        }
-
-        /// <summary> Gets the national program. </summary>
-        /// <returns> </returns>
-        public INationalProgram GetNationalProgram( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as INationalProgram;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
 
         /// <summary> Sets the arguments. </summary>

@@ -23,7 +23,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class BudgetObjectClass : DataUnit, IBudgetObjectClass
+    public class BudgetObjectClass : DataUnit 
     {
         /// <summary> The codes </summary>
         public readonly IEnumerable<string> Codes = new[ ]
@@ -177,7 +177,7 @@ namespace BudgetExecution
             }
         }
 
-        public BudgetObjectClass( IBudgetObjectClass boc )
+        public BudgetObjectClass( BudgetObjectClass boc )
         {
             ID = boc.ID;
             Code = boc.Code;

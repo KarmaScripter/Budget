@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetDocument : DataUnit
+    public class BudgetDocument : BudgetUnit
     {
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>

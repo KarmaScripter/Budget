@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class Deobligation : Obligation, IDeobligation
+    public class Deobligation : Obligation 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -255,7 +255,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Deobligation( IDeobligation deobligation )
+        public Deobligation( Deobligation deobligation )
         {
             ID = deobligation.ID;
             BFY = deobligation.BFY;

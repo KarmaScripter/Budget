@@ -12,7 +12,6 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="IGoal"/>
-    /// <seealso cref="IProgram"/>
     /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -20,7 +19,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Goal : DataUnit, IGoal
+    public class Goal : DataUnit 
     {
 
         /// <summary>
@@ -98,7 +97,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="goal"> The goal. </param>
-        public Goal( IGoal goal )
+        public Goal( Goal goal )
         {
             ID = goal.ID;
             Code = goal.Code;
@@ -125,21 +124,6 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
-        }
-
-        /// <summary> Gets the goal. </summary>
-        /// <returns> </returns>
-        public IGoal GetGoal( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Goal;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IGoal );
-            }
         }
 
         /// <summary> Gets the source. </summary>

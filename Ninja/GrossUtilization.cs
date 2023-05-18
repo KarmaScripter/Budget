@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class GrossUtilization : DataUnit, IGrossUtilization
+    public class GrossUtilization : DataUnit 
     {
         /// <summary> Gets the arguments. </summary>
         /// <value> The arguments. </value>
@@ -199,7 +199,7 @@ namespace BudgetExecution
             Availability = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
         }
 
-        public GrossUtilization( IGrossUtilization utilization )
+        public GrossUtilization( GrossUtilization utilization )
         {
             ID = utilization.ID;
             BFY = utilization.BFY;

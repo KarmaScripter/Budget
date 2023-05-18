@@ -111,7 +111,7 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        public AnnualReimbursableCarryoverEstimate( ICarryoverEstimate carryover )
+        public AnnualReimbursableCarryoverEstimate( AnnualReimbursableCarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

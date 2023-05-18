@@ -20,14 +20,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class FundSymbol : BudgetUnit
     {
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public override string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public override string EFY { get; set; }
-
         /// <summary> Gets or sets the short name. </summary>
         /// <value> The short name. </value>
         public virtual string ShortName { get; set; }
@@ -127,17 +119,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the apportionment account code. </summary>
         /// <value> The apportionment account code. </value>
         public virtual string ApportionmentAccountCode { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> The source </summary>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets the Data. </summary>
-        /// <value> The Data. </value>
-        public override DataRow Record { get; set; }
 
         /// <summary> Sets the arguments. </summary>
         /// <param name="fundCode"> The fundCode. </param>

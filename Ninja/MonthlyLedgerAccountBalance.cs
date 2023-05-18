@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class MonthlyLedgerAccountBalance : BudgetUnit, ILedgerAccountBalance
+    public class MonthlyLedgerAccountBalance : BudgetUnit
     {
 
         /// <summary> Gets or sets the fiscal year. </summary>
@@ -129,7 +129,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public MonthlyLedgerAccountBalance( ILedgerAccountBalance account )
+        public MonthlyLedgerAccountBalance( MonthlyLedgerAccountBalance account )
         {
             ID = account.ID;
             BFY = account.BFY;

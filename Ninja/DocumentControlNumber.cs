@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DocumentControlNumber : IDocumentControlNumber
+    public class DocumentControlNumber 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -95,7 +95,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
         }
 
-        public DocumentControlNumber( IDocumentControlNumber dcn )
+        public DocumentControlNumber( DocumentControlNumber dcn )
         {
             ID = dcn.ID;
             RpioCode = dcn.RpioCode;

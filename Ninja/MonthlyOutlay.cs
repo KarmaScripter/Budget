@@ -12,7 +12,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class MonthlyOutlay : BudgetUnit, IMonthlyOutlay
+    public class MonthlyOutlay : BudgetUnit 
     {
 
         /// <summary> Gets or sets the fiscal year. </summary>
@@ -225,7 +225,6 @@ namespace BudgetExecution
             LineNumber = dataRow[ "LineNumber" ].ToString( );
             LineTitle = dataRow[ "LineTitle" ].ToString( );
             TaxationCode = dataRow[ "TaxationCode" ].ToString( );
-            TreasuryAgencyCode = dataRow[ "TreasuryAgency" ].ToString( );
             TreasuryBureauCode = dataRow[ "TreasuryBureauCode" ].ToString( );
             BudgetAgencyCode = dataRow[ "BudgetAgencyCode" ].ToString( );
             TreasuryAgencyCode = dataRow[ "TreasuryAgencyCode" ].ToString( );
@@ -248,12 +247,35 @@ namespace BudgetExecution
             September = double.Parse( dataRow[ "September" ].ToString( ) ?? "0" );
         }
 
-        public MonthlyOutlay( IMonthlyOutlay outlays )
+        public MonthlyOutlay( MonthlyOutlay outlays )
         {
+            ID = outlays.ID;
             BFY = outlays.BFY;
             EFY = outlays.EFY;
             FiscalYear = outlays.FiscalYear;
             LineNumber = outlays.LineNumber;
+            LineTitle = outlays.LineTitle;
+            TaxationCode = outlays.TaxationCode;
+            TreasuryAgencyCode = outlays.TreasuryAgencyCode;
+            TreasuryBureauCode = outlays.TreasuryBureauCode;
+            BudgetAgencyCode = outlays.BudgetAgencyCode;
+            SubAccount = outlays.SubAccount;
+            TreasuryAccountCode = outlays.TreasuryAccountCode;
+            TreasuryAccountName = outlays.TreasuryAccountName;
+            BudgetAccountCode = outlays.BudgetAccountCode;
+            BudgetAccountName = outlays.BudgetAccountName;
+            October = outlays.October;
+            November = outlays.November;
+            December = outlays.December;
+            January = outlays.January;
+            February = outlays.February;
+            March = outlays.March;
+            April = outlays.April;
+            May = outlays.May;
+            June = outlays.June;
+            July = outlays.July;
+            August = outlays.August;
+            September = outlays.September;
         }
     }
 }

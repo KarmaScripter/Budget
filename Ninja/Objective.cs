@@ -14,30 +14,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Objective : DataUnit, IObjective
+    public class Objective : DataUnit 
     {
-        /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.Objectives;
-
-        /// <summary> Gets the record. </summary>
-        /// <value> The record. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Objective"/>
@@ -45,6 +23,7 @@ namespace BudgetExecution
         /// </summary>
         public Objective( )
         {
+            Source = Source.Objectives;
         }
 
         /// <summary>
@@ -108,26 +87,11 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public Objective( IObjective objective )
+        public Objective( Objective objective )
         {
             ID = objective.ID;
             Code = objective.Code;
             Name = objective.Name;
-        }
-
-        /// <summary> Gets the objective. </summary>
-        /// <returns> </returns>
-        public IObjective GetObjective( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Objective;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
 
         /// <summary> Sets the arguments. </summary>

@@ -48,36 +48,6 @@ namespace BudgetExecution
         /// <value> The federal holidays. </value>
         public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
-        /// <summary> Gets the federal holidays. </summary>
-        /// <returns> </returns>
-        public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
-        {
-            try
-            {
-                var _holidays = new Dictionary<Holiday, DateOnly>( );
-                var _day = new HolidayFactory( Record );
-                _holidays.Add( Holiday.NewYearsDay, _day.ChristmasDay );
-                _holidays.Add( Holiday.MartinLutherKingsDay, _day.MartinLutherKingDay );
-                _holidays.Add( Holiday.MemorialDay, _day.MemorialDay );
-                _holidays.Add( Holiday.WashingtonsDay, _day.PresidentsDay );
-                _holidays.Add( Holiday.VeteransDay, _day.VeteransDay );
-                _holidays.Add( Holiday.LaborDay, _day.LaborDay );
-                _holidays.Add( Holiday.JuneteenthDay, _day.JuneteenthDay );
-                _holidays.Add( Holiday.IndependenceDay, _day.IndependenceDay );
-                _holidays.Add( Holiday.ColumbusDay, _day.ColumbusDay );
-                _holidays.Add( Holiday.ThanksgivingDay, _day.ThanksgivingDay );
-                _holidays.Add( Holiday.ChristmasDay, _day.ChristmasDay );
-                return ( _holidays?.Any( ) == true )
-                    ? _holidays
-                    : default( IDictionary<Holiday, DateOnly> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<Holiday, DateOnly> );
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetFiscalYear"/>
@@ -194,7 +164,7 @@ namespace BudgetExecution
             Holidays = new HolidayFactory( dataRow );
         }
 
-        public BudgetFiscalYear( IBudgetFiscalYear fiscalYear )
+        public BudgetFiscalYear( BudgetFiscalYear fiscalYear )
             : this( )
         {
             ID = fiscalYear.ID;
@@ -209,6 +179,36 @@ namespace BudgetExecution
             StartDate = fiscalYear.StartDate;
             EndDate = fiscalYear.EndDate;
             CancellationDate = fiscalYear.CancellationDate;
+        }
+
+        /// <summary> Gets the federal holidays. </summary>
+        /// <returns> </returns>
+        public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
+        {
+            try
+            {
+                var _holidays = new Dictionary<Holiday, DateOnly>( );
+                var _day = new HolidayFactory( Record );
+                _holidays.Add( Holiday.NewYearsDay, _day.ChristmasDay );
+                _holidays.Add( Holiday.MartinLutherKingsDay, _day.MartinLutherKingDay );
+                _holidays.Add( Holiday.MemorialDay, _day.MemorialDay );
+                _holidays.Add( Holiday.WashingtonsDay, _day.PresidentsDay );
+                _holidays.Add( Holiday.VeteransDay, _day.VeteransDay );
+                _holidays.Add( Holiday.LaborDay, _day.LaborDay );
+                _holidays.Add( Holiday.JuneteenthDay, _day.JuneteenthDay );
+                _holidays.Add( Holiday.IndependenceDay, _day.IndependenceDay );
+                _holidays.Add( Holiday.ColumbusDay, _day.ColumbusDay );
+                _holidays.Add( Holiday.ThanksgivingDay, _day.ThanksgivingDay );
+                _holidays.Add( Holiday.ChristmasDay, _day.ChristmasDay );
+                return ( _holidays?.Any( ) == true )
+                    ? _holidays
+                    : default( IDictionary<Holiday, DateOnly> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<Holiday, DateOnly> );
+            }
         }
 
         /// <summary> Gets the identifier. </summary>

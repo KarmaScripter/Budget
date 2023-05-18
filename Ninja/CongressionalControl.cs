@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CongressionalControl : DataUnit, ICongressionalControl
+    public class CongressionalControl : DataUnit 
     {
         /// <summary> Gets or sets the provider. </summary>
         /// <value> The provider. </value>
@@ -169,7 +169,7 @@ namespace BudgetExecution
             MemoRequirement = dataRow[ "MemoRequirement" ].ToString( );
         }
 
-        public CongressionalControl( ICongressionalControl control )
+        public CongressionalControl( CongressionalControl control )
         {
             ID = control.ID;
             FundCode = control.FundCode;
