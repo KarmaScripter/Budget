@@ -11,14 +11,15 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualReimbursableCarryoverEstimate : AnnualCarryoverEstimate, ICarryoverEstimate
+    public class AnnualReimbursableCarryoverEstimate : AnnualCarryoverEstimate 
     {
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="AnnualReimbursableCarryoverEstimate"/>
         /// class.
         /// </summary>
-        public AnnualReimbursableCarryoverEstimate( )
+        public AnnualReimbursableCarryoverEstimate( ) 
+            : base( )
         {
             Source = Source.AnnualReimbursableEstimates;
         }

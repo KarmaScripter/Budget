@@ -14,7 +14,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Actual : PRC, IActual
+    public class Actual : PRC 
     {
 
         /// <summary> Gets or sets the appropriation code. </summary>
@@ -200,7 +200,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Actual( IActual actual )
+        public Actual( Actual actual )
         {
             Source = Source.Actuals;
             ID = actual.ID;

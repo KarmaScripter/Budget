@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class AppropriationDocument : DataUnit, IAppropriationDocument
+    public class AppropriationDocument : BudgetUnit 
     {
         /// <summary> Gets or sets the last document date. </summary>
         /// <value> The last document date. </value>
@@ -39,21 +39,9 @@ namespace BudgetExecution
         /// <value> The identifier. </value>
         public override int ID { get; set; }
 
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public string EFY { get; set; }
-
         /// <summary> Gets or sets the fund. </summary>
         /// <value> The fund. </value>
         public string Fund { get; set; }
-
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
-        public string FundCode { get; set; }
 
         /// <summary> Gets or sets the type of the document. </summary>
         /// <value> The type of the document. </value>
@@ -134,22 +122,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the estimated recoveries. </summary>
         /// <value> The estimated recoveries. </value>
         public double Recoveries { get; set; }
-
-        /// <summary> Gets or sets the treasury agency code. </summary>
-        /// <value> The treasury agency code. </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
-        public string BudgetAccountName { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -287,7 +259,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public AppropriationDocument( IAppropriationDocument document )
+        public AppropriationDocument( AppropriationDocument document )
         {
             ID = document.ID;
             BFY = document.BFY;

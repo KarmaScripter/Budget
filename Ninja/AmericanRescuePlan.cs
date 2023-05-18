@@ -180,7 +180,7 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public AmericanRescuePlan( IAllocation allocation )
+        public AmericanRescuePlan( AmericanRescuePlan allocation )
         {
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;

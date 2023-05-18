@@ -44,7 +44,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class AllowanceHolder : DataUnit, IAllowanceHolder
+    public class AllowanceHolder : DataUnit 
     {
         /// <summary> The source </summary>
         public override Source Source { get; set; }
@@ -142,7 +142,7 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public AllowanceHolder( IAllowanceHolder allowanceHolder )
+        public AllowanceHolder( AllowanceHolder allowanceHolder )
         {
             ID = allowanceHolder.ID;
             Name = allowanceHolder.Name;

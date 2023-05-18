@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class ActivityCode : DataUnit, IActivityCode
+    public class ActivityCode : DataUnit 
     {
         /// <summary> Gets the source. </summary>
         /// <value> The source. </value>
@@ -110,7 +110,7 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public ActivityCode( IActivityCode activityCode )
+        public ActivityCode( ActivityCode activityCode )
             : this( )
         {
             ID = activityCode.ID;

@@ -11,7 +11,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AmericanRescuePlanCarryoverEstimate : AnnualCarryoverEstimate, ICarryoverEstimate
+    public class AmericanRescuePlanCarryoverEstimate : AnnualCarryoverEstimate 
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -108,7 +108,7 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        public AmericanRescuePlanCarryoverEstimate( ICarryoverEstimate carryover )
+        public AmericanRescuePlanCarryoverEstimate( AmericanRescuePlanCarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

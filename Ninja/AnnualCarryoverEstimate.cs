@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualCarryoverEstimate : BudgetUnit, ICarryoverEstimate
+    public class AnnualCarryoverEstimate : BudgetUnit 
     {
         /// <summary> Gets or sets the Record property. </summary>
         /// <value> The data row. </value>
@@ -185,7 +185,7 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        public AnnualCarryoverEstimate( ICarryoverEstimate carryover )
+        public AnnualCarryoverEstimate( AnnualCarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

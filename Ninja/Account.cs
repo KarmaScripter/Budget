@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Account : PRC, IAccount
+    public class Account : PRC 
     {
         /// <summary> Gets or sets the agency activity. </summary>
         /// <value> The agency activity. </value>
@@ -134,7 +134,7 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public Account( IAccount account )
+        public Account( Account account )
         {
             ID = account.ID;
             GoalCode = account.GoalCode;

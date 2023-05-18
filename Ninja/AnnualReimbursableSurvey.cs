@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AnnualReimbursableSurvey : DataUnit, ICarryoverSurvey
+    public class AnnualReimbursableSurvey : DataUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -124,7 +124,7 @@ namespace BudgetExecution
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
         }
 
-        public AnnualReimbursableSurvey( ICarryoverSurvey survey )
+        public AnnualReimbursableSurvey( AnnualReimbursableSurvey survey )
         {
             ID = survey.ID;
             BFY = survey.BFY;

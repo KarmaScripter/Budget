@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AccountingEvent : DataUnit, IAccountingEvent
+    public class AccountingEvent : DataUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -95,7 +95,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
         }
 
-        public AccountingEvent( IAccountingEvent accountingEvent )
+        public AccountingEvent( AccountingEvent accountingEvent )
         {
             ID = accountingEvent.ID;
             Code = accountingEvent.Code;

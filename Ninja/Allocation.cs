@@ -17,7 +17,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Allocation : StatusOfFunds, IAllocation
+    public class Allocation : StatusOfFunds 
     {
 
         /// <summary> Gets or sets the appropriation code. </summary>
@@ -211,7 +211,7 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        public Allocation( IAllocation allocation )
+        public Allocation( Allocation allocation )
         {
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;

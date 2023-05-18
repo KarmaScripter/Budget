@@ -18,7 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public abstract class PRC : BudgetUnit, IAccount
+    public abstract class PRC : BudgetUnit 
     {
         /// <summary> Gets or sets the budget level. </summary>
         /// <value> The budget level. </value>

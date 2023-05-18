@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class ApportionmentData : DataUnit, IApportionment
+    public class ApportionmentData : BudgetUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -35,24 +35,6 @@ namespace BudgetExecution
         /// <value> The fiscal year. </value>
         public string FiscalYear { get; set; }
 
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public string EFY { get; set; }
-
-        /// <summary> Gets or sets the treasury appropriation fund symbol. </summary>
-        /// <value> The treasury appropriation fund symbol. </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury appropriation fund symbol.
-        /// </summary>
-        /// <value> The name of the treasury appropriation fund symbol. </value>
-        public string TreasuryAccountName { get; set; }
-
         /// <summary> Gets or sets the apportionment account code. </summary>
         /// <value> The apportionment account code. </value>
         public string ApportionmentAccountCode { get; set; }
@@ -64,14 +46,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the type of the availability. </summary>
         /// <value> The type of the availability. </value>
         public string AvailabilityType { get; set; }
-
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
-        public string BudgetAccountName { get; set; }
 
         /// <summary> Gets or sets the approval date. </summary>
         /// <value> The approval date. </value>
@@ -174,7 +148,7 @@ namespace BudgetExecution
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
         }
 
-        public ApportionmentData( IApportionment omb )
+        public ApportionmentData( ApportionmentData omb )
         {
             ID = omb.ID;
             FiscalYear = omb.FiscalYear;

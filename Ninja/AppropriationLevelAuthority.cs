@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AppropriationLevelAuthority : PRC, IAppropriationLevelAuthority
+    public class AppropriationLevelAuthority : PRC 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -170,7 +170,7 @@ namespace BudgetExecution
             Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
         }
 
-        public AppropriationLevelAuthority( IAppropriationLevelAuthority authority )
+        public AppropriationLevelAuthority( AppropriationLevelAuthority authority )
         {
             ID = authority.ID;
             BFY = authority.BFY;

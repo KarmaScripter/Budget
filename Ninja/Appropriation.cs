@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Appropriation : DataUnit, IAppropriation
+    public class Appropriation : DataUnit 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -99,7 +99,7 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
-        public Appropriation( IAppropriation appropriation )
+        public Appropriation( Appropriation appropriation )
         {
             ID = appropriation.ID;
             Code = appropriation.Code;

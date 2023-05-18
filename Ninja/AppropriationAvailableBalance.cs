@@ -12,7 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class AppropriationAvailableBalance : PRC, IAppropriationAvailableBalance
+    public class AppropriationAvailableBalance : PRC 
     {
         /// <summary> Gets or sets the source. </summary>
         /// <value> The source. </value>
@@ -181,7 +181,7 @@ namespace BudgetExecution
             Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
         }
 
-        public AppropriationAvailableBalance( IAppropriationAvailableBalance balance )
+        public AppropriationAvailableBalance( AppropriationAvailableBalance balance )
         {
             ID = balance.ID;
             BFY = balance.BFY;
