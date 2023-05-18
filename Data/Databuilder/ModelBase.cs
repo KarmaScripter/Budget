@@ -2,201 +2,202 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
-
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading;
-
-/// <summary> </summary>
-/// <seealso cref = "DataAccess"/>
-[ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-public abstract class ModelBase : DataAccess
+namespace BudgetExecution
 {
-    /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref = "ModelBase"/>
-    /// class.
-    /// </summary>
-    protected ModelBase( )
-    {
-    }
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Threading;
 
-    /// <summary> Gets the column ordinals. </summary>
-    /// <returns> </returns>
-    public virtual IEnumerable<int> GetOrdinals( )
+    /// <summary> </summary>
+    /// <seealso cref = "DataAccess"/>
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    public abstract class ModelBase : DataAccess
     {
-        if( DataTable?.Columns?.Count > 0 )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref = "ModelBase"/>
+        /// class.
+        /// </summary>
+        protected ModelBase( )
         {
-            try
-            {
-                var _columns = DataTable.Columns;
-                var _values = new List<int>( );
-                if( _columns?.Count > 0 )
-                {
-                    foreach( DataColumn _column in _columns )
-                    {
-                        _values?.Add( _column.Ordinal );
-                    }
-                }
-
-                return _values?.Any( ) == true
-                    ? _values
-                    : default( IEnumerable<int> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<int> );
-            }
         }
 
-        return default( IEnumerable<int> );
-    }
-
-    /// <summary> Gets the fields. </summary>
-    /// <returns> </returns>
-    public IDictionary<string, Type> GetColumnSchema( )
-    {
-        if( DataTable?.Columns?.Count > 0 )
+        /// <summary> Gets the column ordinals. </summary>
+        /// <returns> </returns>
+        public virtual IEnumerable<int> GetOrdinals( )
         {
-            try
+            if( DataTable?.Columns?.Count > 0 )
             {
-                var _columns = DataTable?.Columns;
-                if( _columns?.Count > 0 )
+                try
                 {
-                    var _schema = new Dictionary<string, Type>( );
-                    foreach( DataColumn col in _columns )
+                    var _columns = DataTable.Columns;
+                    var _values = new List<int>( );
+                    if( _columns?.Count > 0 )
                     {
-                        _schema.Add( col.ColumnName, col.DataType );
+                        foreach( DataColumn _column in _columns )
+                        {
+                            _values?.Add( _column.Ordinal );
+                        }
                     }
 
-                    return _schema?.Any( ) == true
-                        ? _schema
-                        : default( IDictionary<string, Type> );
+                    return _values?.Any( ) == true
+                        ? _values
+                        : default( IEnumerable<int> );
                 }
-                else
+                catch( Exception ex )
                 {
+                    Fail( ex );
+                    return default( IEnumerable<int> );
+                }
+            }
+
+            return default( IEnumerable<int> );
+        }
+
+        /// <summary> Gets the fields. </summary>
+        /// <returns> </returns>
+        public IDictionary<string, Type> GetColumnSchema( )
+        {
+            if( DataTable?.Columns?.Count > 0 )
+            {
+                try
+                {
+                    var _columns = DataTable?.Columns;
+                    if( _columns?.Count > 0 )
+                    {
+                        var _schema = new Dictionary<string, Type>( );
+                        foreach( DataColumn col in _columns )
+                        {
+                            _schema.Add( col.ColumnName, col.DataType );
+                        }
+
+                        return _schema?.Any( ) == true
+                            ? _schema
+                            : default( IDictionary<string, Type> );
+                    }
+                    else
+                    {
+                        return default( IDictionary<string, Type> );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
                     return default( IDictionary<string, Type> );
                 }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, Type> );
-            }
+
+            return default( IDictionary<string, Type> );
         }
 
-        return default( IDictionary<string, Type> );
-    }
-
-    /// <summary> Filters the data. </summary>
-    /// <param name = "dataRows" > </param>
-    /// <param name = "dict" > The dictionary. </param>
-    /// <returns> </returns>
-    public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows,
-        IDictionary<string, object> dict )
-    {
-        if( dict?.Any( ) == true
-           && dataRows?.Any( ) == true )
+        /// <summary> Filters the data. </summary>
+        /// <param name = "dataRows" > </param>
+        /// <param name = "dict" > The dictionary. </param>
+        /// <returns> </returns>
+        public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows,
+            IDictionary<string, object> dict )
         {
-            try
+            if( dict?.Any( ) == true
+               && dataRows?.Any( ) == true )
             {
-                var _criteria = dict.ToCriteria( );
-                var _dataTable = dataRows.CopyToDataTable( );
-                var _data = _dataTable.Select( _criteria );
-                return _data?.Length > 0
-                    ? _data
-                    : default( IEnumerable<DataRow> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<DataRow> );
-            }
-        }
-
-        return default( IEnumerable<DataRow> );
-    }
-
-    /// <summary> Gets the columns. </summary>
-    /// <returns> </returns>
-    public IEnumerable<DataColumn> GetDataColumns( )
-    {
-        if( DataTable?.Columns?.Count > 0 )
-        {
-            try
-            {
-                var _dataColumns = new List<DataColumn>( );
-                var _data = DataTable?.Columns;
-                if( _data?.Count > 0 )
+                try
                 {
-                    foreach( DataColumn column in _data )
-                    {
-                        if( column != null )
-                        {
-                            _dataColumns.Add( column );
-                        }
-                    }
-
-                    return _dataColumns?.Any( ) == true
-                        ? _dataColumns
-                        : default( IEnumerable<DataColumn> );
+                    var _criteria = dict.ToCriteria( );
+                    var _dataTable = dataRows.CopyToDataTable( );
+                    var _data = _dataTable.Select( _criteria );
+                    return _data?.Length > 0
+                        ? _data
+                        : default( IEnumerable<DataRow> );
                 }
-                else
+                catch( Exception ex )
                 {
+                    Fail( ex );
+                    return default( IEnumerable<DataRow> );
+                }
+            }
+
+            return default( IEnumerable<DataRow> );
+        }
+
+        /// <summary> Gets the columns. </summary>
+        /// <returns> </returns>
+        public IEnumerable<DataColumn> GetDataColumns( )
+        {
+            if( DataTable?.Columns?.Count > 0 )
+            {
+                try
+                {
+                    var _dataColumns = new List<DataColumn>( );
+                    var _data = DataTable?.Columns;
+                    if( _data?.Count > 0 )
+                    {
+                        foreach( DataColumn column in _data )
+                        {
+                            if( column != null )
+                            {
+                                _dataColumns.Add( column );
+                            }
+                        }
+
+                        return _dataColumns?.Any( ) == true
+                            ? _dataColumns
+                            : default( IEnumerable<DataColumn> );
+                    }
+                    else
+                    {
+                        return default( IEnumerable<DataColumn> );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
                     return default( IEnumerable<DataColumn> );
                 }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<DataColumn> );
-            }
+
+            return default( IEnumerable<DataColumn> );
         }
 
-        return default( IEnumerable<DataColumn> );
-    }
-
-    /// <summary> Gets the column names. </summary>
-    /// <returns> </returns>
-    public IEnumerable<string> GetColumnNames( )
-    {
-        if( DataTable?.Columns?.Count > 0 )
+        /// <summary> Gets the column names. </summary>
+        /// <returns> </returns>
+        public IEnumerable<string> GetColumnNames( )
         {
-            try
+            if( DataTable?.Columns?.Count > 0 )
             {
-                var _names = new List<string>( );
-                var _data = DataTable?.Columns;
-                if( _data?.Count > 0 )
+                try
                 {
-                    foreach( DataColumn column in _data )
+                    var _names = new List<string>( );
+                    var _data = DataTable?.Columns;
+                    if( _data?.Count > 0 )
                     {
-                        if( !string.IsNullOrEmpty( column?.ColumnName ) )
+                        foreach( DataColumn column in _data )
                         {
-                            _names.Add( column.ColumnName );
+                            if( !string.IsNullOrEmpty( column?.ColumnName ) )
+                            {
+                                _names.Add( column.ColumnName );
+                            }
                         }
-                    }
 
-                    return _names?.Any( ) == true
-                        ? _names
-                        : default( IEnumerable<string> );
+                        return _names?.Any( ) == true
+                            ? _names
+                            : default( IEnumerable<string> );
+                    }
+                    else
+                    {
+                        return default( IEnumerable<string> );
+                    }
                 }
-                else
+                catch( Exception ex )
                 {
+                    Fail( ex );
                     return default( IEnumerable<string> );
                 }
             }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IEnumerable<string> );
-            }
-        }
 
-        return default( IEnumerable<string> );
+            return default( IEnumerable<string> );
+        }
     }
 }

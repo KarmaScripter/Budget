@@ -2,16 +2,17 @@
 // Copyright (c) Terry Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
-
-using System;
-using System.Data.Common;
-using System.Threading;
-
-/// <summary> </summary>
-public interface ICommandFactory : ISource, IProvider
+namespace BudgetExecution
 {
-    /// <summary> Sets the command. </summary>
-    /// <returns> DbCommand </returns>
-    DbCommand GetCommand( );
+    using System;
+    using System.Data.Common;
+    using System.Threading;
+
+    /// <summary> </summary>
+    public interface ICommandFactory : ISource, IProvider
+    {
+        /// <summary> Sets the command. </summary>
+        /// <returns> DbCommand </returns>
+        DbCommand GetCommand( );
+    }
 }

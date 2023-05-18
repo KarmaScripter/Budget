@@ -2,20 +2,21 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
-
-using System;
-using System.Collections.Generic;
-using System.Threading;
-
-/// <summary> Contains the entire database schema </summary>
-public class DatabaseSchema
+namespace BudgetExecution
 {
-    /// <summary> Gets or sets the tables. </summary>
-    /// <value> The tables. </value>
-    public List<TableSchema> Tables { get; set; }
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
 
-    /// <summary> Gets or sets the views. </summary>
-    /// <value> The views. </value>
-    public List<ViewSchema> Views { get; set; }
+    /// <summary> Contains the entire database schema </summary>
+    public class DatabaseSchema
+    {
+        /// <summary> Gets or sets the tables. </summary>
+        /// <value> The tables. </value>
+        public List<TableSchema> Tables { get; set; }
+
+        /// <summary> Gets or sets the views. </summary>
+        /// <value> The views. </value>
+        public List<ViewSchema> Views { get; set; }
+    }
 }

@@ -2,23 +2,24 @@
 // Copyright (c) Terry D. Eppler. All rights reserved.
 // </copyright>
 
-namespace BudgetExecution;
+namespace BudgetExecution
+{
+    using System;
+    using System.Threading;
 
-using System;
-using System.Threading;
-
-/// <summary> </summary>
-/// <param name = "done" >
-/// if set to
-/// <c> true </c>
-/// [done].
-/// </param>
-/// <param name = "success" >
-/// if set to
-/// <c> true </c>
-/// [success].
-/// </param>
-/// <param name = "percent" > The percent. </param>
-/// <param name = "msg" > The MSG. </param>
-public delegate void SqlConversionHandler( bool done, bool success, int percent,
-    string msg );
+    /// <summary> </summary>
+    /// <param name = "done" >
+    /// if set to
+    /// <c> true </c>
+    /// [done].
+    /// </param>
+    /// <param name = "success" >
+    /// if set to
+    /// <c> true </c>
+    /// [success].
+    /// </param>
+    /// <param name = "percent" > The percent. </param>
+    /// <param name = "msg" > The MSG. </param>
+    public delegate void SqlConversionHandler( bool done, bool success, int percent,
+        string msg );
+}

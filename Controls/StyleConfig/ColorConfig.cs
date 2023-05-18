@@ -112,7 +112,6 @@ namespace BudgetExecution
             Black = Color.Black;
             White = Color.White;
             Red = Color.FromArgb( 192, 0, 0 );
-            Blue = Color.FromArgb( 0, 120, 212 );
             DarkBorder = Color.FromArgb( 65, 65, 65 );
             DarkBackground = Color.FromArgb( 20, 20, 20 );
             DarkBlue = Color.FromArgb( 24, 47, 66 );

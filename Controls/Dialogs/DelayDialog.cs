@@ -3,168 +3,169 @@
 // </copyright>
 //
 
-namespace BudgetExecution;
-
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using System.Threading;
-using System.Windows.Forms;
-using Syncfusion.Windows.Forms;
-
-[ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-public partial class DelayDialog : MetroForm
+namespace BudgetExecution
 {
-    /// <summary> The loading path </summary>
-    public readonly string LoadingPath =
-        @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
 
-    /// <summary> The processing path </summary>
-    public readonly string ProcessingPath =
-        @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
-
-    /// <summary> The waiting path </summary>
-    public readonly string WaitingPath =
-        @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
-
-    /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref = "DelayDialog"/>
-    /// class.
-    /// </summary>
-    public DelayDialog( )
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public partial class DelayDialog : MetroForm
     {
-        InitializeComponent( );
+        /// <summary> The loading path </summary>
+        public readonly string LoadingPath =
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Loading.gif";
 
-        // Basic Properties
-        Size = new Size( 1310, 646 );
-        MinimumSize = new Size( 1310, 648 );
-        MaximumSize = new Size( 1310, 648 );
-        BackColor = Color.Black;
-        CaptionBarColor = Color.Black;
-        MetroColor = Color.Black;
-        ForeColor = Color.Black;
-        StartPosition = FormStartPosition.CenterParent;
-        FormBorderStyle = FormBorderStyle.None;
-        BorderColor = Color.Transparent;
+        /// <summary> The processing path </summary>
+        public readonly string ProcessingPath =
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Processing.gif";
 
-        // Timer Configuration
-        Timer.Enabled = true;
-        Timer.Interval = 5000;
-        Timer.Tick += OnTick;
-        Timer.Start( );
+        /// <summary> The waiting path </summary>
+        public readonly string WaitingPath =
+            @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
 
-        // Event Wiring
-        Load += OnLoad;
-        FormClosed += OnClose;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref = "LoadingForm"/>
-    /// class.
-    /// </summary>
-    /// <param name = "status" > The status. </param>
-    public DelayDialog( Status status )
-        : this( )
-    {
-        Status = status;
-    }
-
-    /// <summary> Gets or sets the picture. </summary>
-    /// <value> The picture. </value>
-    public Image Picture { get; set; }
-
-    /// <summary> Gets or sets the loader. </summary>
-    /// <value> The loader. </value>
-    public Bitmap Loader { get; set; }
-
-    /// <summary> Gets or sets the status. </summary>
-    /// <value> The status. </value>
-    public Status Status { get; set; }
-
-    /// <summary> Called when [load]. </summary>
-    /// <param name = "sender" > The sender. </param>
-    /// <param name = "e" >
-    /// The
-    /// <see cref = "EventArgs"/>
-    /// instance containing the event data.
-    /// </param>
-    public void OnLoad( object sender, EventArgs e )
-    {
-        try
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref = "DelayDialog"/>
+        /// class.
+        /// </summary>
+        public DelayDialog( )
         {
-        }
-        catch( Exception ex )
-        {
-            Fail( ex );
-        }
-    }
+            InitializeComponent( );
 
-    /// <summary> Called when [tick]. </summary>
-    /// <param name = "sender" > The sender. </param>
-    /// <param name = "e" >
-    /// The
-    /// <see cref = "EventArgs"/>
-    /// instance containing the event data.
-    /// </param>
-    public void OnTick( object sender, EventArgs e )
-    {
-        try
-        {
-            Timer?.Stop( );
-            Close( );
-        }
-        catch( Exception ex )
-        {
-            Fail( ex );
-        }
-    }
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            MinimumSize = new Size( 1310, 648 );
+            MaximumSize = new Size( 1310, 648 );
+            BackColor = Color.Black;
+            CaptionBarColor = Color.Black;
+            MetroColor = Color.Black;
+            ForeColor = Color.Black;
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BorderColor = Color.Transparent;
 
-    /// <summary> Raises the Close event. </summary>
-    /// <param name = "sender" > The sender. </param>
-    /// <param name = "e" >
-    /// The
-    /// <see cref = "EventArgs"/>
-    /// instance containing the event data.
-    /// </param>
-    public void OnClose( object sender, EventArgs e )
-    {
-        try
-        {
-            Timer?.Dispose( );
-        }
-        catch( Exception ex )
-        {
-            Fail( ex );
-        }
-    }
+            // Timer Configuration
+            Timer.Enabled = true;
+            Timer.Interval = 5000;
+            Timer.Tick += OnTick;
+            Timer.Start( );
 
-    /// <summary> Called when [close button clicked]. </summary>
-    /// <param name = "sender" > The sender. </param>
-    /// <param name = "e" >
-    /// The
-    /// <see cref = "EventArgs"/>
-    /// instance containing the event data.
-    /// </param>
-    public void OnCloseButtonClicked( object sender, EventArgs e )
-    {
-        try
-        {
-            Close( );
+            // Event Wiring
+            Load += OnLoad;
+            FormClosed += OnClose;
         }
-        catch( Exception ex )
-        {
-            Fail( ex );
-        }
-    }
 
-    /// <summary> Fails the specified ex. </summary>
-    /// <param name = "ex" > The ex. </param>
-    private protected void Fail( Exception ex )
-    {
-        using var _error = new ErrorDialog( ex );
-        _error?.SetText( );
-        _error?.ShowDialog( );
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref = "LoadingForm"/>
+        /// class.
+        /// </summary>
+        /// <param name = "status" > The status. </param>
+        public DelayDialog( Status status )
+            : this( )
+        {
+            Status = status;
+        }
+
+        /// <summary> Gets or sets the picture. </summary>
+        /// <value> The picture. </value>
+        public Image Picture { get; set; }
+
+        /// <summary> Gets or sets the loader. </summary>
+        /// <value> The loader. </value>
+        public Bitmap Loader { get; set; }
+
+        /// <summary> Gets or sets the status. </summary>
+        /// <value> The status. </value>
+        public Status Status { get; set; }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [tick]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnTick( object sender, EventArgs e )
+        {
+            try
+            {
+                Timer?.Stop( );
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Raises the Close event. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                Timer?.Dispose( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
     }
 }
