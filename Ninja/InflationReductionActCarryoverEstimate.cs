@@ -1,16 +1,20 @@
-﻿namespace BudgetExecution
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
+// </copyright>
+
+namespace BudgetExecution
 {
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate 
+    public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// class.
         /// </summary>
         public InflationReductionActCarryoverEstimate( )
         {
@@ -18,9 +22,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public InflationReductionActCarryoverEstimate( IQuery query )
             : this( )
         {
@@ -44,9 +50,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public InflationReductionActCarryoverEstimate( IDataModel builder )
             : this( )
         {
@@ -71,9 +79,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "InflationReductionActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public InflationReductionActCarryoverEstimate( DataRow dataRow )
             : this( )
         {
@@ -95,8 +105,8 @@
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
-        
-        public InflationReductionActCarryoverEstimate( ICarryoverEstimate carryover ) 
+
+        public InflationReductionActCarryoverEstimate( ICarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

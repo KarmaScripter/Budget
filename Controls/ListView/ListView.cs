@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,14 +9,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public class ListView : ListViewBase, IListView
     {
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="ListView"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ListView"/>
+        /// class.
         /// </summary>
         public ListView( )
         {
@@ -44,12 +43,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ListView" />
+        /// <see cref = "ListView"/>
         /// class.
         /// </summary>
-        /// <param name="size">The size.</param>
-        /// <param name="location">The location.</param>
-        public ListView( Size size, System.Drawing.Point location )
+        /// <param name = "size" > The size. </param>
+        /// <param name = "location" > The location. </param>
+        public ListView( Size size, Point location )
             : this( )
         {
             Size = size;
@@ -58,10 +57,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ListView" />
+        /// <see cref = "ListView"/>
         /// class.
         /// </summary>
-        /// <param name="label">The label.</param>
+        /// <param name = "label" > The label. </param>
         public ListView( Label label )
             : this( label.Size, label.Location )
         {
@@ -69,13 +68,13 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ListView" />
+        /// <see cref = "ListView"/>
         /// class.
         /// </summary>
-        /// <param name="size">The size.</param>
-        /// <param name="location">The location.</param>
-        /// <param name="parent">The parent.</param>
-        public ListView( Size size, System.Drawing.Point location, Control parent )
+        /// <param name = "size" > The size. </param>
+        /// <param name = "location" > The location. </param>
+        /// <param name = "parent" > The parent. </param>
+        public ListView( Size size, Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
@@ -84,14 +83,14 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ListView" />
+        /// <see cref = "ListView"/>
         /// class.
         /// </summary>
-        /// <param name="size">The size.</param>
-        /// <param name="location">The location.</param>
-        /// <param name="parent">The parent.</param>
-        /// <param name="text">The text.</param>
-        public ListView( Size size, System.Drawing.Point location, Control parent,
+        /// <param name = "size" > The size. </param>
+        /// <param name = "location" > The location. </param>
+        /// <param name = "parent" > The parent. </param>
+        /// <param name = "text" > The text. </param>
+        public ListView( Size size, Point location, Control parent,
             string text )
             : this( size, location, parent )
         {
@@ -100,56 +99,38 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ListView" />
+        /// <see cref = "ListView"/>
         /// class.
         /// </summary>
-        /// <param name="size">The size.</param>
-        /// <param name="location">The location.</param>
-        /// <param name="parent">The parent.</param>
-        /// <param name="bindingSource">The binding source.</param>
-        public ListView( Size size, System.Drawing.Point location, Control parent,
+        /// <param name = "size" > The size. </param>
+        /// <param name = "location" > The location. </param>
+        /// <param name = "parent" > The parent. </param>
+        /// <param name = "bindingSource" > The binding source. </param>
+        public ListView( Size size, Point location, Control parent,
             BindingSource bindingSource )
             : this( size, location, parent )
         {
             BindingSource = bindingSource;
         }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public override BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public override SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public override string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
+        /// <summary> Gets or sets the filter. </summary>
+        /// <value> The filter. </value>
         public override IDictionary<string, object> DataFilter { get; set; }
-        
-        /// <summary>
-        /// Sets the hover information.
-        /// </summary>
-        /// <param name="text">The text.</param>
+
+        /// <summary> Sets the hover information. </summary>
+        /// <param name = "text" > The text. </param>
         public void SetHoverText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -165,10 +146,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="text">The text.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name = "text" > The text. </param>
         public void SetText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -183,11 +162,9 @@ namespace BudgetExecution
                 }
             }
         }
-        
-        /// <summary>
-        /// Sets the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
+
+        /// <summary> Sets the tag. </summary>
+        /// <param name = "tag" > The tag. </param>
         public void ReTag( object tag )
         {
             if( tag != null )

@@ -1,5 +1,5 @@
-﻿// <copyright file = "Graph.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,18 +11,20 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Drawing.Drawing2D;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class Graph : GraphBase 
+    public class Graph : GraphBase
     {
         // Initializes Properties
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="Graph"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Graph"/>
+        /// class.
         /// </summary>
         public Graph( )
         {
@@ -67,10 +69,9 @@ namespace BudgetExecution
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-            ShadowColor = 
-                new BrushInfo( GradientStyle.PathRectangle, 
-                    Color.FromArgb( 20, 20, 20 ), Color.Silver );
-            
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ),
+                Color.Silver );
+
             Depth = 250;
             ElementsSpacing = 10;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
@@ -81,7 +82,7 @@ namespace BudgetExecution
             Skins = Skins.None;
             RealMode3D = true;
             Rotation = 0.1f;
-            SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            SmoothingMode = SmoothingMode.AntiAlias;
             Spacing = 5;
             AutoHighlight = true;
             SpacingBetweenPoints = 5;
@@ -109,11 +110,9 @@ namespace BudgetExecution
             Legend.Visible = true;
         }
 
-        /// <summary>
-        /// Sets the size.
-        /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
+        /// <summary> Sets the size. </summary>
+        /// <param name = "width" > The width. </param>
+        /// <param name = "height" > The height. </param>
         public void SetSize( int width = 600, int height = 400 )
         {
             if( width > 0
@@ -129,13 +128,11 @@ namespace BudgetExecution
                 }
             }
         }
-        
-        /// <summary>
-        /// Sets the primary axis titleInfo.
-        /// </summary>
-        /// <param name="text">The titleInfo.</param>
-        /// <param name="font"></param>
-        /// <param name="color">The color.</param>
+
+        /// <summary> Sets the primary axis titleInfo. </summary>
+        /// <param name = "text" > The titleInfo. </param>
+        /// <param name = "font" > </param>
+        /// <param name = "color" > The color. </param>
         public void SetPrimaryAxisTitle( string text, Font font, Color color )
         {
             try
@@ -150,12 +147,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the main titleInfo.
-        /// </summary>
-        /// <param name="text">The t.</param>
-        /// <param name="font"></param>
-        /// <param name="color"></param>
+        /// <summary> Sets the main titleInfo. </summary>
+        /// <param name = "text" > The t. </param>
+        /// <param name = "font" > </param>
+        /// <param name = "color" > </param>
         public void SetMainTitle( string text, Font font, Color color )
         {
             try

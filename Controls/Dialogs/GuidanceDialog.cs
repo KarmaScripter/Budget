@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -13,113 +13,64 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    /// <summary> </summary>
+    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class GuidanceDialog : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
+        /// <summary> Gets or sets the SQL query. </summary>
+        /// <value> The SQL query. </value>
         public string SqlQuery { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
+        /// <summary> Gets or sets the form filter. </summary>
+        /// <value> The form filter. </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
+        /// <summary> Gets or sets the selected columns. </summary>
+        /// <value> The selected columns. </value>
         public IList<string> SelectedColumns { get; set; }
 
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
+        /// <summary> Gets or sets the numerics. </summary>
+        /// <value> The numerics. </value>
         public IList<string> Numerics { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
+        /// <summary> Gets or sets the fields. </summary>
+        /// <value> The fields. </value>
         public IList<string> Fields { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the extenstion.
-        /// </summary>
-        /// <value>
-        /// The extenstion.
-        /// </value>
+        /// <summary> Gets or sets the extenstion. </summary>
+        /// <value> The extenstion. </value>
         public EXT Extenstion { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected path.
-        /// </summary>
-        /// <value>
-        /// The selected path.
-        /// </value>
+        /// <summary> Gets or sets the selected path. </summary>
+        /// <value> The selected path. </value>
         public string SelectedPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected item.
-        /// </summary>
-        /// <value>
-        /// The selected item.
-        /// </value>
+        /// <summary> Gets or sets the selected item. </summary>
+        /// <value> The selected item. </value>
         public string SelectedItem { get; set; }
 
         /// <summary>
-        /// Initializes a new
-        /// instance of the <see cref="SchemaDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SchemaDialog"/>
+        /// class.
         /// </summary>
         public GuidanceDialog( )
         {
@@ -179,20 +130,86 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SchemaDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
+        /// <param name = "bindingSource" > The binding source. </param>
         public GuidanceDialog( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [browse button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnBrowseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenFileDialog.ShowDialog( );
+                SelectedPath = OpenFileDialog.SafeFileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [first button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnClearButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [second button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnSelectButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notification = new Notification( _msg );
+                _notification.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -211,9 +228,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the label configuration.
-        /// </summary>
+        /// <summary> Sets the label configuration. </summary>
         private void SetLabelText( )
         {
             try
@@ -225,9 +240,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the column ListBox.
-        /// </summary>
+        /// <summary> Populates the column ListBox. </summary>
         private void PopulateListBox( )
         {
             try
@@ -239,8 +252,7 @@ namespace BudgetExecution
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
@@ -255,9 +267,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
+        /// <summary> Populates the numeric ListBox. </summary>
         private void PopulateSecondTabListBox( )
         {
             try
@@ -269,9 +279,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Updates the header text.
-        /// </summary>
+        /// <summary> Updates the header text. </summary>
         private void UpdateHeaderText( )
         {
             try
@@ -283,10 +291,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [column ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [column ListBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnListViewSelectedValueChanged( object sender )
         {
             try
@@ -298,70 +304,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [browse button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">
-        /// The <see cref="EventArgs"/>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnBrowseButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenFileDialog.ShowDialog( );
-                SelectedPath = OpenFileDialog.SafeFileName;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [first button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnClearButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [second button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSelectButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _msg = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notification = new Notification( _msg );
-                _notification.Show( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -374,10 +323,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

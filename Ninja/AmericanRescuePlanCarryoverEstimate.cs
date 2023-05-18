@@ -1,21 +1,21 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
+
 namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class AmericanRescuePlanCarryoverEstimate : AnnualCarryoverEstimate, ICarryoverEstimate
     {
-        
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlanCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlanCarryoverEstimate"/>
+        /// class.
         /// </summary>
         public AmericanRescuePlanCarryoverEstimate( )
         {
@@ -23,9 +23,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlanCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlanCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public AmericanRescuePlanCarryoverEstimate( IQuery query )
             : this( )
         {
@@ -49,9 +51,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlanCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlanCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public AmericanRescuePlanCarryoverEstimate( IDataModel builder )
             : this( )
         {
@@ -76,9 +80,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlanCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlanCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public AmericanRescuePlanCarryoverEstimate( DataRow dataRow )
             : this( )
         {
@@ -100,8 +106,8 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
-        
-        public AmericanRescuePlanCarryoverEstimate( ICarryoverEstimate carryover ) 
+
+        public AmericanRescuePlanCarryoverEstimate( ICarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

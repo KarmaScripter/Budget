@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -19,6 +19,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class CheckBox : MetroSetCheckBox
     {
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
+        public virtual SmallTip ToolTip { get; set; }
+
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary> Gets or sets the filter. </summary>
+        /// <value> The filter. </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
+        public BindingSource BindingSource { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "CheckBox"/>
@@ -49,22 +65,6 @@ namespace BudgetExecution
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }
-
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public virtual SmallTip ToolTip { get; set; }
-
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
-        public virtual string HoverText { get; set; }
-
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public BindingSource BindingSource { get; set; }
 
         /// <summary> Called when [mouse over]. </summary>
         /// <param name = "sender" > The sender. </param>

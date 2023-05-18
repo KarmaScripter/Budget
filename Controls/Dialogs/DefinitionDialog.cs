@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -19,6 +19,18 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class DefinitionDialog : EditBase
     {
+        /// <summary> Gets or sets the sqlite data types. </summary>
+        /// <value> The sqlite data types. </value>
+        public override IEnumerable<string> DataTypes { get; set; }
+
+        public override string SelectedTable { get; set; }
+
+        public Provider SelectedProvider { get; set; }
+
+        public string SelectedType { get; set; }
+
+        public string ColumnName { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "DefinitionDialog"/>
@@ -83,18 +95,6 @@ namespace BudgetExecution
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Columns = DataTable.GetColumnNames( );
         }
-
-        /// <summary> Gets or sets the sqlite data types. </summary>
-        /// <value> The sqlite data types. </value>
-        public override IEnumerable<string> DataTypes { get; set; }
-
-        public override string SelectedTable { get; set; }
-
-        public Provider SelectedProvider { get; set; }
-
-        public string SelectedType { get; set; }
-
-        public string ColumnName { get; set; }
 
         /// <summary> Called when [visible]. </summary>
         /// <param name = "sender" > The sender. </param>

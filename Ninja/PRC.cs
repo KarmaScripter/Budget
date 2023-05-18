@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -12,8 +12,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    /// <seealso cref="BudgetExecution.IAccount" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
@@ -27,7 +28,7 @@ namespace BudgetExecution
         /// The budget level.
         /// </value>
         public virtual string BudgetLevel { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the rpio code.
         /// </summary>
@@ -43,7 +44,7 @@ namespace BudgetExecution
         /// The name of the rpio.
         /// </value>
         public virtual string RpioName { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the ah code.
         /// </summary>
@@ -85,22 +86,6 @@ namespace BudgetExecution
         public virtual string AccountCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the activity code.
-        /// </summary>
-        /// <value>
-        /// The activity code.
-        /// </value>
-        public virtual string ActivityCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the activity.
-        /// </summary>
-        /// <value>
-        /// The name of the activity.
-        /// </value>
-        public virtual string ActivityName { get; set; }
-
-        /// <summary>
         /// Gets or sets the boc code.
         /// </summary>
         /// <value>
@@ -133,106 +118,19 @@ namespace BudgetExecution
         public virtual string RcName { get; set; }
 
         /// <summary>
-        /// Gets or sets the NPM code.
+        /// Gets the source.
         /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public virtual string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public virtual string NpmName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the goal code.
-        /// </summary>
-        /// <value>
-        /// The goal code.
-        /// </value>
-        public virtual string GoalCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the goal.
-        /// </summary>
-        /// <value>
-        /// The name of the goal.
-        /// </value>
-        public virtual string GoalName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the objective code.
-        /// </summary>
-        /// <value>
-        /// The objective code.
-        /// </value>
-        public virtual string ObjectiveCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the objective.
-        /// </summary>
-        /// <value>
-        /// The name of the objective.
-        /// </value>
-        public virtual string ObjectiveName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public virtual string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public virtual string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public virtual string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public virtual string ProgramAreaName { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the Source .
-        /// </summary>
-        /// <value>
-        /// The name of the Source.
-        /// </value>
         public override Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the Provider.
         /// </summary>
-        /// <value>
-        /// The name of the Provider.
-        /// </value>
         public override Provider Provider { get; set; }
 
         /// <summary>
-        /// Gets or sets the Data.
+        /// Gets or sets the data.
         /// </summary>
         /// <value>
-        /// The Data.
+        /// The data.
         /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
@@ -353,7 +251,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
-        /// <param name="map">The data row.</param>
+        /// <param name="map">The map.</param>
         protected PRC( IDictionary<string, object> map )
         {
             Record = new DataBuilder( Source, map )?.Record;
@@ -388,6 +286,102 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets or sets the agency activity.
+        /// </summary>
+        /// <value>
+        /// The agency activity.
+        /// </value>
+        public virtual string ActivityCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the activity.
+        /// </summary>
+        /// <value>
+        /// The name of the activity.
+        /// </value>
+        public virtual string ActivityName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
+        public virtual string NpmCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the NPM.
+        /// </summary>
+        /// <value>
+        /// The name of the NPM.
+        /// </value>
+        public virtual string NpmName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the goal code.
+        /// </summary>
+        /// <value>
+        /// The goal code.
+        /// </value>
+        public virtual string GoalCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the goal.
+        /// </summary>
+        /// <value>
+        /// The name of the goal.
+        /// </value>
+        public virtual string GoalName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the objective code.
+        /// </summary>
+        /// <value>
+        /// The objective code.
+        /// </value>
+        public virtual string ObjectiveCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the objective.
+        /// </summary>
+        /// <value>
+        /// The name of the objective.
+        /// </value>
+        public virtual string ObjectiveName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
+        public virtual string ProgramProjectCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
+        public virtual string ProgramProjectName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
+        public virtual string ProgramAreaCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
+        public virtual string ProgramAreaName { get; set; }
+
+        /// <summary>
         /// Gets the field.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
@@ -411,12 +405,12 @@ namespace BudgetExecution
 
             return default;
         }
-        
+
         /// <summary>
-        /// Gets the numeric.
+        /// Gets the amount.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        /// <param name="field">The field.</param>
+        /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
         public virtual double GetAmount( DataRow dataRow, string numeric )
         {
@@ -425,7 +419,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return double.Parse( dataRow[ numeric ]?.ToString( ) );
+                    return double.Parse( dataRow[ numeric ]?.ToString( ) ?? string.Empty );
                 }
                 catch( Exception ex )
                 {

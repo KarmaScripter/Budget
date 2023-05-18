@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -14,10 +14,8 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
@@ -25,176 +23,94 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class EditBase : MetroForm
     {
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public virtual Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public virtual Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type of the command.
-        /// </summary>
-        /// <value>
-        /// The type of the command.
-        /// </value>
+        /// <summary> Gets or sets the type of the command. </summary>
+        /// <value> The type of the command. </value>
         public virtual SQL CommandType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the type of the tool.
-        /// </summary>
-        /// <value>
-        /// The type of the tool.
-        /// </value>
+        /// <summary> Gets or sets the type of the tool. </summary>
+        /// <value> The type of the tool. </value>
         public virtual ToolType ToolType { get; set; }
 
-        /// <summary>
-        /// Gets or sets the active tab.
-        /// </summary>
-        /// <value>
-        /// The active tab.
-        /// </value>
+        /// <summary> Gets or sets the active tab. </summary>
+        /// <value> The active tab. </value>
         public virtual TabPageAdv ActiveTab { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
         public virtual DataBuilder DataModel { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
         public virtual DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the columns.
-        /// </summary>
-        /// <value>
-        /// The columns.
-        /// </value>
+        /// <summary> Gets or sets the columns. </summary>
+        /// <value> The columns. </value>
         public virtual IEnumerable<string> Columns { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
+        /// <summary> Gets or sets the fields. </summary>
+        /// <value> The fields. </value>
         public virtual IList<string> Fields { get; set; }
 
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
+        /// <summary> Gets or sets the numerics. </summary>
+        /// <value> The numerics. </value>
         public virtual IList<string> Numerics { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the selected column.
-        /// </summary>
-        /// <value>
-        /// The selected column.
-        /// </value>
+
+        /// <summary> Gets or sets the selected column. </summary>
+        /// <value> The selected column. </value>
         public virtual string SelectedColumn { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected table.
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
+        /// <summary> Gets or sets the selected table. </summary>
+        /// <value> The selected table. </value>
         public virtual string SelectedTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
+        /// <summary> Gets or sets the form filter. </summary>
+        /// <value> The form filter. </value>
         public virtual IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary>
-        /// Gets or sets the group boxes.
-        /// </summary>
-        /// <value>
-        /// The group boxes.
-        /// </value>
+        /// <summary> Gets or sets the group boxes. </summary>
+        /// <value> The group boxes. </value>
         public virtual IDictionary<string, Layout> Panels { get; set; }
 
-        /// <summary>
-        /// Gets or sets the list boxes.
-        /// </summary>
-        /// <value>
-        /// The list boxes.
-        /// </value>
+        /// <summary> Gets or sets the list boxes. </summary>
+        /// <value> The list boxes. </value>
         public virtual IDictionary<string, ListBox> ListBoxes { get; set; }
 
-        /// <summary>
-        /// Gets or sets the labels.
-        /// </summary>
-        /// <value>
-        /// The labels.
-        /// </value>
+        /// <summary> Gets or sets the labels. </summary>
+        /// <value> The labels. </value>
         public virtual IEnumerable<Label> Labels { get; set; }
 
-        /// <summary>
-        /// Gets or sets the tab pages.
-        /// </summary>
-        /// <value>
-        /// The tab pages.
-        /// </value>
+        /// <summary> Gets or sets the tab pages. </summary>
+        /// <value> The tab pages. </value>
         public virtual IDictionary<string, TabPageAdv> TabPages { get; set; }
 
-        /// <summary>
-        /// Gets or sets the radio buttons.
-        /// </summary>
-        /// <value>
-        /// The radio buttons.
-        /// </value>
+        /// <summary> Gets or sets the radio buttons. </summary>
+        /// <value> The radio buttons. </value>
         public virtual IDictionary<string, RadioButton> RadioButtons { get; set; }
 
-        /// <summary>
-        /// Gets or sets the combo boxes.
-        /// </summary>
-        /// <value>
-        /// The combo boxes.
-        /// </value>
+        /// <summary> Gets or sets the combo boxes. </summary>
+        /// <value> The combo boxes. </value>
         public virtual IDictionary<string, ComboBox> ComboBoxes { get; set; }
 
-        /// <summary>
-        /// Gets or sets the text boxes.
-        /// </summary>
-        /// <value>
-        /// The text boxes.
-        /// </value>
+        /// <summary> Gets or sets the text boxes. </summary>
+        /// <value> The text boxes. </value>
         public virtual IEnumerable<TextBox> TextBoxes { get; set; }
 
-        /// <summary>
-        /// Gets or sets the data types.
-        /// </summary>
-        /// <value>
-        /// The data types.
-        /// </value>
+        /// <summary> Gets or sets the data types. </summary>
+        /// <value> The data types. </value>
         public virtual IEnumerable<string> DataTypes { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "EditBase"/>
+        /// class.
         /// </summary>
         public EditBase( )
         {
@@ -221,11 +137,9 @@ namespace BudgetExecution
             Text = string.Empty;
         }
 
-        /// <summary>
-        /// Gets the data types.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
+        /// <summary> Gets the data types. </summary>
+        /// <param name = "provider" > The provider. </param>
+        /// <returns> </returns>
         public virtual IEnumerable<string> GetDataTypes( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
@@ -233,7 +147,7 @@ namespace BudgetExecution
                 try
                 {
                     var _query = "SELECT DISTINCT SchemaTypes.TypeName" + " FROM SchemaTypes"
-                        + $" WHERE SchemaTypes.Database = '{ provider }'";
+                        + $" WHERE SchemaTypes.Database = '{provider}'";
 
                     var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
                     var _data = _model.DataTable.GetUniqueColumnValues( "TypeName" );
@@ -251,11 +165,13 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -267,11 +183,9 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
-        /// <param name="listBox">The list box.</param>
+
+        /// <summary> Populates the table ListBox items. </summary>
+        /// <param name = "listBox" > The list box. </param>
         public virtual void PopulateTableListBoxItems( ListBox listBox )
         {
             try
@@ -295,11 +209,9 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns></returns>
+
+        /// <summary> Gets the radio buttons. </summary>
+        /// <returns> </returns>
         public IDictionary<string, RadioButton> GetRadioButtons( )
         {
             if( TabPages?.Count > 0 )
@@ -341,10 +253,8 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Gets the combo boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the combo boxes. </summary>
+        /// <returns> </returns>
         public IDictionary<string, ComboBox> GetComboBoxes( )
         {
             if( TabPages?.Count > 0 )
@@ -387,10 +297,8 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Gets the group boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the group boxes. </summary>
+        /// <returns> </returns>
         public IDictionary<string, Layout> GetPanels( )
         {
             if( TabPages?.Count > 0 )
@@ -423,10 +331,8 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Gets the list boxes.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the list boxes. </summary>
+        /// <returns> </returns>
         public virtual IDictionary<string, ListBox> GetListBoxes( )
         {
             if( TabPages?.Count > 0 )
@@ -462,10 +368,8 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

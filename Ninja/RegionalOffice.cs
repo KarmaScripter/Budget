@@ -1,5 +1,5 @@
-﻿// <copyright file = "RegionalOffice.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,77 +8,53 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.ResourcePlanningOffice" />
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.ResourcePlanningOffice"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RegionalOffice : ResourcePlanningOffice
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
         public override int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the resource planning offices identifier.
-        /// </summary>
-        /// <value>
-        /// The resource planning offices identifier.
-        /// </value>
+        /// <summary> Gets or sets the resource planning offices identifier. </summary>
+        /// <value> The resource planning offices identifier. </value>
         public int ResourcePlanningOfficesId { get; set; }
 
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
+        /// <summary> Gets the code. </summary>
         public override string Code { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
         public override string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public override Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
+        /// <summary> Gets or sets the Record property. </summary>
+        /// <value> The data row. </value>
         public override DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
         public IDictionary<string, object> Map { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalOffice"/>
+        /// class.
         /// </summary>
         public RegionalOffice( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public RegionalOffice( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -86,9 +62,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public RegionalOffice( IDataModel builder )
         {
             Record = builder.Record;
@@ -96,9 +74,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalOffice"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalOffice"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The dataRow.</param>
+        /// <param name = "dataRow" > The dataRow. </param>
         public RegionalOffice( DataRow dataRow )
         {
             Record = dataRow;

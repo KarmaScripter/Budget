@@ -1,5 +1,5 @@
-﻿// <copyright file="Heading.cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,48 +9,33 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Heading : Grid
     {
-        /// <summary>
-        /// Gets or sets the span.
-        /// </summary>
-        /// <value>
-        /// The span.
-        /// </value>
+        /// <summary> Gets or sets the span. </summary>
+        /// <value> The span. </value>
         public int Span { get; set; }
 
-        /// <summary>
-        /// Gets or sets from.
-        /// </summary>
-        /// <value>
-        /// From.
-        /// </value>
+        /// <summary> Gets or sets from. </summary>
+        /// <value> From. </value>
         public (int Row, int Column) Anchor { get; set; }
 
-        /// <summary>
-        /// Gets or sets the caption.
-        /// </summary>
-        /// <value>
-        /// The caption.
-        /// </value>
+        /// <summary> Gets or sets the caption. </summary>
+        /// <value> The caption. </value>
         public IDictionary<int, string> Caption { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Heading"/> class.
+        /// <see cref = "Heading"/>
+        /// class.
         /// </summary>
         public Heading( )
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="grid"></param>
+        /// <summary> </summary>
+        /// <param name = "grid" > </param>
         public Heading( IGrid grid )
         {
             Worksheet = grid.Worksheet;
@@ -62,10 +47,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Heading"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Heading"/>
+        /// class.
         /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="caption">The caption.</param>
+        /// <param name = "grid" > The grid. </param>
+        /// <param name = "caption" > The caption. </param>
         public Heading( IGrid grid, IDictionary<int, string> caption )
             : this( grid )
         {

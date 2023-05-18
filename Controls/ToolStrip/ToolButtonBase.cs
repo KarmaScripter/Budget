@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,66 +9,38 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripButton" />
+    /// <summary> </summary>
+    /// <seealso cref = "System.Windows.Forms.ToolStripButton"/>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public class ToolButtonBase : System.Windows.Forms.ToolStripButton
     {
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
+        /// <summary> Gets or sets the field. </summary>
+        /// <value> The field. </value>
         public virtual Field Field { get; set; }
 
-        /// <summary>
-        /// Gets or sets the numeric.
-        /// </summary>
-        /// <value>
-        /// The numeric.
-        /// </value>
+        /// <summary> Gets or sets the numeric. </summary>
+        /// <value> The numeric. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
+        /// <summary> Gets or sets the filter. </summary>
+        /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary>
-        /// Gets or sets the bar.
-        /// </summary>
-        /// <value>
-        /// The bar.
-        /// </value>
+        /// <summary> Gets or sets the bar. </summary>
+        /// <value> The bar. </value>
         public ToolType ToolType { get; set; }
-        
-        /// <summary>
-        /// Gets the hover text from the type of button.
-        /// </summary>
+
+        /// <summary> Gets the hover text from the type of button. </summary>
         public string GetHoverText( ToolType tool )
         {
             if( Enum.IsDefined( typeof( ToolType ), tool ) )
@@ -103,10 +75,8 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary>
-        /// Sets the hover text.
-        /// </summary>
-        /// <param name="text">The text.</param>
+        /// <summary> Sets the hover text. </summary>
+        /// <param name = "text" > The text. </param>
         public void SetHoverText( string text )
         {
             try
@@ -121,10 +91,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -10,15 +10,11 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class Message : MetroForm
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> </summary>
         public Message( )
         {
             InitializeComponent( );
@@ -47,16 +43,18 @@ namespace BudgetExecution
             CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             CloseButton.Focus( );
-            
+
             //Event Wiring
             CloseButton.Click += OnCloseButtonClick;
             Load += OnLoad;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Message"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Message"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text displayed by the control.</param>
+        /// <param name = "text" > The text displayed by the control. </param>
         public Message( string text )
             : this( )
         {
@@ -65,10 +63,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Message"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Message"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="caption">The caption.</param>
+        /// <param name = "text" > The text. </param>
+        /// <param name = "caption" > The caption. </param>
         public Message( string text, string caption )
             : this( text )
         {
@@ -76,12 +76,9 @@ namespace BudgetExecution
             CloseButton.Focus( );
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e"> instance containing the event data.
-        /// </param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" > instance containing the event data. </param>
         public virtual void OnLoad( object sender, EventArgs e )
         {
             try
@@ -94,11 +91,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [close button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button
@@ -115,10 +114,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

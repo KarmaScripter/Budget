@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,9 +9,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripProgressBar : ToolStripProgressBase
@@ -42,10 +40,8 @@ namespace BudgetExecution
             MouseHover += OnMouseHover;
         }
 
-        /// <summary>
-        /// Increases the specified increment.
-        /// </summary>
-        /// <param name="increment">The increment.</param>
+        /// <summary> Increases the specified increment. </summary>
+        /// <param name = "increment" > The increment. </param>
         public void IncreaseBy( int increment )
         {
             if( increment > 0 )
@@ -61,9 +57,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Increases the specified increment.
-        /// </summary>
+        /// <summary> Increases the specified increment. </summary>
         public void ProgressByStep( int step = 10 )
         {
             try
@@ -77,10 +71,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the field.
-        /// </summary>
-        /// <param name="field">The field.</param>
+        /// <summary> Sets the field. </summary>
+        /// <param name = "field" > The field. </param>
         public void SetField( Field field )
         {
             try
@@ -95,10 +87,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the tag.
-        /// </summary>
-        /// <param name="tag">The tag.</param>
+        /// <summary> Sets the tag. </summary>
+        /// <param name = "tag" > The tag. </param>
         public void ReTag( object tag )
         {
             try
@@ -113,10 +103,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the hover text.
-        /// </summary>
-        /// <param name="text">The text.</param>
+        /// <summary> Sets the hover text. </summary>
+        /// <param name = "text" > The text. </param>
         public void SetHoverText( string text )
         {
             try
@@ -131,12 +119,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse hover].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs" />
-        /// instance containing the event data.</param>
+        /// <summary> Called when [mouse hover]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is ToolStripProgressBar progress
@@ -145,7 +134,6 @@ namespace BudgetExecution
                 try
                 {
                     var _text = progress?.HoverText;
-
                     if( !string.IsNullOrEmpty( _text ) )
                     {
                         var _ = new SmallTip( this, _text );

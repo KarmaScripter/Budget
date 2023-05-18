@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -18,6 +18,51 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class SqlBase
     {
+        /// <summary> The extension </summary>
+        public EXT Extension { get; set; }
+
+        /// <summary> The source </summary>
+        public Source Source { get; set; }
+
+        /// <summary> The provider </summary>
+        public Provider Provider { get; set; }
+
+        /// <summary> The command type </summary>
+        public SQL CommandType { get; set; }
+
+        /// <summary> The arguments </summary>
+        public IDictionary<string, object> Criteria { get; set; }
+
+        /// <summary> Gets or sets the updates. </summary>
+        /// <value> The updates. </value>
+        public IDictionary<string, object> Updates { get; set; }
+
+        /// <summary> Gets or sets the columns. </summary>
+        /// <value> The columns. </value>
+        public IList<string> Fields { get; set; }
+
+        /// <summary> Gets or sets the numerics. </summary>
+        /// <value> The numerics. </value>
+        public IList<string> Numerics { get; set; }
+
+        /// <summary> Gets or sets the groups. </summary>
+        /// <value> The groups. </value>
+        public IList<string> Groups { get; set; }
+
+        /// <summary> Gets or sets the name of the table. </summary>
+        /// <value> The name of the table. </value>
+        public string TableName { get; set; }
+
+        /// <summary> The provider path </summary>
+        public string DbPath { get; set; }
+
+        /// <summary> The file name </summary>
+        public string FileName { get; set; }
+
+        /// <summary> Gets or sets the select statement. </summary>
+        /// <value> The select statement. </value>
+        public string CommandText { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "SqlBase"/>
@@ -160,51 +205,6 @@ namespace BudgetExecution
             Numerics = numerics.ToList( );
             CommandText = GetCommandText( );
         }
-
-        /// <summary> The extension </summary>
-        public EXT Extension { get; set; }
-
-        /// <summary> The source </summary>
-        public Source Source { get; set; }
-
-        /// <summary> The provider </summary>
-        public Provider Provider { get; set; }
-
-        /// <summary> The command type </summary>
-        public SQL CommandType { get; set; }
-
-        /// <summary> The arguments </summary>
-        public IDictionary<string, object> Criteria { get; set; }
-
-        /// <summary> Gets or sets the updates. </summary>
-        /// <value> The updates. </value>
-        public IDictionary<string, object> Updates { get; set; }
-
-        /// <summary> Gets or sets the columns. </summary>
-        /// <value> The columns. </value>
-        public IList<string> Fields { get; set; }
-
-        /// <summary> Gets or sets the numerics. </summary>
-        /// <value> The numerics. </value>
-        public IList<string> Numerics { get; set; }
-
-        /// <summary> Gets or sets the groups. </summary>
-        /// <value> The groups. </value>
-        public IList<string> Groups { get; set; }
-
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
-        public string TableName { get; set; }
-
-        /// <summary> The provider path </summary>
-        public string DbPath { get; set; }
-
-        /// <summary> The file name </summary>
-        public string FileName { get; set; }
-
-        /// <summary> Gets or sets the select statement. </summary>
-        /// <value> The select statement. </value>
-        public string CommandText { get; set; }
 
         /// <summary> Gets the command text. </summary>
         /// <returns> </returns>

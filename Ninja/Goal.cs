@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,9 +9,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     /// <seealso cref = "IGoal"/>
     /// <seealso cref = "IProgram"/>
     /// <seealso cref = "ISource"/>
@@ -21,11 +19,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Goal : DataUnit, IGoal 
+    public class Goal : DataUnit, IGoal
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Goal"/> class.
+        /// <see cref = "Goal"/>
+        /// class.
         /// </summary>
         public Goal( )
         {
@@ -33,11 +32,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Goal"/> class.
+        /// <see cref = "Goal"/>
+        /// class.
         /// </summary>
-        /// <param name = "query" >
-        /// The query.
-        /// </param>
+        /// <param name = "query" > The query. </param>
         public Goal( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
@@ -49,11 +47,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Goal"/> class.
+        /// <see cref = "Goal"/>
+        /// class.
         /// </summary>
-        /// <param name = "builder" >
-        /// The builder.
-        /// </param>
+        /// <param name = "builder" > The builder. </param>
         public Goal( IDataModel builder )
         {
             Record = builder?.Record;
@@ -65,11 +62,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Goal"/> class.
+        /// <see cref = "Goal"/>
+        /// class.
         /// </summary>
-        /// <param name = "dataRow" >
-        /// The dataRow.
-        /// </param>
+        /// <param name = "dataRow" > The dataRow. </param>
         public Goal( DataRow dataRow )
         {
             Record = dataRow;
@@ -80,11 +76,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Goal"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Goal"/>
+        /// class.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
+        /// <param name = "code" > The code. </param>
         public Goal( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -95,50 +91,21 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Goal"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Goal"/>
+        /// class.
         /// </summary>
-        /// <param name="goal">The goal.</param>
+        /// <param name = "goal" > The goal. </param>
         public Goal( IGoal goal )
         {
             ID = goal.ID;
             Code = goal.Code;
             Name = goal.Name;
         }
-        
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"Code" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
 
-            return default( IDictionary<string, object> );
-        }
-
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name = "goal" >
-        /// The goal.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <summary> Sets the arguments. </summary>
+        /// <param name = "goal" > The goal. </param>
+        /// <returns> </returns>
         public IDictionary<string, object> GetArgs( int goal )
         {
             if( goal > 0
@@ -146,10 +113,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object>
-                    {
-                        [ "Code" ] = goal.ToString( )
-                    };
+                    return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
                 }
                 catch( SystemException ex )
                 {
@@ -161,11 +125,8 @@ namespace BudgetExecution
             return default( IDictionary<string, object> );
         }
 
-        /// <summary>
-        /// Gets the goal.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the goal. </summary>
+        /// <returns> </returns>
         public IGoal GetGoal( )
         {
             try
@@ -179,11 +140,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the source. </summary>
+        /// <returns> </returns>
         public Source GetSource( )
         {
             try
@@ -197,6 +155,27 @@ namespace BudgetExecution
                 Fail( ex );
                 return default( Source );
             }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name = "code" > The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
         }
     }
 }

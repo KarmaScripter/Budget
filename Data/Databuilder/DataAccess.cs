@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,25 +11,32 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref = "DataConfig"/>
-    /// <seealso cref = "ISource"/>
-    /// <seealso cref = "IProvider"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataConfig" />
+    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="DataConfig" />
+    /// <seealso cref="ISource" />
+    /// <seealso cref="IProvider" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class DataAccess : DataConfig, ISource, IProvider
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataAccess"/>
+        /// <see cref="DataAccess" />
         /// class.
         /// </summary>
         protected DataAccess( )
         {
         }
 
-        /// <summary> Gets the Data. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the Data.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DataRow> GetData( )
         {
             try
@@ -47,8 +54,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the column schema. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column schema.
+        /// </summary>
+        /// <returns></returns>
         public DataColumnCollection GetTableSchema( )
         {
             if( Query != null )
@@ -75,8 +84,10 @@ namespace BudgetExecution
             return default( DataColumnCollection );
         }
 
-        /// <summary> Gets the Data table. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the Data table.
+        /// </summary>
+        /// <returns></returns>
         private protected DataTable GetDataTable( )
         {
             if( Query != null )
@@ -104,8 +115,10 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Gets the Data set. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the Data set.
+        /// </summary>
+        /// <returns></returns>
         private protected DataSet GetDataSet( )
         {
             if( Query != null )
@@ -132,8 +145,10 @@ namespace BudgetExecution
             return default( DataSet );
         }
 
-        /// <summary> Sets the column captions. </summary>
-        /// <param name = "dataTable" > The Data table. </param>
+        /// <summary>
+        /// Sets the column captions.
+        /// </summary>
+        /// <param name="dataTable">The Data table.</param>
         private protected void SetColumnCaptions( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
@@ -156,8 +171,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the fields. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<string> GetFields( )
         {
             if( DataTable != null )
@@ -187,8 +204,10 @@ namespace BudgetExecution
             return default( IList<string> );
         }
 
-        /// <summary> Gets the numerics. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<string> GetNumerics( )
         {
             if( DataTable != null )
@@ -225,8 +244,10 @@ namespace BudgetExecution
             return default( IList<string> );
         }
 
-        /// <summary> Gets the dates. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the dates.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<string> GetDates( )
         {
             if( DataTable != null )
@@ -259,8 +280,10 @@ namespace BudgetExecution
             return default( IList<string> );
         }
 
-        /// <summary> Gets the keys. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the keys.
+        /// </summary>
+        /// <returns></returns>
         private protected IList<int> GetPrimaryKeys( )
         {
             if( DataTable != null )

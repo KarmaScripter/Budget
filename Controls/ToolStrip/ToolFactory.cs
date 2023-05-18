@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -10,33 +10,25 @@ namespace BudgetExecution
     using System.Drawing;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolFactory
     {
-        /// <summary>
-        /// Gets or sets the image directory.
-        /// </summary>
-        /// <value>
-        /// The image directory.
-        /// </value>
-        public static string ImageDirectory { get; } =
-            ConfigurationManager.AppSettings[ "ToolStrip" ];
+        /// <summary> Gets or sets the image directory. </summary>
+        /// <value> The image directory. </value>
+        public static string ImageDirectory { get; } = ConfigurationManager.AppSettings[ "ToolStrip" ];
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="ToolFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolFactory"/>
+        /// class.
         /// </summary>
         public ToolFactory( )
         {
         }
 
-        /// <summary>
-        /// Creates the separator.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the separator. </summary>
+        /// <returns> </returns>
         public static ToolSeparator CreateSeparator( )
         {
             try
@@ -51,10 +43,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the first record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the first record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateFirstButton( )
         {
             try
@@ -73,10 +63,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the previous record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the previous record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreatePreviousButton( )
         {
             try
@@ -95,10 +83,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the next record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the next record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateNextButton( )
         {
             try
@@ -117,10 +103,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the last record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the last record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateLastButton( )
         {
             try
@@ -139,10 +123,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the edit record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the edit record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateEditButton( )
         {
             try
@@ -161,10 +143,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the add record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the add record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateAddButton( )
         {
             try
@@ -183,10 +163,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the delete record button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the delete record button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateDeleteButton( )
         {
             try
@@ -205,10 +183,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the refresh data button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the refresh data button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateRefreshButton( )
         {
             try
@@ -227,10 +203,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the save changes button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the save changes button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateSaveButton( )
         {
             try
@@ -249,10 +223,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the print data button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the print data button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreatePrintButton( )
         {
             try
@@ -271,10 +243,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the excel export button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the excel export button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateExcelButton( )
         {
             try
@@ -293,10 +263,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the calculator button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the calculator button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateCalculatorButton( )
         {
             try
@@ -315,10 +283,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the print data button.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Creates the print data button. </summary>
+        /// <returns> </returns>
         public static ToolStripButton CreateHomeButton( )
         {
             try
@@ -337,11 +303,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the label.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Creates the label. </summary>
+        /// <returns> </returns>
         public static ToolStripLabel CreateLabel( )
         {
             try
@@ -356,11 +319,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the ComboBox.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Creates the ComboBox. </summary>
+        /// <returns> </returns>
         public static ToolStripComboBoxEx CreateComboBox( )
         {
             try
@@ -375,11 +335,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the text box.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Creates the text box. </summary>
+        /// <returns> </returns>
         public static ToolStripProgressBar CreateProgressBar( )
         {
             try
@@ -394,11 +351,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the text box.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Creates the text box. </summary>
+        /// <returns> </returns>
         public static ToolStripTextBox CreateTextBox( )
         {
             try
@@ -413,10 +367,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

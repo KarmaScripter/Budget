@@ -1,5 +1,5 @@
-// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -18,6 +18,26 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public partial class CalendarDialog : MetroForm
     {
+        /// <summary> Gets or sets the selected date. </summary>
+        /// <value> The selected date. </value>
+        public string DateString { get; set; }
+
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
+        public DataSet Data { get; set; }
+
+        /// <summary> Gets or sets the holidays. </summary>
+        /// <value> The holidays. </value>
+        public DataTable Holidays { get; set; }
+
+        /// <summary> Gets or sets the fiscal years. </summary>
+        /// <value> The fiscal years. </value>
+        public DataTable FiscalYears { get; set; }
+
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
+        public DataBuilder DataModel { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "CalendarDialog"/>
@@ -78,26 +98,6 @@ namespace BudgetExecution
         {
             DateString = dateTime.ToString( );
         }
-
-        /// <summary> Gets or sets the selected date. </summary>
-        /// <value> The selected date. </value>
-        public string DateString { get; set; }
-
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
-        public DataSet Data { get; set; }
-
-        /// <summary> Gets or sets the holidays. </summary>
-        /// <value> The holidays. </value>
-        public DataTable Holidays { get; set; }
-
-        /// <summary> Gets or sets the fiscal years. </summary>
-        /// <value> The fiscal years. </value>
-        public DataTable FiscalYears { get; set; }
-
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
-        public DataBuilder DataModel { get; set; }
 
         /// <summary> Called when [load]. </summary>
         /// <param name = "sender" > The sender. </param>

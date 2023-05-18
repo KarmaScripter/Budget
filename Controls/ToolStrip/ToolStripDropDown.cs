@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -13,26 +13,22 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.ToolStripDropDownBase" />
-    /// <seealso cref="IToolStripComboBox" />
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.ToolStripDropDownBase"/>
+    /// <seealso cref = "IToolStripComboBox"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripDropDown : ToolStripDropDownBase, IToolStripComboBox
     {
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripComboBoxEx"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripComboBoxEx"/>
+        /// class.
         /// </summary>
         public ToolStripDropDown( )
         {
@@ -56,9 +52,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripComboBoxEx"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripComboBoxEx"/>
+        /// class.
         /// </summary>
-        /// <param name="data">The data.</param>
+        /// <param name = "data" > The data. </param>
         public ToolStripDropDown( IEnumerable<object> data )
             : this( )
         {
@@ -66,10 +64,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripComboBoxEx"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripComboBoxEx"/>
+        /// class.
         /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="filter">The filter.</param>
+        /// <param name = "data" > The data. </param>
+        /// <param name = "filter" > The filter. </param>
         public ToolStripDropDown( IEnumerable<object> data, string filter )
             : this( data )
         {
@@ -77,10 +77,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripComboBoxEx"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripComboBoxEx"/>
+        /// class.
         /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="filter">The filter.</param>
+        /// <param name = "data" > The data. </param>
+        /// <param name = "filter" > The filter. </param>
         public ToolStripDropDown( IEnumerable<DataRow> data, string filter )
             : this( )
         {
@@ -161,10 +163,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the selected item.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the selected item. </summary>
+        /// <returns> </returns>
         public object GetSelectedItem( )
         {
             if( Selected && SelectedIndex > -1 )
@@ -183,10 +183,8 @@ namespace BudgetExecution
             return null;
         }
 
-        /// <summary>
-        /// Gets the selected item.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the selected item. </summary>
+        /// <returns> </returns>
         public void AddItem( object item )
         {
             if( item != null )
@@ -202,11 +200,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
         {
             try

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -17,6 +17,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class ErrorDialog : MetroForm
     {
+        /// <summary> Gets or sets the exception. </summary>
+        /// <value> The exception. </value>
+        public virtual Exception Exception { get; set; }
+
+        /// <summary> Gets or sets the icon path. </summary>
+        /// <value> The icon path. </value>
+        public virtual string IconPath { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "ErrorDialog"/>
@@ -88,14 +96,6 @@ namespace BudgetExecution
             Exception = null;
             TextBox.Text = message;
         }
-
-        /// <summary> Gets or sets the exception. </summary>
-        /// <value> The exception. </value>
-        public virtual Exception Exception { get; set; }
-
-        /// <summary> Gets or sets the icon path. </summary>
-        /// <value> The icon path. </value>
-        public virtual string IconPath { get; set; }
 
         /// <summary> </summary>
         /// <param name = "sender" > </param>

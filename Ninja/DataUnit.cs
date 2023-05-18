@@ -1,5 +1,5 @@
-﻿// <copyright file = "Element.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -10,56 +10,36 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.IDataUnit" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.IDataUnit"/>
+    /// <seealso cref = "BudgetExecution.ISource"/>
+    /// <seealso cref = "BudgetExecution.IProvider"/>
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
-        /// <summary>
-        /// </summary>
-        public virtual int ID { get; set; }
-
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        public virtual string Code { get; set; }
-
-        /// <summary>
-        /// The name
-        /// </summary>
-        public virtual string Name { get; set; }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public virtual Source Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        public virtual Provider Provider { get; set; }
-
-        /// <summary>
-        /// </summary>
-        public virtual DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
+        /// <summary> Gets or sets the data. </summary>
+        /// <value> The data. </value>
         public virtual IDictionary<string, object> Data { get; set; }
 
-        /// <summary>
-        /// Determines whether the specified element is match.
-        /// </summary>
-        /// <param name="unit">The element.</param>
+        /// <summary> </summary>
+        public virtual int ID { get; set; }
+
+        /// <summary> Gets the field. </summary>
+        public virtual string Code { get; set; }
+
+        /// <summary> The name </summary>
+        public virtual string Name { get; set; }
+
+        /// <summary> </summary>
+        public virtual DataRow Record { get; set; }
+
+        /// <summary> Determines whether the specified element is match. </summary>
+        /// <param name = "unit" > The element. </param>
         /// <returns>
-        ///   <c>true</c> if the specified element is match; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified element is match; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public virtual bool IsMatch( IDataUnit unit )
         {
@@ -67,7 +47,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( unit.Code?.Equals( Code ) == true 
+                    if( unit.Code?.Equals( Code ) == true
                        && unit.Name.Equals( Name ) )
                     {
                         return true;
@@ -83,39 +63,13 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Determines whether the specified primary is match.
-        /// </summary>
-        /// <param name="primary">The primary.</param>
-        /// <param name="secondary">The secondary.</param>
+        /// <summary> Determines whether the specified dictionary is match. </summary>
+        /// <param name = "dict" > The dictionary. </param>
         /// <returns>
-        ///   <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsMatch( IDataUnit primary, IDataUnit secondary )
-        {
-            try
-            {
-                if( primary.Code.Equals( secondary.Code )
-                   && primary.Name.Equals( secondary.Name ) )
-                {
-                    return true;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return false;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Determines whether the specified dictionary is match.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified dictionary is match; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified dictionary is match; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public virtual bool IsMatch( IDictionary<string, object> dict )
         {
@@ -137,12 +91,44 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
+        /// <summary> </summary>
+        public virtual Provider Provider { get; set; }
+
+        /// <summary> Gets the source. </summary>
+        public virtual Source Source { get; set; }
+
+        /// <summary> Determines whether the specified primary is match. </summary>
+        /// <param name = "primary" > The primary. </param>
+        /// <param name = "secondary" > The secondary. </param>
+        /// <returns>
+        /// <c> true </c>
+        /// if the specified primary is match; otherwise,
+        /// <c> false </c>
+        /// .
+        /// </returns>
+        public static bool IsMatch( IDataUnit primary, IDataUnit secondary )
+        {
+            try
+            {
+                if( primary.Code.Equals( secondary.Code )
+                   && primary.Name.Equals( secondary.Name ) )
+                {
+                    return true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return false;
+            }
+
+            return false;
+        }
+
+        /// <summary> Gets the identifier. </summary>
+        /// <param name = "dataRow" > The data row. </param>
+        /// <param name = "primaryKey" > The primary key. </param>
+        /// <returns> </returns>
         public virtual int GetId( DataRow dataRow, string primaryKey )
         {
             try
@@ -158,11 +144,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
+        /// <summary> Gets the identifier. </summary>
+        /// <param name = "dataRow" > The data row. </param>
+        /// <returns> </returns>
         public virtual int GetId( DataRow dataRow )
         {
             if( dataRow != null )
@@ -175,10 +159,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

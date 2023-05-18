@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -23,299 +23,152 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public abstract class Supplemental : ProgramResultsCode
     {
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public override Source Source { get; set; } 
+        /// <summary> Gets the source. </summary>
+        /// <value> The source. </value>
+        public override Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ProgramResultCodes identifier.
-        /// </summary>
-        /// <value>
-        /// The ProgramResultCodes identifier.
-        /// </value>
+        /// <summary> Gets or sets the ProgramResultCodes identifier. </summary>
+        /// <value> The ProgramResultCodes identifier. </value>
         public override int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the status of funds identifier.
-        /// </summary>
-        /// <value>
-        /// The status of funds identifier.
-        /// </value>
+        /// <summary> Gets or sets the status of funds identifier. </summary>
+        /// <value> The status of funds identifier. </value>
         public int StatusOfFundsId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the budget level.
-        /// </summary>
-        /// <value>
-        /// The budget level.
-        /// </value>
+        /// <summary> Gets or sets the budget level. </summary>
+        /// <value> The budget level. </value>
         public override string BudgetLevel { get; set; }
 
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
+        /// <summary> Gets or sets the bfy. </summary>
+        /// <value> The bfy. </value>
         public override string BFY { get; set; }
 
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
+        /// <summary> Gets or sets the efy. </summary>
+        /// <value> The efy. </value>
         public override string EFY { get; set; }
 
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
+        /// <summary> Gets or sets the rpio code. </summary>
+        /// <value> The rpio code. </value>
         public override string RpioCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
+        /// <summary> Gets or sets the name of the rpio. </summary>
+        /// <value> The name of the rpio. </value>
         public override string RpioName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ah code.
-        /// </summary>
-        /// <value>
-        /// The ah code.
-        /// </value>
+        /// <summary> Gets or sets the ah code. </summary>
+        /// <value> The ah code. </value>
         public override string AhCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
+        /// <summary> Gets or sets the name of the ah. </summary>
+        /// <value> The name of the ah. </value>
         public override string AhName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
+        /// <summary> Gets or sets the fund code. </summary>
+        /// <value> The fund code. </value>
         public override string FundCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
+        /// <summary> Gets or sets the name of the fund. </summary>
+        /// <value> The name of the fund. </value>
         public override string FundName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the org code.
-        /// </summary>
-        /// <value>
-        /// The org code.
-        /// </value>
+        /// <summary> Gets or sets the org code. </summary>
+        /// <value> The org code. </value>
         public override string OrgCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the org.
-        /// </summary>
-        /// <value>
-        /// The name of the org.
-        /// </value>
+        /// <summary> Gets or sets the name of the org. </summary>
+        /// <value> The name of the org. </value>
         public override string OrgName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
+        /// <summary> Gets or sets the account code. </summary>
+        /// <value> The account code. </value>
         public override string AccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
+        /// <summary> Gets or sets the boc code. </summary>
+        /// <value> The boc code. </value>
         public override string BocCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
+        /// <summary> Gets or sets the name of the boc. </summary>
+        /// <value> The name of the boc. </value>
         public override string BocName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the activity code.
-        /// </summary>
-        /// <value>
-        /// The activity code.
-        /// </value>
+        /// <summary> Gets or sets the activity code. </summary>
+        /// <value> The activity code. </value>
         public override string ProgramProjectCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
+        /// <summary> Gets or sets the name of the program project. </summary>
+        /// <value> The name of the program project. </value>
         public override string ProgramProjectName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
+        /// <summary> Gets or sets the program area code. </summary>
+        /// <value> The program area code. </value>
         public override string ProgramAreaCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
+        /// <summary> Gets or sets the name of the program area. </summary>
+        /// <value> The name of the program area. </value>
         public override string ProgramAreaName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the rc code.
-        /// </summary>
-        /// <value>
-        /// The rc code.
-        /// </value>
+        /// <summary> Gets or sets the rc code. </summary>
+        /// <value> The rc code. </value>
         public override string RcCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the rc.
-        /// </summary>
-        /// <value>
-        /// The name of the rc.
-        /// </value>
+        /// <summary> Gets or sets the name of the rc. </summary>
+        /// <value> The name of the rc. </value>
         public override string RcName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the lower.
-        /// </summary>
-        /// <value>
-        /// The name of the lower.
-        /// </value>
+        /// <summary> Gets or sets the name of the lower. </summary>
+        /// <value> The name of the lower. </value>
         public string LowerName { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the budgeted.
-        /// </summary>
-        /// <value>
-        /// The budgeted.
-        /// </value>
+
+        /// <summary> Gets or sets the budgeted. </summary>
+        /// <value> The budgeted. </value>
         public override double Budgeted { get; set; }
 
-        /// <summary>
-        /// Gets or sets the posted.
-        /// </summary>
-        /// <value>
-        /// The posted.
-        /// </value>
+        /// <summary> Gets or sets the posted. </summary>
+        /// <value> The posted. </value>
         public override double Posted { get; set; }
 
-        /// <summary>
-        /// Gets or sets the open commitments.
-        /// </summary>
-        /// <value>
-        /// The open commitments.
-        /// </value>
+        /// <summary> Gets or sets the open commitments. </summary>
+        /// <value> The open commitments. </value>
         public override double OpenCommitments { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
+        /// <summary> Gets or sets the ulo. </summary>
+        /// <value> The ulo. </value>
         public override double ULO { get; set; }
 
-        /// <summary>
-        /// Gets or sets the expenditures.
-        /// </summary>
-        /// <value>
-        /// The expenditures.
-        /// </value>
+        /// <summary> Gets or sets the expenditures. </summary>
+        /// <value> The expenditures. </value>
         public override double Expenditures { get; set; }
 
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
+        /// <summary> Gets or sets the obligations. </summary>
+        /// <value> The obligations. </value>
         public override double Obligations { get; set; }
 
-        /// <summary>
-        /// Gets or sets the used.
-        /// </summary>
-        /// <value>
-        /// The used.
-        /// </value>
+        /// <summary> Gets or sets the used. </summary>
+        /// <value> The used. </value>
         public override double Used { get; set; }
 
-        /// <summary>
-        /// Gets or sets the available.
-        /// </summary>
-        /// <value>
-        /// The available.
-        /// </value>
+        /// <summary> Gets or sets the available. </summary>
+        /// <value> The available. </value>
         public override double Available { get; set; }
 
-        /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
+        /// <summary> Gets or sets the NPM code. </summary>
+        /// <value> The NPM code. </value>
         public override string NpmCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
+        /// <summary> Gets or sets the name of the NPM. </summary>
+        /// <value> The name of the NPM. </value>
         public override string NpmName { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
+
+        /// <summary> Gets or sets the type. </summary>
+        /// <value> The type. </value>
         public string Type { get; set; }
 
-        /// <summary>
-        /// Gets or sets the boc.
-        /// </summary>
-        /// <value>
-        /// The boc.
-        /// </value>
+        /// <summary> Gets or sets the boc. </summary>
+        /// <value> The boc. </value>
         public string BOC { get; set; }
 
-        /// <summary>
-        /// Gets the Data builder.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the Data builder. </summary>
+        /// <returns> </returns>
         public IDataModel GetBuilder( )
         {
             try

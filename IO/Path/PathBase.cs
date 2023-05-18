@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,141 +9,89 @@ namespace BudgetExecution
     using System.IO;
     using System.Security.AccessControl;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
     public abstract class PathBase
     {
-        /// <summary>
-        /// The path
-        /// </summary>
+        /// <summary> The path </summary>
         public virtual string Buffer { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
+        /// <summary> Gets or sets the name of the file. </summary>
+        /// <value> The name of the file. </value>
         public virtual string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the full name.
-        /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
+        /// <summary> Gets or sets the full name. </summary>
+        /// <value> The full name. </value>
         public virtual string FullPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the full path.
-        /// </summary>
-        /// <value>
-        /// The full path.
-        /// </value>
+        /// <summary> Gets or sets the full path. </summary>
+        /// <value> The full path. </value>
         public virtual string AbsolutePath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the changed date.
-        /// </summary>
-        /// <value>
-        /// The changed date.
-        /// </value>
+        /// <summary> Gets or sets the changed date. </summary>
+        /// <value> The changed date. </value>
         public virtual DateTime Modified { get; set; }
 
-        /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
+        /// <summary> Gets or sets the extension. </summary>
+        /// <value> The extension. </value>
         public virtual string Extension { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance has parent.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
         /// <value>
-        ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance has parent { get; set; } otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public virtual bool HasParent { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance has parent.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
         /// <value>
-        ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance has parent { get; set; } otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public virtual string ParentFolder { get; set; }
 
-        /// <summary>
-        /// Gets or sets the creation date.
-        /// </summary>
-        /// <value>
-        /// The creation date.p/// </value>
+        /// <summary> Gets or sets the creation date. </summary>
+        /// <value> The creation date.p/// </value>
         public virtual DateTime Created { get; set; }
 
-        /// <summary>
-        /// Gets or sets the lengeth.
-        /// </summary>
-        /// <value>
-        /// The lengeth.
-        /// </value>
+        /// <summary> Gets or sets the lengeth. </summary>
+        /// <value> The lengeth. </value>
         public virtual long Length { get; set; }
 
-        /// <summary>
-        /// Gets or sets the attributes.
-        /// </summary>
-        /// <value>
-        /// The attributes.
-        /// </value>
+        /// <summary> Gets or sets the attributes. </summary>
+        /// <value> The attributes. </value>
         public virtual FileAttributes Attributes { get; set; }
 
-        /// <summary>
-        /// Gets or sets the security.
-        /// </summary>
-        /// <value>
-        /// The security.
-        /// </value>
+        /// <summary> Gets or sets the security. </summary>
+        /// <value> The security. </value>
         public virtual FileSecurity FileSecurity { get; set; }
 
-        /// <summary>
-        /// Gets the dir sep.
-        /// </summary>
-        /// <value>
-        /// The dir sep.
-        /// </value>
+        /// <summary> Gets the dir sep. </summary>
+        /// <value> The dir sep. </value>
         public char DirSep { get; } = Path.DirectorySeparatorChar;
 
-        /// <summary>
-        /// Gets the path sep.
-        /// </summary>
-        /// <value>
-        /// The path sep.
-        /// </value>
+        /// <summary> Gets the path sep. </summary>
+        /// <value> The path sep. </value>
         public char PathSep { get; } = Path.PathSeparator;
 
-        /// <summary>
-        /// Gets the invalid path character.
-        /// </summary>
-        /// <value>
-        /// The invalid path character.
-        /// </value>
+        /// <summary> Gets the invalid path character. </summary>
+        /// <value> The invalid path character. </value>
         public char[ ] InvalidPathChars { get; } = Path.GetInvalidPathChars( );
 
-        /// <summary>
-        /// Gets the invalid namehar.
-        /// </summary>
-        /// <value>
-        /// The invalid namehar.
-        /// </value>
+        /// <summary> Gets the invalid namehar. </summary>
+        /// <value> The invalid namehar. </value>
         public char[ ] InvalidNameChars { get; } = Path.GetInvalidFileNameChars( );
 
         /// <summary>
-        /// Initializes a new instance 
-        /// of the <see cref="PathBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "PathBase"/>
+        /// class.
         /// </summary>
         protected PathBase( )
         {
@@ -151,9 +99,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        ///  <see cref="PathBase"/> class.
+        /// <see cref = "PathBase"/>
+        /// class.
         /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name = "input" > The input. </param>
         protected PathBase( string input )
         {
             Buffer = input;
@@ -168,10 +117,8 @@ namespace BudgetExecution
             Modified = new FileInfo( AbsolutePath ).LastWriteTime;
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

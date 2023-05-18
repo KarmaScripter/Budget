@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -12,39 +12,26 @@ namespace BudgetExecution
     using MetroSet_UI.Enums;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RadioButton : MetroSetRadioButton
     {
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary>
-        /// Gets or sets the result.
-        /// </summary>
-        /// <value>
-        /// The result.
-        /// </value>
+        /// <summary> Gets or sets the result. </summary>
+        /// <value> The result. </value>
         public virtual string Result { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the 
-        /// <see cref="RadioButton"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RadioButton"/>
+        /// class.
         /// </summary>
         public RadioButton( )
         {
@@ -69,19 +56,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RadioButton"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RadioButton"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text displayed by the control.</param>
+        /// <param name = "text" > The text displayed by the control. </param>
         public RadioButton( string text )
             : this( )
         {
             Text = text;
         }
 
-        /// <summary>
-        /// Called when [check state changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [check state changed]. </summary>
+        /// <param name = "sender" > The sender. </param>
         public void OnCheckStateChanged( object sender )
         {
             if( sender is RadioButton radioButton
@@ -98,12 +85,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse over].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
+        /// <summary> Called when [mouse over]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnMouseHover( object sender, EventArgs e )
         {
             try
@@ -130,12 +118,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnMouseLeave( object sender, EventArgs e )
         {
             try
@@ -152,10 +141,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The exception.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The exception. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

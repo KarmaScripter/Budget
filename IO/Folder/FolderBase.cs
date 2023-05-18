@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 // ReSharper disable All
@@ -13,102 +13,83 @@ namespace BudgetExecution
     using System.Linq;
     using System.Security.AccessControl;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public abstract class FolderBase 
+    /// <summary> </summary>
+    public abstract class FolderBase
     {
-        /// <summary>
-        /// Gets or sets the buffer.
-        /// </summary>
-        /// <value>
-        /// The buffer.
-        /// </value>
+        /// <summary> Gets or sets the buffer. </summary>
+        /// <value> The buffer. </value>
         public virtual string Buffer { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
+
+        /// <summary> Gets or sets the name of the file. </summary>
+        /// <value> The name of the file. </value>
         public virtual string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the full name.
-        /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
+        /// <summary> Gets or sets the full name. </summary>
+        /// <value> The full name. </value>
         public virtual string FullName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the full path.
-        /// </summary>
-        /// <value>
-        /// The full path.
-        /// </value>
+        /// <summary> Gets or sets the full path. </summary>
+        /// <value> The full path. </value>
         public virtual string FullPath { get; set; }
 
-        /// <summary>
-        /// Gets or sets the changed date.
-        /// </summary>
-        /// <value>
-        /// The changed date.
-        /// </value>
+        /// <summary> Gets or sets the changed date. </summary>
+        /// <value> The changed date. </value>
         public virtual DateTime Modified { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance has parent.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
         /// <value>
-        ///   <c>true</c> if this instance has parent { get; set; } otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance has parent { get; set; } otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public virtual DirectoryInfo Parent { get; set; }
 
-        /// <summary>
-        /// Gets or sets the creation date.
-        /// </summary>
-        /// <value>
-        /// The creation date.p/// </value>
+        /// <summary> Gets or sets the creation date. </summary>
+        /// <value> The creation date.p/// </value>
         public virtual DateTime Created { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance has sub files.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether this instance has sub files. </summary>
         /// <value>
-        ///   <c>true</c> if this instance has sub files; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance has sub files; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public virtual IEnumerable<string> SubFiles { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance has sub folders.
+        /// Gets or sets a value indicating whether this instance has sub
+        /// folders.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance has sub folders; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance has sub folders; otherwise,
+        /// <c> false </c>
+        /// .
         /// </value>
         public virtual IEnumerable<string> SubFolders { get; set; }
 
-        /// <summary>
-        /// Gets or sets the security.
-        /// </summary>
-        /// <value>
-        /// The security.
-        /// </value>
+        /// <summary> Gets or sets the security. </summary>
+        /// <value> The security. </value>
         public virtual DirectorySecurity Security { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FolderBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "FolderBase"/>
+        /// class.
         /// </summary>
         protected FolderBase( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FolderBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "FolderBase"/>
+        /// class.
         /// </summary>
-        /// <param name="input">The input.</param>
-        protected FolderBase( string input ) 
+        /// <param name = "input" > The input. </param>
+        protected FolderBase( string input )
         {
             Buffer = input;
             FullPath = Path.GetFullPath( input );
@@ -122,26 +103,24 @@ namespace BudgetExecution
             Security = new DirectorySecurity( FullPath, AccessControlSections.Access );
         }
 
-        /// <summary>
-        /// Gets the sub file dictionary.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the sub file dictionary. </summary>
+        /// <returns> </returns>
         public virtual IDictionary<string, FileInfo> GetSubFileData( )
         {
             if( !string.IsNullOrEmpty( FullPath ) )
             {
                 try
                 {
-                    var _data = new Dictionary<string, FileInfo>();
+                    var _data = new Dictionary<string, FileInfo>( );
                     foreach( var file in SubFiles )
                     {
                         var _name = Path.GetFileNameWithoutExtension( file );
                         var _file = new FileInfo( file );
                         _data.Add( _name, _file );
                     }
-                    
-                    return _data?.Any( ) == true 
-                        ? _data 
+
+                    return _data?.Any( ) == true
+                        ? _data
                         : default( IDictionary<string, FileInfo> );
                 }
                 catch( IOException ex )
@@ -154,10 +133,8 @@ namespace BudgetExecution
             return default( IDictionary<string, FileInfo> );
         }
 
-        /// <summary>
-        /// Gets the special folders.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the special folders. </summary>
+        /// <returns> </returns>
         public virtual IEnumerable<string> GetSpecialFolders( )
         {
             try
@@ -174,36 +151,33 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the sub folders.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the sub folders. </summary>
+        /// <returns> </returns>
         public virtual IDictionary<string, DirectoryInfo> GetSubDirectoryData( )
         {
-                try
+            try
+            {
+                var _data = new Dictionary<string, DirectoryInfo>( );
+                foreach( var file in SubFolders )
                 {
-                    var _data = new Dictionary<string, DirectoryInfo>();
-                    foreach( var file in SubFolders )
-                    {
-                        var _name = Path.GetDirectoryName( file );
-                        var _folder = new DirectoryInfo( file );
-                        _data.Add( _name, _folder );
-                    }
-                    return _data?.Any( ) != true
-                        ? _data
-                        : default( IDictionary<string, DirectoryInfo> );
+                    var _name = Path.GetDirectoryName( file );
+                    var _folder = new DirectoryInfo( file );
+                    _data.Add( _name, _folder );
                 }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, DirectoryInfo> );
-                }
+
+                return _data?.Any( ) != true
+                    ? _data
+                    : default( IDictionary<string, DirectoryInfo> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, DirectoryInfo> );
+            }
         }
-        
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

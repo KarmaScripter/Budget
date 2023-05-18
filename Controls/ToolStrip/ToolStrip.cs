@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,46 +11,20 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using System.Collections.Generic;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="ToolStripBase" />
+    /// <summary> </summary>
+    /// <seealso cref = "ToolStripBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ToolStrip : ToolStripBase, IToolStrip
     {
-        /// <summary>
-        /// Gets or sets the filter.
-        /// </summary>
-        /// <value>
-        /// The filter.
-        /// </value>
-        public IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary>
-        /// Gets the buttons.
-        /// </summary>
-        /// <value>
-        /// The buttons.
-        /// </value>
-        public IDictionary<string, ToolStripButton> Buttons { get; }
-
-        /// <summary>
-        /// Gets or sets the size of the image.
-        /// </summary>
-        /// <value>
-        /// The size of the image.
-        /// </value>
-        public Size ImageSize { get; set; }
-
-        /// <summary>
-        /// The image path
-        /// </summary>
+        /// <summary> The image path </summary>
         public virtual string ImageDirectory { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStrip"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStrip"/>
+        /// class.
         /// </summary>
         public ToolStrip( )
         {
@@ -80,7 +54,7 @@ namespace BudgetExecution
             OfficeColorScheme = ColorScheme.Blue;
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.ArrowColor = Color.FromArgb( 0, 120, 212 );
-            ThemeStyle.BottomToolStripBackColor =  Color.Transparent;
+            ThemeStyle.BottomToolStripBackColor = Color.Transparent;
             ThemeStyle.CaptionBackColor = Color.FromArgb( 28, 28, 28 );
             ThemeStyle.CaptionForeColor = Color.Black;
             ThemeStyle.ComboBoxStyle.BorderColor = Color.FromArgb( 65, 65, 65 );
@@ -91,10 +65,20 @@ namespace BudgetExecution
             Buttons = GetButtons( );
         }
 
-        /// <summary>
-        /// Gets the buttons.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets or sets the filter. </summary>
+        /// <value> The filter. </value>
+        public IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary> Gets the buttons. </summary>
+        /// <value> The buttons. </value>
+        public IDictionary<string, ToolStripButton> Buttons { get; }
+
+        /// <summary> Gets or sets the size of the image. </summary>
+        /// <value> The size of the image. </value>
+        public Size ImageSize { get; set; }
+
+        /// <summary> Gets the buttons. </summary>
+        /// <returns> </returns>
         public IDictionary<string, ToolStripButton> GetButtons( )
         {
             var _buttons = new SortedList<string, ToolStripButton>( );
@@ -119,11 +103,13 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnVisible( object sender, EventArgs e )
         {
             if( sender is ToolStrip toolStrip )

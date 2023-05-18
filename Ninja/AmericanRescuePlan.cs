@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,31 +8,23 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// c
-    /// </summary>
+    /// <summary> c </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class AmericanRescuePlan : StatusOfFunds
     {
-        /// <summary>
-        /// Gets or sets the status of funds identifier.
-        /// </summary>
-        /// <value>
-        /// The status of funds identifier.
-        /// </value>
+        /// <summary> Gets or sets the status of funds identifier. </summary>
+        /// <value> The status of funds identifier. </value>
         public int StatusOfFundsId { get; set; }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlan"/>
+        /// class.
         /// </summary>
         public AmericanRescuePlan( )
         {
@@ -40,9 +32,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlan"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public AmericanRescuePlan( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -87,9 +81,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlan"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public AmericanRescuePlan( IDataModel builder )
         {
             Record = builder.Record;
@@ -134,9 +130,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "AmericanRescuePlan"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public AmericanRescuePlan( DataRow dataRow )
         {
             Record = dataRow;

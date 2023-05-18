@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -16,32 +16,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ExcelDataGrid : Spreadsheet, ISpreadsheet
     {
-        /// <summary>
-        /// Gets or sets the grid.
-        /// </summary>
-        /// <value>
-        /// The grid.
-        /// </value>
+        /// <summary> Gets or sets the grid. </summary>
+        /// <value> The grid. </value>
         public SpreadsheetGrid Grid { get; set; }
 
-        /// <summary>
-        /// Gets or sets the model.
-        /// </summary>
-        /// <value>
-        /// The model.
-        /// </value>
+        /// <summary> Gets or sets the model. </summary>
+        /// <value> The model. </value>
         public SpreadsheetGridModel Model { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataGrid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ExcelDataGrid"/>
+        /// class.
         /// </summary>
         public ExcelDataGrid( )
         {
@@ -67,33 +57,31 @@ namespace BudgetExecution
             AllowFiltering = true;
         }
 
-        /// <summary>
-        /// Opens the file.
-        /// </summary>
-        /// <param name="file">The file.</param>
+        /// <summary> Opens the file. </summary>
+        /// <param name = "file" > The file. </param>
         public void OpenFile( Stream file )
         {
         }
 
-        /// <summary>
-        /// Displays the message box.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="caption">The caption.</param>
-        /// <param name="button">The button.</param>
-        /// <param name="icon">The icon.</param>
-        /// <returns></returns>
-        public virtual bool DisplayMessageBox( string text, string caption,
-            MessageBoxButtons button, MessageBoxIcon icon )
+        /// <summary> Displays the message box. </summary>
+        /// <param name = "text" > The text. </param>
+        /// <param name = "caption" > The caption. </param>
+        /// <param name = "button" > The button. </param>
+        /// <param name = "icon" > The icon. </param>
+        /// <returns> </returns>
+        public virtual bool DisplayMessageBox( string text, string caption, MessageBoxButtons button,
+            MessageBoxIcon icon )
         {
             return false;
         }
 
-        /// <summary>
-        /// Called when [cell enter].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [cell enter]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnCellEnter( object sender, EventArgs e )
         {
             try
@@ -141,10 +129,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

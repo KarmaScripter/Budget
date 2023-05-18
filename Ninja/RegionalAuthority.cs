@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,15 +8,15 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class RegionalAuthority : StatusOfFunds
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalAuthority"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalAuthority"/>
+        /// class.
         /// </summary>
         public RegionalAuthority( )
         {
@@ -24,9 +24,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalAuthority"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalAuthority"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public RegionalAuthority( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -70,9 +72,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalAuthority"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalAuthority"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public RegionalAuthority( IDataModel builder )
         {
             Record = builder.Record;
@@ -116,9 +120,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegionalAuthority"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RegionalAuthority"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public RegionalAuthority( DataRow dataRow )
         {
             Record = dataRow;
@@ -160,8 +166,8 @@ namespace BudgetExecution
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
-        
-        public RegionalAuthority( IAllocation allocation ) 
+
+        public RegionalAuthority( IAllocation allocation )
             : this( )
         {
             ID = allocation.ID;

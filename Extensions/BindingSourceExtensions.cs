@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -13,21 +13,19 @@ namespace BudgetExecution
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class BindingSourceExtensions
     {
-        /// <summary>
-        /// The GetCurrentDataRow
-        /// </summary>
-        /// <param name="bindingSource">The bindingSource
-        /// <see cref="BindingSource" /></param>
+        /// <summary> The GetCurrentDataRow </summary>
+        /// <param name = "bindingSource" >
+        /// The bindingSource
+        /// <see cref = "BindingSource"/>
+        /// </param>
         /// <returns>
         /// The
-        /// <see cref="DataRow" />
+        /// <see cref = "DataRow"/>
         /// </returns>
         public static DataRow GetCurrentDataRow( this BindingSource bindingSource )
         {
@@ -35,7 +33,6 @@ namespace BudgetExecution
             {
                 if( bindingSource.Current != null )
                 {
-
                     return ( (DataRowView)bindingSource?.Current )?.Row;
                 }
                 else
@@ -50,11 +47,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the rows.
-        /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <returns></returns>
+        /// <summary> Gets the rows. </summary>
+        /// <param name = "bindingSource" > The binding source. </param>
+        /// <returns> </returns>
         public static IEnumerable<DataRow> GetDataRows( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )
@@ -76,11 +71,9 @@ namespace BudgetExecution
             return default( IEnumerable<DataRow> );
         }
 
-        /// <summary>
-        /// Gets the data table.
-        /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <returns></returns>
+        /// <summary> Gets the data table. </summary>
+        /// <param name = "bindingSource" > The binding source. </param>
+        /// <returns> </returns>
         public static DataTable GetDataTable( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )
@@ -88,10 +81,9 @@ namespace BudgetExecution
                 try
                 {
                     var _table = (DataTable)bindingSource.DataSource;
-                    return _table != null 
-                        && _table.Rows.Count > 0
-                            ? _table
-                            : default( DataTable );
+                    return _table != null && _table.Rows.Count > 0
+                        ? _table
+                        : default( DataTable );
                 }
                 catch( Exception ex )
                 {
@@ -102,13 +94,9 @@ namespace BudgetExecution
 
             return default( DataTable );
         }
-        
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">
-        /// The ex.
-        /// </param>
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

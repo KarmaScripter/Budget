@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -17,6 +17,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class DataView : DataViewBase
     {
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
+        public DataTable DataTable { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "DataView"/>
@@ -95,9 +99,5 @@ namespace BudgetExecution
         {
             DataTable = dataTable;
         }
-
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
-        public DataTable DataTable { get; set; }
     }
 }

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -25,9 +25,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetObjectClass : DataUnit, IBudgetObjectClass
     {
-        /// <summary>
-        /// The codes
-        /// </summary>
+        /// <summary> The codes </summary>
         public readonly IEnumerable<string> Codes = new[ ]
         {
             "10",
@@ -40,68 +38,21 @@ namespace BudgetExecution
             "41"
         };
 
-        /// <summary>
-        /// The source
-        /// </summary>
+        /// <summary> The source </summary>
         public override Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
         public override Provider Provider { get; set; }
 
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <value>
-        /// The Data.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public override string Name { get; set; }
-
-        public object Value { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Gets the category.
-        /// </summary>
-        /// <value>
-        /// The category.
-        /// </value>
-        public BOC Category { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetObjectClass"/>
+        /// class.
         /// </summary>
         public BudgetObjectClass( )
         {
@@ -109,11 +60,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name = "boc" >
-        /// The code.
-        /// </param>
+        /// <param name = "boc" > The code. </param>
         public BudgetObjectClass( BOC boc )
             : this( )
         {
@@ -126,11 +77,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
+        /// <param name = "code" > The code. </param>
         public BudgetObjectClass( string code )
             : this( )
         {
@@ -146,11 +97,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name = "query" >
-        /// The query.
-        /// </param>
+        /// <param name = "query" > The query. </param>
         public BudgetObjectClass( IQuery query )
             : this( )
         {
@@ -166,11 +117,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name = "builder" >
-        /// The database.
-        /// </param>
+        /// <param name = "builder" > The database. </param>
         public BudgetObjectClass( IDataModel builder )
             : this( )
         {
@@ -186,11 +137,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "BudgetObjectClass"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetObjectClass"/>
+        /// class.
         /// </summary>
-        /// <param name = "dataRow" >
-        /// The Data.
-        /// </param>
+        /// <param name = "dataRow" > The Data. </param>
         public BudgetObjectClass( DataRow dataRow )
             : this( )
         {
@@ -212,12 +163,30 @@ namespace BudgetExecution
             Name = boc.Name;
             Category = boc.Category;
         }
-        
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+
+        public object Value { get; set; }
+
+        /// <summary> Gets the category. </summary>
+        /// <value> The category. </value>
+        public BOC Category { get; set; }
+
+        /// <summary> Gets the Data. </summary>
+        /// <value> The Data. </value>
+        public override DataRow Record { get; set; }
+
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
+        public override int ID { get; set; }
+
+        /// <summary> Gets the code. </summary>
+        public override string Code { get; set; }
+
+        /// <summary> Gets or sets the name. </summary>
+        /// <value> The name. </value>
+        public override string Name { get; set; }
+
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try
@@ -233,14 +202,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        /// <param name = "prc" >
-        /// The ProgramResultCodes.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the value. </summary>
+        /// <param name = "prc" > The ProgramResultCodes. </param>
+        /// <returns> </returns>
         public double GetAmount( IProgramResultsCode prc )
         {
             try
@@ -257,89 +221,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name = "code" >
-        /// The code.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, object> SetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code )
-               && code.Length == 2
-               && Codes.Contains( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object>
-                    {
-                        [ "Code" ] = code
-                    };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-            else if( !string.IsNullOrEmpty( code )
-                    && code.Length > 2
-                    && Enum.GetNames( typeof( BOC ) ).Contains( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object>
-                    {
-                        [ "Name" ] = code
-                    };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary>
-        /// Sets the arguments.
-        /// </summary>
-        /// <param name = "boc" >
-        /// The boc.
-        /// </param>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, object> SetArgs( BOC boc )
-        {
-            if( !string.IsNullOrEmpty( boc.ToString( ) )
-               && boc.ToString( ).Length == 2
-               && Codes.Contains( boc.ToString( ) ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object>
-                    {
-                        [ "Code" ] = boc.ToString( )
-                    };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary>
-        /// Gets the amount.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the amount. </summary>
+        /// <returns> </returns>
         public double GetAmount( )
         {
             try
@@ -354,26 +237,82 @@ namespace BudgetExecution
                 return default;
             }
         }
-        
-        /// <summary>
-        /// Gets the budget object class category.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+
+        /// <summary> Gets the budget object class category. </summary>
+        /// <returns> </returns>
         public BOC GetCategory( )
         {
             try
             {
-                return !string.IsNullOrEmpty( Name ) 
-                    && Enum.IsDefined( typeof( BOC ), Name )
-                        ? (BOC)Enum.Parse( typeof( BOC ), Name )
-                        : BOC.NS;
+                return !string.IsNullOrEmpty( Name ) && Enum.IsDefined( typeof( BOC ), Name )
+                    ? (BOC)Enum.Parse( typeof( BOC ), Name )
+                    : BOC.NS;
             }
             catch( Exception ex )
             {
                 Fail( ex );
                 return default;
             }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name = "code" > The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code )
+               && code.Length == 2
+               && Codes.Contains( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+            else if( !string.IsNullOrEmpty( code )
+                    && code.Length > 2
+                    && Enum.GetNames( typeof( BOC ) ).Contains( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Name" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name = "boc" > The boc. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( BOC boc )
+        {
+            if( !string.IsNullOrEmpty( boc.ToString( ) )
+               && boc.ToString( ).Length == 2
+               && Codes.Contains( boc.ToString( ) ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = boc.ToString( ) };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

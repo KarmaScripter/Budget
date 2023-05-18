@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -21,6 +21,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class ResourcePlanningOffice : DataUnit, IResourcePlanningOffice
     {
+        /// <summary> The source </summary>
+        public override Source Source { get; set; } = Source.ResourcePlanningOffices;
+
+        /// <summary> Gets the dataRow. </summary>
+        /// <value> The dataRow. </value>
+        public override DataRow Record { get; set; }
+
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
+        public override IDictionary<string, object> Data { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "ResourcePlanningOffice"/>
@@ -99,17 +110,6 @@ namespace BudgetExecution
             Code = rpio.Code;
             Name = rpio.Name;
         }
-
-        /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.ResourcePlanningOffices;
-
-        /// <summary> Gets the dataRow. </summary>
-        /// <value> The dataRow. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>

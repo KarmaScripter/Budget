@@ -1,7 +1,6 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -23,6 +22,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class CommandBase : ISource, IProvider
     {
+        /// <summary> Gets or sets the command. </summary>
+        /// <value> The command. </value>
+        public DbCommand Command { get; set; }
+
+        /// <summary> Gets or sets the connection factory. </summary>
+        /// <value> The connection factory. </value>
+        public IConnectionFactory ConnectionFactory { get; set; }
+
+        /// <summary> Gets or sets the type of the command. </summary>
+        /// <value> The type of the command. </value>
+        public SQL CommandType { get; set; }
+
+        /// <summary> Gets or sets the SQL statement. </summary>
+        /// <value> The SQL statement. </value>
+        public ISqlStatement SqlStatement { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "CommandBase"/>
@@ -147,22 +162,6 @@ namespace BudgetExecution
             CommandType = sqlStatement.CommandType;
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
         }
-
-        /// <summary> Gets or sets the command. </summary>
-        /// <value> The command. </value>
-        public DbCommand Command { get; set; }
-
-        /// <summary> Gets or sets the connection factory. </summary>
-        /// <value> The connection factory. </value>
-        public IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
-        public SQL CommandType { get; set; }
-
-        /// <summary> Gets or sets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
-        public ISqlStatement SqlStatement { get; set; }
 
         /// <summary> </summary>
         public Provider Provider { get; set; }

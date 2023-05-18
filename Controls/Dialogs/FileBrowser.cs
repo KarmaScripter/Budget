@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -21,6 +21,34 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class FileBrowser
     {
+        /// <summary> Gets or sets the extension. </summary>
+        /// <value> The extension. </value>
+        public EXT Extension { get; set; }
+
+        /// <summary> Gets or sets the extension. </summary>
+        /// <value> The extension. </value>
+        public string FileExtension { get; set; }
+
+        /// <summary> Gets or sets the initial path. </summary>
+        /// <value> The initial path. </value>
+        public IEnumerable<string> InitialDirPaths { get; set; }
+
+        /// <summary> Gets or sets the initial path. </summary>
+        /// <value> The initial path. </value>
+        public IEnumerable<string> FilePaths { get; set; }
+
+        /// <summary> Gets or sets the check boxes. </summary>
+        /// <value> The check boxes. </value>
+        public IEnumerable<RadioButton> RadioButtons { get; set; }
+
+        /// <summary> Gets or sets the selected path. </summary>
+        /// <value> The selected path. </value>
+        public string SelectedPath { get; set; }
+
+        /// <summary> Gets or sets the selected file. </summary>
+        /// <value> The selected file. </value>
+        public string SelectedFile { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "FileBrowser"/>
@@ -77,34 +105,6 @@ namespace BudgetExecution
             Extension = extension;
             FileExtension = Extension.ToString( ).ToLower( );
         }
-
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
-        public EXT Extension { get; set; }
-
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
-        public string FileExtension { get; set; }
-
-        /// <summary> Gets or sets the initial path. </summary>
-        /// <value> The initial path. </value>
-        public IEnumerable<string> InitialDirPaths { get; set; }
-
-        /// <summary> Gets or sets the initial path. </summary>
-        /// <value> The initial path. </value>
-        public IEnumerable<string> FilePaths { get; set; }
-
-        /// <summary> Gets or sets the check boxes. </summary>
-        /// <value> The check boxes. </value>
-        public IEnumerable<RadioButton> RadioButtons { get; set; }
-
-        /// <summary> Gets or sets the selected path. </summary>
-        /// <value> The selected path. </value>
-        public string SelectedPath { get; set; }
-
-        /// <summary> Gets or sets the selected file. </summary>
-        /// <value> The selected file. </value>
-        public string SelectedFile { get; set; }
 
         /// <summary> Called when [browser loaded]. </summary>
         /// <param name = "sender" > The sender. </param>

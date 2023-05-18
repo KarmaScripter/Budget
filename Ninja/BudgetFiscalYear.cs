@@ -1,5 +1,5 @@
-﻿// <copyright file="BudgetFiscalYear.cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -10,15 +10,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.FiscalYear" />
-    /// <seealso cref="BudgetExecution.IBudgetFiscalYear" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="FiscalYear" />
-    /// <seealso cref="IBudgetFiscalYear" />
-    /// <seealso cref="ISource" />
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.FiscalYear"/>
+    /// <seealso cref = "BudgetExecution.IBudgetFiscalYear"/>
+    /// <seealso cref = "BudgetExecution.ISource"/>
+    /// <seealso cref = "FiscalYear"/>
+    /// <seealso cref = "IBudgetFiscalYear"/>
+    /// <seealso cref = "ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -29,48 +27,30 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public class BudgetFiscalYear : FiscalYear, IBudgetFiscalYear
     {
-        /// <summary>
-        /// Gets or sets the availability.
-        /// </summary>
-        /// <value>
-        /// The availability.
-        /// </value>
+        /// <summary> Gets or sets the availability. </summary>
+        /// <value> The availability. </value>
         public string Availability { get; set; }
-        
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; } 
 
-        /// <summary>
-        /// Gets or sets the Record.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
+        /// <summary> Gets the source. </summary>
+        /// <value> The source. </value>
+        public Source Source { get; set; }
+
+        /// <summary> Gets or sets the Record. </summary>
+        /// <value> The data row. </value>
         public DataRow Record { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the holidays.
-        /// </summary>
-        /// <value>
-        /// The holidays.
-        /// </value>
+
+        /// <summary> Gets or sets the holidays. </summary>
+        /// <value> The holidays. </value>
         public HolidayFactory Holidays { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the federal holidays.
-        /// </summary>
-        /// <value>
-        /// The federal holidays.
-        /// </value>
+
+        /// <summary> Gets or sets the federal holidays. </summary>
+        /// <value> The federal holidays. </value>
         public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetFiscalYear"/>
+        /// class.
         /// </summary>
         public BudgetFiscalYear( )
         {
@@ -82,10 +62,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetFiscalYear"/>
+        /// class.
         /// </summary>
-        /// <param name="bfy">The bfy.</param>
-        public BudgetFiscalYear( string bfy ) 
+        /// <param name = "bfy" > The bfy. </param>
+        public BudgetFiscalYear( string bfy )
             : this( )
         {
             InputYear = bfy;
@@ -105,9 +87,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetFiscalYear"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public BudgetFiscalYear( IQuery query )
             : this( )
         {
@@ -127,9 +111,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetFiscalYear"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
+        /// <param name = "dataBuilder" > The data builder. </param>
         public BudgetFiscalYear( IDataModel dataBuilder )
             : this( )
         {
@@ -149,11 +135,13 @@ namespace BudgetExecution
             CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
-        
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="BudgetFiscalYear" /> class.
+        /// Initializes a new instance of the
+        /// <see cref = "BudgetFiscalYear"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public BudgetFiscalYear( DataRow dataRow )
             : this( )
         {
@@ -175,7 +163,7 @@ namespace BudgetExecution
             Holidays = new HolidayFactory( dataRow );
         }
 
-        public BudgetFiscalYear( IBudgetFiscalYear fiscalYear ) 
+        public BudgetFiscalYear( IBudgetFiscalYear fiscalYear )
             : this( )
         {
             ID = fiscalYear.ID;
@@ -191,11 +179,9 @@ namespace BudgetExecution
             EndDate = fiscalYear.EndDate;
             CancellationDate = fiscalYear.CancellationDate;
         }
-        
-        /// <summary>
-        /// Gets the federal holidays.
-        /// </summary>
-        /// <returns></returns>
+
+        /// <summary> Gets the federal holidays. </summary>
+        /// <returns> </returns>
         public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
         {
             try
@@ -224,11 +210,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
+        /// <summary> Gets the identifier. </summary>
+        /// <param name = "dataRow" > The data row. </param>
+        /// <returns> </returns>
         public int GetId( DataRow dataRow )
         {
             try
@@ -244,20 +228,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
+        /// <summary> Gets the identifier. </summary>
+        /// <param name = "dataRow" > The data row. </param>
+        /// <param name = "primaryKey" > The primary key. </param>
+        /// <returns> </returns>
         public int GetId( DataRow dataRow, PrimaryKey primaryKey )
         {
             try
             {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) 
-                    && dataRow != null
-                        ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
-                        : -1;
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
+                    : -1;
             }
             catch( Exception ex )
             {
@@ -266,16 +247,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try
             {
-                return Record?.ItemArray?.Length > 0 
+                return Record?.ItemArray?.Length > 0
                     ? Record.ToDictionary( )
                     : default( IDictionary<string, object> );
             }
@@ -285,12 +263,12 @@ namespace BudgetExecution
                 return default( IDictionary<string, object> );
             }
         }
-        
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
+
+        /// <summary> Converts to string. </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// A
+        /// <see cref = "System.String"/>
+        /// that represents this instance.
         /// </returns>
         public override string ToString( )
         {
@@ -307,10 +285,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the budget fiscal year.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the budget fiscal year. </summary>
+        /// <returns> </returns>
         public IBudgetFiscalYear GetBudgetFiscalYear( )
         {
             try

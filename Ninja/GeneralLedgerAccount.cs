@@ -1,5 +1,5 @@
-﻿// <copyright file = "GeneralLedgerAccount.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,168 +8,28 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class GeneralLedgerAccount : ILedgerAccount
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public string BFY { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public string AccountClassification { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public string ShortName { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the account number.
-        /// </summary>
-        /// <value>
-        /// The account number.
-        /// </value>
-        public string Number { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the account.
-        /// </summary>
-        /// <value>
-        /// The name of the account.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the beginning balance.
-        /// </summary>
-        /// <value>
-        /// The beginning balance.
-        /// </value>
-        public string NormalBalance { get; set; }
-
-        /// <summary>
-        /// Gets or sets the credit balance.
-        /// </summary>
-        /// <value>
-        /// The credit balance.
-        /// </value>
-        public string RealOrClosingAccount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the summary account.
-        /// </summary>
-        /// <value>
-        /// The summary account.
-        /// </value>
-        public string SummaryAccount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cash account.
-        /// </summary>
-        /// <value>
-        /// The cash account.
-        /// </value>
-        public string CashAccount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the reportable account.
-        /// </summary>
-        /// <value>
-        /// The reportable account.
-        /// </value>
-        public string ReportableAccount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cost allocation indicator.
-        /// </summary>
-        /// <value>
-        /// The cost allocation indicator.
-        /// </value>
-        public string CostAllocationIndicator { get; set; }
-
-        /// <summary>
-        /// Gets or sets the federal non federal.
-        /// </summary>
-        /// <value>
-        /// The federal non federal.
-        /// </value>
-        public string FederalNonFederal { get; set; }
-
-        /// <summary>
-        /// Gets or sets the attribute value.
-        /// </summary>
-        /// <value>
-        /// The attribute value.
-        /// </value>
-        public string AttributeValue { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the debit balance.
-        /// </summary>
-        /// <value>
-        /// The debit balance.
-        /// </value>
-        public string Usage { get; set; }
-
-        /// <summary>
-        /// Gets or sets the closing amount.
-        /// </summary>
-        /// <value>
-        /// The closing amount.
-        /// </value>
-        public string Deposit { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
+        /// <summary> Gets or sets the Record property. </summary>
+        /// <value> The data row. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralLedgerAccount"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GeneralLedgerAccount"/>
+        /// class.
         /// </summary>
         public GeneralLedgerAccount( )
         {
@@ -177,9 +37,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralLedgerAccount"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GeneralLedgerAccount"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public GeneralLedgerAccount( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -203,9 +65,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralLedgerAccount"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GeneralLedgerAccount"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public GeneralLedgerAccount( IDataModel builder )
         {
             Record = builder.Record;
@@ -229,9 +93,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralLedgerAccount"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GeneralLedgerAccount"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public GeneralLedgerAccount( DataRow dataRow )
         {
             Record = dataRow;
@@ -253,5 +119,69 @@ namespace BudgetExecution
             Usage = dataRow[ "Usage" ].ToString( );
             Deposit = dataRow[ "Deposit" ].ToString( );
         }
+
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
+        public int ID { get; set; }
+
+        /// <summary> Gets or sets the bfy. </summary>
+        /// <value> The bfy. </value>
+        public string BFY { get; set; }
+
+        /// <summary> Gets or sets the fund code. </summary>
+        /// <value> The fund code. </value>
+        public string AccountClassification { get; set; }
+
+        /// <summary> Gets or sets the name of the fund. </summary>
+        /// <value> The name of the fund. </value>
+        public string ShortName { get; set; }
+
+        /// <summary> Gets or sets the account number. </summary>
+        /// <value> The account number. </value>
+        public string Number { get; set; }
+
+        /// <summary> Gets or sets the name of the account. </summary>
+        /// <value> The name of the account. </value>
+        public string Name { get; set; }
+
+        /// <summary> Gets or sets the beginning balance. </summary>
+        /// <value> The beginning balance. </value>
+        public string NormalBalance { get; set; }
+
+        /// <summary> Gets or sets the credit balance. </summary>
+        /// <value> The credit balance. </value>
+        public string RealOrClosingAccount { get; set; }
+
+        /// <summary> Gets or sets the summary account. </summary>
+        /// <value> The summary account. </value>
+        public string SummaryAccount { get; set; }
+
+        /// <summary> Gets or sets the cash account. </summary>
+        /// <value> The cash account. </value>
+        public string CashAccount { get; set; }
+
+        /// <summary> Gets or sets the reportable account. </summary>
+        /// <value> The reportable account. </value>
+        public string ReportableAccount { get; set; }
+
+        /// <summary> Gets or sets the cost allocation indicator. </summary>
+        /// <value> The cost allocation indicator. </value>
+        public string CostAllocationIndicator { get; set; }
+
+        /// <summary> Gets or sets the federal non federal. </summary>
+        /// <value> The federal non federal. </value>
+        public string FederalNonFederal { get; set; }
+
+        /// <summary> Gets or sets the attribute value. </summary>
+        /// <value> The attribute value. </value>
+        public string AttributeValue { get; set; }
+
+        /// <summary> Gets or sets the debit balance. </summary>
+        /// <value> The debit balance. </value>
+        public string Usage { get; set; }
+
+        /// <summary> Gets or sets the closing amount. </summary>
+        /// <value> The closing amount. </value>
+        public string Deposit { get; set; }
     }
 }

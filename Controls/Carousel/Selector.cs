@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -12,17 +12,40 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Tools.Carousel" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public class Selector : Carousel
     {
-        /// <summary> Gets or sets the fund path. </summary>
-        /// <value> The fund path. </value>
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Selector"/>
-        /// class.
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the images.
+        /// </summary>
+        /// <value>
+        /// The images.
+        /// </value>
+        public virtual List<Image> Images { get; set; }
+
+        /// <summary>
+        /// Gets or sets the size of the image.
+        /// </summary>
+        /// <value>
+        /// The size of the image.
+        /// </value>
+        public Size ImageSize { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Selector"/> class.
         /// </summary>
         public Selector( )
         {
@@ -57,20 +80,10 @@ namespace BudgetExecution
             ImageSize = new Size( 250, 250 );
         }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary> Gets or sets the images. </summary>
-        /// <value> The images. </value>
-        public virtual List<Image> Images { get; set; }
-
-        /// <summary> Gets or sets the size of the image. </summary>
-        /// <value> The size of the image. </value>
-        public Size ImageSize { get; set; }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

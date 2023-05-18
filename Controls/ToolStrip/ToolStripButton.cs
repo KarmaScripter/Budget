@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -12,17 +12,16 @@ namespace BudgetExecution
     using Microsoft.Extensions.Configuration;
     using static System.Configuration.ConfigurationManager;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class ToolStripButton : ToolButtonBase, IToolStripButton
     {
         /// <summary>
-        /// Initializes a new instance of
-        /// the <see cref="ToolStripButton"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripButton"/>
+        /// class.
         /// </summary>
         public ToolStripButton( )
         {
@@ -44,10 +43,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// Mof the <see cref="ToolStripButton"/> class.
+        /// Initializes a new instance Mof the
+        /// <see cref = "ToolStripButton"/>
+        /// class.
         /// </summary>
-        /// <param name="toolType">The tool.</param>
+        /// <param name = "toolType" > The tool. </param>
         public ToolStripButton( ToolType toolType )
             : this( )
         {
@@ -59,21 +59,17 @@ namespace BudgetExecution
             Click += OnClick;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="toolType"></param>
-        /// <param name="bindingSource"></param>
+        /// <summary> </summary>
+        /// <param name = "toolType" > </param>
+        /// <param name = "bindingSource" > </param>
         public ToolStripButton( ToolType toolType, BindingSource bindingSource )
             : this( toolType )
         {
             BindingSource = bindingSource;
         }
 
-        /// <summary>
-        /// Sets the button image.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Sets the button image. </summary>
+        /// <returns> </returns>
         public Image GetImage( ToolType toolType )
         {
             if( Enum.IsDefined( typeof( ToolType ), toolType ) )
@@ -100,36 +96,13 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Sets the image.
-        /// </summary>
-        public void SetImage( )
-        {
-            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
-            {
-                try
-                {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
-                    using var _stream = File.Open( _path, FileMode.Open );
-                    if( _stream != null )
-                    {
-                        var _image = Image.FromStream( _stream );
-                        Image = _image;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [mouse over].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
+        /// <summary> Called when [mouse over]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             try
@@ -157,12 +130,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
         {
             try
@@ -179,12 +153,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the
-        ///     event data.</param>
+        /// <summary> Called when [click]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public virtual void OnClick( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
@@ -355,6 +330,28 @@ namespace BudgetExecution
                             _notification.Show( );
                             break;
                         }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the image. </summary>
+        public void SetImage( )
+        {
+            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
+            {
+                try
+                {
+                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
+                    using var _stream = File.Open( _path, FileMode.Open );
+                    if( _stream != null )
+                    {
+                        var _image = Image.FromStream( _stream );
+                        Image = _image;
                     }
                 }
                 catch( Exception ex )

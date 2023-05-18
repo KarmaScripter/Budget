@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -10,16 +10,15 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.TileBase" />
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.TileBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Tile : TileBase
     {
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="Tile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Tile"/>
+        /// class.
         /// </summary>
         public Tile( )
         {
@@ -52,17 +51,18 @@ namespace BudgetExecution
             Visible = true;
             Enabled = true;
             TurnLiveTileOn = true;
-            
+
             // Event Wiring
             MouseEnter += OnMouseEnter;
             MouseLeave += OnMouseLeave;
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="Tile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Tile"/>
+        /// class.
         /// </summary>
-        /// <param name="type">The type.</param>
+        /// <param name = "type" > The type. </param>
         public Tile( HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
@@ -70,11 +70,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="Tile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Tile"/>
+        /// class.
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="type">The type.</param>
+        /// <param name = "name" > The name. </param>
+        /// <param name = "type" > The type. </param>
         public Tile( string name, HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
@@ -83,13 +84,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="Tile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Tile"/>
+        /// class.
         /// </summary>
-        /// <param name="location">The location.</param>
-        /// <param name="size">The size.</param>
-        /// <param name="type">The type.</param>
-        public Tile( System.Drawing.Point location, Size size, HubTileType type = HubTileType.DefaultTile )
+        /// <param name = "location" > The location. </param>
+        /// <param name = "size" > The size. </param>
+        /// <param name = "type" > The type. </param>
+        public Tile( Point location, Size size, HubTileType type = HubTileType.DefaultTile )
             : this( )
         {
             Size = size;
@@ -97,11 +99,13 @@ namespace BudgetExecution
             TileType = type;
         }
 
-        /// <summary>
-        /// Called when [mouse enter].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [mouse enter]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnMouseEnter( object sender, EventArgs e )
         {
             try
@@ -124,11 +128,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnMouseLeave( object sender, EventArgs e )
         {
             try
@@ -138,7 +144,7 @@ namespace BudgetExecution
                 Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                 Title.TextColor = Color.FromArgb( 0, 120, 212 );
                 Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Body.TextColor =  Color.DarkGray;
+                Body.TextColor = Color.DarkGray;
                 Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
                 Footer.TextColor = Color.DarkGray;
                 Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );

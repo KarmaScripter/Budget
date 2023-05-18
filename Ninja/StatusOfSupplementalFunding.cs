@@ -1,5 +1,5 @@
-﻿// <copyright file = "StatusOfSupplementalFunding.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,15 +8,15 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class StatusOfSupplementalFunding : StatusOfFunds
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfSupplementalFunding"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// class.
         /// </summary>
         public StatusOfSupplementalFunding( )
         {
@@ -24,16 +24,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfSupplementalFunding"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public StatusOfSupplementalFunding( IQuery query )
             : base( query )
         {
             Source = Source.StatusOfSupplementalFunding;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -46,21 +48,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( Record[ "Used" ].ToString(  ) );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
+            Used = double.Parse( Record[ "Used" ].ToString( ) );
+            Available = double.Parse( Record[ "Available" ].ToString( ) );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -68,16 +70,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfSupplementalFunding"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// class.
         /// </summary>
-        /// <param name="dataBuilder">The builder.</param>
-        public StatusOfSupplementalFunding( IDataModel dataBuilder ) 
+        /// <param name = "dataBuilder" > The builder. </param>
+        public StatusOfSupplementalFunding( IDataModel dataBuilder )
             : base( dataBuilder )
         {
             Source = Source.StatusOfSupplementalFunding;
             Record = dataBuilder.Record;
-            Data = Record.ToDictionary(  );
-            BFY =  Record[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -90,21 +94,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString(  ) );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
-            Used = double.Parse( Record[ "Used" ].ToString(  ) );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
+            Used = double.Parse( Record[ "Used" ].ToString( ) );
+            Available = double.Parse( Record[ "Available" ].ToString( ) );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
@@ -112,16 +116,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusOfSupplementalFunding"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "StatusOfSupplementalFunding"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public StatusOfSupplementalFunding( DataRow dataRow ) 
+        /// <param name = "dataRow" > The data row. </param>
+        public StatusOfSupplementalFunding( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.StatusOfSupplementalFunding;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY =  Record[ "BFY" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -134,27 +140,27 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString(  ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString(  ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( Record[ "ULO" ].ToString(  ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString(  ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString(  ) ?? "0" );
+            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
-        
+
         public StatusOfSupplementalFunding( IAllocation allocation )
         {
             ID = allocation.ID;

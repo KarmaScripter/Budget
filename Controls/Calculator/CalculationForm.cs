@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -12,17 +12,26 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class CalculationForm : MetroForm
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CalculationForm"/>
-        /// class.
+        /// Gets or sets the initial value.
+        /// </summary>
+        /// <value>
+        /// The initial value.
+        /// </value>
+        public double InitialValue { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalculationForm"/> class.
         /// </summary>
         public CalculationForm( )
         {
@@ -67,11 +76,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "CalculationForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CalculationForm"/> class.
         /// </summary>
-        /// <param name = "initial" > The initial. </param>
+        /// <param name="initial">The initial.</param>
         public CalculationForm( double initial )
             : this( )
         {
@@ -80,17 +87,11 @@ namespace BudgetExecution
             ValueLabel.Text = Calculator.Value.ToString( );
         }
 
-        /// <summary> Gets or sets the initial value. </summary>
-        /// <value> The initial value. </value>
-        public double InitialValue { get; set; }
-
-        /// <summary> Called when [calculation value changed]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "CalculatorValueCalculatedEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [calculation value changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="CalculatorValueCalculatedEventArgs"/> instance containing the event data.</param>
         public void OnCalculationValueChanged( object sender, CalculatorValueCalculatedEventArgs e )
         {
             if( sender != null )
@@ -106,13 +107,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -128,13 +127,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -147,8 +144,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

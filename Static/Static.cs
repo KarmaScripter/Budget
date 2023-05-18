@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,18 +11,14 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class Static
     {
-        /// <summary>
-        /// Gets the type of the SQL.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <summary> Gets the type of the SQL. </summary>
+        /// <param name = "type" > The type. </param>
+        /// <returns> </returns>
         public static string GetSqlType( this Type type )
         {
             try
@@ -60,13 +56,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the command.
-        /// </summary>
-        /// <param name="connection">The connection.</param>
-        /// <param name="sql">The SQL.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException">connection</exception>
+        /// <summary> Creates the command. </summary>
+        /// <param name = "connection" > The connection. </param>
+        /// <param name = "sql" > The SQL. </param>
+        /// <returns> </returns>
+        /// <exception cref = "ArgumentNullException" > connection </exception>
         public static IDbCommand CreateCommand( this IDbConnection connection, string sql )
         {
             try
@@ -89,15 +83,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Executes the non query.
-        /// </summary>
-        /// <param name="connection">The connection.</param>
-        /// <param name="sql">The SQL.</param>
-        /// <returns></returns>
+        /// <summary> Executes the non query. </summary>
+        /// <param name = "connection" > The connection. </param>
+        /// <param name = "sql" > The SQL. </param>
+        /// <returns> </returns>
         public static int ExecuteNonQuery( this IDbConnection connection, string sql )
         {
-            if ( !string.IsNullOrEmpty( sql ) )
+            if( !string.IsNullOrEmpty( sql ) )
             {
                 try
                 {
@@ -114,12 +106,10 @@ namespace BudgetExecution
             return -1;
         }
 
-        /// <summary>
-        /// Converts to log string.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        /// <param name="message">The message.</param>
-        /// <returns></returns>
+        /// <summary> Converts to log string. </summary>
+        /// <param name = "ex" > The ex. </param>
+        /// <param name = "message" > The message. </param>
+        /// <returns> </returns>
         public static string ToLogString( this Exception ex, string message )
         {
             try
@@ -195,11 +185,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <param name="nvm">The NVM.</param>
-        /// <returns></returns>
+        /// <summary> Converts to dictionary. </summary>
+        /// <param name = "nvm" > The NVM. </param>
+        /// <returns> </returns>
         public static IDictionary<string, object> ToDictionary( this NameValueCollection nvm )
         {
             try
@@ -222,10 +210,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,29 +8,29 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
-    /// Defines the <see cref = "TimeSpanExtensions"/> .
+    /// Defines the
+    /// <see cref = "TimeSpanExtensions"/>
+    /// .
     /// </summary>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class TimeSpanExtensions
     {
-        /// <summary>
-        /// Defines the AvgDaysInAYear.
-        /// </summary>
+        /// <summary> Defines the AvgDaysInAYear. </summary>
         public const double AvgDaysInAYear = 365.2425d;
 
-        /// <summary>
-        /// Defines the AvgDaysInAMonth.
-        /// </summary>
+        /// <summary> Defines the AvgDaysInAMonth. </summary>
         public const double AvgDaysInAMonth = 30.436875d;
 
-        /// <summary>
-        /// The GetYears.
-        /// </summary>
+        /// <summary> The GetYears. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "int"/> .
+        /// The
+        /// <see cref = "int"/>
+        /// .
         /// </returns>
         public static int GetYears( this TimeSpan timeSpan )
         {
@@ -40,19 +40,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1;
             }
         }
 
-        /// <summary>
-        /// The GetTotalYears.
-        /// </summary>
+        /// <summary> The GetTotalYears. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "double"/> .
+        /// The
+        /// <see cref = "double"/>
+        /// .
         /// </returns>
         public static double GetTotalYears( this TimeSpan timeSpan )
         {
@@ -62,19 +64,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1D;
             }
         }
 
-        /// <summary>
-        /// The GetMonths.
-        /// </summary>
+        /// <summary> The GetMonths. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "int"/> .
+        /// The
+        /// <see cref = "int"/>
+        /// .
         /// </returns>
         public static int GetMonths( this TimeSpan timeSpan )
         {
@@ -84,19 +88,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1;
             }
         }
 
-        /// <summary>
-        /// The GetTotalMonths.
-        /// </summary>
+        /// <summary> The GetTotalMonths. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "double"/> .
+        /// The
+        /// <see cref = "double"/>
+        /// .
         /// </returns>
         public static double GetTotalMonths( this TimeSpan timeSpan )
         {
@@ -106,19 +112,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1D;
             }
         }
 
-        /// <summary>
-        /// The GetWeeks.
-        /// </summary>
+        /// <summary> The GetWeeks. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "int"/> .
+        /// The
+        /// <see cref = "int"/>
+        /// .
         /// </returns>
         public static int GetWeeks( this TimeSpan timeSpan )
         {
@@ -128,19 +136,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1;
             }
         }
 
-        /// <summary>
-        /// The GetTotalWeeks.
-        /// </summary>
+        /// <summary> The GetTotalWeeks. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "double"/> .
+        /// The
+        /// <see cref = "double"/>
+        /// .
         /// </returns>
         public static double GetTotalWeeks( this TimeSpan timeSpan )
         {
@@ -150,19 +160,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1D;
             }
         }
 
-        /// <summary>
-        /// The GetDays.
-        /// </summary>
+        /// <summary> The GetDays. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "int"/> .
+        /// The
+        /// <see cref = "int"/>
+        /// .
         /// </returns>
         public static int GetDays( this TimeSpan timeSpan )
         {
@@ -172,19 +184,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1;
             }
         }
 
-        /// <summary>
-        /// The GetMicroseconds.
-        /// </summary>
+        /// <summary> The GetMicroseconds. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "double"/> .
+        /// The
+        /// <see cref = "double"/>
+        /// .
         /// </returns>
         public static double GetMicroseconds( this TimeSpan timeSpan )
         {
@@ -194,19 +208,21 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1D;
             }
         }
 
-        /// <summary>
-        /// The GetNanoseconds.
-        /// </summary>
+        /// <summary> The GetNanoseconds. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "double"/> .
+        /// The
+        /// <see cref = "double"/>
+        /// .
         /// </returns>
         public static double GetNanoseconds( this TimeSpan timeSpan )
         {
@@ -216,25 +232,31 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return -1D;
             }
         }
 
-        /// <summary>
-        /// The Round.
-        /// </summary>
+        /// <summary> The Round. </summary>
         /// <param name = "timeSpan" >
-        /// The timeSpan <see cref = "TimeSpan"/> .
+        /// The timeSpan
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <param name = "roundinginterval" >
-        /// The roundingInterval <see cref = "TimeSpan"/> .
+        /// The roundingInterval
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </param>
         /// <param name = "roundingtype" >
-        /// The roundingType <see cref = "MidpointRounding"/> .
+        /// The roundingType
+        /// <see cref = "MidpointRounding"/>
+        /// .
         /// </param>
         /// <returns>
-        /// The <see cref = "TimeSpan"/> .
+        /// The
+        /// <see cref = "TimeSpan"/>
+        /// .
         /// </returns>
         public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan roundinginterval,
             MidpointRounding roundingtype = MidpointRounding.ToEven )
@@ -247,13 +269,13 @@ namespace BudgetExecution
             }
             catch( Exception ex )
             {
-                Fail( ex  );
+                Fail( ex );
                 return default( TimeSpan );
             }
         }
 
-        /// <summary>Fails the specified ex.</summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,60 +11,42 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ImageList : ImageListBase
     {
-        /// <summary>
-        /// Gets or sets the image source.
-        /// </summary>
-        /// <value>
-        /// The image source.
-        /// </value>
+        /// <summary> Gets or sets the image source. </summary>
+        /// <value> The image source. </value>
         public ImageDirectory ImageSource { get; set; }
 
-        /// <summary>
-        /// Gets or sets the image.
-        /// </summary>
-        /// <value>
-        /// The image.
-        /// </value>
+        /// <summary> Gets or sets the image. </summary>
+        /// <value> The image. </value>
         public Image Image { get; set; }
 
-        /// <summary>
-        /// Gets or sets the file names.
-        /// </summary>
-        /// <value>
-        /// The file names.
-        /// </value>
+        /// <summary> Gets or sets the file names. </summary>
+        /// <value> The file names. </value>
         public IEnumerable<string> FileNames { get; set; }
 
-        /// <summary>
-        /// Gets or sets the file names.
-        /// </summary>
-        /// <value>
-        /// The file names.
-        /// </value>
+        /// <summary> Gets or sets the file names. </summary>
+        /// <value> The file names. </value>
         public IEnumerable<string> FilePaths { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageList"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ImageList"/>
+        /// class.
         /// </summary>
         public ImageList( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageList"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ImageList"/>
+        /// class.
         /// </summary>
-        /// <param name = "imageImageSource" >
-        /// The image source.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
+        /// <param name = "imageImageSource" > The image source. </param>
+        /// <param name = "size" > The size. </param>
         public ImageList( ImageDirectory imageImageSource, Size size )
         {
             ImageSource = imageImageSource;
@@ -72,14 +54,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "ImageList"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ImageList"/>
+        /// class.
         /// </summary>
-        /// <param name = "path" >
-        /// The image source.
-        /// </param>
-        /// <param name = "size" >
-        /// The size.
-        /// </param>
+        /// <param name = "path" > The image source. </param>
+        /// <param name = "size" > The size. </param>
         public ImageList( string path, Size size )
         {
             ImageSource = ImageDirectory.NS;
@@ -87,10 +67,8 @@ namespace BudgetExecution
             Images.Add( new Bitmap( path ) );
         }
 
-        /// <summary>
-        /// Adds the specified image.
-        /// </summary>
-        /// <param name="image">The image.</param>
+        /// <summary> Adds the specified image. </summary>
+        /// <param name = "image" > The image. </param>
         public void Add( Image image )
         {
             if( image != null )
@@ -106,10 +84,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Adds the specified path.
-        /// </summary>
-        /// <param name="path">The path.</param>
+        /// <summary> Adds the specified path. </summary>
+        /// <param name = "path" > The path. </param>
         public void Add( string path )
         {
             if( !string.IsNullOrEmpty( path )
@@ -131,10 +107,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Adds the specified paths.
-        /// </summary>
-        /// <param name="paths">The paths.</param>
+        /// <summary> Adds the specified paths. </summary>
+        /// <param name = "paths" > The paths. </param>
         public void Add( string[ ] paths )
         {
             if( paths?.Any( ) == true )
@@ -161,10 +135,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Adds the specified paths.
-        /// </summary>
-        /// <param name="image">The paths.</param>
+        /// <summary> Adds the specified paths. </summary>
+        /// <param name = "image" > The paths. </param>
         public void Remove( Image image )
         {
             if( image != null
@@ -181,11 +153,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the images.
-        /// </summary>
-        /// <param name="srcDir">The source dir.</param>
-        /// <returns></returns>
+        /// <summary> Creates the images. </summary>
+        /// <param name = "srcDir" > The source dir. </param>
+        /// <returns> </returns>
         public IEnumerable<Image> CreateImages( string srcDir )
         {
             if( Directory.Exists( srcDir ) )
@@ -210,11 +180,9 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Gets the images.
-        /// </summary>
-        /// <param name="paths">The source path.</param>
-        /// <returns></returns>
+        /// <summary> Gets the images. </summary>
+        /// <param name = "paths" > The source path. </param>
+        /// <returns> </returns>
         public IEnumerable<Image> CreateImages( IEnumerable<string> paths )
         {
             if( paths?.Count( ) > 0 )

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -13,32 +13,32 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using static System.IO.Directory;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="PathBase" />
+    /// <summary> </summary>
+    /// <seealso cref = "PathBase"/>
     public class DataFile : FileBase, IDataFile
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataFile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "DataFile"/>
+        /// class.
         /// </summary>
         public DataFile( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataFile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "DataFile"/>
+        /// class.
         /// </summary>
-        /// <param name="input">The input.</param>
+        /// <param name = "input" > The input. </param>
         public DataFile( string input )
             : base( input )
         {
         }
 
-        /// <summary>
-        /// Transfers the specified folder.
-        /// </summary>
-        /// <param name="folder">The folder.</param>
+        /// <summary> Transfers the specified folder. </summary>
+        /// <param name = "folder" > The folder. </param>
         public void Transfer( DirectoryInfo folder )
         {
             if( folder != null
@@ -64,12 +64,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Determines whether this instance contains the object.
-        /// </summary>
-        /// <param name="search">The search.</param>
+        /// <summary> Determines whether this instance contains the object. </summary>
+        /// <param name = "search" > The search. </param>
         /// <returns>
-        ///   <c>true</c> if [contains] [the specified search]; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if [contains] [the specified search]; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public bool Contains( string search )
         {
@@ -91,6 +92,7 @@ namespace BudgetExecution
                                 _result = true;
                                 break;
                             }
+
                             _text = _reader.ReadLine( );
                         }
 
@@ -107,11 +109,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Searches the specified pattern.
-        /// </summary>
-        /// <param name="pattern">The pattern.</param>
-        /// <returns></returns>
+        /// <summary> Searches the specified pattern. </summary>
+        /// <param name = "pattern" > The pattern. </param>
+        /// <returns> </returns>
         public IEnumerable<FileInfo> Search( string pattern )
         {
             if( !string.IsNullOrEmpty( pattern ) )
@@ -144,10 +144,8 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Gets the parent.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the parent. </summary>
+        /// <returns> </returns>
         public string GetParentDirectory( )
         {
             if( !string.IsNullOrEmpty( Buffer ) )
@@ -168,13 +166,26 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary>
-        /// Creates the specified file path.
-        /// </summary>
-        /// <param name="filePath">
-        /// The file path.
-        /// </param>
-        /// <returns></returns>
+        /// <summary> Returns a string that represents the current object. </summary>
+        /// <returns> A string that represents the current object. </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( Name )
+                    ? Name
+                    : string.Empty;
+            }
+            catch( IOException ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary> Creates the specified file path. </summary>
+        /// <param name = "filePath" > The file path. </param>
+        /// <returns> </returns>
         public static FileInfo Create( string filePath )
         {
             try
@@ -190,10 +201,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Browses this instance.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Browses this instance. </summary>
+        /// <returns> </returns>
         public static string Browse( )
         {
             try
@@ -211,10 +220,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Saves this instance. </summary>
+        /// <returns> </returns>
         public static string Save( )
         {
             try
@@ -228,27 +235,6 @@ namespace BudgetExecution
                 return _dialog.FileName;
             }
             catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>Returns a string that
-        /// represents the current object.
-        /// </summary>
-        /// <returns>A string that represents
-        /// the current object.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( Name )
-                    ? Name
-                    : string.Empty;
-            }
-            catch( IOException ex )
             {
                 Fail( ex );
                 return string.Empty;

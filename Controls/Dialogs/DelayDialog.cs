@@ -1,7 +1,6 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -26,6 +25,18 @@ namespace BudgetExecution
         /// <summary> The waiting path </summary>
         public readonly string WaitingPath =
             @"C:\Users\terry\source\repos\Budget\Resource\Images\Loader\Waiting.gif";
+
+        /// <summary> Gets or sets the picture. </summary>
+        /// <value> The picture. </value>
+        public Image Picture { get; set; }
+
+        /// <summary> Gets or sets the loader. </summary>
+        /// <value> The loader. </value>
+        public Bitmap Loader { get; set; }
+
+        /// <summary> Gets or sets the status. </summary>
+        /// <value> The status. </value>
+        public Status Status { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -70,18 +81,6 @@ namespace BudgetExecution
         {
             Status = status;
         }
-
-        /// <summary> Gets or sets the picture. </summary>
-        /// <value> The picture. </value>
-        public Image Picture { get; set; }
-
-        /// <summary> Gets or sets the loader. </summary>
-        /// <value> The loader. </value>
-        public Bitmap Loader { get; set; }
-
-        /// <summary> Gets or sets the status. </summary>
-        /// <value> The status. </value>
-        public Status Status { get; set; }
 
         /// <summary> Called when [load]. </summary>
         /// <param name = "sender" > The sender. </param>

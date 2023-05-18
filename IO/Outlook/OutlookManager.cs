@@ -1,4 +1,4 @@
-﻿// <copyright file = "OutlookManager.cs" company = "Terry D.Eppler">
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -12,47 +12,41 @@ namespace BudgetExecution
     using System.Text;
     using System.Threading;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class OutlookManager
     {
-        /// <summary>
-        /// Gets or sets the name of the host.
-        /// </summary>
-        /// <value>
-        /// The name of the host.
-        /// </value>
+        /// <summary> Gets or sets the name of the host. </summary>
+        /// <value> The name of the host. </value>
         public string HostName { get; set; }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="OutlookManager"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "OutlookManager"/>
+        /// class.
         /// </summary>
         public OutlookManager( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="OutlookManager"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "OutlookManager"/>
+        /// class.
         /// </summary>
-        /// <param name="hostName">Name of the host.</param>
+        /// <param name = "hostName" > Name of the host. </param>
         public OutlookManager( string hostName )
         {
             HostName = hostName;
         }
 
-        /// <summary>
-        /// Sends the mail.
-        /// </summary>
-        /// <param name="config">The configuration.</param>
-        /// <param name="content">The content.</param>
+        /// <summary> Sends the mail. </summary>
+        /// <param name = "config" > The configuration. </param>
+        /// <param name = "content" > The content. </param>
         public void SendMail( OutlookConfig config, EmailContent content )
         {
-            if( config != null 
+            if( config != null
                && content != null )
             {
                 try
@@ -67,12 +61,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Constructs the email message.
-        /// </summary>
-        /// <param name="config">The configuration.</param>
-        /// <param name="content">The content.</param>
-        /// <returns></returns>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
+        /// <summary> Constructs the email message. </summary>
+        /// <param name = "config" > The configuration. </param>
+        /// <param name = "content" > The content. </param>
+        /// <returns> </returns>
         private MailMessage CreateMessage( OutlookConfig config, EmailContent content )
         {
             if( config != null
@@ -99,9 +100,7 @@ namespace BudgetExecution
                         }
                     }
 
-                    _message.From = new MailAddress( config.From, config.DisplayName,
-                        Encoding.UTF8 );
-
+                    _message.From = new MailAddress( config.From, config.DisplayName, Encoding.UTF8 );
                     _message.IsBodyHtml = content.IsHtml;
                     _message.Body = content.Content;
                     _message.Priority = config.Priority;
@@ -128,26 +127,22 @@ namespace BudgetExecution
             return default( MailMessage );
         }
 
-        /// <summary>
-        /// Sends the specified message.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="config">The configuration.</param>
+        /// <summary> Sends the specified message. </summary>
+        /// <param name = "message" > The message. </param>
+        /// <param name = "config" > The configuration. </param>
         private void Send( MailMessage message, OutlookConfig config )
         {
-            if( message != null 
+            if( message != null
                && config != null )
             {
                 try
                 {
                     var _client = new SmtpClient( );
                     _client.UseDefaultCredentials = false;
-                    _client.Credentials = new NetworkCredential( config.UserName,
-                        config.Password );
-
+                    _client.Credentials = new NetworkCredential( config.UserName, config.Password );
                     _client.Host = HostName;
-                    _client.Port = 25;  
-                    _client.EnableSsl = true; 
+                    _client.Port = 25;
+                    _client.EnableSsl = true;
                     _client.Send( message );
                 }
                 catch( Exception ex )
@@ -156,17 +151,6 @@ namespace BudgetExecution
                     message.Dispose( );
                 }
             }
-        }
-
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -14,9 +14,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Configuration;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -24,24 +22,18 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     public class GoogleSearch
     {
-        /// <summary>
-        /// Gets the search configuration.
-        /// </summary>
-        /// <value>
-        /// The search configuration.
-        /// </value>
+        /// <summary> Gets the search configuration. </summary>
+        /// <value> The search configuration. </value>
         public NameValueCollection Config { get; }
 
-        /// <summary>
-        /// Gets or sets the query.
-        /// </summary>
-        /// <value>
-        /// The query.
-        /// </value>
+        /// <summary> Gets or sets the query. </summary>
+        /// <value> The query. </value>
         public string Query { get; set; }
-        
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GoogleSearch"/>
+        /// class.
         /// </summary>
         public GoogleSearch( )
         {
@@ -49,22 +41,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the
-        /// <see cref="GoogleSearch"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GoogleSearch"/>
+        /// class.
         /// </summary>
-        /// <param name = "keywords" >
-        /// </param>
+        /// <param name = "keywords" > </param>
         public GoogleSearch( string keywords )
         {
             Config = ConfigurationManager.AppSettings;
             Query = keywords;
         }
-        
-        /// <summary>
-        /// Gets the results.
-        /// </summary>
-        /// <returns></returns>
+
+        /// <summary> Gets the results. </summary>
+        /// <returns> </returns>
         public List<ResultData> GetResults( )
         {
             if( !string.IsNullOrEmpty( Query ) )
@@ -80,10 +69,7 @@ namespace BudgetExecution
                     _request.Q = Query;
                     _request.Cx = Config[ "SearchEngineId" ];
                     _request.Start = _count;
-                    var _list = _request.Execute( )
-                        ?.Items
-                        ?.ToList( );
-
+                    var _list = _request.Execute( )?.Items?.ToList( );
                     for( var i = 0; i < _list.Count; i++ )
                     {
                         var _results = new ResultData( );
@@ -108,10 +94,8 @@ namespace BudgetExecution
             return default( List<ResultData> );
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -1,5 +1,5 @@
-﻿// <copyright file = "SqlBuilder.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -17,6 +17,29 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SqlBuilder
     {
+        /// <summary> The source </summary>
+        public Source Source { get; set; }
+
+        /// <summary> The provider </summary>
+        public EXT Extension { get; set; }
+
+        /// <summary> The command type </summary>
+        public SQL CommandType { get; set; }
+
+        /// <summary> The file name </summary>
+        public IEnumerable<string> Files { get; set; }
+
+        /// <summary> Gets or sets the name of the file. </summary>
+        /// <value> The name of the file. </value>
+        public string FileName { get; set; }
+
+        /// <summary> The file name </summary>
+        public string DirectoryPath { get; set; }
+
+        /// <summary> Gets or sets the command repository. </summary>
+        /// <value> The command repository. </value>
+        public IDictionary<string, string> Commands { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "SqlBuilder"/>
@@ -43,29 +66,6 @@ namespace BudgetExecution
             Files = Directory.GetFiles( DirectoryPath );
             Commands = GetCommands( );
         }
-
-        /// <summary> The source </summary>
-        public Source Source { get; set; }
-
-        /// <summary> The provider </summary>
-        public EXT Extension { get; set; }
-
-        /// <summary> The command type </summary>
-        public SQL CommandType { get; set; }
-
-        /// <summary> The file name </summary>
-        public IEnumerable<string> Files { get; set; }
-
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
-        public string FileName { get; set; }
-
-        /// <summary> The file name </summary>
-        public string DirectoryPath { get; set; }
-
-        /// <summary> Gets or sets the command repository. </summary>
-        /// <value> The command repository. </value>
-        public IDictionary<string, string> Commands { get; set; }
 
         /// <summary> Gets the command text. </summary>
         /// <param name = "commandName" > Name of the command. </param>

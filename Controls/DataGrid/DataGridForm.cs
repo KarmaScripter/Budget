@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -32,6 +32,78 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
+        /// <summary> Gets or sets the selected table. </summary>
+        /// <value> The selected table. </value>
+        public string SelectedTable { get; set; }
+
+        /// <summary> Gets or sets the first category. </summary>
+        /// <value> The first category. </value>
+        public string FirstCategory { get; set; }
+
+        /// <summary> Gets or sets the first value. </summary>
+        /// <value> The first value. </value>
+        public string FirstValue { get; set; }
+
+        /// <summary> Gets or sets the second category. </summary>
+        /// <value> The second category. </value>
+        public string SecondCategory { get; set; }
+
+        /// <summary> Gets or sets the second value. </summary>
+        /// <value> The second value. </value>
+        public string SecondValue { get; set; }
+
+        /// <summary> Gets or sets the third category. </summary>
+        /// <value> The third category. </value>
+        public string ThirdCategory { get; set; }
+
+        /// <summary> Gets or sets the third value. </summary>
+        /// <value> The third value. </value>
+        public string ThirdValue { get; set; }
+
+        /// <summary> Gets or sets the SQL query. </summary>
+        /// <value> The SQL query. </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary> Gets or sets the form filter. </summary>
+        /// <value> The form filter. </value>
+        public IDictionary<string, object> FormFilter { get; set; }
+
+        /// <summary> Gets or sets the fields. </summary>
+        /// <value> The fields. </value>
+        public IList<string> Fields { get; set; }
+
+        /// <summary> Gets or sets the numerics. </summary>
+        /// <value> The numerics. </value>
+        public IList<string> Numerics { get; set; }
+
+        /// <summary> Gets or sets the selected columns. </summary>
+        /// <value> The selected columns. </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary> Gets or sets the selected fields. </summary>
+        /// <value> The selected fields. </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary> Gets or sets the selected numerics. </summary>
+        /// <value> The selected numerics. </value>
+        public IList<string> SelectedNumerics { get; set; }
+
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
+        public Source Source { get; set; }
+
+        /// <summary> Gets or sets the provider. </summary>
+        /// <value> The provider. </value>
+        public Provider Provider { get; set; }
+
+        /// <summary> Gets or sets the data table. </summary>
+        /// <value> The data table. </value>
+        public DataTable DataTable { get; set; }
+
+        /// <summary> Gets or sets the data model. </summary>
+        /// <value> The data model. </value>
+        public DataBuilder DataModel { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "DataGridForm"/>
@@ -213,78 +285,6 @@ namespace BudgetExecution
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
         }
-
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
-        public string SelectedTable { get; set; }
-
-        /// <summary> Gets or sets the first category. </summary>
-        /// <value> The first category. </value>
-        public string FirstCategory { get; set; }
-
-        /// <summary> Gets or sets the first value. </summary>
-        /// <value> The first value. </value>
-        public string FirstValue { get; set; }
-
-        /// <summary> Gets or sets the second category. </summary>
-        /// <value> The second category. </value>
-        public string SecondCategory { get; set; }
-
-        /// <summary> Gets or sets the second value. </summary>
-        /// <value> The second value. </value>
-        public string SecondValue { get; set; }
-
-        /// <summary> Gets or sets the third category. </summary>
-        /// <value> The third category. </value>
-        public string ThirdCategory { get; set; }
-
-        /// <summary> Gets or sets the third value. </summary>
-        /// <value> The third value. </value>
-        public string ThirdValue { get; set; }
-
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
-        public string SqlQuery { get; set; }
-
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
-        public IDictionary<string, object> FormFilter { get; set; }
-
-        /// <summary> Gets or sets the fields. </summary>
-        /// <value> The fields. </value>
-        public IList<string> Fields { get; set; }
-
-        /// <summary> Gets or sets the numerics. </summary>
-        /// <value> The numerics. </value>
-        public IList<string> Numerics { get; set; }
-
-        /// <summary> Gets or sets the selected columns. </summary>
-        /// <value> The selected columns. </value>
-        public IList<string> SelectedColumns { get; set; }
-
-        /// <summary> Gets or sets the selected fields. </summary>
-        /// <value> The selected fields. </value>
-        public IList<string> SelectedFields { get; set; }
-
-        /// <summary> Gets or sets the selected numerics. </summary>
-        /// <value> The selected numerics. </value>
-        public IList<string> SelectedNumerics { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
-        public DataBuilder DataModel { get; set; }
 
         /// <summary> Called when [load]. </summary>
         /// <param name = "sender" > The sender. </param>
@@ -824,7 +824,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [excel export button clicked]. </summary>
+        /// <summary> Called when [excel button clicked]. </summary>
         /// <param name = "sender" > The sender. </param>
         /// <param name = "e" >
         /// The
@@ -847,7 +847,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the data source. </summary>
+        /// <summary> Resets the data. </summary>
         /// <param name = "where" > The where. </param>
         private void ResetData( IDictionary<string, object> where )
         {
@@ -874,7 +874,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the data source. </summary>
+        /// <summary> Resets the data. </summary>
         /// <param name = "cols" > The cols. </param>
         /// <param name = "where" > The where. </param>
         private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
@@ -903,7 +903,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the data source. </summary>
+        /// <summary> Resets the data. </summary>
         /// <param name = "fields" > The fields. </param>
         /// <param name = "numerics" > The numerics. </param>
         /// <param name = "where" > The where. </param>
@@ -934,8 +934,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the image. </summary>
-        /// <returns> </returns>
+        /// <summary> Sets the form icon. </summary>
         private void SetFormIcon( )
         {
             try
@@ -963,7 +962,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the dialog image. </summary>
+        /// <summary> Sets the dialog icon. </summary>
+        /// <param name = "type" > The type. </param>
         private void SetDialogIcon( ToolType type )
         {
             try
@@ -1005,7 +1005,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Resets the ComboBox visibility. </summary>
+        /// <summary> Resets the filter table visibility. </summary>
         private void ResetFilterTableVisibility( )
         {
             try
@@ -1127,7 +1127,7 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Sets the RadioButton tags. </summary>
+        /// <summary> Initializes the radio buttons. </summary>
         private void InitRadioButtons( )
         {
             try
@@ -1905,7 +1905,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [provider button checked]. </summary>
+        /// <summary> Called when [RadioButton checked]. </summary>
         /// <param name = "sender" > The sender. </param>
         private void OnRadioButtonChecked( object sender )
         {

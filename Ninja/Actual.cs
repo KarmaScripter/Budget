@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,73 +8,17 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.PRC" />
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.PRC"/>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Actual : PRC, IActual
     {
         /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
-        public virtual string AppropriationCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
-        public virtual string AppropriationName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
-        public virtual string SubAppropriationCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
-        public virtual string SubAppropriationName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ulo.
-        /// </summary>
-        /// <value>
-        /// The ulo.
-        /// </value>
-        public virtual double Commitments { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public virtual double Obligations { get; set; }
-
-        /// <summary>
-        /// Gets or sets the balance.
-        /// </summary>
-        /// <value>
-        /// The balance.
-        /// </value>
-        public virtual double Balance { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Actual"/>
+        /// class.
         /// </summary>
         public Actual( )
         {
@@ -82,9 +26,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public Actual( IQuery query )
             : this( )
         {
@@ -128,9 +74,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name = "builder" > </param>
         public Actual( IDataModel builder )
             : this( )
         {
@@ -174,9 +122,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Actual"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public Actual( DataRow dataRow )
             : this( )
         {
@@ -259,5 +209,33 @@ namespace BudgetExecution
             BudgetAccountCode = actual.BudgetAccountCode;
             BudgetAccountName = actual.BudgetAccountName;
         }
+
+        /// <summary> Gets or sets the appropriation code. </summary>
+        /// <value> The appropriation code. </value>
+        public virtual string AppropriationCode { get; set; }
+
+        /// <summary> Gets or sets the name of the appropriation. </summary>
+        /// <value> The name of the appropriation. </value>
+        public virtual string AppropriationName { get; set; }
+
+        /// <summary> Gets or sets the appropriation code. </summary>
+        /// <value> The appropriation code. </value>
+        public virtual string SubAppropriationCode { get; set; }
+
+        /// <summary> Gets or sets the name of the appropriation. </summary>
+        /// <value> The name of the appropriation. </value>
+        public virtual string SubAppropriationName { get; set; }
+
+        /// <summary> Gets or sets the ulo. </summary>
+        /// <value> The ulo. </value>
+        public virtual double Commitments { get; set; }
+
+        /// <summary> Gets or sets the obligations. </summary>
+        /// <value> The obligations. </value>
+        public virtual double Obligations { get; set; }
+
+        /// <summary> Gets or sets the balance. </summary>
+        /// <value> The balance. </value>
+        public virtual double Balance { get; set; }
     }
 }

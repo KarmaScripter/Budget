@@ -1,5 +1,5 @@
-﻿// <copyright file = "ProgramFinancingSchedule.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,207 +8,117 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ProgramFinancingSchedule
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <summary> Gets or sets the identifier. </summary>
+        /// <value> The identifier. </value>
         public int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the report year.
-        /// </summary>
-        /// <value>
-        /// The report year.
-        /// </value>
+        /// <summary> Gets or sets the report year. </summary>
+        /// <value> The report year. </value>
         public string ReportYear { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury agency code.
-        /// </summary>
-        /// <value>
-        /// The treasury agency code.
-        /// </value>
+        /// <summary> Gets or sets the treasury agency code. </summary>
+        /// <value> The treasury agency code. </value>
         public string TreasuryAgencyCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
+        /// <summary> Gets or sets the treasury account code. </summary>
+        /// <value> The treasury account code. </value>
         public string TreasuryAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ledger account code.
-        /// </summary>
-        /// <value>
-        /// The ledger account code.
-        /// </value>
+        /// <summary> Gets or sets the ledger account code. </summary>
+        /// <value> The ledger account code. </value>
         public string LedgerAccountCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the section number.
-        /// </summary>
-        /// <value>
-        /// The section number.
-        /// </value>
+        /// <summary> Gets or sets the section number. </summary>
+        /// <value> The section number. </value>
         public string SectionNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the section.
-        /// </summary>
-        /// <value>
-        /// The name of the section.
-        /// </value>
+        /// <summary> Gets or sets the name of the section. </summary>
+        /// <value> The name of the section. </value>
         public string SectionName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the line number.
-        /// </summary>
-        /// <value>
-        /// The line number.
-        /// </value>
+        /// <summary> Gets or sets the line number. </summary>
+        /// <value> The line number. </value>
         public string LineNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the line description.
-        /// </summary>
-        /// <value>
-        /// The line description.
-        /// </value>
+        /// <summary> Gets or sets the line description. </summary>
+        /// <value> The line description. </value>
         public string LineDescription { get; set; }
 
-        /// <summary>
-        /// Gets or sets the omb agency code.
-        /// </summary>
-        /// <value>
-        /// The omb agency code.
-        /// </value>
+        /// <summary> Gets or sets the omb agency code. </summary>
+        /// <value> The omb agency code. </value>
         public string OmbAgencyCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the omb fund code.
-        /// </summary>
-        /// <value>
-        /// The omb fund code.
-        /// </value>
+        /// <summary> Gets or sets the omb fund code. </summary>
+        /// <value> The omb fund code. </value>
         public string OmbFundCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the omb account title.
-        /// </summary>
-        /// <value>
-        /// The omb account title.
-        /// </value>
+        /// <summary> Gets or sets the omb account title. </summary>
+        /// <value> The omb account title. </value>
         public string OmbAccountTitle { get; set; }
 
-        /// <summary>
-        /// Gets or sets the agency sequence.
-        /// </summary>
-        /// <value>
-        /// The agency sequence.
-        /// </value>
+        /// <summary> Gets or sets the agency sequence. </summary>
+        /// <value> The agency sequence. </value>
         public string AgencySequence { get; set; }
 
-        /// <summary>
-        /// Gets or sets the account sequence.
-        /// </summary>
-        /// <value>
-        /// The account sequence.
-        /// </value>
+        /// <summary> Gets or sets the account sequence. </summary>
+        /// <value> The account sequence. </value>
         public string AccountSequence { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
+        /// <summary> Gets or sets the name of the fund. </summary>
+        /// <value> The name of the fund. </value>
         public string FundName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the original amount.
-        /// </summary>
-        /// <value>
-        /// The original amount.
-        /// </value>
+        /// <summary> Gets or sets the original amount. </summary>
+        /// <value> The original amount. </value>
         public double OriginalAmount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the budget amount.
-        /// </summary>
-        /// <value>
-        /// The budget amount.
-        /// </value>
+        /// <summary> Gets or sets the budget amount. </summary>
+        /// <value> The budget amount. </value>
         public double BudgetAmount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the agency amount.
-        /// </summary>
-        /// <value>
-        /// The agency amount.
-        /// </value>
+        /// <summary> Gets or sets the agency amount. </summary>
+        /// <value> The agency amount. </value>
         public double AgencyAmount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
+        /// <summary> Gets or sets the amount. </summary>
+        /// <value> The amount. </value>
         public double Amount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the agency.
-        /// </summary>
-        /// <value>
-        /// The name of the agency.
-        /// </value>
+        /// <summary> Gets or sets the name of the agency. </summary>
+        /// <value> The name of the agency. </value>
         public string AgencyName { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
+
+        /// <summary> Gets or sets the source. </summary>
+        /// <value> The source. </value>
         public Source Source { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Record property.
-        /// </summary>
-        /// <value>
-        /// The data row.
-        /// </value>
+        /// <summary> Gets or sets the Record property. </summary>
+        /// <value> The data row. </value>
         public DataRow Record { get; set; }
 
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramFinancingSchedule"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ProgramFinancingSchedule"/>
+        /// class.
         /// </summary>
         public ProgramFinancingSchedule( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramFinancingSchedule"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ProgramFinancingSchedule"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public ProgramFinancingSchedule( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -216,9 +126,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramFinancingSchedule"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ProgramFinancingSchedule"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public ProgramFinancingSchedule( IDataModel builder )
         {
             Record = builder.Record;
@@ -226,9 +138,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgramFinancingSchedule"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ProgramFinancingSchedule"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public ProgramFinancingSchedule( DataRow dataRow )
         {
             Record = dataRow;

@@ -1,5 +1,5 @@
-﻿// <copyright file = "IDataAccess.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -14,12 +14,10 @@ namespace BudgetExecution
         /// <returns> </returns>
         IQuery GetQuery( );
 
-        /// <summary>
-        /// Gets the query.
-        /// </summary>
-        /// <param name="connectionFactory">The connection factory.</param>
-        /// <param name="sqlStatement">The SQL statement.</param>
-        /// <returns></returns>
+        /// <summary> Gets the query. </summary>
+        /// <param name = "connectionFactory" > The connection factory. </param>
+        /// <param name = "sqlStatement" > The SQL statement. </param>
+        /// <returns> </returns>
         IQuery GetQuery( IConnectionFactory connectionFactory, ISqlStatement sqlStatement );
 
         /// <summary> Gets the record. </summary>

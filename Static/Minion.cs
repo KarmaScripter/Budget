@@ -1,7 +1,6 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -13,9 +12,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     public static class Minion
     {
-        /// <summary>
-        /// Opens the sq lite.
-        /// </summary>
+        /// <summary> Opens the sq lite. </summary>
         public static void OpenSQLite( )
         {
             try
@@ -33,7 +30,7 @@ namespace BudgetExecution
                 {
                     _startInfo.Arguments = _args;
                 }
-                
+
                 Process.Start( _startInfo );
             }
             catch( Exception ex )
@@ -42,9 +39,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the SQL ce.
-        /// </summary>
+        /// <summary> Opens the SQL ce. </summary>
         public static void OpenSqlCe( )
         {
             try
@@ -71,9 +66,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the access database.
-        /// </summary>
+        /// <summary> Opens the access database. </summary>
         public static void OpenAccess( )
         {
             try
@@ -94,9 +87,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Opens the excel.
-        /// </summary>
+        /// <summary> Opens the excel. </summary>
         public static void OpenExcel( )
         {
             try
@@ -116,10 +107,8 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// 
-        /// </summary>
+
+        /// <summary> </summary>
         public static void OpenPdfDocument( )
         {
             try
@@ -140,9 +129,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> </summary>
         public static void LaunchEdge( )
         {
             try
@@ -162,10 +149,8 @@ namespace BudgetExecution
                 Fail( ex );
             }
         }
-        
-        /// <summary>
-        /// 
-        /// </summary>
+
+        /// <summary> </summary>
         public static void LaunchChrome( )
         {
             try
@@ -186,12 +171,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">
-        /// The exception.
-        /// </param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The exception. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -1,5 +1,5 @@
-﻿// <copyright file = "CsvQuery.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -17,6 +17,10 @@ namespace BudgetExecution
     /// <seealso cref = "Query"/>
     public class CsvQuery : Query
     {
+        /// <summary> Gets the provider. </summary>
+        /// <value> The provider. </value>
+        public new Provider Provider { get; set; } = Provider.CSV;
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "CsvQuery"/>
@@ -158,10 +162,6 @@ namespace BudgetExecution
             : base( fullPath, commandType, dict )
         {
         }
-
-        /// <summary> Gets the provider. </summary>
-        /// <value> The provider. </value>
-        public new Provider Provider { get; set; } = Provider.CSV;
 
         /// <summary> Saves the file. </summary>
         /// <param name = "workBook" > The workBook. </param>

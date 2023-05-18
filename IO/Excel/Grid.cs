@@ -1,5 +1,5 @@
-﻿// <copyright file="Grid.cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,59 +9,27 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using OfficeOpenXml;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Grid : ExcelCellBase, IGrid
     {
         /// <summary>
-        /// The range
-        /// </summary>
-        public ExcelRange Range { get; set; }
-
-        /// <summary>
-        /// The workSheet
-        /// </summary>
-        public ExcelWorksheet Worksheet { get; set; }
-
-        /// <summary>
-        /// The address
-        /// </summary>
-        public ExcelAddress Address { get; set; }
-
-        /// <summary>
-        /// Gets or sets from.
-        /// </summary>
-        /// <value>
-        /// From.
-        /// </value>
-        public ( int Row, int Column ) From { get; set; }
-
-        /// <summary>
-        /// Gets or sets to.
-        /// </summary>
-        /// <value>
-        /// To.
-        /// </value>
-        public ( int Row, int Column ) To { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref = "Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
         public Grid( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
-        /// <param name = "workSheet" >
-        /// </param>
-        /// <param name = "range" >
-        /// The range.
-        /// </param>
+        /// <param name = "workSheet" > </param>
+        /// <param name = "range" > The range. </param>
         public Grid( ExcelWorksheet workSheet, ExcelRange range )
         {
             Worksheet = workSheet;
@@ -74,14 +42,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
-        /// <param name = "workSheet" >
-        /// The workSheet.
-        /// </param>
-        /// <param name = "address" >
-        /// The address.
-        /// </param>
+        /// <param name = "workSheet" > The workSheet. </param>
+        /// <param name = "address" > The address. </param>
         public Grid( ExcelWorksheet workSheet, ExcelAddress address )
         {
             Worksheet = workSheet;
@@ -92,22 +58,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
-        /// <param name = "workSheet" >
-        /// </param>
-        /// <param name = "fromRow" >
-        /// The fromRow.
-        /// </param>
-        /// <param name = "fromColumn" >
-        /// The fromColumn.
-        /// </param>
-        /// <param name = "toRow" >
-        /// The toRow.
-        /// </param>
-        /// <param name = "toColumn" >
-        /// The toColumn.
-        /// </param>
+        /// <param name = "workSheet" > </param>
+        /// <param name = "fromRow" > The fromRow. </param>
+        /// <param name = "fromColumn" > The fromColumn. </param>
+        /// <param name = "toRow" > The toRow. </param>
+        /// <param name = "toColumn" > The toColumn. </param>
         public Grid( ExcelWorksheet workSheet, int fromRow = 1, int fromColumn = 1,
             int toRow = 55, int toColumn = 12 )
         {
@@ -121,13 +80,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
-        /// <param name = "workSheet" >
-        /// </param>
-        /// <param name = "cell" >
-        /// The cell.
-        /// </param>
+        /// <param name = "workSheet" > </param>
+        /// <param name = "cell" > The cell. </param>
         public Grid( ExcelWorksheet workSheet, IList<int> cell )
         {
             Worksheet = workSheet;
@@ -140,18 +98,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
-        /// <param name = "workSheet" >
-        /// </param>
-        /// <param name = "from" >
-        /// From.
-        /// </param>
-        /// <param name = "to" >
-        /// To.
-        /// </param>
-        public Grid( ExcelWorksheet workSheet, (int Row, int Column) from,
-            (int Row, int Column) to )
+        /// <param name = "workSheet" > </param>
+        /// <param name = "from" > From. </param>
+        /// <param name = "to" > To. </param>
+        public Grid( ExcelWorksheet workSheet, (int Row, int Column) from, (int Row, int Column) to )
         {
             Worksheet = workSheet;
             Range = Worksheet.Cells[ from.Row, from.Column, to.Row, to.Column ];
@@ -162,15 +116,13 @@ namespace BudgetExecution
             To = to;
         }
 
-        /// <summary>Initializes a new instance of the
-        /// <see cref="Grid"/> class.
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref = "Grid"/>
+        /// class.
         /// </summary>
-        /// <param name="workSheet">
-        /// The work sheet.
-        /// </param>
-        /// <param name="from">
-        /// From.
-        /// </param>
+        /// <param name = "workSheet" > The work sheet. </param>
+        /// <param name = "from" > From. </param>
         public Grid( ExcelWorksheet workSheet, (int Row, int Column) from )
         {
             Worksheet = workSheet;
@@ -181,15 +133,27 @@ namespace BudgetExecution
             From = from;
             To = From;
         }
-        
-        /// <summary>
-        /// Counts the cells.
-        /// </summary>
-        /// <param name = "range" >
-        /// The range.
-        /// </param>
-        /// <returns>
-        /// </returns>
+
+        /// <summary> The range </summary>
+        public ExcelRange Range { get; set; }
+
+        /// <summary> The workSheet </summary>
+        public ExcelWorksheet Worksheet { get; set; }
+
+        /// <summary> The address </summary>
+        public ExcelAddress Address { get; set; }
+
+        /// <summary> Gets or sets from. </summary>
+        /// <value> From. </value>
+        public ( int Row, int Column ) From { get; set; }
+
+        /// <summary> Gets or sets to. </summary>
+        /// <value> To. </value>
+        public ( int Row, int Column ) To { get; set; }
+
+        /// <summary> Counts the cells. </summary>
+        /// <param name = "range" > The range. </param>
+        /// <returns> </returns>
         public int CountCells( ExcelRange range )
         {
             try
@@ -203,11 +167,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the row count.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the row count. </summary>
+        /// <returns> </returns>
         public int GetRowCount( )
         {
             try
@@ -223,11 +184,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the column count.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+        /// <summary> Gets the column count. </summary>
+        /// <returns> </returns>
         public int GetColumnCount( )
         {
             try
@@ -242,11 +200,9 @@ namespace BudgetExecution
                 return default;
             }
         }
-        
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

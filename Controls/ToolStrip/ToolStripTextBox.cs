@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,19 +9,18 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripTextBox" />
-    /// <seealso cref="IToolStripTextBox" />
+    /// <summary> </summary>
+    /// <seealso cref = "System.Windows.Forms.ToolStripTextBox"/>
+    /// <seealso cref = "IToolStripTextBox"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripTextBox : ToolStripTextBase, IToolStripTextBox
     {
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="ToolStripTextBox"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripTextBox"/>
+        /// class.
         /// </summary>
         public ToolStripTextBox( )
         {
@@ -41,9 +40,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripTextBox"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripTextBox"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text.</param>
+        /// <param name = "text" > The text. </param>
         public ToolStripTextBox( string text )
             : this( )
         {
@@ -51,20 +52,20 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripTextBox"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripTextBox"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="hoverText">The hover text.</param>
+        /// <param name = "text" > The text. </param>
+        /// <param name = "hoverText" > The hover text. </param>
         public ToolStripTextBox( string text, string hoverText = "" )
             : this( text )
         {
             HoverText = hoverText;
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="text">The text.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name = "text" > The text. </param>
         public void ResetText( string text )
         {
             try
@@ -79,10 +80,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the hover text.
-        /// </summary>
-        /// <param name="item">The item.</param>
+        /// <summary> Sets the hover text. </summary>
+        /// <param name = "item" > The item. </param>
         public void SetHoverText( ToolStripItem item )
         {
             var _text = item?.Tag?.ToString( );
@@ -99,11 +98,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse hover].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [mouse hover]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             try
@@ -131,11 +132,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseLeave( object sender, EventArgs e )
         {
             try

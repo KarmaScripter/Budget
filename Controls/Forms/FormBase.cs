@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,14 +8,14 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <summary> </summary>
+    /// <seealso cref = "Syncfusion.Windows.Forms.MetroForm"/>
     public partial class FormBase : MetroForm
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "FormBase"/>
+        /// class.
         /// </summary>
         public FormBase( )
         {

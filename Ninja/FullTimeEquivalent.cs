@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -25,7 +25,8 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "T:BudgetExecution.FullTimeEquivalent"/> class.
+        /// <see cref = "T:BudgetExecution.FullTimeEquivalent"/>
+        /// class.
         /// </summary>
         public FullTimeEquivalent( )
         {
@@ -33,11 +34,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FullTimeEquivalent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "FullTimeEquivalent"/>
+        /// class.
         /// </summary>
-        /// <param name = "query" >
-        /// The query.
-        /// </param>
+        /// <param name = "query" > The query. </param>
         public FullTimeEquivalent( IQuery query )
             : base( query )
         {
@@ -76,11 +77,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FullTimeEquivalent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "FullTimeEquivalent"/>
+        /// class.
         /// </summary>
-        /// <param name = "builder" >
-        /// The databuilder.
-        /// </param>
+        /// <param name = "builder" > The databuilder. </param>
         public FullTimeEquivalent( IDataModel builder )
             : base( builder )
         {
@@ -119,11 +120,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref = "FullTimeEquivalent"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "FullTimeEquivalent"/>
+        /// class.
         /// </summary>
-        /// <param name = "dataRow" >
-        /// The dataRow.
-        /// </param>
+        /// <param name = "dataRow" > The dataRow. </param>
         public FullTimeEquivalent( DataRow dataRow )
             : base( dataRow )
         {
@@ -190,12 +191,9 @@ namespace BudgetExecution
             BudgetAccountCode = allocation.BudgetAccountCode;
             BudgetAccountName = allocation.BudgetAccountName;
         }
-        
-        /// <summary>
-        /// Gets the ProgramResultCodes identifier.
-        /// </summary>
-        /// <returns>
-        /// </returns>
+
+        /// <summary> Gets the ProgramResultCodes identifier. </summary>
+        /// <returns> </returns>
         public override int GetId( DataRow dataRow )
         {
             try
@@ -207,7 +205,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( int );
+                return default;
             }
         }
     }

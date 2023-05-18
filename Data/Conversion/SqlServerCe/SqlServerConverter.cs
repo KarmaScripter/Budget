@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -37,15 +37,6 @@ namespace BudgetExecution
         /// <summary> The default value </summary>
         private readonly Regex _value = new(@"\(N(\'.*\')\)");
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "SqlServerConverter"/>
-        /// class.
-        /// </summary>
-        public SqlServerConverter( )
-        {
-        }
-
         /// <summary> Gets or sets a value indicating whether this instance is active. </summary>
         /// <value>
         /// <c> true </c>
@@ -54,6 +45,15 @@ namespace BudgetExecution
         /// .
         /// </value>
         private bool IsActive { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref = "SqlServerConverter"/>
+        /// class.
+        /// </summary>
+        public SqlServerConverter( )
+        {
+        }
 
         /// <summary> Cancels the conversion. </summary>
         public void CancelConversion( )

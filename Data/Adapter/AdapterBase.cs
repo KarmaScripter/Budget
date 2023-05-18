@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -22,6 +22,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class AdapterBase : DbDataAdapter, ISource, IProvider
     {
+        /// <summary> The connection </summary>
+        public virtual DbConnection DataConnection { get; set; }
+
+        /// <summary> The SQL statement </summary>
+        public virtual ISqlStatement SqlStatement { get; set; }
+
+        /// <summary> The connection builder </summary>
+        public virtual IConnectionFactory ConnectionFactory { get; set; }
+
+        /// <summary> Gets the command builder. </summary>
+        /// <value> The command builder. </value>
+        public virtual IDictionary<string, DbCommand> Commands { get; set; }
+
+        /// <summary> Gets the command factory. </summary>
+        /// <value> The command factory. </value>
+        public virtual ICommandFactory CommandFactory { get; set; }
+
+        /// <summary> Gets or sets the command text. </summary>
+        /// <value> The command text. </value>
+        public virtual string CommandText { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "AdapterBase"/>
@@ -70,27 +91,6 @@ namespace BudgetExecution
             DataConnection = ConnectionFactory.GetConnection( );
             CommandText = sqlStatement.CommandText;
         }
-
-        /// <summary> The connection </summary>
-        public virtual DbConnection DataConnection { get; set; }
-
-        /// <summary> The SQL statement </summary>
-        public virtual ISqlStatement SqlStatement { get; set; }
-
-        /// <summary> The connection builder </summary>
-        public virtual IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary> Gets the command builder. </summary>
-        /// <value> The command builder. </value>
-        public virtual IDictionary<string, DbCommand> Commands { get; set; }
-
-        /// <summary> Gets the command factory. </summary>
-        /// <value> The command factory. </value>
-        public virtual ICommandFactory CommandFactory { get; set; }
-
-        /// <summary> Gets or sets the command text. </summary>
-        /// <value> The command text. </value>
-        public virtual string CommandText { get; set; }
 
         /// <summary> Gets or sets the provider. </summary>
         /// <value> The provider. </value>

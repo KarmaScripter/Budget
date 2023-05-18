@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -13,17 +13,48 @@ namespace BudgetExecution
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
-    /// <summary> </summary>
-    /// <seealso cref = "ButtonBase"/>
-    /// <seealso cref = "IButton"/>
-    /// <seealso cref = "IDisposable"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetButton" />
+    /// <seealso cref="BudgetExecution.IButton" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Button : MetroSetButton, IButton
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public virtual SmallTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
+        public virtual IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
         public Button( )
         {
@@ -67,12 +98,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "location" > The location. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
         public Button( Size size, Point location )
             : this( )
         {
@@ -81,13 +110,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "location" > The location. </param>
-        /// <param name = "parent" > The parent. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
         public Button( Size size, Point location, Control parent )
             : this( size, location )
         {
@@ -95,14 +122,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name = "size" > The size. </param>
-        /// <param name = "location" > The location. </param>
-        /// <param name = "parent" > The parent. </param>
-        /// <param name = "text" > The text. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
+        /// <param name="text">The text.</param>
         public Button( Size size, Point location, Control parent,
             string text )
             : this( size, location, parent )
@@ -111,12 +136,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name = "parent" > The parent. </param>
-        /// <param name = "text" > The text displayed by the control. </param>
+        /// <param name="parent">The <see cref="T:System.Windows.Forms.Control" /> to be the parent of the control.</param>
+        /// <param name="text">The text displayed by the control.</param>
         public Button( Control parent, string text )
             : this( )
         {
@@ -125,11 +148,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name = "parent" > The parent. </param>
+        /// <param name="parent">The parent.</param>
         public Button( Control parent )
             : this( )
         {
@@ -137,12 +158,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Button"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Button"/> class.
         /// </summary>
-        /// <param name = "parent" > The parent. </param>
-        /// <param name = "field" > The field. </param>
+        /// <param name="parent">The parent.</param>
+        /// <param name="field">The field.</param>
         public Button( Control parent, Field field )
             : this( )
         {
@@ -150,23 +169,10 @@ namespace BudgetExecution
             Tag = field.ToString( );
         }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public virtual SmallTip ToolTip { get; set; }
-
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
-        public virtual string HoverText { get; set; }
-
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
-
-        /// <summary> Sets the color of the fore. Required Attributes: ForeColor </summary>
+        /// <summary>
+        /// Sets the color of the fore. Required Attributes: ForeColor
+        /// </summary>
+        /// <param name="foreColor"></param>
         public void SetForeColor( Color foreColor )
         {
             if( foreColor != Color.Empty )
@@ -182,13 +188,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [mouse over]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
         public void OnMouseOver( object sender, EventArgs e )
         {
             var _button = sender as Button;
@@ -218,20 +224,22 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
         public virtual void OnClick( object sender, EventArgs e )
         {
         }
 
-        /// <summary> Sets the size. </summary>
-        /// <param name = "width" > The width. </param>
-        /// <param name = "height" > The height. </param>
+        /// <summary>
+        /// Res the size.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
         public virtual void ReSize( int width, int height )
         {
             try
@@ -244,8 +252,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name = "text" > The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public virtual void SetText( string text )
         {
             try
@@ -258,9 +268,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the location. </summary>
-        /// <param name = "x" > The x. </param>
-        /// <param name = "y" > The y. </param>
+        /// <summary>
+        /// Res the locate.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
         public virtual void ReLocate( int x, int y )
         {
             if( x > 0
@@ -277,13 +289,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public virtual void OnMouseLeave( object sender, EventArgs e )
         {
             try
@@ -302,10 +312,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the state of the back color. Required Attributes: BackColor, DisableColor,
-        /// EnabledColor, HoverColor, and PressedColor
+        /// Sets the color of the back.
         /// </summary>
-        /// <param name = "normal" > The format. </param>
+        /// <param name="normal">The normal.</param>
         public void SetBackColor( Color normal )
         {
             if( normal != Color.Empty )
@@ -321,8 +330,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

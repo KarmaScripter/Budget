@@ -1,5 +1,5 @@
-﻿// <copyright file = "Allocation.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,10 +8,8 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
+    /// <summary> </summary>
+    /// <seealso cref = "BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
@@ -20,47 +18,9 @@ namespace BudgetExecution
     public class Allocation : StatusOfFunds, IAllocation
     {
         /// <summary>
-        /// Gets or sets the appropriation code.
-        /// </summary>
-        /// <value>
-        /// The appropriation code.
-        /// </value>
-        public virtual string AppropriationCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the appropriation.
-        /// </summary>
-        /// <value>
-        /// The name of the appropriation.
-        /// </value>
-        public virtual string AppropriationName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio activity code.
-        /// </summary>
-        /// <value>
-        /// The rpio activity code.
-        /// </value>
-        public virtual string RpioActivityCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio activity.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio activity.
-        /// </value>
-        public virtual string RpioActivityName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
-        public virtual double Amount { get; set; }
-        
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Allocation"/>
+        /// class.
         /// </summary>
         public Allocation( )
         {
@@ -68,16 +28,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
-        public Allocation( IQuery query ) 
+        /// <param name = "query" > The query. </param>
+        public Allocation( IQuery query )
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AllocationsId" ].ToString(  ) ?? "0" );
-            BFY =  Record[ "BFY" ].ToString( );
+            ID = int.Parse( Record[ "AllocationsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -90,33 +52,35 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public Allocation( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AllocationsId" ].ToString(  ) ?? "0" );
-            BFY =  Record[ "BFY" ].ToString( );
+            ID = int.Parse( Record[ "AllocationsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -129,34 +93,36 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "Allocation"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public Allocation( DataRow dataRow ) 
+        /// <param name = "dataRow" > The data row. </param>
+        public Allocation( DataRow dataRow )
             : base( dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary(  );
-            ID = int.Parse( Record[ "AllocationsId" ].ToString(  ) ?? "0" );
-            BFY =  dataRow[ "BFY" ].ToString( );
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "AllocationsId" ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
@@ -180,19 +146,19 @@ namespace BudgetExecution
             GoalName = dataRow[ "GoalName" ].ToString( );
             ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Allocation( IDictionary<string, object> map ) 
+        public Allocation( IDictionary<string, object> map )
             : base( map )
         {
             Record = new DataBuilder( Source, map )?.Record;
-            Data = Record.ToDictionary(  );
-            ID = int.Parse( Record[ "AllocationsId" ].ToString(  ) ?? "0" );
-            BFY =  Record[ "BFY" ].ToString( );
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "AllocationsId" ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -205,21 +171,21 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString(  ) );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString(  );
-            NpmName = Record[ "NpmName" ].ToString(  );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
             GoalCode = Record[ "GoalCode" ].ToString( );
             GoalName = Record[ "GoalName" ].ToString( );
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString(  );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString(  );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString(  );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString(  );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         public Allocation( IAllocation allocation )
@@ -251,5 +217,25 @@ namespace BudgetExecution
             BudgetAccountCode = allocation.BudgetAccountCode;
             BudgetAccountName = allocation.BudgetAccountName;
         }
+
+        /// <summary> Gets or sets the appropriation code. </summary>
+        /// <value> The appropriation code. </value>
+        public virtual string AppropriationCode { get; set; }
+
+        /// <summary> Gets or sets the name of the appropriation. </summary>
+        /// <value> The name of the appropriation. </value>
+        public virtual string AppropriationName { get; set; }
+
+        /// <summary> Gets or sets the rpio activity code. </summary>
+        /// <value> The rpio activity code. </value>
+        public virtual string RpioActivityCode { get; set; }
+
+        /// <summary> Gets or sets the name of the rpio activity. </summary>
+        /// <value> The name of the rpio activity. </value>
+        public virtual string RpioActivityName { get; set; }
+
+        /// <summary> Gets or sets the amount. </summary>
+        /// <value> The amount. </value>
+        public virtual double Amount { get; set; }
     }
 }

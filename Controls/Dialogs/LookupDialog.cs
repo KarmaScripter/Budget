@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,38 +11,26 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class LookupDialog : EditBase
     {
-        /// <summary>
-        /// Gets the table prefix.
-        /// </summary>
-        /// <value>
-        /// The table prefix.
-        /// </value>
+        /// <summary> Gets the table prefix. </summary>
+        /// <value> The table prefix. </value>
         public string TablePrefix { get; } = " Tables : ";
 
-        /// <summary>
-        /// Gets the column prefix.
-        /// </summary>
-        /// <value>
-        /// The column prefix.
-        /// </value>
+        /// <summary> Gets the column prefix. </summary>
+        /// <value> The column prefix. </value>
         public string ColumnPrefix { get; } = " Columns : ";
 
-        /// <summary>
-        /// Gets the value prefix.
-        /// </summary>
-        /// <value>
-        /// The value prefix.
-        /// </value>
+        /// <summary> Gets the value prefix. </summary>
+        /// <value> The value prefix. </value>
         public string ValuePrefix { get; } = " Values : ";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LookupDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "LookupDialog"/>
+        /// class.
         /// </summary>
         public LookupDialog( )
         {
@@ -59,11 +47,13 @@ namespace BudgetExecution
             ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -73,6 +63,7 @@ namespace BudgetExecution
                     { "BFY", "2022" },
                     { "FundCode", "B" }
                 };
+
                 DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
@@ -85,9 +76,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
+        /// <summary> Populates the table ListBox items. </summary>
         public void PopulateTableListBoxItems( )
         {
             try
@@ -95,8 +84,7 @@ namespace BudgetExecution
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
 
@@ -112,10 +100,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [table ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [table ListBox selection changed]. </summary>
+        /// <param name = "sender" > The sender. </param>
         public void OnTableListBoxSelectionChanged( object sender )
         {
             try
@@ -148,10 +134,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [column ListBox selection changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [column ListBox selection changed]. </summary>
+        /// <param name = "sender" > The sender. </param>
         public void OnColumnListBoxSelectionChanged( object sender )
         {
             try

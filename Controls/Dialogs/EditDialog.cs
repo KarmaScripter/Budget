@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -20,6 +20,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class EditDialog : EditBase
     {
+        /// <summary> Gets or sets the current. </summary>
+        /// <value> The current. </value>
+        public DataRow Current { get; set; }
+
+        /// <summary> Gets or sets the frames. </summary>
+        /// <value> The frames. </value>
+        public IEnumerable<Frame> Frames { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "EditDialog"/>
@@ -111,14 +119,6 @@ namespace BudgetExecution
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
-
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
-        public DataRow Current { get; set; }
-
-        /// <summary> Gets or sets the frames. </summary>
-        /// <value> The frames. </value>
-        public IEnumerable<Frame> Frames { get; set; }
 
         /// <summary> Sets the frame visibility. </summary>
         public void SetFrameVisibility( )

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,20 +11,17 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class CollectionExtensions
     {
-        /// <summary>Adds if.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate,
-            T value )
+        /// <summary> Adds if. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
+        /// <param name = "predicate" > The predicate. </param>
+        /// <param name = "value" > The value. </param>
+        /// <returns> </returns>
+        public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate, T value )
         {
             if( collection?.Count > 0
                && predicate( value ) )
@@ -44,10 +41,10 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>Adds the range.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="values">The values.</param>
+        /// <summary> Adds the range. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
+        /// <param name = "values" > The values. </param>
         public static void AddRange<T>( this ICollection<T> collection, params T[ ] values )
         {
             if( values?.Length > 0
@@ -55,7 +52,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    for( var i = 0; i < values.Length; i++ ) 
+                    for( var i = 0; i < values.Length; i++ )
                     {
                         collection.Add( values[ i ] );
                     }
@@ -67,11 +64,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>Determines whether this instance is empty.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
+        /// <summary> Determines whether this instance is empty. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
         /// <returns>
-        ///   <c>true</c> if the specified collection is empty; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified collection is empty; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public static bool IsEmpty<T>( this ICollection<T> collection )
         {
@@ -86,10 +86,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>Removes if contains.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="value">The value.</param>
+        /// <summary> Removes if contains. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
+        /// <param name = "value" > The value. </param>
         public static void RemoveIfContains<T>( this ICollection<T> collection, T value )
         {
             if( collection?.Contains( value ) == true )
@@ -105,10 +105,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>Removes the range.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="values">The values.</param>
+        /// <summary> Removes the range. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
+        /// <param name = "values" > The values. </param>
         public static void RemoveRange<T>( this ICollection<T> collection, params T[ ] values )
         {
             if( collection?.Any( ) == true
@@ -128,10 +128,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>Removes the where.</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="predicate">The predicate.</param>
+        /// <summary> Removes the where. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
+        /// <param name = "predicate" > The predicate. </param>
         public static void RemoveWhere<T>( this ICollection<T> collection, Predicate<T> predicate )
         {
             if( collection?.Any( ) == true )
@@ -151,10 +151,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>Determines whether this instance is empty.</summary>
-        /// <param name="collection">The collection.</param>
+        /// <summary> Determines whether this instance is empty. </summary>
+        /// <param name = "collection" > The collection. </param>
         /// <returns>
-        ///   <c>true</c> if the specified collection is empty; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if the specified collection is empty; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public static bool IsEmpty( this ICollection collection )
         {
@@ -169,12 +172,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Converts to bindinglist.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <returns></returns>
+        /// <summary> Converts to bindinglist. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "collection" > The collection. </param>
+        /// <returns> </returns>
         public static BindingList<T> ToBindingList<T>( this ICollection<T> collection )
         {
             if( collection?.Count > 0 )
@@ -201,8 +202,8 @@ namespace BudgetExecution
             return default( BindingList<T> );
         }
 
-        /// <summary>Fails the specified ex.</summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

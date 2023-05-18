@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -22,6 +22,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class DataGrid : DataGridView, IDataGrid
     {
+        /// <summary> Gets or sets the hover text. </summary>
+        /// <value> The hover text. </value>
+        public string HoverText { get; set; }
+
+        /// <summary> Gets or sets the tool tip. </summary>
+        /// <value> The tool tip. </value>
+        public SmallTip ToolTip { get; set; }
+
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
+        public BindingSource BindingSource { get; set; }
+
+        /// <summary> Gets or sets the filter. </summary>
+        /// <value> The filter. </value>
+        public IDictionary<string, object> DataFilter { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "DataGrid"/>
@@ -134,22 +150,6 @@ namespace BudgetExecution
         {
             Parent = parent;
         }
-
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
-        public string HoverText { get; set; }
-
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public SmallTip ToolTip { get; set; }
-
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public BindingSource BindingSource { get; set; }
-
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
-        public IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary> Gets the filter values. </summary>
         /// <param name = "dict" > The dictionary. </param>

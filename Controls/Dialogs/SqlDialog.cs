@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -20,70 +20,42 @@ namespace BudgetExecution
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class SqlDialog : EditBase
     {
-        /// <summary>
-        /// Gets or sets the current.
-        /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
+        /// <summary> Gets or sets the current. </summary>
+        /// <value> The current. </value>
         public DataRow Current { get; set; }
 
-        /// <summary>
-        /// Gets or sets the frames.
-        /// </summary>
-        /// <value>
-        /// The frames.
-        /// </value>
+        /// <summary> Gets or sets the frames. </summary>
+        /// <value> The frames. </value>
         public IEnumerable<Frame> Frames { get; set; }
 
-        /// <summary>
-        /// Gets or sets the database folder.
-        /// </summary>
-        /// <value>
-        /// The database folder.
-        /// </value>
+        /// <summary> Gets or sets the database folder. </summary>
+        /// <value> The database folder. </value>
         public string DatabaseDirectory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected command.
-        /// </summary>
-        /// <value>
-        /// The selected command.
-        /// </value>
+        /// <summary> Gets or sets the selected command. </summary>
+        /// <value> The selected command. </value>
         public string SelectedCommand { get; set; }
 
-        /// <summary>
-        /// Gets or sets the selected query.
-        /// </summary>
-        /// <value>
-        /// The selected query.
-        /// </value>
+        /// <summary> Gets or sets the selected query. </summary>
+        /// <value> The selected query. </value>
         public string SelectedQuery { get; set; }
 
-        /// <summary>
-        /// Gets or sets the commands.
-        /// </summary>
-        /// <value>
-        /// The commands.
-        /// </value>
+        /// <summary> Gets or sets the commands. </summary>
+        /// <value> The commands. </value>
         public IList<string> Commands { get; set; }
 
-        /// <summary>
-        /// Gets or sets the statements.
-        /// </summary>
-        /// <value>
-        /// The statements.
-        /// </value>
+        /// <summary> Gets or sets the statements. </summary>
+        /// <value> The statements. </value>
         public IDictionary<string, object> Statements { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SqlDialog"/>
+        /// class.
         /// </summary>
         public SqlDialog( )
         {
@@ -103,10 +75,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SqlDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name = "bindingSource" > The binding source. </param>
+        /// <param name = "provider" > The provider. </param>
         public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
             : this( )
         {
@@ -123,11 +97,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SqlDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
-        /// <param name="bindingSource">The binding source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name = "toolType" > Type of the tool. </param>
+        /// <param name = "bindingSource" > The binding source. </param>
+        /// <param name = "provider" > The provider. </param>
         public SqlDialog( ToolType toolType, BindingSource bindingSource,
             Provider provider = Provider.Access )
             : this( )
@@ -143,11 +119,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SqlDialog"/>
+        /// class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
+        /// <param name = "toolType" > Type of the tool. </param>
+        /// <param name = "source" > The source. </param>
+        /// <param name = "provider" > The provider. </param>
         public SqlDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
             : this( )
         {
@@ -161,11 +139,13 @@ namespace BudgetExecution
             Current = BindingSource.GetCurrentDataRow( );
         }
 
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [load]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -188,9 +168,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
+        /// <summary> Clears the selections. </summary>
         private void ClearSelections( )
         {
             try
@@ -209,10 +187,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
+        /// <summary> Sets the provider. </summary>
+        /// <param name = "provider" > The provider. </param>
         private void SetProvider( string provider )
         {
             if( !string.IsNullOrEmpty( provider ) )
@@ -275,10 +251,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Populates the SQL ComboBox.
-        /// </summary>
-        /// <param name="list">The list.</param>
+        /// <summary> Populates the SQL ComboBox. </summary>
+        /// <param name = "list" > The list. </param>
         private void PopulateSqlComboBox( IList<string> list )
         {
             if( list?.Any( ) == true )
@@ -328,11 +302,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the command list.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
+        /// <summary> Gets the command list. </summary>
+        /// <param name = "provider" > The provider. </param>
+        /// <returns> </returns>
         private IList<string> CreateCommandList( Provider provider )
         {
             try
@@ -365,11 +337,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Creates the query list.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
+        /// <summary> Creates the query list. </summary>
+        /// <param name = "provider" > The provider. </param>
+        /// <returns> </returns>
         private IList<string> CreateQueryList( Provider provider )
         {
             try
@@ -415,11 +385,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [RadioButton checked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [RadioButton checked]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRadioButtonChecked( object sender, EventArgs e )
         {
             if( sender is RadioButton _button )
@@ -439,9 +411,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the editor configuration.
-        /// </summary>
+        /// <summary> Sets the editor configuration. </summary>
         private void SetEditorConfiguration( )
         {
             try
@@ -495,11 +465,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [ComboBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -512,9 +484,7 @@ namespace BudgetExecution
                     if( _selection?.Contains( " " ) == true )
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
-                        var _path = DatabaseDirectory
-                            + @$"\{Provider}\DataModels\{SelectedCommand}";
-
+                        var _path = DatabaseDirectory + @$"\{Provider}\DataModels\{SelectedCommand}";
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
@@ -526,9 +496,7 @@ namespace BudgetExecution
                     else
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
-                        var _path = DatabaseDirectory
-                            + @$"\{Provider}\DataModels\{SelectedCommand}";
-
+                        var _path = DatabaseDirectory + @$"\{Provider}\DataModels\{SelectedCommand}";
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
@@ -545,10 +513,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <summary> Called when [ListBox item selected]. </summary>
+        /// <param name = "sender" > The sender. </param>
         private void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
@@ -588,11 +554,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [clear button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [clear button click]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -605,11 +573,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <summary> Called when [right click]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "MouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

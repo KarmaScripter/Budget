@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -11,47 +11,30 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <seealso cref="SpreadsheetRibbon" />
+    /// <summary> </summary>
+    /// <seealso cref = "SpreadsheetRibbon"/>
     public class RibbonBase : SpreadsheetRibbon
     {
-        /// <summary>
-        /// Gets or sets the grid.
-        /// </summary>
-        /// <value>
-        /// The grid.
-        /// </value>
+        /// <summary> Gets or sets the grid. </summary>
+        /// <value> The grid. </value>
         public virtual SpreadsheetGrid Grid { get; set; }
 
-        /// <summary>
-        /// Gets or sets the model.
-        /// </summary>
-        /// <value>
-        /// The model.
-        /// </value>
+        /// <summary> Gets or sets the model. </summary>
+        /// <value> The model. </value>
         public virtual Spreadsheet ActiveSheet { get; set; }
 
-        /// <summary>
-        /// Gets or sets the model.
-        /// </summary>
-        /// <value>
-        /// The model.
-        /// </value>
+        /// <summary> Gets or sets the model. </summary>
+        /// <value> The model. </value>
         public virtual SpreadsheetGridModel Model { get; set; }
 
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
+        /// <summary> Gets or sets the binding source. </summary>
+        /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="RibbonBase"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "RibbonBase"/>
+        /// class.
         /// </summary>
         public RibbonBase( )
         {
@@ -75,10 +58,8 @@ namespace BudgetExecution
             Ribbon.ScaleMenuButtonImage = true;
         }
 
-        /// <summary>
-        /// Get ErrorDialog Dialog.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

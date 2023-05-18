@@ -1,5 +1,5 @@
-﻿// <copyright file = "IDataModel.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -7,117 +7,71 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public interface IDataModel
     {
-        /// <summary>
-        /// Filters the data.
-        /// </summary>
-        /// <param name="where">The dictionary.</param>
-        /// <returns></returns>
-        IEnumerable<DataRow> FilterData( IDictionary<string, object> where );
-
-        /// <summary>
-        /// The program elements
-        /// </summary>
+        /// <summary> The program elements </summary>
         IDictionary<string, IEnumerable<string>> DataElements { get; }
 
-        /// <summary>
-        /// The source
-        /// </summary>
+        /// <summary> The source </summary>
         Source Source { get; set; }
 
-        /// <summary>
-        /// The provider
-        /// </summary>
+        /// <summary> The provider </summary>
         Provider Provider { get; set; }
 
-        /// <summary>
-        /// The connection builder
-        /// </summary>
+        /// <summary> The connection builder </summary>
         IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary>
-        /// The arguments
-        /// </summary>
+        /// <summary> The arguments </summary>
         IDictionary<string, object> Map { get; set; }
 
-        /// <summary>
-        /// The SQL statement
-        /// </summary>
+        /// <summary> The SQL statement </summary>
         ISqlStatement SqlStatement { get; set; }
 
-        /// <summary>
-        /// The query
-        /// </summary>
+        /// <summary> The query </summary>
         IQuery Query { get; set; }
 
-        /// <summary>
-        /// The record
-        /// </summary>
+        /// <summary> The record </summary>
         DataRow Record { get; set; }
 
-        /// <summary>
-        /// The Data table
-        /// </summary>
+        /// <summary> The Data table </summary>
         DataTable DataTable { get; set; }
 
-        /// <summary>
-        /// Gets or sets the columns.
-        /// </summary>
-        /// <value>
-        /// The columns.
-        /// </value>
+        /// <summary> Gets or sets the columns. </summary>
+        /// <value> The columns. </value>
         IEnumerable<DataColumn> DataColumns { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the table.
-        /// </summary>
-        /// <value>
-        /// The name of the table.
-        /// </value>
+        /// <summary> Gets or sets the name of the table. </summary>
+        /// <value> The name of the table. </value>
         string TableName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Data set.
-        /// </summary>
-        /// <value>
-        /// The Data set.
-        /// </value>
+        /// <summary> Gets or sets the Data set. </summary>
+        /// <value> The Data set. </value>
         DataSet DataSet { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the data set.
-        /// </summary>
-        /// <value>
-        /// The name of the data set.
-        /// </value>
+        /// <summary> Gets or sets the name of the data set. </summary>
+        /// <value> The name of the data set. </value>
         string DataSetName { get; set; }
 
-        /// <summary>
-        /// Gets the column ordinals.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Filters the data. </summary>
+        /// <param name = "where" > The dictionary. </param>
+        /// <returns> </returns>
+        IEnumerable<DataRow> FilterData( IDictionary<string, object> where );
+
+        /// <summary> Gets the column ordinals. </summary>
+        /// <returns> </returns>
         IEnumerable<int> GetOrdinals( );
 
-        /// <summary>
-        /// Gets the columns.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the columns. </summary>
+        /// <returns> </returns>
         IEnumerable<DataColumn> GetDataColumns( );
 
-        /// <summary>
-        /// Gets the Data.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the Data. </summary>
+        /// <returns> </returns>
         IEnumerable<DataRow> GetData( );
-        
-        /// <summary>
-        /// Gets the column schema.
-        /// </summary>
-        /// <returns></returns>
+
+        /// <summary> Gets the column schema. </summary>
+        /// <returns> </returns>
         DataColumnCollection GetTableSchema( );
     }
 }

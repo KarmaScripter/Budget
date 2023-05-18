@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -9,9 +9,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripLabel : ToolStripLabelBase, IToolStripLabel
     {
@@ -32,10 +30,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripLabel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripLabel"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text to display
-        /// on the <see/>.</param>
+        /// <param name = "text" >
+        /// The text to display on the
+        /// <see/>
+        /// .
+        /// </param>
         public ToolStripLabel( string text )
             : this( )
         {
@@ -43,10 +46,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolStripLabel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "ToolStripLabel"/>
+        /// class.
         /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="hoverText">The hover text.</param>
+        /// <param name = "text" > The text. </param>
+        /// <param name = "hoverText" > The hover text. </param>
         public ToolStripLabel( string text, string hoverText = "" )
             : this( text )
         {
@@ -75,12 +80,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="font">The font.</param>
-        /// <param name="color">The color.</param>
+        /// <summary> Sets the text. </summary>
+        /// <param name = "text" > The text. </param>
+        /// <param name = "font" > The font. </param>
+        /// <param name = "color" > The color. </param>
         public void SetText( string text, Color color, Font font )
         {
             try
@@ -116,13 +119,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [mouse hover].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs" /> instance
-        /// containing the event data.</param>
+        /// <summary> Called when [mouse hover]. </summary>
+        /// <param name = "sender" > The sender. </param>
+        /// <param name = "e" >
+        /// The
+        /// <see cref = "EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is ToolStripLabel _label

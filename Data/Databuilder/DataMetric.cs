@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -20,6 +20,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataMetric
     {
+        /// <summary> Gets or sets the name of the table. </summary>
+        /// <value> The name of the table. </value>
+        public DataTable DataTable { get; set; }
+
+        /// <summary> The Numerics </summary>
+        public IEnumerable<string> Numerics { get; set; }
+
+        /// <summary> Gets or sets the values. </summary>
+        /// <value> The values. </value>
+        public IDictionary<string, double> Values { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "DataMetric"/>
@@ -48,17 +59,6 @@ namespace BudgetExecution
             DataTable = dataRow.CopyToDataTable( );
             Numerics = GetNumericColumns( );
         }
-
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary> The Numerics </summary>
-        public IEnumerable<string> Numerics { get; set; }
-
-        /// <summary> Gets or sets the values. </summary>
-        /// <value> The values. </value>
-        public IDictionary<string, double> Values { get; set; }
 
         /// <summary> Gets the count. </summary>
         /// <param name = "numeric" > The numeric. </param>

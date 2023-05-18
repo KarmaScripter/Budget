@@ -1,7 +1,6 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
-//
 
 namespace BudgetExecution
 {
@@ -15,7 +14,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref = "System.Windows.Forms.DataVisualization.Charting.Chart"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Chart : ChartBase
     {
         /// <summary> Gets or sets the measure. </summary>
@@ -33,7 +32,7 @@ namespace BudgetExecution
         /// <summary> Gets or sets the data. </summary>
         /// <value> The data. </value>
         public IEnumerable<DataRow> Data { get; set; }
-        
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "Chart"/>

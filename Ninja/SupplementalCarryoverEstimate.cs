@@ -1,5 +1,5 @@
-﻿// <copyright file = "SupplementalCarryoverEstimates.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,14 +8,14 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SupplementalCarryoverEstimate : AnnualCarryoverEstimate, ICarryoverEstimate
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// class.
         /// </summary>
         public SupplementalCarryoverEstimate( )
         {
@@ -23,10 +23,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
-        public SupplementalCarryoverEstimate( IQuery query ) 
+        /// <param name = "query" > The query. </param>
+        public SupplementalCarryoverEstimate( IQuery query )
             : base( query )
         {
             Source = Source.SupplementalCarryoverEstimates;
@@ -49,10 +51,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
-        public SupplementalCarryoverEstimate( IDataModel builder ) 
+        /// <param name = "builder" > The builder. </param>
+        public SupplementalCarryoverEstimate( IDataModel builder )
             : base( builder.Query )
         {
             Source = Source.SupplementalCarryoverEstimates;
@@ -75,10 +79,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SupplementalCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "SupplementalCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public SupplementalCarryoverEstimate( DataRow dataRow ) 
+        /// <param name = "dataRow" > The data row. </param>
+        public SupplementalCarryoverEstimate( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.SupplementalCarryoverEstimates;
@@ -99,8 +105,8 @@ namespace BudgetExecution
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
-        
-        public SupplementalCarryoverEstimate( ICarryoverEstimate carryover ) 
+
+        public SupplementalCarryoverEstimate( ICarryoverEstimate carryover )
             : this( )
         {
             ID = carryover.ID;

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -20,6 +20,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataModel : ModelBase
     {
+        /// <summary> The program elements </summary>
+        public IDictionary<string, IEnumerable<string>> DataElements { get; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref = "DataModel"/>
@@ -298,9 +301,6 @@ namespace BudgetExecution
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
         }
-
-        /// <summary> The program elements </summary>
-        public IDictionary<string, IEnumerable<string>> DataElements { get; }
 
         /// <summary> Gets the values. </summary>
         /// <param name = "dataRows" > The dataRows. </param>

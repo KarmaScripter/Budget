@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -14,22 +14,16 @@ namespace BudgetExecution
     using System.Threading;
     using System.Xml;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     public static class StringExtensions
     {
-        /// <summary>
-        /// The SplitPascal
-        /// </summary>
+        /// <summary> The SplitPascal </summary>
         /// <returns>
-        /// The <see cref = "string"/>
+        /// The
+        /// <see cref = "string"/>
         /// </returns>
-        /// <param name = "text" >
-        /// The text.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name = "text" > The text. </param>
+        /// <returns> </returns>
         public static string SplitPascal( this string text )
         {
             try
@@ -95,17 +89,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// The IfNullThen
-        /// </summary>
+        /// <summary> The IfNullThen </summary>
         /// <param name = "text" >
-        /// The text <see cref = "string"/>
+        /// The text
+        /// <see cref = "string"/>
         /// </param>
         /// <param name = "alt" >
-        /// The alt <see cref = "string"/>
+        /// The alt
+        /// <see cref = "string"/>
         /// </param>
         /// <returns>
-        /// The <see cref = "string"/>
+        /// The
+        /// <see cref = "string"/>
         /// </returns>
         public static string IfNullThen( this string text, string alt )
         {
@@ -120,12 +115,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        ///    
-        /// </summary>
+        /// <summary> </summary>
         /// <param name = "text" > </param>
-        /// <param name="values">The value list to compare with the object.</param>
-        /// <returns>true if the values list contains the object, else false.</returns>
+        /// <param name = "values" > The value list to compare with the object. </param>
+        /// <returns> true if the values list contains the object, else false. </returns>
         public static bool In( this string text, params string[ ] values )
         {
             try
@@ -139,17 +132,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// The Right
-        /// </summary>
+        /// <summary> The Right </summary>
         /// <param name = "text" >
-        /// The text <see cref = "string"/>
+        /// The text
+        /// <see cref = "string"/>
         /// </param>
         /// <param name = "length" >
-        /// The length <see cref = "int"/>
+        /// The length
+        /// <see cref = "int"/>
         /// </param>
         /// <returns>
-        /// The <see cref = "string"/>
+        /// The
+        /// <see cref = "string"/>
         /// </returns>
         public static string Last( this string text, int length )
         {
@@ -166,17 +160,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// The Left
-        /// </summary>
+        /// <summary> The Left </summary>
         /// <param name = "text" >
-        /// The text <see cref = "string"/>
+        /// The text
+        /// <see cref = "string"/>
         /// </param>
         /// <param name = "length" >
-        /// The length <see cref = "int"/>
+        /// The length
+        /// <see cref = "int"/>
         /// </param>
         /// <returns>
-        /// The <see cref = "string"/>
+        /// The
+        /// <see cref = "string"/>
         /// </returns>
         public static string First( this string text, int length )
         {
@@ -193,14 +188,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// The FirstToUpper
-        /// </summary>
+        /// <summary> The FirstToUpper </summary>
         /// <param name = "text" >
-        /// The theString <see cref = "string"/>
+        /// The theString
+        /// <see cref = "string"/>
         /// </param>
         /// <returns>
-        /// The <see cref = "string"/>
+        /// The
+        /// <see cref = "string"/>
         /// </returns>
         public static string FirstToUpper( this string text )
         {
@@ -224,14 +219,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// The ToDateTime
-        /// </summary>
+        /// <summary> The ToDateTime </summary>
         /// <param name = "text" >
-        /// The text <see cref = "string"/>
+        /// The text
+        /// <see cref = "string"/>
         /// </param>
         /// <returns>
-        /// The <see/>
+        /// The
+        /// <see/>
         /// </returns>
         public static DateTime ToDateTime( this string text )
         {
@@ -254,14 +249,14 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// The ToStream
-        /// </summary>
+        /// <summary> The ToStream </summary>
         /// <param name = "text" >
-        /// The source <see cref = "string"/>
+        /// The source
+        /// <see cref = "string"/>
         /// </param>
         /// <returns>
-        /// The <see cref = "MemoryStream"/>
+        /// The
+        /// <see cref = "MemoryStream"/>
         /// </returns>
         public static MemoryStream ToMemoryStream( this string text )
         {
@@ -277,11 +272,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        ///     A string extension method that converts the str to an XmlDocument.
-        /// </summary>
+        /// <summary> A string extension method that converts the str to an XmlDocument. </summary>
         /// <param name = "xml" > </param>
-        /// <returns>str as an XmlDocument.</returns>
+        /// <returns> str as an XmlDocument. </returns>
         public static XmlDocument ToXmlDocument( this string xml )
         {
             try
@@ -297,11 +290,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        ///     A string extension method that converts the str to a byte array.
-        /// </summary>
-        /// <param name="text">The str to act on.</param>
-        /// <returns>str as a byte[].</returns>
+        /// <summary> A string extension method that converts the str to a byte array. </summary>
+        /// <param name = "text" > The str to act on. </param>
+        /// <returns> str as a byte[]. </returns>
         public static byte[ ] ToByteArray( this string text )
         {
             try
@@ -316,14 +307,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// The WordCount
-        /// </summary>
+        /// <summary> The WordCount </summary>
         /// <param name = "text" >
-        /// The input <see cref = "string"/>
+        /// The input
+        /// <see cref = "string"/>
         /// </param>
         /// <returns>
-        /// The <see cref = "int"/>
+        /// The
+        /// <see cref = "int"/>
         /// </returns>
         public static int WordCount( this string text )
         {
@@ -342,16 +333,10 @@ namespace BudgetExecution
 
             return _count;
         }
-        
-        /// <summary>
-        /// Writes out a text to a file.
-        /// </summary>
-        /// <param name = "text" >
-        /// The complete file path to write to.
-        /// </param>
-        /// <param name = "path" >
-        /// A String containing text to be written to the file.
-        /// </param>
+
+        /// <summary> Writes out a text to a file. </summary>
+        /// <param name = "text" > The complete file path to write to. </param>
+        /// <param name = "path" > A String containing text to be written to the file. </param>
         public static void WriteToFile( this string text, string path )
         {
             if( !string.IsNullOrEmpty( text )
@@ -369,27 +354,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Send an email using the supplied string.
-        /// </summary>
-        /// <param name = "body" >
-        /// String that will be used i the body of the email.
-        /// </param>
-        /// <param name = "subject" >
-        /// Subject of the email.
-        /// </param>
-        /// <param name = "sender" >
-        /// The email address from which the message was sent.
-        /// </param>
-        /// <param name = "recipient" >
-        /// The receiver of the email.
-        /// </param>
-        /// <param name = "server" >
-        /// The server from which the email will be sent.
-        /// </param>
-        /// <returns>
-        /// A boolean value indicating the success of the email send.
-        /// </returns>
+        /// <summary> Send an email using the supplied string. </summary>
+        /// <param name = "body" > String that will be used i the body of the email. </param>
+        /// <param name = "subject" > Subject of the email. </param>
+        /// <param name = "sender" > The email address from which the message was sent. </param>
+        /// <param name = "recipient" > The receiver of the email. </param>
+        /// <param name = "server" > The server from which the email will be sent. </param>
+        /// <returns> A boolean value indicating the success of the email send. </returns>
         public static bool Email( this string body, string subject, string sender,
             string recipient, string server )
         {
@@ -418,8 +389,7 @@ namespace BudgetExecution
         /// remove space, not line end Useful when parsing user input such phone,
         /// price int.Parse("1 000 000".RemoveSpaces(),.....
         /// </summary>
-        /// <param name = "text" >
-        /// </param>
+        /// <param name = "text" > </param>
         public static string RemoveSpaces( this string text )
         {
             if( !string.IsNullOrEmpty( text )
@@ -439,12 +409,13 @@ namespace BudgetExecution
             return text;
         }
 
-        /// <summary>
-        /// Determines whether [is valid email address].
-        /// </summary>
-        /// <param name="s">The s.</param>
+        /// <summary> Determines whether [is valid email address]. </summary>
+        /// <param name = "s" > The s. </param>
         /// <returns>
-        ///   <c>true</c> if [is valid email address] [the specified s]; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if [is valid email address] [the specified s]; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         public static bool IsValidEmailAddress( this string s )
         {
@@ -460,8 +431,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>Fails the specified ex.</summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

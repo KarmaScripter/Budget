@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -15,9 +15,7 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml.Spreadsheet;
     using static DocumentFormat.OpenXml.Packaging.SpreadsheetDocument;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
@@ -25,19 +23,18 @@ namespace BudgetExecution
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExcelReport"/> class.
+        /// <see cref = "ExcelReport"/>
+        /// class.
         /// </summary>
         public ExcelReport( )
         {
         }
 
-        /// <summary>
-        /// Creates the excel document.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="path">The path.</param>
-        /// <returns></returns>
+        /// <summary> Creates the excel document. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "data" > The data. </param>
+        /// <param name = "path" > The path. </param>
+        /// <returns> </returns>
         public bool CreateExcelDocument<T>( IEnumerable<T> data, string path )
         {
             if( data != null
@@ -59,12 +56,10 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Creates the excel document.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="path">The path.</param>
-        /// <returns></returns>
+        /// <summary> Creates the excel document. </summary>
+        /// <param name = "dataTable" > The data table. </param>
+        /// <param name = "path" > The path. </param>
+        /// <returns> </returns>
         public bool CreateExcelDocument( DataTable dataTable, string path )
         {
             if( !string.IsNullOrEmpty( path )
@@ -89,12 +84,10 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Creates the excel document.
-        /// </summary>
-        /// <param name="dataSet">The data set.</param>
-        /// <param name="fileName">Name of the file.</param>
-        /// <returns></returns>
+        /// <summary> Creates the excel document. </summary>
+        /// <param name = "dataSet" > The data set. </param>
+        /// <param name = "fileName" > Name of the file. </param>
+        /// <returns> </returns>
         public bool CreateExcelDocument( DataSet dataSet, string fileName )
         {
             if( !string.IsNullOrEmpty( fileName )
@@ -120,12 +113,10 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary>
-        /// Lists to data table.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data">The data.</param>
-        /// <returns></returns>
+        /// <summary> Lists to data table. </summary>
+        /// <typeparam name = "T" > </typeparam>
+        /// <param name = "data" > The data. </param>
+        /// <returns> </returns>
         public DataTable ListToDataTable<T>( IEnumerable<T> data )
         {
             if( data?.Any( ) == true )
@@ -164,11 +155,9 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary>
-        /// Gets the type of the nullable.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <summary> Gets the type of the nullable. </summary>
+        /// <param name = "type" > The type. </param>
+        /// <returns> </returns>
         public Type GetNullableType( Type type )
         {
             try
@@ -189,12 +178,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Appends the text cell.
-        /// </summary>
-        /// <param name="cellReference">The cell reference.</param>
-        /// <param name="cellStringValue">The cell string value.</param>
-        /// <param name="excelRow">The excel row.</param>
+        /// <summary> Appends the text cell. </summary>
+        /// <param name = "cellReference" > The cell reference. </param>
+        /// <param name = "cellStringValue" > The cell string value. </param>
+        /// <param name = "excelRow" > The excel row. </param>
         public void AppendTextCell( string cellReference, string cellStringValue,
             OpenXmlElement excelRow )
         {
@@ -203,7 +190,7 @@ namespace BudgetExecution
                 var _cell = new Cell( );
                 _cell.CellReference = cellReference;
                 _cell.DataType = CellValues.String;
-                var _cellValue = new CellValue( ) ;
+                var _cellValue = new CellValue( );
                 _cellValue.Text = cellStringValue;
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
@@ -214,12 +201,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Appends the numeric cell.
-        /// </summary>
-        /// <param name="cellReference">The cell reference.</param>
-        /// <param name="cellStringValue">The cell string value.</param>
-        /// <param name="excelRow">The excel row.</param>
+        /// <summary> Appends the numeric cell. </summary>
+        /// <param name = "cellReference" > The cell reference. </param>
+        /// <param name = "cellStringValue" > The cell string value. </param>
+        /// <param name = "excelRow" > The excel row. </param>
         public void AppendNumericCell( string cellReference, string cellStringValue,
             OpenXmlElement excelRow )
         {
@@ -229,9 +214,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _cell = new Cell( ) ;
+                    var _cell = new Cell( );
                     _cell.CellReference = cellReference;
-                    var _cellValue = new CellValue( ) ;
+                    var _cellValue = new CellValue( );
                     _cellValue.Text = cellStringValue;
                     _cell.Append( _cellValue );
                     excelRow.Append( _cell );
@@ -243,11 +228,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the name of the excel column.
-        /// </summary>
-        /// <param name="columnIndex">Index of the column.</param>
-        /// <returns></returns>
+        /// <summary> Gets the name of the excel column. </summary>
+        /// <param name = "columnIndex" > Index of the column. </param>
+        /// <returns> </returns>
         public string GetExcelColumnName( int columnIndex )
         {
             try
@@ -268,11 +251,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Writes the excel file.
-        /// </summary>
-        /// <param name="dataSet">The data set.</param>
-        /// <param name="spreadSheet">The spread sheet.</param>
+        /// <summary> Writes the excel file. </summary>
+        /// <param name = "dataSet" > The data set. </param>
+        /// <param name = "spreadSheet" > The spread sheet. </param>
         public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
             if( dataSet != null
@@ -285,7 +266,10 @@ namespace BudgetExecution
                     {
                         spreadSheet.WorkbookPart.Workbook =
                             new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
-                        spreadSheet.WorkbookPart.Workbook?.Append( new BookViews( new WorkbookView( ) ) );
+
+                        spreadSheet.WorkbookPart.Workbook?.Append(
+                            new BookViews( new WorkbookView( ) ) );
+
                         var _styles =
                             spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "rIdStyles" );
 
@@ -328,11 +312,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Writes the data table to excel worksheet.
-        /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="workSheetPart">The work sheet part.</param>
+        /// <summary> Writes the data table to excel worksheet. </summary>
+        /// <param name = "dataTable" > The data table. </param>
+        /// <param name = "workSheetPart" > The work sheet part. </param>
         public void WriteDataTableToExcelWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
             if( dataTable?.Rows.Count > 0
@@ -352,10 +334,9 @@ namespace BudgetExecution
                     }
 
                     uint _rowIndex = 1;
-                    var _row = new Row( ) ;
+                    var _row = new Row( );
                     _row.RowIndex = _rowIndex;
                     _data?.Append( _row );
-
                     for( var colinx = 0; colinx < _columns; colinx++ )
                     {
                         var _column = dataTable.Columns[ colinx ];
@@ -367,13 +348,12 @@ namespace BudgetExecution
                     foreach( DataRow _dataRow in dataTable.Rows )
                     {
                         ++_rowIndex;
-                        var _excelRow = new Row( ) ;
+                        var _excelRow = new Row( );
                         _excelRow.RowIndex = _rowIndex;
                         _data?.Append( _excelRow );
                         for( var i = 0; i < _columns; i++ )
                         {
                             var _value = _dataRow?.ItemArray[ i ]?.ToString( );
-
                             if( _isNumeric[ i ] )
                             {
                                 if( double.TryParse( _value, out var _cellNumericValue ) )
@@ -396,12 +376,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Determines whether [is nullable type] [the specified type].
-        /// </summary>
-        /// <param name="type">The type.</param>
+        /// <summary> Determines whether [is nullable type] [the specified type]. </summary>
+        /// <param name = "type" > The type. </param>
         /// <returns>
-        ///   <c>true</c> if [is nullable type] [the specified type]; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if [is nullable type] [the specified type]; otherwise,
+        /// <c> false </c>
+        /// .
         /// </returns>
         protected bool IsNullableType( Type type )
         {
@@ -417,10 +398,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name = "ex" > The ex. </param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

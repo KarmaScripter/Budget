@@ -1,17 +1,21 @@
-﻿namespace BudgetExecution
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
+// </copyright>
+
+namespace BudgetExecution
 {
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class JobsActCarryoverEstimate : SupplementalCarryoverEstimate
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "JobsActCarryoverEstimate"/>
+        /// class.
         /// </summary>
         public JobsActCarryoverEstimate( )
         {
@@ -19,9 +23,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "JobsActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public JobsActCarryoverEstimate( IQuery query )
             : this( )
         {
@@ -45,9 +51,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "JobsActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public JobsActCarryoverEstimate( IDataModel builder )
             : this( )
         {
@@ -72,9 +80,11 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobsActCarryoverEstimate"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "JobsActCarryoverEstimate"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public JobsActCarryoverEstimate( DataRow dataRow )
             : this( )
         {
@@ -96,7 +106,7 @@
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
-        
+
         public JobsActCarryoverEstimate( ICarryoverEstimate carryover )
         {
             ID = carryover.ID;

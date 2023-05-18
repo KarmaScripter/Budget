@@ -1,5 +1,5 @@
-﻿// <copyright file = "GrossUtilization.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -8,184 +8,30 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class GrossUtilization : DataUnit, IGrossUtilization
     {
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public string RpioCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ah code.
-        /// </summary>
-        /// <value>
-        /// The ah code.
-        /// </value>
-        public string AhCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
-        public string AhName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the org code.
-        /// </summary>
-        /// <value>
-        /// The org code.
-        /// </value>
-        public string OrgCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the org.
-        /// </summary>
-        /// <value>
-        /// The name of the org.
-        /// </value>
-        public string OrgName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the boc code.
-        /// </summary>
-        /// <value>
-        /// The boc code.
-        /// </value>
-        public string BocCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the boc.
-        /// </summary>
-        /// <value>
-        /// The name of the boc.
-        /// </value>
-        public string BocName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the committed.
-        /// </summary>
-        /// <value>
-        /// The committed.
-        /// </value>
-        public double Committed { get; set; }
-
-        /// <summary>
-        /// Gets or sets the obligated.
-        /// </summary>
-        /// <value>
-        /// The obligated.
-        /// </value>
-        public double Obligated { get; set; }
-
-        /// <summary>
-        /// Gets or sets the unliquidated.
-        /// </summary>
-        /// <value>
-        /// The unliquidated.
-        /// </value>
-        public double Unliquidated { get; set; }
-
-        /// <summary>
-        /// Gets or sets the availability.
-        /// </summary>
-        /// <value>
-        /// The availability.
-        /// </value>
-        public double Availability { get; set; }
-
-        /// <summary>
-        /// Gets or sets the outlaid.
-        /// </summary>
-        /// <value>
-        /// The outlaid.
-        /// </value>
-        public double Outlaid { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
+        /// <summary> Gets the arguments. </summary>
+        /// <value> The arguments. </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrossUtilization"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GrossUtilization"/>
+        /// class.
         /// </summary>
         public GrossUtilization( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrossUtilization"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GrossUtilization"/>
+        /// class.
         /// </summary>
-        /// <param name="query">The query.</param>
+        /// <param name = "query" > The query. </param>
         public GrossUtilization( IQuery query )
         {
             Source = query.Source;
@@ -213,9 +59,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrossUtilization"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GrossUtilization"/>
+        /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
+        /// <param name = "builder" > The builder. </param>
         public GrossUtilization( IDataModel builder )
         {
             Source = builder.Source;
@@ -243,9 +91,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GrossUtilization"/> class.
+        /// Initializes a new instance of the
+        /// <see cref = "GrossUtilization"/>
+        /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
+        /// <param name = "dataRow" > The data row. </param>
         public GrossUtilization( DataRow dataRow )
         {
             Record = dataRow;
@@ -294,5 +144,81 @@ namespace BudgetExecution
             Outlaid = utilization.Outlaid;
             Availability = utilization.Availability;
         }
+
+        /// <summary> Gets or sets the bfy. </summary>
+        /// <value> The bfy. </value>
+        public string BFY { get; set; }
+
+        /// <summary> Gets or sets the efy. </summary>
+        /// <value> The efy. </value>
+        public string EFY { get; set; }
+
+        /// <summary> Gets or sets the fund code. </summary>
+        /// <value> The fund code. </value>
+        public string FundCode { get; set; }
+
+        /// <summary> Gets or sets the name of the fund. </summary>
+        /// <value> The name of the fund. </value>
+        public string FundName { get; set; }
+
+        /// <summary> Gets or sets the rpio code. </summary>
+        /// <value> The rpio code. </value>
+        public string RpioCode { get; set; }
+
+        /// <summary> Gets or sets the name of the rpio. </summary>
+        /// <value> The name of the rpio. </value>
+        public string RpioName { get; set; }
+
+        /// <summary> Gets or sets the ah code. </summary>
+        /// <value> The ah code. </value>
+        public string AhCode { get; set; }
+
+        /// <summary> Gets or sets the name of the ah. </summary>
+        /// <value> The name of the ah. </value>
+        public string AhName { get; set; }
+
+        /// <summary> Gets or sets the org code. </summary>
+        /// <value> The org code. </value>
+        public string OrgCode { get; set; }
+
+        /// <summary> Gets or sets the name of the org. </summary>
+        /// <value> The name of the org. </value>
+        public string OrgName { get; set; }
+
+        /// <summary> Gets or sets the account code. </summary>
+        /// <value> The account code. </value>
+        public string AccountCode { get; set; }
+
+        /// <summary> Gets or sets the name of the program project. </summary>
+        /// <value> The name of the program project. </value>
+        public string ProgramProjectName { get; set; }
+
+        /// <summary> Gets or sets the boc code. </summary>
+        /// <value> The boc code. </value>
+        public string BocCode { get; set; }
+
+        /// <summary> Gets or sets the name of the boc. </summary>
+        /// <value> The name of the boc. </value>
+        public string BocName { get; set; }
+
+        /// <summary> Gets or sets the committed. </summary>
+        /// <value> The committed. </value>
+        public double Committed { get; set; }
+
+        /// <summary> Gets or sets the obligated. </summary>
+        /// <value> The obligated. </value>
+        public double Obligated { get; set; }
+
+        /// <summary> Gets or sets the unliquidated. </summary>
+        /// <value> The unliquidated. </value>
+        public double Unliquidated { get; set; }
+
+        /// <summary> Gets or sets the availability. </summary>
+        /// <value> The availability. </value>
+        public double Availability { get; set; }
+
+        /// <summary> Gets or sets the outlaid. </summary>
+        /// <value> The outlaid. </value>
+        public double Outlaid { get; set; }
     }
 }

@@ -1,5 +1,5 @@
-﻿// <copyright file=" <File Name> .cs" company="Terry D. Eppler">
-// Copyright (c) Terry Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -20,6 +20,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
     public partial class ColumnConfiguration : MetroForm
     {
+        /// <summary> Gets the grid. </summary>
+        /// <value> The grid. </value>
+        public DataGridView Grid { get; }
+
+        /// <summary> Gets or sets the column names. </summary>
+        /// <value> The column names. </value>
+        public IEnumerable<string> ColumnNames { get; set; }
+
+        /// <summary> Gets the pop up. </summary>
+        /// <value> The pop up. </value>
+        public System.Windows.Forms.ToolStripDropDown PopUp { get; }
+
+        /// <summary> Gets or sets the host. </summary>
+        /// <value> The host. </value>
+        public ToolStripControlHost Host { get; set; }
+
         /// <summary>
         /// Sets Basic Properties Initializes a new instance of the
         /// <see cref = "ColumnConfiguration"/>
@@ -67,22 +83,6 @@ namespace BudgetExecution
             HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
             Load += OnLoad;
         }
-
-        /// <summary> Gets the grid. </summary>
-        /// <value> The grid. </value>
-        public DataGridView Grid { get; }
-
-        /// <summary> Gets or sets the column names. </summary>
-        /// <value> The column names. </value>
-        public IEnumerable<string> ColumnNames { get; set; }
-
-        /// <summary> Gets the pop up. </summary>
-        /// <value> The pop up. </value>
-        public System.Windows.Forms.ToolStripDropDown PopUp { get; }
-
-        /// <summary> Gets or sets the host. </summary>
-        /// <value> The host. </value>
-        public ToolStripControlHost Host { get; set; }
 
         /// <summary> Called when [data grid right click]. </summary>
         /// <param name = "sender" > The sender. </param>

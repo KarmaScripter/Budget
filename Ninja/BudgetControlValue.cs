@@ -1,5 +1,5 @@
-﻿// <copyright file = "BudgetControl.cs" company = "Terry D. Eppler">
-// Copyright (c) Terry D. Eppler. All rights reserved.
+﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+// Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
@@ -171,15 +171,11 @@ namespace BudgetExecution
             EstimatedReimbursableBudgetingOption =
                 row[ "EstimatedReimbursableBudgetingOption" ].ToString( );
 
-            EstimatedRecoveriesSpendingOption =
-                row[ "EstimatedRecoveriesSpendingOption" ].ToString( );
-
+            EstimatedRecoveriesSpendingOption = row[ "EstimatedRecoveriesSpendingOption" ].ToString( );
             EstimatedRecoveriesBudgetingOption =
                 row[ "EstimatedRecoveriesBudgetingOption" ].ToString( );
 
-            EstimatedRecoveriesSpendingOption =
-                row[ "EstimatedRecoveriesSpendingOption" ].ToString( );
-
+            EstimatedRecoveriesSpendingOption = row[ "EstimatedRecoveriesSpendingOption" ].ToString( );
             RecordNextLevel = row[ "NextLevel" ].ToString( );
             RecordBudgetingMismatch = row[ "BudgetingMismatch" ].ToString( );
             ProfitLossBudgetingOption = row[ "ProfitLossBudgetingOption" ].ToString( );
