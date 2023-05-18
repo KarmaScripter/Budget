@@ -23,6 +23,15 @@ namespace BudgetExecution
     public class ExcelReport
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelReport"/>
+        /// class.
+        /// </summary>
+        public ExcelReport( )
+        {
+        }
+
         /// <summary> Creates the excel document. </summary>
         /// <typeparam name="T"> </typeparam>
         /// <param name="data"> The data. </param>
@@ -389,15 +398,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelReport"/>
-        /// class.
-        /// </summary>
-        public ExcelReport( )
-        {
         }
     }
 }

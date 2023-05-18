@@ -102,22 +102,6 @@ namespace BudgetExecution
         /// <value> The zoom level. </value>
         public int ZoomLevel { get; set; } = 100;
 
-        /// <summary> </summary>
-        public enum BorderSide
-        {
-            /// <summary> The top </summary>
-            Top,
-
-            /// <summary> The bottom </summary>
-            Bottom,
-
-            /// <summary> The left </summary>
-            Left,
-
-            /// <summary> The right </summary>
-            Right
-        };
-
         /// <summary> Sets the file path. </summary>
         /// <param name="filePath"> The file path. </param>
         public void SetFilePath( string filePath )
@@ -311,5 +295,21 @@ namespace BudgetExecution
             _error?.SetText( );
             _error?.ShowDialog( );
         }
+
+        /// <summary> </summary>
+        public enum BorderSide
+        {
+            /// <summary> The top </summary>
+            Top,
+
+            /// <summary> The bottom </summary>
+            Bottom,
+
+            /// <summary> The left </summary>
+            Left,
+
+            /// <summary> The right </summary>
+            Right
+        };
     }
 }

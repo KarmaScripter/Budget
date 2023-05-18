@@ -35,70 +35,6 @@ namespace BudgetExecution
         /// <value> The data filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Sets the color of the fore. Required Attributes: ForeColor </summary>
-        /// <param name="foreColor"> </param>
-        public void SetForeColor( Color foreColor )
-        {
-            if( foreColor != Color.Empty )
-            {
-                try
-                {
-                    ForeColor = foreColor;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Called when [mouse over]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseOver( object sender, EventArgs e )
-        {
-            var _button = sender as Button;
-            try
-            {
-                if( _button != null
-                   && !string.IsNullOrEmpty( HoverText ) )
-                {
-                    if( !string.IsNullOrEmpty( HoverText ) )
-                    {
-                        var _hoverText = _button?.HoverText;
-                        var _ = new SmallTip( _button, _hoverText );
-                    }
-                    else
-                    {
-                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
-                        {
-                            var _text = Tag?.ToString( )?.SplitPascal( );
-                            var _ = new SmallTip( _button, _text );
-                        }
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnClick( object sender, EventArgs e )
-        {
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Button"/>
@@ -230,6 +166,70 @@ namespace BudgetExecution
         {
             Parent = parent;
             Tag = field.ToString( );
+        }
+
+        /// <summary> Sets the color of the fore. Required Attributes: ForeColor </summary>
+        /// <param name="foreColor"> </param>
+        public void SetForeColor( Color foreColor )
+        {
+            if( foreColor != Color.Empty )
+            {
+                try
+                {
+                    ForeColor = foreColor;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Called when [mouse over]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnMouseOver( object sender, EventArgs e )
+        {
+            var _button = sender as Button;
+            try
+            {
+                if( _button != null
+                   && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    if( !string.IsNullOrEmpty( HoverText ) )
+                    {
+                        var _hoverText = _button?.HoverText;
+                        var _ = new SmallTip( _button, _hoverText );
+                    }
+                    else
+                    {
+                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
+                        {
+                            var _text = Tag?.ToString( )?.SplitPascal( );
+                            var _ = new SmallTip( _button, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnClick( object sender, EventArgs e )
+        {
         }
 
         /// <summary> Res the size. </summary>

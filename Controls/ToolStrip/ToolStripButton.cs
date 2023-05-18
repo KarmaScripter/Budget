@@ -19,6 +19,56 @@ namespace BudgetExecution
     public class ToolStripButton : ToolButtonBase, IToolStripButton
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripButton"/>
+        /// class.
+        /// </summary>
+        public ToolStripButton( )
+        {
+            // Basic Properties
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            DisplayStyle = ToolStripItemDisplayStyle.Image;
+            BackColor = Color.Transparent;
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            AutoToolTip = false;
+            Text = string.Empty;
+            Size = new Size( 24, 20 );
+
+            // Event Wiring
+            MouseHover += OnMouseHover;
+            MouseLeave += OnMouseLeave;
+            Click += OnClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance Mof the
+        /// <see cref="ToolStripButton"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> The tool. </param>
+        public ToolStripButton( ToolType toolType )
+            : this( )
+        {
+            ToolType = toolType;
+            Name = toolType.ToString( );
+            HoverText = GetHoverText( toolType );
+            Tag = HoverText;
+            Image = GetImage( toolType );
+            Click += OnClick;
+        }
+
+        /// <summary> </summary>
+        /// <param name="toolType"> </param>
+        /// <param name="bindingSource"> </param>
+        public ToolStripButton( ToolType toolType, BindingSource bindingSource )
+            : this( toolType )
+        {
+            BindingSource = bindingSource;
+        }
+
         /// <summary> Sets the button image. </summary>
         /// <returns> </returns>
         public Image GetImage( ToolType toolType )
@@ -286,56 +336,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripButton"/>
-        /// class.
-        /// </summary>
-        public ToolStripButton( )
-        {
-            // Basic Properties
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
-            DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor = Color.Transparent;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            AutoToolTip = false;
-            Text = string.Empty;
-            Size = new Size( 24, 20 );
-
-            // Event Wiring
-            MouseHover += OnMouseHover;
-            MouseLeave += OnMouseLeave;
-            Click += OnClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance Mof the
-        /// <see cref="ToolStripButton"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> The tool. </param>
-        public ToolStripButton( ToolType toolType )
-            : this( )
-        {
-            ToolType = toolType;
-            Name = toolType.ToString( );
-            HoverText = GetHoverText( toolType );
-            Tag = HoverText;
-            Image = GetImage( toolType );
-            Click += OnClick;
-        }
-
-        /// <summary> </summary>
-        /// <param name="toolType"> </param>
-        /// <param name="bindingSource"> </param>
-        public ToolStripButton( ToolType toolType, BindingSource bindingSource )
-            : this( toolType )
-        {
-            BindingSource = bindingSource;
         }
 
         /// <summary> Sets the image. </summary>

@@ -53,65 +53,6 @@ namespace BudgetExecution
         /// <value> The form to be animated </value>
         public Form Form { get; set; }
 
-        /// <summary> Hide the form </summary>
-        private const int AwHide = 0x10000;
-
-        /// <summary> Activate the form </summary>
-        private const int AwActivate = 0x20000;
-
-        /// <summary>
-        /// The number of milliseconds over which the animation occurs if no value is specified
-        /// </summary>
-        private const int DefaultDuration = 250;
-
-        /// <summary> The methods of animation available. </summary>
-        public enum AnimationMethod
-        {
-            /// <summary> Rolls out from edge when showing and into edge when hiding </summary>
-            /// <remarks>
-            /// This is the default animation method and requires a direction
-            /// </remarks>
-            Roll = 0x0,
-
-            /// <summary>
-            /// Expands out from center when showing and collapses into center when hiding
-            /// </summary>
-            Center = 0x10,
-
-            /// <summary>
-            /// Slides out from edge when showing and slides into edge when hiding
-            /// </summary>
-            /// <remarks> Requires a direction </remarks>
-            Slide = 0x40000,
-
-            /// <summary>
-            /// Fades from transparent to opaque when showing and from opaque to transparent when hiding
-            /// </summary>
-            Fade = 0x80000
-        }
-
-        /// <summary>
-        /// The directions in which the Roll and Slide animations can be shown
-        /// </summary>
-        /// <remarks>
-        /// Horizontal and vertical directions can be combined to create diagonal animations
-        /// </remarks>
-        [ Flags ]
-        public enum AnimationDirection
-        {
-            /// <summary> From left to right </summary>
-            Right = 0x1,
-
-            /// <summary> From right to left </summary>
-            Left = 0x2,
-
-            /// <summary> From top to bottom </summary>
-            Down = 0x4,
-
-            /// <summary> From bottom to top </summary>
-            Up = 0x8
-        }
-
         /// <summary>
         /// Creates a new
         /// <
@@ -192,6 +133,17 @@ namespace BudgetExecution
             Direction = direction;
         }
 
+        /// <summary> Hide the form </summary>
+        private const int AwHide = 0x10000;
+
+        /// <summary> Activate the form </summary>
+        private const int AwActivate = 0x20000;
+
+        /// <summary>
+        /// The number of milliseconds over which the animation occurs if no value is specified
+        /// </summary>
+        private const int DefaultDuration = 250;
+
         /// <summary> Animates the form automatically when it is loaded </summary>
         private void Form_Load( object sender, EventArgs e )
         {
@@ -232,6 +184,54 @@ namespace BudgetExecution
                     NativeMethods.AnimateWindow( Form.Handle, Duration, AwHide | (int)Method | (int)Direction );
                 }
             }
+        }
+
+        /// <summary> The methods of animation available. </summary>
+        public enum AnimationMethod
+        {
+            /// <summary> Rolls out from edge when showing and into edge when hiding </summary>
+            /// <remarks>
+            /// This is the default animation method and requires a direction
+            /// </remarks>
+            Roll = 0x0,
+
+            /// <summary>
+            /// Expands out from center when showing and collapses into center when hiding
+            /// </summary>
+            Center = 0x10,
+
+            /// <summary>
+            /// Slides out from edge when showing and slides into edge when hiding
+            /// </summary>
+            /// <remarks> Requires a direction </remarks>
+            Slide = 0x40000,
+
+            /// <summary>
+            /// Fades from transparent to opaque when showing and from opaque to transparent when hiding
+            /// </summary>
+            Fade = 0x80000
+        }
+
+        /// <summary>
+        /// The directions in which the Roll and Slide animations can be shown
+        /// </summary>
+        /// <remarks>
+        /// Horizontal and vertical directions can be combined to create diagonal animations
+        /// </remarks>
+        [ Flags ]
+        public enum AnimationDirection
+        {
+            /// <summary> From left to right </summary>
+            Right = 0x1,
+
+            /// <summary> From right to left </summary>
+            Left = 0x2,
+
+            /// <summary> From top to bottom </summary>
+            Down = 0x4,
+
+            /// <summary> From bottom to top </summary>
+            Up = 0x8
         }
     }
 }

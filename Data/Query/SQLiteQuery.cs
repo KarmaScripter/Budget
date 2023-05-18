@@ -24,26 +24,126 @@ namespace BudgetExecution
         /// <value> The provider. </value>
         protected private Provider _provider = Provider.SQLite;
 
-        /// <summary> </summary>
-        public enum ColDataType
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        public SQLiteQuery( )
         {
-            /// <summary> The default </summary>
-            Default,
+        }
 
-            /// <summary> The text </summary>
-            Text,
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        public SQLiteQuery( Source source )
+            : base( source, Provider.SQLite, SQL.SELECT )
+        {
+        }
 
-            /// <summary> The date time </summary>
-            DateTime,
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="updates"> The dictionary. </param>
+        public SQLiteQuery( Source source, IDictionary<string, object> updates )
+            : base( source, Provider.SQLite, updates, SQL.SELECT )
+        {
+        }
 
-            /// <summary> The integer </summary>
-            Integer,
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source Data. </param>
+        /// <param name="dict"> The dictionary of parameters. </param>
+        /// <param name="commandType"> The type of sql command. </param>
+        public SQLiteQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+            : base( source, Provider.SQLite, dict, commandType )
+        {
+        }
 
-            /// <summary> The decimal </summary>
-            Decimal,
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="updates"> </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SQLiteQuery( Source source, IDictionary<string, object> updates, IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : base( source, Provider.SQLite, updates, where, commandType )
+        {
+        }
 
-            /// <summary> The BLOB </summary>
-            Blob
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="criteria"> The criteria. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SQLiteQuery( Source source, IEnumerable<string> columns, IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            : base( source, Provider.SQLite, columns, criteria, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlStatement"> The sqlStatement. </param>
+        public SQLiteQuery( ISqlStatement sqlStatement )
+            : base( sqlStatement )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        public SQLiteQuery( Source source, string sqlText )
+            : base( source, Provider.SQLite, sqlText )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="sqlText"> </param>
+        /// <param name="commandType"> The commandType. </param>
+        public SQLiteQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+            : base( fullPath, sqlText, commandType )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SQLiteQuery"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullpath. </param>
+        /// <param name="commandType"> The commandType. </param>
+        /// <param name="dict"> The dictionary. </param>
+        public SQLiteQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
+            : base( fullPath, commandType, dict )
+        {
         }
 
         /// <summary> Gets the Data adapter. </summary>
@@ -296,126 +396,26 @@ namespace BudgetExecution
             _connection.Close( );
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        public SQLiteQuery( )
+        /// <summary> </summary>
+        public enum ColDataType
         {
-        }
+            /// <summary> The default </summary>
+            Default,
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        public SQLiteQuery( Source source )
-            : base( source, Provider.SQLite, SQL.SELECT )
-        {
-        }
+            /// <summary> The text </summary>
+            Text,
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="updates"> The dictionary. </param>
-        public SQLiteQuery( Source source, IDictionary<string, object> updates )
-            : base( source, Provider.SQLite, updates, SQL.SELECT )
-        {
-        }
+            /// <summary> The date time </summary>
+            DateTime,
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source Data. </param>
-        /// <param name="dict"> The dictionary of parameters. </param>
-        /// <param name="commandType"> The type of sql command. </param>
-        public SQLiteQuery( Source source, IDictionary<string, object> dict, SQL commandType )
-            : base( source, Provider.SQLite, dict, commandType )
-        {
-        }
+            /// <summary> The integer </summary>
+            Integer,
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="updates"> </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public SQLiteQuery( Source source, IDictionary<string, object> updates, IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, Provider.SQLite, updates, where, commandType )
-        {
-        }
+            /// <summary> The decimal </summary>
+            Decimal,
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="criteria"> The criteria. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public SQLiteQuery( Source source, IEnumerable<string> columns, IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
-            : base( source, Provider.SQLite, columns, criteria, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="sqlStatement"> The sqlStatement. </param>
-        public SQLiteQuery( ISqlStatement sqlStatement )
-            : base( sqlStatement )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        public SQLiteQuery( Source source, string sqlText )
-            : base( source, Provider.SQLite, sqlText )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="fullPath"> The fullpath. </param>
-        /// <param name="sqlText"> </param>
-        /// <param name="commandType"> The commandType. </param>
-        public SQLiteQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
-            : base( fullPath, sqlText, commandType )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SQLiteQuery"/>
-        /// class.
-        /// </summary>
-        /// <param name="fullPath"> The fullpath. </param>
-        /// <param name="commandType"> The commandType. </param>
-        /// <param name="dict"> The dictionary. </param>
-        public SQLiteQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
-            : base( fullPath, commandType, dict )
-        {
+            /// <summary> The BLOB </summary>
+            Blob
         }
     }
 }

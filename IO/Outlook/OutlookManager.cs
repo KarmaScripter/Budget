@@ -9,17 +9,42 @@ namespace BudgetExecution
     using System.Net;
     using System.Net.Mail;
     using System.Net.Mime;
+    using System.Runtime.InteropServices;
     using System.Text;
     using System.Threading;
+    using Microsoft.Office.Interop.Outlook;
+    using Attachment = System.Net.Mail.Attachment;
+    using Exception = System.Exception;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     public class OutlookManager
     {
         /// <summary> Gets or sets the name of the host. </summary>
         /// <value> The name of the host. </value>
         public string HostName { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="OutlookManager"/>
+        /// class.
+        /// </summary>
+        public OutlookManager( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="OutlookManager"/>
+        /// class.
+        /// </summary>
+        /// <param name="hostName"> Name of the host. </param>
+        public OutlookManager( string hostName )
+        {
+            HostName = hostName;
+        }
 
         /// <summary> Sends the mail. </summary>
         /// <param name="config"> The configuration. </param>
@@ -41,13 +66,41 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
+        private void ReadInboxItems( )
         {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            Application _outlook = null;
+            NameSpace _namespace = null;
+            MAPIFolder _inbox = null;
+            Items _items = null;
+            try
+            {
+                _outlook = new Application( );
+                _namespace = _outlook.GetNamespace( "MAPI" );
+                _inbox = _namespace.GetDefaultFolder( OlDefaultFolders.olFolderInbox );
+                _items = _inbox.Items;
+                foreach ( MailItem item in _items )
+                {
+                    var stringBuilder = new StringBuilder( );
+                    stringBuilder.AppendLine( "From: " + item.SenderEmailAddress );
+                    stringBuilder.AppendLine( "To: " + item.To );
+                    stringBuilder.AppendLine( "CC: " + item.CC );
+                    stringBuilder.AppendLine( "" );
+                    stringBuilder.AppendLine( "Subject: " + item.Subject );
+                    stringBuilder.AppendLine( item.Body );
+                    Marshal.ReleaseComObject( item );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+            finally
+            {
+                ReleaseComObject( _items );
+                ReleaseComObject( _inbox );
+                ReleaseComObject( _namespace );
+                ReleaseComObject( _outlook );
+            }
         }
 
         /// <summary> Constructs the email message. </summary>
@@ -131,24 +184,22 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/>
-        /// class.
-        /// </summary>
-        public OutlookManager( )
+        private static void ReleaseComObject( object obj )
         {
+            if ( obj != null )
+            {
+                Marshal.ReleaseComObject( obj );
+                obj = null;
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/>
-        /// class.
-        /// </summary>
-        /// <param name="hostName"> Name of the host. </param>
-        public OutlookManager( string hostName )
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        private protected void Fail( Exception ex )
         {
-            HostName = hostName;
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

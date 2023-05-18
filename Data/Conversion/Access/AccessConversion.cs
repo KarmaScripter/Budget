@@ -15,6 +15,18 @@ namespace BudgetExecution
         /// <summary> The connection </summary>
         private SQLiteConnection _connection;
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AccessConversion"/>
+        /// class.
+        /// </summary>
+        public AccessConversion( )
+        {
+            SQLiteConnection.CreateFile( "MyDatabase.sqlite" );
+            _connection = new SQLiteConnection( "Data Source=MyDatabase.sqlite;Version=3;" );
+            _connection.Open( );
+        }
+
         /// <summary> Creates the table. </summary>
         /// <param name="name"> The name. </param>
         /// <returns> </returns>
@@ -51,18 +63,6 @@ namespace BudgetExecution
             }
 
             GC.SuppressFinalize( this );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AccessConversion"/>
-        /// class.
-        /// </summary>
-        public AccessConversion( )
-        {
-            SQLiteConnection.CreateFile( "MyDatabase.sqlite" );
-            _connection = new SQLiteConnection( "Data Source=MyDatabase.sqlite;Version=3;" );
-            _connection.Open( );
         }
     }
 }

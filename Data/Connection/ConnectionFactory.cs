@@ -21,6 +21,50 @@ namespace BudgetExecution
     public class ConnectionFactory : ConnectionBase, ISource, IProvider, IConnectionFactory
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ConnectionFactory"/>
+        /// class.
+        /// </summary>
+        public ConnectionFactory( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ConnectionFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public ConnectionFactory( Source source, Provider provider = Provider.Access )
+            : base( source, provider )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ConnectionFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullPath. </param>
+        public ConnectionFactory( string fullPath )
+            : base( fullPath )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ConnectionFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="fullPath"> The fullPath. </param>
+        /// <param name="provider"> The provider. </param>
+        public ConnectionFactory( string fullPath, Provider provider = Provider.Access )
+            : base( fullPath, provider )
+        {
+        }
+
         /// <summary> Gets the connection. </summary>
         /// <returns> </returns>
         public DbConnection GetConnection( )
@@ -64,50 +108,6 @@ namespace BudgetExecution
             }
 
             return default;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ConnectionFactory"/>
-        /// class.
-        /// </summary>
-        public ConnectionFactory( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ConnectionFactory"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public ConnectionFactory( Source source, Provider provider = Provider.Access )
-            : base( source, provider )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ConnectionFactory"/>
-        /// class.
-        /// </summary>
-        /// <param name="fullPath"> The fullPath. </param>
-        public ConnectionFactory( string fullPath )
-            : base( fullPath )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ConnectionFactory"/>
-        /// class.
-        /// </summary>
-        /// <param name="fullPath"> The fullPath. </param>
-        /// <param name="provider"> The provider. </param>
-        public ConnectionFactory( string fullPath, Provider provider = Provider.Access )
-            : base( fullPath, provider )
-        {
         }
     }
 }

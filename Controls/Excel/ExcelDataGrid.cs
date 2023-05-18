@@ -29,23 +29,6 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Opens the file. </summary>
-        /// <param name="file"> The file. </param>
-        public void OpenFile( Stream file )
-        {
-        }
-
-        /// <summary> Displays the message box. </summary>
-        /// <param name="text"> The text. </param>
-        /// <param name="caption"> The caption. </param>
-        /// <param name="button"> The button. </param>
-        /// <param name="icon"> The icon. </param>
-        /// <returns> </returns>
-        public virtual bool DisplayMessageBox( string text, string caption, MessageBoxButtons button, MessageBoxIcon icon )
-        {
-            return false;
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ExcelDataGrid"/>
@@ -73,6 +56,23 @@ namespace BudgetExecution
             DefaultRowCount = 60;
             AllowZooming = true;
             AllowFiltering = true;
+        }
+
+        /// <summary> Opens the file. </summary>
+        /// <param name="file"> The file. </param>
+        public void OpenFile( Stream file )
+        {
+        }
+
+        /// <summary> Displays the message box. </summary>
+        /// <param name="text"> The text. </param>
+        /// <param name="caption"> The caption. </param>
+        /// <param name="button"> The button. </param>
+        /// <param name="icon"> The icon. </param>
+        /// <returns> </returns>
+        public virtual bool DisplayMessageBox( string text, string caption, MessageBoxButtons button, MessageBoxIcon icon )
+        {
+            return false;
         }
 
         /// <summary> Called when [cell enter]. </summary>

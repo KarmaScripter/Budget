@@ -16,50 +16,6 @@ namespace BudgetExecution
     public class Query : QueryBase, IQuery
     {
 
-        /// <inheritdoc/>
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged
-        /// resources.
-        /// </summary>
-        public virtual void Dispose( )
-        {
-            try
-            {
-                Dispose( true );
-                GC.SuppressFinalize( this );
-            }
-            catch( Exception ex )
-            {
-                IsDisposed = false;
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        virtual protected void Dispose( bool disposing )
-        {
-            if( ConnectionFactory?.Connection != null )
-            {
-                try
-                {
-                    ConnectionFactory?.Connection?.Close( );
-                    ConnectionFactory?.Connection?.Dispose( );
-                    IsDisposed = true;
-                }
-                catch( Exception ex )
-                {
-                    IsDisposed = false;
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Query"/>
@@ -206,6 +162,50 @@ namespace BudgetExecution
         public Query( string fullPath, SQL commandType, IDictionary<string, object> where )
             : base( fullPath, commandType, where )
         {
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged
+        /// resources.
+        /// </summary>
+        public virtual void Dispose( )
+        {
+            try
+            {
+                Dispose( true );
+                GC.SuppressFinalize( this );
+            }
+            catch( Exception ex )
+            {
+                IsDisposed = false;
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <param name="disposing">
+        /// <c> true </c>
+        /// to release both managed and unmanaged resources;
+        /// <c> false </c>
+        /// to release only unmanaged resources.
+        /// </param>
+        virtual protected void Dispose( bool disposing )
+        {
+            if( ConnectionFactory?.Connection != null )
+            {
+                try
+                {
+                    ConnectionFactory?.Connection?.Close( );
+                    ConnectionFactory?.Connection?.Dispose( );
+                    IsDisposed = true;
+                }
+                catch( Exception ex )
+                {
+                    IsDisposed = false;
+                    Fail( ex );
+                }
+            }
         }
     }
 }

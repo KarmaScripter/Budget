@@ -16,52 +16,6 @@ namespace BudgetExecution
     public class CommandFactory : CommandBase, ICommandFactory
     {
 
-        /// <summary> Sets the command. </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        /// <returns> </returns>
-        public DbCommand GetCommand( )
-        {
-            if( SqlStatement != null )
-            {
-                try
-                {
-                    switch( SqlStatement.Provider )
-                    {
-                        case Provider.SQLite:
-                        {
-                            return GetSQLiteCommand( );
-                        }
-                        case Provider.SqlCe:
-                        {
-                            return GetSqlCeCommand( );
-                        }
-                        case Provider.SqlServer:
-                        {
-                            return GetSqlCommand( );
-                        }
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.Access:
-                        case Provider.OleDb:
-                        {
-                            return GetOleDbCommand( );
-                        }
-                        default:
-                        {
-                            return default;
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -154,6 +108,52 @@ namespace BudgetExecution
         public CommandFactory( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
+        }
+
+        /// <summary> Sets the command. </summary>
+        /// <param name="sqlStatement"> The SQL statement. </param>
+        /// <returns> </returns>
+        public DbCommand GetCommand( )
+        {
+            if( SqlStatement != null )
+            {
+                try
+                {
+                    switch( SqlStatement.Provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            return GetSQLiteCommand( );
+                        }
+                        case Provider.SqlCe:
+                        {
+                            return GetSqlCeCommand( );
+                        }
+                        case Provider.SqlServer:
+                        {
+                            return GetSqlCommand( );
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            return GetOleDbCommand( );
+                        }
+                        default:
+                        {
+                            return default;
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

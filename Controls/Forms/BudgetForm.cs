@@ -79,12 +79,6 @@ namespace BudgetExecution
         /// <value> The budget execution icon. </value>
         public static NameValueCollection AppSetting { get; set; } = ConfigurationManager.AppSettings;
 
-        /// <summary> The caption height </summary>
-        public static int CaptionHeight = 26;
-
-        /// <summary> The start position </summary>
-        public static FormStartPosition StartPosition = FormStartPosition.CenterScreen;
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetForm"/>
@@ -104,6 +98,12 @@ namespace BudgetExecution
         {
             Form = form;
         }
+
+        /// <summary> The caption height </summary>
+        public static int CaptionHeight = 26;
+
+        /// <summary> The start position </summary>
+        public static FormStartPosition StartPosition = FormStartPosition.CenterScreen;
 
         /// <summary> Gets the field. </summary>
         /// <param name="field"> The field. </param>

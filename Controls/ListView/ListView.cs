@@ -32,40 +32,6 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public override IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Sets the hover information. </summary>
-        /// <param name="text"> The text. </param>
-        public void SetHoverText( string text )
-        {
-            if( !string.IsNullOrEmpty( text ) )
-            {
-                try
-                {
-                    var _ = new SmallTip( this, text );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
-        public void SetText( string text )
-        {
-            if( !string.IsNullOrEmpty( text ) )
-            {
-                try
-                {
-                    Text = text;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ListView"/>
@@ -163,6 +129,40 @@ namespace BudgetExecution
             : this( size, location, parent )
         {
             BindingSource = bindingSource;
+        }
+
+        /// <summary> Sets the hover information. </summary>
+        /// <param name="text"> The text. </param>
+        public void SetHoverText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    var _ = new SmallTip( this, text );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the text. </summary>
+        /// <param name="text"> The text. </param>
+        public void SetText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    Text = text;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
         /// <summary> Sets the tag. </summary>

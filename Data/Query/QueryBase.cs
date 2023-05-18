@@ -66,67 +66,6 @@ namespace BudgetExecution
         /// <value> The Data reader. </value>
         public virtual DbDataReader DataReader { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets the adapter. </summary>
-        /// <returns> </returns>
-        public virtual DbDataAdapter GetAdapter( )
-        {
-            if( Enum.IsDefined( typeof( Provider ), Provider )
-               && SqlStatement != null )
-            {
-                try
-                {
-                    switch( Provider )
-                    {
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.OleDb:
-                        case Provider.Access:
-                        {
-                            var _adapter = new AdapterFactory( SqlStatement );
-                            return _adapter?.GetAdapter( ) as OleDbDataAdapter;
-                        }
-                        case Provider.SQLite:
-                        {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as SQLiteDataAdapter;
-                        }
-                        case Provider.SqlCe:
-                        {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as SqlCeDataAdapter;
-                        }
-                        case Provider.SqlServer:
-                        {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as SqlDataAdapter;
-                        }
-                        default:
-                        {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as OleDbDataAdapter;
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="QueryBase"/>
@@ -324,6 +263,67 @@ namespace BudgetExecution
             SqlStatement = sqlStatement;
             DataAdapter = new AdapterFactory( sqlStatement ).GetAdapter( );
             IsDisposed = false;
+        }
+
+        /// <inheritdoc/>
+        /// <summary> Gets the adapter. </summary>
+        /// <returns> </returns>
+        public virtual DbDataAdapter GetAdapter( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), Provider )
+               && SqlStatement != null )
+            {
+                try
+                {
+                    switch( Provider )
+                    {
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.OleDb:
+                        case Provider.Access:
+                        {
+                            var _adapter = new AdapterFactory( SqlStatement );
+                            return _adapter?.GetAdapter( ) as OleDbDataAdapter;
+                        }
+                        case Provider.SQLite:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as SQLiteDataAdapter;
+                        }
+                        case Provider.SqlCe:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as SqlCeDataAdapter;
+                        }
+                        case Provider.SqlServer:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as SqlDataAdapter;
+                        }
+                        default:
+                        {
+                            var _builder = new AdapterFactory( SqlStatement );
+                            return _builder?.GetAdapter( ) as OleDbDataAdapter;
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

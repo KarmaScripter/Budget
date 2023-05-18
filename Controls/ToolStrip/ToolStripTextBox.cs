@@ -19,40 +19,6 @@ namespace BudgetExecution
     public class ToolStripTextBox : ToolStripTextBase, IToolStripTextBox
     {
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
-        public void ResetText( string text )
-        {
-            try
-            {
-                Text = !string.IsNullOrEmpty( text )
-                    ? text
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the hover text. </summary>
-        /// <param name="item"> The item. </param>
-        public void SetHoverText( ToolStripItem item )
-        {
-            var _text = item?.Tag?.ToString( );
-            if( !string.IsNullOrEmpty( _text ) )
-            {
-                try
-                {
-                    var _ = new SmallTip( item, _text );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripTextBox"/>
@@ -98,6 +64,40 @@ namespace BudgetExecution
             : this( text )
         {
             HoverText = hoverText;
+        }
+
+        /// <summary> Sets the text. </summary>
+        /// <param name="text"> The text. </param>
+        public void ResetText( string text )
+        {
+            try
+            {
+                Text = !string.IsNullOrEmpty( text )
+                    ? text
+                    : string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the hover text. </summary>
+        /// <param name="item"> The item. </param>
+        public void SetHoverText( ToolStripItem item )
+        {
+            var _text = item?.Tag?.ToString( );
+            if( !string.IsNullOrEmpty( _text ) )
+            {
+                try
+                {
+                    var _ = new SmallTip( item, _text );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
         /// <summary> Called when [mouse hover]. </summary>

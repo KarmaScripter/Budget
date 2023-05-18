@@ -15,6 +15,52 @@ namespace BudgetExecution
     public class ToolStripLabel : ToolStripLabelBase, IToolStripLabel
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/>
+        /// class.
+        /// </summary>
+        public ToolStripLabel( )
+        {
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1, 1, 1, 1 );
+            Size = new Size( 150, 23 );
+            ForeColor = Color.Black;
+            BackColor = Color.FromArgb( 45, 45, 45 );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
+            Tag = Name;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/>
+        /// class.
+        /// </summary>
+        /// <param name="text">
+        /// The text to display on the
+        /// <see/>
+        /// .
+        /// </param>
+        public ToolStripLabel( string text )
+            : this( )
+        {
+            Text = text;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/>
+        /// class.
+        /// </summary>
+        /// <param name="text"> The text. </param>
+        /// <param name="hoverText"> The hover text. </param>
+        public ToolStripLabel( string text, string hoverText = "" )
+            : this( text )
+        {
+            HoverText = hoverText;
+            MouseHover += OnMouseHover;
+        }
+
         /// <summary> Sets the text. </summary>
         /// <param name="text"> The text. </param>
         /// <param name="color"> The color. </param>
@@ -108,52 +154,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
-        /// class.
-        /// </summary>
-        public ToolStripLabel( )
-        {
-            Margin = new Padding( 1, 1, 1, 1 );
-            Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 150, 23 );
-            ForeColor = Color.Black;
-            BackColor = Color.FromArgb( 45, 45, 45 );
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            Tag = Name;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
-        /// class.
-        /// </summary>
-        /// <param name="text">
-        /// The text to display on the
-        /// <see/>
-        /// .
-        /// </param>
-        public ToolStripLabel( string text )
-            : this( )
-        {
-            Text = text;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
-        /// class.
-        /// </summary>
-        /// <param name="text"> The text. </param>
-        /// <param name="hoverText"> The hover text. </param>
-        public ToolStripLabel( string text, string hoverText = "" )
-            : this( text )
-        {
-            HoverText = hoverText;
-            MouseHover += OnMouseHover;
         }
     }
 }

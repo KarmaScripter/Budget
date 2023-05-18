@@ -23,6 +23,15 @@ namespace BudgetExecution
     public abstract class DataAccess : DataConfig, ISource, IProvider
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataAccess"/>
+        /// class.
+        /// </summary>
+        protected DataAccess( )
+        {
+        }
+
         /// <summary> Gets the Data. </summary>
         /// <returns> </returns>
         public IEnumerable<DataRow> GetData( )
@@ -272,15 +281,6 @@ namespace BudgetExecution
             }
 
             return default( IList<int> );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataAccess"/>
-        /// class.
-        /// </summary>
-        protected DataAccess( )
-        {
         }
     }
 }

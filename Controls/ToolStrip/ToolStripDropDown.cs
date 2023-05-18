@@ -26,6 +26,71 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripComboBoxEx"/>
+        /// class.
+        /// </summary>
+        public ToolStripDropDown( )
+        {
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1, 1, 1, 1 );
+            Size = new Size( 150, 24 );
+            DropDownStyle = ComboBoxStyle.DropDownList;
+            AllowDrop = true;
+            MaxDropDownItems = 100;
+            BackColor = Color.FromArgb( 40, 40, 40 );
+            ForeColor = Color.FromArgb( 0, 120, 212 );
+            Font = new Font( "Roboto", 8 );
+            ToolTipText = "Make Selection";
+            HoverText = ToolTipText;
+            Visible = true;
+            Enabled = true;
+            Style = ToolStripExStyle.Office2016Black;
+            ToolTip = new SmallTip( this, ToolTipText );
+            MouseHover += OnMouseHover;
+            MouseLeave += OnMouseLeave;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripComboBoxEx"/>
+        /// class.
+        /// </summary>
+        /// <param name="data"> The data. </param>
+        public ToolStripDropDown( IEnumerable<object> data )
+            : this( )
+        {
+            BindingSource.DataSource = data?.ToList( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripComboBoxEx"/>
+        /// class.
+        /// </summary>
+        /// <param name="data"> The data. </param>
+        /// <param name="filter"> The filter. </param>
+        public ToolStripDropDown( IEnumerable<object> data, string filter )
+            : this( data )
+        {
+            BindingSource.Filter = filter;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripComboBoxEx"/>
+        /// class.
+        /// </summary>
+        /// <param name="data"> The data. </param>
+        /// <param name="filter"> The filter. </param>
+        public ToolStripDropDown( IEnumerable<DataRow> data, string filter )
+            : this( )
+        {
+            BindingSource.DataSource = data?.ToList( );
+            BindingSource.DataMember = filter;
+        }
+
         /// <summary> Sets the data source. </summary>
         /// <param name="bindingSource"> The binding source. </param>
         public void SetDataSource( BindingSource bindingSource )
@@ -97,71 +162,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
-        /// class.
-        /// </summary>
-        public ToolStripDropDown( )
-        {
-            Margin = new Padding( 1, 1, 1, 1 );
-            Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 150, 24 );
-            DropDownStyle = ComboBoxStyle.DropDownList;
-            AllowDrop = true;
-            MaxDropDownItems = 100;
-            BackColor = Color.FromArgb( 40, 40, 40 );
-            ForeColor = Color.FromArgb( 0, 120, 212 );
-            Font = new Font( "Roboto", 8 );
-            ToolTipText = "Make Selection";
-            HoverText = ToolTipText;
-            Visible = true;
-            Enabled = true;
-            Style = ToolStripExStyle.Office2016Black;
-            ToolTip = new SmallTip( this, ToolTipText );
-            MouseHover += OnMouseHover;
-            MouseLeave += OnMouseLeave;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
-        /// class.
-        /// </summary>
-        /// <param name="data"> The data. </param>
-        public ToolStripDropDown( IEnumerable<object> data )
-            : this( )
-        {
-            BindingSource.DataSource = data?.ToList( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
-        /// class.
-        /// </summary>
-        /// <param name="data"> The data. </param>
-        /// <param name="filter"> The filter. </param>
-        public ToolStripDropDown( IEnumerable<object> data, string filter )
-            : this( data )
-        {
-            BindingSource.Filter = filter;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBoxEx"/>
-        /// class.
-        /// </summary>
-        /// <param name="data"> The data. </param>
-        /// <param name="filter"> The filter. </param>
-        public ToolStripDropDown( IEnumerable<DataRow> data, string filter )
-            : this( )
-        {
-            BindingSource.DataSource = data?.ToList( );
-            BindingSource.DataMember = filter;
         }
 
         /// <summary> Gets the selected item. </summary>

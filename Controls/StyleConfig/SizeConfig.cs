@@ -27,6 +27,15 @@ namespace BudgetExecution
         /// <value> The width. </value>
         public int Width { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SizeConfig"/>
+        /// class.
+        /// </summary>
+        public SizeConfig( )
+        {
+        }
+
         /// <summary> Gets the size of the normal form. </summary>
         /// <value> The size of the normal form. </value>
         public static readonly Size FormNormal = new(1200, 750);
@@ -62,15 +71,6 @@ namespace BudgetExecution
 
         /// <summary> The largest </summary>
         public static readonly Size ImageHuge = new(250, 250);
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SizeConfig"/>
-        /// class.
-        /// </summary>
-        public SizeConfig( )
-        {
-        }
 
         /// <summary> Sets the color. </summary>
         /// <param name="width"> The width. </param>

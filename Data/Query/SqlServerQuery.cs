@@ -13,23 +13,6 @@ namespace BudgetExecution
     public class SqlServerQuery : Query
     {
 
-        /// <summary> The Dispose </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        override protected void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-            }
-
-            IsDisposed = true;
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlServerQuery"/>
@@ -154,6 +137,23 @@ namespace BudgetExecution
         public SqlServerQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
+        }
+
+        /// <summary> The Dispose </summary>
+        /// <param name="disposing">
+        /// <c> true </c>
+        /// to release both managed and unmanaged resources;
+        /// <c> false </c>
+        /// to release only unmanaged resources.
+        /// </param>
+        override protected void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                base.Dispose( disposing );
+            }
+
+            IsDisposed = true;
         }
     }
 }

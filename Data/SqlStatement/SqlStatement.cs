@@ -16,27 +16,6 @@ namespace BudgetExecution
     public class SqlStatement : SqlBase, ISqlStatement
     {
 
-        /// <summary> Converts to string. </summary>
-        /// <returns>
-        /// A
-        /// <see cref="System.String"/>
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( CommandText )
-                    ? CommandText
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlStatement"/>
@@ -162,6 +141,27 @@ namespace BudgetExecution
             : base( source, provider, fields, numerics, having,
                 commandType )
         {
+        }
+
+        /// <summary> Converts to string. </summary>
+        /// <returns>
+        /// A
+        /// <see cref="System.String"/>
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( CommandText )
+                    ? CommandText
+                    : string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
         }
     }
 }

@@ -17,6 +17,19 @@ namespace BudgetExecution
         /// <summary> The connection </summary>
         private OleDbConnection _connection;
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AccessConnect"/>
+        /// class.
+        /// </summary>
+        /// <param name="path"> The path. </param>
+        public AccessConnect( string path )
+        {
+            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source=" + path + ";Jet OLEDB:Database Password=;";
+            _connection = new OleDbConnection( _connectionString );
+            _connection?.Open( );
+        }
+
         /// <summary> Gets the table names. </summary>
         /// <returns> </returns>
         public IEnumerable<string> GetTableNames( )
@@ -92,19 +105,6 @@ namespace BudgetExecution
             }
 
             GC.SuppressFinalize( this );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AccessConnect"/>
-        /// class.
-        /// </summary>
-        /// <param name="path"> The path. </param>
-        public AccessConnect( string path )
-        {
-            var _connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data source=" + path + ";Jet OLEDB:Database Password=;";
-            _connection = new OleDbConnection( _connectionString );
-            _connection?.Open( );
         }
     }
 }

@@ -38,6 +38,134 @@ namespace BudgetExecution
         /// <value> The SQL statement. </value>
         public ISqlStatement SqlStatement { get; set; }
 
+        /// <summary> </summary>
+        public Provider Provider { get; set; }
+
+        /// <summary> Gets the source. </summary>
+        public Source Source { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        protected CommandBase( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected CommandBase( Source source, Provider provider, string sqlText, SQL commandType )
+        {
+            Source = source;
+            Provider = provider;
+            CommandType = commandType;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, sqlText, commandType );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected CommandBase( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+        {
+            Source = source;
+            Provider = provider;
+            CommandType = commandType;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, where, commandType );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="updates"> The updates. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected CommandBase( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
+            SQL commandType = SQL.UPDATE )
+        {
+            Source = source;
+            Provider = provider;
+            CommandType = commandType;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="columns"> The columns. </param>
+        /// <param name="where"> The where. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected CommandBase( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
+            SQL commandType = SQL.SELECT )
+        {
+            Source = source;
+            Provider = provider;
+            CommandType = commandType;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="fields"> The fields. </param>
+        /// <param name="numerics"> The numerics. </param>
+        /// <param name="having"> The having. </param>
+        /// <param name="commandType"> Type of the command. </param>
+        protected CommandBase( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        {
+            Source = source;
+            Provider = provider;
+            CommandType = commandType;
+            ConnectionFactory = new ConnectionFactory( source, provider );
+            SqlStatement = new SqlStatement( source, provider, fields, numerics, having,
+                commandType );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CommandBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlStatement"> The SQL statement. </param>
+        protected CommandBase( ISqlStatement sqlStatement )
+        {
+            SqlStatement = sqlStatement;
+            Source = sqlStatement.Source;
+            Provider = sqlStatement.Provider;
+            CommandType = sqlStatement.CommandType;
+            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+        }
+
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
         static protected void Fail( Exception ex )
@@ -261,134 +389,6 @@ namespace BudgetExecution
             }
 
             return default;
-        }
-
-        /// <summary> </summary>
-        public Provider Provider { get; set; }
-
-        /// <summary> Gets the source. </summary>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        protected CommandBase( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, string sqlText, SQL commandType )
-        {
-            Source = source;
-            Provider = provider;
-            CommandType = commandType;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, sqlText, commandType );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
-        {
-            Source = source;
-            Provider = provider;
-            CommandType = commandType;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, where, commandType );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> The updates. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
-        {
-            Source = source;
-            Provider = provider;
-            CommandType = commandType;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
-        {
-            Source = source;
-            Provider = provider;
-            CommandType = commandType;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="fields"> The fields. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="having"> The having. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
-        {
-            Source = source;
-            Provider = provider;
-            CommandType = commandType;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, fields, numerics, having,
-                commandType );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        protected CommandBase( ISqlStatement sqlStatement )
-        {
-            SqlStatement = sqlStatement;
-            Source = sqlStatement.Source;
-            Provider = sqlStatement.Provider;
-            CommandType = sqlStatement.CommandType;
-            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
         }
     }
 }

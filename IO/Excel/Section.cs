@@ -31,6 +31,35 @@ namespace BudgetExecution
         /// <summary> The grid </summary>
         private IGrid Grid { get;  }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Heading"/>
+        /// class.
+        /// </summary>
+        public Section( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Section"/>
+        /// class.
+        /// </summary>
+        /// <param name="grid"> </param>
+        public Section( IGrid grid )
+
+        {
+            Grid = grid;
+            Worksheet = Grid.Worksheet;
+            Range = Grid.Range;
+            Address = Grid.Address;
+            From = ( Range.Start.Row, Range.Start.Column );
+            To = ( Range.End.Row, Range.End.Column );
+            Span = Range.Columns;
+            Depth = Range.Rows;
+            Area = ( Depth, Span );
+        }
+
         /// <summary> Gets the anchor. </summary>
         /// <returns> </returns>
         public (int Row, int Column) GetAnchor( )
@@ -89,35 +118,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return ( 0, 0 );
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Heading"/>
-        /// class.
-        /// </summary>
-        public Section( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Section"/>
-        /// class.
-        /// </summary>
-        /// <param name="grid"> </param>
-        public Section( IGrid grid )
-
-        {
-            Grid = grid;
-            Worksheet = Grid.Worksheet;
-            Range = Grid.Range;
-            Address = Grid.Address;
-            From = ( Range.Start.Row, Range.Start.Column );
-            To = ( Range.End.Row, Range.End.Column );
-            Span = Range.Columns;
-            Depth = Range.Rows;
-            Area = ( Depth, Span );
         }
     }
 }

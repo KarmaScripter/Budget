@@ -15,6 +15,37 @@ namespace BudgetExecution
     public class AdapterFactory : AdapterBase
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AdapterFactory"/>
+        /// class.
+        /// </summary>
+        public AdapterFactory( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AdapterFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="commandFactory"> The commandbuilder. </param>
+        public AdapterFactory( ICommandFactory commandFactory )
+            : base( commandFactory )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AdapterFactory"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlStatement"> The sqlstatement. </param>
+        public AdapterFactory( ISqlStatement sqlStatement )
+            : base( sqlStatement )
+        {
+        }
+
         /// <summary> Gets the adapter. </summary>
         /// <returns> </returns>
         public DbDataAdapter GetAdapter( )
@@ -56,37 +87,6 @@ namespace BudgetExecution
             }
 
             return default;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterFactory"/>
-        /// class.
-        /// </summary>
-        public AdapterFactory( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterFactory"/>
-        /// class.
-        /// </summary>
-        /// <param name="commandFactory"> The commandbuilder. </param>
-        public AdapterFactory( ICommandFactory commandFactory )
-            : base( commandFactory )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterFactory"/>
-        /// class.
-        /// </summary>
-        /// <param name="sqlStatement"> The sqlstatement. </param>
-        public AdapterFactory( ISqlStatement sqlStatement )
-            : base( sqlStatement )
-        {
         }
     }
 }

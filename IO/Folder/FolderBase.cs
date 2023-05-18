@@ -1,8 +1,6 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "FolderBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
-
-// ReSharper disable All
 
 namespace BudgetExecution
 {
@@ -15,6 +13,7 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class FolderBase
     {
         /// <summary> Gets or sets the buffer. </summary>

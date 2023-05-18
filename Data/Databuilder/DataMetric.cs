@@ -31,6 +31,35 @@ namespace BudgetExecution
         /// <value> The values. </value>
         public IDictionary<string, double> Values { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
+        /// </summary>
+        public DataMetric( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataMetric"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataTable"> The data table. </param>
+        public DataMetric( DataTable dataTable )
+        {
+            DataTable = dataTable;
+            Numerics = GetNumericColumns( );
+        }
+
+        /// <summary> </summary>
+        /// <param name="dataRow"> </param>
+        public DataMetric( IEnumerable<DataRow> dataRow )
+        {
+            DataTable = dataRow.CopyToDataTable( );
+            Numerics = GetNumericColumns( );
+        }
+
         /// <summary> Gets the count. </summary>
         /// <param name="numeric"> The numeric. </param>
         /// <returns> </returns>
@@ -387,35 +416,6 @@ namespace BudgetExecution
             }
 
             return default( IList<string> );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataMetric"/>
-        /// class.
-        /// </summary>
-        public DataMetric( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataMetric"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataTable"> The data table. </param>
-        public DataMetric( DataTable dataTable )
-        {
-            DataTable = dataTable;
-            Numerics = GetNumericColumns( );
-        }
-
-        /// <summary> </summary>
-        /// <param name="dataRow"> </param>
-        public DataMetric( IEnumerable<DataRow> dataRow )
-        {
-            DataTable = dataRow.CopyToDataTable( );
-            Numerics = GetNumericColumns( );
         }
     }
 }

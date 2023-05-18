@@ -16,15 +16,6 @@ namespace BudgetExecution
     public class Grid : ExcelCellBase, IGrid
     {
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> The range </summary>
         public ExcelRange Range { get; set; }
 
@@ -41,56 +32,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets to. </summary>
         /// <value> To. </value>
         public ( int Row, int Column ) To { get; set; }
-
-        /// <summary> Counts the cells. </summary>
-        /// <param name="range"> The range. </param>
-        /// <returns> </returns>
-        public int CountCells( ExcelRange range )
-        {
-            try
-            {
-                return range?.Rows * range?.Columns ?? default( int );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return -1;
-            }
-        }
-
-        /// <summary> Gets the row count. </summary>
-        /// <returns> </returns>
-        public int GetRowCount( )
-        {
-            try
-            {
-                return Range.Rows > 0
-                    ? Range.Rows
-                    : 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Gets the column count. </summary>
-        /// <returns> </returns>
-        public int GetColumnCount( )
-        {
-            try
-            {
-                return Range.Columns > 0
-                    ? Range.Columns
-                    : 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -200,6 +141,65 @@ namespace BudgetExecution
             Address = new ExcelAddress( Range.Start.Row, Range.Start.Column, Range.Start.Row, Range.Start.Column );
             From = from;
             To = From;
+        }
+
+        /// <summary> Counts the cells. </summary>
+        /// <param name="range"> The range. </param>
+        /// <returns> </returns>
+        public int CountCells( ExcelRange range )
+        {
+            try
+            {
+                return range?.Rows * range?.Columns ?? default( int );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1;
+            }
+        }
+
+        /// <summary> Gets the row count. </summary>
+        /// <returns> </returns>
+        public int GetRowCount( )
+        {
+            try
+            {
+                return Range.Rows > 0
+                    ? Range.Rows
+                    : 0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Gets the column count. </summary>
+        /// <returns> </returns>
+        public int GetColumnCount( )
+        {
+            try
+            {
+                return Range.Columns > 0
+                    ? Range.Columns
+                    : 0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -38,89 +38,6 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Gets the filter values. </summary>
-        /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
-        public string GetFilterValues( IDictionary<string, object> dict )
-        {
-            {
-                if( dict?.Any( ) == true )
-                {
-                    try
-                    {
-                        var _vals = string.Empty;
-                        foreach( var _kvp in dict )
-                        {
-                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
-                        }
-
-                        return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
-                    }
-                    catch( Exception ex )
-                    {
-                        Fail( ex );
-                        return default;
-                    }
-                }
-
-                return default;
-            }
-        }
-
-        /// <summary> Gets the current data row. </summary>
-        /// <returns> </returns>
-        public DataRow GetCurrentDataRow( )
-        {
-            if( BindingSource.DataSource != null )
-            {
-                try
-                {
-                    var _dataRow = BindingSource.GetCurrentDataRow( );
-                    return _dataRow?.ItemArray?.Length > 0
-                        ? _dataRow
-                        : default( DataRow );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataRow );
-                }
-            }
-
-            return default( DataRow );
-        }
-
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="DataGridViewCellMouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
-        {
-            if( e.Button == MouseButtons.Right )
-            {
-                try
-                {
-                    var _columnConfiguration = new ColumnConfiguration( this );
-                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
-                    _columnConfiguration.ColumnListBox?.Items?.Clear( );
-                    for( var _i = 0; _i < Columns.Count; _i++ )
-                    {
-                        var c = Columns[ _i ];
-                        _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
-                    }
-
-                    _columnConfiguration.TopMost = true;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataGrid"/>
@@ -232,6 +149,89 @@ namespace BudgetExecution
             : this( size, location )
         {
             Parent = parent;
+        }
+
+        /// <summary> Gets the filter values. </summary>
+        /// <param name="dict"> The dictionary. </param>
+        /// <returns> </returns>
+        public string GetFilterValues( IDictionary<string, object> dict )
+        {
+            {
+                if( dict?.Any( ) == true )
+                {
+                    try
+                    {
+                        var _vals = string.Empty;
+                        foreach( var _kvp in dict )
+                        {
+                            _vals += $"{_kvp.Key} = '{_kvp.Value}' AND ";
+                        }
+
+                        return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
+                    }
+                    catch( Exception ex )
+                    {
+                        Fail( ex );
+                        return default;
+                    }
+                }
+
+                return default;
+            }
+        }
+
+        /// <summary> Gets the current data row. </summary>
+        /// <returns> </returns>
+        public DataRow GetCurrentDataRow( )
+        {
+            if( BindingSource.DataSource != null )
+            {
+                try
+                {
+                    var _dataRow = BindingSource.GetCurrentDataRow( );
+                    return _dataRow?.ItemArray?.Length > 0
+                        ? _dataRow
+                        : default( DataRow );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataRow );
+                }
+            }
+
+            return default( DataRow );
+        }
+
+        /// <summary> Called when [right click]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="DataGridViewCellMouseEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    var _columnConfiguration = new ColumnConfiguration( this );
+                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
+                    _columnConfiguration.ColumnListBox?.Items?.Clear( );
+                    for( var _i = 0; _i < Columns.Count; _i++ )
+                    {
+                        var c = Columns[ _i ];
+                        _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                    }
+
+                    _columnConfiguration.TopMost = true;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
 
         /// <summary> Called when [cell enter]. </summary>

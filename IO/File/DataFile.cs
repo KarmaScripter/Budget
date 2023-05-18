@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DataFile.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -18,62 +18,24 @@ namespace BudgetExecution
     public class DataFile : FileBase, IDataFile
     {
 
-        /// <summary> Creates the specified file path. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
-        public static FileInfo Create( string filePath )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataFile"/>
+        /// class.
+        /// </summary>
+        public DataFile( )
         {
-            try
-            {
-                return !string.IsNullOrEmpty( filePath )
-                    ? new FileInfo( filePath )
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
 
-        /// <summary> Browses this instance. </summary>
-        /// <returns> </returns>
-        public static string Browse( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataFile"/>
+        /// class.
+        /// </summary>
+        /// <param name="input"> The input. </param>
+        public DataFile( string input )
+            : base( input )
         {
-            try
-            {
-                var _dialog = new OpenFileDialog( );
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
-                _dialog.ShowDialog( );
-                return _dialog.FileName;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary> Saves this instance. </summary>
-        /// <returns> </returns>
-        public static string Save( )
-        {
-            try
-            {
-                var _dialog = new SaveFileDialog( );
-                _dialog.CreatePrompt = true;
-                _dialog.OverwritePrompt = true;
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
-                _dialog.ShowDialog( );
-                return _dialog.FileName;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
         }
 
         /// <summary> Transfers the specified folder. </summary>
@@ -222,24 +184,62 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/>
-        /// class.
-        /// </summary>
-        public DataFile( )
+        /// <summary> Creates the specified file path. </summary>
+        /// <param name="filePath"> The file path. </param>
+        /// <returns> </returns>
+        public static FileInfo Create( string filePath )
         {
+            try
+            {
+                return !string.IsNullOrEmpty( filePath )
+                    ? new FileInfo( filePath )
+                    : default;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/>
-        /// class.
-        /// </summary>
-        /// <param name="input"> The input. </param>
-        public DataFile( string input )
-            : base( input )
+        /// <summary> Browses this instance. </summary>
+        /// <returns> </returns>
+        public static string Browse( )
         {
+            try
+            {
+                var _dialog = new OpenFileDialog( );
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                _dialog.ShowDialog( );
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary> Saves this instance. </summary>
+        /// <returns> </returns>
+        public static string Save( )
+        {
+            try
+            {
+                var _dialog = new SaveFileDialog( );
+                _dialog.CreatePrompt = true;
+                _dialog.OverwritePrompt = true;
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                _dialog.ShowDialog( );
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
         }
     }
 }

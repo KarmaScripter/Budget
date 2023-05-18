@@ -50,6 +50,15 @@ namespace BudgetExecution
         /// </value>
         private bool IsActive { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlServerConverter"/>
+        /// class.
+        /// </summary>
+        public SqlServerConverter( )
+        {
+        }
+
         /// <summary> Cancels the conversion. </summary>
         public void CancelConversion( )
         {
@@ -1424,15 +1433,6 @@ namespace BudgetExecution
                 var _command = new SQLiteCommand( WriteTriggerSchema( _trigger ), conn );
                 _command.ExecuteNonQuery( );
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlServerConverter"/>
-        /// class.
-        /// </summary>
-        public SqlServerConverter( )
-        {
         }
     }
 }

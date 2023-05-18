@@ -23,179 +23,6 @@ namespace BudgetExecution
         /// <summary> The program elements </summary>
         public IDictionary<string, IEnumerable<string>> DataElements { get; }
 
-        /// <summary> Gets the values. </summary>
-        /// <param name="dataRows"> The dataRows. </param>
-        /// <param name="column"> The column. </param>
-        /// <returns> </returns>
-        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
-        {
-            if( dataRows?.Any( ) == true
-               && !string.IsNullOrEmpty( column ) )
-            {
-                try
-                {
-                    var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<string> );
-                }
-            }
-
-            return default( IEnumerable<string> );
-        }
-
-        /// <summary> Gets the values. </summary>
-        /// <param name="dataRows"> The dataRows. </param>
-        /// <param name="name"> The field. </param>
-        /// <param name="value"> The filter. </param>
-        /// <returns> </returns>
-        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name, string value )
-        {
-            if( dataRows?.Any( ) == true
-               && !string.IsNullOrEmpty( value ) )
-            {
-                try
-                {
-                    var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<string> );
-                }
-            }
-
-            return default( IEnumerable<string> );
-        }
-
-        /// <summary> Gets the schema table. </summary>
-        /// <param name="dataTable"> The dataRows table. </param>
-        /// <returns> </returns>
-        public static DataTable CreateSchemaTable( DataTable dataTable )
-        {
-            if( dataTable?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    using var _reader = new DataTableReader( dataTable );
-                    var _schema = _reader?.GetSchemaTable( );
-                    return _schema?.Rows?.Count > 0
-                        ? _schema
-                        : default( DataTable );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
-        }
-
-        /// <summary> Creates the table from excel. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <param name="header">
-        /// if set to
-        /// <c> true </c>
-        /// [header].
-        /// </param>
-        /// <returns> </returns>
-        public static DataTable CreateTableFromWorksheet( string filePath, bool header = true )
-        {
-            if( !string.IsNullOrEmpty( filePath )
-               && File.Exists( filePath ) )
-            {
-                try
-                {
-                    using var _package = new ExcelPackage( );
-                    using var _stream = File.OpenRead( filePath );
-                    _package.Load( _stream );
-                    var _sheet = _package?.Workbook?.Worksheets?.First( );
-                    var _table = new DataTable( _sheet?.Name );
-                    if( _sheet?.Cells != null )
-                    {
-                        var _lastColumn = _sheet.Dimension.End.Column;
-                        var _lastRow = _sheet.Dimension.End.Row;
-                        foreach( var _cell in _sheet?.Cells[ 1, 1, 1, _lastColumn ] )
-                        {
-                            _table?.Columns?.Add( header
-                                ? _cell.Text
-                                : $"Column {_cell.Start.Column}" );
-                        }
-
-                        var _start = header
-                            ? 2
-                            : 1;
-
-                        for( var _row = _start; _row <= _lastRow; _row++ )
-                        {
-                            var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
-                            var _data = _table.Rows?.Add( );
-                            foreach( var cell in _range )
-                            {
-                                _data[ cell.Start.Column - 1 ] = cell?.Text;
-                            }
-                        }
-
-                        return _table?.Rows?.Count > 0
-                            ? _table
-                            : default( DataTable );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
-        }
-
-        /// <summary> Gets the series. </summary>
-        /// <param name="dataTable"> The dataRows. </param>
-        /// <returns> </returns>
-        static private IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
-        {
-            if( dataTable?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    var _dict = new Dictionary<string, IEnumerable<string>>( );
-                    var _columns = dataTable?.Columns;
-                    var _rows = dataTable?.AsEnumerable( );
-                    for( var i = 0; i < _columns?.Count; i++ )
-                    {
-                        if( !string.IsNullOrEmpty( _columns[ i ]?.ColumnName )
-                           && _columns[ i ]?.DataType == typeof( string ) )
-                        {
-                            _dict?.Add( _columns[ i ]?.ColumnName, GetValues( _rows, _columns[ i ]?.ColumnName ) );
-                        }
-                    }
-
-                    return _dict?.Any( ) == true
-                        ? _dict
-                        : default( Dictionary<string, IEnumerable<string>> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, IEnumerable<string>> );
-                }
-            }
-
-            return default( IDictionary<string, IEnumerable<string>> );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataModel"/>
@@ -473,6 +300,179 @@ namespace BudgetExecution
             DataElements = CreateSeries( DataTable );
             Record = GetData( )?.FirstOrDefault( );
             Map = Record?.ToDictionary( );
+        }
+
+        /// <summary> Gets the values. </summary>
+        /// <param name="dataRows"> The dataRows. </param>
+        /// <param name="column"> The column. </param>
+        /// <returns> </returns>
+        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
+        {
+            if( dataRows?.Any( ) == true
+               && !string.IsNullOrEmpty( column ) )
+            {
+                try
+                {
+                    var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
+                    return _query?.Any( ) == true
+                        ? _query
+                        : default( IEnumerable<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IEnumerable<string> );
+                }
+            }
+
+            return default( IEnumerable<string> );
+        }
+
+        /// <summary> Gets the values. </summary>
+        /// <param name="dataRows"> The dataRows. </param>
+        /// <param name="name"> The field. </param>
+        /// <param name="value"> The filter. </param>
+        /// <returns> </returns>
+        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name, string value )
+        {
+            if( dataRows?.Any( ) == true
+               && !string.IsNullOrEmpty( value ) )
+            {
+                try
+                {
+                    var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
+                    return _query?.Any( ) == true
+                        ? _query
+                        : default( IEnumerable<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IEnumerable<string> );
+                }
+            }
+
+            return default( IEnumerable<string> );
+        }
+
+        /// <summary> Gets the schema table. </summary>
+        /// <param name="dataTable"> The dataRows table. </param>
+        /// <returns> </returns>
+        public static DataTable CreateSchemaTable( DataTable dataTable )
+        {
+            if( dataTable?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    using var _reader = new DataTableReader( dataTable );
+                    var _schema = _reader?.GetSchemaTable( );
+                    return _schema?.Rows?.Count > 0
+                        ? _schema
+                        : default( DataTable );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataTable );
+                }
+            }
+
+            return default( DataTable );
+        }
+
+        /// <summary> Creates the table from excel. </summary>
+        /// <param name="filePath"> The file path. </param>
+        /// <param name="header">
+        /// if set to
+        /// <c> true </c>
+        /// [header].
+        /// </param>
+        /// <returns> </returns>
+        public static DataTable CreateTableFromWorksheet( string filePath, bool header = true )
+        {
+            if( !string.IsNullOrEmpty( filePath )
+               && File.Exists( filePath ) )
+            {
+                try
+                {
+                    using var _package = new ExcelPackage( );
+                    using var _stream = File.OpenRead( filePath );
+                    _package.Load( _stream );
+                    var _sheet = _package?.Workbook?.Worksheets?.First( );
+                    var _table = new DataTable( _sheet?.Name );
+                    if( _sheet?.Cells != null )
+                    {
+                        var _lastColumn = _sheet.Dimension.End.Column;
+                        var _lastRow = _sheet.Dimension.End.Row;
+                        foreach( var _cell in _sheet?.Cells[ 1, 1, 1, _lastColumn ] )
+                        {
+                            _table?.Columns?.Add( header
+                                ? _cell.Text
+                                : $"Column {_cell.Start.Column}" );
+                        }
+
+                        var _start = header
+                            ? 2
+                            : 1;
+
+                        for( var _row = _start; _row <= _lastRow; _row++ )
+                        {
+                            var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
+                            var _data = _table.Rows?.Add( );
+                            foreach( var cell in _range )
+                            {
+                                _data[ cell.Start.Column - 1 ] = cell?.Text;
+                            }
+                        }
+
+                        return _table?.Rows?.Count > 0
+                            ? _table
+                            : default( DataTable );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( DataTable );
+                }
+            }
+
+            return default( DataTable );
+        }
+
+        /// <summary> Gets the series. </summary>
+        /// <param name="dataTable"> The dataRows. </param>
+        /// <returns> </returns>
+        static private IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
+        {
+            if( dataTable?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    var _dict = new Dictionary<string, IEnumerable<string>>( );
+                    var _columns = dataTable?.Columns;
+                    var _rows = dataTable?.AsEnumerable( );
+                    for( var i = 0; i < _columns?.Count; i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _columns[ i ]?.ColumnName )
+                           && _columns[ i ]?.DataType == typeof( string ) )
+                        {
+                            _dict?.Add( _columns[ i ]?.ColumnName, GetValues( _rows, _columns[ i ]?.ColumnName ) );
+                        }
+                    }
+
+                    return _dict?.Any( ) == true
+                        ? _dict
+                        : default( Dictionary<string, IEnumerable<string>> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, IEnumerable<string>> );
+                }
+            }
+
+            return default( IDictionary<string, IEnumerable<string>> );
         }
     }
 }

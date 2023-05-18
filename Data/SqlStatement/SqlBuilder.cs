@@ -40,6 +40,33 @@ namespace BudgetExecution
         /// <value> The command repository. </value>
         public IDictionary<string, string> Commands { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBuilder"/>
+        /// class.
+        /// </summary>
+        public SqlBuilder( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlBuilder"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="ext"> </param>
+        /// <param name="commandType"> Type of the command. </param>
+        public SqlBuilder( Source source, SQL commandType, EXT ext )
+        {
+            Source = source;
+            CommandType = commandType;
+            Extension = ext;
+            DirectoryPath = GetSqlDirectoryPath( );
+            Files = Directory.GetFiles( DirectoryPath );
+            Commands = GetCommands( );
+        }
+
         /// <summary> Gets the command text. </summary>
         /// <param name="commandName"> Name of the command. </param>
         /// <returns> </returns>
@@ -156,33 +183,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlBuilder"/>
-        /// class.
-        /// </summary>
-        public SqlBuilder( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlBuilder"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="ext"> </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public SqlBuilder( Source source, SQL commandType, EXT ext )
-        {
-            Source = source;
-            CommandType = commandType;
-            Extension = ext;
-            DirectoryPath = GetSqlDirectoryPath( );
-            Files = Directory.GetFiles( DirectoryPath );
-            Commands = GetCommands( );
         }
     }
 }

@@ -18,6 +18,26 @@ namespace BudgetExecution
     public class Folder : FolderBase, IFolder
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Folder"/>
+        /// class.
+        /// </summary>
+        public Folder( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Folder"/>
+        /// class.
+        /// </summary>
+        /// <param name="dirPath"> The file. </param>
+        public Folder( string dirPath )
+            : base( dirPath )
+        {
+        }
+
         /// <summary> Gets the current directory. </summary>
         /// <returns> </returns>
         public static string GetCurrentDirectory( )
@@ -181,26 +201,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Folder"/>
-        /// class.
-        /// </summary>
-        public Folder( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Folder"/>
-        /// class.
-        /// </summary>
-        /// <param name="dirPath"> The file. </param>
-        public Folder( string dirPath )
-            : base( dirPath )
-        {
         }
     }
 }

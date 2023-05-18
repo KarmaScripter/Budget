@@ -17,6 +17,15 @@ namespace BudgetExecution
     public abstract class ModelBase : DataAccess
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ModelBase"/>
+        /// class.
+        /// </summary>
+        protected ModelBase( )
+        {
+        }
+
         /// <summary> Gets the column ordinals. </summary>
         /// <returns> </returns>
         public virtual IEnumerable<int> GetOrdinals( )
@@ -189,15 +198,6 @@ namespace BudgetExecution
             }
 
             return default( IEnumerable<string> );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ModelBase"/>
-        /// class.
-        /// </summary>
-        protected ModelBase( )
-        {
         }
     }
 }
